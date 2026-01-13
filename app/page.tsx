@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Check, Star, Shield, Truck, Zap } from "lucide-react";
+import { ArrowRight, Check, Star, Shield, Truck, Zap, ChevronRight, Camera, Layers, Sparkles } from "lucide-react";
 import Image from "next/image";
 
 export default function TablouHome() {
@@ -119,6 +119,56 @@ export default function TablouHome() {
                                 <span className="text-indigo-600 font-semibold group-hover:translate-x-1 transition-transform inline-flex items-center gap-2">
                                     Configurează <ArrowRight size={18} />
                                 </span>
+                            </div>
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* COLLECTIONS PREVIEW */}
+            <section className="py-24 bg-white">
+                <div className="container-width">
+                    <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                        <div className="max-w-2xl text-left">
+                            <h2 className="text-3xl lg:text-5xl font-bold text-slate-900 mb-4 tracking-tight">Colecții de Artă</h2>
+                            <p className="text-slate-600 text-lg">Dacă nu ai propria fotografie, alege din mii de modele create de artiști, gata de a fi imprimate pe suportul tău preferat.</p>
+                        </div>
+                        <div className="flex gap-4">
+                            <Link href="/shop/canvas" className="text-indigo-600 font-bold hover:text-indigo-700 transition-colors flex items-center gap-2 group whitespace-nowrap">
+                                Colecție Canvas <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                            <Link href="/shop/acrylic" className="text-indigo-600 font-bold hover:text-indigo-700 transition-colors flex items-center gap-2 group whitespace-nowrap">
+                                Colecție Acrilic <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                        </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-8 lg:gap-12 text-left">
+                        {/* Canvas Collection */}
+                        <Link href="/shop/canvas" className="group relative aspect-[16/9] rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-100">
+                            <img src="https://pub-5e0f8c0a4c03499b92d64adf2a42dd22.r2.dev/canvas/canvas-save-water-tablou-canvas-5.jpg" alt="Colecție Canvas" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent" />
+                            <div className="absolute bottom-0 left-0 p-8 lg:p-12 w-full">
+                                <div className="flex items-center gap-3 mb-4">
+                                    <span className="inline-block px-3 py-1 rounded-full bg-indigo-500 text-white text-[10px] font-black uppercase tracking-[0.2em]">Popular</span>
+                                    <span className="text-white/70 text-xs font-bold uppercase tracking-widest">Peste 5000 de modele</span>
+                                </div>
+                                <h3 className="text-3xl lg:text-4xl font-bold text-white mb-2">Colecția Canvas</h3>
+                                <p className="text-slate-200 text-lg opacity-80 group-hover:opacity-100 transition-opacity">Artă modernă, abstractă și peisaje spectaculoase pe pânză premium.</p>
+                            </div>
+                        </Link>
+
+                        {/* Acrylic Collection */}
+                        <Link href="/shop/acrylic" className="group relative aspect-[16/9] rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-100">
+                            <img src="https://pub-5e0f8c0a4c03499b92d64adf2a42dd22.r2.dev/acrylic/save-water-sticla-acrilica-6.jpg" alt="Colecție Sticlă Acrilică" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent" />
+                            <div className="absolute bottom-0 left-0 p-8 lg:p-12 w-full">
+                                <div className="flex items-center gap-3 mb-4">
+                                    <span className="inline-block px-3 py-1 rounded-full bg-blue-500 text-white text-[10px] font-black uppercase tracking-[0.2em]">Premium</span>
+                                    <span className="text-white/70 text-xs font-bold uppercase tracking-widest">Lux & Profunzime</span>
+                                </div>
+                                <h3 className="text-3xl lg:text-4xl font-bold text-white mb-2">Colecția Sticlă Acrilică</h3>
+                                <p className="text-slate-200 text-lg opacity-80 group-hover:opacity-100 transition-opacity">Efect de sticlă, culori vibrante și durabilitate excepțională pe plexiglass.</p>
                             </div>
                         </Link>
                     </div>

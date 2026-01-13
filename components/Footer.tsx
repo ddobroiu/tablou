@@ -95,6 +95,14 @@ export default function Footer() {
             </div>
 
             <div>
+              <h3 className="font-semibold text-white text-sm uppercase tracking-wider mb-6">Colecții</h3>
+              <ul className="space-y-4">
+                <li><Link href="/shop/canvas" className={linkClass}>Colecție Canvas</Link></li>
+                <li><Link href="/shop/acrylic" className={linkClass}>Colecție Sticlă Acrilică</Link></li>
+              </ul>
+            </div>
+
+            <div>
               <h3 className="font-semibold text-white text-sm uppercase tracking-wider mb-6">Suport</h3>
               <ul className="space-y-4">
                 <li><Link href="/urmareste-comanda" className={linkClass}>Status Comandă</Link></li>
