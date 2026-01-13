@@ -44,7 +44,7 @@ export default async function Page({ params }: Props) {
 
   // LOGICA IMAGINE ROBUSTĂ
   const slugKey = String(product.slug ?? product.id ?? "").toLowerCase();
-  const genericSet = new Set<string>(["/products/banner/1.webp","/products/banner/2.webp","/products/banner/3.webp","/products/banner/4.webp","/placeholder.png"]);
+  const genericSet = new Set<string>(["/products/banner/1.webp", "/products/banner/2.webp", "/products/banner/3.webp", "/products/banner/4.webp", "/placeholder.png"]);
   const imgs = product.images ?? [];
   let img = imgs.find((x) => !!x && slugKey && x.toLowerCase().includes(slugKey));
   if (!img) img = imgs.find((x) => !!x && !genericSet.has(x.toLowerCase())) ?? imgs[0] ?? "/products/banner/1.webp";
@@ -52,26 +52,27 @@ export default async function Page({ params }: Props) {
   return (
     <>
       <ProductJsonLd product={(product as Product)} url={url} />
-      
+
       <main className="min-h-screen bg-gray-50">
         <Suspense fallback={<div className="h-screen flex justify-center items-center"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div></div>}>
-          <BannerVersoConfigurator 
+          <BannerVersoConfigurator
             productSlug={product.slug ?? product.routeSlug}
             initialWidth={initialWidth ?? undefined}
             initialHeight={initialHeight ?? undefined}
             productImage={img}
+            product={product as any}
           />
         </Suspense>
 
         {product.contentHtml && (
-           <section className="py-16 bg-white border-t border-gray-100">
-             <div className="container mx-auto px-4 max-w-4xl">
-               <article 
-                 className="prose prose-lg prose-indigo mx-auto prose-h2:text-3xl prose-h2:font-bold prose-h3:text-xl prose-img:rounded-xl"
-                 dangerouslySetInnerHTML={{ __html: product.contentHtml }}
-               />
-             </div>
-           </section>
+          <section className="py-16 bg-white border-t border-gray-100">
+            <div className="container mx-auto px-4 max-w-4xl">
+              <article
+                className="prose prose-lg prose-indigo mx-auto prose-h2:text-3xl prose-h2:font-bold prose-h3:text-xl prose-img:rounded-xl"
+                dangerouslySetInnerHTML={{ __html: product.contentHtml }}
+              />
+            </div>
+          </section>
         )}
       </main>
     </>

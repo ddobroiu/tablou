@@ -16,9 +16,9 @@ export default async function BannerVersoPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       {product && <ProductJsonLd product={product} url={url} />}
-      
+
       <Suspense fallback={<div className="h-screen flex justify-center items-center"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div></div>}>
-        <BannerVersoConfigurator productSlug="banner-verso" />
+        <BannerVersoConfigurator productSlug="banner-verso" product={product} />
       </Suspense>
     </main>
   );
