@@ -18,10 +18,6 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY!,
-});
-
 // Verificare validitate API key
 const OPENAI_ENABLED = Boolean(process.env.OPENAI_API_KEY && process.env.OPENAI_API_KEY.startsWith('sk-'));
 
@@ -332,6 +328,16 @@ export async function POST(req: Request) {
         // }
 
         // 4. OpenAI Call - optimizat pentru WhatsApp
+        if (!OPENAI_ENABLED) {
+          console.error("OPENAI_API_KEY missing or invalid for WhatsApp");
+          await sendWhatsAppMessage(from, "Sistemul AI este momentan indisponibil.");
+          return NextResponse.json({ status: "error_config" });
+        }
+
+        const openai = new OpenAI({
+          apiKey: process.env.OPENAI_API_KEY!,
+        });
+
         const completion = await openai.chat.completions.create({
           model: "gpt-4o",
           messages: messagesPayload as any,

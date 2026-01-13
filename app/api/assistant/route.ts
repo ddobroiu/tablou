@@ -9,10 +9,6 @@ import { logConversation } from "@/lib/chat-logger";
 
 export const runtime = 'nodejs';
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
 const WEB_SYSTEM_PROMPT = SYSTEM_PROMPT + `
 INSTRUCȚIUNI SPECIFICE WEB:
 - Când întrebi detalii tehnice, NU scrie variantele în text. Folosește tag-ul ||OPTIONS: [...]||.
@@ -23,6 +19,16 @@ INSTRUCȚIUNI SPECIFICE WEB:
 
 export async function POST(req: Request) {
   try {
+    const apiKey = process.env.OPENAI_API_KEY;
+    if (!apiKey) {
+      console.error("OPENAI_API_KEY is missing");
+      return NextResponse.json({ message: "Configurație AI lipsă (API Key)." }, { status: 500 });
+    }
+
+    const openai = new OpenAI({
+      apiKey: apiKey,
+    });
+
     const body = await req.json();
     let { messages, pageContext } = body;
 
