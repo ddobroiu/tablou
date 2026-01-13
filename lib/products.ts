@@ -117,8 +117,31 @@ const STICKERMANIA_BANNERS = getStickermaniaBanners().map(b => convertStickerman
 // Categorile eliminate din shop
 const REMOVED_CATEGORIES = ['afise', 'autocolante', 'carton', 'flayere', 'tapet'];
 
+// Import additional collections
+import { canvasProducts } from "./products/canvas-products";
+import { acrylicProducts } from "./products/acrylic-products";
+
+// Convert collections to Product type
+const SCRAPED_COLLECTIONS = [
+  ...canvasProducts.map(p => ({
+    ...p,
+    metadata: { ...p, category: "canvas" }
+  })),
+  ...acrylicProducts.map(p => ({
+    ...p,
+    metadata: { ...p, category: "plexiglass" }
+  }))
+] as Product[];
+
 // Combinăm toate produsele și filtrăm categorile ce nu mai trebuie să apară
-export const PRODUCTS: Product[] = [...EXISTING_PRODUCTS, ...EUROPOSTERS_PRODUCTS, ...STICKERMANIA_PRODUCTS, ...STICKERMANIA_BANNERS, ...GET_STICKY_PRODUCTS]
+export const PRODUCTS: Product[] = [
+  ...EXISTING_PRODUCTS,
+  ...EUROPOSTERS_PRODUCTS,
+  ...STICKERMANIA_PRODUCTS,
+  ...STICKERMANIA_BANNERS,
+  ...GET_STICKY_PRODUCTS,
+  ...SCRAPED_COLLECTIONS
+]
   .filter(p => !REMOVED_CATEGORIES.includes(String(p.metadata?.category || '').toLowerCase()));
 
 for (const _p of PRODUCTS) {
