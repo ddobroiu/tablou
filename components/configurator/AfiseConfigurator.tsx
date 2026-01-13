@@ -238,7 +238,6 @@ export default function AfiseConfigurator({ productSlug, initialWidth, initialHe
                                     </div>
                                 ) : (
                                     <div className="w-full h-full bg-slate-50 relative">
-                                        {/* @ts-ignore */}
                                         <model-viewer
                                             ref={modelViewerRef}
                                             src="/products/afise/afise.glb"
