@@ -38,6 +38,29 @@ const canvasFaqs: QA[] = [
 
 
 
+
+// Declare custom element for TypeScript
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'model-viewer': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & {
+        src?: string;
+        poster?: string;
+        alt?: string;
+        'shadow-intensity'?: string;
+        'camera-controls'?: boolean;
+        'auto-rotate'?: boolean;
+        ar?: boolean;
+        'ar-modes'?: string;
+        'tone-mapping'?: string;
+        scale?: string;
+        orientation?: string;
+        ref?: any;
+      }, HTMLElement>;
+    }
+  }
+}
+
 /* --- UI COMPONENTS --- */
 const AccordionStep = ({ stepNumber, title, summary, isOpen, onClick, children, isLast = false }: { stepNumber: number; title: string; summary: string; isOpen: boolean; onClick: () => void; children: React.ReactNode; isLast?: boolean; }) => (
   <div className="relative pl-14">
