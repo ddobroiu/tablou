@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 import StockCanvasConfigurator from '@/components/configurator/StockCanvasConfigurator';
 import { canvasProducts } from '@/lib/products/canvas-products';
 
@@ -39,6 +40,8 @@ export default async function CanvasProductPage({ params }: Props) {
     const { slug } = await params;
 
     return (
-        <StockCanvasConfigurator productSlug={slug} />
+        <Suspense fallback={<div className="min-h-[60svh] flex items-center justify-center">Se încarcă produsul...</div>}>
+            <StockCanvasConfigurator productSlug={slug} />
+        </Suspense>
     );
 }
