@@ -248,7 +248,7 @@ Ideal pentru livinguri moderne, birouri sau spații comerciale elegante, acest t
 
     return (
         <div className="bg-white min-h-screen pb-20">
-            <ProductJsonLd name={product.title} description={PREMIUM_DESCRIPTION} image={product.image} price={priceRON} sku={product.id} url={shareUrl} />
+            <ProductJsonLd name={product.title} description={PREMIUM_DESCRIPTION} image={product.image} price={priceRON} url={shareUrl} />
             <Script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js" />
             <div className="container mx-auto px-4 py-4">
                 <nav className="flex items-center gap-2 text-sm text-gray-500 mb-6">
@@ -281,6 +281,7 @@ Ideal pentru livinguri moderne, birouri sau spații comerciale elegante, acest t
                                     </div>
                                 ) : (
                                     <div className="w-full h-full bg-slate-50 flex items-center justify-center relative group/viewer">
+                                        {/* @ts-ignore */}
                                         <model-viewer key={viewerKey} ref={modelViewerRef} src={modelSrc} poster={product.image} alt="Model 3D Tablou Acrilic" shadow-intensity="1" camera-controls ar ar-modes="webxr scene-viewer quick-look" tone-mapping="neutral" scale={scaleString} camera-orbit={cameraOrbit} min-camera-orbit="auto auto 1m" max-camera-orbit="auto auto 10m" style={{ width: '100%', height: '100%' } as any}>
                                             <button slot="ar-button" disabled={!isTextureLoaded} className={`absolute bottom-4 left-4 font-bold py-2 px-4 rounded-full shadow-lg flex items-center gap-2 transition-transform active:scale-95 z-20 ${!isTextureLoaded ? 'bg-gray-400 cursor-not-allowed opacity-70 text-gray-100' : 'bg-indigo-600 hover:bg-indigo-700 text-white'}`}>
                                                 {!isTextureLoaded ? <span className="animate-spin text-lg">⏳</span> : <Box size={18} />}

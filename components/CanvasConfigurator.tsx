@@ -477,6 +477,7 @@ export default function CanvasConfigurator({
                   </div>
                 ) : (
                   <div className="w-full h-full bg-slate-100 flex items-center justify-center relative">
+                    {/* @ts-ignore */}
                     <model-viewer
                       key={viewerKey}
                       ref={modelViewerRef}

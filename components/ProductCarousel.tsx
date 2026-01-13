@@ -10,16 +10,18 @@ interface ProductCarouselProps {
     title?: string;
     currentSlug?: string;
     limit?: number;
+    products?: any[];
+    linkBase?: string;
 }
 
-export default function ProductCarousel({ title = "Te-ar putea interesa și...", currentSlug, limit = 8 }: ProductCarouselProps) {
-    const products = useMemo(() => {
+export default function ProductCarousel({ title = "Te-ar putea interesa și...", currentSlug, limit = 8, products = canvasProducts, linkBase = "shop/canvas" }: ProductCarouselProps) {
+    const displayProducts = useMemo(() => {
         // Filter out current product and get random or first N products
-        let filtered = canvasProducts.filter(p => p.slug !== currentSlug);
+        let filtered = products.filter(p => p.slug !== currentSlug);
         return filtered.slice(0, limit);
-    }, [currentSlug, limit]);
+    }, [currentSlug, limit, products]);
 
-    if (products.length === 0) return null;
+    if (displayProducts.length === 0) return null;
 
     return (
         <section className="py-16 border-t border-gray-100 bg-white">
@@ -40,12 +42,12 @@ export default function ProductCarousel({ title = "Te-ar putea interesa și...",
                     <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
                     <div className="flex overflow-x-auto pb-8 gap-6 snap-x py-2 px-1 scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
-                        {products.map((product) => (
+                        {displayProducts.map((product) => (
                             <div
                                 key={product.id}
                                 className="flex-none w-[280px] snap-center group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100"
                             >
-                                <Link href={`/shop/canvas/${product.slug}`} className="block h-full flex flex-col">
+                                <Link href={`/${linkBase}/${product.slug}`} className="block h-full flex flex-col">
                                     <div className="relative aspect-[4/5] overflow-hidden bg-gray-100">
                                         <Image
                                             src={product.image}

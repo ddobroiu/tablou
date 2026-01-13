@@ -158,6 +158,8 @@ export default function InsigneAcrylicConfigurator({ productSlug }: Props) {
         alert("Produs adăugat în coș!");
     };
 
+    const totalPrice = priceRON * quantity;
+
     return (
         <div className="bg-white min-h-screen pb-20">
             <div className="container mx-auto px-4 py-4">

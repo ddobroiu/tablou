@@ -348,6 +348,7 @@ export default function PlexiglassConfigurator({ initialWidth: initW, initialHei
                                         <span className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tighter">{formatMoneyDisplay(displayedTotal)}</span>
                                     </div>
                                     <div className="flex-shrink-0">
+                                        {/* @ts-ignore */}
                                         <DeliveryEstimation />
                                     </div>
                                 </div>

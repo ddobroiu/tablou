@@ -20,7 +20,8 @@ interface Product {
     orientation?: string; // New field from smart scraper
 }
 
-export default function CanvasProductGrid({ products }: { products: Product[] }) {
+export default function CanvasProductGrid({ products, linkBase }: { products: Product[], linkBase?: string }) {
+
     const [selectedCategory, setSelectedCategory] = useState<string>('Toate');
     const [selectedOrientation, setSelectedOrientation] = useState<string>('Toate');
     const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
@@ -255,7 +256,7 @@ export default function CanvasProductGrid({ products }: { products: Product[] })
 
                                     {/* CTA Button */}
                                     <div className="mt-4 pt-4 border-t border-gray-100">
-                                        <Link href={`/shop/canvas/${product.slug}`} className="block">
+                                        <Link href={linkBase ? `/${linkBase}/${product.slug}` : `/shop/canvas/${product.slug}`} className="block">
                                             <Button
                                                 className="w-full bg-slate-900 hover:bg-emerald-600 text-white rounded-xl h-10 font-bold transition-colors"
                                                 size="sm"
