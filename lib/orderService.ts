@@ -422,7 +422,7 @@ async function sendEmails(
     if (!resend) throw new Error('RESEND_API_KEY lipsă');
     const adminResp = await resend.emails.send({
       from: process.env.EMAIL_FROM || 'contact@tablou.net',
-      to: process.env.ADMIN_EMAIL || 'contact@tablou.net',
+      to: process.env.ADMIN_EMAIL || 'contact@shopprint.ro',
       subject: `Comandă${orderNoSuffix} (${paymentType}) - ${escapeHtml(address.nume_prenume)}`,
       html: adminHtml,
     });
