@@ -1,4 +1,4 @@
-import React from "react";
+import { Suspense } from "react";
 import CanvasConfigurator from "@/components/CanvasConfigurator";
 import { siteConfig } from "@/lib/siteConfig";
 
@@ -26,7 +26,9 @@ export default async function CanvasPage({
                     </p>
                 </div>
 
-                <CanvasConfigurator initialArtworkUrl={typeof artworkUrl === 'string' ? artworkUrl : undefined} />
+                <Suspense fallback={<div className="min-h-[60svh] flex items-center justify-center">Se încarcă configuratorul...</div>}>
+                    <CanvasConfigurator initialArtworkUrl={typeof artworkUrl === 'string' ? artworkUrl : undefined} />
+                </Suspense>
             </div>
         </main>
     );
