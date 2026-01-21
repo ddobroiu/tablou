@@ -73,6 +73,15 @@ export default function RootLayout({
   return (
     <html lang="ro" data-theme="light">
       <head>
+        {/* Google Tag Manager */}
+        <Script id="gtm" strategy="afterInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-PLT45BL6');`}
+        </Script>
+        {/* End Google Tag Manager */}
         <link rel="icon" href="/simbol.jpg" type="image/jpeg" />
         <link rel="apple-touch-icon" href="/simbol.jpg" />
 
@@ -92,6 +101,16 @@ export default function RootLayout({
       </head>
 
       <body className="bg-white text-slate-900 antialiased">
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-PLT45BL6"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
+        {/* End Google Tag Manager (noscript) */}
         <DynamicStylesLoader />
         <Providers>
           <ClientLayoutWrapper>
