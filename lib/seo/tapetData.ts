@@ -1,17 +1,13 @@
-// lib/seo/tapetData.ts
-import type { LandingInfo } from "../landingData";
-
-export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
-  // --- HOME & DECO: CAMERE ---
-  "living": {
+// lib/seo/tapetData.ts\nimport type { LandingInfo } from "../landingData";
+\nexport const TAPET_SEO_DATA: Record<string, LandingInfo> = {
+  // --- HOME & DECO: CAMERE ---\n  "living": {
     key: "living",
     title: "Tapet Living & Sufragerie — Modern & 3D",
     shortDescription: "Fototapet pentru peretele de accent din living. Modele 3D, peisaje sau texturi.",
     seoTitle: "Tapet Living Modern | Fototapet Sufragerie | Prynt",
     seoDescription: "Transformă livingul cu un tapet personalizat. Print lavabil, textură premium (Canvas sau Nisip).",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Inima casei tale merită un design unic</h2><p>Renunță la pereții albi. Un fototapet pe peretele din spatele canapelei sau al televizorului schimbă complet atmosfera camerei.</p>`
-  },
+    contentHtml: `<h2>Inima casei tale merită un design unic</h2><p>Renunță la pereții albi. Un fototapet pe peretele din spatele canapelei sau al televizorului schimbă complet atmosfera camerei.</p>`\n  },
   "dormitor": {
     key: "dormitor",
     title: "Tapet Dormitor — Relaxare & Romantism",
@@ -19,8 +15,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Dormitor Matrimonial | Decor Perete | Prynt",
     seoDescription: "Creează un sanctuar de liniște. Tapet dormitor personalizat, culori calde și relaxante.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Trezește-te într-un decor de vis</h2><p>Alege imagini care induc starea de relaxare: plaje pustii, păduri cețoase sau modele abstracte fluide.</p>`
-  },
+    contentHtml: `<h2>Trezește-te într-un decor de vis</h2><p>Alege imagini care induc starea de relaxare: plaje pustii, păduri cețoase sau modele abstracte fluide.</p>`\n  },
   "camera-copii": {
     key: "camera-copii",
     title: "Tapet Cameră Copii — Poveste pe Pereți",
@@ -28,8 +23,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Camera Copii & Bebe | Fototapet | Prynt",
     seoDescription: "Decor de basm pentru cei mici. Tapet cu cerneală ecologică, sigur pentru copii.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>O lume magică în camera lor</h2><p>De la jungle tropicale la spațiul cosmic, tapetul stimulează imaginația copilului tău.</p>`
-  },
+    contentHtml: `<h2>O lume magică în camera lor</h2><p>De la jungle tropicale la spațiul cosmic, tapetul stimulează imaginația copilului tău.</p>`\n  },
   "bucatarie": {
     key: "bucatarie",
     title: "Tapet Bucătărie — Lavabil & Rezistent",
@@ -37,8 +31,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Bucatarie Lavabil | Decor Perete | Prynt",
     seoDescription: "Soluții de decor pentru bucătărie. Tapet rezistent la ștergere și aburi (material vinilic).",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Stil și funcționalitate</h2><p>Un tapet bine ales poate înlocui faianța în zonele mai puțin expuse la apă directă, oferind un look modern.</p>`
-  },
+    contentHtml: `<h2>Stil și funcționalitate</h2><p>Un tapet bine ales poate înlocui faianța în zonele mai puțin expuse la apă directă, oferind un look modern.</p>`\n  },
   "hol": {
     key: "hol",
     title: "Tapet Hol & Coridor — Spațiu & Lumină",
@@ -46,19 +39,15 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Hol & Intrare | Fototapet 3D | Prynt",
     seoDescription: "Mărește vizual holurile înguste cu tapet 3D. Iluzie optică de spațiu.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Prima impresie contează</h2><p>Transformă un hol anost într-o galerie de artă sau o fereastră către natură.</p>`
-  },
-
-  // --- STILURI & TEMATICI ---
-  "harta-lumii": {
+    contentHtml: `<h2>Prima impresie contează</h2><p>Transformă un hol anost într-o galerie de artă sau o fereastră către natură.</p>`\n  },
+\n  // --- STILURI & TEMATICI ---\n  "harta-lumii": {
     key: "harta-lumii",
     title: "Tapet Hartă Lumii — Educativ & Decorativ",
     shortDescription: "Hărți politice, fizice sau stilizate (vintage, acuarelă) pentru copii și birouri.",
     seoTitle: "Tapet Harta Lumii | Fototapet Harta | Prynt",
     seoDescription: "Cel mai popular model de tapet. Harta lumii pentru camera copilului sau birou.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Explorator în propria casă</h2><p>O hartă a lumii pe tot peretele este atât un element decorativ superb, cât și o sursă de învățare.</p>`
-  },
+    contentHtml: `<h2>Explorator în propria casă</h2><p>O hartă a lumii pe tot peretele este atât un element decorativ superb, cât și o sursă de învățare.</p>`\n  },
   "3d": {
     key: "3d",
     title: "Tapet 3D & Iluzii Optice",
@@ -66,8 +55,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet 3D Living & Dormitor | Efect Adancime | Prynt",
     seoDescription: "Dă adâncime camerei cu fototapet 3D. Design modern și spectaculos.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Adaugă dimensiune spațiului</h2><p>Ideal pentru camere mici sau pentru a crea un punct focal futurist.</p>`
-  },
+    contentHtml: `<h2>Adaugă dimensiune spațiului</h2><p>Ideal pentru camere mici sau pentru a crea un punct focal futurist.</p>`\n  },
   "texturi": {
     key: "texturi",
     title: "Tapet Imitație Materiale — Cărămidă, Beton, Lemn",
@@ -75,8 +63,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Caramida & Beton | Stil Industrial | Prynt",
     seoDescription: "Obține look-ul industrial sau rustic fără șantier. Tapet imitație materiale naturale.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Design industrial la preț mic</h2><p>Nu e nevoie să decopertezi pereții. Tapetul nostru imită perfect textura betonului sau a cărămizii.</p>`
-  },
+    contentHtml: `<h2>Design industrial la preț mic</h2><p>Nu e nevoie să decopertezi pereții. Tapetul nostru imită perfect textura betonului sau a cărămizii.</p>`\n  },
   "peisaje": {
     key: "peisaje",
     title: "Tapet Peisaje Natură — Pădure, Mare, Munte",
@@ -84,19 +71,15 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Peisaje Natura | Fototapet Padure & Mare | Prynt",
     seoDescription: "Relaxează-te cu o priveliște superbă. Tapet natură la rezoluție înaltă.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>O fereastră către natură</h2><p>Transformă un perete într-o panoramă spectaculoasă care îți taie respirația.</p>`
-  },
-
-  // --- BUSINESS & SPAȚII PUBLICE ---
-  "birou": {
+    contentHtml: `<h2>O fereastră către natură</h2><p>Transformă un perete într-o panoramă spectaculoasă care îți taie respirația.</p>`\n  },
+\n  // --- BUSINESS & SPAȚII PUBLICE ---\n  "birou": {
     key: "birou",
     title: "Tapet Birou & Sală de Ședințe",
     shortDescription: "Hărți, citate motivaționale, skyline orașe sau branding subtil.",
     seoTitle: "Tapet Birou & Office | Branding Pereti | Prynt",
     seoDescription: "Amenajează un birou modern. Tapet personalizat cu valorile companiei sau design abstract.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Inspiră echipa și clienții</h2><p>Un mediu de lucru creativ stimulează productivitatea. Renunță la pereții gri.</p>`
-  },
+    contentHtml: `<h2>Inspiră echipa și clienții</h2><p>Un mediu de lucru creativ stimulează productivitatea. Renunță la pereții gri.</p>`\n  },
   "cafenea": {
     key: "cafenea",
     title: "Tapet Cafenea & Restaurant",
@@ -104,8 +87,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Horeca | Cafenea & Restaurant | Prynt",
     seoDescription: "Creează o atmosferă unică în locația ta. Tapet rezistent la trafic și curățare.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Atmosferă instagramabilă</h2><p>Clienții adoră să facă poze în locații cu design unic. Oferă-le un fundal perfect.</p>`
-  },
+    contentHtml: `<h2>Atmosferă instagramabilă</h2><p>Clienții adoră să facă poze în locații cu design unic. Oferă-le un fundal perfect.</p>`\n  },
   "salon": {
     key: "salon",
     title: "Tapet Salon Înfrumusețare & Spa",
@@ -113,8 +95,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Salon & Spa | Decor Relaxant | Prynt",
     seoDescription: "Transformă salonul într-o oază de relaxare cu un tapet tematic.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Lux și rafinament</h2><p>Completează experiența clienților cu un decor vizual care inspiră frumusețe.</p>`
-  },
+    contentHtml: `<h2>Lux și rafinament</h2><p>Completează experiența clienților cu un decor vizual care inspiră frumusețe.</p>`\n  },
   "gradinita": {
     key: "gradinita",
     title: "Tapet Grădiniță & Loc de Joacă",
@@ -122,19 +103,15 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Gradinita & Loc de Joaca | Prynt",
     seoDescription: "Amenajează spații de joacă vesele. Tapet lavabil, rezistent la micii artiști.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Educație prin joc și culoare</h2><p>Pereții pot fi o sursă de învățare. Alege hărți, litere sau scene din povești.</p>`
-  },
-
-  // --- EVENIMENTE & PETRECERI ---
-  "nunta": {
+    contentHtml: `<h2>Educație prin joc și culoare</h2><p>Pereții pot fi o sursă de învățare. Alege hărți, litere sau scene din povești.</p>`\n  },
+\n  // --- EVENIMENTE & PETRECERI ---\n  "nunta": {
     key: "nunta",
     title: "Tapet Nuntă — Romantic & Personalizat",
     shortDescription: "Fototapet cu poze de familie, motive florale sau citate de iubire.",
     seoTitle: "Tapet Nunta & Evenimente | Fototapet Romantic | Prynt",
     seoDescription: "Decorează sala de evenimente cu un tapet personalizat. Print de calitate pentru amintiri de neuitat.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Cele mai frumoase amintiri</h2><p>Transformă orice spațiu într-un cadru de poveste pentru ziua cea mare.</p>`
-  },
+    contentHtml: `<h2>Cele mai frumoase amintiri</h2><p>Transformă orice spațiu într-un cadru de poveste pentru ziua cea mare.</p>`\n  },
   "botez": {
     key: "botez",
     title: "Tapet Botez & Naștere — Îngeri & Flori",
@@ -142,8 +119,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Botez & Nastere | Decor Eveniment | Prynt",
     seoDescription: "Creează o atmosferă sacră și emoționantă. Tapet cu imagini simbolice pentru botez.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Un început nou</h2><p>Celebrează venirea pe lume a celui mic cu un decor plin de iubire.</p>`
-  },
+    contentHtml: `<h2>Un început nou</h2><p>Celebrează venirea pe lume a celui mic cu un decor plin de iubire.</p>`\n  },
   "zi-de-nastere": {
     key: "zi-de-nastere",
     title: "Tapet Zi de Naștere — Vesele & Colorate",
@@ -151,8 +127,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Zi de Nastere | Decor Petrecere | Prynt",
     seoDescription: "Fă ziua specială și mai distractivă. Tapet personalizat cu tema preferată.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Surprize și bucurie</h2><p>Un perete decorat poate fi centrul atenției la orice petrecere.</p>`
-  },
+    contentHtml: `<h2>Surprize și bucurie</h2><p>Un perete decorat poate fi centrul atenției la orice petrecere.</p>`\n  },
   "petrecere-copii": {
     key: "petrecere-copii",
     title: "Tapet Petrecere Copii — Aventură & Magie",
@@ -160,8 +135,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Petrecere Copii | Decor Magie | Prynt",
     seoDescription: "Intră în lumea basmelor. Tapet cu personaje îndrăgite pentru sărbători.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>O lume de vis</h2><p>Copiii vor fi încântați de decorul magic al petrecerii lor.</p>`
-  },
+    contentHtml: `<h2>O lume de vis</h2><p>Copiii vor fi încântați de decorul magic al petrecerii lor.</p>`\n  },
   "revelion": {
     key: "revelion",
     title: "Tapet Revelion — Strălucire & Fantezie",
@@ -169,8 +143,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Revelion & An Nou | Decor Petrecere | Prynt",
     seoDescription: "Bucură-te de sărbători cu un tapet festivist. Print vibrant pentru atmosfera de sărbătoare.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>An nou, decor nou</h2><p>Celebrează trecerea timpului cu un design spectaculos.</p>`
-  },
+    contentHtml: `<h2>An nou, decor nou</h2><p>Celebrează trecerea timpului cu un design spectaculos.</p>`\n  },
   "halloween": {
     key: "halloween",
     title: "Tapet Halloween — Înfricoșător & Distractiv",
@@ -178,8 +151,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Halloween | Decor Înfricosator | Prynt",
     seoDescription: "Sperie prietenii cu un tapet horror. Design fun pentru petreceri tematice.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Noaptea tuturor sfinților</h2><p>Creează o atmosferă misterioasă și distractivă.</p>`
-  },
+    contentHtml: `<h2>Noaptea tuturor sfinților</h2><p>Creează o atmosferă misterioasă și distractivă.</p>`\n  },
   "craciun": {
     key: "craciun",
     title: "Tapet Crăciun — Magie & Iarnă",
@@ -187,8 +159,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Craciun & Iarna | Decor Festiv | Prynt",
     seoDescription: "Adu magia sărbătorilor în casă. Tapet cu motive de iarnă.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Sărbători fericite</h2><p>Transformă orice cameră într-un peisaj de poveste.</p>`
-  },
+    contentHtml: `<h2>Sărbători fericite</h2><p>Transformă orice cameră într-un peisaj de poveste.</p>`\n  },
   "paste": {
     key: "paste",
     title: "Tapet Paște — Înviere & Tradiție",
@@ -196,8 +167,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Paste & Primavara | Decor Traditional | Prynt",
     seoDescription: "Sărbătorește Paștele cu un decor autentic. Print cu motive tradiționale.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Înviere și reînnoire</h2><p>Celebrează tradiția cu un tapet plin de semnificație.</p>`
-  },
+    contentHtml: `<h2>Înviere și reînnoire</h2><p>Celebrează tradiția cu un tapet plin de semnificație.</p>`\n  },
   "targ": {
     key: "targ",
     title: "Tapet Târg & Expoziție — Branding & Impact",
@@ -205,8 +175,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Targ & Expo | Branding Perete | Prynt",
     seoDescription: "Atrage atenția vizitatorilor. Tapet personalizat pentru evenimente business.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Prezență puternică</h2><p>Fă-ți standul să iasă în evidență cu un design unic.</p>`
-  },
+    contentHtml: `<h2>Prezență puternică</h2><p>Fă-ți standul să iasă în evidență cu un design unic.</p>`\n  },
   "festival": {
     key: "festival",
     title: "Tapet Festival & Concert — Energie & Vibrații",
@@ -214,8 +183,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Festival & Concert | Decor Muzical | Prynt",
     seoDescription: "Creează atmosfera perfectă pentru iubitorii de muzică. Print vibrant.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Ritm și culoare</h2><p>Transformă spațiul într-o scenă vie.</p>`
-  },
+    contentHtml: `<h2>Ritm și culoare</h2><p>Transformă spațiul într-o scenă vie.</p>`\n  },
   "conferinta": {
     key: "conferinta",
     title: "Tapet Conferință & Seminar — Profesional & Inspirant",
@@ -223,8 +191,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Conferinta & Seminar | Decor Business | Prynt",
     seoDescription: "Inspiră participanții cu un decor profesional. Tapet personalizat.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Cunoaștere și inovație</h2><p>Un mediu care stimulează discuțiile productive.</p>`
-  },
+    contentHtml: `<h2>Cunoaștere și inovație</h2><p>Un mediu care stimulează discuțiile productive.</p>`\n  },
   "petrecere-adulti": {
     key: "petrecere-adulti",
     title: "Tapet Petrecere Adulți — Glamour & Eleganță",
@@ -232,19 +199,15 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Petrecere Adulti | Decor Glamour | Prynt",
     seoDescription: "Ridică nivelul evenimentului tău. Design elegant pentru ocazii speciale.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Sofisticare și distracție</h2><p>Creează amintiri de neuitat cu un decor rafinat.</p>`
-  },
-
-  // --- BUSINESS & COMERCIALE ---
-  "restaurant": {
+    contentHtml: `<h2>Sofisticare și distracție</h2><p>Creează amintiri de neuitat cu un decor rafinat.</p>`\n  },
+\n  // --- BUSINESS & COMERCIALE ---\n  "restaurant": {
     key: "restaurant",
     title: "Tapet Restaurant — Apetit & Atmosferă",
     shortDescription: "Preparate culinare, ingrediente proaspete, vinuri pentru decor horeca.",
     seoTitle: "Tapet Restaurant & Horeca | Decor Gastronomic | Prynt",
     seoDescription: "Stimulează apetitul clienților. Tapet tematic pentru restaurante.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>O experiență culinară completă</h2><p>Decorul contribuie la satisfacția generală a mesei.</p>`
-  },
+    contentHtml: `<h2>O experiență culinară completă</h2><p>Decorul contribuie la satisfacția generală a mesei.</p>`\n  },
   "bar": {
     key: "bar",
     title: "Tapet Bar & Pub — Relaxare & Socializare",
@@ -252,8 +215,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Bar & Pub | Decor Relaxant | Prynt",
     seoDescription: "Creează un spațiu inviting pentru clienți. Print rezistent la umiditate.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Locul perfect pentru relaxare</h2><p>Un decor care încurajează conversațiile lungi.</p>`
-  },
+    contentHtml: `<h2>Locul perfect pentru relaxare</h2><p>Un decor care încurajează conversațiile lungi.</p>`\n  },
   "hotel": {
     key: "hotel",
     title: "Tapet Hotel & Pensiune — Confort & Ospitalitate",
@@ -261,8 +223,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Hotel & Pensiune | Decor Confort | Prynt",
     seoDescription: "Oferă oaspeților un refugiu plăcut. Tapet personalizat pentru ospitalitate.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Acasă departe de acasă</h2><p>Fă fiecare cameră să se simtă specială.</p>`
-  },
+    contentHtml: `<h2>Acasă departe de acasă</h2><p>Fă fiecare cameră să se simtă specială.</p>`\n  },
   "spital": {
     key: "spital",
     title: "Tapet Spital & Clinică — Calmare & Profesionalism",
@@ -270,8 +231,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Spital & Clinica | Decor Calmant | Prynt",
     seoDescription: "Ajută la reducerea stresului pacienților. Design liniștitor pentru spitale.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Îngrijire și compasiune</h2><p>Un decor care promovează vindecarea.</p>`
-  },
+    contentHtml: `<h2>Îngrijire și compasiune</h2><p>Un decor care promovează vindecarea.</p>`\n  },
   "scoala": {
     key: "scoala",
     title: "Tapet Școală & Universitate — Educație & Inspirație",
@@ -279,8 +239,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Scoala & Universitate | Decor Educational | Prynt",
     seoDescription: "Stimulează învățarea cu un decor inspirant. Tapet lavabil pentru școli.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Locul unde se formează viitorul</h2><p>Pereții pot fi o sursă de motivație.</p>`
-  },
+    contentHtml: `<h2>Locul unde se formează viitorul</h2><p>Pereții pot fi o sursă de motivație.</p>`\n  },
   "magazin": {
     key: "magazin",
     title: "Tapet Magazin & Butic — Branding & Vânzare",
@@ -288,8 +247,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Magazin & Butic | Decor Comercial | Prynt",
     seoDescription: "Îmbunătățește experiența de cumpărare. Tapet personalizat pentru retail.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Atrage și reține clienți</h2><p>Un decor care reflectă identitatea brandului.</p>`
-  },
+    contentHtml: `<h2>Atrage și reține clienți</h2><p>Un decor care reflectă identitatea brandului.</p>`\n  },
   "birou-corporate": {
     key: "birou-corporate",
     title: "Tapet Birou Corporate — Productivitate & Stil",
@@ -297,8 +255,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Birou Corporate | Decor Office | Prynt",
     seoDescription: "Creează un mediu de lucru profesional. Print de calitate pentru companii.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Eficiență și creativitate</h2><p>Un spațiu care inspiră performanță.</p>`
-  },
+    contentHtml: `<h2>Eficiență și creativitate</h2><p>Un spațiu care inspiră performanță.</p>`\n  },
   "fitness": {
     key: "fitness",
     title: "Tapet Fitness & Sală Sport — Energie & Motivare",
@@ -306,8 +263,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Fitness & Sala Sport | Decor Motivational | Prynt",
     seoDescription: "Motivați-vă clienții cu un decor energizant. Tapet rezistent.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Putere și determinare</h2><p>Transformă antrenamentul într-o experiență inspirantă.</p>`
-  },
+    contentHtml: `<h2>Putere și determinare</h2><p>Transformă antrenamentul într-o experiență inspirantă.</p>`\n  },
   "coafura": {
     key: "coafura",
     title: "Tapet Coafură & Salon — Frumusețe & Eleganță",
@@ -315,8 +271,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Coafura & Salon | Decor Beauty | Prynt",
     seoDescription: "Completează serviciile cu un decor sofisticat. Print pentru saloane.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Frumusețe și stil</h2><p>Un spațiu care reflectă profesionalismul.</p>`
-  },
+    contentHtml: `<h2>Frumusețe și stil</h2><p>Un spațiu care reflectă profesionalismul.</p>`\n  },
   "avocat": {
     key: "avocat",
     title: "Tapet Cabinet Avocat — Încredere & Profesionalism",
@@ -324,8 +279,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Cabinet Avocat | Decor Juridic | Prynt",
     seoDescription: "Construiți încredere cu un decor serios. Tapet pentru cabinete avocat.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Justiție și onestitate</h2><p>Un mediu care inspiră respect.</p>`
-  },
+    contentHtml: `<h2>Justiție și onestitate</h2><p>Un mediu care inspiră respect.</p>`\n  },
   "dentist": {
     key: "dentist",
     title: "Tapet Cabinet Dentist — Calmare & Igienă",
@@ -333,8 +287,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Cabinet Dentist | Decor Calmant | Prynt",
     seoDescription: "Reduce anxietatea pacienților. Design liniștitor pentru dentiști.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Zâmbete sănătoase</h2><p>Un decor care promovează bunăstarea.</p>`
-  },
+    contentHtml: `<h2>Zâmbete sănătoase</h2><p>Un decor care promovează bunăstarea.</p>`\n  },
   "farmacie": {
     key: "farmacie",
     title: "Tapet Farmacie — Sănătate & Încredere",
@@ -342,8 +295,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Farmacie | Decor Medical | Prynt",
     seoDescription: "Creează un spațiu de încredere. Tapet pentru farmacii.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Îngrijire pentru sănătate</h2><p>Un decor care inspiră siguranță.</p>`
-  },
+    contentHtml: `<h2>Îngrijire pentru sănătate</h2><p>Un decor care inspiră siguranță.</p>`\n  },
   "agentie-imobiliara": {
     key: "agentie-imobiliara",
     title: "Tapet Agenție Imobiliară — Lux & Aspirație",
@@ -351,8 +303,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Agentie Imobiliara | Decor Lux | Prynt",
     seoDescription: "Inspiră clienții cu vise imobiliare. Print pentru agenții.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Acasă ideal</h2><p>Un decor care reflectă aspirațiile.</p>`
-  },
+    contentHtml: `<h2>Acasă ideal</h2><p>Un decor care reflectă aspirațiile.</p>`\n  },
   "constructii": {
     key: "constructii",
     title: "Tapet Firmă Construcții — Soliditate & Inovație",
@@ -360,8 +311,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Firma Constructii | Decor Industrial | Prynt",
     seoDescription: "Arată expertiza companiei. Tapet pentru birouri construcții.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Construcția viitorului</h2><p>Un decor care demonstrează putere.</p>`
-  },
+    contentHtml: `<h2>Construcția viitorului</h2><p>Un decor care demonstrează putere.</p>`\n  },
   "it": {
     key: "it",
     title: "Tapet Firmă IT — Tehnologie & Inovare",
@@ -369,8 +319,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Firma IT | Decor Tech | Prynt",
     seoDescription: "Reflectă lumea digitală. Print pentru companii IT.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Inovație și progres</h2><p>Un spațiu care inspiră creativitate tehnică.</p>`
-  },
+    contentHtml: `<h2>Inovație și progres</h2><p>Un spațiu care inspiră creativitate tehnică.</p>`\n  },
   "marketing": {
     key: "marketing",
     title: "Tapet Agenție Marketing — Creativitate & Impact",
@@ -378,8 +327,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Agentie Marketing | Decor Creativ | Prynt",
     seoDescription: "Stimulează ideile geniale. Tapet pentru marketing.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Idei care vând</h2><p>Un decor care încurajează inovația.</p>`
-  },
+    contentHtml: `<h2>Idei care vând</h2><p>Un decor care încurajează inovația.</p>`\n  },
   "contabilitate": {
     key: "contabilitate",
     title: "Tapet Cabinet Contabilitate — Precizie & Încredere",
@@ -387,8 +335,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Cabinet Contabilitate | Decor Profesional | Prynt",
     seoDescription: "Construiți încredere financiară. Print pentru contabili.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Numere care contează</h2><p>Un mediu serios pentru afaceri.</p>`
-  },
+    contentHtml: `<h2>Numere care contează</h2><p>Un mediu serios pentru afaceri.</p>`\n  },
   "turism": {
     key: "turism",
     title: "Tapet Agenție Turism — Aventură & Explorare",
@@ -396,8 +343,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Agentie Turism | Decor Aventura | Prynt",
     seoDescription: "Inspiră călătorii. Tapet pentru birouri turism.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Lumea te așteaptă</h2><p>Un decor care trezește dorința de explorare.</p>`
-  },
+    contentHtml: `<h2>Lumea te așteaptă</h2><p>Un decor care trezește dorința de explorare.</p>`\n  },
   "auto": {
     key: "auto",
     title: "Tapet Service Auto — Putere & Performanță",
@@ -405,8 +351,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Service Auto | Decor Moto | Prynt",
     seoDescription: "Arată pasiunea pentru mașini. Print pentru ateliere auto.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Viteză și putere</h2><p>Un decor care reflectă performanță.</p>`
-  },
+    contentHtml: `<h2>Viteză și putere</h2><p>Un decor care reflectă performanță.</p>`\n  },
   "electrice": {
     key: "electrice",
     title: "Tapet Firmă Electrică — Energie & Siguranță",
@@ -414,8 +359,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Firma Electrica | Decor Tech | Prynt",
     seoDescription: "Demonstrează expertiză electrică. Tapet pentru electricieni.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Energie sigură</h2><p>Un decor care inspiră încredere.</p>`
-  },
+    contentHtml: `<h2>Energie sigură</h2><p>Un decor care inspiră încredere.</p>`\n  },
   "instalatii": {
     key: "instalatii",
     title: "Tapet Firmă Instalații — Funcționalitate & Expertiză",
@@ -423,8 +367,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Firma Instalatii | Decor Industrial | Prynt",
     seoDescription: "Arată măiestria tehnică. Print pentru instalații.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Sisteme perfecte</h2><p>Un decor care reflectă precizie.</p>`
-  },
+    contentHtml: `<h2>Sisteme perfecte</h2><p>Un decor care reflectă precizie.</p>`\n  },
   "transport": {
     key: "transport",
     title: "Tapet Firmă Transport — Mobilitate & Logistică",
@@ -432,8 +375,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Firma Transport | Decor Logistic | Prynt",
     seoDescription: "Reflectă lumea transporturilor. Tapet pentru logistică.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Conectăm lumea</h2><p>Un decor care simbolizează mișcare.</p>`
-  },
+    contentHtml: `<h2>Conectăm lumea</h2><p>Un decor care simbolizează mișcare.</p>`\n  },
   "agricultura": {
     key: "agricultura",
     title: "Tapet Firmă Agricultură — Natură & Productivitate",
@@ -441,8 +383,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Firma Agricultura | Decor Rural | Prynt",
     seoDescription: "Celebrează agricultura. Print pentru ferme și birouri agricole.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Pământul hrănește</h2><p>Un decor care onorează munca pământului.</p>`
-  },
+    contentHtml: `<h2>Pământul hrănește</h2><p>Un decor care onorează munca pământului.</p>`\n  },
   "veterinar": {
     key: "veterinar",
     title: "Tapet Cabinet Veterinar — Îngrijire & Compasiune",
@@ -450,8 +391,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Cabinet Veterinar | Decor Animal | Prynt",
     seoDescription: "Creează un spațiu prietenos pentru animale. Tapet pentru veterinari.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Prieteni cu blană</h2><p>Un decor care inspiră grijă.</p>`
-  },
+    contentHtml: `<h2>Prieteni cu blană</h2><p>Un decor care inspiră grijă.</p>`\n  },
   "fotograf": {
     key: "fotograf",
     title: "Tapet Atelier Fotograf — Artă & Creativitate",
@@ -459,8 +399,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Atelier Fotograf | Decor Artistic | Prynt",
     seoDescription: "Reflectă pasiunea pentru fotografie. Print pentru studiouri foto.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Capturăm momente</h2><p>Un decor care celebrează arta vizuală.</p>`
-  },
+    contentHtml: `<h2>Capturăm momente</h2><p>Un decor care celebrează arta vizuală.</p>`\n  },
   "arta": {
     key: "arta",
     title: "Tapet Atelier Artă — Inspirație & Creație",
@@ -468,8 +407,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Atelier Arta | Decor Creativ | Prynt",
     seoDescription: "Stimulează creativitatea. Tapet pentru artiști.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Expresie artistică</h2><p>Un spațiu care încurajează imaginația.</p>`
-  },
+    contentHtml: `<h2>Expresie artistică</h2><p>Un spațiu care încurajează imaginația.</p>`\n  },
   "muzica": {
     key: "muzica",
     title: "Tapet Studio Muzică — Ritm & Armonie",
@@ -477,8 +415,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Studio Muzica | Decor Ritmic | Prynt",
     seoDescription: "Creează atmosfera perfectă pentru muzică. Print pentru studiouri.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Muzica sufletului</h2><p>Un decor care vibrează de pasiune.</p>`
-  },
+    contentHtml: `<h2>Muzica sufletului</h2><p>Un decor care vibrează de pasiune.</p>`\n  },
   "dans": {
     key: "dans",
     title: "Tapet Școală Dans — Mișcare & Grație",
@@ -486,8 +423,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Scoala Dans | Decor Grațios | Prynt",
     seoDescription: "Inspiră mișcarea. Tapet pentru studiouri dans.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Arta mișcării</h2><p>Un decor care celebrează grația.</p>`
-  },
+    contentHtml: `<h2>Arta mișcării</h2><p>Un decor care celebrează grația.</p>`\n  },
   "yoga": {
     key: "yoga",
     title: "Tapet Studio Yoga — Pace & Echilibru",
@@ -495,8 +431,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Studio Yoga | Decor Calmant | Prynt",
     seoDescription: "Promovează relaxarea. Print pentru centre yoga.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Echilibru interior</h2><p>Un spațiu pentru pace și reflecție.</p>`
-  },
+    contentHtml: `<h2>Echilibru interior</h2><p>Un spațiu pentru pace și reflecție.</p>`\n  },
   "pilates": {
     key: "pilates",
     title: "Tapet Studio Pilates — Forță & Flexibilitate",
@@ -504,8 +439,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Studio Pilates | Decor Fitness | Prynt",
     seoDescription: "Motivați elevii. Tapet pentru centre pilates.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Corp și minte</h2><p>Un decor care inspiră sănătate.</p>`
-  },
+    contentHtml: `<h2>Corp și minte</h2><p>Un decor care inspiră sănătate.</p>`\n  },
   "terapie": {
     key: "terapie",
     title: "Tapet Cabinet Terapie — Vindecare & Sprijin",
@@ -513,8 +447,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Cabinet Terapie | Decor Calmant | Prynt",
     seoDescription: "Ajută la vindecare emoțională. Print pentru terapeuți.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Sprijin și vindecare</h2><p>Un spațiu sigur pentru reflecție.</p>`
-  },
+    contentHtml: `<h2>Sprijin și vindecare</h2><p>Un spațiu sigur pentru reflecție.</p>`\n  },
   "psiholog": {
     key: "psiholog",
     title: "Tapet Cabinet Psiholog — Înțelegere & Empatie",
@@ -522,8 +455,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Cabinet Psiholog | Decor Empatic | Prynt",
     seoDescription: "Creează un mediu de încredere. Tapet pentru psihologi.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Minte sănătoasă</h2><p>Un decor care promovează dialogul.</p>`
-  },
+    contentHtml: `<h2>Minte sănătoasă</h2><p>Un decor care promovează dialogul.</p>`\n  },
   "masaj": {
     key: "masaj",
     title: "Tapet Salon Masaj — Relaxare & Bine",
@@ -531,8 +463,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Salon Masaj | Decor Relaxant | Prynt",
     seoDescription: "Completează tratamentele. Print pentru centre masaj.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Bine și relaxare</h2><p>Un spațiu pentru reîncărcare.</p>`
-  },
+    contentHtml: `<h2>Bine și relaxare</h2><p>Un spațiu pentru reîncărcare.</p>`\n  },
   "tatuaj": {
     key: "tatuaj",
     title: "Tapet Salon Tatuaj — Artă & Individualitate",
@@ -540,8 +471,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Salon Tatuaj | Decor Artistic | Prynt",
     seoDescription: "Reflectă creativitatea. Tapet pentru studiouri tattoo.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Artă pe piele</h2><p>Un decor care celebrează expresia personală.</p>`
-  },
+    contentHtml: `<h2>Artă pe piele</h2><p>Un decor care celebrează expresia personală.</p>`\n  },
   "bijuterii": {
     key: "bijuterii",
     title: "Tapet Atelier Bijuterii — Lux & Detaliu",
@@ -549,8 +479,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Atelier Bijuterii | Decor Luxos | Prynt",
     seoDescription: "Arată măiestria. Print pentru bijutieri.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Frumusețe eternă</h2><p>Un decor care strălucește.</p>`
-  },
+    contentHtml: `<h2>Frumusețe eternă</h2><p>Un decor care strălucește.</p>`\n  },
   "ceasuri": {
     key: "ceasuri",
     title: "Tapet Atelier Ceasuri — Precizie & Timp",
@@ -558,8 +487,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Atelier Ceasuri | Decor Tehnic | Prynt",
     seoDescription: "Reflectă pasiunea pentru timp. Tapet pentru ceasornicari.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Timpul zboară</h2><p>Un decor care măsoară măiestria.</p>`
-  },
+    contentHtml: `<h2>Timpul zboară</h2><p>Un decor care măsoară măiestria.</p>`\n  },
   "mobilier": {
     key: "mobilier",
     title: "Tapet Atelier Mobilier — Lemn & Design",
@@ -567,8 +495,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Atelier Mobilier | Decor Artizanal | Prynt",
     seoDescription: "Celebrează meșteșugul. Print pentru tâmplari.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Artă din lemn</h2><p>Un decor care inspiră creație.</p>`
-  },
+    contentHtml: `<h2>Artă din lemn</h2><p>Un decor care inspiră creație.</p>`\n  },
   "textile": {
     key: "textile",
     title: "Tapet Atelier Textile — Țesătură & Culoare",
@@ -576,8 +503,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Atelier Textile | Decor Colorat | Prynt",
     seoDescription: "Reflectă diversitatea. Tapet pentru designeri textile.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Fire de culoare</h2><p>Un decor care țese povești.</p>`
-  },
+    contentHtml: `<h2>Fire de culoare</h2><p>Un decor care țese povești.</p>`\n  },
   "ceramica": {
     key: "ceramica",
     title: "Tapet Atelier Ceramică — Formă & Textură",
@@ -585,8 +511,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Atelier Ceramica | Decor Artizanal | Prynt",
     seoDescription: "Celebrează pământul. Print pentru olari.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Forme din lut</h2><p>Un decor care modelează frumusețea.</p>`
-  },
+    contentHtml: `<h2>Forme din lut</h2><p>Un decor care modelează frumusețea.</p>`\n  },
   "sticla": {
     key: "sticla",
     title: "Tapet Atelier Sticlă — Transparență & Lucru",
@@ -594,8 +519,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Atelier Sticla | Decor Transparent | Prynt",
     seoDescription: "Reflectă claritatea. Tapet pentru sticlari.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Lumini și forme</h2><p>Un decor care strălucește.</p>`
-  },
+    contentHtml: `<h2>Lumini și forme</h2><p>Un decor care strălucește.</p>`\n  },
   "metal": {
     key: "metal",
     title: "Tapet Atelier Metal — Forță & Structură",
@@ -603,8 +527,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Atelier Metal | Decor Industrial | Prynt",
     seoDescription: "Arată rezistența. Print pentru fierari.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Metal și măiestrie</h2><p>Un decor care construiește viitorul.</p>`
-  },
+    contentHtml: `<h2>Metal și măiestrie</h2><p>Un decor care construiește viitorul.</p>`\n  },
   "electronice": {
     key: "electronice",
     title: "Tapet Atelier Electronice — Inovație & Circuit",
@@ -612,8 +535,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Atelier Electronice | Decor Tech | Prynt",
     seoDescription: "Reflectă viitorul. Tapet pentru electroniști.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Circuite inteligente</h2><p>Un decor care conectează idei.</p>`
-  },
+    contentHtml: `<h2>Circuite inteligente</h2><p>Un decor care conectează idei.</p>`\n  },
   "robotica": {
     key: "robotica",
     title: "Tapet Atelier Robotică — Automatizare & Precizie",
@@ -621,8 +543,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Atelier Robotica | Decor Futurist | Prynt",
     seoDescription: "Celebrează tehnologia. Print pentru roboțiști.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Machine learning</h2><p>Un decor care programează viitorul.</p>`
-  },
+    contentHtml: `<h2>Machine learning</h2><p>Un decor care programează viitorul.</p>`\n  },
   "aviatie": {
     key: "aviatie",
     title: "Tapet Atelier Aviație — Zbor & Libertate",
@@ -630,8 +551,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Atelier Aviatie | Decor Aerian | Prynt",
     seoDescription: "Reflectă visul zborului. Tapet pentru aviatori.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Către ceruri</h2><p>Un decor care inspiră înălțare.</p>`
-  },
+    contentHtml: `<h2>Către ceruri</h2><p>Un decor care inspiră înălțare.</p>`\n  },
   "naval": {
     key: "naval",
     title: "Tapet Atelier Naval — Mare & Explorare",
@@ -639,8 +559,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Atelier Naval | Decor Maritim | Prynt",
     seoDescription: "Celebrează oceanul. Print pentru constructori nave.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Valuri și vânt</h2><p>Un decor care navighează vise.</p>`
-  },
+    contentHtml: `<h2>Valuri și vânt</h2><p>Un decor care navighează vise.</p>`\n  },
   "spatiu": {
     key: "spatiu",
     title: "Tapet Atelier Spațial — Cosmos & Explorare",
@@ -648,8 +567,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Atelier Spatiu | Decor Cosmic | Prynt",
     seoDescription: "Reflectă infinitul. Tapet pentru ingineri spațiali.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Către stele</h2><p>Un decor care explorează universul.</p>`
-  },
+    contentHtml: `<h2>Către stele</h2><p>Un decor care explorează universul.</p>`\n  },
   "energie": {
     key: "energie",
     title: "Tapet Firmă Energie — Putere & Sustenabilitate",
@@ -657,8 +575,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Firma Energie | Decor Verde | Prynt",
     seoDescription: "Promovează viitorul curat. Print pentru energii regenerabile.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Energie verde</h2><p>Un decor care luminează viitorul.</p>`
-  },
+    contentHtml: `<h2>Energie verde</h2><p>Un decor care luminează viitorul.</p>`\n  },
   "apa": {
     key: "apa",
     title: "Tapet Firmă Apă — Puritate & Flux",
@@ -666,8 +583,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Firma Apa | Decor Fluid | Prynt",
     seoDescription: "Celebrează apa vieții. Tapet pentru tratare apă.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Fluxul vieții</h2><p>Un decor care curge cu puritate.</p>`
-  },
+    contentHtml: `<h2>Fluxul vieții</h2><p>Un decor care curge cu puritate.</p>`\n  },
   "reciclare": {
     key: "reciclare",
     title: "Tapet Firmă Reciclare — Reînnoire & Planetă",
@@ -675,8 +591,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet Firma Reciclare | Decor Verde | Prynt",
     seoDescription: "Salvează planeta. Print pentru centre reciclare.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>O planetă mai bună</h2><p>Un decor care reînnoiește speranța.</p>`
-  },
+    contentHtml: `<h2>O planetă mai bună</h2><p>Un decor care reînnoiește speranța.</p>`\n  },
   "protectia-mediu": {
     key: "protectia-mediu",
     title: "Tapet ONG Mediu — Natură & Conservare",
@@ -684,8 +599,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Mediu | Decor Ecologic | Prynt",
     seoDescription: "Protejează natura. Tapet pentru activiști mediu.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Pământul nostru</h2><p>Un decor care inspiră grijă.</p>`
-  },
+    contentHtml: `<h2>Pământul nostru</h2><p>Un decor care inspiră grijă.</p>`\n  },
   "animale": {
     key: "animale",
     title: "Tapet ONG Animale — Compasiune & Ajutor",
@@ -693,8 +607,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Animale | Decor Prietenos | Prynt",
     seoDescription: "Ajută animalele. Print pentru protectori animale.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Prieteni necuvântători</h2><p>Un decor care trezește compasiune.</p>`
-  },
+    contentHtml: `<h2>Prieteni necuvântători</h2><p>Un decor care trezește compasiune.</p>`\n  },
   "copii": {
     key: "copii",
     title: "Tapet ONG Copii — Speranță & Viitor",
@@ -702,8 +615,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Copii | Decor Inspirational | Prynt",
     seoDescription: "Construiește viitorul. Tapet pentru fundații copii.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Mâini mici, vise mari</h2><p>Un decor care luminează speranța.</p>`
-  },
+    contentHtml: `<h2>Mâini mici, vise mari</h2><p>Un decor care luminează speranța.</p>`\n  },
   "sanatate": {
     key: "sanatate",
     title: "Tapet ONG Sănătate — Vindecare & Sprijin",
@@ -711,8 +623,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Sanatate | Decor Empatic | Prynt",
     seoDescription: "Îmbunătățește vieți. Print pentru organizații sănătate.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Sănătate pentru toți</h2><p>Un decor care vindecă suflete.</p>`
-  },
+    contentHtml: `<h2>Sănătate pentru toți</h2><p>Un decor care vindecă suflete.</p>`\n  },
   "educatie": {
     key: "educatie",
     title: "Tapet ONG Educație — Cunoaștere & Dezvoltare",
@@ -720,8 +631,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Educatie | Decor Educational | Prynt",
     seoDescription: "Educația schimbă lumea. Tapet pentru fundații educaționale.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Cunoașterea eliberează</h2><p>Un decor care inspiră învățare.</p>`
-  },
+    contentHtml: `<h2>Cunoașterea eliberează</h2><p>Un decor care inspiră învățare.</p>`\n  },
   "cultura": {
     key: "cultura",
     title: "Tapet ONG Cultură — Artă & Tradiție",
@@ -729,8 +639,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Cultura | Decor Artistic | Prynt",
     seoDescription: "Păstrează cultura. Print pentru organizații culturale.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Moștenirea noastră</h2><p>Un decor care celebrează diversitatea.</p>`
-  },
+    contentHtml: `<h2>Moștenirea noastră</h2><p>Un decor care celebrează diversitatea.</p>`\n  },
   "sport": {
     key: "sport",
     title: "Tapet ONG Sport — Energie & Echipă",
@@ -738,8 +647,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Sport | Decor Motivational | Prynt",
     seoDescription: "Promovează sănătatea. Tapet pentru cluburi sportive.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Jocuri și echipă</h2><p>Un decor care inspiră performanță.</p>`
-  },
+    contentHtml: `<h2>Jocuri și echipă</h2><p>Un decor care inspiră performanță.</p>`\n  },
   "religie": {
     key: "religie",
     title: "Tapet ONG Religie — Spiritualitate & Comunitate",
@@ -747,8 +655,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Religie | Decor Spiritual | Prynt",
     seoDescription: "Construiește comunități. Print pentru organizații religioase.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Credință și unitate</h2><p>Un decor care unește suflete.</p>`
-  },
+    contentHtml: `<h2>Credință și unitate</h2><p>Un decor care unește suflete.</p>`\n  },
   "voluntariat": {
     key: "voluntariat",
     title: "Tapet ONG Voluntariat — Altruism & Impact",
@@ -756,8 +663,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Voluntariat | Decor Inspirational | Prynt",
     seoDescription: "Schimbă lumea. Tapet pentru centre voluntariat.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Mâini care ajută</h2><p>Un decor care inspiră altruism.</p>`
-  },
+    contentHtml: `<h2>Mâini care ajută</h2><p>Un decor care inspiră altruism.</p>`\n  },
   "drepturi-om": {
     key: "drepturi-om",
     title: "Tapet ONG Drepturi Om — Egalitate & Justiție",
@@ -765,8 +671,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Drepturi Om | Decor Empatic | Prynt",
     seoDescription: "Apără drepturile. Print pentru organizații drepturi.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Egalitate pentru toți</h2><p>Un decor care luptă pentru justiție.</p>`
-  },
+    contentHtml: `<h2>Egalitate pentru toți</h2><p>Un decor care luptă pentru justiție.</p>`\n  },
   "dezvoltare": {
     key: "dezvoltare",
     title: "Tapet ONG Dezvoltare — Progres & Comunitate",
@@ -774,8 +679,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Dezvoltare | Decor Inspirational | Prynt",
     seoDescription: "Construiește viitorul. Tapet pentru organizații dezvoltare.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Împreună înainte</h2><p>Un decor care inspiră schimbare.</p>`
-  },
+    contentHtml: `<h2>Împreună înainte</h2><p>Un decor care inspiră schimbare.</p>`\n  },
   "tehnologie": {
     key: "tehnologie",
     title: "Tapet ONG Tehnologie — Inovație & Acces",
@@ -783,8 +687,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Tehnologie | Decor Futurist | Prynt",
     seoDescription: "Conectează lumea. Print pentru organizații tech.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Tehnologia unește</h2><p>Un decor care programează viitorul.</p>`
-  },
+    contentHtml: `<h2>Tehnologia unește</h2><p>Un decor care programează viitorul.</p>`\n  },
   "arta-si-cultura": {
     key: "arta-si-cultura",
     title: "Tapet ONG Artă și Cultură — Creație & Expresie",
@@ -792,8 +695,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Arta si Cultura | Decor Artistic | Prynt",
     seoDescription: "Celebrează creativitatea. Tapet pentru centre culturale.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Expresie liberă</h2><p>Un decor care inspiră artă.</p>`
-  },
+    contentHtml: `<h2>Expresie liberă</h2><p>Un decor care inspiră artă.</p>`\n  },
   "turism-durabil": {
     key: "turism-durabil",
     title: "Tapet ONG Turism Durabil — Natură & Explorare",
@@ -801,8 +703,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Turism Durabil | Decor Ecologic | Prynt",
     seoDescription: "Protejează destinații. Print pentru turism verde.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Călătorii responsabile</h2><p>Un decor care păstrează frumusețea.</p>`
-  },
+    contentHtml: `<h2>Călătorii responsabile</h2><p>Un decor care păstrează frumusețea.</p>`\n  },
   "alimentatie": {
     key: "alimentatie",
     title: "Tapet ONG Alimentație — Nutriție & Sustenabilitate",
@@ -810,8 +711,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Alimentatie | Decor Sustenabil | Prynt",
     seoDescription: "Hrănește comunitatea. Tapet pentru bănci alimentare.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Hrana pentru toți</h2><p>Un decor care împarte abundența.</p>`
-  },
+    contentHtml: `<h2>Hrana pentru toți</h2><p>Un decor care împarte abundența.</p>`\n  },
   "locuinte": {
     key: "locuinte",
     title: "Tapet ONG Locuințe — Acasă & Siguranță",
@@ -819,8 +719,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Locuinte | Decor Prietenos | Prynt",
     seoDescription: "Oferă adăpost. Print pentru organizații locuințe.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Un acoperiș deasupra capului</h2><p>Un decor care construiește siguranță.</p>`
-  },
+    contentHtml: `<h2>Un acoperiș deasupra capului</h2><p>Un decor care construiește siguranță.</p>`\n  },
   "batrani": {
     key: "batrani",
     title: "Tapet ONG Bătrâni — Respect & Îngrijire",
@@ -828,8 +727,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Batrani | Decor Empatic | Prynt",
     seoDescription: "Onorează înțelepciunea. Tapet pentru centre bătrâni.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Anii de aur</h2><p>Un decor care celebrează viață.</p>`
-  },
+    contentHtml: `<h2>Anii de aur</h2><p>Un decor care celebrează viață.</p>`\n  },
   "handicap": {
     key: "handicap",
     title: "Tapet ONG Handicap — Incluziune & Sprijin",
@@ -837,8 +735,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Handicap | Decor Inclusiv | Prynt",
     seoDescription: "Promovează egalitatea. Print pentru organizații handicap.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Toți merităm șanse egale</h2><p>Un decor care construiește punte.</p>`
-  },
+    contentHtml: `<h2>Toți merităm șanse egale</h2><p>Un decor care construiește punte.</p>`\n  },
   "femei": {
     key: "femei",
     title: "Tapet ONG Femei — Putere & Egalitate",
@@ -846,8 +743,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Femei | Decor Empatic | Prynt",
     seoDescription: "Susține drepturile. Tapet pentru centre femei.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Putere feminină</h2><p>Un decor care inspiră schimbare.</p>`
-  },
+    contentHtml: `<h2>Putere feminină</h2><p>Un decor care inspiră schimbare.</p>`\n  },
   "tineri": {
     key: "tineri",
     title: "Tapet ONG Tineri — Viitor & Oportunități",
@@ -855,8 +751,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Tineri | Decor Inspirational | Prynt",
     seoDescription: "Construiește viitorul. Print pentru organizații tineri.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Energie tânără</h2><p>Un decor care deschide uși.</p>`
-  },
+    contentHtml: `<h2>Energie tânără</h2><p>Un decor care deschide uși.</p>`\n  },
   "imigranti": {
     key: "imigranti",
     title: "Tapet ONG Imigranți — Integrare & Sprijin",
@@ -864,8 +759,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Imigranti | Decor Inclusiv | Prynt",
     seoDescription: "Binevenit acasă. Tapet pentru centre imigranți.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Împreună în diversitate</h2><p>Un decor care unește culturi.</p>`
-  },
+    contentHtml: `<h2>Împreună în diversitate</h2><p>Un decor care unește culturi.</p>`\n  },
   "dezastre": {
     key: "dezastre",
     title: "Tapet ONG Dezastre — Ajutor & Reconstrucție",
@@ -873,8 +767,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Dezastre | Decor Inspirational | Prynt",
     seoDescription: "Reconstruiește vieți. Print pentru organizații dezastre.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Speranță după furtună</h2><p>Un decor care aduce lumină.</p>`
-  },
+    contentHtml: `<h2>Speranță după furtună</h2><p>Un decor care aduce lumină.</p>`\n  },
   "pace": {
     key: "pace",
     title: "Tapet ONG Pace — Armonie & Dialog",
@@ -882,8 +775,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Pace | Decor Empatic | Prynt",
     seoDescription: "Promovează pacea. Tapet pentru organizații pace.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Lume fără războaie</h2><p>Un decor care inspiră dialog.</p>`
-  },
+    contentHtml: `<h2>Lume fără războaie</h2><p>Un decor care inspiră dialog.</p>`\n  },
   "democratie": {
     key: "democratie",
     title: "Tapet ONG Democrație — Libertate & Participare",
@@ -891,8 +783,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Democratie | Decor Inspirational | Prynt",
     seoDescription: "Apără valorile. Print pentru organizații democrație.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Vocea poporului</h2><p>Un decor care celebrează libertatea.</p>`
-  },
+    contentHtml: `<h2>Vocea poporului</h2><p>Un decor care celebrează libertatea.</p>`\n  },
   "transparență": {
     key: "transparență",
     title: "Tapet ONG Transparență — Integritate & Responsabilitate",
@@ -900,8 +791,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Transparenta | Decor Profesional | Prynt",
     seoDescription: "Promovează onestitatea. Tapet pentru organizații transparență.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Claritate și onestitate</h2><p>Un decor care construiește încredere.</p>`
-  },
+    contentHtml: `<h2>Claritate și onestitate</h2><p>Un decor care construiește încredere.</p>`\n  },
   "inovatie": {
     key: "inovatie",
     title: "Tapet ONG Inovație — Creativitate & Progres",
@@ -909,8 +799,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Inovatie | Decor Futurist | Prynt",
     seoDescription: "Inovează pentru bine. Print pentru centre inovație.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Gândire nouă</h2><p>Un decor care inspiră soluții.</p>`
-  },
+    contentHtml: `<h2>Gândire nouă</h2><p>Un decor care inspiră soluții.</p>`\n  },
   "comunitate": {
     key: "comunitate",
     title: "Tapet ONG Comunitate — Unitate & Solidaritate",
@@ -918,8 +807,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Comunitate | Decor Prietenos | Prynt",
     seoDescription: "Construiește legături. Tapet pentru centre comunitare.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Împreună suntem mai puternici</h2><p>Un decor care unește inimi.</p>`
-  },
+    contentHtml: `<h2>Împreună suntem mai puternici</h2><p>Un decor care unește inimi.</p>`\n  },
   "viitor": {
     key: "viitor",
     title: "Tapet ONG Viitor — Viziune & Planificare",
@@ -927,8 +815,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Viitor | Decor Inspirational | Prynt",
     seoDescription: "Plănuiește mâine. Print pentru organizații viitor.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Mâine începe azi</h2><p>Un decor care vizează stelele.</p>`
-  },
+    contentHtml: `<h2>Mâine începe azi</h2><p>Un decor care vizează stelele.</p>`\n  },
   "global": {
     key: "global",
     title: "Tapet ONG Global — Lume & Conexiune",
@@ -936,8 +823,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Global | Decor Universal | Prynt",
     seoDescription: "Conectează lumea. Tapet pentru organizații globale.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>O lume conectată</h2><p>Un decor care unește continente.</p>`
-  },
+    contentHtml: `<h2>O lume conectată</h2><p>Un decor care unește continente.</p>`\n  },
   "sustinabilitate": {
     key: "sustinabilitate",
     title: "Tapet ONG Sustenabilitate — Planetă & Viitor",
@@ -945,8 +831,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Sustinabilitate | Decor Verde | Prynt",
     seoDescription: "Salvează planeta. Print pentru centre sustenabilitate.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Pământul nostru comun</h2><p>Un decor care plantează semințe de schimbare.</p>`
-  },
+    contentHtml: `<h2>Pământul nostru comun</h2><p>Un decor care plantează semințe de schimbare.</p>`\n  },
   "egalitate": {
     key: "egalitate",
     title: "Tapet ONG Egalitate — Dreptate & Incluziune",
@@ -954,8 +839,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Egalitate | Decor Empatic | Prynt",
     seoDescription: "Promovează dreptatea. Tapet pentru organizații egalitate.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Toți egali în drepturi</h2><p>Un decor care construiește o lume mai bună.</p>`
-  },
+    contentHtml: `<h2>Toți egali în drepturi</h2><p>Un decor care construiește o lume mai bună.</p>`\n  },
   "diversitate": {
     key: "diversitate",
     title: "Tapet ONG Diversitate — Culori & Culturi",
@@ -963,8 +847,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Diversitate | Decor Colorat | Prynt",
     seoDescription: "Celebrează diferențele. Print pentru centre diversitate.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Frumusețea diversității</h2><p>Un decor care îmbrățișează toate culorile.</p>`
-  },
+    contentHtml: `<h2>Frumusețea diversității</h2><p>Un decor care îmbrățișează toate culorile.</p>`\n  },
   "responsabilitate": {
     key: "responsabilitate",
     title: "Tapet ONG Responsabilitate — Acțiune & Impact",
@@ -972,8 +855,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Responsabilitate | Decor Inspirational | Prynt",
     seoDescription: "Fă diferența. Tapet pentru organizații responsabilitate.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Acțiuni care contează</h2><p>Un decor care inspiră responsabilitate.</p>`
-  },
+    contentHtml: `<h2>Acțiuni care contează</h2><p>Un decor care inspiră responsabilitate.</p>`\n  },
   "parteneriate": {
     key: "parteneriate",
     title: "Tapet ONG Parteneriate — Colaborare & Rețea",
@@ -981,8 +863,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Parteneriate | Decor Colaborativ | Prynt",
     seoDescription: "Construiește alianțe. Print pentru centre parteneriate.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Împreună pentru schimbare</h2><p>Un decor care țese rețele.</p>`
-  },
+    contentHtml: `<h2>Împreună pentru schimbare</h2><p>Un decor care țese rețele.</p>`\n  },
   "impact": {
     key: "impact",
     title: "Tapet ONG Impact — Rezultate & Schimbare",
@@ -990,8 +871,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Impact | Decor Motivational | Prynt",
     seoDescription: "Măsoară succesul. Tapet pentru organizații impact.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Schimbarea începe cu tine</h2><p>Un decor care măsoară progresul.</p>`
-  },
+    contentHtml: `<h2>Schimbarea începe cu tine</h2><p>Un decor care măsoară progresul.</p>`\n  },
   "vizibilitate": {
     key: "vizibilitate",
     title: "Tapet ONG Vizibilitate — Voce & Audiență",
@@ -999,8 +879,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Vizibilitate | Decor Comunicativ | Prynt",
     seoDescription: "Fă-te auzit. Print pentru centre vizibilitate.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Vocea comunității</h2><p>Un decor care amplifică mesajul.</p>`
-  },
+    contentHtml: `<h2>Vocea comunității</h2><p>Un decor care amplifică mesajul.</p>`\n  },
   "finantare": {
     key: "finantare",
     title: "Tapet ONG Finanțare — Resurse & Sustenabilitate",
@@ -1008,8 +887,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Finantare | Decor Profesional | Prynt",
     seoDescription: "Asigură viitorul. Tapet pentru centre finanțare.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Resurse pentru bine</h2><p>Un decor care atrage sprijin.</p>`
-  },
+    contentHtml: `<h2>Resurse pentru bine</h2><p>Un decor care atrage sprijin.</p>`\n  },
   "voluntari": {
     key: "voluntari",
     title: "Tapet ONG Voluntari — Dăruire & Energie",
@@ -1017,8 +895,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Voluntari | Decor Inspirational | Prynt",
     seoDescription: "Mulțumește eroilor. Print pentru centre voluntari.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Inimi generoase</h2><p>Un decor care celebrează dăruirea.</p>`
-  },
+    contentHtml: `<h2>Inimi generoase</h2><p>Un decor care celebrează dăruirea.</p>`\n  },
   "campanii": {
     key: "campanii",
     title: "Tapet ONG Campanii — Mobilizare & Conștientizare",
@@ -1026,8 +903,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Campanii | Decor Motivational | Prynt",
     seoDescription: "Mobilizează pentru cauză. Tapet pentru centre campanii.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Vocea schimbării</h2><p>Un decor care trezește conștiința.</p>`
-  },
+    contentHtml: `<h2>Vocea schimbării</h2><p>Un decor care trezește conștiința.</p>`\n  },
   "proiecte": {
     key: "proiecte",
     title: "Tapet ONG Proiecte — Implementare & Succes",
@@ -1035,8 +911,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Proiecte | Decor Profesional | Prynt",
     seoDescription: "Realizează vise. Print pentru centre proiecte.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>De la idee la realitate</h2><p>Un decor care inspiră execuție.</p>`
-  },
+    contentHtml: `<h2>De la idee la realitate</h2><p>Un decor care inspiră execuție.</p>`\n  },
   "evaluare": {
     key: "evaluare",
     title: "Tapet ONG Evaluare — Măsurare & Îmbunătățire",
@@ -1044,8 +919,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Evaluare | Decor Analitic | Prynt",
     seoDescription: "Îmbunătățește impactul. Tapet pentru centre evaluare.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Măsurarea succesului</h2><p>Un decor care analizează progresul.</p>`
-  },
+    contentHtml: `<h2>Măsurarea succesului</h2><p>Un decor care analizează progresul.</p>`\n  },
   "strategie": {
     key: "strategie",
     title: "Tapet ONG Strategie — Planificare & Viziune",
@@ -1053,8 +927,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Strategie | Decor Strategic | Prynt",
     seoDescription: "Planifică viitorul. Print pentru centre strategie.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Viziune clară</h2><p>Un decor care trasează drumul.</p>`
-  },
+    contentHtml: `<h2>Viziune clară</h2><p>Un decor care trasează drumul.</p>`\n  },
   "leadership": {
     key: "leadership",
     title: "Tapet ONG Leadership — Conducere & Inspirație",
@@ -1062,8 +935,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Leadership | Decor Inspirational | Prynt",
     seoDescription: "Inspiră lideri. Tapet pentru centre leadership.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Lideri pentru schimbare</h2><p>Un decor care cultivă leadership.</p>`
-  },
+    contentHtml: `<h2>Lideri pentru schimbare</h2><p>Un decor care cultivă leadership.</p>`\n  },
   "comunicare": {
     key: "comunicare",
     title: "Tapet ONG Comunicare — Mesaj & Conexiune",
@@ -1071,8 +943,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Comunicare | Decor Comunicativ | Prynt",
     seoDescription: "Conectează cu publicul. Print pentru centre comunicare.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Mesaje care ajung</h2><p>Un decor care facilitează dialogul.</p>`
-  },
+    contentHtml: `<h2>Mesaje care ajung</h2><p>Un decor care facilitează dialogul.</p>`\n  },
   "tehnologie-ong": {
     key: "tehnologie-ong",
     title: "Tapet ONG Tehnologie — Digital & Inovație",
@@ -1080,8 +951,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Tehnologie | Decor Tech | Prynt",
     seoDescription: "Inovează pentru bine. Tapet pentru centre tech ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Tehnologia pentru bine</h2><p>Un decor care conectează inovația cu impactul.</p>`
-  },
+    contentHtml: `<h2>Tehnologia pentru bine</h2><p>Un decor care conectează inovația cu impactul.</p>`\n  },
   "arta-ong": {
     key: "arta-ong",
     title: "Tapet ONG Artă — Creație & Expresie",
@@ -1089,8 +959,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Arta | Decor Artistic | Prynt",
     seoDescription: "Arta schimbă lumea. Print pentru centre artă ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Expresie liberă pentru bine</h2><p>Un decor care inspiră creație socială.</p>`
-  },
+    contentHtml: `<h2>Expresie liberă pentru bine</h2><p>Un decor care inspiră creație socială.</p>`\n  },
   "sport-ong": {
     key: "sport-ong",
     title: "Tapet ONG Sport — Sănătate & Comunitate",
@@ -1098,8 +967,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Sport | Decor Motivational | Prynt",
     seoDescription: "Sport pentru toți. Tapet pentru centre sport ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Mișcare pentru bine</h2><p>Un decor care promovează sănătatea comunității.</p>`
-  },
+    contentHtml: `<h2>Mișcare pentru bine</h2><p>Un decor care promovează sănătatea comunității.</p>`\n  },
   "educatie-ong": {
     key: "educatie-ong",
     title: "Tapet ONG Educație — Cunoaștere & Dezvoltare",
@@ -1107,8 +975,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Educatie | Decor Educational | Prynt",
     seoDescription: "Educația eliberează. Print pentru centre educație ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Cunoașterea pentru toți</h2><p>Un decor care inspiră învățare comunitară.</p>`
-  },
+    contentHtml: `<h2>Cunoașterea pentru toți</h2><p>Un decor care inspiră învățare comunitară.</p>`\n  },
   "sanatate-ong": {
     key: "sanatate-ong",
     title: "Tapet ONG Sănătate — Îngrijire & Prevenție",
@@ -1116,8 +983,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Sanatate | Decor Empatic | Prynt",
     seoDescription: "Sănătate pentru toți. Tapet pentru centre sănătate ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Îngrijire pentru comunitate</h2><p>Un decor care promovează bunăstarea generală.</p>`
-  },
+    contentHtml: `<h2>Îngrijire pentru comunitate</h2><p>Un decor care promovează bunăstarea generală.</p>`\n  },
   "mediu-ong": {
     key: "mediu-ong",
     title: "Tapet ONG Mediu — Natură & Conservare",
@@ -1125,8 +991,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Mediu | Decor Ecologic | Prynt",
     seoDescription: "Protejează planeta. Print pentru centre mediu ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Natura noastră comună</h2><p>Un decor care inspiră conservarea.</p>`
-  },
+    contentHtml: `<h2>Natura noastră comună</h2><p>Un decor care inspiră conservarea.</p>`\n  },
   "social-ong": {
     key: "social-ong",
     title: "Tapet ONG Social — Sprijin & Incluziune",
@@ -1134,8 +999,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Social | Decor Empatic | Prynt",
     seoDescription: "Ajută comunitatea. Tapet pentru centre sociale ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Sprijin pentru toți</h2><p>Un decor care construiește incluziune.</p>`
-  },
+    contentHtml: `<h2>Sprijin pentru toți</h2><p>Un decor care construiește incluziune.</p>`\n  },
   "cultural-ong": {
     key: "cultural-ong",
     title: "Tapet ONG Cultural — Tradiție & Identitate",
@@ -1143,8 +1007,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Cultural | Decor Artistic | Prynt",
     seoDescription: "Păstrează cultura. Print pentru centre culturale ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Moștenirea noastră</h2><p>Un decor care celebrează identitatea.</p>`
-  },
+    contentHtml: `<h2>Moștenirea noastră</h2><p>Un decor care celebrează identitatea.</p>`\n  },
   "economic-ong": {
     key: "economic-ong",
     title: "Tapet ONG Economic — Dezvoltare & Oportunități",
@@ -1152,8 +1015,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Economic | Decor Profesional | Prynt",
     seoDescription: "Dezvoltă comunitatea. Tapet pentru centre economice ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Oportunități pentru toți</h2><p>Un decor care inspiră creștere economică.</p>`
-  },
+    contentHtml: `<h2>Oportunități pentru toți</h2><p>Un decor care inspiră creștere economică.</p>`\n  },
   "politic-ong": {
     key: "politic-ong",
     title: "Tapet ONG Politic — Democrație & Participare",
@@ -1161,8 +1023,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Politic | Decor Inspirational | Prynt",
     seoDescription: "Participă la democrație. Print pentru centre politice ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Vocea cetățeanului</h2><p>Un decor care promovează participarea.</p>`
-  },
+    contentHtml: `<h2>Vocea cetățeanului</h2><p>Un decor care promovează participarea.</p>`\n  },
   "international-ong": {
     key: "international-ong",
     title: "Tapet ONG Internațional — Global & Solidaritate",
@@ -1170,8 +1031,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG International | Decor Universal | Prynt",
     seoDescription: "Solidaritate globală. Tapet pentru centre internaționale ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Lumea împreună</h2><p>Un decor care unește națiuni.</p>`
-  },
+    contentHtml: `<h2>Lumea împreună</h2><p>Un decor care unește națiuni.</p>`\n  },
   "local-ong": {
     key: "local-ong",
     title: "Tapet ONG Local — Comunitate & Identitate",
@@ -1179,8 +1039,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Local | Decor Prietenos | Prynt",
     seoDescription: "Construiește comunitatea. Print pentru centre locale ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Rădăcinile noastre</h2><p>Un decor care întărește legăturile locale.</p>`
-  },
+    contentHtml: `<h2>Rădăcinile noastre</h2><p>Un decor care întărește legăturile locale.</p>`\n  },
   "tineret-ong": {
     key: "tineret-ong",
     title: "Tapet ONG Tineret — Viitor & Energie",
@@ -1188,8 +1047,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Tineret | Decor Inspirational | Prynt",
     seoDescription: "Energie tânără pentru schimbare. Tapet pentru centre tineret ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Viitorul în mâinile tinere</h2><p>Un decor care inspiră generația tânără.</p>`
-  },
+    contentHtml: `<h2>Viitorul în mâinile tinere</h2><p>Un decor care inspiră generația tânără.</p>`\n  },
   "femei-ong": {
     key: "femei-ong",
     title: "Tapet ONG Femei — Putere & Egalitate",
@@ -1197,8 +1055,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Femei | Decor Empatic | Prynt",
     seoDescription: "Putere feminină. Tapet pentru centre femei ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Egalitate pentru toate</h2><p>Un decor care celebrează puterea feminină.</p>`
-  },
+    contentHtml: `<h2>Egalitate pentru toate</h2><p>Un decor care celebrează puterea feminină.</p>`\n  },
   "barbati-ong": {
     key: "barbati-ong",
     title: "Tapet ONG Bărbați — Responsabilitate & Sprijin",
@@ -1206,8 +1063,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Barbati | Decor Inspirational | Prynt",
     seoDescription: "Responsabilitate masculină. Print pentru centre bărbați ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Putere responsabilă</h2><p>Un decor care inspiră leadership masculin.</p>`
-  },
+    contentHtml: `<h2>Putere responsabilă</h2><p>Un decor care inspiră leadership masculin.</p>`\n  },
   "familie-ong": {
     key: "familie-ong",
     title: "Tapet ONG Familie — Unitate & Iubire",
@@ -1215,8 +1071,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Familie | Decor Prietenos | Prynt",
     seoDescription: "Familii puternice. Tapet pentru centre familie ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Iubire familială</h2><p>Un decor care întărește legăturile de familie.</p>`
-  },
+    contentHtml: `<h2>Iubire familială</h2><p>Un decor care întărește legăturile de familie.</p>`\n  },
   "copii-ong": {
     key: "copii-ong",
     title: "Tapet ONG Copii — Speranță & Protecție",
@@ -1224,8 +1079,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Copii | Decor Inspirational | Prynt",
     seoDescription: "Viitor luminos pentru copii. Print pentru centre copii ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Mâini mici, vise mari</h2><p>Un decor care protejează inocența.</p>`
-  },
+    contentHtml: `<h2>Mâini mici, vise mari</h2><p>Un decor care protejează inocența.</p>`\n  },
   "batrani-ong": {
     key: "batrani-ong",
     title: "Tapet ONG Bătrâni — Respect & Îngrijire",
@@ -1233,8 +1087,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Batrani | Decor Empatic | Prynt",
     seoDescription: "Respect pentru înțelepciune. Tapet pentru centre bătrâni ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Anii de aur</h2><p>Un decor care onorează experiența.</p>`
-  },
+    contentHtml: `<h2>Anii de aur</h2><p>Un decor care onorează experiența.</p>`\n  },
   "handicap-ong": {
     key: "handicap-ong",
     title: "Tapet ONG Handicap — Incluziune & Acces",
@@ -1242,8 +1095,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Handicap | Decor Inclusiv | Prynt",
     seoDescription: "Acces pentru toți. Print pentru centre handicap ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Egalitate în diversitate</h2><p>Un decor care construiește accesibilitate.</p>`
-  },
+    contentHtml: `<h2>Egalitate în diversitate</h2><p>Un decor care construiește accesibilitate.</p>`\n  },
   "imigranti-ong": {
     key: "imigranti-ong",
     title: "Tapet ONG Imigranți — Integrare & Bun Venit",
@@ -1251,8 +1103,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Imigranti | Decor Inclusiv | Prynt",
     seoDescription: "Bun venit acasă. Tapet pentru centre imigranți ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Împreună în diversitate</h2><p>Un decor care sărbătorește integrarea.</p>`
-  },
+    contentHtml: `<h2>Împreună în diversitate</h2><p>Un decor care sărbătorește integrarea.</p>`\n  },
   "dezastre-ong": {
     key: "dezastre-ong",
     title: "Tapet ONG Dezastre — Ajutor & Reconstrucție",
@@ -1260,8 +1111,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Dezastre | Decor Inspirational | Prynt",
     seoDescription: "Speranță după furtună. Print pentru centre dezastre ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Reconstrucție și speranță</h2><p>Un decor care aduce lumină în întuneric.</p>`
-  },
+    contentHtml: `<h2>Reconstrucție și speranță</h2><p>Un decor care aduce lumină în întuneric.</p>`\n  },
   "pace-ong": {
     key: "pace-ong",
     title: "Tapet ONG Pace — Armonie & Dialog",
@@ -1269,8 +1119,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Pace | Decor Empatic | Prynt",
     seoDescription: "Pacea începe cu tine. Tapet pentru centre pace ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Lume fără conflicte</h2><p>Un decor care promovează armonia.</p>`
-  },
+    contentHtml: `<h2>Lume fără conflicte</h2><p>Un decor care promovează armonia.</p>`\n  },
   "democratie-ong": {
     key: "democratie-ong",
     title: "Tapet ONG Democrație — Libertate & Participare",
@@ -1278,8 +1127,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Democratie | Decor Inspirational | Prynt",
     seoDescription: "Vocea poporului. Print pentru centre democrație ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Libertate pentru toți</h2><p>Un decor care celebrează democrația.</p>`
-  },
+    contentHtml: `<h2>Libertate pentru toți</h2><p>Un decor care celebrează democrația.</p>`\n  },
   "transparență-ong": {
     key: "transparență-ong",
     title: "Tapet ONG Transparență — Integritate & Responsabilitate",
@@ -1287,8 +1135,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Transparenta | Decor Profesional | Prynt",
     seoDescription: "Onestitate în acțiune. Tapet pentru centre transparență ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Claritate și încredere</h2><p>Un decor care promovează transparența.</p>`
-  },
+    contentHtml: `<h2>Claritate și încredere</h2><p>Un decor care promovează transparența.</p>`\n  },
   "inovatie-ong": {
     key: "inovatie-ong",
     title: "Tapet ONG Inovație — Creativitate & Progres",
@@ -1296,8 +1143,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Inovatie | Decor Futurist | Prynt",
     seoDescription: "Inovație pentru bine. Print pentru centre inovație ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Gândire nouă pentru schimbare</h2><p>Un decor care inspiră soluții inovatoare.</p>`
-  },
+    contentHtml: `<h2>Gândire nouă pentru schimbare</h2><p>Un decor care inspiră soluții inovatoare.</p>`\n  },
   "comunitate-ong": {
     key: "comunitate-ong",
     title: "Tapet ONG Comunitate — Unitate & Solidaritate",
@@ -1305,8 +1151,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Comunitate | Decor Prietenos | Prynt",
     seoDescription: "Împreună suntem mai puternici. Tapet pentru centre comunitate ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Legături puternice</h2><p>Un decor care unește comunitatea.</p>`
-  },
+    contentHtml: `<h2>Legături puternice</h2><p>Un decor care unește comunitatea.</p>`\n  },
   "viitor-ong": {
     key: "viitor-ong",
     title: "Tapet ONG Viitor — Viziune & Planificare",
@@ -1314,8 +1159,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Viitor | Decor Inspirational | Prynt",
     seoDescription: "Mâine începe azi. Print pentru centre viitor ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Viziune pentru generații</h2><p>Un decor care planifică viitorul.</p>`
-  },
+    contentHtml: `<h2>Viziune pentru generații</h2><p>Un decor care planifică viitorul.</p>`\n  },
   "global-ong": {
     key: "global-ong",
     title: "Tapet ONG Global — Lume & Conexiune",
@@ -1323,8 +1167,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Global | Decor Universal | Prynt",
     seoDescription: "O lume conectată. Tapet pentru centre globale ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Conexiune planetară</h2><p>Un decor care unește lumea.</p>`
-  },
+    contentHtml: `<h2>Conexiune planetară</h2><p>Un decor care unește lumea.</p>`\n  },
   "sustinabilitate-ong": {
     key: "sustinabilitate-ong",
     title: "Tapet ONG Sustenabilitate — Planetă & Viitor",
@@ -1332,8 +1175,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Sustinabilitate | Decor Verde | Prynt",
     seoDescription: "Salvează planeta împreună. Print pentru centre sustenabilitate ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Pământul nostru comun</h2><p>Un decor care inspiră acțiuni sustenabile.</p>`
-  },
+    contentHtml: `<h2>Pământul nostru comun</h2><p>Un decor care inspiră acțiuni sustenabile.</p>`\n  },
   "egalitate-ong": {
     key: "egalitate-ong",
     title: "Tapet ONG Egalitate — Dreptate & Incluziune",
@@ -1341,8 +1183,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Egalitate | Decor Empatic | Prynt",
     seoDescription: "Dreptate pentru toți. Tapet pentru centre egalitate ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Egalitate în acțiune</h2><p>Un decor care promovează dreptatea.</p>`
-  },
+    contentHtml: `<h2>Egalitate în acțiune</h2><p>Un decor care promovează dreptatea.</p>`\n  },
   "diversitate-ong": {
     key: "diversitate-ong",
     title: "Tapet ONG Diversitate — Culori & Culturi",
@@ -1350,8 +1191,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Diversitate | Decor Colorat | Prynt",
     seoDescription: "Frumusețea diversității. Print pentru centre diversitate ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Culori ale lumii</h2><p>Un decor care sărbătorește diversitatea.</p>`
-  },
+    contentHtml: `<h2>Culori ale lumii</h2><p>Un decor care sărbătorește diversitatea.</p>`\n  },
   "responsabilitate-ong": {
     key: "responsabilitate-ong",
     title: "Tapet ONG Responsabilitate — Acțiune & Impact",
@@ -1359,8 +1199,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Responsabilitate | Decor Inspirational | Prynt",
     seoDescription: "Acțiuni care contează. Tapet pentru centre responsabilitate ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Responsabilitate pentru bine</h2><p>Un decor care inspiră acțiuni pozitive.</p>`
-  },
+    contentHtml: `<h2>Responsabilitate pentru bine</h2><p>Un decor care inspiră acțiuni pozitive.</p>`\n  },
   "parteneriate-ong": {
     key: "parteneriate-ong",
     title: "Tapet ONG Parteneriate — Colaborare & Rețea",
@@ -1368,8 +1207,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Parteneriate | Decor Colaborativ | Prynt",
     seoDescription: "Împreună pentru schimbare. Print pentru centre parteneriate ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Rețele puternice</h2><p>Un decor care construiește alianțe.</p>`
-  },
+    contentHtml: `<h2>Rețele puternice</h2><p>Un decor care construiește alianțe.</p>`\n  },
   "impact-ong": {
     key: "impact-ong",
     title: "Tapet ONG Impact — Rezultate & Schimbare",
@@ -1377,8 +1215,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Impact | Decor Motivational | Prynt",
     seoDescription: "Schimbarea începe cu tine. Tapet pentru centre impact ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Rezultate care contează</h2><p>Un decor care măsoară impactul.</p>`
-  },
+    contentHtml: `<h2>Rezultate care contează</h2><p>Un decor care măsoară impactul.</p>`\n  },
   "vizibilitate-ong": {
     key: "vizibilitate-ong",
     title: "Tapet ONG Vizibilitate — Voce & Audiență",
@@ -1386,8 +1223,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Vizibilitate | Decor Comunicativ | Prynt",
     seoDescription: "Fă-te auzit. Print pentru centre vizibilitate ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Voce puternică</h2><p>Un decor care amplifică mesajul.</p>`
-  },
+    contentHtml: `<h2>Voce puternică</h2><p>Un decor care amplifică mesajul.</p>`\n  },
   "finantare-ong": {
     key: "finantare-ong",
     title: "Tapet ONG Finanțare — Resurse & Sustenabilitate",
@@ -1395,8 +1231,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Finantare | Decor Profesional | Prynt",
     seoDescription: "Resurse pentru bine. Tapet pentru centre finanțare ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Finanțare sustenabilă</h2><p>Un decor care atrage sprijin financiar.</p>`
-  },
+    contentHtml: `<h2>Finanțare sustenabilă</h2><p>Un decor care atrage sprijin financiar.</p>`\n  },
   "voluntari-ong": {
     key: "voluntari-ong",
     title: "Tapet ONG Voluntari — Dăruire & Energie",
@@ -1404,8 +1239,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Voluntari | Decor Inspirational | Prynt",
     seoDescription: "Eroi ai comunității. Print pentru centre voluntari ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Dăruire pentru bine</h2><p>Un decor care celebrează voluntariatul.</p>`
-  },
+    contentHtml: `<h2>Dăruire pentru bine</h2><p>Un decor care celebrează voluntariatul.</p>`\n  },
   "campanii-ong": {
     key: "campanii-ong",
     title: "Tapet ONG Campanii — Mobilizare & Conștientizare",
@@ -1413,8 +1247,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Campanii | Decor Motivational | Prynt",
     seoDescription: "Mobilizează pentru cauză. Tapet pentru centre campanii ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Campanii de impact</h2><p>Un decor care trezește conștiința.</p>`
-  },
+    contentHtml: `<h2>Campanii de impact</h2><p>Un decor care trezește conștiința.</p>`\n  },
   "proiecte-ong": {
     key: "proiecte-ong",
     title: "Tapet ONG Proiecte — Implementare & Succes",
@@ -1422,8 +1255,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Proiecte | Decor Profesional | Prynt",
     seoDescription: "De la idee la realitate. Print pentru centre proiecte ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Proiecte de succes</h2><p>Un decor care inspiră execuție.</p>`
-  },
+    contentHtml: `<h2>Proiecte de succes</h2><p>Un decor care inspiră execuție.</p>`\n  },
   "evaluare-ong": {
     key: "evaluare-ong",
     title: "Tapet ONG Evaluare — Măsurare & Îmbunătățire",
@@ -1431,8 +1263,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Evaluare | Decor Analitic | Prynt",
     seoDescription: "Îmbunătățește impactul. Tapet pentru centre evaluare ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Măsurarea progresului</h2><p>Un decor care analizează rezultatele.</p>`
-  },
+    contentHtml: `<h2>Măsurarea progresului</h2><p>Un decor care analizează rezultatele.</p>`\n  },
   "strategie-ong": {
     key: "strategie-ong",
     title: "Tapet ONG Strategie — Planificare & Viziune",
@@ -1440,8 +1271,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Strategie | Decor Strategic | Prynt",
     seoDescription: "Planifică viitorul. Print pentru centre strategie ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Strategii câștigătoare</h2><p>Un decor care trasează drumul.</p>`
-  },
+    contentHtml: `<h2>Strategii câștigătoare</h2><p>Un decor care trasează drumul.</p>`\n  },
   "leadership-ong": {
     key: "leadership-ong",
     title: "Tapet ONG Leadership — Conducere & Inspirație",
@@ -1449,8 +1279,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Leadership | Decor Inspirational | Prynt",
     seoDescription: "Lideri pentru schimbare. Tapet pentru centre leadership ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Leadership inspirant</h2><p>Un decor care cultivă conducerea.</p>`
-  },
+    contentHtml: `<h2>Leadership inspirant</h2><p>Un decor care cultivă conducerea.</p>`\n  },
   "comunicare-ong": {
     key: "comunicare-ong",
     title: "Tapet ONG Comunicare — Mesaj & Conexiune",
@@ -1458,8 +1287,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Comunicare | Decor Comunicativ | Prynt",
     seoDescription: "Mesaje care ajung. Print pentru centre comunicare ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Comunicare eficientă</h2><p>Un decor care facilitează dialogul.</p>`
-  },
+    contentHtml: `<h2>Comunicare eficientă</h2><p>Un decor care facilitează dialogul.</p>`\n  },
   "tehnologie-ong-final": {
     key: "tehnologie-ong-final",
     title: "Tapet ONG Tehnologie — Digital & Inovație",
@@ -1467,8 +1295,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Tehnologie | Decor Tech | Prynt",
     seoDescription: "Tehnologia pentru bine. Tapet pentru centre tech ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Inovație digitală</h2><p>Un decor care conectează tech cu impactul social.</p>`
-  },
+    contentHtml: `<h2>Inovație digitală</h2><p>Un decor care conectează tech cu impactul social.</p>`\n  },
   "arta-ong-final": {
     key: "arta-ong-final",
     title: "Tapet ONG Artă — Creație & Expresie",
@@ -1476,8 +1303,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Arta | Decor Artistic | Prynt",
     seoDescription: "Arta schimbă lumea. Print pentru centre artă ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Expresie artistică pentru bine</h2><p>Un decor care inspiră creație socială.</p>`
-  },
+    contentHtml: `<h2>Expresie artistică pentru bine</h2><p>Un decor care inspiră creație socială.</p>`\n  },
   "sport-ong-final": {
     key: "sport-ong-final",
     title: "Tapet ONG Sport — Sănătate & Comunitate",
@@ -1485,8 +1311,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Sport | Decor Motivational | Prynt",
     seoDescription: "Sport pentru toți. Tapet pentru centre sport ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Mișcare comunitară</h2><p>Un decor care promovează sănătatea prin sport.</p>`
-  },
+    contentHtml: `<h2>Mișcare comunitară</h2><p>Un decor care promovează sănătatea prin sport.</p>`\n  },
   "educatie-ong-final": {
     key: "educatie-ong-final",
     title: "Tapet ONG Educație — Cunoaștere & Dezvoltare",
@@ -1494,8 +1319,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Educatie | Decor Educational | Prynt",
     seoDescription: "Educația eliberează. Print pentru centre educație ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Cunoaștere accesibilă</h2><p>Un decor care inspiră învățare pentru toți.</p>`
-  },
+    contentHtml: `<h2>Cunoaștere accesibilă</h2><p>Un decor care inspiră învățare pentru toți.</p>`\n  },
   "sanatate-ong-final": {
     key: "sanatate-ong-final",
     title: "Tapet ONG Sănătate — Îngrijire & Prevenție",
@@ -1503,8 +1327,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Sanatate | Decor Empatic | Prynt",
     seoDescription: "Sănătate pentru toți. Tapet pentru centre sănătate ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Îngrijire preventivă</h2><p>Un decor care promovează bunăstarea comunității.</p>`
-  },
+    contentHtml: `<h2>Îngrijire preventivă</h2><p>Un decor care promovează bunăstarea comunității.</p>`\n  },
   "mediu-ong-final": {
     key: "mediu-ong-final",
     title: "Tapet ONG Mediu — Natură & Conservare",
@@ -1512,8 +1335,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Mediu | Decor Ecologic | Prynt",
     seoDescription: "Protejează planeta. Print pentru centre mediu ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Conservare activă</h2><p>Un decor care inspiră protecția mediului.</p>`
-  },
+    contentHtml: `<h2>Conservare activă</h2><p>Un decor care inspiră protecția mediului.</p>`\n  },
   "social-ong-final": {
     key: "social-ong-final",
     title: "Tapet ONG Social — Sprijin & Incluziune",
@@ -1521,8 +1343,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Social | Decor Empatic | Prynt",
     seoDescription: "Ajută comunitatea. Tapet pentru centre sociale ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Sprijin incluziv</h2><p>Un decor care construiește o comunitate puternică.</p>`
-  },
+    contentHtml: `<h2>Sprijin incluziv</h2><p>Un decor care construiește o comunitate puternică.</p>`\n  },
   "cultural-ong-final": {
     key: "cultural-ong-final",
     title: "Tapet ONG Cultural — Tradiție & Identitate",
@@ -1530,8 +1351,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Cultural | Decor Artistic | Prynt",
     seoDescription: "Păstrează cultura. Print pentru centre culturale ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Identitate culturală</h2><p>Un decor care celebrează moștenirea.</p>`
-  },
+    contentHtml: `<h2>Identitate culturală</h2><p>Un decor care celebrează moștenirea.</p>`\n  },
   "economic-ong-final": {
     key: "economic-ong-final",
     title: "Tapet ONG Economic — Dezvoltare & Oportunități",
@@ -1539,8 +1359,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Economic | Decor Profesional | Prynt",
     seoDescription: "Dezvoltă comunitatea. Tapet pentru centre economice ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Oportunități economice</h2><p>Un decor care inspiră creștere sustenabilă.</p>`
-  },
+    contentHtml: `<h2>Oportunități economice</h2><p>Un decor care inspiră creștere sustenabilă.</p>`\n  },
   "politic-ong-final": {
     key: "politic-ong-final",
     title: "Tapet ONG Politic — Democrație & Participare",
@@ -1548,8 +1367,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Politic | Decor Inspirational | Prynt",
     seoDescription: "Participă la democrație. Print pentru centre politice ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Participare activă</h2><p>Un decor care promovează implicarea civică.</p>`
-  },
+    contentHtml: `<h2>Participare activă</h2><p>Un decor care promovează implicarea civică.</p>`\n  },
   "international-ong-final": {
     key: "international-ong-final",
     title: "Tapet ONG Internațional — Global & Solidaritate",
@@ -1557,8 +1375,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG International | Decor Universal | Prynt",
     seoDescription: "Solidaritate globală. Tapet pentru centre internaționale ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Solidaritate planetară</h2><p>Un decor care unește națiunile.</p>`
-  },
+    contentHtml: `<h2>Solidaritate planetară</h2><p>Un decor care unește națiunile.</p>`\n  },
   "local-ong-final": {
     key: "local-ong-final",
     title: "Tapet ONG Local — Comunitate & Identitate",
@@ -1566,8 +1383,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Local | Decor Prietenos | Prynt",
     seoDescription: "Construiește comunitatea. Print pentru centre locale ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Identitate locală</h2><p>Un decor care întărește legăturile comunitare.</p>`
-  },
+    contentHtml: `<h2>Identitate locală</h2><p>Un decor care întărește legăturile comunitare.</p>`\n  },
   "tineret-ong-final": {
     key: "tineret-ong-final",
     title: "Tapet ONG Tineret — Viitor & Energie",
@@ -1575,8 +1391,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Tineret | Decor Inspirational | Prynt",
     seoDescription: "Energie tânără pentru schimbare. Tapet pentru centre tineret ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Energie pentru viitor</h2><p>Un decor care inspiră generația tânără.</p>`
-  },
+    contentHtml: `<h2>Energie pentru viitor</h2><p>Un decor care inspiră generația tânără.</p>`\n  },
   "femei-ong-final": {
     key: "femei-ong-final",
     title: "Tapet ONG Femei — Putere & Egalitate",
@@ -1584,8 +1399,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Femei | Decor Empatic | Prynt",
     seoDescription: "Putere feminină. Tapet pentru centre femei ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Egalitate feminină</h2><p>Un decor care celebrează puterea și egalitatea.</p>`
-  },
+    contentHtml: `<h2>Egalitate feminină</h2><p>Un decor care celebrează puterea și egalitatea.</p>`\n  },
   "barbati-ong-final": {
     key: "barbati-ong-final",
     title: "Tapet ONG Bărbați — Responsabilitate & Sprijin",
@@ -1593,8 +1407,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Barbati | Decor Inspirational | Prynt",
     seoDescription: "Responsabilitate masculină. Print pentru centre bărbați ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Leadership responsabil</h2><p>Un decor care inspiră bărbați implicați.</p>`
-  },
+    contentHtml: `<h2>Leadership responsabil</h2><p>Un decor care inspiră bărbați implicați.</p>`\n  },
   "familie-ong-final": {
     key: "familie-ong-final",
     title: "Tapet ONG Familie — Unitate & Iubire",
@@ -1602,8 +1415,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Familie | Decor Prietenos | Prynt",
     seoDescription: "Familii puternice. Tapet pentru centre familie ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Unitate familială</h2><p>Un decor care întărește iubirea de familie.</p>`
-  },
+    contentHtml: `<h2>Unitate familială</h2><p>Un decor care întărește iubirea de familie.</p>`\n  },
   "copii-ong-final": {
     key: "copii-ong-final",
     title: "Tapet ONG Copii — Speranță & Protecție",
@@ -1611,8 +1423,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Copii | Decor Inspirational | Prynt",
     seoDescription: "Viitor luminos pentru copii. Print pentru centre copii ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Protecție pentru copii</h2><p>Un decor care păstrează inocența și speranța.</p>`
-  },
+    contentHtml: `<h2>Protecție pentru copii</h2><p>Un decor care păstrează inocența și speranța.</p>`\n  },
   "batrani-ong-final": {
     key: "batrani-ong-final",
     title: "Tapet ONG Bătrâni — Respect & Îngrijire",
@@ -1620,8 +1431,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Batrani | Decor Empatic | Prynt",
     seoDescription: "Respect pentru înțelepciune. Tapet pentru centre bătrâni ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Îngrijire respectuoasă</h2><p>Un decor care onorează experiența de viață.</p>`
-  },
+    contentHtml: `<h2>Îngrijire respectuoasă</h2><p>Un decor care onorează experiența de viață.</p>`\n  },
   "handicap-ong-final": {
     key: "handicap-ong-final",
     title: "Tapet ONG Handicap — Incluziune & Acces",
@@ -1629,8 +1439,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Handicap | Decor Inclusiv | Prynt",
     seoDescription: "Acces pentru toți. Print pentru centre handicap ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Incluziune totală</h2><p>Un decor care construiește accesibilitate universală.</p>`
-  },
+    contentHtml: `<h2>Incluziune totală</h2><p>Un decor care construiește accesibilitate universală.</p>`\n  },
   "imigranti-ong-final": {
     key: "imigranti-ong-final",
     title: "Tapet ONG Imigranți — Integrare & Bun Venit",
@@ -1638,8 +1447,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Imigranti | Decor Inclusiv | Prynt",
     seoDescription: "Bun venit acasă. Tapet pentru centre imigranți ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Integrare reușită</h2><p>Un decor care sărbătorește diversitatea culturală.</p>`
-  },
+    contentHtml: `<h2>Integrare reușită</h2><p>Un decor care sărbătorește diversitatea culturală.</p>`\n  },
   "dezastre-ong-final": {
     key: "dezastre-ong-final",
     title: "Tapet ONG Dezastre — Ajutor & Reconstrucție",
@@ -1647,8 +1455,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Dezastre | Decor Inspirational | Prynt",
     seoDescription: "Speranță după furtună. Print pentru centre dezastre ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Reconstrucție puternică</h2><p>Un decor care aduce speranță și ajutor.</p>`
-  },
+    contentHtml: `<h2>Reconstrucție puternică</h2><p>Un decor care aduce speranță și ajutor.</p>`\n  },
   "pace-ong-final": {
     key: "pace-ong-final",
     title: "Tapet ONG Pace — Armonie & Dialog",
@@ -1656,8 +1463,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Pace | Decor Empatic | Prynt",
     seoDescription: "Pacea începe cu tine. Tapet pentru centre pace ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Armonie globală</h2><p>Un decor care promovează dialogul și pacea.</p>`
-  },
+    contentHtml: `<h2>Armonie globală</h2><p>Un decor care promovează dialogul și pacea.</p>`\n  },
   "democratie-ong-final": {
     key: "democratie-ong-final",
     title: "Tapet ONG Democrație — Libertate & Participare",
@@ -1665,8 +1471,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Democratie | Decor Inspirational | Prynt",
     seoDescription: "Vocea poporului. Print pentru centre democrație ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Libertate democratică</h2><p>Un decor care celebrează participarea civică.</p>`
-  },
+    contentHtml: `<h2>Libertate democratică</h2><p>Un decor care celebrează participarea civică.</p>`\n  },
   "transparență-ong-final": {
     key: "transparență-ong-final",
     title: "Tapet ONG Transparență — Integritate & Responsabilitate",
@@ -1674,8 +1479,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Transparenta | Decor Profesional | Prynt",
     seoDescription: "Onestitate în acțiune. Tapet pentru centre transparență ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Integritate totală</h2><p>Un decor care promovează transparența absolută.</p>`
-  },
+    contentHtml: `<h2>Integritate totală</h2><p>Un decor care promovează transparența absolută.</p>`\n  },
   "inovatie-ong-final": {
     key: "inovatie-ong-final",
     title: "Tapet ONG Inovație — Creativitate & Progres",
@@ -1683,8 +1487,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Inovatie | Decor Futurist | Prynt",
     seoDescription: "Inovație pentru bine. Print pentru centre inovație ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Progres inovator</h2><p>Un decor care inspiră soluții creative pentru bine.</p>`
-  },
+    contentHtml: `<h2>Progres inovator</h2><p>Un decor care inspiră soluții creative pentru bine.</p>`\n  },
   "comunitate-ong-final": {
     key: "comunitate-ong-final",
     title: "Tapet ONG Comunitate — Unitate & Solidaritate",
@@ -1692,8 +1495,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Comunitate | Decor Prietenos | Prynt",
     seoDescription: "Împreună suntem mai puternici. Tapet pentru centre comunitate ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Solidaritate comunitară</h2><p>Un decor care unește inimile pentru bine.</p>`
-  },
+    contentHtml: `<h2>Solidaritate comunitară</h2><p>Un decor care unește inimile pentru bine.</p>`\n  },
   "viitor-ong-final": {
     key: "viitor-ong-final",
     title: "Tapet ONG Viitor — Viziune & Planificare",
@@ -1701,8 +1503,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Viitor | Decor Inspirational | Prynt",
     seoDescription: "Mâine începe azi. Print pentru centre viitor ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Viziune pentru viitor</h2><p>Un decor care planifică un viitor mai bun.</p>`
-  },
+    contentHtml: `<h2>Viziune pentru viitor</h2><p>Un decor care planifică un viitor mai bun.</p>`\n  },
   "global-ong-final": {
     key: "global-ong-final",
     title: "Tapet ONG Global — Lume & Conexiune",
@@ -1710,8 +1511,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Global | Decor Universal | Prynt",
     seoDescription: "O lume conectată. Tapet pentru centre globale ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Conexiune universală</h2><p>Un decor care unește lumea pentru bine.</p>`
-  },
+    contentHtml: `<h2>Conexiune universală</h2><p>Un decor care unește lumea pentru bine.</p>`\n  },
   "sustinabilitate-ong-final": {
     key: "sustinabilitate-ong-final",
     title: "Tapet ONG Sustenabilitate — Planetă & Viitor",
@@ -1719,8 +1519,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Sustinabilitate | Decor Verde | Prynt",
     seoDescription: "Salvează planeta împreună. Print pentru centre sustenabilitate ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Viitor sustenabil</h2><p>Un decor care inspiră acțiuni pentru planetă.</p>`
-  },
+    contentHtml: `<h2>Viitor sustenabil</h2><p>Un decor care inspiră acțiuni pentru planetă.</p>`\n  },
   "egalitate-ong-final": {
     key: "egalitate-ong-final",
     title: "Tapet ONG Egalitate — Dreptate & Incluziune",
@@ -1728,8 +1527,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Egalitate | Decor Empatic | Prynt",
     seoDescription: "Dreptate pentru toți. Tapet pentru centre egalitate ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Dreptate egală</h2><p>Un decor care promovează incluziunea totală.</p>`
-  },
+    contentHtml: `<h2>Dreptate egală</h2><p>Un decor care promovează incluziunea totală.</p>`\n  },
   "diversitate-ong-final": {
     key: "diversitate-ong-final",
     title: "Tapet ONG Diversitate — Culori & Culturi",
@@ -1737,8 +1535,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Diversitate | Decor Colorat | Prynt",
     seoDescription: "Frumusețea diversității. Print pentru centre diversitate ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Culori ale lumii</h2><p>Un decor care sărbătorește diversitatea culturală.</p>`
-  },
+    contentHtml: `<h2>Culori ale lumii</h2><p>Un decor care sărbătorește diversitatea culturală.</p>`\n  },
   "responsabilitate-ong-final": {
     key: "responsabilitate-ong-final",
     title: "Tapet ONG Responsabilitate — Acțiune & Impact",
@@ -1746,8 +1543,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Responsabilitate | Decor Inspirational | Prynt",
     seoDescription: "Acțiuni care contează. Tapet pentru centre responsabilitate ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Impact responsabil</h2><p>Un decor care inspiră acțiuni pozitive pentru societate.</p>`
-  },
+    contentHtml: `<h2>Impact responsabil</h2><p>Un decor care inspiră acțiuni pozitive pentru societate.</p>`\n  },
   "parteneriate-ong-final": {
     key: "parteneriate-ong-final",
     title: "Tapet ONG Parteneriate — Colaborare & Rețea",
@@ -1755,8 +1551,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Parteneriate | Decor Colaborativ | Prynt",
     seoDescription: "Împreună pentru schimbare. Print pentru centre parteneriate ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Rețele puternice</h2><p>Un decor care construiește alianțe pentru bine.</p>`
-  },
+    contentHtml: `<h2>Rețele puternice</h2><p>Un decor care construiește alianțe pentru bine.</p>`\n  },
   "impact-ong-final": {
     key: "impact-ong-final",
     title: "Tapet ONG Impact — Rezultate & Schimbare",
@@ -1764,8 +1559,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Impact | Decor Motivational | Prynt",
     seoDescription: "Schimbarea începe cu tine. Tapet pentru centre impact ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Rezultate măsurabile</h2><p>Un decor care măsoară impactul pozitiv.</p>`
-  },
+    contentHtml: `<h2>Rezultate măsurabile</h2><p>Un decor care măsoară impactul pozitiv.</p>`\n  },
   "vizibilitate-ong-final": {
     key: "vizibilitate-ong-final",
     title: "Tapet ONG Vizibilitate — Voce & Audiență",
@@ -1773,8 +1567,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Vizibilitate | Decor Comunicativ | Prynt",
     seoDescription: "Fă-te auzit. Print pentru centre vizibilitate ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Voce puternică</h2><p>Un decor care amplifică mesajul organizației.</p>`
-  },
+    contentHtml: `<h2>Voce puternică</h2><p>Un decor care amplifică mesajul organizației.</p>`\n  },
   "finantare-ong-final": {
     key: "finantare-ong-final",
     title: "Tapet ONG Finanțare — Resurse & Sustenabilitate",
@@ -1782,8 +1575,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Finantare | Decor Profesional | Prynt",
     seoDescription: "Resurse pentru bine. Tapet pentru centre finanțare ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Sustenabilitate financiară</h2><p>Un decor care atrage sprijin pentru cauze nobile.</p>`
-  },
+    contentHtml: `<h2>Sustenabilitate financiară</h2><p>Un decor care atrage sprijin pentru cauze nobile.</p>`\n  },
   "voluntari-ong-final": {
     key: "voluntari-ong-final",
     title: "Tapet ONG Voluntari — Dăruire & Energie",
@@ -1791,8 +1583,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Voluntari | Decor Inspirational | Prynt",
     seoDescription: "Eroi ai comunității. Print pentru centre voluntari ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Energie voluntară</h2><p>Un decor care celebrează dăruirea pentru bine.</p>`
-  },
+    contentHtml: `<h2>Energie voluntară</h2><p>Un decor care celebrează dăruirea pentru bine.</p>`\n  },
   "campanii-ong-final": {
     key: "campanii-ong-final",
     title: "Tapet ONG Campanii — Mobilizare & Conștientizare",
@@ -1800,8 +1591,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Campanii | Decor Motivational | Prynt",
     seoDescription: "Mobilizează pentru cauză. Tapet pentru centre campanii ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Campanii de impact</h2><p>Un decor care trezește conștiința pentru schimbare.</p>`
-  },
+    contentHtml: `<h2>Campanii de impact</h2><p>Un decor care trezește conștiința pentru schimbare.</p>`\n  },
   "proiecte-ong-final": {
     key: "proiecte-ong-final",
     title: "Tapet ONG Proiecte — Implementare & Succes",
@@ -1809,8 +1599,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Proiecte | Decor Profesional | Prynt",
     seoDescription: "De la idee la realitate. Print pentru centre proiecte ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Succes în proiecte</h2><p>Un decor care inspiră implementarea cu succes.</p>`
-  },
+    contentHtml: `<h2>Succes în proiecte</h2><p>Un decor care inspiră implementarea cu succes.</p>`\n  },
   "evaluare-ong-final": {
     key: "evaluare-ong-final",
     title: "Tapet ONG Evaluare — Măsurare & Îmbunătățire",
@@ -1818,8 +1607,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Evaluare | Decor Analitic | Prynt",
     seoDescription: "Îmbunătățește impactul. Tapet pentru centre evaluare ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Îmbunătățire continuă</h2><p>Un decor care analizează și optimizează rezultatele.</p>`
-  },
+    contentHtml: `<h2>Îmbunătățire continuă</h2><p>Un decor care analizează și optimizează rezultatele.</p>`\n  },
   "strategie-ong-final": {
     key: "strategie-ong-final",
     title: "Tapet ONG Strategie — Planificare & Viziune",
@@ -1827,8 +1615,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Strategie | Decor Strategic | Prynt",
     seoDescription: "Planifică viitorul. Print pentru centre strategie ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Viziune strategică</h2><p>Un decor care trasează drumul către succes.</p>`
-  },
+    contentHtml: `<h2>Viziune strategică</h2><p>Un decor care trasează drumul către succes.</p>`\n  },
   "leadership-ong-final": {
     key: "leadership-ong-final",
     title: "Tapet ONG Leadership — Conducere & Inspirație",
@@ -1836,8 +1623,7 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Leadership | Decor Inspirational | Prynt",
     seoDescription: "Lideri pentru schimbare. Tapet pentru centre leadership ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Leadership inspirant</h2><p>Un decor care cultivă conducerea pentru bine.</p>`
-  },
+    contentHtml: `<h2>Leadership inspirant</h2><p>Un decor care cultivă conducerea pentru bine.</p>`\n  },
   "comunicare-ong-final": {
     key: "comunicare-ong-final",
     title: "Tapet ONG Comunicare — Mesaj & Conexiune",
@@ -1845,6 +1631,5 @@ export const TAPET_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Tapet ONG Comunicare | Decor Comunicativ | Prynt",
     seoDescription: "Mesaje care ajung. Print pentru centre comunicare ONG.",
     images: ["/products/tapet/tapet-1.webp"],
-    contentHtml: `<h2>Conexiune eficientă</h2><p>Un decor care facilitează dialogul pentru impact.</p>`
-  }
+    contentHtml: `<h2>Conexiune eficientă</h2><p>Un decor care facilitează dialogul pentru impact.</p>`\n  }
 };
