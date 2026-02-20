@@ -12,6 +12,8 @@ import {
   POLIPROPILENA_DATA
 } from "./seo/materialeRigideData";
 import { FONDURI_DATA } from "./seo/fonduriData";
+import { AFISE_SEO_DATA } from "./seo/afiseData";
+import { TAPET_SEO_DATA } from "./seo/tapetData";
 
 // --- TIPURI ---
 export type LandingInfo = {
@@ -56,6 +58,10 @@ export const LANDING_CATALOG: LandingCatalog = {
   "bond": ALUCOBOND_DATA as unknown as LandingCatalog[string], // Alias comun
 
   "polipropilena": POLIPROPILENA_DATA as unknown as LandingCatalog[string],
+
+  // Afise & Tapet
+  "afise": AFISE_SEO_DATA as unknown as LandingCatalog[string],
+  "tapet": TAPET_SEO_DATA as unknown as LandingCatalog[string],
 
   // 9. Proiecte Fonduri (Mapăm toate categoriile URL la același set de date)
   "fonduri-pnrr": FONDURI_DATA as unknown as LandingCatalog[string],
