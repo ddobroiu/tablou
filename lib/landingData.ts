@@ -3,6 +3,7 @@
 // Acesta centralizează toate datele SEO din modulele specifice.
 
 import { CANVAS_SEO_DATA } from "./seo/canvasData";
+import { CANVAS_JUDETE_DATA } from "./seo/canvasJudeteData";
 import { PLIANTE_SEO_DATA } from "./seo/plianteData";
 import {
   PVC_FOREX_DATA,
@@ -33,7 +34,7 @@ export type LandingCatalog = Record<string, Record<string, LandingInfo | Landing
 // --- CATALOGUL PRINCIPAL ---
 export const LANDING_CATALOG: LandingCatalog = {
   // 4. Canvas
-  canvas: CANVAS_SEO_DATA as unknown as LandingCatalog[string],
+  canvas: { ...CANVAS_SEO_DATA, ...CANVAS_JUDETE_DATA } as unknown as LandingCatalog[string],
 
   // 5. Pliante & Flyere
   pliante: PLIANTE_SEO_DATA as unknown as LandingCatalog[string],

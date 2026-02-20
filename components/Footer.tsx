@@ -107,6 +107,7 @@ export default function Footer() {
               <ul className="space-y-4">
                 <li><Link href="/urmareste-comanda" className={linkClass}>Status Comandă</Link></li>
                 <li><Link href="/livrare" className={linkClass}>Livrare & Retur</Link></li>
+                <li><Link href="/judet" className={linkClass}>Zone de Livrare</Link></li>
                 <li><Link href="/contact" className={linkClass}>Contact</Link></li>
                 <li><Link href="/blog" className={linkClass}>Blog</Link></li>
               </ul>
