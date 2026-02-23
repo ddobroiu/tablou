@@ -85,6 +85,7 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                                 fill
                                 className="object-cover"
                                 priority
+                                fetchPriority="high"
                             />
 
                             {/* Livrare Badge Overlay */}
@@ -180,6 +181,33 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                             <p className="text-slate-600">{faq.a}</p>
                         </div>
                     ))}
+                </div>
+            </div>
+
+            {/* Horizontal Siloing: Alte localitati in acelasi judet */}
+            <div className="container max-w-6xl mt-24 border-t border-slate-200 pt-16">
+                <div className="text-center mb-10">
+                    <h2 className="text-2xl font-black text-slate-900 uppercase tracking-tight">Efectuăm livrări {product.title} și în alte localități din {judet.name}</h2>
+                    <p className="text-slate-500 mt-2">Dacă vrei să comanzi în altă parte decât {loc.name}, onorăm servicii de producție cu transport rapid prin curier direct în zonele următoare:</p>
+                </div>
+                <div className="flex flex-wrap items-center justify-center gap-3">
+                    {(() => {
+                        // Afișăm alte localități (deterministic bazat pe prod+loc) din judet
+                        const allLocs = judet.localitati.filter(l => l.slug !== loc.slug);
+                        // Amestecam lista folosind seed-ul determinist
+                        const shuffled = [...allLocs].sort((a, b) => getSeededRandom(a.slug + productSlug) - 0.5);
+                        // Luăm afișăm doar 4 localități pentru Pânza de Păianjen optimă
+                        const selection = shuffled.slice(0, 4);
+                        return selection.map((otherLoc) => (
+                            <Link
+                                key={otherLoc.slug}
+                                href={`/judet/${judet.slug}/${otherLoc.slug}/${productSlug}`}
+                                className="bg-white border border-slate-200 text-slate-600 hover:text-white hover:bg-orange-600 hover:border-orange-600 hover:shadow-lg hover:shadow-orange-600/20 px-4 py-2 rounded-xl text-sm font-black transition-all"
+                            >
+                                {product.title} {otherLoc.name}
+                            </Link>
+                        ));
+                    })()}
                 </div>
             </div>
 
