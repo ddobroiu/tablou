@@ -106,10 +106,14 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                             </div>
                         )}
 
-                        <div className="flex flex-col sm:flex-row gap-4 mb-16">
+                        <div className="flex flex-col sm:flex-row gap-4 mb-4">
                             <Link href={shopUrl} className="flex-1 bg-slate-900 text-white text-center py-5 rounded-2xl font-black text-lg hover:bg-orange-600 transition-all shadow-xl shadow-slate-900/10 uppercase tracking-widest">
                                 Configurează Produsul &rarr;
                             </Link>
+                        </div>
+
+                        <div className="mt-2 mb-16 text-xs text-slate-400 bg-slate-100 p-4 rounded-xl border border-slate-200">
+                            <strong>Notă:</strong> Producția și facturarea la nivel național (inclusiv pentru {loc.name}) este operată direct și exclusiv de <a href="https://www.shopprint.ro" title="Tipografie Online ShopPrint" className="text-orange-600 font-bold hover:underline" target="_blank" rel="noopener">Tipografia Online ShopPrint</a>, hub-ul nostru tehnologic central. Parteneriatul garantează cele mai mici prețuri de producție din România.
                         </div>
 
                         <div className="grid grid-cols-2 gap-8 pt-8 border-t border-slate-200">
@@ -148,6 +152,11 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                             "brand": {
                                 "@type": "Brand",
                                 "name": "Tablou"
+                            },
+                            "manufacturer": {
+                                "@type": "Organization",
+                                "name": "ShopPrint",
+                                "url": "https://www.shopprint.ro"
                             },
                             "offers": {
                                 "@type": "Offer",
