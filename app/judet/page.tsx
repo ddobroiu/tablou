@@ -1,13 +1,13 @@
 import React from "react";
 import Link from "next/link";
-import { JUDETE_DATA } from "@/lib/judeteData";
+import { JUDETE_FULL_DATA } from "@/lib/localitati";
 import { siteConfig } from "@/lib/siteConfig";
-import { MapPin, ArrowRight, ShieldCheck, Truck, Sparkles } from "lucide-react";
+import { MapPin, ArrowRight, Flag, ShieldCheck, Zap, BarChart } from "lucide-react";
 
 export const metadata = {
-    title: "Tablouri Canvas & Plexiglas cu livrare în toată România - Tablou.net",
-    description: "Transformă-ți fotografiile în artă. Livrăm tablouri canvas, afișe și sticlă acrilică personalizată în orice județ din România. Calitate muzeală.",
-    keywords: "tablouri canvas romania, tablouri personalizate, print digital, livrare judete",
+    title: "Producție Publicitară & Banners în orice județ - Tablou",
+    description: "Livrăm bannere publicitare, mesh-uri, autocolante și sisteme de afișaj în orice județ din România. Comandă online cu livrare rapidă.",
+    keywords: "adbanner, bannere romania, print judete, mesh publicitar, autocolante",
     alternates: { canonical: "/judet" },
 };
 
@@ -15,90 +15,90 @@ export default function JudetePage() {
     const base = siteConfig.url;
 
     return (
-        <main className="min-h-screen bg-slate-50/20">
+        <main className="min-h-screen bg-slate-50/50">
             {/* Hero Section */}
-            <div className="relative overflow-hidden bg-white pt-32 pb-24 md:pt-48 md:pb-40 border-b border-slate-100">
-                <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none">
-                    <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-slate-900 rounded-full blur-[160px] -mt-96"></div>
+            <div className="relative overflow-hidden bg-slate-900 pt-32 pb-20 md:pt-44 md:pb-36">
+                <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-orange-500 rounded-full blur-[150px] -mr-96 -mt-96"></div>
+                    <div className="absolute bottom-0 left-0 w-[700px] h-[700px] bg-slate-500 rounded-full blur-[150px] -ml-96 -mb-96"></div>
                 </div>
 
                 <div className="container relative z-10 px-6 mx-auto text-center">
-                    <div className="inline-flex items-center gap-3 px-5 py-2 mb-10 text-[10px] font-bold text-slate-500 border border-slate-200 rounded-full bg-slate-50 uppercase tracking-[0.3em]">
-                        <Sparkles size={12} />
-                        <span>Artă fără frontiere</span>
+                    <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 text-xs font-bold text-orange-400 border border-orange-400/20 rounded-full bg-orange-400/5 uppercase tracking-[0.2em]">
+                        <Flag size={14} />
+                        <span>Acoperire Națională Tablou</span>
                     </div>
-                    <h1 className="text-5xl md:text-8xl font-serif text-slate-900 mb-10 italic leading-[0.9]">
-                        Amintirile tale, <br />
-                        <span className="text-slate-400">în orice colț al țării.</span>
+                    <h1 className="text-5xl md:text-8xl font-black tracking-tighter text-white mb-8 leading-[0.85]">
+                        Outdoor Print <br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-300 to-orange-500">
+                            Fără Limite
+                        </span>
                     </h1>
-                    <p className="text-xl md:text-2xl text-slate-500 max-w-3xl mx-auto font-light leading-relaxed">
-                        Livrăm emoție înrămată indiferent de județ. Calitate muzeală, ambalare premium și transport securizat până la ușa ta.
+                    <p className="text-lg md:text-2xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
+                        Suntem furnizorul tău strategic pentru outdoor. Printăm și livrăm materiale rezistente oriunde în România, direct de la sursă.
                     </p>
                 </div>
             </div>
 
-            <div className="max-w-7xl px-6 mx-auto -mt-16 mb-40 relative z-20">
+            <div className="max-w-7xl px-6 mx-auto -mt-16 mb-32 relative z-20">
                 {/* Features bar */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-24">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
                     {[
-                        { icon: ShieldCheck, title: "Calitate Muzeală", text: "Materiale premium ce rezistă zeci de ani", color: "text-slate-900" },
-                        { icon: Truck, title: "Ambalare de Siguranță", text: "Protecție multi-strat pentru fiecare piesă", color: "text-slate-700" },
-                        { icon: Sparkles, title: "Garanția Tablou.net", text: "Verificare la livrare pentru liniștea ta", color: "text-slate-500" }
+                        { icon: ShieldCheck, title: "Rezistență 3 Ani+", text: "Cerneală UV și materiale heavy-duty", color: "text-orange-500" },
+                        { icon: Zap, title: "Expediere Prioritară", text: "Producție rapidă în regim de urgență", color: "text-yellow-500" },
+                        { icon: BarChart, title: "Impact Vizual Maxim", text: "Culori vibrante pentru business-ul tău", color: "text-slate-400" }
                     ].map((item, i) => (
-                        <div key={i} className="flex flex-col items-center text-center gap-6 p-12 bg-white/80 backdrop-blur-xl border border-slate-100 rounded-[3rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.03)] hover:shadow-2xl transition-all duration-500">
-                            <div className={`p-5 rounded-full bg-slate-50 ${item.color}`}>
+                        <div key={i} className="flex items-start gap-6 p-10 bg-white border border-slate-100 rounded-[3rem] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.08)] hover:border-orange-500/30 transition-all duration-300">
+                            <div className={`p-4 rounded-2xl bg-slate-50 ${item.color}`}>
                                 <item.icon size={28} />
                             </div>
                             <div>
-                                <h3 className="text-xl font-medium text-slate-900 mb-3">{item.title}</h3>
+                                <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
                                 <p className="text-slate-500 text-sm font-light leading-relaxed">{item.text}</p>
                             </div>
                         </div>
                     ))}
                 </div>
 
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8 border-b border-slate-100 pb-12">
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
                     <div>
-                        <h2 className="text-4xl md:text-5xl font-serif text-slate-900 lowercase italic">Alege regiunea</h2>
-                        <p className="text-slate-400 mt-4 font-light tracking-wide uppercase text-xs">Deservim toate cele {JUDETE_DATA.length} județe din România</p>
+                        <h2 className="text-4xl font-black text-slate-900 tracking-tight lowercase"><span className="text-orange-600">toate</span> județele</h2>
+                        <div className="w-16 h-2 bg-orange-600 rounded-full mt-2"></div>
+                    </div>
+                    <div className="text-slate-400 font-medium tracking-widest uppercase text-xs">
+                        Distribuție în {JUDETE_FULL_DATA.length} regiuni
                     </div>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
-                    {JUDETE_DATA.map((judet) => (
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-5">
+                    {JUDETE_FULL_DATA.map((judet) => (
                         <Link
                             key={judet.slug}
                             href={`/judet/${judet.slug}`}
-                            className="group relative h-48 p-12 bg-white border border-slate-100 rounded-[3rem] hover:border-slate-900 hover:shadow-2xl transition-all duration-700 flex flex-col items-center justify-center text-center overflow-hidden"
+                            className="group relative h-44 p-10 bg-white border border-slate-200 rounded-[3rem] hover:border-orange-500 hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-500 flex flex-col items-center justify-center text-center overflow-hidden"
                         >
-                            <div className="absolute top-0 right-0 w-24 h-24 bg-slate-900/5 rounded-full -mr-12 -mt-12 group-hover:scale-[6] transition-transform duration-1000"></div>
+                            <div className="absolute top-0 right-0 w-24 h-24 bg-orange-500/5 rounded-full -mr-12 -mt-12 group-hover:scale-[5] transition-transform duration-700"></div>
 
-                            <MapPin className="text-slate-200 group-hover:text-slate-900 mb-6 transition-colors duration-500" size={24} />
-                            <h3 className="font-medium text-slate-800 group-hover:text-slate-900 transition-all uppercase tracking-[0.2em] text-[10px] leading-tight">{judet.name}</h3>
-                            <ArrowRight className="mt-6 text-slate-900 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-700" size={16} />
+                            <MapPin className="text-slate-300 group-hover:text-orange-500 mb-5 transition-colors duration-500" size={24} />
+                            <h3 className="font-bold text-slate-900 group-hover:text-orange-600 transition-colors uppercase tracking-widest text-xs leading-none">{judet.name}</h3>
+                            <ArrowRight className="mt-6 text-orange-600 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500" size={16} />
                         </Link>
                     ))}
                 </div>
             </div>
 
             <section className="max-w-7xl px-6 mx-auto pb-40">
-                <div className="bg-slate-900 rounded-[4rem] p-16 md:p-32 text-center text-white relative overflow-hidden shadow-2xl">
-                    <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[radial-gradient(circle_at_bottom,rgba(255,255,255,0.2),transparent)]"></div>
+                <div className="bg-orange-600 rounded-[4rem] p-12 md:p-24 text-white relative overflow-hidden shadow-2xl">
+                    <div className="absolute top-1/2 left-0 w-full h-[500px] bg-white/5 skew-y-6 pointer-events-none"></div>
 
-                    <div className="max-w-4xl relative z-10 mx-auto">
-                        <h2 className="text-4xl md:text-7xl font-serif mb-12 italic leading-[1.1] tracking-tight">O piesă de artă <br /> merită respect.</h2>
-                        <p className="text-xl text-slate-400 mb-16 leading-relaxed font-light max-w-2xl mx-auto">
-                            De la alegerea pânzei până la întinderea pe șasiu și livrarea securizată,
-                            fiecare etapă este tratată cu obsesie pentru detaliu.
+                    <div className="max-w-3xl relative z-10">
+                        <h2 className="text-4xl md:text-6xl font-black mb-10 leading-tight tracking-tight">Echipa ta pentru <br /> Proiecte de Outdoor.</h2>
+                        <p className="text-xl text-orange-100 mb-12 leading-relaxed font-light">
+                            De la consultanță tehnică la execuție și livrare rapidă, Tablou este partenerul care te ajută să fii vizibil oriunde în România.
                         </p>
-                        <div className="flex flex-wrap justify-center gap-10">
-                            <Link href="/contact" className="px-14 py-6 bg-white text-slate-900 rounded-full font-medium hover:bg-slate-100 transition-all shadow-2xl hover:-translate-y-1">
-                                Solicită Consultanță
-                            </Link>
-                            <Link href="/shop" className="px-14 py-6 bg-transparent border border-white/20 text-white rounded-full font-medium hover:bg-white/5 transition-all">
-                                Vezi Colecția
-                            </Link>
-                        </div>
+                        <Link href="/contact" className="px-14 py-6 bg-white text-orange-600 rounded-3xl font-black text-lg hover:scale-105 transition-all shadow-xl shadow-orange-900/10 inline-block">
+                            Cere o Ofertă Acum
+                        </Link>
                     </div>
                 </div>
             </section>
