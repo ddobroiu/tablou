@@ -17,11 +17,21 @@ export async function generateMetadata({ params }: { params: Promise<{ judetSlug
     const title = `Producție Publicitară în ${loc.name}, ${judet.name} - Tablou`;
     const description = `Comandă bannere publicitare, mesh-uri, autocolante și materiale printate cu livrare direct în ${loc.name} (${judet.name}). Producător direct, rezistență la exterior.`;
 
+    const routeUrl = `https://tablou.ro/judet/${judet.slug}/${loc.slug}`;
+
     return {
         title,
         description,
         keywords: `print ${loc.name}, publicitate ${loc.name}, bannere ${loc.name}, materiale promotionale ${loc.name}, tipografie ${loc.name}`,
-        alternates: { canonical: `/judet/${judet.slug}/${loc.slug}` },
+        openGraph: {
+            title,
+            description,
+            url: routeUrl,
+            siteName: 'Tablou',
+            locale: 'ro_RO',
+            type: 'website',
+        },
+        alternates: { canonical: routeUrl },
     };
 }
 
@@ -57,7 +67,20 @@ export default async function LocalitatePage({ params }: { params: Promise<{ jud
             <Script
                 id="local-schema-city"
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(localSchema) }}
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify([
+                        localSchema,
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "BreadcrumbList",
+                            "itemListElement": [
+                                { "@type": "ListItem", "position": 1, "name": "Acasă", "item": "https://tablou.ro/" },
+                                { "@type": "ListItem", "position": 2, "name": judet.name, "item": `https://tablou.ro/judet/${judet.slug}` },
+                                { "@type": "ListItem", "position": 3, "name": loc.name }
+                            ]
+                        }
+                    ])
+                }}
             />
 
             <div className="container">

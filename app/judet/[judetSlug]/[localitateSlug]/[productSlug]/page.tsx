@@ -17,10 +17,24 @@ export async function generateMetadata({ params }: { params: Promise<{ judetSlug
     const title = `Print ${product.title} în ${loc.name}, Județul ${judet.name} | Tablou`;
     const description = `Comandă online ${product.title.toLowerCase()} personalizat, cu livrare rapidă direct în ${loc.name} (${judet.name}). Rezistență maximă, print profesional, finisaje incluse.`;
 
+    const routeUrl = `https://tablou.ro/judet/${judet.slug}/${loc.slug}/${productSlug}`;
+
     return {
         title,
         description,
         keywords: `${product.title} ${loc.name}, print ${(product as any).slug || product.id} ${loc.name}, productie ${product.title} ${judet.name}, comanda online ${loc.name}`,
+        openGraph: {
+            title,
+            description,
+            url: routeUrl,
+            images: [(product as any).image || ((product as any).images?.[0]) || '/placeholder.png'],
+            siteName: 'Tablou',
+            locale: 'ro_RO',
+            type: 'website',
+        },
+        alternates: {
+            canonical: routeUrl,
+        }
     };
 }
 
@@ -124,27 +138,39 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                 id={`schema-${judetSlug}-${localitateSlug}-${productSlug}`}
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org/",
-                        "@type": "Product",
-                        "name": `${product.title} - Livrare în ${loc.name}`,
-                        "image": productImage,
-                        "description": `Printăm și livrăm ${product.title} în ${loc.name}, ${judet.name}. Calitate premium UV.`,
-                        "brand": {
-                            "@type": "Brand",
-                            "name": "Tablou"
-                        },
-                        "offers": {
-                            "@type": "Offer",
-                            "priceCurrency": (product as any).currency || "RON",
-                            "price": (product as any).priceBase || (product as any).price || "49",
-                            "availability": "https://schema.org/InStock",
-                            "areaServed": {
-                                "@type": "City",
-                                "name": loc.name
+                    __html: JSON.stringify([
+                        {
+                            "@context": "https://schema.org/",
+                            "@type": "Product",
+                            "name": `${product.title} - Livrare în ${loc.name}`,
+                            "image": productImage,
+                            "description": `Printăm și livrăm ${product.title} în ${loc.name}, ${judet.name}. Calitate premium UV.`,
+                            "brand": {
+                                "@type": "Brand",
+                                "name": "Tablou"
+                            },
+                            "offers": {
+                                "@type": "Offer",
+                                "priceCurrency": (product as any).currency || "RON",
+                                "price": (product as any).priceBase || (product as any).price || "49",
+                                "availability": "https://schema.org/InStock",
+                                "areaServed": {
+                                    "@type": "City",
+                                    "name": loc.name
+                                }
                             }
+                        },
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "BreadcrumbList",
+                            "itemListElement": [
+                                { "@type": "ListItem", "position": 1, "name": "Acasă", "item": "https://tablou.ro/" },
+                                { "@type": "ListItem", "position": 2, "name": judet.name, "item": `https://tablou.ro/judet/${judet.slug}` },
+                                { "@type": "ListItem", "position": 3, "name": loc.name, "item": `https://tablou.ro/judet/${judet.slug}/${loc.slug}` },
+                                { "@type": "ListItem", "position": 4, "name": product.title }
+                            ]
                         }
-                    })
+                    ])
                 }}
             />
         </main>

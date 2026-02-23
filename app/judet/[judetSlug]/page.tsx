@@ -21,11 +21,21 @@ export async function generateMetadata({ params }: { params: Promise<{ judetSlug
     const title = `Print Bannere & Mesh ${data.name} - Publicitate Outdoor Tablou`;
     const description = `Livrăm în județul ${data.name} (în ${cityName} și restul județului) bannere publicitare personalizate, mesh-uri și autocolante. Calitate garantată și livrare rapidă.`;
 
+    const routeUrl = `https://tablou.ro/judet/${data.slug}`;
+
     return {
         title,
         description,
         keywords: `print ${data.name}, bannere ${data.name}, mesh publicitar ${data.name}, publicitate outdoor ${data.name}, autocolante ${data.name}`,
-        alternates: { canonical: `/judet/${data.slug}` },
+        openGraph: {
+            title,
+            description,
+            url: routeUrl,
+            siteName: 'Tablou',
+            locale: 'ro_RO',
+            type: 'website',
+        },
+        alternates: { canonical: routeUrl },
     };
 }
 
@@ -85,7 +95,19 @@ export default async function JudetPage({ params }: { params: Promise<{ judetSlu
             <Script
                 id="local-schema"
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(localSchema) }}
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify([
+                        localSchema,
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "BreadcrumbList",
+                            "itemListElement": [
+                                { "@type": "ListItem", "position": 1, "name": "Acasă", "item": "https://tablou.ro/" },
+                                { "@type": "ListItem", "position": 2, "name": data.name }
+                            ]
+                        }
+                    ])
+                }}
             />
 
             <header className="mb-16 border-b border-slate-100 pb-16">
