@@ -109,7 +109,7 @@ export default async function LocalitatePage({ params }: { params: Promise<{ jud
                                 <div className="aspect-[4/3] relative bg-slate-100 overflow-hidden">
                                     <Image
                                         src={p.image || p.images?.[0] || '/placeholder.png'}
-                                        alt={p.title}
+                                        alt={`${p.title} ${loc.name} montaj inclus`}
                                         fill
                                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                                     />

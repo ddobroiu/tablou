@@ -81,7 +81,7 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                         <div className="relative aspect-square rounded-[3rem] overflow-hidden shadow-2xl bg-white border border-slate-100">
                             <Image
                                 src={productImage}
-                                alt={`Print ${product.title} în ${loc.name}`}
+                                alt={`${product.title} ${loc.name} montaj inclus`}
                                 fill
                                 className="object-cover"
                                 priority

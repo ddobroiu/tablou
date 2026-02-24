@@ -116,7 +116,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         {finalImg.startsWith('http') ? (
           <img
             src={finalImg}
-            alt={product.title}
+            alt={`${product.title} - Comanda online premium`}
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
             loading="lazy"
             onError={() => setImgError(true)}
@@ -124,7 +124,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         ) : (
           <Image
             src={finalImg}
-            alt={product.title}
+            alt={`${product.title} - Comanda online premium`}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             className="object-cover transition-transform duration-1000 group-hover:scale-110"
