@@ -17,12 +17,8 @@ export default function ConfiguratorDispatcher({ configuratorId, productSlug }: 
     const searchParams = useSearchParams();
     const finalSlug = productSlug || searchParams.get('productSlug') || searchParams.get('slug');
 
-     />;
-    }
-
     if ((configuratorId === 'insigne-acrylic' || configuratorId.startsWith('ins-')) && finalSlug) {
-        return <InsigneAcrylicConfigurator productSlug={finalSlug} />;
-    }
+        return <InsigneAcrylicConfigurator productSlug={finalSlug}
 
     return <div>Configurator invalid sau lipsă slug.</div>;
 }
