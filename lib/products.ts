@@ -119,7 +119,7 @@ const REMOVED_CATEGORIES = ['afise', 'autocolante', 'carton', 'flayere', 'tapet'
 
 // Import additional collections
 import { canvasProducts } from "./products/canvas-products";
-import { acrylicProducts } from "./products/acrylic-products";
+;
 
 // Convert collections to Product type
 const SCRAPED_COLLECTIONS = [
