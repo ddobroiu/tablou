@@ -166,9 +166,9 @@ export default function Footer() {
             <span className="text-slate-300 hidden sm:inline">•</span>
             <a href="https://www.tablou.ro" target="_blank" className="text-slate-600 hover:text-rose-600 font-bold transition-colors">Tablou.ro - Tablouri Canvas</a>
             <span className="text-slate-300 hidden sm:inline">•</span>
-            <a href="https://www.euprint.ro" target="_blank" className="text-slate-600 hover:text-blue-600 font-bold transition-colors">EuPrint - Tipar Finanțat</a>
+            <a href="https://www.euprint.ro" target="_blank" className="text-slate-600 hover:text-blue-600 font-bold transition-colors">EuPrint - Identitate vizuală fonduri</a>
             <span className="text-slate-300 hidden sm:inline">•</span>
-            <a href="https://www.visionboard.ro" target="_blank" className="text-slate-600 hover:text-purple-600 font-bold transition-colors">VisionBoard - Panouri PNRR</a>
+            <a href="https://www.visionboard.ro" target="_blank" className="text-slate-600 hover:text-purple-600 font-bold transition-colors">VisionBoard - Panoul visurilor</a>
           </div>
         </div>
         {/* Bottom Bar */}
