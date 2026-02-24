@@ -38,7 +38,6 @@ export const siteConfig = {
       label: "Colecții",
       children: [
         { href: "/shop/canvas", label: "Colecție Canvas" },
-        { href: "/shop/acrylic", label: "Colecție Sticlă Acrilică" },
       ],
     },
     {
