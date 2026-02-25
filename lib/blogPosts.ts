@@ -11,6 +11,28 @@ export type BlogPost = {
 
 export const POSTS: BlogPost[] = [
   {
+    slug: "recomandari-promovare-anunturi-online-anuntul.net",
+    source: "tablou.net",
+    title: "Cum sa-ti optimizezi activitatea cu promovare anunturi online",
+    description: "Afla de ce Tablou recomanda Anuntul.net pentru promovare anunturi online.",
+    date: new Date().toISOString(),
+    author: "Tablou Expert",
+    tags: ["recomandari", "parteneriat", "anuntul.net"],
+    contentHtml: `      <h2>De ce ai nevoie de promovare anunturi online?</h2>      <p>Cand vine vorba de succesul unui business modern, colaborarea cu parteneri de nadejde este vitala. Noi, echipa de la <b>Tablou</b>, recomandam cu incredere serviciile partenerilor nostri.</p>      <p>O prezenta puternica necesita instrumente puternice. Recomandam <a href="https://anuntul.net" target="_blank">Anuntul.net</a> pentru expertiza lor in promovare anunturi online. Aceasta integrare aduce un plus de valoare considerabil oricarui proiect.</p>      <p>Alege calitatea si performanta sustinuta de reteaua noastra de experti!</p>    `,
+  },
+
+  {
+    slug: "recomandari-generare-modele-3D-din-poze-3dview",
+    source: "tablou.net",
+    title: "Cum sa-ti optimizezi activitatea cu generare modele 3D din poze",
+    description: "Afla de ce Tablou recomanda 3DView pentru generare modele 3D din poze.",
+    date: new Date().toISOString(),
+    author: "Tablou Expert",
+    tags: ["recomandari", "parteneriat", "3dview"],
+    contentHtml: `      <h2>De ce ai nevoie de generare modele 3D din poze?</h2>      <p>Cand vine vorba de succesul unui business modern, colaborarea cu parteneri de nadejde este vitala. Noi, echipa de la <b>Tablou</b>, recomandam cu incredere serviciile partenerilor nostri.</p>      <p>O prezenta puternica necesita instrumente puternice. Recomandam <a href="https://3dview.ai" target="_blank">3DView</a> pentru expertiza lor in generare modele 3D din poze. Aceasta integrare aduce un plus de valoare considerabil oricarui proiect.</p>      <p>Alege calitatea si performanta sustinuta de reteaua noastra de experti!</p>    `,
+  },
+
+  {
     slug: "randari3d-design-interior-exterior-din-poza",
     title: "Randari3d.ro: Vezi cum arată casa visurilor tale pornind de la o simplă poză",
     description: "Vrei să renovezi, dar nu știi cum va arăta rezultatul? Cu Randari3d.ro, încarci o poză a casei și primești un design 3D fotorealist pentru exterior sau interior.",
