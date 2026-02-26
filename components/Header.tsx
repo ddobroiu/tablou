@@ -97,7 +97,7 @@ const MobileNav = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
           <nav className="flex-1 overflow-y-auto p-4">
             <ul className="space-y-1">
               {siteConfig.headerNav.map((item) => (
-                <li key={item.label}>
+                <li key={item.label} className="border-b border-slate-50 pb-3 last:border-0">
                   {(item as any).children ? (
                     <div className="rounded-lg overflow-hidden">
                       <button
@@ -137,6 +137,21 @@ const MobileNav = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
               ))}
             </ul>
           </nav>
+
+          {/* Footer with Contact - SĂ APARĂ CA LA SHOPPRINT */}
+          <div className="p-4 border-t border-slate-100 bg-slate-50/50">
+            <a
+              href="https://wa.me/40750473111"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 py-3 bg-[#25D366] text-white rounded-xl font-bold text-sm shadow-lg shadow-green-100 hover:scale-[1.02] active:scale-[0.98] transition-all"
+            >
+              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.29-4.143c1.559.925 3.31 1.411 5.099 1.412 5.484 0 9.947-4.463 9.949-9.947 0-2.659-1.036-5.158-2.915-7.038-1.88-1.88-4.379-2.915-7.037-2.915-5.485 0-9.95 4.463-9.952 9.948-.001 1.932.553 3.82 1.605 5.421l-.992 3.626 3.71-.973zm11.334-6.203c-.308-.154-1.822-.899-2.104-.1002-.284-.102-.488-.254-.718-.102-.232.152-.916.899-1.123 1.144-.207.244-.414.275-.722.121-.308-.154-1.301-.48-2.479-1.531-.917-.818-1.536-1.83-1.715-2.138-.179-.308-.019-.475.135-.628.14-.138.308-.359.461-.538.154-.179.206-.308.308-.513.102-.206.051-.385-.026-.538-.077-.154-.718-1.731-.984-2.372-.259-.623-.524-.538-.722-.548-.198-.011-.424-.013-.651-.013-.226 0-.594.085-.904.424-.309.339-1.183 1.157-1.183 2.822 0 1.666 1.213 3.273 1.383 3.498.17.226 2.387 3.646 5.783 5.11 3.396 1.464 3.396.976 4.013.917.617-.06 1.822-.744 2.08-.1426.258-.702.258-1.303.181-1.426-.077-.123-.284-.198-.592-.352z" />
+              </svg>
+              WhatsApp Contact
+            </a>
+          </div>
         </div>
       </div>
     </>
@@ -168,6 +183,19 @@ const HeaderActions = () => {
 
   return (
     <div className="flex items-center gap-4">
+      {/* WhatsApp Support Link */}
+      <a
+        href="https://wa.me/40750473111"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="p-2 text-zinc-400 hover:text-[#25D366] transition-colors hidden sm:flex items-center gap-2"
+      >
+        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.29-4.143c1.559.925 3.31 1.411 5.099 1.412 5.484 0 9.947-4.463 9.949-9.947 0-2.659-1.036-5.158-2.915-7.038-1.88-1.88-4.379-2.915-7.037-2.915-5.485 0-9.95 4.463-9.952 9.948-.001 1.932.553 3.82 1.605 5.421l-.992 3.626 3.71-.973zm11.334-6.203c-.308-.154-1.822-.899-2.104-.1002-.284-.102-.488-.254-.718-.102-.232.152-.916.899-1.123 1.144-.207.244-.414.275-.722.121-.308-.154-1.301-.48-2.479-1.531-.917-.818-1.536-1.83-1.715-2.138-.179-.308-.019-.475.135-.628.14-.138.308-.359.461-.538.154-.179.206-.308.308-.513.102-.206.051-.385-.026-.538-.077-.154-.718-1.731-.984-2.372-.259-.623-.524-.538-.722-.548-.198-.011-.424-.013-.651-.013-.226 0-.594.085-.904.424-.309.339-1.183 1.157-1.183 2.822 0 1.666 1.213 3.273 1.383 3.498.17.226 2.387 3.646 5.783 5.11 3.396 1.464 3.396.976 4.013.917.617-.06 1.822-.744 2.08-.1426.258-.702.258-1.303.181-1.426-.077-.123-.284-.198-.592-.352z" />
+        </svg>
+        <span className="text-xs font-bold uppercase tracking-tight">0750 473 111</span>
+      </a>
+
       {/* Account Dropdown */}
       {session?.user ? (
         <div className="relative account-dropdown">
@@ -325,10 +353,10 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="lg:hidden p-3 bg-indigo-600 hover:bg-indigo-700 rounded-xl transition-all active:scale-95 shadow-lg"
+              className="lg:hidden p-2 text-slate-900"
               aria-label="Deschide meniul"
             >
-              <Menu size={32} strokeWidth={2.5} className="text-white" />
+              <Menu size={28} />
             </button>
             <Link href="/" className="flex items-center group">
               <img

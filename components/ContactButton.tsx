@@ -7,11 +7,8 @@ export default function ContactButton() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
-  // Pe mobil: vizibil doar pe prima pagină (isHome); pe desktop: mereu vizibil (lg:block)
-  const isHome = pathname === "/";
-
   return (
-    <div className={`fixed bottom-6 right-6 z-50 ${isHome ? "block" : "hidden"} lg:block`}>
+    <div className="fixed bottom-6 right-6 z-50">
       {/* Meniul expandat */}
       {open && (
         <div className="mb-3 flex flex-col items-end gap-2 animate-in fade-in slide-in-from-bottom-2">
