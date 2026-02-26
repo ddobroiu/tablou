@@ -127,10 +127,12 @@ const SCRAPED_COLLECTIONS = [
     ...p,
     metadata: { ...p, category: "canvas" }
   })),
+  /*
   ...acrylicProducts.map(p => ({
     ...p,
     metadata: { ...p, category: "plexiglass" }
   }))
+  */
 ] as Product[];
 
 // Combinăm toate produsele și filtrăm categorile ce nu mai trebuie să apară
