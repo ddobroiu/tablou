@@ -1,5 +1,6 @@
 export type BlogPost = {
   slug: string;
+  source?: string;
   title: string;
   description: string;
   date: string; // ISO date
