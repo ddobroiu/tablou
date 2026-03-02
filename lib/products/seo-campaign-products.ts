@@ -599,6 +599,85 @@ export const seoCampaignProducts = [
         image: "/products/rollup/rollup-1.webp",
         price: "De la 190 LEI",
         category: "Campanii SEO",
-        tags: ["rollup", "premium", "lux"]
+        tags: ["rollup", "premium", "heavy base"]
+    },
+
+    // --- VARIATII COMUNICATE DE PRESA & FONDURI EU ---
+    {
+        id: "seo-comunicat-presa-pnrr",
+        slug: "comunicat-presa-pnrr-incepere-finalizare",
+        routeSlug: "configurator/fonduri-eu",
+        title: "Comunicat de Presă PNRR",
+        description: "Redactare și publicare comunicat de presă pentru proiecte PNRR. Conformitate 100% cu Manualul de Identitate Vizuală (MIV).",
+        image: "/products/fonduri/pnrr-1.webp",
+        price: "De la 150 LEI",
+        category: "Campanii SEO",
+        tags: ["comunicat presa", "pnrr", "vizibilitate"]
+    },
+    {
+        id: "seo-comunicat-program-regional",
+        slug: "comunicat-presa-programul-regional-pr",
+        routeSlug: "configurator/fonduri-eu",
+        title: "Comunicat Presă Programul Regional",
+        description: "Publicare anunțuri și comunicate pentru proiecte finanțate prin Programul Regional (PR). Asigurăm vizibilitatea obligatorie.",
+        image: "/products/fonduri/pnrr-1.webp",
+        price: "De la 150 LEI",
+        category: "Campanii SEO",
+        tags: ["comunicat presa", "program regional", "fonduri eu"]
+    },
+    {
+        id: "seo-comunicat-adr-centru",
+        slug: "comunicat-presa-adr-centru",
+        routeSlug: "configurator/fonduri-eu",
+        title: "Comunicat de Presă ADR Centru",
+        description: "Anunțuri media obligatorii pentru beneficiarii de fonduri prin ADR Centru. Format standard aprobat.",
+        image: "/products/fonduri/pnrr-1.webp",
+        price: "De la 150 LEI",
+        category: "Campanii SEO",
+        tags: ["comunicat presa", "adr centru", "fonduri"]
+    },
+    {
+        id: "seo-comunicat-adr-nord-vest",
+        slug: "comunicat-presa-adr-nord-vest",
+        routeSlug: "configurator/fonduri-eu",
+        title: "Comunicat de Presă ADR Nord-Vest",
+        description: "Servicii de publicitate media pentru proiecte regionale în zona de Nord-Vest. Include monitorizare apariții.",
+        image: "/products/fonduri/pnrr-1.webp",
+        price: "De la 150 LEI",
+        category: "Campanii SEO",
+        tags: ["comunicat presa", "adr nord vest", "fonduri"]
+    },
+    {
+        id: "seo-comunicat-adr-vest",
+        slug: "comunicat-presa-adr-vest",
+        routeSlug: "configurator/fonduri-eu",
+        title: "Comunicat de Presă ADR Vest",
+        description: "Publicare rapidă comunicat de presă conform cerințelor ADR Vest pentru proiecte de investiții.",
+        image: "/products/fonduri/pnrr-1.webp",
+        price: "De la 150 LEI",
+        category: "Campanii SEO",
+        tags: ["comunicat presa", "adr vest", "fonduri"]
+    },
+    {
+        id: "seo-comunicat-adr-sud-muntenia",
+        slug: "comunicat-presa-adr-sud-muntenia",
+        routeSlug: "configurator/fonduri-eu",
+        title: "Comunicat Presă ADR Sud-Muntenia",
+        description: "Asigurăm pachetul de vizibilitate media (anunțuri ziar/online) pentru proiectele din regiunea Sud-Muntenia.",
+        image: "/products/fonduri/pnrr-1.webp",
+        price: "De la 150 LEI",
+        category: "Campanii SEO",
+        tags: ["comunicat presa", "adr sud muntenia", "fonduri"]
+    },
+    {
+        id: "seo-pachet-vizibilitate-pnrr",
+        slug: "pachet-vizibilitate-obligatorie-pnrr",
+        routeSlug: "configurator/fonduri-eu",
+        title: "Pachet Vizibilitate Obligatorie PNRR",
+        description: "Pachet complet: Comunicat presă start/final + Placă Permanentă + Autocolante conform MIV PNRR.",
+        image: "/products/fonduri/pnrr-1.webp",
+        price: "De la 450 LEI",
+        category: "Campanii SEO",
+        tags: ["pachet vizibilitate", "pnrr", "obligatoriu"]
     }
 ];
