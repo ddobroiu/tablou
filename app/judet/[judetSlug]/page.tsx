@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ judetSlug
     const title = `Print Bannere & Mesh ${data.name} - Publicitate Outdoor Tablou`;
     const description = `Livrăm în județul ${data.name} (în ${cityName} și restul județului) bannere publicitare personalizate, mesh-uri și autocolante. Calitate garantată și livrare rapidă.`;
 
-    const routeUrl = `https://tablou.ro/judet/${data.slug}`;
+    const routeUrl = `https://tablou.net/judet/${data.slug}`;
 
     return {
         title,
@@ -48,9 +48,14 @@ export default async function JudetPage({ params }: { params: Promise<{ judetSlu
 
     const base = siteConfig.url;
 
+    // Fetch all products and filter for "configurators" (those from registry)
     const allProducts = await getProducts();
     const validProducts = allProducts.filter((p: any) => !p.id?.startsWith("fallback-") && (p.images?.length > 0 || p.image));
-    const configurators = validProducts.filter((p: any) => p.metadata?.category === "configuratoare");
+
+    // In Tablou, configurators have configuratorId or are in specific categories
+    const configurators = validProducts.filter((p: any) =>
+        p.metadata?.configuratorId || ['banner', 'banner-verso', 'rollup', 'window-graphics'].includes(p.metadata?.category)
+    );
 
     const localSchema = {
         "@context": "https://schema.org",
@@ -82,8 +87,8 @@ export default async function JudetPage({ params }: { params: Promise<{ judetSlu
     const sortedLetters = Object.keys(groupedLocalities).sort((a, b) => a.localeCompare(b, "ro"));
 
     return (
-        <main className="min-h-screen bg-white">
-            <div className="max-w-7xl mx-auto px-6 py-10 pt-24 lg:px-8">
+        <div className="min-h-screen bg-slate-50 pt-24 pb-24">
+            <div className="container mx-auto px-4 sm:px-6">
                 <Script
                     id="local-schema"
                     type="application/ld+json"
@@ -94,7 +99,7 @@ export default async function JudetPage({ params }: { params: Promise<{ judetSlu
                                 "@context": "https://schema.org",
                                 "@type": "BreadcrumbList",
                                 "itemListElement": [
-                                    { "@type": "ListItem", "position": 1, "name": "Acasă", "item": "https://tablou.ro/" },
+                                    { "@type": "ListItem", "position": 1, "name": "Acasă", "item": "https://tablou.net/" },
                                     { "@type": "ListItem", "position": 2, "name": data.name }
                                 ]
                             }
@@ -113,15 +118,15 @@ export default async function JudetPage({ params }: { params: Promise<{ judetSlu
 
                 <div className="mb-24">
                     <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tighter mb-8 border-b border-slate-200 pb-4">
-                        1. Cele mai Căutate Configuratoare pentru Județul {data.name}
+                        1. Cele mai Căutate Produse pentru Județul {data.name}
                     </h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                        {configurators.map((p: any) => {
+                        {configurators.slice(0, 8).map((p: any) => {
                             const rootSlug = (p.routeSlug && !p.routeSlug.includes('/')) ? p.routeSlug : (p.routeSlug || p.slug || p.id);
                             const productUrl = `/${rootSlug}`;
 
                             return (
-                                <Link href={productUrl} key={p.id} className="group bg-white border-2 border-slate-100 rounded-3xl overflow-hidden hover:border-orange-500 hover:shadow-2xl hover:-translate-y-1 transition duration-300 flex flex-col relative text-left">
+                                <Link href={productUrl} key={p.id} className="group bg-white border-2 border-slate-100 rounded-3xl overflow-hidden hover:border-orange-500 hover:shadow-2xl hover:-translate-y-1 transition duration-300 flex flex-col relative">
                                     <div className="absolute top-4 right-4 bg-orange-500 text-white text-xs font-black px-3 py-1 rounded-full z-10 shadow-lg uppercase tracking-wider">
                                         Configurabil
                                     </div>
@@ -180,6 +185,6 @@ export default async function JudetPage({ params }: { params: Promise<{ judetSlu
                     </div>
                 </section>
             </div>
-        </main>
+        </div>
     );
 }

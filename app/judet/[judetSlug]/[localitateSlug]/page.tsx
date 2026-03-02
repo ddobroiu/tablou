@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ judetSlug
     const title = `Producție Publicitară în ${loc.name}, ${judet.name} - Tablou`;
     const description = `Comandă bannere publicitare, mesh-uri, autocolante și materiale printate cu livrare direct în ${loc.name} (${judet.name}). Producător direct, rezistență la exterior.`;
 
-    const routeUrl = `https://tablou.ro/judet/${judet.slug}/${loc.slug}`;
+    const routeUrl = `https://tablou.net/judet/${judet.slug}/${loc.slug}`;
 
     return {
         title,
@@ -47,8 +47,8 @@ export default async function LocalitatePage({ params }: { params: Promise<{ jud
     // Excludem fallbacks pentru un aspect mai curat
     const validProducts = allProducts.filter((p: any) => !p.id?.startsWith("fallback-") && (p.images?.length > 0 || p.image));
 
-    const configurators = validProducts.filter((p: any) => p.metadata?.category === "configuratoare");
-    const seoProducts = validProducts.filter((p: any) => p.metadata?.category === "campanii-seo");
+    const configurators = validProducts.filter((p: any) => p.metadata?.category !== "banner" || !p.metadata?.isSeoCampaign).slice(0, 8);
+    const seoProducts = validProducts.filter((p: any) => p.metadata?.isSeoCampaign);
 
     const localSchema = {
         "@context": "https://schema.org",
@@ -66,7 +66,7 @@ export default async function LocalitatePage({ params }: { params: Promise<{ jud
     };
 
     return (
-        <main className="min-h-screen bg-slate-50 pt-24 pb-24">
+        <div className="min-h-screen bg-slate-50 pt-24 pb-24">
             <Script
                 id="local-schema-city"
                 type="application/ld+json"
@@ -77,8 +77,8 @@ export default async function LocalitatePage({ params }: { params: Promise<{ jud
                             "@context": "https://schema.org",
                             "@type": "BreadcrumbList",
                             "itemListElement": [
-                                { "@type": "ListItem", "position": 1, "name": "Acasă", "item": "https://tablou.ro/" },
-                                { "@type": "ListItem", "position": 2, "name": judet.name, "item": `https://tablou.ro/judet/${judet.slug}` },
+                                { "@type": "ListItem", "position": 1, "name": "Acasă", "item": "https://tablou.net/" },
+                                { "@type": "ListItem", "position": 2, "name": judet.name, "item": `https://tablou.net/judet/${judet.slug}` },
                                 { "@type": "ListItem", "position": 3, "name": loc.name }
                             ]
                         }
@@ -86,7 +86,7 @@ export default async function LocalitatePage({ params }: { params: Promise<{ jud
                 }}
             />
 
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="container mx-auto px-4 sm:px-6">
                 <nav className="text-sm font-medium text-slate-500 mb-8 flex gap-2 items-center">
                     <Link href="/judet" className="hover:text-orange-500 transition-colors">Județe</Link> /
                     <Link href={`/judet/${judet.slug}`} className="hover:text-orange-500 transition-colors">{judet.name}</Link> /
@@ -112,7 +112,7 @@ export default async function LocalitatePage({ params }: { params: Promise<{ jud
                             const productUrl = `/judet/${judet.slug}/${loc.slug}/${cleanSlug}`;
 
                             return (
-                                <Link href={productUrl} key={p.id} className="group bg-white border-2 border-slate-100 rounded-3xl overflow-hidden hover:border-orange-500 hover:shadow-2xl hover:-translate-y-1 transition duration-300 flex flex-col relative text-left">
+                                <Link href={productUrl} key={p.id} className="group bg-white border-2 border-slate-100 rounded-3xl overflow-hidden hover:border-orange-500 hover:shadow-2xl hover:-translate-y-1 transition duration-300 flex flex-col relative">
                                     <div className="absolute top-4 right-4 bg-orange-500 text-white text-xs font-black px-3 py-1 rounded-full z-10 shadow-lg uppercase tracking-wider">
                                         Configurabil
                                     </div>
@@ -156,6 +156,6 @@ export default async function LocalitatePage({ params }: { params: Promise<{ jud
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
     );
 }

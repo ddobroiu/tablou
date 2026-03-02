@@ -15,7 +15,7 @@ export default function JudetePage() {
     const base = siteConfig.url;
 
     return (
-        <main className="min-h-screen bg-slate-50/50">
+        <div className="min-h-screen bg-slate-50/50">
             {/* Hero Section */}
             <div className="relative overflow-hidden bg-slate-900 pt-32 pb-20 md:pt-44 md:pb-36">
                 <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
@@ -102,6 +102,6 @@ export default function JudetePage() {
                     </div>
                 </div>
             </section>
-        </main>
+        </div>
     );
 }

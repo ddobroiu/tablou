@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getLocalitateBySlug, getJudetBySlug } from "@/lib/localitati";
-import { getProductBySlug } from "@/lib/products";
+import { getProductBySlug, getProducts } from "@/lib/products";
 import Script from "next/script";
 
 // Seeded random for deterministic Spintax & Ratings
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ judetSlug
     const title = `Print ${product.title} în ${loc.name}, Județul ${judet.name} | Tablou`;
     const description = `Comandă online ${product.title.toLowerCase()} personalizat, cu livrare rapidă direct în ${loc.name} (${judet.name}). Rezistență maximă, print profesional, finisaje incluse.`;
 
-    const routeUrl = `https://tablou.ro/judet/${judet.slug}/${loc.slug}/${productSlug}`;
+    const routeUrl = `https://tablou.net/judet/${judet.slug}/${loc.slug}/${productSlug}`;
 
     return {
         title,
@@ -63,9 +63,16 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
     const productImage = (product as any).image || ((product as any).images?.[0]) || "/placeholder.png";
     const shopUrl = `/${(product as any).routeSlug || (product as any).slug || product.id}`;
 
+    // Cross-Linking: Get recommended products
+    const allProducts = await getProducts();
+    const recommendedProducts = allProducts
+        .filter(p => p.id !== product.id)
+        .sort((a, b) => getSeededRandom(a.id + loc.slug + product.id) - 0.5)
+        .slice(0, 4);
+
     return (
-        <main className="min-h-screen bg-slate-50 pt-24 pb-24">
-            <div className="container max-w-6xl">
+        <div className="min-h-screen bg-slate-50 pt-24 pb-24">
+            <div className="container mx-auto px-4 sm:px-6">
                 {/* Breadcrumb */}
                 <nav className="text-sm font-medium text-slate-500 mb-12 flex flex-wrap gap-2 items-center">
                     <Link href="/judet" className="hover:text-orange-500 transition-colors">Județe</Link> /
@@ -74,11 +81,11 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                     <span className="text-slate-900 font-bold">{product.title}</span>
                 </nav>
 
-                <div className="flex flex-col lg:flex-row gap-16 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
 
                     {/* Imagini */}
-                    <div className="w-full lg:w-1/2">
-                        <div className="relative aspect-square rounded-[3rem] overflow-hidden shadow-2xl bg-white border border-slate-100">
+                    <div className="w-full">
+                        <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl bg-white border border-slate-100">
                             <Image
                                 src={productImage}
                                 alt={`${product.title} ${loc.name} montaj inclus`}
@@ -97,12 +104,12 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                     </div>
 
                     {/* Conținut SEO & Call to Action */}
-                    <div className="w-full lg:w-1/2 flex flex-col justify-center">
+                    <div className="w-full flex flex-col justify-center">
                         <div className="inline-block px-4 py-2 bg-orange-100 text-orange-700 font-bold text-xs uppercase tracking-widest rounded-full mb-6 w-max">
                             Producție Publicitară {judet.name}
                         </div>
 
-                        <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 leading-[1.1] tracking-tight">
+                        <h1 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 leading-[1.1] tracking-tight">
                             Comandă <span className="text-orange-500">{product.title}</span> în <span className="underline decoration-orange-500/30 underline-offset-8">{loc.name}</span>
                         </h1>
 
@@ -156,7 +163,7 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
             </div>
 
             {/* FAQ Section */}
-            <div className="container max-w-4xl mt-32">
+            <div className="container mx-auto px-4 sm:px-6 mt-32">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-black text-slate-900 tracking-tight uppercase">Întrebări Frecvente (FAQ) {loc.name}</h2>
                     <div className="h-1 w-16 bg-orange-500 mx-auto mt-4 rounded-full"></div>
@@ -185,7 +192,7 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
             </div>
 
             {/* Horizontal Siloing: Alte localitati in acelasi judet */}
-            <div className="container max-w-6xl mt-24 border-t border-slate-200 pt-16">
+            <div className="container mx-auto px-4 sm:px-6 mt-24 border-t border-slate-200 pt-16">
                 <div className="text-center mb-10">
                     <h2 className="text-2xl font-black text-slate-900 uppercase tracking-tight">Efectuăm livrări {product.title} și în alte localități din {judet.name}</h2>
                     <p className="text-slate-500 mt-2">Dacă vrei să comanzi în altă parte decât {loc.name}, onorăm servicii de producție cu transport rapid prin curier direct în zonele următoare:</p>
@@ -208,6 +215,35 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                             </Link>
                         ));
                     })()}
+                </div>
+            </div>
+
+            {/* Produse Recomandate (Cross-linking SEO) */}
+            <div className="container mx-auto px-4 sm:px-6 mt-24 border-t border-slate-200 pt-16">
+                <div className="text-center mb-10">
+                    <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tight">Clienții din {loc.name} au comandat și</h2>
+                    <div className="h-1 w-16 bg-orange-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {recommendedProducts.map(rp => {
+                        const rpImage = (rp as any).image || ((rp as any).images?.[0]) || "/placeholder.png";
+                        const rpSlug = rp.routeSlug || rp.slug || rp.id;
+                        return (
+                            <Link
+                                key={rp.id}
+                                href={`/judet/${judet.slug}/${loc.slug}/${rpSlug}`}
+                                className="group bg-white border border-slate-100 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 block"
+                            >
+                                <div className="aspect-[4/3] relative w-full overflow-hidden bg-slate-50">
+                                    <Image src={rpImage} fill className="object-cover group-hover:scale-105 transition-transform duration-500" alt={rp.title} />
+                                </div>
+                                <div className="p-6">
+                                    <h3 className="font-bold text-slate-900 group-hover:text-orange-600 transition-colors mb-2 text-lg">{rp.title}</h3>
+                                    <p className="text-slate-500 text-sm line-clamp-2">{rp.description}</p>
+                                </div>
+                            </Link>
+                        );
+                    })}
                 </div>
             </div>
 
@@ -252,9 +288,9 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                             "@context": "https://schema.org",
                             "@type": "BreadcrumbList",
                             "itemListElement": [
-                                { "@type": "ListItem", "position": 1, "name": "Acasă", "item": "https://tablou.ro/" },
-                                { "@type": "ListItem", "position": 2, "name": judet.name, "item": `https://tablou.ro/judet/${judet.slug}` },
-                                { "@type": "ListItem", "position": 3, "name": loc.name, "item": `https://tablou.ro/judet/${judet.slug}/${loc.slug}` },
+                                { "@type": "ListItem", "position": 1, "name": "Acasă", "item": "https://tablou.net/" },
+                                { "@type": "ListItem", "position": 2, "name": judet.name, "item": `https://tablou.net/judet/${judet.slug}` },
+                                { "@type": "ListItem", "position": 3, "name": loc.name, "item": `https://tablou.net/judet/${judet.slug}/${loc.slug}` },
                                 { "@type": "ListItem", "position": 4, "name": product.title }
                             ]
                         },
@@ -282,6 +318,6 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                     ])
                 }}
             />
-        </main>
+        </div>
     );
 }

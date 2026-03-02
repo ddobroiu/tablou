@@ -119,7 +119,7 @@ export default function Footer() {
                 <li><Link href="/termeni" className={linkClass}>Termeni & Condiții</Link></li>
                 <li><Link href="/confidentialitate" className={linkClass}>Confidențialitate</Link></li>
                 <li><Link href="/politica-cookies" className={linkClass}>Cookies</Link></li>
-              <li><Link href="/harta-site" className="text-sm text-slate-400 hover:text-white transition-colors">Harta Site</Link></li>
+                <li><Link href="/harta-site" className="text-sm text-slate-400 hover:text-white transition-colors">Harta Site</Link></li>
               </ul>
             </div>
           </div>
@@ -153,7 +153,7 @@ export default function Footer() {
           </div>
         </div>
 
-        
+
         {/* Rețeaua PBN Legală (Cross-Linking) */}
         <div className="py-8 border-t border-slate-200 mt-2 mb-8">
           <h3 className="font-bold text-slate-900 text-sm uppercase tracking-wider mb-4 text-center">Rețeaua Noastră de Producție</h3>
@@ -164,7 +164,7 @@ export default function Footer() {
             <span className="text-slate-300 hidden sm:inline">•</span>
             <a href="https://www.adbanner.ro" target="_blank" className="text-slate-600 hover:text-orange-600 font-bold transition-colors">AdBanner - Bannere Outdoor</a>
             <span className="text-slate-300 hidden sm:inline">•</span>
-            <a href="https://www.tablou.ro" target="_blank" className="text-slate-600 hover:text-rose-600 font-bold transition-colors">Tablou.ro - Tablouri Canvas</a>
+            <a href="https://www.tablou.net" target="_blank" className="text-slate-600 hover:text-rose-600 font-bold transition-colors">Tablou.net - Tablouri Canvas</a>
             <span className="text-slate-300 hidden sm:inline">•</span>
             <a href="https://www.euprint.ro" target="_blank" className="text-slate-600 hover:text-blue-600 font-bold transition-colors">EuPrint - Identitate vizuală fonduri</a>
             <span className="text-slate-300 hidden sm:inline">•</span>
