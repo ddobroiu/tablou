@@ -114,9 +114,6 @@ const STICKERMANIA_PRODUCTS = getStickermaniaProducts().map(sm => convertSticker
 // Convertim bannerele Stickermania
 const STICKERMANIA_BANNERS = getStickermaniaBanners().map(b => convertStickermaniaBannerToProduct(b) as Product);
 
-// Categorile eliminate din shop
-const REMOVED_CATEGORIES = ['afise', 'autocolante', 'carton', 'flayere', 'tapet'];
-
 // Import additional collections
 import { canvasProducts } from "./products/canvas-products";
 ;
@@ -135,6 +132,30 @@ const SCRAPED_COLLECTIONS = [
   */
 ] as Product[];
 
+import { seoCampaignProducts } from "./products/seo-campaign-products";
+
+function parsePrice(p: string | number | undefined): number {
+  if (typeof p === 'number') return p;
+  const clean = String(p || "0").replace(/[^0-9.]/g, "");
+  return parseFloat(clean) || 49;
+}
+
+const seoCampaignProductsMapped: Product[] = seoCampaignProducts.map(p => ({
+  id: p.id,
+  slug: p.slug,
+  routeSlug: p.routeSlug || p.slug, // This points to the configurator URL directly
+  title: p.title,
+  description: p.description,
+  images: [p.image],
+  priceBase: parsePrice(p.price),
+  currency: "RON",
+  tags: p.tags,
+  metadata: { category: "campanii-seo", isSeo: true, isSeoCampaign: true }
+}));
+
+// Categorile eliminate din shop
+const REMOVED_CATEGORIES = ['afise', 'autocolante', 'carton', 'flayere', 'tapet'];
+
 // Combinăm toate produsele și filtrăm categorile ce nu mai trebuie să apară
 export const PRODUCTS: Product[] = [
   ...EXISTING_PRODUCTS,
@@ -142,7 +163,8 @@ export const PRODUCTS: Product[] = [
   ...STICKERMANIA_PRODUCTS,
   ...STICKERMANIA_BANNERS,
   ...GET_STICKY_PRODUCTS,
-  ...SCRAPED_COLLECTIONS
+  ...SCRAPED_COLLECTIONS,
+  ...seoCampaignProductsMapped
 ]
   .filter(p => !REMOVED_CATEGORIES.includes(String(p.metadata?.category || '').toLowerCase()));
 
