@@ -16,18 +16,20 @@ function getSeededRandom(seedStr: string) {
     return x - Math.floor(x);
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ judetSlug: string, localitateSlug: string, productSlug: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ judetSlug: string, localitateSlug: string, productSlug: string[] }> }) {
     const { judetSlug, localitateSlug, productSlug } = await params;
+    const productSlugStr = Array.isArray(productSlug) ? productSlug.join('/') : productSlug;
+
     const loc = getLocalitateBySlug(judetSlug, localitateSlug);
     const judet = getJudetBySlug(judetSlug);
-    const product = getProductBySlug(productSlug);
+    const product = getProductBySlug(productSlugStr);
 
     if (!loc || !judet || !product) return {};
 
     const title = `Print ${product.title} în ${loc.name}, Județul ${judet.name} | Tablou`;
     const description = `Comandă online ${product.title.toLowerCase()} personalizat, cu livrare rapidă direct în ${loc.name} (${judet.name}). Rezistență maximă, print profesional, finisaje incluse.`;
 
-    const routeUrl = `https://tablou.net/judet/${judet.slug}/${loc.slug}/${productSlug}`;
+    const routeUrl = `https://tablou.net/judet/${judet.slug}/${loc.slug}/${productSlugStr}`;
 
     return {
         title,
@@ -51,12 +53,13 @@ export async function generateMetadata({ params }: { params: Promise<{ judetSlug
 // Nu folosim generateStaticParams aici pentru a preveni crash-ul la build (avem ~420,000 pagini teoretice).
 // Next.js le va randa On-Demand.
 
-export default async function ProductLocalityPage({ params }: { params: Promise<{ judetSlug: string, localitateSlug: string, productSlug: string }> }) {
+export default async function ProductLocalityPage({ params }: { params: Promise<{ judetSlug: string, localitateSlug: string, productSlug: string[] }> }) {
     const { judetSlug, localitateSlug, productSlug } = await params;
+    const productSlugStr = Array.isArray(productSlug) ? productSlug.join('/') : productSlug;
 
     const loc = getLocalitateBySlug(judetSlug, localitateSlug);
     const judet = getJudetBySlug(judetSlug);
-    const product = getProductBySlug(productSlug);
+    const product = getProductBySlug(productSlugStr);
 
     if (!loc || !judet || !product) notFound();
 
@@ -202,13 +205,13 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                         // Afișăm alte localități (deterministic bazat pe prod+loc) din judet
                         const allLocs = judet.localitati.filter(l => l.slug !== loc.slug);
                         // Amestecam lista folosind seed-ul determinist
-                        const shuffled = [...allLocs].sort((a, b) => getSeededRandom(a.slug + productSlug) - 0.5);
+                        const shuffled = [...allLocs].sort((a, b) => getSeededRandom(a.slug + productSlugStr) - 0.5);
                         // Luăm afișăm doar 4 localități pentru Pânza de Păianjen optimă
                         const selection = shuffled.slice(0, 4);
                         return selection.map((otherLoc) => (
                             <Link
                                 key={otherLoc.slug}
-                                href={`/judet/${judet.slug}/${otherLoc.slug}/${productSlug}`}
+                                href={`/judet/${judet.slug}/${otherLoc.slug}/${productSlugStr}`}
                                 className="bg-white border border-slate-200 text-slate-600 hover:text-white hover:bg-orange-600 hover:border-orange-600 hover:shadow-lg hover:shadow-orange-600/20 px-4 py-2 rounded-xl text-sm font-black transition-all"
                             >
                                 {product.title} {otherLoc.name}
@@ -249,7 +252,7 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
 
             {/* Structured Schema */}
             <Script
-                id={`schema-${judetSlug}-${localitateSlug}-${productSlug}`}
+                id={`schema-${judetSlug}-${localitateSlug}-${productSlugStr}`}
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify([

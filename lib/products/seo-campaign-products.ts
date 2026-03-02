@@ -679,5 +679,16 @@ export const seoCampaignProducts = [
         price: "De la 450 LEI",
         category: "Campanii SEO",
         tags: ["pachet vizibilitate", "pnrr", "obligatoriu"]
+    },
+    {
+        id: "seo-kit-complet-vizibilitate",
+        slug: "kit-complet-vizibilitate-fonduri-europene",
+        routeSlug: "configurator/fonduri-eu",
+        title: "Kit Complet Vizibilitate (Plăci + Autocolante)",
+        description: "Kit complet de vizibilitate obligatorie pentru proiecte europene. Include panouri rigide, autocolante rezistente și comunicate de presă.",
+        image: "/products/fonduri/pnrr-1.webp",
+        price: "De la 290 LEI",
+        category: "Campanii SEO",
+        tags: ["kit vizibilitate", "placi", "autocolante", "fonduri eu"]
     }
 ];
