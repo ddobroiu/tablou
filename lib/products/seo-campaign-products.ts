@@ -1794,5 +1794,40 @@ export const seoCampaignProducts: any[] = [
         price: "De la 45 LEI",
         category: "Campanii SEO",
         tags: ["canvas personalizat", "foto pe panza", "tablou personalizat", "canvas online"]
+    },
+
+    // --- NISA DIPLOME (CERUT SPECIFIC) ---
+    {
+        id: "seo-diplome-personalizate",
+        slug: "diplome-personalizate-print-uv-carton-premium",
+        routeSlug: "afise",
+        title: "Diplome Personalizate (Design Premium)",
+        description: "Diplome personalizate pe carton de înaltă calitate sau suport rigid. Ideale pentru cursuri, workshop-uri sau evenimente corporate. Print UV rezistent.",
+        image: "/products/afise/afise-1.webp",
+        price: "De la 5 LEI",
+        category: "Campanii SEO",
+        tags: ["diplome personalizate", "print diplome", "modele diplome", "diplome curs"]
+    },
+    {
+        id: "seo-diplome-absolvire",
+        slug: "diplome-absolvire-scoli-gradinite-festivitate",
+        routeSlug: "afise",
+        title: "Diplome de Absolvire (Școli/Grădinițe)",
+        description: "Diplome de absolvire pentru sfârșit de an școlar. Modele vesele pentru grădinițe sau elegante pentru licee și facultăți. Livrare rapidă loturi mari.",
+        image: "/products/afise/afise-1.webp",
+        price: "De la 3 LEI",
+        category: "Campanii SEO",
+        tags: ["diplome absolvire", "diplome scoli", "diplome gradinite", "festivitate absolvire"]
+    },
+    {
+        id: "seo-diplome-merit",
+        slug: "diplome-de-merit-concursuri-competitii-sportive",
+        routeSlug: "afise",
+        title: "Diplome de Merit (Competiții)",
+        description: "Diplome pentru premierea performanței în sport, artă sau educație. Design motivant și print de înaltă definiție pe suporturi speciale.",
+        image: "/products/afise/afise-1.webp",
+        price: "De la 3 LEI",
+        category: "Campanii SEO",
+        tags: ["diplome merit", "diplome concurs", "diplome sportive", "premiere"]
     }
 ];

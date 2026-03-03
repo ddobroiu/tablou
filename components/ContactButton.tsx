@@ -4,64 +4,39 @@ import { MessageCircle, Mail, X, FileText } from "lucide-react";
 import Link from "next/link";
 
 export default function ContactButton() {
-  const [open, setOpen] = useState(false);
+  const phoneNumber = "40750473111";
+  const message = encodeURIComponent("Bună ziua, vă scriu de pe site-ul Tablou.ro");
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
-      {/* Meniul expandat */}
-      {open && (
-        <div className="mb-3 flex flex-col items-end gap-2 animate-in fade-in slide-in-from-bottom-2">
-          {/* Cere Ofertă */}
-          <Link
-            href="/contact"
-            onClick={() => setOpen(false)}
-            className="flex items-center gap-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white px-4 py-3 shadow-2xl transition transform hover:scale-105"
-          >
-            <FileText size={20} />
-            <span className="font-semibold">Cere Ofertă</span>
-          </Link>
-
-          {/* WhatsApp */}
-          <a
-            href="https://wa.me/40750473111?text=Bun%C4%83%20ziua%2C%20v%C4%83%20scriu%20de%20pe%20site-ul%20Tablou.net"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-xl bg-green-500 hover:bg-green-600 text-white px-4 py-3 shadow-2xl transition transform hover:scale-105"
-          >
-            <MessageCircle size={20} />
-            <span className="font-semibold">WhatsApp</span>
-          </a>
-
-          {/* Email */}
-          <a
-            href="mailto:contact@tablou.net"
-            className="flex items-center gap-2 rounded-xl bg-blue-500 hover:bg-blue-600 text-white px-4 py-3 shadow-2xl transition transform hover:scale-110"
-          >
-            <Mail size={20} />
-            <span className="font-semibold">Email</span>
-          </a>
-        </div>
-      )}
-
-      {/* Butonul principal */}
-      <button
-        onClick={() => setOpen(!open)}
-        className="relative flex items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-indigo-600 text-white hover:from-indigo-600 hover:to-indigo-700 w-16 h-16 shadow-2xl transition-all transform hover:scale-110 active:scale-95"
-        aria-label="Contact rapid"
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
+      {/* Quote Request Button */}
+      <Link
+        href="/contact"
+        className="flex items-center justify-center w-14 h-14 bg-slate-900 hover:bg-slate-800 text-white rounded-full shadow-lg transition-all hover:scale-110 focus:outline-none focus:ring-4 focus:ring-slate-300 group relative"
+        aria-label="Cere Ofertă Personalizată"
+        title="Cere Ofertă Personalizată"
       >
-        {open ? (
-          <X size={32} strokeWidth={3} />
-        ) : (
-          <MessageCircle size={32} strokeWidth={2.5} />
-        )}
+        <FileText size={28} />
+        <span className="absolute right-full mr-4 bg-slate-900 text-white text-xs font-bold py-2 px-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-xl border border-slate-700">
+          Cere Ofertă
+        </span>
+      </Link>
 
-        {!open && (
-          <>
-            <span className="absolute inset-0 rounded-full bg-indigo-400/30 animate-ping"></span>
-            <span className="absolute inset-0 rounded-full bg-indigo-400/20 animate-pulse"></span>
-          </>
-        )}
-      </button>
+      {/* WhatsApp Button */}
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-center w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg transition-all hover:scale-110 focus:outline-none focus:ring-4 focus:ring-green-300 group relative"
+        aria-label="Contactează-ne pe WhatsApp"
+        title="Contactează-ne pe WhatsApp"
+      >
+        <MessageCircle size={32} />
+        <span className="absolute right-full mr-4 bg-green-500 text-white text-xs font-bold py-2 px-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-xl border border-green-400">
+          Suntem Online
+        </span>
+      </a>
     </div>
   );
 }
