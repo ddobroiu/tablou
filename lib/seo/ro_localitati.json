@@ -13182,8 +13182,396 @@
     "slug": "bucuresti",
     "localitati": [
       {
-        "name": "BUCURESTI",
+        "name": "Bucuresti",
         "slug": "bucuresti"
+      },
+      {
+        "name": "Sector 1",
+        "slug": "sector-1"
+      },
+      {
+        "name": "Sector 2",
+        "slug": "sector-2"
+      },
+      {
+        "name": "Sector 3",
+        "slug": "sector-3"
+      },
+      {
+        "name": "Sector 4",
+        "slug": "sector-4"
+      },
+      {
+        "name": "Sector 5",
+        "slug": "sector-5"
+      },
+      {
+        "name": "Sector 6",
+        "slug": "sector-6"
+      },
+      {
+        "name": "13 Septembrie",
+        "slug": "13-septembrie"
+      },
+      {
+        "name": "Aparatorii Patriei",
+        "slug": "aparatorii-patriei"
+      },
+      {
+        "name": "Aviatiei",
+        "slug": "aviatiei"
+      },
+      {
+        "name": "Baba Novac",
+        "slug": "baba-novac"
+      },
+      {
+        "name": "Baneasa",
+        "slug": "baneasa"
+      },
+      {
+        "name": "Berceni",
+        "slug": "berceni"
+      },
+      {
+        "name": "Brancoveanu",
+        "slug": "brancoveanu"
+      },
+      {
+        "name": "Bucurestii Noi",
+        "slug": "bucurestii-noi"
+      },
+      {
+        "name": "Calea Calarasilor",
+        "slug": "calea-calarasilor"
+      },
+      {
+        "name": "Calea Dorobantilor",
+        "slug": "calea-dorobantilor"
+      },
+      {
+        "name": "Calea Dumitru Ghencea",
+        "slug": "calea-dumitru-ghencea"
+      },
+      {
+        "name": "Calea Floreasca",
+        "slug": "calea-floreasca"
+      },
+      {
+        "name": "Calea Mosilor",
+        "slug": "calea-mosilor"
+      },
+      {
+        "name": "Calea Plevnei",
+        "slug": "calea-plevnei"
+      },
+      {
+        "name": "Calea Rahovei",
+        "slug": "calea-rahovei"
+      },
+      {
+        "name": "Calea Vitan",
+        "slug": "calea-vitan"
+      },
+      {
+        "name": "Calea Vacaresti",
+        "slug": "calea-vacaresti"
+      },
+      {
+        "name": "Cartierul Francez",
+        "slug": "cartierul-francez"
+      },
+      {
+        "name": "Centrul Istoric",
+        "slug": "centrul-istoric"
+      },
+      {
+        "name": "Chitila",
+        "slug": "chitila"
+      },
+      {
+        "name": "Colentina",
+        "slug": "colentina"
+      },
+      {
+        "name": "Cotroceni",
+        "slug": "cotroceni"
+      },
+      {
+        "name": "Crangasi",
+        "slug": "crangasi"
+      },
+      {
+        "name": "Dacia",
+        "slug": "dacia"
+      },
+      {
+        "name": "Decebal",
+        "slug": "decebal"
+      },
+      {
+        "name": "Domenii",
+        "slug": "domenii"
+      },
+      {
+        "name": "Dorobanti",
+        "slug": "dorobanti"
+      },
+      {
+        "name": "Dristor",
+        "slug": "dristor"
+      },
+      {
+        "name": "Drumul Sarii",
+        "slug": "drumul-sarii"
+      },
+      {
+        "name": "Drumul Taberei",
+        "slug": "drumul-taberei"
+      },
+      {
+        "name": "Eminescu",
+        "slug": "eminescu"
+      },
+      {
+        "name": "Eroilor",
+        "slug": "eroilor"
+      },
+      {
+        "name": "Ferentari",
+        "slug": "ferentari"
+      },
+      {
+        "name": "Floreasca",
+        "slug": "floreasca"
+      },
+      {
+        "name": "Fundeni",
+        "slug": "fundeni"
+      },
+      {
+        "name": "Gara de Nord",
+        "slug": "gara-de-nord"
+      },
+      {
+        "name": "Ghencea",
+        "slug": "ghencea"
+      },
+      {
+        "name": "Giulesti",
+        "slug": "giulesti"
+      },
+      {
+        "name": "Giurgiului",
+        "slug": "giurgiului"
+      },
+      {
+        "name": "Gorjului",
+        "slug": "gorjului"
+      },
+      {
+        "name": "Grivita",
+        "slug": "grivita"
+      },
+      {
+        "name": "Grozavesti",
+        "slug": "grozavesti"
+      },
+      {
+        "name": "Herastrau",
+        "slug": "herastrau"
+      },
+      {
+        "name": "Iancului",
+        "slug": "iancului"
+      },
+      {
+        "name": "Ion Mihalache",
+        "slug": "ion-mihalache"
+      },
+      {
+        "name": "Kiseleff",
+        "slug": "kiseleff"
+      },
+      {
+        "name": "Lujerului",
+        "slug": "lujerului"
+      },
+      {
+        "name": "Luica",
+        "slug": "luica"
+      },
+      {
+        "name": "Magheru",
+        "slug": "magheru"
+      },
+      {
+        "name": "Mihai Bravu",
+        "slug": "mihai-bravu"
+      },
+      {
+        "name": "Militari",
+        "slug": "militari"
+      },
+      {
+        "name": "Militari Residence",
+        "slug": "militari-residence"
+      },
+      {
+        "name": "Mosilor",
+        "slug": "mosilor"
+      },
+      {
+        "name": "Muncii",
+        "slug": "muncii"
+      },
+      {
+        "name": "Nerva Traian",
+        "slug": "nerva-traian"
+      },
+      {
+        "name": "Obor",
+        "slug": "obor"
+      },
+      {
+        "name": "Pajura",
+        "slug": "pajura"
+      },
+      {
+        "name": "Pantelimon",
+        "slug": "pantelimon"
+      },
+      {
+        "name": "Piata Alba Iulia",
+        "slug": "piata-alba-iulia"
+      },
+      {
+        "name": "Piata Chibrit",
+        "slug": "piata-chibrit"
+      },
+      {
+        "name": "Piata Iancului",
+        "slug": "piata-iancului"
+      },
+      {
+        "name": "Piata Muncii",
+        "slug": "piata-muncii"
+      },
+      {
+        "name": "Piata Presei Libere",
+        "slug": "piata-presei-libere"
+      },
+      {
+        "name": "Piata Resita",
+        "slug": "piata-resita"
+      },
+      {
+        "name": "Piata Romana",
+        "slug": "piata-romana"
+      },
+      {
+        "name": "Piata Sudului",
+        "slug": "piata-sudului"
+      },
+      {
+        "name": "Piata Unirii",
+        "slug": "piata-unirii"
+      },
+      {
+        "name": "Piata Victoriei",
+        "slug": "piata-victoriei"
+      },
+      {
+        "name": "Pipera",
+        "slug": "pipera"
+      },
+      {
+        "name": "Politehnica",
+        "slug": "politehnica"
+      },
+      {
+        "name": "Prelungirea Ghencea",
+        "slug": "prelungirea-ghencea"
+      },
+      {
+        "name": "Primaverii",
+        "slug": "primaverii"
+      },
+      {
+        "name": "Rahova",
+        "slug": "rahova"
+      },
+      {
+        "name": "Salajan",
+        "slug": "salajan"
+      },
+      {
+        "name": "Soseaua Alexandriei",
+        "slug": "soseaua-alexandriei"
+      },
+      {
+        "name": "Soseaua Giurgiului",
+        "slug": "soseaua-giurgiului"
+      },
+      {
+        "name": "Soseaua Nordului",
+        "slug": "soseaua-nordului"
+      },
+      {
+        "name": "Soseaua Oltenitei",
+        "slug": "soseaua-oltenitei"
+      },
+      {
+        "name": "Stefan cel Mare",
+        "slug": "stefan-cel-mare"
+      },
+      {
+        "name": "Straja",
+        "slug": "straja"
+      },
+      {
+        "name": "Tei",
+        "slug": "tei"
+      },
+      {
+        "name": "Timpuri Noi",
+        "slug": "timpuri-noi"
+      },
+      {
+        "name": "Tineretului",
+        "slug": "tineretului"
+      },
+      {
+        "name": "Titan",
+        "slug": "titan"
+      },
+      {
+        "name": "Uverturii",
+        "slug": "uverturii"
+      },
+      {
+        "name": "Unirii",
+        "slug": "unirii"
+      },
+      {
+        "name": "Universitate",
+        "slug": "universitate"
+      },
+      {
+        "name": "Vatra Luminoasa",
+        "slug": "vatra-luminoasa"
+      },
+      {
+        "name": "Victoriei",
+        "slug": "victoriei"
+      },
+      {
+        "name": "Vitan",
+        "slug": "vitan"
+      },
+      {
+        "name": "Vitan Barzesti",
+        "slug": "vitan-barzesti"
       }
     ]
   },

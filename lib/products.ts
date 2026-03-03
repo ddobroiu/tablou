@@ -154,7 +154,7 @@ const seoCampaignProductsMapped: Product[] = seoCampaignProducts.map(p => ({
 }));
 
 // Categorile eliminate din shop
-const REMOVED_CATEGORIES = ['afise', 'autocolante', 'carton', 'flayere', 'tapet'];
+const REMOVED_CATEGORIES = ['afise', 'autocolante', 'carton', 'flayere', 'tapet', 'bannere', 'fonduri-europene', 'campanii-seo'];
 
 // Combinăm toate produsele și filtrăm categorile ce nu mai trebuie să apară
 export const PRODUCTS: Product[] = [

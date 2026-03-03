@@ -37,37 +37,6 @@ export type LandingCatalog = Record<string, Record<string, LandingInfo | Landing
 export const LANDING_CATALOG: LandingCatalog = {
   // 4. Canvas
   canvas: { ...CANVAS_SEO_DATA, ...CANVAS_JUDETE_DATA } as unknown as LandingCatalog[string],
-
-  // 5. Pliante & Flyere
-  pliante: PLIANTE_SEO_DATA as unknown as LandingCatalog[string],
-
-  // 7. Materiale Rigide
-  "materiale": {
-    "pvc-forex": PVC_FOREX_DATA,
-    "plexiglass": PLEXIGLASS_DATA,
-    "alucobond": ALUCOBOND_DATA,
-    "polipropilena": POLIPROPILENA_DATA,
-  } as unknown as LandingCatalog[string],
-
-  "pvc-forex": PVC_FOREX_DATA as unknown as LandingCatalog[string],
-  "pvc_forex": PVC_FOREX_DATA as unknown as LandingCatalog[string], // Alias pentru consistență
-
-  "plexiglass": PLEXIGLASS_DATA as unknown as LandingCatalog[string],
-
-  "alucobond": ALUCOBOND_DATA as unknown as LandingCatalog[string],
-  "bond": ALUCOBOND_DATA as unknown as LandingCatalog[string], // Alias comun
-
-  "polipropilena": POLIPROPILENA_DATA as unknown as LandingCatalog[string],
-
-  // Afise & Tapet
-  "afise": AFISE_SEO_DATA as unknown as LandingCatalog[string],
-  "tapet": TAPET_SEO_DATA as unknown as LandingCatalog[string],
-
-  // 9. Proiecte Fonduri (Mapăm toate categoriile URL la același set de date)
-  "fonduri-pnrr": FONDURI_DATA as unknown as LandingCatalog[string],
-  "fonduri-nationale": FONDURI_DATA as unknown as LandingCatalog[string],
-  "fonduri-regio": FONDURI_DATA as unknown as LandingCatalog[string],
-  "fonduri": FONDURI_DATA as unknown as LandingCatalog[string], // Categorie generică
 };
 
 // --- HELPER FUNCTIONS ---
