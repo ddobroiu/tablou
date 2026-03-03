@@ -1485,5 +1485,314 @@ export const seoCampaignProducts: any[] = [
         price: "De la 85 LEI",
         category: "Campanii SEO",
         tags: ["avocati", "notari", "placute birou", "semnalistica eleganta"]
+    },
+
+    // --- CAMPANII SPECIFICE CERUTE DE USER (FRIZERII, CAFENELE, ETC.) ---
+    {
+        id: "seo-banner-frizerie",
+        slug: "banner-frizerie-barbershop-personalizat-design-modern",
+        routeSlug: "banner",
+        title: "Banner Frizerie / Barbershop",
+        description: "Bannere de înaltă calitate pentru frizerii și barbershop-uri. Modele cu 'Barber Pole', prețuri servicii sau promoții. Rezistență outdoor garantată.",
+        image: "/products/bannere/bannere-1.webp",
+        price: "De la 39 LEI",
+        category: "Campanii SEO",
+        tags: ["frizerie", "barbershop", "banner frizerie", "reclama salon"]
+    },
+    {
+        id: "seo-banner-cafenea",
+        slug: "banner-cafenea-coffee-shop-terasa-personalizat",
+        routeSlug: "banner",
+        title: "Banner Cafenea / Coffee Shop",
+        description: "Atrage clienții cu un banner de cafenea cu design premium. Ideal pentru terase, coffee corners sau branding stradal. Print UV rezistent.",
+        image: "/products/bannere/bannere-1.webp",
+        price: "De la 39 LEI",
+        category: "Campanii SEO",
+        tags: ["cafenea", "coffee shop", "banner cafea", "branding terasa"]
+    },
+    {
+        id: "seo-banner-cofetarie",
+        slug: "banner-cofetarie-patiserie-candy-bar-personalizat",
+        routeSlug: "banner",
+        title: "Banner Cofetărie / Patiserie",
+        description: "Bannere vesele și colorate pentru cofetării și patiserii. Promovează torturile, prăjiturile sau candy-bar-ul cu un print de înaltă rezoluție.",
+        image: "/products/bannere/bannere-1.webp",
+        price: "De la 39 LEI",
+        category: "Campanii SEO",
+        tags: ["cofetarie", "patiserie", "banner torturi", "reclama dulce"]
+    },
+    {
+        id: "seo-banner-vulcanizare",
+        slug: "banner-vulcanizare-service-roti-schimb-ulei",
+        routeSlug: "banner",
+        title: "Banner Vulcanizare / Service Roți",
+        description: "Bannere ultra-rezistente pentru vulcanizări. Vizibile de la distanță, cu fonturi mari și contrastante. Material heavy-duty pentru condiții de exterior.",
+        image: "/products/bannere/bannere-1.webp",
+        price: "De la 39 LEI",
+        category: "Campanii SEO",
+        tags: ["vulcanizare", "service roti", "banner service auto", "echilibrare roti"]
+    },
+    {
+        id: "seo-banner-pompieri-isusu",
+        slug: "banner-pompieri-isu-prevenire-incendii-siguranta",
+        routeSlug: "banner",
+        title: "Banner Pompieri / ISU",
+        description: "Bannere informative și de avertizare pentru unități de pompieri sau campanii de prevenire ISU. Printate pe material ignifug la cerere.",
+        image: "/products/bannere/bannere-1.webp",
+        price: "De la 39 LEI",
+        category: "Campanii SEO",
+        tags: ["pompieri", "isu", "siguranta incendiu", "banner informativ"]
+    },
+    {
+        id: "seo-banner-politie",
+        slug: "banner-politie-politie-locala-campanii-prevenire",
+        routeSlug: "banner",
+        title: "Banner Poliție / Poliție Locală",
+        description: "Materiale de semnalistică și bannere pentru unitățile de poliție. Campanii de siguranță rutieră, informare cetățeni sau branding instituțional.",
+        image: "/products/bannere/bannere-1.webp",
+        price: "De la 39 LEI",
+        category: "Campanii SEO",
+        tags: ["politie", "politie locala", "siguranta rutiera", "banner institutii"]
+    },
+    {
+        id: "seo-banner-armata",
+        slug: "banner-armata-mapn-recrutare-evenimente-militare",
+        routeSlug: "banner",
+        title: "Banner Armată / MApN",
+        description: "Bannere pentru campanii de recrutare, evenimente militare sau porți deschise. Rezistență ridicată și culori conforme cu standardele instituționale.",
+        image: "/products/bannere/bannere-1.webp",
+        price: "De la 39 LEI",
+        category: "Campanii SEO",
+        tags: ["armata", "mapn", "recrutare", "evenimente militare"]
+    },
+    {
+        id: "seo-banner-primarie",
+        slug: "banner-primarie-evenimente-locale-consiliu-local",
+        routeSlug: "banner",
+        title: "Banner Primărie / Administrație Locală",
+        description: "Bannere pentru festivități, zilele orașului, anunțuri de interes public sau proiecte de investiții. Livrare rapidă către orice primărie din țară.",
+        image: "/products/bannere/bannere-1.webp",
+        price: "De la 39 LEI",
+        category: "Campanii SEO",
+        tags: ["primarie", "consiliu local", "anunt public", "zilele orasului"]
+    },
+
+    // --- CAMPANII INTENT (IEFTIN, PRET, URGENT) ---
+    {
+        id: "seo-banner-ieftin",
+        slug: "print-banner-ieftin-pret-producator-romania",
+        routeSlug: "banner",
+        title: "Print Banner Ieftin (Cel mai bun preț)",
+        description: "Cauți cel mai mic preț pentru print banner? Aici găsești soluții economice fără a sacrifica vizibilitatea. Producție directă, fără intermediari.",
+        image: "/products/bannere/bannere-1.webp",
+        price: "De la 29 LEI",
+        category: "Campanii SEO",
+        tags: ["banner ieftin", "pret mic banner", "oferta print", "economical banner"]
+    },
+    {
+        id: "seo-banner-urgent",
+        slug: "print-banner-urgent-livrare-24h-productie-rapida",
+        routeSlug: "banner",
+        title: "Print Banner Urgent (Livrare 24h/48h)",
+        description: "Ai nevoie de un banner 'ieri'? Comandă acum cu opțiunea de producție prioritară. Expediem prin curier rapid pentru a ajunge la tine în timp record.",
+        image: "/products/bannere/bannere-1.webp",
+        price: "De la 45 LEI",
+        category: "Campanii SEO",
+        tags: ["banner urgent", "print rapid", "livrare 24h", "productie rapida"]
+    },
+    {
+        id: "seo-autocolant-pret",
+        slug: "autocolant-personalizat-pret-mp-print-uv",
+        routeSlug: "window-graphics",
+        title: "Autocolant Personalizat (Preț/mp)",
+        description: "Verifică oferta de preț pentru autocolant personalizat. Print UV de înaltă rezoluție, tăiere pe contur și rezistență la decolorare.",
+        image: "/products/window-graphics/wg-1.webp",
+        price: "De la 49 LEI",
+        category: "Campanii SEO",
+        tags: ["pret autocolant", "autocolant mp", "stikere pret", "print autocolant"]
+    },
+    {
+        id: "seo-canvas-ieftin",
+        slug: "tablou-canvas-personalizat-ieftin-cadou-special",
+        routeSlug: "tablou-canvas",
+        title: "Tablou Canvas Ieftin (Personalizat)",
+        description: "Cele mai ieftine tablouri canvas personalizate cu fotografia ta. Calitate de galerie, șasiu lemn și culori vii la prețuri accesibile.",
+        image: "/products/canvas/canvas-1.webp",
+        price: "De la 45 LEI",
+        category: "Campanii SEO",
+        tags: ["canvas ieftin", "pret tablou canvas", "cadouri personalizate", "canvas online"]
+    },
+
+    // --- CAMPANII SERVICII (TIPOGRAFIE, PRODUCTIE) ---
+    {
+        id: "seo-tipografie-online",
+        slug: "tipografie-online-print-digital-si-format-mare",
+        routeSlug: "afise",
+        title: "Tipografie Online (Servicii Complete)",
+        description: "Partenerul tău de încredere pentru toate nevoile de tipar. De la cărți de vizită la afișe și mape, totul comandat online cu livrare națională.",
+        image: "/products/afise/afise-1.webp",
+        price: "De la 10 LEI",
+        category: "Campanii SEO",
+        tags: ["tipografie online", "centru print", "tipar digital", "servicii tipografice"]
+    },
+    {
+        id: "seo-productie-publicitara",
+        slug: "productie-publicitara-semnalistica-si-afisaj-outdoor",
+        routeSlug: "banner",
+        title: "Producție Publicitară (Branding Complet)",
+        description: "Soluții integrate de producție publicitară: bannere, panouri, firme luminoase și branding auto. Tot ce ai nevoie pentru vizibilitatea afacerii tale.",
+        image: "/products/bannere/bannere-1.webp",
+        price: "Contact",
+        category: "Campanii SEO",
+        tags: ["productie publicitara", "agentie reclama", "firme publicitare", "afisaj stradal"]
+    },
+
+    // --- CAMPANII FONDURI EUROPENE / PNRR (CERUTE SPECIFIC) ---
+    {
+        id: "seo-panou-pnrr-editabil",
+        slug: "panou-pnrr-editabil-model-miv-descarcare-print",
+        routeSlug: "fonduri-eu?program=PNRR",
+        title: "Panou PNRR Editabil (Model MIV)",
+        description: "Panou publicitar PNRR editabil conform manualului de identitate vizuală. Poți personaliza datele proiectului direct în configurator. Rezistență UV maximă.",
+        image: "/products/fonduri/pnrr-1.webp",
+        price: "De la 250 LEI",
+        category: "Campanii SEO",
+        tags: ["panou pnrr editabil", "model pnrr", "miv pnrr", "panou informativ"]
+    },
+    {
+        id: "seo-panou-permanent-pnrr",
+        slug: "panou-permanent-pnrr-investitii-fonduri-europene",
+        routeSlug: "fonduri-eu?program=PNRR",
+        title: "Panou Permanent PNRR",
+        description: "Panouri permanente pentru proiecte PNRR finalizate. Realizate pe suport rigid (Alucobond/Plexiglas), garantate să reziste pe toată perioada de monitorizare.",
+        image: "/products/fonduri/pnrr-2.webp",
+        price: "De la 290 LEI",
+        category: "Campanii SEO",
+        tags: ["panou permanent pnrr", "placa permanenta", "vizibilitate pnrr"]
+    },
+    {
+        id: "seo-panou-permanent-fonduri",
+        slug: "panou-permanent-fonduri-europene-program-regional",
+        routeSlug: "fonduri-eu?program=PR",
+        title: "Panou Permanent Fonduri Europene",
+        description: "Plăci și panouri permanente pentru proiecte finanțate prin fonduri europene (PR, PEO, PIDS). Conformitate totală cu regulamentul de vizibilitate 2021-2027.",
+        image: "/products/fonduri/regio-1.png",
+        price: "De la 290 LEI",
+        category: "Campanii SEO",
+        tags: ["panou permanent fonduri", "panou fonduri europene", "placa vizibilitate"]
+    },
+    {
+        id: "seo-placa-temporara-pnrr",
+        slug: "placa-temporara-pnrr-santier-investitii",
+        routeSlug: "fonduri-eu?program=PNRR",
+        title: "Placă Temporară PNRR / Panou Șantier",
+        description: "Panouri temporare obligatorii pe perioada execuției proiectelor PNRR. Rezistente la condiții de șantier, ușor de montat pe gard sau structură metalică.",
+        image: "/products/fonduri/pnrr-1.webp",
+        price: "De la 350 LEI",
+        category: "Campanii SEO",
+        tags: ["placa temporara pnrr", "panou santier pnrr", "vizibilitate santier"]
+    },
+    {
+        id: "seo-afis-model-pnrr",
+        slug: "afis-model-pnrr-editabil-a3-descarcare",
+        routeSlug: "fonduri-eu?program=PNRR",
+        title: "Afiș Model PNRR (Editabil A3)",
+        description: "Modele de afișe PNRR format A3, gata de printat sau editat. Include toate elementele grafice obligatorii (steaguri, logo-uri, texte standard).",
+        image: "/products/fonduri/pnrr-4.jpg",
+        price: "De la 49 LEI",
+        category: "Campanii SEO",
+        tags: ["afis model pnrr", "afis editabil pnrr", "afis a3 pnrr"]
+    },
+    {
+        id: "seo-comunicat-editabil-pnrr",
+        slug: "comunicat-de-presa-editabil-pnrr-anunt-incepere-finalizare",
+        routeSlug: "fonduri-eu?program=PNRR",
+        title: "Comunicat Editabil PNRR (Anunț Lansare)",
+        description: "Draft de comunicat de presă pentru proiecte PNRR. Editabil conform cerințelor de audit. Oferim și serviciul de publicare în ziare naționale/locale.",
+        image: "/products/fonduri/pachet-complet-pnrr-comununicate-de-presa-plus-pachet-print-identitate-vizuala.png",
+        price: "De la 150 LEI",
+        category: "Campanii SEO",
+        tags: ["comunicat editabil", "comunicat de presa pnrr", "anunt pnrr"]
+    },
+
+    // --- ALTE INDUSTRII (EXTINDERE) ---
+    {
+        id: "seo-banner-scoala",
+        slug: "banner-scoala-gradinita-festivitate-educatie",
+        routeSlug: "banner",
+        title: "Banner pentru Școală / Grădiniță",
+        description: "Bannere pentru festivități, 'Școala Altfel', înscrieri sau evenimente școlare. Design adaptat copiilor, culori vii și materiale profesionale.",
+        image: "/products/afise/afise-1.webp",
+        price: "De la 39 LEI",
+        category: "Campanii SEO",
+        tags: ["banner scoala", "banner gradinita", "decor scoala", "festivitate"]
+    },
+
+    // --- CAMPANII CUVINTE CHEIE (PRET, IEFTIN, PERSONALIZAT) ---
+    {
+        id: "seo-banner-pret",
+        slug: "banner-publicitar-pret-metru-patrat-calcul-online",
+        routeSlug: "banner",
+        title: "Banner Publicitar (Preț/mp)",
+        description: "Află prețul pe metru pătrat pentru bannere publicitare. Folosește configuratorul nostru pentru un calcul instantaneu. Cele mai mici prețuri de producție.",
+        image: "/products/bannere/bannere-1.webp",
+        price: "De la 35 LEI",
+        category: "Campanii SEO",
+        tags: ["banner pret", "pret banner", "calcul pret banner", "banner mp"]
+    },
+    {
+        id: "seo-autocolant-pret-mp",
+        slug: "autocolant-geam-pret-personalizat-vitrina",
+        routeSlug: "window-graphics",
+        title: "Autocolant Geam (Preț Personalizat)",
+        description: "Prețuri competitive pentru autocolant de geam și window graphics. Print UV calitativ, rezistent la soare. Ideal pentru vitrine magazine și birouri.",
+        image: "/products/window-graphics/wg-1.webp",
+        price: "De la 49 LEI",
+        category: "Campanii SEO",
+        tags: ["autocolant pret", "pret autocolant geam", "autocolant vitrina", "colantare geam"]
+    },
+    {
+        id: "seo-stikere-pret",
+        slug: "stickere-personalizate-pret-set-etichete-autocolante",
+        routeSlug: "autocolante",
+        title: "Stickere Personalizate (Preț și Modele)",
+        description: "Comandă stickere personalizate la cele mai bune prețuri. Etichete autocolante tăiate pe contur, orice formă și dimensiune. Rezistență sporită.",
+        image: "/products/autocolante/autocolante-1.webp",
+        price: "De la 1 LEU",
+        category: "Campanii SEO",
+        tags: ["stikere pret", "pret stickere", "etichete personalizate", "stickere ieftine"]
+    },
+    {
+        id: "seo-canvas-pret-personalizat",
+        slug: "canvas-personalizat-pret-tablou-foto-preturi",
+        routeSlug: "canvas",
+        title: "Canvas Personalizat (Prețuri și Dimensiuni)",
+        description: "Vezi oferta de prețuri pentru tablouri canvas personalizate. Transformă fotografiile tale în artă la prețuri de producător. Calitate premium garantată.",
+        image: "/products/canvas/canvas-1.webp",
+        price: "De la 45 LEI",
+        category: "Campanii SEO",
+        tags: ["canvas pret", "pret tablou canvas", "canvas personalizat pret", "tablou pret"]
+    },
+    {
+        id: "seo-banner-personalizat",
+        slug: "banner-personalizat-online-creare-design-propriul-banner",
+        routeSlug: "banner",
+        title: "Banner Personalizat (Creat Online)",
+        description: "Creează-ți propriul banner personalizat online. Încarcă designul tău sau alege opțiunile dorite și primești produsul gata de montaj în 24-48h.",
+        image: "/products/bannere/bannere-1.webp",
+        price: "De la 39 LEI",
+        category: "Campanii SEO",
+        tags: ["banner personalizat", "personalizare banner", "creare banner", "banner online"]
+    },
+    {
+        id: "seo-canvas-personalizat",
+        slug: "tablou-canvas-personalizat-online-foto-pe-panza",
+        routeSlug: "canvas",
+        title: "Canvas Personalizat (Foto pe Pânză)",
+        description: "Tablouri canvas personalizate online cu fotografiile story-ului tău. Print pe pânză bumbac 100%, șasiu lemn natural. Cadoul perfect.",
+        image: "/products/canvas/canvas-1.webp",
+        price: "De la 45 LEI",
+        category: "Campanii SEO",
+        tags: ["canvas personalizat", "foto pe panza", "tablou personalizat", "canvas online"]
     }
 ];
