@@ -1248,5 +1248,163 @@ export const seoCampaignProducts: any[] = [
         price: "De la 0.35 LEI",
         category: "Campanii SEO",
         tags: ["pliante pret", "pliante ieftine", "pret pliante", "pliante personalizate"]
+    },
+
+    // --- CAMPANII FONDURI EU & PNRR EDITABILE/TEMPLATE ---
+    {
+        id: "seo-panou-pnrr-editabil",
+        slug: "panou-pnrr-editabil-online-miv-2024",
+        routeSlug: "fonduri-eu",
+        title: "Panou PNRR Editabil Online",
+        description: "Configurează online propriul panou PNRR. Interfață editabilă pentru introducerea datelor proiectului. Respectă 100% manualul MIV. Calitate premium.",
+        image: "/products/fonduri/pnrr-1.webp",
+        price: "De la 250 LEI",
+        category: "Campanii SEO",
+        tags: ["panou pnrr editabil", "model panou pnrr", "configurator pnrr", "editabil online"]
+    },
+    {
+        id: "seo-panou-permanent-pnrr",
+        slug: "panou-permanent-pnrr-rezistent-uv",
+        routeSlug: "fonduri-eu",
+        title: "Panou Permanent PNRR (Alucobond/PVC)",
+        description: "Panou permanent obligatoriu pentru proiecte PNRR. Materiale ultra-rezistente la exterior (Alucobond sau PVC), print UV high-definition.",
+        image: "/products/fonduri/pnrr-1.webp",
+        price: "De la 350 LEI",
+        category: "Campanii SEO",
+        tags: ["panou permanent pnrr", "placa permanenta pnrr", "panou fonduri europene", "vizibilitate obligatorie"]
+    },
+    {
+        id: "seo-panou-permanent-fonduri-eu",
+        slug: "panou-permanent-fonduri-europene-programe-regionale",
+        routeSlug: "fonduri-eu",
+        title: "Panou Permanent Fonduri Europene",
+        description: "Producem panouri permanente pentru toate programele de fonduri europene (Regio, POCU, PNRR). Conformitate deplină cu regulile de identitate vizuală.",
+        image: "/products/fonduri/pnrr-1.webp",
+        price: "De la 350 LEI",
+        category: "Campanii SEO",
+        tags: ["panou permanent fonduri", "panou vizibilitate eu", "placa permanenta proiect"]
+    },
+    {
+        id: "seo-placa-temporara-pnrr",
+        slug: "placa-temporara-vizibilitate-pnrr-santier",
+        routeSlug: "fonduri-eu",
+        title: "Placă Temporară PNRR (Panou Șantier)",
+        description: "Placă temporară pentru semnalizarea proiectelor PNRR pe durata execuției. Rezistență la intemperii, montaj ușor pe gard sau schelă.",
+        image: "/products/fonduri/pnrr-1.webp",
+        price: "De la 190 LEI",
+        category: "Campanii SEO",
+        tags: ["placa temporara pnrr", "panou santier pnrr", "panou temporar fonduri"]
+    },
+    {
+        id: "seo-afis-model-pnrr",
+        slug: "afis-model-pnrr-format-a3-a2",
+        routeSlug: "fonduri-eu",
+        title: "Afiș Model PNRR (Template Oficial)",
+        description: "Afișe format A2 sau A3 conform modelului oficial PNRR. Print de înaltă calitate, gata de afișat la sediul beneficiarului.",
+        image: "/products/fonduri/pnrr-1.webp",
+        price: "De la 15 LEI",
+        category: "Campanii SEO",
+        tags: ["afis model pnrr", "model afis pnrr", "afis vizibilitate pnrr", "template afis"]
+    },
+    {
+        id: "seo-afis-editabil-pnrr",
+        slug: "afis-editabil-pnrr-online-personalizat",
+        routeSlug: "fonduri-eu",
+        title: "Afiș Editabil PNRR Online",
+        description: "Completează datele proiectului tău direct în platformă și generează afișul PNRR editabil. Simplu, rapid și conform cu Manualul de Identitate Vizuală.",
+        image: "/products/fonduri/pnrr-1.webp",
+        price: "De la 15 LEI",
+        category: "Campanii SEO",
+        tags: ["afis editabil pnrr", "personalizat online", "editabil pnrr", "poster pnrr"]
+    },
+    {
+        id: "seo-comunicat-editabil-pnrr",
+        slug: "comunicat-presa-editabil-pnrr-incepere-finalizare",
+        routeSlug: "fonduri-eu",
+        title: "Comunicat de Presă Editabil PNRR",
+        description: "Model editabil de comunicat de presă pentru începerea sau finalizarea proiectelor PNRR. Include redactare profesionistă și publicare online.",
+        image: "/products/fonduri/pnrr-1.webp",
+        price: "De la 150 LEI",
+        category: "Campanii SEO",
+        tags: ["comunicat editabil", "model comunicat pnrr", "comunicat presa pnrr", "editabil fonduri"]
+    },
+
+    // --- CAMPANII DIPLOME & CERTIFICATE ---
+    {
+        id: "seo-diplome-personalizate",
+        slug: "diplome-personalizate-print-calitate-premium",
+        routeSlug: "afise",
+        title: "Diplome Personalizate (Print Premium)",
+        description: "Tipărim diplome personalizate pe carton special, texturat sau perlat. Ideale pentru cursuri, concursuri sau evenimente corporate. Design elegant și culori vibrante.",
+        image: "/products/afise/afise-1.webp",
+        price: "De la 2.5 LEI",
+        category: "Campanii SEO",
+        tags: ["diplome", "print diplome", "diplome personalizate", "diplome cursuri"]
+    },
+    {
+        id: "seo-certificate-absolvire",
+        slug: "certificate-absolvire-personalizate-model-editabil",
+        routeSlug: "afise",
+        title: "Certificate de Absolvire (Model Editabil)",
+        description: "Certificate de absolvire pentru academii, școli de beauty sau cursuri de specializare. Carton premium 300g, posibilitate de personalizare cu nume și logo.",
+        image: "/products/afise/afise-1.webp",
+        price: "De la 2.5 LEI",
+        category: "Campanii SEO",
+        tags: ["certificate absolvire", "certificat participare", "print certificate", "diplome absolvire"]
+    },
+    {
+        id: "seo-diplome-gradinita-scoala",
+        slug: "diplome-gradinita-scoala-sfarsit-an-scolar",
+        routeSlug: "afise",
+        title: "Diplome Grădiniță și Școală (Sfârșit de An)",
+        description: "Diplome vesele și colorate pentru festivitățile de sfârșit de an școlar. Modele variate pentru grupa mică, mare sau clasele primare. Prețuri speciale pentru școli.",
+        image: "/products/afise/afise-1.webp",
+        price: "De la 1.5 LEI",
+        category: "Campanii SEO",
+        tags: ["diplome gradinita", "diplome scoala", "serbare sfarsit an", "diploma merit"]
+    },
+    {
+        id: "seo-diplome-onorifice-lux",
+        slug: "diplome-onorifice-premium-carton-special-perlat",
+        routeSlug: "afise",
+        title: "Diplome Onorifice de Lux (Perlate/Texturate)",
+        description: "Diplome deosebite pe cartoane de lux (ICE Gold, Constellation Velvet). Impact vizual garantat pentru premii de excelență, gale și evenimente speciale.",
+        image: "/products/afise/afise-1.webp",
+        price: "De la 4 LEI",
+        category: "Campanii SEO",
+        tags: ["diplome lux", "carton perlat", "diplome onorifice", "premii excelenta"]
+    },
+    {
+        id: "seo-mape-diplome",
+        slug: "mape-diplome-personalizate-coperti-premium",
+        routeSlug: "pliante",
+        title: "Mape Diplome Personalizate",
+        description: "Mape și coperți pentru diplome, realizate din carton rigid, personalizate cu logo-ul instituției tale. Protecție și eleganță pentru documentele importante.",
+        image: "/products/pliante/pliante-1.webp",
+        price: "De la 5 LEI",
+        category: "Campanii SEO",
+        tags: ["mape diplome", "coperti diplome", "folder diplome", "personalizat"]
+    },
+    {
+        id: "seo-diplome-concursuri-sportive",
+        slug: "diplome-concursuri-sportive-premii-locul-1-2-3",
+        routeSlug: "afise",
+        title: "Diplome pentru Concursuri Sportive",
+        description: "Seturi de diplome pentru competiții sportive: Locul 1, 2, 3 și Mențiune. Design dinamic, gata de personalizat cu numele competiției și data.",
+        image: "/products/afise/afise-1.webp",
+        price: "De la 2 LEI",
+        category: "Campanii SEO",
+        tags: ["diplome sport", "premii concurs", "diploma locul 1", "competitii"]
+    },
+    {
+        id: "seo-diplome-crestine-botez",
+        slug: "diplome-crestine-botez-amintire-eveniment",
+        routeSlug: "afise",
+        title: "Diplome Creștine / Botez (Amintire)",
+        description: "Diplome speciale pentru botez, încrustate cu motive religioase sau elegante. O amintire deosebită pentru nași și părinți, pe carton de înaltă calitate.",
+        image: "/products/afise/afise-1.webp",
+        price: "De la 3 LEI",
+        category: "Campanii SEO",
+        tags: ["diplome botez", "diplome crestine", "diploma nasi", "amintire botez"]
     }
 ];
