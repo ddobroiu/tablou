@@ -1406,5 +1406,84 @@ export const seoCampaignProducts: any[] = [
         price: "De la 3 LEI",
         category: "Campanii SEO",
         tags: ["diplome botez", "diplome crestine", "diploma nasi", "amintire botez"]
+    },
+
+    // --- CAMPANII INDUSTRY SOLUTIONS ---
+    {
+        id: "seo-horeca-branding",
+        slug: "semnalistica-horeca-publicitate-restaurante-cafenele",
+        routeSlug: "banner",
+        title: "Publicitate și Branding HoReCa",
+        description: "Soluții de promovare pentru restaurante, terase și cafenele. De la bannere outdoor la meniuri și decoruri canvas personalizate. Rezistență UV și design de impact.",
+        image: "/products/bannere/bannere-1.webp",
+        price: "De la 39 LEI",
+        category: "Campanii SEO",
+        tags: ["horeca", "publicitate restaurante", "branding cafenele", "decor terase"]
+    },
+    {
+        id: "seo-clinici-medicale",
+        slug: "semnalistica-clinici-medicale-si-stomatologice",
+        routeSlug: "signage",
+        title: "Semnalistică pentru Clinici și Cabinete",
+        description: "Plăcuțe de uși, panouri informative și window-graphics pentru clinici medicale și stomatologice. Materiale igienice, durabile și cu aspect profesional.",
+        image: "/products/semnalistica/sign-1.webp",
+        price: "De la 45 LEI",
+        category: "Campanii SEO",
+        tags: ["clinici medicale", "stomatologie", "placute usi", "semnalistica interior"]
+    },
+    {
+        id: "seo-scoli-gradinite",
+        slug: "materiale-publicitare-pentru-scoli-si-gradinite",
+        routeSlug: "afise",
+        title: "Printuri pentru Școli și Grădinițe",
+        description: "Realizăm panouri informative, diplome, autocolante educative și bannere pentru unități de învățământ. Design adaptat, culori vii și materiale calitative.",
+        image: "/products/afise/afise-1.webp",
+        price: "De la 2.5 LEI",
+        category: "Campanii SEO",
+        tags: ["gradinite", "scoli", "panouri educative", "promovare educatie"]
+    },
+    {
+        id: "seo-beauty-salons",
+        slug: "promovare-si-decor-saloane-infrumusetare-beauty",
+        routeSlug: "window-graphics",
+        title: "Publicitate pentru Saloane de Înfrumusețare",
+        description: "Transformă-ți salonul cu window graphics de lux, tablouri canvas pentru recepție și autocolante de vitrină elegante. Design creativ pentru domeniul beauty.",
+        image: "/products/window-graphics/wg-1.webp",
+        price: "De la 55 LEI",
+        category: "Campanii SEO",
+        tags: ["beauty salon", "coafura", "window graphics", "decor salon"]
+    },
+    {
+        id: "seo-imobiliare-banner",
+        slug: "publicitate-imobiliare-bannere-si-panouri-vanzare-inchiriere",
+        routeSlug: "banner",
+        title: "Publicitate pentru Imobiliare și Site-uri",
+        description: "Bannere mari pentru șantiere, panouri de vânzare/închiriere și mesh-uri publicitare pentru ansambluri rezidențiale. Vizibilitate maximă și prețuri competitive.",
+        image: "/products/bannere/bannere-1.webp",
+        price: "De la 35 LEI",
+        category: "Campanii SEO",
+        tags: ["imobiliare", "banner vanzare", "panou constructii", "dezvoltatori"]
+    },
+    {
+        id: "seo-servicii-auto",
+        slug: "publicitate-service-auto-vulcanizare-auto",
+        routeSlug: "banner",
+        title: "Promovare pentru Service Auto și Vulcanizări",
+        description: "Bannere rezistente la uleiuri și intemperii, autocolante pentru branding auto și semnalistică pentru ateliere. Rezistență mecanică ridicată.",
+        image: "/products/bannere/bannere-1.webp",
+        price: "De la 39 LEI",
+        category: "Campanii SEO",
+        tags: ["service auto", "vulcanizare", "branding auto", "semnalistica service"]
+    },
+    {
+        id: "seo-juridic-notar",
+        slug: "placute-profesionale-avocati-notari-executori",
+        routeSlug: "signage",
+        title: "Plăcuțe Profesionale pentru Avocați și Notari",
+        description: "Plăcuțe gravate sau printate UV pe plexiglas, alucobond sau alamă. Eleganță și sobrietate pentru cabinete de avocatură și birouri notariale.",
+        image: "/products/semnalistica/sign-1.webp",
+        price: "De la 85 LEI",
+        category: "Campanii SEO",
+        tags: ["avocati", "notari", "placute birou", "semnalistica eleganta"]
     }
 ];
