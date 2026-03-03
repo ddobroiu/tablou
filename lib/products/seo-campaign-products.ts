@@ -179,5 +179,61 @@ export const seoCampaignProducts: any[] = [
         price: "150 LEI",
         category: "Campanii SEO",
         tags: ["comunicat presa", "regio bucuresti", "bucuresti ilfov", "pr bi"]
+    },
+    // --- VARIATII CANVAS SEO ---
+    {
+        id: "seo-tablou-canvas-personalizat",
+        slug: "print-tablou-canvas-personalizat-poza-ta",
+        routeSlug: "configurator/canvas",
+        title: "Tablou Canvas Personalizat (cu Poza ta)",
+        description: "Transformă-ți fotografiile preferate în tablouri canvas de înaltă calitate. Pânză bumbac 100%, șasiu lemn natural. Print la rezoluție fotografică.",
+        image: "/products/canvas/canvas-1.webp",
+        price: "De la 39 LEI",
+        category: "Campanii SEO",
+        tags: ["tablou canvas personalizat", "print canvas", "poza pe canvas", "tablou cu poza mea"]
+    },
+    {
+        id: "seo-canvas-multicanvas-ieftin",
+        slug: "tablouri-multicanvas-set-3-5-piese",
+        routeSlug: "configurator/canvas",
+        title: "Tablouri Multicanvas (Set 3 - 5 Piese)",
+        description: "Decorează-ți livingul cu seturi de tablouri multicanvas moderne. Poți încărca o singură imagine care să fie împărțită pe mai multe piese.",
+        image: "/products/canvas/canvas-1.webp",
+        price: "De la 89 LEI",
+        category: "Campanii SEO",
+        tags: ["multicanvas", "set tablouri canvas", "tablouri din mai multe piese", "canvas multicanvas"]
+    },
+    {
+        id: "seo-canvas-dimensiuni-mari",
+        slug: "tablou-canvas-dimensiuni-mari-sufragerie-dormitor",
+        routeSlug: "configurator/canvas",
+        title: "Tablou Canvas Dimensiuni Mari (Sufragerie / Dormitor)",
+        description: "Tipărim tablouri canvas panoramice sau de mari dimensiuni pentru un impact vizual uimitor în dormitor, birou sau sufragerie.",
+        image: "/products/canvas/canvas-1.webp",
+        price: "De la 99 LEI",
+        category: "Campanii SEO",
+        tags: ["canvas mare", "tablou canvas living", "tablou canvas dimensiuni mari", "poze peisaje mari"]
+    },
+    {
+        id: "seo-tablouri-canvas-cadou",
+        slug: "tablou-canvas-cadou-nunta-botez-aniversare",
+        routeSlug: "configurator/canvas",
+        title: "Tablou Canvas Cadou (Nuntă, Botez, Aniversare)",
+        description: "Cauți cadoul perfect? Un tablou canvas personalizat cu poza de la nuntă, botez sau vacanță este o amintire pentru toată viața.",
+        image: "/products/canvas/canvas-1.webp",
+        price: "De la 39 LEI",
+        category: "Campanii SEO",
+        tags: ["cadou tablou canvas", "tablou nunta", "tablou botez", "canvas cadou personalizat"]
+    },
+    {
+        id: "seo-print-poze-pe-panza",
+        slug: "printare-fotografii-pe-panza-bumbac",
+        routeSlug: "configurator/canvas",
+        title: "Printare Fotografii pe Pânză Bumbac",
+        description: "Serviciu profesional de printare fotografii și grafică de artă direct pe pânză de bumbac 100%. Calitate de muzeu (Giclée print).",
+        image: "/products/canvas/canvas-1.webp",
+        price: "De la 39 LEI",
+        category: "Campanii SEO",
+        tags: ["print pe panza", "fotografie pe panza", "poze panza", "printare poze tablou"]
     }
 ];
