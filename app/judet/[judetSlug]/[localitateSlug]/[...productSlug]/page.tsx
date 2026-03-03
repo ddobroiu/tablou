@@ -118,6 +118,19 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
 
                         <p className="text-xl text-slate-600 mb-10 leading-relaxed font-light">
                             {(() => {
+                                const isFonduri = productSlugStr.includes('pnrr') || productSlugStr.includes('regional') || productSlugStr.includes('adr') || productSlugStr.includes('fonduri') || productSlugStr.includes('program') || productSlugStr.includes('panou') || productSlugStr.includes('autocolant') || productSlugStr.includes('placa');
+                                const isComunicat = productSlugStr.includes('comunicat');
+
+                                if (isFonduri || isComunicat) {
+                                    const fonduriVariations = [
+                                        <React.Fragment key="f1">Aveți un proiect finanțat prin <strong>PNRR sau Programul Regional</strong> la <strong>{loc.name}</strong>? Asigurăm vizibilitatea obligatorie prin <strong>{product.title}</strong> conform MIV, plus publicitatea obligatorie (<strong>comunicat de presă</strong>) integrată. Livrăm rapid în județul {judet.name}.</React.Fragment>,
+                                        <React.Fragment key="f2">Pentru proiectul dvs. din <strong>{loc.name}</strong>, oferim soluția premium: <strong>{product.title}</strong> optimizate pentru fonduri europene și <strong>publicarea comunicatului de presă</strong> obligatoriu. Producem materiale rezistente UV direct în hub-ul central.</React.Fragment>,
+                                        <React.Fragment key="f3">Respectați normele de transparență PNRR/PR în <strong>{loc.name}, județul {judet.name}</strong> comandând setul de vizibilitate. De la <strong>comunicat de presă</strong> la <strong>{product.title}</strong> (plăci, panouri, autocolante), le livrăm pe toate rapid prin curier.</React.Fragment>
+                                    ];
+                                    const fSeedIndex = Math.floor(getSeededRandom(loc.name + productSlugStr + "fonduri") * fonduriVariations.length);
+                                    return fonduriVariations[fSeedIndex];
+                                }
+
                                 const variations = [
                                     <React.Fragment key="v1">Cauți un furnizor de încredere pentru <strong>{product.title}</strong> în <strong>{loc.name}, județul {judet.name}</strong>? Suntem producători direcți: printăm cu tehnologie UV de ultimă generație și trimitem produsele finisate, gata de montaj, prin curier direct la ușa ta.</React.Fragment>,
                                     <React.Fragment key="v2">Ai nevoie de <strong>{product.title}</strong> personalizat livrat rapid în <strong>{loc.name} ({judet.name})</strong>? Realizăm la comandă materiale promoționale premium cu print UV și finisaje profesionale incluse, totul expediat direct din hub-ul nostru tehnologic.</React.Fragment>,
@@ -127,12 +140,13 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                                 return variations[seedIndex];
                             })()}
                         </p>
-
-                        {product.description && (
-                            <div className="mb-10 text-slate-500 prose">
-                                <p>{product.description}</p>
-                            </div>
-                        )}
+                        {
+                            product.description && (
+                                <div className="mb-10 text-slate-500 prose">
+                                    <p>{product.description}</p>
+                                </div>
+                            )
+                        }
 
                         <div className="flex flex-col sm:flex-row gap-4 mb-4">
                             <Link href={shopUrl} className="flex-1 bg-slate-900 text-white text-center py-5 rounded-2xl font-black text-lg hover:bg-orange-600 transition-all shadow-xl shadow-slate-900/10 uppercase tracking-widest">
