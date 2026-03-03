@@ -1,17 +1,27 @@
 "use client";
 import { useState } from "react";
-import { usePathname } from "next/navigation";
-import { MessageCircle, Mail, X } from "lucide-react";
+import { MessageCircle, Mail, X, FileText } from "lucide-react";
+import Link from "next/link";
 
 export default function ContactButton() {
   const [open, setOpen] = useState(false);
-  const pathname = usePathname();
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
       {/* Meniul expandat */}
       {open && (
         <div className="mb-3 flex flex-col items-end gap-2 animate-in fade-in slide-in-from-bottom-2">
+          {/* Cere Ofertă */}
+          <Link
+            href="/contact"
+            onClick={() => setOpen(false)}
+            className="flex items-center gap-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white px-4 py-3 shadow-2xl transition transform hover:scale-105"
+          >
+            <FileText size={20} />
+            <span className="font-semibold">Cere Ofertă</span>
+          </Link>
+
+          {/* WhatsApp */}
           <a
             href="https://wa.me/40750473111?text=Bun%C4%83%20ziua%2C%20v%C4%83%20scriu%20de%20pe%20site-ul%20Tablou.net"
             target="_blank"
@@ -22,6 +32,7 @@ export default function ContactButton() {
             <span className="font-semibold">WhatsApp</span>
           </a>
 
+          {/* Email */}
           <a
             href="mailto:contact@tablou.net"
             className="flex items-center gap-2 rounded-xl bg-blue-500 hover:bg-blue-600 text-white px-4 py-3 shadow-2xl transition transform hover:scale-110"
