@@ -113,7 +113,7 @@ export default function MasterConfigurator() {
                 width_cm: state.width,
                 height_cm: state.height,
                 quantity: state.quantity,
-                material: (state.materialId?.replace('-', '_') || 'oracal_641') as any,
+                material: (state.materialId?.replace('-', '_') || 'oracal_3641') as any,
                 print_type: state.options.print_type || 'print_cut',
                 laminated: state.options.laminated || false,
                 designOption: state.designOption === 'standard' ? 'upload' : state.designOption as any
@@ -211,7 +211,7 @@ export default function MasterConfigurator() {
                         width_cm: state.width,
                         height_cm: state.height,
                         quantity: state.quantity,
-                        material: (state.materialId?.replace('-', '_') || 'oracal_641') as any,
+                        material: (state.materialId?.replace('-', '_') || 'oracal_3641') as any,
                         print_type: state.options.print_type || 'print_cut',
                         laminated: state.options.laminated || false,
                         designOption: designOpt as any

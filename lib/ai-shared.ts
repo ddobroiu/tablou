@@ -19,8 +19,8 @@ const getBannerPricingText = () => {
   let text = "PRAGURI REDUCERE BANNERE (Preț/mp în funcție de suprafața totală):\n";
   let prevMax = 0;
   bands.forEach((band) => {
-    const range = band.max === Infinity 
-      ? `Peste ${prevMax} mp` 
+    const range = band.max === Infinity
+      ? `Peste ${prevMax} mp`
       : `${prevMax} - ${band.max} mp`;
     text += `- ${range}: ${band.price} RON/mp\n`;
     prevMax = band.max;
@@ -66,7 +66,7 @@ const COMPLETE_PRICING_KNOWLEDGE = `
 
 1️⃣ AUTOCOLANTE (Oracal) - 7 Materiale Disponibile
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-**Oracal 641** (Folie economică):
+**Oracal 3641** (Folie economică):
   <1 mp: 120 lei/mp | 1-5 mp: 90 lei/mp | 5-20 mp: 80 lei/mp | >20 mp: 70 lei/mp
 
 **Oracal 351** (Folie aurie/argintie):
@@ -288,13 +288,13 @@ export const tools: OpenAI.Chat.Completions.ChatCompletionTool[] = [
           design_pro: { type: "boolean", description: "Dacă clientul dorește Design Pro (+40 lei pentru Canvas)" },
           material_subtype: { type: "string" },
           canvas_edge: { type: "string" },
-          options: { type: "object", properties: { laminated: {type:"boolean"}, diecut: {type:"boolean"}, adhesive: {type:"boolean"} } }
+          options: { type: "object", properties: { laminated: { type: "boolean" }, diecut: { type: "boolean" }, adhesive: { type: "boolean" } } }
         },
         required: ["product_type", "quantity"]
       }
     }
   },
-    {
+  {
     type: "function",
     function: {
       name: "calculate_standard_print_price",
@@ -305,7 +305,7 @@ export const tools: OpenAI.Chat.Completions.ChatCompletionTool[] = [
           product_type: { type: "string", enum: ["flyer", "pliant", "afis"] },
           size: { type: "string" },
           quantity: { type: "number" },
-          paper_type: { 
+          paper_type: {
             type: "string",
             description: "Pentru AFIȘE folosește cheile: paper_150_lucioasa, whiteback_150_material, blueback_115, satin_170, foto_220, paper_150_mata, paper_300_lucioasa, paper_300_mata. VERIFICĂ disponibilitatea pentru dimensiunea selectată!"
           },
@@ -725,7 +725,7 @@ REGULI DE INTERACȚIUNE
 **FLOW PENTRU AUTOCOLANTE:**
 1. "Ce dimensiuni?"
 2. "Câte bucăți?"
-3. "Ce material Oracal?" → ||OPTIONS: ["641 (economică)", "651 (casete luminoase)", "970 (car wrapping)", "Vezi toate"]||
+3. "Ce material Oracal?" → ||OPTIONS: ["3641 (economică)", "651 (casete luminoase)", "970 (car wrapping)", "Vezi toate"]||
 4. "Print+Cut sau doar Print (-20%)?" ||OPTIONS: ["Print+Cut", "Print Only"]||
 5. "Laminare? (+10%)" ||OPTIONS: ["Da", "Nu"]||
 6. "Design Pro? (+30 lei)" ||OPTIONS: ["Da", "Nu"]||
@@ -833,7 +833,7 @@ Include casetă + print + geantă ✅"
 
 👤 User: "200"
 🤖 AI: "Material Oracal?
-||OPTIONS: ["641 (mat, 3 ani)", "651 (lucios, 6 ani)", "970 (auto, 10 ani)"]||"
+||OPTIONS: ["3641 (mat, 3 ani)", "651 (lucios, 6 ani)", "970 (auto, 10 ani)"]||"
 
 👤 User: "651"
 🤖 AI: "200 autocolante Ø10cm Oracal 651: **142 lei**"

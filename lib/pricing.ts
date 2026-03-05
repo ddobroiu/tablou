@@ -641,7 +641,7 @@ export const getCartonUpsell = (input: PriceInputCarton) =>
 export const AUTOCOLANTE_CONSTANTS = {
   MATERIALS: [
     {
-      key: "oracal_641", label: "Oracal 641 — Folie economică", bands: [
+      key: "oracal_3641", label: "Oracal 3641 — Folie economică", bands: [
         { max_sqm: 1, price_per_sqm: 120 },
         { max_sqm: 5, price_per_sqm: 90 },
         { max_sqm: 20, price_per_sqm: 80 },
@@ -700,7 +700,7 @@ export const AUTOCOLANTE_CONSTANTS = {
   PRO_DESIGN_FEE: 30,
 };
 
-export type AutocolantesMaterialKey = "oracal_641" | "oracal_351" | "oracal_451" | "oracal_621" | "oracal_638m" | "oracal_651" | "oracal_970";
+export type AutocolantesMaterialKey = "oracal_3641" | "oracal_351" | "oracal_451" | "oracal_621" | "oracal_638m" | "oracal_651" | "oracal_970";
 
 export type PriceInputAutocolante = {
   width_cm: number;
