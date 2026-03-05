@@ -1,5 +1,3 @@
-import roLocalitati from './seo/ro_localitati.json';
-
 export type Localitate = {
     name: string;
     slug: string;
@@ -11,7 +9,18 @@ export type Judet = {
     localitati: Localitate[];
 };
 
-export const JUDETE_FULL_DATA: Judet[] = roLocalitati as Judet[];
+let _fullData: Judet[] | null = null;
+
+function getFullData(): Judet[] {
+    if (!_fullData) {
+        // Lazy load to hide from Turbopack static tracing
+        const roLocalitati = require('./seo/ro_localitati.json');
+        _fullData = roLocalitati as Judet[];
+    }
+    return _fullData;
+}
+
+export const JUDETE_FULL_DATA: Judet[] = getFullData();
 
 export function getJudetBySlug(judetSlug: string): Judet | undefined {
     return JUDETE_FULL_DATA.find((j) => j.slug === judetSlug);
