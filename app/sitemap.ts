@@ -6,15 +6,18 @@ import { JUDETE_FULL_DATA } from '@/lib/localitati';
 import { getAllBlogSlugs, getPostBySlug } from '@/lib/blogPosts';
 
 export async function generateSitemaps() {
+    const products = await getProducts();
+    const validProducts = products.filter((p: any) => !p.id?.startsWith("fallback-"));
+    const seoProductsCount = validProducts.filter((p: any) => p.metadata?.isSeoCampaign || p.id?.startsWith('seo-')).length;
+
+    const URLS_PER_LOC = seoProductsCount + 1; // Products + the Locality index page
+    const LOCS_PER_SITEMAP = Math.floor(45000 / URLS_PER_LOC);
+
     const sitemaps = [{ id: 0 }]; // 'main' becomes 0
-    const PRODUCTS_PER_LOC = 60;
 
     let currentId = 1;
-    for (let i = 0; i < JUDETE_FULL_DATA.length; i++) {
-        const judet = JUDETE_FULL_DATA[i];
-        const totalUrls = judet.localitati.length * PRODUCTS_PER_LOC;
-        const parts = Math.ceil(totalUrls / 40000);
-
+    for (const judet of JUDETE_FULL_DATA) {
+        const parts = Math.ceil(judet.localitati.length / LOCS_PER_SITEMAP);
         for (let p = 0; p < parts; p++) {
             sitemaps.push({ id: currentId++ });
         }
@@ -23,7 +26,7 @@ export async function generateSitemaps() {
 }
 
 export default async function sitemap({ id }: { id: number }): Promise<MetadataRoute.Sitemap> {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.tablou.ro';
+    const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://tablou.net').replace(/\/$/, "");
 
     const products = await getProducts();
     const allBlogSlugs = getAllBlogSlugs();
@@ -85,15 +88,16 @@ export default async function sitemap({ id }: { id: number }): Promise<MetadataR
         return [...staticEntries, ...blogRoutes, ...landingRoutes, ...productRoutes, ...judeteRoutes];
     }
 
-    const PRODUCTS_PER_LOC = 60;
+    const URLS_PER_LOC = seoProducts.length + 1;
+    const LOCS_PER_SITEMAP = Math.floor(45000 / URLS_PER_LOC);
+
     let currentId = 1;
     let selectedJudetIndex = -1;
     let selectedPagePart = 0;
 
     for (let i = 0; i < JUDETE_FULL_DATA.length; i++) {
         const judet = JUDETE_FULL_DATA[i];
-        const totalUrls = judet.localitati.length * PRODUCTS_PER_LOC;
-        const parts = Math.ceil(totalUrls / 40000);
+        const parts = Math.ceil(judet.localitati.length / LOCS_PER_SITEMAP);
 
         for (let p = 0; p < parts; p++) {
             if (currentId === id) {
@@ -112,9 +116,6 @@ export default async function sitemap({ id }: { id: number }): Promise<MetadataR
     if (!judet) return [];
 
     const localitatiEntries: MetadataRoute.Sitemap = [];
-    const URLS_PER_LOC = seoProducts.length + 1;
-    const LOCS_PER_SITEMAP = Math.floor(45000 / URLS_PER_LOC);
-
     const startLocIndex = selectedPagePart * LOCS_PER_SITEMAP;
     const localitiesSlice = judet.localitati.slice(startLocIndex, startLocIndex + LOCS_PER_SITEMAP);
 
@@ -136,8 +137,8 @@ export default async function sitemap({ id }: { id: number }): Promise<MetadataR
         });
 
         for (const p of seoProducts) {
-            const rootSlug = (p as any).routeSlug || (p as any).slug || p.id;
-            const normalizedPSlug = rootSlug?.startsWith('/') ? rootSlug.slice(1) : rootSlug;
+            const rootSlug = (p as any).routeSlug || (p as any).slug || p.id || '';
+            const normalizedPSlug = rootSlug.startsWith('/') ? rootSlug.slice(1) : rootSlug;
             localitatiEntries.push({
                 url: `${baseUrl}/judet/${judet.slug}/${loc.slug}/${normalizedPSlug}`,
                 lastModified: new Date(),

@@ -19,15 +19,15 @@ export async function generateMetadata({ params }: { params: Promise<{ judetSlug
 
     const cityName = data.localitati[0] ? data.localitati[0].name : data.name;
 
-    const title = `Print Bannere & Mesh ${data.name} - Publicitate Outdoor Tablou`;
-    const description = `Livrăm în județul ${data.name} (în ${cityName} și restul județului) bannere publicitare personalizate, mesh-uri și autocolante. Calitate garantată și livrare rapidă.`;
+    const title = `Print Tablouri Canvas & Afișe ${data.name} - Tablou`;
+    const description = `Livrăm în județul ${data.name} (în ${cityName} și restul județului) tablouri canvas personalizate, afișe și autocolante. Calitate garantată și livrare rapidă.`;
 
     const routeUrl = `https://tablou.net/judet/${data.slug}`;
 
     return {
         title,
         description,
-        keywords: `print ${data.name}, bannere ${data.name}, mesh publicitar ${data.name}, publicitate outdoor ${data.name}, autocolante ${data.name}`,
+        keywords: `print canvas ${data.name}, tablouri ${data.name}, afise personalizate ${data.name}, decor interior ${data.name}, autocolante ${data.name}`,
         openGraph: {
             title,
             description,
@@ -46,7 +46,7 @@ export default async function JudetPage({ params }: { params: Promise<{ judetSlu
 
     if (!data) notFound();
 
-    const base = siteConfig.url;
+    const base = 'https://tablou.net';
 
     // Fetch all products and filter for "configurators" (those from registry)
     const allProducts = await getProducts();
@@ -54,13 +54,13 @@ export default async function JudetPage({ params }: { params: Promise<{ judetSlu
 
     // In Tablou, configurators have configuratorId or are in specific categories
     const configurators = validProducts.filter((p: any) =>
-        p.metadata?.configuratorId || ['banner', 'banner-verso', 'rollup', 'window-graphics'].includes(p.metadata?.category)
+        p.metadata?.configuratorId || ['canvas', 'afise', 'plexiglass', 'acrylic'].includes(p.metadata?.category)
     );
 
     const localSchema = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": `Print și Publicitate Tablou ${data.name}`,
+        "name": `Print și Tablouri Tablou ${data.name}`,
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "4.9",
@@ -99,7 +99,7 @@ export default async function JudetPage({ params }: { params: Promise<{ judetSlu
                                 "@context": "https://schema.org",
                                 "@type": "BreadcrumbList",
                                 "itemListElement": [
-                                    { "@type": "ListItem", "position": 1, "name": "Acasă", "item": "https://tablou.net/" },
+                                    { "@type": "ListItem", "position": 1, "name": "Acasă", "item": "https://tablou.ro/" },
                                     { "@type": "ListItem", "position": 2, "name": data.name }
                                 ]
                             }
@@ -109,10 +109,10 @@ export default async function JudetPage({ params }: { params: Promise<{ judetSlu
 
                 <header className="mb-16 border-b border-slate-100 pb-16">
                     <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-8 leading-[1.1] tracking-tighter">
-                        Producție Bannere & Print <br /> în <span className="text-orange-500">Județul {data.name}</span>
+                        Tablouri Canvas & Print <br /> în <span className="text-orange-500">Județul {data.name}</span>
                     </h1>
                     <p className="text-2xl text-slate-500 leading-relaxed max-w-4xl font-medium">
-                        Dacă ai nevoie de vizibilitate în județul {data.name}, Tablou este soluția ta. Livrăm rapid în orice localitate din județ materiale publicitare de înaltă rezistență.
+                        Dacă ai nevoie de un decor deosebit în județul {data.name}, Tablou este soluția ta. Livrăm rapid în orice localitate din județ tablouri și printuri de înaltă rezoluție.
                     </p>
                 </header>
 

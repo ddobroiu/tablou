@@ -14,7 +14,7 @@ export function generateSeoForProduct(p: ProductForSeo) {
   const title = String((p.title ?? slug) || "").trim();
   const category = String(p?.metadata?.category ?? "").toLowerCase();
 
-  const seoTitle = `${title} | Prynt`;
+  const seoTitle = `${title} | Tablou`;
 
   const tags = Array.isArray(p.tags) ? p.tags.join(", ") : "";
 

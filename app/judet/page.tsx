@@ -5,9 +5,9 @@ import { siteConfig } from "@/lib/siteConfig";
 import { MapPin, ArrowRight, Flag, ShieldCheck, Zap, BarChart } from "lucide-react";
 
 export const metadata = {
-    title: "Producție Publicitară & Banners în orice județ - Tablou",
-    description: "Livrăm bannere publicitare, mesh-uri, autocolante și sisteme de afișaj în orice județ din România. Comandă online cu livrare rapidă.",
-    keywords: "adbanner, bannere romania, print judete, mesh publicitar, autocolante",
+    title: "Producție Tablouri Canvas & Print în orice județ - Tablou",
+    description: "Livrăm tablouri canvas, afișe, autocolante și sisteme de afișaj în orice județ din România. Comandă online cu livrare rapidă.",
+    keywords: "print canvas, tablouri romania, print judete, posteri personalizate, autocolante",
     alternates: { canonical: "/judet" },
 };
 

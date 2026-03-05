@@ -85,7 +85,6 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                 </nav>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
-
                     {/* Imagini */}
                     <div className="w-full">
                         <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl bg-white border border-slate-100">
@@ -97,8 +96,6 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                                 priority
                                 fetchPriority="high"
                             />
-
-                            {/* Livrare Badge Overlay */}
                             <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm shadow-xl rounded-2xl px-6 py-3 flex items-center gap-3 border border-orange-500/20">
                                 <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                                 <span className="font-bold text-slate-900">Livrăm în {loc.name}</span>
@@ -109,7 +106,7 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                     {/* Conținut SEO & Call to Action */}
                     <div className="w-full flex flex-col justify-center">
                         <div className="inline-block px-4 py-2 bg-orange-100 text-orange-700 font-bold text-xs uppercase tracking-widest rounded-full mb-6 w-max">
-                            Producție Publicitară {judet.name}
+                            Tablouri & Canvas {judet.name}
                         </div>
 
                         <h1 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 leading-[1.1] tracking-tight">
@@ -132,21 +129,14 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                                 }
 
                                 const variations = [
-                                    <React.Fragment key="v1">Cauți un furnizor de încredere pentru <strong>{product.title}</strong> în <strong>{loc.name}, județul {judet.name}</strong>? Suntem producători direcți: printăm cu tehnologie UV de ultimă generație și trimitem produsele finisate, gata de montaj, prin curier direct la ușa ta.</React.Fragment>,
-                                    <React.Fragment key="v2">Ai nevoie de <strong>{product.title}</strong> personalizat livrat rapid în <strong>{loc.name} ({judet.name})</strong>? Realizăm la comandă materiale promoționale premium cu print UV și finisaje profesionale incluse, totul expediat direct din hub-ul nostru tehnologic.</React.Fragment>,
-                                    <React.Fragment key="v3">Comandă online <strong>{product.title}</strong> pentru afacerea ta din <strong>{loc.name}, județul {judet.name}</strong>! Te bucuri de prețuri de producător, execuție rapidă și rezistență îndelungată a culorilor, cu livrare sigură prin rețeaua națională DPD.</React.Fragment>
+                                    <React.Fragment key="v1">Cauți un furnizor de încredere pentru <strong>{product.title}</strong> în <strong>{loc.name}, județul {judet.name}</strong>? Suntem producători direcți: printăm cu tehnologie de ultimă generație și trimitem produsele finisate, gata de expunere, prin curier direct la ușa ta.</React.Fragment>,
+                                    <React.Fragment key="v2">Ai nevoie de <strong>{product.title}</strong> personalizat livrat rapid în <strong>{loc.name} ({judet.name})</strong>? Realizăm la comandă tablouri și materiale deco premium cu print de înaltă rezoluție, totul expediat direct din hub-ul nostru tehnologic.</React.Fragment>,
+                                    <React.Fragment key="v3">Comandă online <strong>{product.title}</strong> pentru casa sau afacerea ta din <strong>{loc.name}, județul {judet.name}</strong>! Te bucuri de prețuri de producător, execuție rapidă și rezistență îndelungată a culorilor, cu livrare sigură prin rețeaua națională DPD.</React.Fragment>
                                 ];
                                 const seedIndex = Math.floor(getSeededRandom(loc.name + product.title) * variations.length);
                                 return variations[seedIndex];
                             })()}
                         </p>
-                        {
-                            product.description && (
-                                <div className="mb-10 text-slate-500 prose">
-                                    <p>{product.description}</p>
-                                </div>
-                            )
-                        }
 
                         <div className="flex flex-col sm:flex-row gap-4 mb-4">
                             <Link href={shopUrl} className="flex-1 bg-slate-900 text-white text-center py-5 rounded-2xl font-black text-lg hover:bg-orange-600 transition-all shadow-xl shadow-slate-900/10 uppercase tracking-widest">
@@ -162,20 +152,131 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                             <div>
                                 <h4 className="font-black text-slate-900 flex items-center gap-2 mb-2">
                                     <svg className="w-5 h-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                                    Cerneală UV
+                                    Calitate Premium
                                 </h4>
-                                <p className="text-sm text-slate-500 line-clamp-2">Rezistență uimitoare la ploaie, soare și zgârieturi.</p>
+                                <p className="text-sm text-slate-500 line-clamp-2">Culori vibrante și rezistență uimitoare în timp.</p>
                             </div>
                             <div>
                                 <h4 className="font-black text-slate-900 flex items-center gap-2 mb-2">
                                     <svg className="w-5 h-5 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                                    Livrare DPD {loc.name}
+                                    Livrare {loc.name}
                                 </h4>
                                 <p className="text-sm text-slate-500 line-clamp-2">Producție directă și expediere 24-48h.</p>
                             </div>
                         </div>
-
                     </div>
+                </div>
+            </div>
+
+            {/* Industry Specific Solutions Hub */}
+            <div className="container mx-auto px-4 sm:px-6 mt-32 border-t border-slate-200 pt-16">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tight">Soluții Deco în {loc.name}</h2>
+                    <div className="h-1 w-16 bg-orange-500 mx-auto mt-4 rounded-full"></div>
+                    <p className="text-slate-500 mt-4 max-w-2xl mx-auto">Alege pachetul de vizibilitate sau decor optim pentru spațiul tău din județul {judet.name}.</p>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    {(() => {
+                        const industryProducts = allProducts.filter(p =>
+                            (p as any).metadata?.isSeoCampaign &&
+                            p.id !== product.id &&
+                            !p.id.includes('pret') && !p.id.includes('ieftin')
+                        ).slice(0, 8);
+
+                        return industryProducts.map(ip => (
+                            <Link
+                                key={ip.id}
+                                href={`/judet/${judet.slug}/${loc.slug}/${(ip as any).routeSlug || (ip as any).slug || ip.id}`}
+                                className="bg-white border border-slate-200 rounded-2xl p-5 hover:border-orange-500 hover:shadow-xl transition-all text-sm font-bold flex items-center justify-between group shadow-sm"
+                            >
+                                <span className="text-slate-700 group-hover:text-orange-600 transition-colors">{ip.title.replace('Tablou ', '').replace('Canvas ', '')}</span>
+                                <span className="text-orange-500 opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0">&rarr;</span>
+                            </Link>
+                        ));
+                    })()}
+                </div>
+            </div>
+
+            {/* Local Advantage section */}
+            <div className="container mx-auto px-4 sm:px-6 mt-32">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all border-b-4 border-b-orange-500">
+                        <h3 className="text-xl font-black text-slate-900 mb-4 uppercase">Experiență locală în {loc.name}</h3>
+                        <p className="text-slate-600 leading-relaxed">
+                            {(() => {
+                                const variations = [
+                                    `Am livrat peste ${Math.floor(50 + getSeededRandom(loc.name) * 450)} proiecte deco în zona ${loc.name}. Cunoaștem gusturile locale și oferim soluții adaptate pentru județul ${judet.name}.`,
+                                    `Suntem partenerul preferat al clienților din ${loc.name} pentru ${product.title}. Calitatea printului nostru garantează un aspect premium oricărei încăperi.`,
+                                    `Echipa noastră monitorizează constant standardele de calitate pentru toate tablourile livrate în ${loc.name}.`
+                                ];
+                                return variations[Math.floor(getSeededRandom(loc.slug + "exp") * variations.length)];
+                            })()}
+                        </p>
+                    </div>
+                    <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all border-b-4 border-b-green-500">
+                        <h3 className="text-xl font-black text-slate-900 mb-4 uppercase">Specificații Tehnice {product.title}</h3>
+                        <p className="text-slate-600 leading-relaxed">
+                            {(() => {
+                                const variations = [
+                                    `Folosim pânză de bumbac 100% și șasiu din lemn de pin uscat. Rezistența culorilor este garantată pe viață la interior.`,
+                                    `Printul este realizat la rezoluție de 1440 DPI, oferind detalii incredibile pentru orice ${product.title}. Tehnologia noastră asigură culori naturale.`,
+                                    `Fiecare ${product.title} comandat pentru ${loc.name} trece printr-un proces riguros de verificare a calității înainte de ambalare.`
+                                ];
+                                return variations[Math.floor(getSeededRandom(loc.slug + "tech") * variations.length)];
+                            })()}
+                        </p>
+                    </div>
+                    <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all border-b-4 border-b-blue-500">
+                        <h3 className="text-xl font-black text-slate-900 mb-4 uppercase">Logistica Jud. {judet.name}</h3>
+                        <p className="text-slate-600 leading-relaxed">
+                            {(() => {
+                                const variations = [
+                                    `Livrarea în ${loc.name} se face prin rețeaua DPD. Timpul mediu de tranzit este de 24h de la finalizarea producției.`,
+                                    `Am optimizat rutele de transport către ${loc.name} pentru a reduce costurile. Tablourile tale ajung în siguranță, ambalate corespunzător.`,
+                                    `Asigurăm transport securizat direct la ușa ta din ${loc.name} sau în orice punct din județul ${judet.name}.`
+                                ];
+                                return variations[Math.floor(getSeededRandom(loc.slug + "log") * variations.length)];
+                            })()}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            {/* Reviews section */}
+            <div className="container mx-auto px-4 sm:px-6 mt-32">
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl font-black text-slate-900 tracking-tight uppercase">Ce spun clienții din {loc.name}</h2>
+                    <div className="h-1 w-16 bg-orange-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {(() => {
+                        const names = ["Andrei M.", "Elena Popescu", "Mihai Ionescu", "Cosmin G.", "Ramona B.", "Stefan Radu", "Iulia D.", "Alexandru V."];
+                        const texts = [
+                            `Calitate excelentă pentru ${product.title}. A ajuns în ${loc.name} mai rapid decât mă așteptam.`,
+                            `Am comandat pentru casa mea din ${judet.name} și sunt foarte mulțumită de culori. Recomand!`,
+                            `Profesionalism și promptitudine. Tabloul arată impecabil montat în living-ul din ${loc.name}.`,
+                            `Cea mai bună ofertă de preț pentru ${product.title} pe care am găsit-o online.`,
+                            `Printul chiar face diferența. Arată superb pe peretele din ${loc.name}.`,
+                            `Recomand cu încredere. Proces simplu de configurare și livrare fără probleme în județul ${judet.name}.`
+                        ];
+                        const reviews = [];
+                        for (let i = 0; i < 3; i++) {
+                            const nIndex = Math.floor(getSeededRandom(loc.name + product.id + i) * names.length);
+                            const tIndex = Math.floor(getSeededRandom(product.id + loc.name + (i + 5)) * texts.length);
+                            reviews.push({ name: names[nIndex], text: texts[tIndex] });
+                        }
+                        return reviews.map((rev, idx) => (
+                            <div key={idx} className="bg-slate-50 p-6 rounded-3xl border border-slate-100">
+                                <div className="flex text-orange-500 mb-3">
+                                    {[...Array(5)].map((_, i) => (
+                                        <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                                    ))}
+                                </div>
+                                <p className="italic text-slate-600 mb-4 whitespace-pre-line leading-relaxed">"{rev.text}"</p>
+                                <p className="font-black text-slate-900 text-sm">— {rev.name}, Locuitor {loc.name}</p>
+                            </div>
+                        ));
+                    })()}
                 </div>
             </div>
 
@@ -193,14 +294,14 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                         },
                         {
                             q: `Pe ce tehnologie este printat produsul ${product.title}?`,
-                            a: `Folosim imprimante UV de înaltă rezoluție cu uscare instantanee, ceea ce asigură o rezistență enormă la zgârieturi, raze UV (decolorare) și ploaie. Ideal pentru expunere outdoor.`
+                            a: `Folosim imprimante UV de înaltă rezoluție cu uscare instantanee, ceea ce asigură o rezistență enormă la zgârieturi, raze UV (decolorare) și ploaie. Ideal pentru expunere deco.`
                         },
                         {
                             q: `Oferiți garanție și pentru comenzile din județul ${judet.name}?`,
-                            a: `Sigur. Indiferent că sunteți din ${loc.name} sau orice altă zonă din ${judet.name}, toate materialele publicitare pleacă verificate strict calitativ din centrul nostru de producție.`
+                            a: `Sigur. Indiferent că sunteți din ${loc.name} sau orice altă zonă din ${judet.name}, toate produsele pleacă verificate strict calitativ din centrul nostru de producție.`
                         }
                     ].map((faq, idx) => (
-                        <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                        <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 transition-all hover:border-orange-200">
                             <h3 className="font-bold text-lg text-slate-900 mb-2">{faq.q}</h3>
                             <p className="text-slate-600">{faq.a}</p>
                         </div>
@@ -208,25 +309,22 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                 </div>
             </div>
 
-            {/* Horizontal Siloing: Alte localitati in acelasi judet */}
+            {/* Localities listing section */}
             <div className="container mx-auto px-4 sm:px-6 mt-24 border-t border-slate-200 pt-16">
                 <div className="text-center mb-10">
                     <h2 className="text-2xl font-black text-slate-900 uppercase tracking-tight">Efectuăm livrări {product.title} și în alte localități din {judet.name}</h2>
-                    <p className="text-slate-500 mt-2">Dacă vrei să comanzi în altă parte decât {loc.name}, onorăm servicii de producție cu transport rapid prin curier direct în zonele următoare:</p>
+                    <p className="text-slate-500 mt-2">Dacă vrei să comanzi în altă parte decât {loc.name}, onorăm servicii în zonele următoare:</p>
                 </div>
                 <div className="flex flex-wrap items-center justify-center gap-3">
                     {(() => {
-                        // Afișăm alte localități (deterministic bazat pe prod+loc) din judet
                         const allLocs = judet.localitati.filter(l => l.slug !== loc.slug);
-                        // Amestecam lista folosind seed-ul determinist
                         const shuffled = [...allLocs].sort((a, b) => getSeededRandom(a.slug + productSlugStr) - 0.5);
-                        // Luăm afișăm doar 4 localități pentru Pânza de Păianjen optimă
                         const selection = shuffled.slice(0, 4);
                         return selection.map((otherLoc) => (
                             <Link
                                 key={otherLoc.slug}
                                 href={`/judet/${judet.slug}/${otherLoc.slug}/${productSlugStr}`}
-                                className="bg-white border border-slate-200 text-slate-600 hover:text-white hover:bg-orange-600 hover:border-orange-600 hover:shadow-lg hover:shadow-orange-600/20 px-4 py-2 rounded-xl text-sm font-black transition-all"
+                                className="bg-white border border-slate-200 text-slate-600 hover:text-white hover:bg-orange-600 hover:border-orange-600 px-4 py-2 rounded-xl text-sm font-black transition-all"
                             >
                                 {product.title} {otherLoc.name}
                             </Link>
@@ -235,7 +333,7 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                 </div>
             </div>
 
-            {/* Produse Recomandate (Cross-linking SEO) */}
+            {/* Recommended Products */}
             <div className="container mx-auto px-4 sm:px-6 mt-24 border-t border-slate-200 pt-16">
                 <div className="text-center mb-10">
                     <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tight">Clienții din {loc.name} au comandat și</h2>
@@ -244,7 +342,7 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {recommendedProducts.map(rp => {
                         const rpImage = (rp as any).image || ((rp as any).images?.[0]) || "/placeholder.png";
-                        const rpSlug = rp.routeSlug || rp.slug || rp.id;
+                        const rpSlug = (rp as any).routeSlug || rp.slug || rp.id;
                         return (
                             <Link
                                 key={rp.id}
@@ -275,30 +373,15 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                             "@type": "Product",
                             "name": `${product.title} - Livrare în ${loc.name}`,
                             "image": productImage,
-                            "description": `Printăm și livrăm ${product.title} în ${loc.name}, ${judet.name}. Calitate premium UV.`,
-                            "brand": {
-                                "@type": "Brand",
-                                "name": "Tablou"
-                            },
-                            "manufacturer": {
-                                "@type": "Organization",
-                                "name": "ShopPrint",
-                                "url": "https://www.shopprint.ro"
-                            },
+                            "description": `Printăm și livrăm ${product.title} în ${loc.name}, ${judet.name}. Calitate premium.`,
+                            "brand": { "@type": "Brand", "name": "Tablou" },
+                            "manufacturer": { "@type": "Organization", "name": "Tablou", "url": "https://tablou.net" },
                             "offers": {
                                 "@type": "Offer",
                                 "priceCurrency": (product as any).currency || "RON",
                                 "price": (product as any).priceBase || (product as any).price || "49",
                                 "availability": "https://schema.org/InStock",
-                                "areaServed": {
-                                    "@type": "City",
-                                    "name": loc.name
-                                }
-                            },
-                            "aggregateRating": {
-                                "@type": "AggregateRating",
-                                "ratingValue": (4.7 + getSeededRandom(loc.name + product.title) * 0.3).toFixed(1),
-                                "reviewCount": Math.floor(25 + getSeededRandom(judet.name + loc.name) * 180)
+                                "areaServed": { "@type": "City", "name": loc.name }
                             }
                         },
                         {
@@ -309,27 +392,6 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                                 { "@type": "ListItem", "position": 2, "name": judet.name, "item": `https://tablou.net/judet/${judet.slug}` },
                                 { "@type": "ListItem", "position": 3, "name": loc.name, "item": `https://tablou.net/judet/${judet.slug}/${loc.slug}` },
                                 { "@type": "ListItem", "position": 4, "name": product.title }
-                            ]
-                        },
-                        {
-                            "@context": "https://schema.org",
-                            "@type": "FAQPage",
-                            "mainEntity": [
-                                {
-                                    "@type": "Question",
-                                    "name": `Cât durează livrarea pentru ${product.title} în ${loc.name}?`,
-                                    "acceptedAnswer": { "@type": "Answer", "text": `După finalizarea comenzii online și aprobarea bunului de tipar, producția durează aproximativ 24h, iar livrarea către ${loc.name} prin curierat rapid încă 24-48h lucrătoare.` }
-                                },
-                                {
-                                    "@type": "Question",
-                                    "name": `Pe ce tehnologie este printat produsul ${product.title}?`,
-                                    "acceptedAnswer": { "@type": "Answer", "text": `Folosim imprimante UV de înaltă rezoluție cu uscare instantanee, ceea ce asigură o rezistență enormă la zgârieturi, raze UV (decolorare) și ploaie. Ideal pentru expunere outdoor.` }
-                                },
-                                {
-                                    "@type": "Question",
-                                    "name": `Oferiți garanție și pentru comenzile din județul ${judet.name}?`,
-                                    "acceptedAnswer": { "@type": "Answer", "text": `Sigur. Indiferent că sunteți din ${loc.name} sau orice altă zonă din ${judet.name}, toate materialele publicitare pleacă verificate strict calitativ din centrul nostru de producție.` }
-                                }
                             ]
                         }
                     ])
