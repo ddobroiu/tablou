@@ -3,6 +3,8 @@ import { getProducts } from "@/lib/products";
 
 const BASE_URL = 'https://tablou.net';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
     const products = await getProducts();
     const validProducts = products.filter((p: any) => !p.id?.startsWith("fallback-"));

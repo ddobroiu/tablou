@@ -8,6 +8,7 @@ const BASE_URL = 'https://tablou.net';
 function generateUrlNode(url: string, priority: string, changefreq: string) {
     return `  <url>\n    <loc>${url}</loc>\n    <lastmod>${new Date().toISOString()}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>\n`;
 }
+export const dynamic = 'force-dynamic';
 
 export async function GET(request: Request, props: any) {
     const params = await (props.params instanceof Promise ? props.params : props.params);
