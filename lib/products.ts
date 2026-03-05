@@ -1,10 +1,6 @@
 // lib/products.ts
-import { EXTRA_PRODUCTS_RAW } from "./extraProducts";
 import { generateSeoForProduct } from "./seoTemplates";
 import { getLandingInfo } from "./landingData"; // <--- IMPORT CRITIC
-import { getEuropostersBaseProducts, convertEuropostersBaseToProduct } from "./products/europosters";
-import { getStickermaniaProducts, convertStickermaniaToProduct, getStickermaniaBanners, convertStickermaniaBannerToProduct } from "./products/stickermania";
-import { GET_STICKY_PRODUCTS } from "./products/stickers";
 
 export type MaterialOption = {
   id: string;
@@ -61,13 +57,11 @@ export type Product = {
   contentHtml?: string;
 };
 
-// IMPORTANT: Do not auto-convert to .webp; many assets are .jpg
 function normalizeImagePaths(imgs?: string[]): string[] | undefined {
   if (!imgs) return undefined;
   return imgs.map((src) => String(src));
 }
 
-// Mapare prima poză din fiecare configurator pentru fallback
 const CONFIGURATOR_FIRST_IMAGES: Record<string, string> = {
   'canvas': '/products/canvas/canvas-1.webp',
   'rollup': '/products/rollup/rollup-1.webp',
@@ -79,112 +73,106 @@ const CONFIGURATOR_FIRST_IMAGES: Record<string, string> = {
   'polipropilena': '/products/materiale/polipropilena/polipropilena-1.webp',
 };
 
-// Convertim produsele existente
-const EXISTING_PRODUCTS = EXTRA_PRODUCTS_RAW.map((p) => {
-  const slug = String(p.slug ?? p.routeSlug ?? p.id ?? "");
-  const categoryRaw = String(p.metadata?.category ?? "bannere");
-  const category = categoryRaw.toLowerCase();
-  const dir = (category === "bannere" ? "banner" : category).toLowerCase();
-
-  // Folosește prima poză din configurator ca fallback dacă produsul nu are images
-  const defaultImage = CONFIGURATOR_FIRST_IMAGES[category] || CONFIGURATOR_FIRST_IMAGES[slug] || `/products/${dir}/banner-1.webp`;
-
-  return {
-    id: p.id ?? `item-${slug}`,
-    slug: p.slug ?? slug,
-    routeSlug: p.routeSlug ?? p.slug ?? slug,
-    title: p.title ?? slug,
-    description: p.description ?? "",
-    images: normalizeImagePaths(p.images ?? [defaultImage]),
-    priceBase: p.priceBase ?? 250,
-    currency: p.currency ?? "RON",
-    tags: p.tags ?? [],
-    seo: p.seo ?? generateSeoForProduct({ ...p, metadata: { ...(p.metadata ?? {}), category } }),
-    materials: MATERIAL_OPTIONS.filter((m) => (m.recommendedFor ?? []).includes(category)),
-    metadata: { ...(p.metadata ?? {}), category },
-  } as Product;
-});
-
-// Convertim produsele Europosters (10 produse de bază cu 4 variante fiecare)
-const EUROPOSTERS_PRODUCTS = getEuropostersBaseProducts().map(ep => convertEuropostersBaseToProduct(ep) as Product);
-
-// Convertim produsele Stickermania
-const STICKERMANIA_PRODUCTS = getStickermaniaProducts().map(sm => convertStickermaniaToProduct(sm) as Product);
-
-// Convertim bannerele Stickermania
-const STICKERMANIA_BANNERS = getStickermaniaBanners().map(b => convertStickermaniaBannerToProduct(b) as Product);
-
-// Import additional collections
-import { canvasProducts } from "./products/canvas-products";
-;
-
-// Convert collections to Product type
-const SCRAPED_COLLECTIONS = [
-  ...canvasProducts.map(p => ({
-    ...p,
-    metadata: { ...p, category: "canvas" }
-  })),
-  /*
-  ...acrylicProducts.map(p => ({
-    ...p,
-    metadata: { ...p, category: "plexiglass" }
-  }))
-  */
-] as Product[];
-
-import { seoCampaignProducts } from "./products/seo-campaign-products";
-
 function parsePrice(p: string | number | undefined): number {
   if (typeof p === 'number') return p;
   const clean = String(p || "0").replace(/[^0-9.]/g, "");
   return parseFloat(clean) || 49;
 }
 
-const seoCampaignProductsMapped: Product[] = seoCampaignProducts.map(p => ({
-  id: p.id,
-  slug: p.slug,
-  routeSlug: p.routeSlug || p.slug, // This points to the configurator URL directly
-  title: p.title,
-  description: p.description,
-  images: [p.image],
-  priceBase: parsePrice(p.price),
-  currency: "RON",
-  tags: p.tags,
-  metadata: { category: "campanii-seo", isSeo: true, isSeoCampaign: true }
-}));
+let _memoizedProducts: Product[] | null = null;
 
-// Categorile eliminate din shop
-const REMOVED_CATEGORIES = ['afise', 'autocolante', 'carton', 'flayere', 'tapet', 'bannere', 'fonduri-europene', 'campanii-seo'];
+function getInitializedProducts(): Product[] {
+  if (_memoizedProducts) return _memoizedProducts;
 
-// Combinăm toate produsele și filtrăm categorile ce nu mai trebuie să apară
-export const PRODUCTS: Product[] = [
-  ...EXISTING_PRODUCTS,
-  ...EUROPOSTERS_PRODUCTS,
-  ...STICKERMANIA_PRODUCTS,
-  ...STICKERMANIA_BANNERS,
-  ...GET_STICKY_PRODUCTS,
-  ...SCRAPED_COLLECTIONS,
-  ...seoCampaignProductsMapped
-]
-  .filter(p => !REMOVED_CATEGORIES.includes(String(p.metadata?.category || '').toLowerCase()));
+  // Use require to hide massive data from Turbopack tracker
+  const { EXTRA_PRODUCTS_RAW } = require("./extraProducts");
+  const { getEuropostersBaseProducts, convertEuropostersBaseToProduct } = require("./products/europosters");
+  const { getStickermaniaProducts, convertStickermaniaToProduct, getStickermaniaBanners, convertStickermaniaBannerToProduct } = require("./products/stickermania");
+  const { GET_STICKY_PRODUCTS } = require("./products/stickers");
+  const { canvasProducts } = require("./products/canvas-products");
+  const { seoCampaignProducts } = require("./products/seo-campaign-products");
 
-for (const _p of PRODUCTS) {
-  if (!_p.seo) {
-    _p.seo = generateSeoForProduct(_p as Product);
+  const EXISTING_PRODUCTS_LOCAL = (EXTRA_PRODUCTS_RAW as any[]).map((p) => {
+    const slug = String(p.slug ?? p.routeSlug ?? p.id ?? "");
+    const categoryRaw = String(p.metadata?.category ?? "bannere");
+    const category = categoryRaw.toLowerCase();
+    const dir = (category === "bannere" ? "banner" : category).toLowerCase();
+    const defaultImage = CONFIGURATOR_FIRST_IMAGES[category] || CONFIGURATOR_FIRST_IMAGES[slug] || `/products/${dir}/banner-1.webp`;
+
+    return {
+      id: p.id ?? `item-${slug}`,
+      slug: p.slug ?? slug,
+      routeSlug: p.routeSlug ?? p.slug ?? slug,
+      title: p.title ?? slug,
+      description: p.description ?? "",
+      images: normalizeImagePaths(p.images ?? [defaultImage]),
+      priceBase: p.priceBase ?? 250,
+      currency: p.currency ?? "RON",
+      tags: p.tags ?? [],
+      seo: p.seo ?? generateSeoForProduct({ ...p, metadata: { ...(p.metadata ?? {}), category } }),
+      materials: MATERIAL_OPTIONS.filter((m) => (m.recommendedFor ?? []).includes(category)),
+      metadata: { ...(p.metadata ?? {}), category },
+    } as Product;
+  });
+
+  const EUROPOSTERS_PRODUCTS_LOCAL = (getEuropostersBaseProducts() as any[]).map(ep => convertEuropostersBaseToProduct(ep) as Product);
+  const STICKERMANIA_PRODUCTS_LOCAL = (getStickermaniaProducts() as any[]).map(sm => convertStickermaniaToProduct(sm) as Product);
+  const STICKERMANIA_BANNERS_LOCAL = (getStickermaniaBanners() as any[]).map(b => convertStickermaniaBannerToProduct(b) as Product);
+
+  const SCRAPED_COLLECTIONS_LOCAL = [
+    ...(canvasProducts as any[]).map(p => ({
+      ...p,
+      metadata: { ...p, category: "canvas" }
+    }))
+  ] as Product[];
+
+  const seoCampaignProductsMapped_LOCAL: Product[] = (seoCampaignProducts as any[]).map((p: any) => ({
+    id: p.id,
+    slug: p.slug,
+    routeSlug: p.routeSlug || p.slug,
+    title: p.title,
+    description: p.description,
+    images: [p.image],
+    priceBase: parsePrice(p.price),
+    currency: "RON",
+    tags: p.tags,
+    metadata: { category: "campanii-seo", isSeo: true, isSeoCampaign: true }
+  }));
+
+  const REMOVED_CATEGORIES_LOCAL = ['afise', 'autocolante', 'carton', 'flayere', 'tapet', 'bannere', 'fonduri-europene', 'campanii-seo'];
+
+  _memoizedProducts = [
+    ...EXISTING_PRODUCTS_LOCAL,
+    ...EUROPOSTERS_PRODUCTS_LOCAL,
+    ...STICKERMANIA_PRODUCTS_LOCAL,
+    ...STICKERMANIA_BANNERS_LOCAL,
+    ...GET_STICKY_PRODUCTS,
+    ...SCRAPED_COLLECTIONS_LOCAL,
+    ...seoCampaignProductsMapped_LOCAL
+  ].filter(p => !REMOVED_CATEGORIES_LOCAL.includes(String(p.metadata?.category || '').toLowerCase()));
+
+  for (const _p of _memoizedProducts) {
+    if (!_p.seo) {
+      _p.seo = generateSeoForProduct(_p as Product);
+    }
   }
+
+  return _memoizedProducts;
 }
 
+export const PRODUCTS: Product[] = [];
+
 export async function getProducts(): Promise<Product[]> {
-  return PRODUCTS;
+  return getInitializedProducts();
 }
 
 export function getAllProductSlugs(): string[] {
-  return PRODUCTS.map((p) => String(p.routeSlug ?? p.slug ?? p.id));
+  return getInitializedProducts().map((p) => String(p.routeSlug ?? p.slug ?? p.id));
 }
 
 export function getAllProductSlugsByCategory(category: string): string[] {
   const cat = String(category || "").toLowerCase();
-  return PRODUCTS.filter((p) => String(p.metadata?.category ?? "").toLowerCase() === cat).map((p) =>
+  return getInitializedProducts().filter((p) => String(p.metadata?.category ?? "").toLowerCase() === cat).map((p) =>
     String(p.routeSlug ?? p.slug ?? p.id)
   );
 }
@@ -195,7 +183,9 @@ export function getProductBySlug(slug: string | undefined): Product | undefined 
   const segments = s.split("/").map((x) => x.trim()).filter(Boolean);
   const lastSegment = segments.length ? segments[segments.length - 1] : s;
 
-  for (const p of PRODUCTS) {
+  const allProducts = getInitializedProducts();
+
+  for (const p of allProducts) {
     const id = String(p.id ?? "").toLowerCase();
     const sl = String(p.slug ?? "").toLowerCase();
     const rs = String(p.routeSlug ?? "").toLowerCase();
@@ -203,19 +193,19 @@ export function getProductBySlug(slug: string | undefined): Product | undefined 
     if (lastSegment === id || lastSegment === sl || lastSegment === rs) return p;
   }
 
-  for (const p of PRODUCTS) {
+  for (const p of allProducts) {
     const sl = String(p.slug ?? "").toLowerCase();
     const rs = String(p.routeSlug ?? "").toLowerCase();
     if (rs && lastSegment === rs) return p;
     if (sl && lastSegment === sl) return p;
   }
 
-  for (const p of PRODUCTS) {
+  for (const p of allProducts) {
     const tags = (p.tags ?? []).map((t) => String(t).toLowerCase());
     if (tags.includes(lastSegment) || tags.includes(s)) return p;
   }
 
-  for (const p of PRODUCTS) {
+  for (const p of allProducts) {
     const title = String(p.title ?? "").toLowerCase();
     if (title.includes(s) || title.includes(lastSegment)) return p;
   }
@@ -255,7 +245,6 @@ export async function resolveProductForRequestedSlug(requestedSlug: string, cate
 
   const cleanedSlug = remaining.join("/") || raw;
 
-  // --- LOGICĂ NOUĂ: Verificare Landing Data (Pilonul 2) ---
   if (category) {
     const landingCatMap: Record<string, string> = {
       "banner": "bannere",
@@ -271,7 +260,6 @@ export async function resolveProductForRequestedSlug(requestedSlug: string, cate
     const landingInfo = getLandingInfo(landingCategory, cleanedSlug) || getLandingInfo(landingCategory, raw);
 
     if (landingInfo) {
-      // Am găsit un landing page dedicat!
       const baseProductSlug = landingInfo.productRouteSlug || category;
       const baseProduct = getProductBySlug(baseProductSlug) || getProductBySlug(category);
 
@@ -303,10 +291,12 @@ export async function resolveProductForRequestedSlug(requestedSlug: string, cate
     }
   }
 
+  const allProducts = getInitializedProducts();
+
   function categoryLookup(candidate: string | undefined): { product?: Product; initialWidth?: number | null; initialHeight?: number | null; isFallback?: boolean } | null {
     if (!category || !candidate) return null;
     const slugCandidate = String(candidate).toLowerCase().trim();
-    const candidates = PRODUCTS.filter((p) => {
+    const candidates = allProducts.filter((p) => {
       const pCat = String(p.metadata?.category ?? "").toLowerCase();
       const reqCat = String(category).toLowerCase();
       return pCat === reqCat ||
@@ -324,12 +314,10 @@ export async function resolveProductForRequestedSlug(requestedSlug: string, cate
         };
       }
 
-      // Check for matching variant slug inside metadata
       if (p.metadata?.isMultiVariant && p.metadata?.variants) {
         const matchingVariant = (p.metadata.variants as any[]).find((v: any) => {
           const vSlug = String(v.slug ?? "").toLowerCase();
           const vRoute = String(v.route ?? "").toLowerCase();
-          // Check exact slug or if route contains it
           return vSlug === slugCandidate ||
             (vRoute && vRoute.includes(slugCandidate)) ||
             (vSlug && slugCandidate.endsWith(vSlug));
@@ -337,7 +325,7 @@ export async function resolveProductForRequestedSlug(requestedSlug: string, cate
 
         if (matchingVariant) {
           return {
-            product: p, // Return base product, page logic handles variant extraction
+            product: p,
             initialWidth: p.width_cm ?? p.minWidthCm ?? null,
             initialHeight: p.height_cm ?? p.minHeightCm ?? null,
             isFallback: false
