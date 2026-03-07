@@ -29,7 +29,7 @@ jobs:
           push: true
           tags: ghcr.io/${{ github.repository }}:latest
           build-args: |
-            DATABASE_URL=postgresql://postgres:VZNwxsIoQPFYdEOKadGuRLBfBUxFDpgE@interchange.proxy.rlwy.net:44472/railway
+            DATABASE_URL=${{ secrets.DATABASE_URL }}
 
   deploy:
     needs: build-and-push
@@ -60,10 +60,18 @@ jobs:
             services:
               app:
                 image: ghcr.io/${{ github.repository }}:latest
+                container_name: tablou-app
                 restart: unless-stopped
                 ports:
                   - '3004:3000'
                 env_file: .env
+                networks:
+                  - web_network
+
+            networks:
+              web_network:
+                external: true
             EOF
             
             docker compose up -d
+
