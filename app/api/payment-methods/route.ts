@@ -4,9 +4,18 @@ import { authOptions } from "@/lib/auth";
 import Stripe from "stripe";
 import { prisma } from "@/lib/prisma";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2025-10-29.clover",
-});
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
+function getStripe() {
+  const key = process.env.STRIPE_SECRET_KEY;
+  if (!key) {
+    throw new Error("STRIPE_SECRET_KEY is not defined");
+  }
+  return new Stripe(key, {
+    apiVersion: "2025-10-29.clover" as any,
+  });
+}
 
 // GET - Fetch all payment methods
 export async function GET(req: NextRequest) {
@@ -31,13 +40,13 @@ export async function GET(req: NextRequest) {
     }
 
     // Fetch payment methods from Stripe
-    const paymentMethods = await stripe.paymentMethods.list({
+    const paymentMethods = await getStripe().paymentMethods.list({
       customer: user.stripeCustomerId,
       type: "card",
     });
 
     // Get default payment method
-    const customer = await stripe.customers.retrieve(user.stripeCustomerId!);
+    const customer = await getStripe().customers.retrieve(user.stripeCustomerId!);
     const defaultPaymentMethodId =
       customer && !('deleted' in customer) && customer.invoice_settings?.default_payment_method
         ? customer.invoice_settings.default_payment_method
@@ -93,7 +102,7 @@ export async function POST(req: NextRequest) {
     // Create Stripe customer if doesn't exist
     let stripeCustomerId = user.stripeCustomerId as string;
     if (!stripeCustomerId) {
-      const customer = await stripe.customers.create({
+      const customer = await getStripe().customers.create({
         email: user.email!,
         name: user.name || undefined,
         metadata: {
@@ -110,25 +119,25 @@ export async function POST(req: NextRequest) {
     }
 
     // Attach payment method to customer
-    await stripe.paymentMethods.attach(paymentMethodId, {
+    await getStripe().paymentMethods.attach(paymentMethodId, {
       customer: stripeCustomerId,
     });
 
     // Update with nickname if provided
     if (nickname) {
-      await stripe.paymentMethods.update(paymentMethodId, {
+      await getStripe().paymentMethods.update(paymentMethodId, {
         metadata: { nickname },
       });
     }
 
     // Set as default if it's the first payment method
-    const existingMethods = await stripe.paymentMethods.list({
+    const existingMethods = await getStripe().paymentMethods.list({
       customer: stripeCustomerId,
       type: "card",
     });
 
     if (existingMethods.data.length === 1) {
-      await stripe.customers.update(stripeCustomerId, {
+      await getStripe().customers.update(stripeCustomerId, {
         invoice_settings: {
           default_payment_method: paymentMethodId,
         },
@@ -160,7 +169,7 @@ export async function PATCH(req: NextRequest) {
 
     // If nickname is provided (even if empty string), update the nickname
     if (nickname !== undefined) {
-      await stripe.paymentMethods.update(paymentMethodId, {
+      await getStripe().paymentMethods.update(paymentMethodId, {
         metadata: { nickname: nickname || "" },
       });
       return NextResponse.json({ success: true });
@@ -181,7 +190,7 @@ export async function PATCH(req: NextRequest) {
       return NextResponse.json({ error: "No Stripe customer found" }, { status: 404 });
     }
 
-    await stripe.customers.update(user.stripeCustomerId, {
+    await getStripe().customers.update(user.stripeCustomerId, {
       invoice_settings: {
         default_payment_method: paymentMethodId,
       },
@@ -212,7 +221,7 @@ export async function DELETE(req: NextRequest) {
       return NextResponse.json({ error: "Payment method ID required" }, { status: 400 });
     }
 
-    await stripe.paymentMethods.detach(paymentMethodId);
+    await getStripe().paymentMethods.detach(paymentMethodId);
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
