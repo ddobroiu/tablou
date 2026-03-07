@@ -27,7 +27,12 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ github.repository }}:latest
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/${{ github.repository_owner }}/tablou:latest
           build-args: |
             DATABASE_URL=${{ secrets.DATABASE_URL }}
 
@@ -49,7 +54,7 @@ jobs:
             echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
             
             # Pull latest image
-            docker pull ghcr.io/${{ github.repository }}:latest
+            docker pull ghcr.io/${{ github.repository_owner }}/tablou:latest
             
             # Create/Update .env from Secret
             echo "${{ secrets.ENV_CONTENTS }}" > .env
@@ -59,7 +64,7 @@ jobs:
             version: '3.8'
             services:
               app:
-                image: ghcr.io/${{ github.repository }}:latest
+                image: ghcr.io/${{ github.repository_owner }}/tablou:latest
                 container_name: tablou-app
                 restart: unless-stopped
                 ports:
@@ -74,4 +79,5 @@ jobs:
             EOF
             
             docker compose up -d
+
 
