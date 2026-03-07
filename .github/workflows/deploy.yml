@@ -33,8 +33,10 @@ jobs:
         with:
           context: .
           push: true
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/arm64
           tags: ghcr.io/${{ github.repository_owner }}/tablou:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           build-args: |
             DATABASE_URL=${{ secrets.DATABASE_URL }}
 
@@ -55,31 +57,32 @@ jobs:
             # Login to GHCR
             echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
             
-            # Pull latest image
-            docker pull ghcr.io/${{ github.repository_owner }}/tablou:latest
-            
             # Create/Update .env from Secret
             echo "${{ secrets.ENV_CONTENTS }}" > .env
             
-            # Create/Update docker-compose.yml (using port 3004 for tablou)
+            # Ensure network exists
+            docker network create app-network || true
+            
+            # Connect Nginx Proxy Manager to our network
+            docker network connect app-network nginx-proxy-manager-app-1 || true
+
+            # Create/Update docker-compose.yml
             cat <<EOF > docker-compose.yml
             version: '3.8'
             services:
-              app:
+              tablou-app:
                 image: ghcr.io/${{ github.repository_owner }}/tablou:latest
                 container_name: tablou-app
                 restart: unless-stopped
-                ports:
-                  - '3004:3000'
+                expose:
+                  - "3000"
                 env_file: .env
                 networks:
-                  - web_network
+                  - app-network
 
             networks:
-              web_network:
+              app-network:
                 external: true
             EOF
             
-            docker compose up -d
-
-
+            docker compose up -d --pull always
