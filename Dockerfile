@@ -23,7 +23,9 @@ ENV DATABASE_URL=$DATABASE_URL
 RUN npx prisma generate
 
 # Build Next.js
-RUN NEXT_TELEMETRY_DISABLED=1 npm run build
+ENV NEXT_TELEMETRY_DISABLED 1
+ENV NEXT_TURBO_BUILD 0
+RUN npm run build
 
 # Production image, copy all the files and run next
 FROM base AS runner
