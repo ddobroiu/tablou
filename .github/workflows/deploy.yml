@@ -38,7 +38,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
-            DATABASE_URL=${{ secrets.DATABASE_URL }}
+             DATABASE_URL=${{ secrets.DATABASE_URL }}
 
   deploy:
     needs: build-and-push
@@ -53,20 +53,8 @@ jobs:
           script: |
             mkdir -p /opt/apps/tablou
             cd /opt/apps/tablou
-            
-            # Login to GHCR
             echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-            
-            # Create/Update .env from Secret
             echo "${{ secrets.ENV_CONTENTS }}" > .env
-            
-            # Ensure network exists
-            docker network create app-network || true
-            
-            # Connect Nginx Proxy Manager to our network
-            docker network connect app-network nginx-proxy-manager-app-1 || true
-
-            # Create/Update docker-compose.yml
             cat <<EOF > docker-compose.yml
             version: '3.8'
             services:
@@ -74,15 +62,8 @@ jobs:
                 image: ghcr.io/${{ github.repository_owner }}/tablou:latest
                 container_name: tablou-app
                 restart: unless-stopped
-                expose:
-                  - "3000"
+                ports:
+                  - "3004:3000"
                 env_file: .env
-                networks:
-                  - app-network
-
-            networks:
-              app-network:
-                external: true
             EOF
-            
             docker compose up -d --pull always
