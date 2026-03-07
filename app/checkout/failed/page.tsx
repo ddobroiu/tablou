@@ -5,6 +5,9 @@ type PageProps = {
   searchParams: Promise<{ session_id?: string }>;
 };
 
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 export const metadata = {
   title: 'Plată eșuată',
   robots: { index: false, follow: false },
