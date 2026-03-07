@@ -1,8 +1,8 @@
-FROM node:20-alpine AS base
+FROM node:20-slim AS base
 
 # Install dependencies only when needed
 FROM base AS deps
-RUN apk add --no-cache libc6-compat
+RUN apt-get update && apt-get install -y openssl libssl-dev libc6-dev
 WORKDIR /app
 
 # Install dependencies based on the preferred package manager
@@ -23,20 +23,17 @@ ENV DATABASE_URL=$DATABASE_URL
 RUN npx prisma generate
 
 # Build Next.js
-ENV NEXT_TELEMETRY_DISABLED=1
-ENV NEXT_TURBO_BUILD=0
-ENV SKIP_ENV_VALIDATION=1
-ENV NODE_ENV=production
-
-RUN npm run build
+RUN NEXT_TELEMETRY_DISABLED=1 npm run build
 
 # Production image, copy all the files and run next
 FROM base AS runner
 WORKDIR /app
 
-ENV NODE_ENV=production
-ENV PORT=3000
-ENV HOSTNAME="0.0.0.0"
+# Install openssl in the runner for prisma to work
+RUN apt-get update && apt-get install -y openssl
+
+ENV NODE_ENV production
+# ENV NEXT_TELEMETRY_DISABLED 1
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
