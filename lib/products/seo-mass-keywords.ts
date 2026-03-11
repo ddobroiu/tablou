@@ -22,7 +22,8 @@ export const canvasSeoKeywords = [
     "tony montana tablou", "tablou joker", "poze pe canvas", "tablou orizontal",
     "tablouri pt bucatarii", "tablou personalizate", "tablouri pe panza pret",
     "tablou buze", "tablou pt bucatarie", "tablou canvas pe panza", "printare pe panza",
-    "tablou pe canvas", "inramare poze", "tablouri panza", "tablouri personalizate panza"
+    "tablou pe canvas", "inramare poze", "tablouri panza", "tablouri personalizate panza",
+    "tablouri mari dormitor", "tablou canvas personalizat ieftin"
 ];
 
 export const pnrrSeoKeywords = [
@@ -30,15 +31,32 @@ export const pnrrSeoKeywords = [
     "placute start up nation", "panou pnrr", "placa permanenta pnrr", "panou temporar pnrr",
     "afis pnrr", "afis program", "etichete autocolante pnrr", "panou fonduri europene",
     "comunicat de presa incepere proiect pnrr", "comunicat de presa pnrr",
-    "comunicat de presa finalizare proiect", "manual identitate vizuala pnrr"
+    "comunicat de presa finalizare proiect", "manual identitate vizuala pnrr",
+    "panou pnrr editabil", "anunt obligatoriu finalizare proiect",
+    "comunicat obligatoriu finalizare proiect", "adauga comunitat de presa finalizare proiect",
+    "start up nation"
 ];
 
-function generateSlug(str) {
+export const publicitareSeoKeywords = [
+    "stickere auto iasi", "comanda pliante online", "afise a2", "stickere personalizate iasi",
+    "pliante personalizate", "autocolante geamuri pret", "plexiglas cluj", "stickere personalizate cluj",
+    "tipografie online", "printare fotografii cluj", "banner vrei sa fii sotia mea", "mesh personalizat",
+    "plianteieftine.ro", "afis publicitar model", "regio print", "afiș model",
+    "plexiglas opac", "banner gard", "plexiglas la comanda", "autocolant personalizat geam",
+    "bannere cluj", "autocolante pentru școală", "autocolant geam personalizat",
+    "bannere publicitare cluj", "alucobond ieftin", "fluturasi publicitari modele",
+    "autocolante adr", "autocolante cluj", "panou stradal pret", "publicitate iasi",
+    "promovare auto", "pliante publicitare", "suport reclama stradala", "autocolante ieftine",
+    "printare bannere,tablouri canvas , fotografii,postere etichete personalizate onesti"
+];
+
+
+function generateSlug(str: string) {
     if(!str) return '';
     return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
 }
 
-function titleCase(str) {
+function titleCase(str: string) {
     if(!str) return '';
     return str.toLowerCase().split(' ').map(word => {
         return (word.charAt(0).toUpperCase() + word.slice(1));
@@ -71,6 +89,31 @@ export const generatedPnrrSeoProducts = pnrrSeoKeywords.map((kw, index) => {
         price: "De la 150 LEI",
         category: "Campanii SEO",
         tags: [kw, "fonduri europene", "pnrr", "vizibilitate"],
+        metadata: { isSeoCampaign: true }
+    };
+});
+
+export const generatedPublicitareSeoProducts = publicitareSeoKeywords.map((kw, index) => {
+    // Guess routeSlug based on keywords
+    let route = "configurator/banner";
+    if (kw.includes("pliant") || kw.includes("fluturas")) route = "configurator/pliante";
+    if (kw.includes("autocolant") || kw.includes("sticker")) route = "configurator/autocolant";
+    if (kw.includes("afis") || kw.includes("poster")) route = "configurator/afise";
+    if (kw.includes("plexiglas")) route = "materiale/plexiglass";
+    if (kw.includes("alucobond")) route = "materiale/alucobond";
+    if (kw.includes("fotografii") || kw.includes("canvas")) route = "configurator/canvas";
+    if (kw.includes("mesh")) route = "configurator/banner";
+
+    return {
+        id: "seo-pub-gen-" + index,
+        slug: generateSlug(kw) + "-online-ieftin",
+        routeSlug: route,
+        title: titleCase(kw),
+        description: `Servicii profesionale online pentru ${kw}. Garantam cel mai bun raport calitate-pret, materiale premium rezistente la UV si livrare intotdeauna la timp in locatia ta.`,
+        image: "/images/generic-banner.jpg",
+        price: "De la 25 LEI",
+        category: "Campanii SEO",
+        tags: [kw, "productie publicitara", "print", "publicitate"],
         metadata: { isSeoCampaign: true }
     };
 });
