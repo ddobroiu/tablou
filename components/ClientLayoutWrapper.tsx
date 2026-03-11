@@ -1,3 +1,4 @@
+import Newsletter from './Newsletter';
 "use client";
 
 import React from "react";
@@ -28,6 +29,7 @@ export default function ClientLayoutWrapper({
       {pathname === "/" && <PromoTopBar />}
       <Header />
       <main>{children}</main>
+      <Newsletter siteName="Tablou.net" siteDomain="tablou.net" />
       <Footer />
       <ContactButton />
       <CookieConsentBanner />
