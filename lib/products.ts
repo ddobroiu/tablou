@@ -1,3 +1,4 @@
+import { generatedCanvasSeoProducts, generatedPnrrSeoProducts } from "./products/seo-mass-keywords";
 // lib/products.ts
 import { generateSeoForProduct } from "./seoTemplates";
 import { getLandingInfo } from "./landingData"; // <--- IMPORT CRITIC
@@ -141,6 +142,19 @@ function getInitializedProducts(): Product[] {
 
   const REMOVED_CATEGORIES_LOCAL = ['afise', 'autocolante', 'carton', 'flayere', 'tapet', 'bannere', 'fonduri-europene', 'campanii-seo'];
 
+  const massSeoProductsMapped_LOCAL: Product[] = [...generatedCanvasSeoProducts, ...generatedPnrrSeoProducts].map((p: any) => ({
+    id: p.id,
+    slug: p.slug,
+    routeSlug: p.routeSlug,
+    title: p.title,
+    description: p.description,
+    images: [p.image],
+    priceBase: typeof parsePrice === 'function' ? parsePrice(p.price) : typeof p.price === 'number' ? p.price : 49,
+    currency: "RON",
+    tags: p.tags,
+    metadata: { category: "campanii-seo", isSeo: true, isSeoCampaign: true }
+  }));
+
   _memoizedProducts = [
     ...EXISTING_PRODUCTS_LOCAL,
     ...EUROPOSTERS_PRODUCTS_LOCAL,
@@ -148,7 +162,8 @@ function getInitializedProducts(): Product[] {
     ...STICKERMANIA_BANNERS_LOCAL,
     ...GET_STICKY_PRODUCTS,
     ...SCRAPED_COLLECTIONS_LOCAL,
-    ...seoCampaignProductsMapped_LOCAL
+    ...seoCampaignProductsMapped_LOCAL,
+    ...massSeoProductsMapped_LOCAL
   ].filter(p => !REMOVED_CATEGORIES_LOCAL.includes(String(p.metadata?.category || '').toLowerCase()));
 
   for (const _p of _memoizedProducts) {
@@ -159,6 +174,9 @@ function getInitializedProducts(): Product[] {
 
   return _memoizedProducts;
 }
+
+
+
 
 export const PRODUCTS: Product[] = [];
 
