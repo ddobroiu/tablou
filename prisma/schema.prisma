@@ -180,9 +180,11 @@ model Review {
 
 model Subscriber {
   id        String   @id @default(cuid())
-  email     String   @unique
+  email     String
   source    String?
   createdAt DateTime @default(now())
+
+  @@unique([email, source])
 }
 
 model AiConversation {
