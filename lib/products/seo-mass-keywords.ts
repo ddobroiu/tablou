@@ -47,16 +47,16 @@ export const publicitareSeoKeywords = [
     "bannere publicitare cluj", "alucobond ieftin", "fluturasi publicitari modele",
     "autocolante adr", "autocolante cluj", "panou stradal pret", "publicitate iasi",
     "promovare auto", "pliante publicitare", "suport reclama stradala", "autocolante ieftine",
-    "printare bannere,tablouri canvas , fotografii,postere etichete personalizate onesti"
+    "printare bannere,tablouri canvas , fotografii,postere etichete personalizate onesti",
+    "shopprint", "euprint", "adbanner", "anuntul"
 ];
 
-
-function generateSlug(str: string) {
+function generateSlug(str) {
     if(!str) return '';
     return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
 }
 
-function titleCase(str: string) {
+function titleCase(str) {
     if(!str) return '';
     return str.toLowerCase().split(' ').map(word => {
         return (word.charAt(0).toUpperCase() + word.slice(1));
@@ -94,7 +94,6 @@ export const generatedPnrrSeoProducts = pnrrSeoKeywords.map((kw, index) => {
 });
 
 export const generatedPublicitareSeoProducts = publicitareSeoKeywords.map((kw, index) => {
-    // Guess routeSlug based on keywords
     let route = "configurator/banner";
     if (kw.includes("pliant") || kw.includes("fluturas")) route = "configurator/pliante";
     if (kw.includes("autocolant") || kw.includes("sticker")) route = "configurator/autocolant";

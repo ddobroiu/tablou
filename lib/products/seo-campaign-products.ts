@@ -213,6 +213,29 @@ export const seoCampaignProducts: any[] = [
         category: "Campanii SEO",
         tags: ["comunicat presa", "regio bucuresti", "bucuresti ilfov", "pr bi"]
     },
+    
+    {
+        id: "seo-placa-startup-nation",
+        slug: "placute-informative-start-up-nation-pret-mic",
+        routeSlug: "fonduri-eu",
+        title: "Plăcuțe Informative Start-Up Nation",
+        description: "Plăci informative obligatorii pentru programul Start-Up Nation. Realizate din PVC sau Alucobond, conform manualului de identitate vizuală.",
+        image: "/products/fonduri/pnrr-1.webp",
+        price: "De la 80 LEI",
+        category: "Campanii SEO",
+        tags: ["startup nation", "placute startup nation", "placa informativa", "start-up nation"]
+    },
+    {
+        id: "seo-femeia-antreprenor-2025",
+        slug: "pachet-vizibilitate-femeia-antreprenor-2025",
+        routeSlug: "fonduri-eu",
+        title: "Pachet Vizibilitate Femeia Antreprenor 2025",
+        description: "Kit complet de vizibilitate pentru programul Femeia Antreprenor 2025. Include plăcuță informativă și comunicat de presă obligatoriu.",
+        image: "/products/fonduri/pnrr-1.webp",
+        price: "De la 250 LEI",
+        category: "Campanii SEO",
+        tags: ["femeia antreprenor", "femeia antreprenor 2025", "vizibilitate startup"]
+    },
     // --- VARIATII AFISE & POSTERE SEO ---
     {
         id: "seo-afise-publicitare",

@@ -1,18 +1,6 @@
 import { generatedCanvasSeoProducts, generatedPnrrSeoProducts, generatedPublicitareSeoProducts } from "./products/seo-mass-keywords";
-// lib/products.ts
 import { generateSeoForProduct } from "./seoTemplates";
-import { getLandingInfo } from "./landingData"; // <--- IMPORT CRITIC
-
-export type MaterialOption = {
-  id: string;
-  key?: string;
-  name?: string;
-  label: string;
-  description?: string;
-  priceModifier?: number;
-  recommendedFor?: string[];
-};
-
+import { getLandingInfo } from "./landingData";
 export const MATERIAL_OPTIONS: MaterialOption[] = [
   { id: "frontlit-440", key: "frontlit-440", name: "Frontlit 440 g/mp (standard)", label: "Frontlit 440 g/mp (standard)", description: "Material rezistent pentru exterior", priceModifier: 0, recommendedFor: [] },
   { id: "frontlit-510", key: "frontlit-510", name: "Frontlit 510 g/mp (durabil)", label: "Frontlit 510 g/mp (durabil)", description: "Mai gros, pentru expuneri îndelungate", priceModifier: 0.1, recommendedFor: [] },
@@ -82,6 +70,20 @@ function parsePrice(p: string | number | undefined): number {
 
 let _memoizedProducts: Product[] | null = null;
 
+
+const massSeoProductsMapped_LOCAL = [...generatedCanvasSeoProducts, ...generatedPnrrSeoProducts, ...generatedPublicitareSeoProducts].map((p) => ({
+  id: p.id,
+  slug: p.slug,
+  routeSlug: p.routeSlug,
+  title: p.title,
+  description: p.description,
+  images: [p.image],
+  priceBase: typeof parsePrice === 'function' ? parsePrice(p.price) : (typeof p.price === 'number' ? p.price : 49),
+  currency: "RON",
+  tags: p.tags,
+  metadata: { category: "campanii-seo", isSeo: true, isSeoCampaign: true }
+}));
+
 function getInitializedProducts(): Product[] {
   if (_memoizedProducts) return _memoizedProducts;
 
@@ -142,18 +144,7 @@ function getInitializedProducts(): Product[] {
 
   const REMOVED_CATEGORIES_LOCAL = ['afise', 'autocolante', 'carton', 'flayere', 'tapet', 'bannere', 'fonduri-europene', 'campanii-seo'];
 
-  const massSeoProductsMapped_LOCAL: Product[] = [...generatedCanvasSeoProducts, ...generatedPnrrSeoProducts, ...generatedPublicitareSeoProducts].map((p: any) => ({
-  id: p.id,
-  slug: p.slug,
-  routeSlug: p.routeSlug,
-  title: p.title,
-  description: p.description,
-  images: [p.image],
-  priceBase: typeof parsePrice === 'function' ? parsePrice(p.price) : (typeof p.price === 'number' ? p.price : 49),
-  currency: "RON",
-  tags: p.tags,
-  metadata: { category: "campanii-seo", isSeo: true, isSeoCampaign: true }
-}));
+  
 
   _memoizedProducts = [
     ...EXISTING_PRODUCTS_LOCAL,
@@ -163,8 +154,7 @@ function getInitializedProducts(): Product[] {
     ...GET_STICKY_PRODUCTS,
     ...SCRAPED_COLLECTIONS_LOCAL,
     ...seoCampaignProductsMapped_LOCAL,
-    ...massSeoProductsMapped,
-    ...generatedPublicitareSeoProducts.map((p: any) => ({id: p.id, slug: p.slug, routeSlug: p.routeSlug, title: p.title, description: p.description, images: [p.image], priceBase: 49, currency: "RON", tags: p.tags, metadata: { category: "campanii-seo", isSeo: true, isSeoCampaign: true } }))
+    ...massSeoProductsMapped_LOCAL,
   ].filter(p => !REMOVED_CATEGORIES_LOCAL.includes(String(p.metadata?.category || '').toLowerCase()));
 
   for (const _p of _memoizedProducts) {
@@ -179,7 +169,15 @@ function getInitializedProducts(): Product[] {
 
 
 
-export const PRODUCTS: Product[] = [];
+export const PRODUCTS = [
+  ...bannerProductsMapped,
+  ...canvasProductsMapped,
+  ...euFundsProductsMapped,
+  ...printCenterProductsMapped,
+  ...configuratorProductsMapped,
+  ...seoCampaignProductsMapped,
+  ...massSeoProductsMapped_LOCAL
+];
 
 export async function getProducts(): Promise<Product[]> {
   return getInitializedProducts();
