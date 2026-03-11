@@ -67,7 +67,7 @@ export const generatedCanvasSeoProducts = canvasSeoKeywords.map((kw, index) => {
     return {
         id: "seo-canvas-gen-" + index,
         slug: generateSlug(kw) + "-ieftin-calitate-premium",
-        routeSlug: "configurator/canvas",
+        routeSlug: "canvas",
         title: titleCase(kw),
         description: `Alege ${kw} pentru un decor impresionant sau un cadou memorabil. Calitate premium, print UV la nivel fotografic pe panza din bumbac suta la suta. Culori vii, rezistente in timp, cu livrare rapida direct la tine acasa!`,
         image: "/products/canvas/canvas-1.webp",
@@ -94,14 +94,14 @@ export const generatedPnrrSeoProducts = pnrrSeoKeywords.map((kw, index) => {
 });
 
 export const generatedPublicitareSeoProducts = publicitareSeoKeywords.map((kw, index) => {
-    let route = "configurator/banner";
-    if (kw.includes("pliant") || kw.includes("fluturas")) route = "configurator/pliante";
-    if (kw.includes("autocolant") || kw.includes("sticker")) route = "configurator/autocolant";
-    if (kw.includes("afis") || kw.includes("poster")) route = "configurator/afise";
+    let route = "banner";
+    if (kw.includes("pliant") || kw.includes("fluturas")) route = "pliante";
+    if (kw.includes("autocolant") || kw.includes("sticker")) route = "autocolant";
+    if (kw.includes("afis") || kw.includes("poster")) route = "afise";
     if (kw.includes("plexiglas")) route = "materiale/plexiglass";
     if (kw.includes("alucobond")) route = "materiale/alucobond";
-    if (kw.includes("fotografii") || kw.includes("canvas")) route = "configurator/canvas";
-    if (kw.includes("mesh")) route = "configurator/banner";
+    if (kw.includes("fotografii") || kw.includes("canvas")) route = "canvas";
+    if (kw.includes("mesh")) route = "banner";
 
     return {
         id: "seo-pub-gen-" + index,

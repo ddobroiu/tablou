@@ -51,9 +51,6 @@ export async function generateMetadata({ params }: { params: Promise<{ judetSlug
     };
 }
 
-// Nu folosim generateStaticParams aici pentru a preveni crash-ul la build (avem ~420,000 pagini teoretice).
-// Next.js le va randa On-Demand.
-
 export default async function ProductLocalityPage({ params }: { params: Promise<{ judetSlug: string, localitateSlug: string, productSlug: string[] }> }) {
     const { judetSlug, localitateSlug, productSlug } = await params;
     const productSlugStr = Array.isArray(productSlug) ? productSlug.join('/') : productSlug;
@@ -65,9 +62,17 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
     if (!loc || !judet || !product) notFound();
 
     const productImage = (product as any).image || ((product as any).images?.[0]) || "/placeholder.png";
-    const shopUrl = `/${(product as any).routeSlug || (product as any).slug || product.id}`;
+    let shopUrl = `/${(product as any).routeSlug || (product as any).slug || product.id}`;
 
-    // Cross-Linking: Get recommended products
+    // Cleanup incorrect configurator prefix if it exists for this site
+    if (shopUrl.startsWith('/configurator/')) {
+        shopUrl = shopUrl.replace('/configurator/', '/');
+    }
+
+    if (!shopUrl.startsWith('/shop')) {
+        if (productSlugStr.includes('canvas')) shopUrl = '/canvas';
+    }
+
     const allProducts = await getProducts();
     const recommendedProducts = allProducts
         .filter(p => p.id !== product.id)
@@ -77,7 +82,6 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
     return (
         <div className="min-h-screen bg-slate-50 pt-24 pb-24">
             <div className="container mx-auto px-4 sm:px-6">
-                {/* Breadcrumb */}
                 <nav className="text-sm font-medium text-slate-500 mb-12 flex flex-wrap gap-2 items-center">
                     <Link href="/judet" className="hover:text-orange-500 transition-colors">Județe</Link> /
                     <Link href={`/judet/${judet.slug}`} className="hover:text-orange-500 transition-colors">{judet.name}</Link> /
@@ -86,7 +90,6 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                 </nav>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
-                    {/* Imagini */}
                     <div className="w-full">
                         <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl bg-white border border-slate-100">
                             <Image
@@ -104,7 +107,6 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                         </div>
                     </div>
 
-                    {/* Conținut SEO & Call to Action */}
                     <div className="w-full flex flex-col justify-center">
                         <div className="inline-block px-4 py-2 bg-orange-100 text-orange-700 font-bold text-xs uppercase tracking-widest rounded-full mb-6 w-max">
                             Tablouri & Canvas {judet.name}
@@ -139,10 +141,21 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                             })()}
                         </p>
 
-                        <div className="flex flex-col sm:flex-row gap-4 mb-4">
-                            <Link href={shopUrl} className="flex-1 bg-slate-900 text-white text-center py-5 rounded-2xl font-black text-lg hover:bg-orange-600 transition-all shadow-xl shadow-slate-900/10 uppercase tracking-widest">
+                        <div className="flex flex-col gap-4 mb-4">
+                            <Link href={shopUrl} className="w-full bg-slate-900 text-white text-center py-5 rounded-2xl font-black text-lg hover:bg-orange-600 transition-all shadow-xl shadow-slate-900/10 uppercase tracking-widest">
                                 Configurează Produsul &rarr;
                             </Link>
+                            <a 
+                                href={`https://wa.me/40750473111?text=Buna%20ziua,%20as%20dori%20mai%20multe%20detalii%20despre%20${encodeURIComponent(product.title)}%20in%20${encodeURIComponent(loc.name)}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full bg-green-600 text-white text-center py-5 rounded-2xl font-black text-lg hover:bg-green-700 transition-all shadow-xl shadow-green-900/10 uppercase tracking-widest flex items-center justify-center gap-3"
+                            >
+                                <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.301-.15-1.779-.877-2.053-.976-.275-.099-.475-.15-.675.15-.199.3-.775 1.05-.95 1.275-.175.225-.35.225-.65.075-.3-.15-1.265-.467-2.41-1.485-.89-.793-1.492-1.771-1.667-2.072-.175-.3-.018-.463.132-.612.134-.133.301-.351.451-.526.15-.175.199-.3.3-.5.1-.199.05-.376-.026-.526-.075-.15-.675-1.625-.925-2.225-.244-.583-.493-.503-.675-.512-.172-.008-.371-.01-.571-.01-.2 0-.526.075-.801.374-.275.3-1.05 1.025-1.05 2.5s1.075 2.9 1.225 3.1c.15.2 2.116 3.231 5.125 4.534.716.311 1.275.497 1.711.637.72.229 1.375.196 1.893.118.577-.087 1.779-.727 2.029-1.427.25-.7.25-1.3.175-1.427-.075-.127-.275-.227-.575-.377z" />
+                                </svg>
+                                Contactează pe WhatsApp
+                            </a>
                         </div>
 
                         <div className="mt-2 mb-16 text-xs text-slate-400 bg-slate-100 p-4 rounded-xl border border-slate-200">
