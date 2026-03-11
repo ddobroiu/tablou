@@ -1,6 +1,6 @@
-import Newsletter from './Newsletter';
 "use client";
 
+import Newsletter from './Newsletter';
 import React from "react";
 import { usePathname } from "next/navigation";
 import Header from "./Header";
