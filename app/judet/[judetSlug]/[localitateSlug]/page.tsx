@@ -6,6 +6,7 @@ import Script from "next/script";
 import { notFound } from "next/navigation";
 import { getProducts } from "@/lib/products";
 import Image from "next/image";
+import SeoNetwork from "@/components/seo/SeoNetwork";
 
 export async function generateMetadata({ params }: { params: Promise<{ judetSlug: string, localitateSlug: string }> }) {
     const { judetSlug, localitateSlug } = await params;
@@ -156,6 +157,14 @@ export default async function LocalitatePage({ params }: { params: Promise<{ jud
                     </div>
                 </div>
             </div>
+
+            <SeoNetwork 
+                judetSlug={judet.slug} 
+                judetName={judet.name} 
+                locSlug={loc.slug} 
+                locName={loc.name} 
+                currentDomain="tablou.net" 
+            />
         </div>
     );
 }

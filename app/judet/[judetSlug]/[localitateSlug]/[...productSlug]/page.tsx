@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { getLocalitateBySlug, getJudetBySlug } from "@/lib/localitati";
 import { getProductBySlug, getProducts } from "@/lib/products";
 import Script from "next/script";
+import SeoNetwork from "@/components/seo/SeoNetwork";
 
 // Seeded random for deterministic Spintax & Ratings
 function getSeededRandom(seedStr: string) {
@@ -396,6 +397,14 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                         }
                     ])
                 }}
+            />
+
+            <SeoNetwork 
+                judetSlug={judet.slug} 
+                judetName={judet.name} 
+                locSlug={loc.slug} 
+                locName={loc.name} 
+                currentDomain="tablou.net" 
             />
         </div>
     );

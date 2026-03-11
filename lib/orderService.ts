@@ -418,18 +418,24 @@ async function sendEmails(
   `;
 
   try {
-    const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
-    if (!resend) throw new Error('RESEND_API_KEY lipsă');
+    const adminEmail = process.env.ADMIN_EMAIL || 'contact@shopprint.ro';
     const adminResp = await resend.emails.send({
       from: process.env.EMAIL_FROM || 'contact@tablou.net',
-      to: process.env.ADMIN_EMAIL || 'contact@tablou.net',
+      to: adminEmail,
       subject: `Comandă${orderNoSuffix} (${paymentType}) - ${escapeHtml(address.nume_prenume)}`,
       html: adminHtml,
     });
-    console.log('[OrderService] Admin email sent, resend response:', adminResp);
+    if (adminResp.error) {
+      console.error('[OrderService] Eroare trimitere email admin:', adminResp.error.message);
+    } else {
+      console.log('[OrderService] Admin email sent, resend response:', adminResp.data?.id);
+    }
   } catch (e: any) {
     console.error('[OrderService] Eroare trimitere email admin:', e?.message || e);
   }
+
+  // Așteptăm 1 secundă pentru a evita rate limit-ul de 2 req/sec de la Resend
+  await new Promise(resolve => setTimeout(resolve, 1000));
 
   const accountBlock = createdPassword
     ? `
@@ -536,7 +542,11 @@ async function sendEmails(
       subject: `Confirmare comandă${orderNoSuffix} - Tablou.net`,
       html: clientHtml,
     });
-    console.log('[OrderService] Client email sent, resend response:', clientResp);
+    if (clientResp.error) {
+       console.error('[OrderService] Eroare trimitere email client:', clientResp.error.message);
+    } else {
+       console.log('[OrderService] Client email sent, resend response:', clientResp.data?.id);
+    }
   } catch (e: any) {
     console.error('[OrderService] Eroare trimitere email client:', e?.message || e);
   }
