@@ -12,6 +12,31 @@ export type BlogPost = {
 
 export const POSTS: BlogPost[] = [
   {
+    slug: "arta-digitala-3d-decor-interior-2026",
+    title: "Arta Digitală în 2026: Cum să transformi randările 3D în tablouri memorabile",
+    description: "Învață cum să îmbini tehnologia de randare 3D cu finețea tablourilor canvas pentru a crea un decor interior unic și personalizat în locuința ta.",
+    date: new Date().toISOString(),
+    author: "Echipa Tablou.net",
+    tags: ["decor interior", "randari 3d", "3dview", "tablouri canvas", "arta digitala"],
+    contentHtml: `
+      <p>Decorarea casei în 2026 nu mai este despre a alege ceva de pe un raft, ci despre a crea ceva care îți aparține în totalitate. Tehnologia digitală ne oferă acum instrumentele necesare pentru a deveni proprii noștri designeri și artiști.</p>
+      
+      <h2>De la Concept la Vizualizare: Randări 3D</h2>
+      <p>Primul pas în crearea unui decor perfect este vizualizarea. Dacă vrei să vezi cum ar arăta o piesă de mobilier sau un întreg perete decorat înainte de a face investiția, apelează la profesioniștii de la <strong><a href="https://randari3d.ro" target="_blank">Randari3D.ro</a></strong>.</p>
+      <p>Aceștia pot transforma o simplă schiță sau o idee într-o imagine fotorealistă, oferindu-ți certitudinea că alegerile tale de design sunt cele corecte. Este metoda ideală pentru a planifica spațiul fără riscuri.</p>
+
+      <h2>Modelare AI: Viitorul Obiectelor 3D</h2>
+      <p>Dacă ești pasionat de detalii și vrei să incluzi în designul tău obiecte unice, <strong><a href="https://3dview.ai" target="_blank">3DView.ai</a></strong> este asistentul tău bazat pe inteligență artificială. Poți genera modele 3D din fotografii sau descrieri text, pe care apoi să le integrezi în randările tale de interior.</p>
+      <p>3DView face ca procesul de modelare, odinioară extrem de complex, să devină accesibil oricui, deschizând porțile creativității pentru toți pasionații de home design.</p>
+
+      <h2>Piesa Centrală: Tabloul tău Personalizat</h2>
+      <p>După ce ai creat vizualizarea perfectă pe Randari3D, de ce să nu transformi acea viziune într'o piesă de artă fizică? La <strong>Tablou.net</strong>, noi putem printa randările tale preferate pe canvas de bumbac premium, întinse pe rame de lemn masiv.</p>
+      <p>Fie că este vorba despre o randare artistică a viitoarei tale sufragerii sau despre un obiect modelat în 3DView pe care vrei să-l transformi într-o lucrare de artă grafică, noi îi dăm viață pe peretele tău.</p>
+      
+      <p>Inovează-ți spațiul cu tehnologie și personalizează-l cu suflet. Începe cu 3DView, vizualizează cu Randari3D și finalizează cu Tablou.net!</p>
+    `,
+  },
+  {
     slug: "recomandari-promovare-anunturi-online-anuntul.net",
     source: "tablou.net",
     title: "Cum sa-ti optimizezi activitatea cu promovare anunturi online",
