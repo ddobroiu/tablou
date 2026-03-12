@@ -1,6 +1,6 @@
-import { Resend } from 'resend';
+import { getResend } from './email';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = getResend();
 
 interface OfferEmailParams {
   to: string;
@@ -123,6 +123,11 @@ Pentru întrebări sau comenzi, ne poți contacta la:
 Cu stimă,
 Echipa Prynt.ro
   `;
+
+  if (!resend) {
+    console.error('[EMAIL] Cannot send offer email: Resend instance is null');
+    return { error: 'Resend instance is null' };
+  }
 
   const result = await resend.emails.send({
     from: 'Prynt.ro <contact@prynt.ro>',

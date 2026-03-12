@@ -7,10 +7,9 @@ import EmailProvider from "next-auth/providers/email";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
 import bcrypt from "bcryptjs";
-import { Resend } from 'resend';
-import { getHtmlTemplate } from "@/lib/email";
+import { getConfigForSource, getResend, getHtmlTemplate } from '@/lib/email';
 
-const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
+// Redundant local getResend removed in favor of exported one from ./email
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -28,7 +27,8 @@ export const authOptions: NextAuthOptions = {
       server: "",
       from: "no-reply@tablou.net",
       async sendVerificationRequest({ identifier: email, url }) {
-        if (!resend) {
+      const resend = getResend();
+      if (!resend) {
           console.error("RESEND_API_KEY lipsă.");
           // În development nu crăpăm totul dacă lipsește cheia, doar logăm
           if (process.env.NODE_ENV === 'development') {

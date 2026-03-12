@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import crypto from 'crypto';
-import { Resend } from 'resend';
+import { getResend } from '@/lib/email';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
     const resetUrl = `${base}/login/reset?token=${encodeURIComponent(token)}`;
 
     try {
-      const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
+      const resend = getResend();
       if (!resend) throw new Error('RESEND_API_KEY missing');
       await resend.emails.send({
         from: process.env.EMAIL_FROM || 'contact@tablou.net',

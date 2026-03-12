@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { Resend } from 'resend';
+import { getResend } from '../../../../lib/email';
 import { createShipment, printExtended, trackingUrlForAwb, type CreateShipmentRequest } from '../../../../lib/dpdService';
 import { prisma } from '../../../../lib/prisma';
 
@@ -75,8 +75,7 @@ export async function POST(req: NextRequest) {
     // Send email to client (if provided)
     if (email) {
       try {
-        const apiKey = process.env.RESEND_API_KEY;
-        const resend = apiKey ? new Resend(apiKey) : null;
+        const resend = getResend();
         if (!resend) throw new Error('RESEND_API_KEY lipsă');
         const subject = `AWB DPD ${shipmentId}`;
         const html = `<p>Bună${name ? ' ' + name : ''},</p>

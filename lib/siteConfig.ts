@@ -19,6 +19,8 @@ export const siteConfig = {
     twitter: "https://twitter.com/tablounet",
     facebook: "https://www.facebook.com/tablounet",
   },
+  email: "contact@tablou.net",
+  supportEmail: "contact@tablou.net",
 
   // --- MENIUL PRINCIPAL (HEADER) - DOAR TABLOURI ---
   headerNav: [

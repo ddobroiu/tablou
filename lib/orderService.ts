@@ -1,4 +1,4 @@
-import { Resend } from 'resend';
+import { sendOrderConfirmationEmail, sendNewOrderAdminEmail } from './email';
 import { signAdminAction } from './adminAction';
 import { appendOrder } from './orderStore';
 import { prisma } from './prisma';
@@ -164,15 +164,86 @@ async function createOblioInvoice(payload: unknown, token: string) {
   throw lastErr || new Error('Oblio: nu s-a putut emite factura (fără răspuns valid)');
 }
 
-function normalizeCUI(input?: string): { primary?: string; alternate?: string } {
-  if (!input) return {};
-  let raw = String(input).trim().toUpperCase();
-  raw = raw.replace(/\s|-/g, '');
-  const digits = raw.replace(/\D/g, '');
-  const hasRO = /^RO\d+$/i.test(raw);
-  const primary = hasRO ? raw : digits;
-  const alternate = hasRO ? digits : (digits ? `RO${digits}` : undefined);
-  return { primary, alternate };
+function formatYesNo(v: unknown): string {
+  if (typeof v === 'boolean') return v ? 'Da' : 'Nu';
+  if (typeof v === 'string') {
+    const t = v.toLowerCase();
+    if (['true', 'da', 'yes', 'y', '1'].includes(t)) return 'Da';
+    if (['false', 'nu', 'no', 'n', '0'].includes(t)) return 'Nu';
+  }
+  return String(v);
+}
+
+const labelForKey: Record<string, string> = {
+  width: 'Lățime (cm)',
+  height: 'Înălțime (cm)',
+  width_cm: 'Lățime (cm)',
+  height_cm: 'Înălțime (cm)',
+  totalSqm: 'Suprafață totală (m²)',
+  sqmPerUnit: 'm²/buc',
+  pricePerSqm: 'Preț pe m² (RON)',
+  materialId: 'Material',
+  want_hem_and_grommets: 'Tiv și capse',
+  want_wind_holes: 'Găuri pentru vânt',
+  designOption: 'Grafică',
+  want_adhesive: 'Adeziv',
+  material: 'Material',
+  laminated: 'Laminare',
+  shape_diecut: 'Tăiere la contur',
+  productType: 'Tip panou',
+  thickness_mm: 'Grosime (mm)',
+  sameGraphicFrontBack: 'Aceeași grafică față/spate',
+  framed: 'Șasiu',
+  sizeKey: 'Dimensiune preset',
+  mode: 'Mod canvas',
+  orderNotes: 'Observații',
+};
+
+function prettyValue(k: string, v: unknown): string {
+  if (k === 'materialId') return v === 'frontlit_510' ? 'Frontlit 510g' : v === 'frontlit_440' ? 'Frontlit 440g' : String(v);
+  if (k === 'productType') return v === 'alucobond' ? 'Alucobond' : v === 'polipropilena' ? 'Polipropilenă' : v === 'pvc-forex' ? 'PVC Forex' : String(v);
+  if (k === 'designOption') return v === 'pro' ? 'Pro' : v === 'upload' ? 'Am fișier' : v === 'text_only' ? 'Text' : String(v);
+  if (k === 'framed') return formatYesNo(v);
+  if (typeof v === 'boolean') return formatYesNo(v);
+  return String(v);
+}
+
+function buildDetailsHTML(item: any) {
+  const details: string[] = [];
+  const itemAny = item as any;
+  const width = itemAny.width ?? itemAny.width_cm ?? itemAny.rawMetadata?.width_cm ?? itemAny.rawMetadata?.width;
+  const height = itemAny.height ?? itemAny.height_cm ?? itemAny.rawMetadata?.height_cm ?? itemAny.rawMetadata?.height;
+  if (width || height) {
+    details.push(`<div><strong>Dimensiune:</strong> ${escapeHtml(String(width || '—'))} x ${escapeHtml(String(height || '—'))} cm</div>`);
+  }
+  const meta = (item.rawMetadata || item.metadata || {}) as any;
+  const knownKeys = Object.keys(labelForKey).filter((k) => meta[k] !== undefined);
+  knownKeys.forEach((k) => {
+    const label = labelForKey[k];
+    const val = prettyValue(k, meta[k]);
+    details.push(`<div><strong>${escapeHtml(label)}:</strong> ${escapeHtml(val)}</div>`);
+  });
+  const itemsSqm = ['sqmPerUnit', 'totalSqm', 'pricePerSqm'];
+  itemsSqm.forEach((k) => {
+    if (!knownKeys.includes(k) && meta[k] !== undefined) {
+      const label = labelForKey[k] || k;
+      details.push(`<div><strong>${escapeHtml(label)}:</strong> ${escapeHtml(String(meta[k]))}</div>`);
+    }
+  });
+  const exclude = new Set(['price', 'totalAmount', 'qty', 'quantity', 'artwork', 'artworkUrl', 'artworkLink', 'text', 'textDesign', 'selectedReadable', 'selections', 'title', 'name']);
+  const leftovers = Object.keys(meta).filter((k) => !knownKeys.includes(k) && !exclude.has(k));
+  leftovers.forEach((k) => {
+    const v = meta[k];
+    details.push(`<div><strong>${escapeHtml(k)}:</strong> ${escapeHtml(String(v))}</div>`);
+  });
+  if (itemAny.artwork || itemAny.artworkUrl) {
+    details.push(`<div><strong>Fișier:</strong> <a href="${escapeHtml(String(itemAny.artwork || itemAny.artworkUrl))}" target="_blank" rel="noopener noreferrer">link</a></div>`);
+  }
+  if (itemAny.textDesign) {
+    details.push(`<div><strong>Text:</strong> <em>${escapeHtml(String(itemAny.textDesign))}</em></div>`);
+  }
+  if (details.length === 0) return '';
+  return `<div style="margin-top:6px;padding:8px 10px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;color:#334155;font-size:13px">${details.join('')}</div>`;
 }
 
 async function sendEmails(
@@ -186,369 +257,109 @@ async function sendEmails(
   createdPassword?: string,
   orderId?: string
 ) {
-  const normalized = cart.map((raw) => {
-    const qty = Number(raw.quantity ?? 1) || 1;
-    const unit = Number(raw.unitAmount ?? raw.price ?? (raw.metadata?.price ?? 0)) || 0;
-    const total = Number(raw.totalAmount ?? (unit > 0 ? unit * qty : raw.metadata?.totalAmount ?? 0)) || 0;
-    const artwork = raw.artworkUrl ?? raw.metadata?.artworkUrl ?? raw.metadata?.artworkLink ?? raw.metadata?.artwork ?? null;
-    const textDesign = raw.textDesign ?? raw.metadata?.textDesign ?? raw.metadata?.text ?? null;
-    const name = raw.name ?? raw.title ?? raw.metadata?.title ?? raw.slug ?? 'Produs';
-    return { ...raw, name, qty, unit, total, artwork, textDesign, rawMetadata: raw.metadata ?? {} };
-  });
-
-  const subtotal = normalized.reduce((acc, it) => acc + (Number(it.total) || 0), 0);
-  const shippingFeeForEmail = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE;
-  const totalComanda = subtotal + shippingFeeForEmail;
-
-  function formatYesNo(v: unknown): string {
-    if (typeof v === 'boolean') return v ? 'Da' : 'Nu';
-    if (typeof v === 'string') {
-      const t = v.toLowerCase();
-      if (['true', 'da', 'yes', 'y', '1'].includes(t)) return 'Da';
-      if (['false', 'nu', 'no', 'n', '0'].includes(t)) return 'Nu';
-    }
-    return String(v);
-  }
-
-  const labelForKey: Record<string, string> = {
-    width: 'Lățime (cm)',
-    height: 'Înălțime (cm)',
-    width_cm: 'Lățime (cm)',
-    height_cm: 'Înălțime (cm)',
-    totalSqm: 'Suprafață totală (m²)',
-    sqmPerUnit: 'm²/buc',
-    pricePerSqm: 'Preț pe m² (RON)',
-    materialId: 'Material',
-    want_hem_and_grommets: 'Tiv și capse',
-    want_wind_holes: 'Găuri pentru vânt',
-    designOption: 'Grafică',
-    want_adhesive: 'Adeziv',
-    material: 'Material',
-    laminated: 'Laminare',
-    shape_diecut: 'Tăiere la contur',
-    productType: 'Tip panou',
-    thickness_mm: 'Grosime (mm)',
-    sameGraphicFrontBack: 'Aceeași grafică față/spate',
-    framed: 'Șasiu',
-    sizeKey: 'Dimensiune preset',
-    mode: 'Mod canvas',
-    orderNotes: 'Observații',
-  };
-
-  function prettyValue(k: string, v: unknown): string {
-    if (k === 'materialId') return v === 'frontlit_510' ? 'Frontlit 510g' : v === 'frontlit_440' ? 'Frontlit 440g' : String(v);
-    if (k === 'productType') return v === 'alucobond' ? 'Alucobond' : v === 'polipropilena' ? 'Polipropilenă' : v === 'pvc-forex' ? 'PVC Forex' : String(v);
-    if (k === 'designOption') return v === 'pro' ? 'Pro' : v === 'upload' ? 'Am fișier' : v === 'text_only' ? 'Text' : String(v);
-    if (k === 'framed') return formatYesNo(v);
-    if (typeof v === 'boolean') return formatYesNo(v);
-    return String(v);
-  }
-
-  function buildDetailsHTML(item: AnyRecord) {
-    const details: string[] = [];
-    const itemAny = item as any;
-    const width = itemAny.width ?? itemAny.width_cm ?? itemAny.rawMetadata?.width_cm ?? itemAny.rawMetadata?.width;
-    const height = itemAny.height ?? itemAny.height_cm ?? itemAny.rawMetadata?.height_cm ?? itemAny.rawMetadata?.height;
-    if (width || height) {
-      details.push(`<div><strong>Dimensiune:</strong> ${escapeHtml(String(width || '—'))} x ${escapeHtml(String(height || '—'))} cm</div>`);
-    }
-    const meta = (item.rawMetadata || {}) as any;
-    const knownKeys = Object.keys(labelForKey).filter((k) => meta[k] !== undefined);
-    knownKeys.forEach((k) => {
-      const label = labelForKey[k];
-      const val = prettyValue(k, meta[k]);
-      details.push(`<div><strong>${escapeHtml(label)}:</strong> ${escapeHtml(val)}</div>`);
+  try {
+    const normalized = cart.map((raw) => {
+      const qty = Number(raw.quantity ?? 1) || 1;
+      const unit = Number(raw.unitAmount ?? raw.price ?? (raw.metadata?.price ?? 0)) || 0;
+      const total = Number(raw.totalAmount ?? (unit > 0 ? unit * qty : raw.metadata?.totalAmount ?? 0)) || 0;
+      const artwork = raw.artworkUrl ?? raw.metadata?.artworkUrl ?? raw.metadata?.artworkLink ?? raw.metadata?.artwork ?? null;
+      const textDesign = raw.textDesign ?? raw.metadata?.textDesign ?? raw.metadata?.text ?? null;
+      const name = raw.name ?? raw.title ?? raw.metadata?.title ?? raw.slug ?? 'Produs';
+      return { ...raw, name, qty, unit, total, artwork, textDesign, rawMetadata: raw.metadata ?? {} };
     });
-    ['sqmPerUnit', 'totalSqm', 'pricePerSqm'].forEach((k) => {
-      if (!knownKeys.includes(k) && meta[k] !== undefined) {
-        const label = labelForKey[k] || k;
-        details.push(`<div><strong>${escapeHtml(label)}:</strong> ${escapeHtml(String(meta[k]))}</div>`);
-      }
-    });
-    const exclude = new Set(['price', 'totalAmount', 'qty', 'quantity', 'artwork', 'artworkUrl', 'artworkLink', 'text', 'textDesign', 'selectedReadable', 'selections', 'title', 'name']);
-    const leftovers = Object.keys(meta).filter((k) => !knownKeys.includes(k) && !exclude.has(k));
-    leftovers.forEach((k) => {
-      const v = meta[k];
-      details.push(`<div><strong>${escapeHtml(k)}:</strong> ${escapeHtml(String(v))}</div>`);
-    });
-    if (itemAny.artwork) {
-      details.push(`<div><strong>Fișier:</strong> <a href="${escapeHtml(String(itemAny.artwork))}" target="_blank" rel="noopener noreferrer">link</a></div>`);
-    }
-    if (itemAny.textDesign) {
-      details.push(`<div><strong>Text:</strong> <em>${escapeHtml(String(itemAny.textDesign))}</em></div>`);
-    }
-    if (details.length === 0) return '';
-    return `<div style="margin-top:6px;padding:8px 10px;background:#fafafa;border:1px solid #eee;border-radius:6px;color:#333">${details.join('')}</div>`;
-  }
 
-  const produseListHTML = normalized
-    .map((item) => {
+    const subtotal = normalized.reduce((acc, it) => acc + (Number(it.total) || 0), 0);
+    const shippingFeeForEmail = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE;
+    const totalComanda = subtotal + shippingFeeForEmail;
+
+    // --- BUILD CUSTOM CONTENT FOR CLIENT ---
+    const clientItemsHtml = normalized.map((item) => {
       const escapedName = escapeHtml(String(item.name));
-      const line = `${escapedName} - <strong>${item.qty} buc.</strong> - ${formatRON(Number(item.total) || 0)} RON`;
       const detailsBlock = buildDetailsHTML(item);
-      return `<li style="margin-bottom:12px;">${line}${detailsBlock}</li>`;
-    })
-    .join('');
+      return `
+        <div style="padding:15px 0; border-bottom:1px solid #f1f5f9;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+            <div style="flex: 1; padding-right: 15px;">
+              <div style="font-weight:600; font-size: 16px; color: #0f172a;">${escapedName}</div>
+              <div style="font-size:13px; color:#64748b; margin-top: 4px;">Cantitate: ${item.qty} buc. @ ${item.unit} RON/buc.</div>
+            </div>
+            <div style="font-weight: bold; color: #0f172a; font-size: 16px; white-space: nowrap;">
+              ${Number(item.total).toFixed(2)} RON
+            </div>
+          </div>
+          ${detailsBlock}
+        </div>
+      `;
+    }).join('');
 
-  const isCompany = billing && (billing.tip_factura === 'persoana_juridica' || billing.tip_factura === 'companie');
-  const contactName = isCompany ? (billing.denumire_companie || billing.name || billing.cui || address.nume_prenume) : (address.nume_prenume || billing.name || '');
-  const contactEmail = isCompany ? (billing.email || address.email) : (address.email || billing.email || '');
-  const contactPhone = isCompany ? (billing.telefon || billing.phone || address.telefon) : (address.telefon || billing.telefon || '');
-  const contactAddressLine = isCompany
-    ? buildAddressLine({ judet: billing.judet, localitate: billing.localitate, strada_nr: billing.strada_nr }, { judet: address.judet, localitate: address.localitate, strada_nr: address.strada_nr })
-    : buildAddressLine({ judet: address.judet, localitate: address.localitate, strada_nr: address.strada_nr }, { judet: address.judet, localitate: address.localitate, strada_nr: address.strada_nr });
-
-  let actionButtons = '';
-  try {
-    if (process.env.ADMIN_ACTION_SECRET && process.env.DPD_DEFAULT_SERVICE_ID) {
-      const tokenEdit = signAdminAction({
-        action: 'edit',
-        address,
-        paymentType,
-        totalAmount: totalComanda,
-        orderId: orderId || undefined,
-      });
-      const tokenConfirm = signAdminAction({
-        action: 'confirm_awb',
-        address,
-        paymentType,
-        totalAmount: totalComanda,
-        orderId: orderId || undefined,
-      });
-      const baseUrl = process.env.PUBLIC_BASE_URL || process.env.NEXT_PUBLIC_SITE_URL || 'https://www.tablou.net';
-      const defaultSid = encodeURIComponent(String(process.env.DPD_DEFAULT_SERVICE_ID));
-      const urlEdit = `${baseUrl}/api/dpd/admin-action?token=${encodeURIComponent(tokenEdit)}&sid=${defaultSid}`;
-      const urlConfirm = `${baseUrl}/api/dpd/admin-action?token=${encodeURIComponent(tokenConfirm)}&sid=${defaultSid}`;
-      actionButtons = `
-        <div style="margin:20px 0; text-align:center;">
-          <a href="${urlConfirm}" style="display:inline-block; background:#16a34a; color:#fff; padding:10px 16px; border-radius:8px; text-decoration:none; margin-right:8px;">Validează și trimite</a>
-          <a href="${urlEdit}" style="display:inline-block; background:#0ea5e9; color:#fff; padding:10px 16px; border-radius:8px; text-decoration:none;">Editează AWB</a>
-        </div>`;
+    let accountNotice = '';
+    if (createdPassword) {
+      accountNotice = `
+        <div style="background:#eff6ff; border: 1px solid #bfdbfe; padding: 15px; border-radius: 12px; margin: 20px 0;">
+          <strong style="color: #1e40af;">Cont creat automat</strong>
+          <p style="margin: 5px 0 0; font-size: 13px; color: #1e40af;">Parola ta este: <strong>${createdPassword}</strong><br/>Poți schimba parola oricând din setările contului.</p>
+        </div>
+      `;
     }
+
+    const clientContent = `
+      ${accountNotice}
+      <h2 style="font-size: 18px; color: #0f172a; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px; margin-top: 0;">Rezumat Comandă</h2>
+      <div>${clientItemsHtml}</div>
+      
+      <div style="border-top: 1px dashed #cbd5e1; padding-top: 16px; margin-top: 16px;">
+        <div style="display:flex; justify-content:space-between; margin-bottom: 8px; color: #64748b; font-size: 14px;">
+          <span>Transport:</span> <span style="font-weight: 500;">${shippingFeeForEmail} RON</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; color: #0f172a; font-size: 18px; font-weight: bold; margin-top: 8px;">
+          <span>Total de Achitat:</span> <span>${totalComanda.toFixed(2)} RON</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; margin-top: 8px; color: #64748b; font-size: 14px;">
+          <span>Metodă de plată:</span> <span style="font-weight: 500;">${paymentType}</span>
+        </div>
+      </div>
+
+      <h2 style="font-size: 18px; color: #0f172a; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px; margin-top: 30px;">Detalii Livrare</h2>
+      <p style="font-size: 14px; color: #334155; line-height: 1.5; margin: 10px 0;">
+        <strong>Client:</strong> ${escapeHtml(address.nume_prenume)}<br/>
+        <strong>Adresă:</strong> ${escapeHtml(address.localitate)}, ${escapeHtml(address.judet)}, ${escapeHtml(address.strada_nr)}<br/>
+        <strong>Telefon:</strong> ${escapeHtml(address.telefon)}
+      </p>
+    `;
+
+    // --- BUILD CUSTOM CONTENT FOR ADMIN ---
+    const isCompany = billing && (billing.tip_factura === 'persoana_juridica' || billing.tip_factura === 'companie');
+    const contactName = isCompany ? (billing.denumire_companie || billing.name || billing.cui || address.nume_prenume) : (address.nume_prenume || billing.name || '');
+    
+    const adminContent = `
+      <div style="background:#f8fafc; padding: 20px; border-radius: 12px; margin-bottom: 25px; border: 1px solid #e2e8f0;">
+        <h3 style="margin: 0 0 10px; font-size: 15px; color: #0f172a;">Detalii Client</h3>
+        <p style="margin: 5px 0; font-size: 14px;"><strong>Nume:</strong> ${escapeHtml(contactName)}</p>
+        <p style="margin: 5px 0; font-size: 14px;"><strong>Email:</strong> ${address.email}</p>
+        <p style="margin: 5px 0; font-size: 14px;"><strong>Telefon:</strong> ${address.telefon}</p>
+        <p style="margin: 5px 0; font-size: 14px;"><strong>Plată:</strong> ${paymentType}</p>
+      </div>
+      <div>${clientItemsHtml}</div>
+      <div style="background:#f1f5f9; padding: 15px; border-radius: 8px; margin-top: 20px; text-align: right;">
+        <p style="margin: 0; font-size: 14px; color: #64748b;">Transport: ${shippingFeeForEmail} RON</p>
+        <h3 style="margin: 5px 0 0; color: #0f172a;">Total: ${totalComanda.toFixed(2)} RON</h3>
+      </div>
+    `;
+
+    const orderMeta = {
+      id: orderId || 'N/A',
+      orderNo: orderNo,
+      source: 'tablou.net',
+      invoiceUrl: invoiceLink,
+      shippingAddress: { ...address, street: address.strada_nr, name: address.nume_prenume }
+    };
+
+    await sendOrderConfirmationEmail(orderMeta, clientContent);
+    await new Promise(r => setTimeout(r, 1000));
+    await sendNewOrderAdminEmail(orderMeta, adminContent);
+
   } catch (e) {
-    console.warn('[OrderService] Quick actions disabled:', (e as any)?.message || e);
-  }
-
-  function sourceLabel(m?: MarketingInfo) {
-    if (!m) return '—';
-    if (m.utmSource) return m.utmSource;
-    try {
-      if (m.referrer) {
-        const u = new URL(m.referrer);
-        return u.hostname.replace(/^www\./, '');
-      }
-    } catch (err) { }
-    return 'direct';
-  }
-
-  const mkLines: string[] = [];
-  if (marketing?.utmSource) mkLines.push(`<div><strong>utm_source:</strong> ${escapeHtml(marketing.utmSource)}</div>`);
-  if (marketing?.utmMedium) mkLines.push(`<div><strong>utm_medium:</strong> ${escapeHtml(marketing.utmMedium)}</div>`);
-  if (marketing?.utmCampaign) mkLines.push(`<div><strong>utm_campaign:</strong> ${escapeHtml(marketing.utmCampaign)}</div>`);
-  if (marketing?.utmContent) mkLines.push(`<div><strong>utm_content:</strong> ${escapeHtml(marketing.utmContent)}</div>`);
-  if (marketing?.utmTerm) mkLines.push(`<div><strong>utm_term:</strong> ${escapeHtml(marketing.utmTerm)}</div>`);
-  if (marketing?.gclid) mkLines.push(`<div><strong>gclid:</strong> ${escapeHtml(marketing.gclid)}</div>`);
-  if (marketing?.fbclid) mkLines.push(`<div><strong>fbclid:</strong> ${escapeHtml(marketing.fbclid)}</div>`);
-  if (marketing?.referrer) mkLines.push(`<div><strong>referrer:</strong> ${escapeHtml(marketing.referrer)}</div>`);
-  if (marketing?.landingPage) mkLines.push(`<div><strong>landing:</strong> ${escapeHtml(marketing.landingPage)}</div>`);
-  const marketingBlock = `
-    <div style="margin-top:16px;padding:10px 12px;background:#fafafa;border:1px solid #eee;border-radius:8px;color:#333;">
-      <div style="font-weight:600;margin-bottom:6px;">Sursă trafic: ${escapeHtml(sourceLabel(marketing))}</div>
-      <div style="font-size:12px;line-height:1.5;color:#555;">${mkLines.join('')}</div>
-    </div>
-  `;
-
-  const orderNoSuffix = orderNo ? ' #' + orderNo : '';
-  const deliveryAptHtml = (address.bloc || address.scara || address.etaj || address.ap || address.interfon)
-    ? `<p class="muted" style="margin:4px 0 0;color:#64748b;font-size:13px">${escapeHtml(apartmentLineText(address))}</p>`
-    : '';
-  const invoiceBlock = invoiceLink
-    ? `<p style="text-align: center; margin-top: 20px;"><a href="${invoiceLink}" style="background-color: #007bff; color: #ffffff; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Vezi Factura Oblio</a></p>`
-    : `<p style="text-align:center;margin-top:20px;color:#b54708">Factura va fi emisă manual în Oblio (client: ${escapeHtml(String(isCompany ? (billing.denumire_companie ?? billing.cui ?? '') : (billing.name ?? address.nume_prenume ?? '')))}).</p>`;
-
-  let billingBlockAdmin = '';
-  if (isCompany) {
-    billingBlockAdmin = `
-        <p><strong>Tip:</strong> Companie</p>
-        <p><strong>Companie:</strong> ${escapeHtml(billing.denumire_companie ?? '')}</p>
-        <p><strong>CUI:</strong> ${escapeHtml(billing.cui ?? '')}</p>
-        ${billing.reg_com ? `<p><strong>Reg. Com:</strong> ${escapeHtml(billing.reg_com)}</p>` : ''}
-      `;
-  } else {
-    billingBlockAdmin = `
-        <p><strong>Tip:</strong> Persoană Fizică</p>
-        <p><strong>Nume Factură:</strong> ${escapeHtml(billing.name ?? address.nume_prenume)}</p>
-      `;
-  }
-
-  const adminHtml = `
-    <div style="font-family: sans-serif; padding: 20px; background-color: #f4f4f4;">
-      <div style="max-width: 640px; margin: auto; background-color: #ffffff; padding: 20px; border-radius: 8px;">
-        <h1 style="color: #333; margin: 0 0 12px;">Comandă Nouă (${paymentType})</h1>
-
-        <h2 style="border-bottom: 1px solid #eee; padding-bottom: 10px; color: #555; margin-top: 20px;">Date Client</h2>
-        <p><strong>Nume:</strong> ${escapeHtml(contactName)}</p>
-        <p><strong>Email:</strong> ${escapeHtml(contactEmail)}</p>
-        <p><strong>Telefon:</strong> ${escapeHtml(contactPhone)}</p>
-
-        <h2 style="border-bottom: 1px solid #eee; padding-bottom: 10px; color: #555; margin-top: 20px;">Adresă Livrare / Facturare</h2>
-        <p>${escapeHtml(contactAddressLine)}${address.postCode ? ', ' + escapeHtml(address.postCode) : ''}</p>
-        ${isCompany ? '' : deliveryAptHtml}
-
-        <h2 style="border-bottom: 1px solid #eee; padding-bottom: 10px; color: #555; margin-top: 20px;">Detalii Facturare</h2>
-        ${billingBlockAdmin}
-
-        <h2 style="border-bottom: 1px solid #eee; padding-bottom: 10px; color: #555; margin-top: 20px;">Produse Comandate</h2>
-        <ul style="padding-left: 18px;">
-          ${produseListHTML}
-        </ul>
-
-        <div style="border-top: 1px solid #eee; margin: 16px 0; padding-top: 12px;">
-          <p style="margin: 4px 0; color: #333;">Taxă livrare: ${formatRON(shippingFeeForEmail)} RON</p>
-          <h3 style="text-align: right; color: #111; margin: 8px 0 0;">Total Comandă: ${formatRON(totalComanda)} RON</h3>
-        </div>
-
-        ${actionButtons || ''}
-
-        ${marketingBlock}
-
-        ${invoiceBlock}
-      </div>
-    </div>
-  `;
-
-  try {
-    const adminEmail = process.env.ADMIN_EMAIL || 'contact@shopprint.ro';
-    const adminResp = await resend.emails.send({
-      from: process.env.EMAIL_FROM || 'contact@tablou.net',
-      to: adminEmail,
-      subject: `Comandă${orderNoSuffix} (${paymentType}) - ${escapeHtml(address.nume_prenume)}`,
-      html: adminHtml,
-    });
-    if (adminResp.error) {
-      console.error('[OrderService] Eroare trimitere email admin:', adminResp.error.message);
-    } else {
-      console.log('[OrderService] Admin email sent, resend response:', adminResp.data?.id);
-    }
-  } catch (e: any) {
-    console.error('[OrderService] Eroare trimitere email admin:', e?.message || e);
-  }
-
-  // Așteptăm 1 secundă pentru a evita rate limit-ul de 2 req/sec de la Resend
-  await new Promise(resolve => setTimeout(resolve, 1000));
-
-  const accountBlock = createdPassword
-    ? `
-        <h2 style="border-bottom:1px solid #eee; padding-bottom:8px; color:#333; margin-top:18px;">Cont creat</h2>
-        <p style="margin:4px 0;">Ți-am creat automat un cont pe Tablou.net cu acest email.</p>
-        <p style="margin:4px 0;">Parola inițială: <strong>${escapeHtml(createdPassword)}</strong></p>
-        <p style="margin:4px 0; font-size:12px; color:#555;">Te rugăm să te autentifici și să schimbi parola din secțiunea contului pentru siguranță.</p>
-      `
-    : '';
-
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.PUBLIC_BASE_URL || 'https://www.tablou.net';
-  const orderLink = orderId ? `${baseUrl}/account/orders/${encodeURIComponent(orderId)}` : `${baseUrl}/account/orders`;
-  const preheader = 'Mulțumim pentru comandă' + orderNoSuffix + '!';
-  const clientInvoiceBtn = invoiceLink ? `<a href="${invoiceLink}" class="btn" style="background:#16a34a;color:#fff !important;text-decoration:none;padding:12px 16px;border-radius:10px;display:inline-block">Descarcă factura</a>` : '';
-  const clientAptHtml = (address.bloc || address.scara || address.etaj || address.ap || address.interfon)
-    ? `<p class="muted" style="margin:4px 0 0;color:#64748b;font-size:13px">${escapeHtml(apartmentLineText(address))}</p>`
-    : '';
-
-  let billingBlockClient = '';
-  if (isCompany) {
-    billingBlockClient = `
-        <p style="margin:0;color:#111"><strong>Tip:</strong> Companie</p>
-        <p style="margin:4px 0 0;color:#111"><strong>Companie:</strong> ${escapeHtml(billing.denumire_companie ?? '')}</p>
-        <p style="margin:2px 0 0;color:#111"><strong>CUI:</strong> ${escapeHtml(billing.cui ?? '')}</p>
-      `;
-  } else {
-    billingBlockClient = `
-        <p style="margin:0;color:#111"><strong>Tip:</strong> Persoană fizică</p>
-        <p style="margin:4px 0 0;color:#111"><strong>Nume factură:</strong> ${escapeHtml(billing.name ?? address.nume_prenume)}</p>
-      `;
-  }
-
-  const clientHtml = `
-  <!DOCTYPE html>
-  <html lang="ro">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Confirmare comandă${orderNoSuffix}</title>
-    <style>
-      @media (max-width: 600px){
-        .container{padding:16px !important}
-        .card{padding:16px !important}
-        .grid{display:block !important}
-        .col{width:100% !important; display:block !important; margin-bottom:12px !important}
-      }
-      a.btn{background:#4f46e5;color:#fff !important;text-decoration:none;padding:12px 16px;border-radius:10px;display:inline-block}
-      .muted{color:#6b7280}
-    </style>
-  </head>
-  <body style="margin:0;background:#f7f7fb;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
-    <span style="display:none !important; visibility:hidden; opacity:0; height:0; width:0; overflow:hidden;">${escapeHtml(preheader)}</span>
-    <div class="container" style="max-width:680px;margin:0 auto;padding:24px;">
-      <div style="text-align:center; padding:18px 0 10px;">
-        <a href="${baseUrl}" style="text-decoration:none;">
-          <img src="${baseUrl}/logo.jpg" alt="Tablou.net" style="height:40px;width:auto;" />
-        </a>
-      </div>
-      <div style="height:4px;background:linear-gradient(90deg,#4f46e5,#22d3ee);border-radius:999px;margin:8px 0 20px;"></div>
-      <div class="card" style="background:#ffffff;border-radius:16px;padding:24px;border:1px solid #e5e7eb;">
-        <h1 style="margin:0;color:#0f172a;font-size:22px;">Mulțumim pentru comandă!</h1>
-        <p style="margin:8px 0 12px;color:#334155">Am primit comanda ta și am început procesarea. Mai jos ai un rezumat.</p>
-        ${orderNo ? `<p style="margin:0 0 12px;color:#111;"><strong>Nr. comandă:</strong> #${orderNo}</p>` : ''}
-        ${accountBlock}
-        <div class="grid" style="display:flex;gap:16px;margin-top:12px;">
-            <div class="col" style="flex:1;min-width:0;">
-              <h3 style="margin:0 0 8px;color:#0f172a;font-size:14px;text-transform:uppercase;letter-spacing:.04em;">Livrare / Facturare</h3>
-              <p style="margin:0;color:#111;font-weight:600;">${escapeHtml(contactName)}</p>
-              <p class="muted" style="margin:2px 0 0;color:#64748b;font-size:13px">${escapeHtml(contactEmail)} • ${escapeHtml(contactPhone)}</p>
-              <p style="margin:6px 0 0;color:#111">${escapeHtml(contactAddressLine)}${address.postCode ? ', ' + escapeHtml(address.postCode) : ''}</p>
-              ${isCompany ? '' : clientAptHtml}
-            </div>
-             <div class="col" style="flex:1;min-width:0;background:#f8fafc;padding:12px;border-radius:8px;">
-                <h3 style="margin:0 0 8px;color:#0f172a;font-size:14px;text-transform:uppercase;letter-spacing:.04em;">Date Factură</h3>
-                ${billingBlockClient}
-            </div>
-        </div>
-        <h3 style="margin:16px 0 8px;color:#0f172a;font-size:14px;text-transform:uppercase;letter-spacing:.04em;">Produse</h3>
-        <ul style="margin:0;padding:0;list-style:none;">
-          ${produseListHTML}
-        </ul>
-        <div style="border-top:1px solid #e5e7eb;margin:16px 0 0;padding-top:12px;display:flex;justify-content:space-between;align-items:center;">
-          <div class="muted" style="color:#64748b;font-size:14px;">Taxă livrare: ${formatRON(shippingFeeForEmail)} RON</div>
-          <div style="font-size:18px;font-weight:800;color:#0f172a;">Total: ${formatRON(totalComanda)} RON</div>
-        </div>
-        <div style="text-align:center;margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-          <a href="${orderLink}" class="btn" style="background:#4f46e5;color:#fff !important;text-decoration:none;padding:12px 16px;border-radius:10px;display:inline-block">Vezi comanda în cont</a>
-          ${clientInvoiceBtn}
-        </div>
-        <p class="muted" style="margin:18px 0 0;color:#64748b;font-size:13px;">Metodă de plată: <strong>${paymentType}</strong></p>
-      </div>
-      <p class="muted" style="text-align:center;color:#94a3b8;font-size:12px;margin:12px 0 0;">Întrebări? Scrie-ne la <a href="mailto:${escapeHtml(process.env.SUPPORT_EMAIL || 'contact@tablou.net')}" style="color:#4f46e5; text-decoration:none;">${escapeHtml(process.env.SUPPORT_EMAIL || 'contact@tablou.net')}</a>.</p>
-      <p class="muted" style="text-align:center;color:#cbd5e1;font-size:11px;margin:6px 0 0;">© ${new Date().getFullYear()} Tablou.net</p>
-    </div>
-  </body>
-  </html>`;
-
-  try {
-    const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
-    if (!resend) throw new Error('RESEND_API_KEY lipsă');
-    const clientResp = await resend.emails.send({
-      from: process.env.EMAIL_FROM || 'contact@tablou.net',
-      to: address.email,
-      subject: `Confirmare comandă${orderNoSuffix} - Tablou.net`,
-      html: clientHtml,
-    });
-    if (clientResp.error) {
-       console.error('[OrderService] Eroare trimitere email client:', clientResp.error.message);
-    } else {
-       console.log('[OrderService] Client email sent, resend response:', clientResp.data?.id);
-    }
-  } catch (e: any) {
-    console.error('[OrderService] Eroare trimitere email client:', e?.message || e);
+    console.error('[OrderService] Tablou Unified email failed:', e);
   }
 }
 

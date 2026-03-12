@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { sendAbandonedCartEmail, sendPostPurchaseFollowUp } from '@/lib/emailMarketing';
 import { deactivateExpiredCodes } from '@/lib/discountCodes';
+import { getResend } from '@/lib/email';
 
 export const maxDuration = 300; // 5 minutes max
 export const dynamic = 'force-dynamic';
@@ -183,39 +184,40 @@ export async function POST(request: Request) {
     // Optional: Send daily report email to admin
     if (process.env.ADMIN_EMAIL) {
       try {
-        const { Resend } = await import('resend');
-        const resend = new Resend(process.env.RESEND_API_KEY);
+        const resend = getResend();
 
-        await resend.emails.send({
-          from: 'Tablou.net System <system@tablou.net>',
-          to: process.env.ADMIN_EMAIL,
-          subject: `📊 Raport zilnic marketing Tablou.net - ${stats.sent} emailuri trimise`,
-          html: `
-          <h2>🤖 Raport automat zilnic</h2>
-          <p><strong>Data:</strong> ${now.toLocaleDateString('ro-RO')}</p>
-          
-          <h3>📧 Email Marketing</h3>
-          <ul>
-            <li>Coșuri abandonate găsite: <strong>${stats.newAbandoned}</strong></li>
-            <li>Emailuri procesate: <strong>${stats.processed}</strong></li>  
-            <li>Emailuri trimise cu succes: <strong>${stats.sent}</strong></li>
-            <li>Follow-up-uri (1 săptămână): <strong>${stats.followUpsSent}</strong></li>
-          </ul>
-          
-          <h3>🧹 Maintenance</h3>
-          <ul>
-            <li>Coduri de reducere expirate șterse: <strong>${stats.expiredCodes}</strong></li>
-            <li>Runtime: <strong>${runtime}s</strong></li>
-          </ul>
-          
-          ${stats.errors.length > 0 ? `
-          <h3>⚠️ Erori</h3>
-          <ul>${stats.errors.map(err => `<li>${err}</li>`).join('')}</ul>
-          ` : '<p>✅ <strong>Nicio eroare!</strong></p>'}
-          
-          <p><small>Sistem automat Tablou.net</small></p>
-          `
-        });
+        if (resend) {
+          await resend.emails.send({
+            from: 'Tablou.net System <system@tablou.net>',
+            to: process.env.ADMIN_EMAIL,
+            subject: `📊 Raport zilnic marketing Tablou.net - ${stats.sent} emailuri trimise`,
+            html: `
+            <h2>🤖 Raport automat zilnic</h2>
+            <p><strong>Data:</strong> ${now.toLocaleDateString('ro-RO')}</p>
+            
+            <h3>📧 Email Marketing</h3>
+            <ul>
+              <li>Coșuri abandonate găsite: <strong>${stats.newAbandoned}</strong></li>
+              <li>Emailuri procesate: <strong>${stats.processed}</strong></li>  
+              <li>Emailuri trimise cu succes: <strong>${stats.sent}</strong></li>
+              <li>Follow-up-uri (1 săptămână): <strong>${stats.followUpsSent}</strong></li>
+            </ul>
+            
+            <h3>🧹 Maintenance</h3>
+            <ul>
+              <li>Coduri de reducere expirate șterse: <strong>${stats.expiredCodes}</strong></li>
+              <li>Runtime: <strong>${runtime}s</strong></li>
+            </ul>
+            
+            ${stats.errors.length > 0 ? `
+            <h3>⚠️ Erori</h3>
+            <ul>${stats.errors.map(err => `<li>${err}</li>`).join('')}</ul>
+            ` : '<p>✅ <strong>Nicio eroare!</strong></p>'}
+            
+            <p><small>Sistem automat Tablou.net</small></p>
+            `
+          });
+        }
       } catch (emailError) {
         console.error('Failed to send daily report:', emailError);
       }

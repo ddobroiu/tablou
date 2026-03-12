@@ -1,7 +1,7 @@
 // lib/emailMarketing.ts
 // Email Marketing System focused on 14 main configurators
 
-import { Resend } from 'resend';
+import { getResend } from './email';
 import { getHtmlTemplate } from './email';
 
 const getResendClient = () => {
@@ -391,7 +391,7 @@ export async function sendConfiguratorWelcomeEmail(subscription: NewsletterSubsc
     </ul>`
   );
 
-  await getResendClient().emails.send({
+  await getResend().emails.send({
     from: 'Tablou.net Configuratoare <no-reply@tablou.net>',
     to: subscription.email,
     subject: content.subject,
@@ -451,7 +451,7 @@ export async function sendPostPurchaseFollowUp(email: string, name: string, orde
   );
 
   try {
-    await getResendClient().emails.send({
+    await getResend().emails.send({
       from: 'Tablou.net <no-reply@tablou.net>',
       to: email,
       subject: `🎁 Avem un cadou pentru tine (Comanda ta #${orderNo} la Tablou.net)`,
@@ -559,7 +559,7 @@ export async function sendAbandonedCartEmail({ email, configuratorId, cartData, 
   );
 
   try {
-    await getResendClient().emails.send({
+    await getResend().emails.send({
       from: 'Tablou.net <noreply@tablou.net>',
       to: email,
       subject: subject,

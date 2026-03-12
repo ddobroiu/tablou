@@ -1,7 +1,7 @@
 import { NextRequest } from 'next/server';
 import { verifyAdminAction, signAdminAction } from '../../../../lib/adminAction';
 import { createShipment, printExtended, trackingUrlForAwb, type ShipmentSender, validateShipment } from '../../../../lib/dpdService';
-import { Resend } from 'resend';
+import { getResend } from '../../../../lib/email';
 import { prisma } from '../../../../lib/prisma';
 
 export const runtime = 'nodejs';
@@ -241,8 +241,7 @@ export async function GET(req: NextRequest) {
       }
 
       try {
-        const apiKey = process.env.RESEND_API_KEY;
-        const resend = apiKey ? new Resend(apiKey) : null;
+        const resend = getResend();
         const trackingUrl = trackingUrlForAwb(shipmentId);
         const subject = `AWB DPD ${shipmentId}`;
         const html = `<p>Bună ${address.nume_prenume},</p>
