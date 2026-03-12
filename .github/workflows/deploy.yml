@@ -69,4 +69,5 @@ jobs:
                   - "3004:3000"
                 env_file: .env
             EOF
+            docker system prune -f
             docker compose up -d --pull always --force-recreate

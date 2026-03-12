@@ -169,15 +169,7 @@ function getInitializedProducts(): Product[] {
 
 
 
-export const PRODUCTS = [
-  ...bannerProductsMapped,
-  ...canvasProductsMapped,
-  ...euFundsProductsMapped,
-  ...printCenterProductsMapped,
-  ...configuratorProductsMapped,
-  ...seoCampaignProductsMapped,
-  ...massSeoProductsMapped_LOCAL
-];
+export const PRODUCTS: Product[] = getInitializedProducts();
 
 export async function getProducts(): Promise<Product[]> {
   return getInitializedProducts();

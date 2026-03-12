@@ -4,14 +4,7 @@
 import { getResend } from './email';
 import { getHtmlTemplate } from './email';
 
-const getResendClient = () => {
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
-    console.warn('RESEND_API_KEY is missing');
-    return new Resend('re_123456789');
-  }
-  return new Resend(apiKey);
-};
+
 
 // 14 Main Configurators (Core Products)
 export const MAIN_CONFIGURATORS = [
@@ -391,7 +384,10 @@ export async function sendConfiguratorWelcomeEmail(subscription: NewsletterSubsc
     </ul>`
   );
 
-  await getResend().emails.send({
+  const resend = getResend();
+  if (!resend) return;
+
+  await resend.emails.send({
     from: 'Tablou.net Configuratoare <no-reply@tablou.net>',
     to: subscription.email,
     subject: content.subject,
@@ -451,7 +447,10 @@ export async function sendPostPurchaseFollowUp(email: string, name: string, orde
   );
 
   try {
-    await getResend().emails.send({
+    const resend = getResend();
+    if (!resend) return false;
+
+    await resend.emails.send({
       from: 'Tablou.net <no-reply@tablou.net>',
       to: email,
       subject: `🎁 Avem un cadou pentru tine (Comanda ta #${orderNo} la Tablou.net)`,
@@ -559,7 +558,10 @@ export async function sendAbandonedCartEmail({ email, configuratorId, cartData, 
   );
 
   try {
-    await getResend().emails.send({
+    const resend = getResend();
+    if (!resend) return false;
+
+    await resend.emails.send({
       from: 'Tablou.net <noreply@tablou.net>',
       to: email,
       subject: subject,
