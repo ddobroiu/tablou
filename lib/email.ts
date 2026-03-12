@@ -130,21 +130,15 @@ export async function sendWelcomeEmail(to: string, name: string, source?: string
     });
 
     console.log(`[EMAIL] Attempting to send welcome email to ${to} from ${config.email}`);
-    const result = await resend.emails.send({
+    const result = await sendEmail({
       from: `${config.name} <${config.email}>`,
       to,
       subject: `Bine ai venit pe ${config.name}!`,
       html,
     });
     
-    if (result.error) {
-      console.error('[EMAIL] sendWelcomeEmail error:', {
-        error: result.error,
-        from: config.email,
-        to: to
-      });
-    } else {
-      console.log(`[EMAIL] Welcome email sent successfully to ${to}. ID: ${result.data?.id}`);
+    if (!result.error && (result as any).data) {
+      console.log(`[EMAIL] Welcome email sent successfully to ${to}. ID: ${(result as any).data?.id}`);
     }
   } catch (error) {
     console.error('[EMAIL] sendWelcomeEmail exception:', error);
@@ -216,22 +210,12 @@ export async function sendOrderConfirmationEmail(order: any, customContent?: str
     });
 
     console.log(`[EMAIL] Attempting to send order confirmation for #${orderNo} to ${(order.shippingAddress as any)?.email || order.userEmail || order.email} from ${config.email}`);
-    const result = await resend.emails.send({
+    const result = await sendEmail({
       from: `${config.name} <${config.email}>`,
       to: (order.shippingAddress as any)?.email || order.userEmail || order.email,
       subject: `Confirmare comandă #${orderNo} - ${config.name}`,
       html,
     });
-
-    if (result.error) {
-      console.error('[EMAIL] sendOrderConfirmationEmail error:', {
-        error: result.error,
-        from: config.email,
-        to: (order.shippingAddress as any)?.email || order.userEmail || order.email
-      });
-    } else {
-      console.log(`[EMAIL] Order confirmation sent successfully. ID: ${result.data?.id}`);
-    }
   } catch (error) {
     console.error('[EMAIL] sendOrderConfirmationEmail exception:', error);
   }
@@ -272,22 +256,12 @@ export async function sendNewOrderAdminEmail(order: any, customContent?: string)
     });
 
     console.log(`[EMAIL] Attempting to send admin notification for #${orderNo} to ${adminEmail} from ${config.email}`);
-    const result = await resend.emails.send({
+    const result = await sendEmail({
       from: `${config.name} System <${config.email}>`,
       to: adminEmail,
       subject: `[ADMIN] Comandă Nouă #${orderNo} - ${config.name}`,
       html,
     });
-
-    if (result.error) {
-      console.error('[EMAIL] sendNewOrderAdminEmail error:', {
-        error: result.error,
-        from: config.email,
-        to: adminEmail
-      });
-    } else {
-      console.log(`[EMAIL] Admin notification sent successfully. ID: ${result.data?.id}`);
-    }
   } catch (error) {
     console.error('[EMAIL] sendNewOrderAdminEmail exception:', error);
   }
@@ -312,22 +286,12 @@ export async function sendPasswordResetEmail(to: string, token: string, source?:
     });
 
     console.log(`[EMAIL] Attempting to send password reset to ${to} from ${config.email}`);
-    const result = await resend.emails.send({
+    const result = await sendEmail({
       from: `${config.name} <${config.email}>`,
       to,
       subject: `Resetare parolă ${config.name}`,
       html,
     });
-
-    if (result.error) {
-      console.error('[EMAIL] sendPasswordResetEmail error:', {
-        error: result.error,
-        from: config.email,
-        to: to
-      });
-    } else {
-      console.log(`[EMAIL] Password reset email sent successfully. ID: ${result.data?.id}`);
-    }
   } catch (error) {
     console.error('[EMAIL] sendPasswordResetEmail exception:', error);
   }
@@ -359,23 +323,53 @@ export async function sendContactFormEmail({ name, email, phone, message, subjec
     });
 
     console.log(`[EMAIL] Attempting to send contact form email from ${email} to ${adminEmail} using ${config.email}`);
-    const result = await resend.emails.send({
+    const result = await sendEmail({
       from: `${config.name} Form <${config.email}>`,
       to: adminEmail,
       subject: `[CONTACT] ${userSubject || 'Mesaj nou'} - ${escapeHtml(name)}`,
       html,
     });
-
-    if (result.error) {
-      console.error('[EMAIL] sendContactFormEmail error:', {
-        error: result.error,
-        from: config.email,
-        to: adminEmail
-      });
-    } else {
-      console.log(`[EMAIL] Contact form email sent successfully. ID: ${result.data?.id}`);
-    }
   } catch (error) {
     console.error('[EMAIL] sendContactFormEmail exception:', error);
+  }
+}
+
+interface SendEmailParams {
+  from: string;
+  to: string | string[];
+  subject: string;
+  html: string;
+  attachments?: any[];
+  bcc?: string | string[];
+}
+
+export async function sendEmail({ from, to, subject, html, attachments, bcc }: SendEmailParams) {
+  try {
+    const resend = getResend();
+    if (!resend) {
+      console.error('[EMAIL] Cannot send email - Resend instance is null (check API Key)');
+      return { error: new Error('Resend API key missing') };
+    }
+
+    console.log(`[EMAIL] Sending "${subject}" from "${from}" to "${to}"...`);
+    
+    const result = await resend.emails.send({
+      from,
+      to,
+      subject,
+      html,
+      attachments,
+      bcc,
+    });
+
+    if (result.error) {
+      console.error('[EMAIL] Resend returned an error:', result.error);
+    } else {
+      console.log(`[EMAIL] Email sent successfully! ID: ${(result as any).data?.id}`);
+    }
+    return result;
+  } catch (error: any) {
+    console.error('[EMAIL] Fatal exception in sendEmail:', error?.message || error);
+    return { error };
   }
 }

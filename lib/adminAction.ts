@@ -40,9 +40,17 @@ function base64url(buf: Buffer): string {
 }
 
 function fromBase64url(str: string): Buffer {
-  const pad = str.length % 4 === 0 ? '' : '='.repeat(4 - (str.length % 4));
-  const b64 = str.replaceAll('-', '+').replaceAll('_', '/') + pad;
-  return Buffer.from(b64, 'base64');
+  if (!str || typeof str !== 'string') return Buffer.from([]);
+  try {
+    let b64 = str.replaceAll('-', '+').replaceAll('_', '/');
+    while (b64.length % 4 !== 0) {
+      b64 += '=';
+    }
+    return Buffer.from(b64, 'base64');
+  } catch (e) {
+    console.error('[fromBase64url] Error:', e);
+    return Buffer.from([]);
+  }
 }
 
 export function signAdminAction(payload: Omit<AdminActionPayload, 'iat' | 'exp'>, ttlMinutes = 60 * 24 * 7): string {

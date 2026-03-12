@@ -55,8 +55,6 @@ jobs:
             cd /opt/apps/tablou
             echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
             echo "${{ secrets.ENV_CONTENTS }}" > .env
-            echo "RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}" >> .env
-            echo "REESEND_API_KEY=${{ secrets.REESEND_API_KEY }}" >> .env
 
             cat <<EOF > docker-compose.yml
             version: '3.8'
