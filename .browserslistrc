@@ -1,0 +1,22 @@
+# Target Baseline 2022+ to eliminate legacy polyfills (Array.at, Object.hasOwn, etc.)
+# This significantly reduces bundle size for modern users.
+
+[production]
+chrome >= 94
+firefox >= 93
+edge >= 94
+safari >= 15.4
+ios >= 15.4
+not dead
+
+[development]
+last 1 chrome version
+last 1 firefox version
+last 1 safari version
+
+[modern]
+chrome >= 94
+firefox >= 93
+edge >= 94
+safari >= 15.4
+ios >= 15.4

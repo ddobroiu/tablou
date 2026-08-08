@@ -1,0 +1,20 @@
+[phases.setup]
+nixPkgs = ["chromium", "nss", "freetype", "freetype-dev", "harfbuzz", "ca-certificates", "ttf-freefont"]
+
+[phases.install]
+cmds = [
+  "rm -rf node_modules",
+  "npm install --include=optional --force"
+]
+
+[phases.build]
+cmds = ["npm run build"]
+
+[start]
+cmd = "npm run start"
+
+[variables]
+PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = "true"
+PUPPETEER_EXECUTABLE_PATH = "/usr/bin/chromium-browser"
+NODE_ENV = "production"
+NODE_OPTIONS = "--max-old-space-size=1536"

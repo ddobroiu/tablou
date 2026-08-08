@@ -1,0 +1,146 @@
+// Afișe (Posters) products - extracted from extraProducts.ts
+// This file contains all poster-related products
+
+function slugify(input: string): string {
+    let s = input.replace(/^Tablou\s+canvas\s+/i, "").trim();
+    const map: Record<string, string> = {
+        "ă": "a", "â": "a", "î": "i", "ș": "s", "ş": "s", "ț": "t", "ţ": "t",
+        "Ă": "a", "Â": "a", "Î": "i", "Ș": "s", "Ş": "s", "Ț": "t", "Ţ": "t",
+        "é": "e", "è": "e", "ê": "e", "ë": "e",
+        "á": "a", "à": "a", "ä": "a", "ã": "a",
+        "í": "i", "ì": "i", "ï": "i",
+        "ó": "o", "ò": "o", "ö": "o", "ô": "o",
+        "ú": "u", "ù": "u", "ü": "u", "û": "u",
+        "ç": "c", "ñ": "n",
+    };
+    s = s.replace(/[ăâîșşțţĂÂÎȘŞȚŢéèêëáàäãîíìïóòöôúùüûçñ]/g, ch => map[ch] ?? ch);
+    s = s
+        .toLowerCase()
+        .replace(/&/g, " si ")
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/-+/g, "-")
+        .replace(/^-|-$/g, "");
+    return s;
+}
+
+const AFISE_LABELS: string[] = [
+    "Afiș program de lucru",
+    "Afiș deschidem în curând",
+    "Afiș orar magazin",
+    "Afiș orar restaurant",
+    "Afiș închis pentru inventar",
+    "Afiș pauză de masă",
+    "Afiș închis temporar",
+    "Afiș deschis",
+    "Afiș închis",
+    "Afiș orar farmacie",
+    "Afiș orar frizerie",
+    "Afiș orar coafor",
+    "Afiș orar cabinet medical",
+    "Afiș orar stomatologie",
+    "Afiș orar salon de înfrumusețare",
+    "Afiș orar spălătorie auto",
+    "Afiș orar service auto",
+    "Afiș orar bar",
+    "Afiș orar cafenea",
+    "Afiș orar pizzerie",
+    "Afiș orar fast food",
+    "Afiș orar benzinărie",
+    "Afiș orar magazin alimentar",
+    "Afiș orar supermarket",
+    "Afiș orar florărie",
+    "Afiș orar librărie",
+    "Afiș orar farmacie non stop",
+    "Afiș orar non stop",
+    "Afiș orar birou",
+    "Afiș orar recepție",
+    "Afiș program birou",
+    "Afiș program restaurant",
+    "Afiș program cafenea",
+    "Afiș program de lucru magazin",
+    "Afiș program de lucru firmă",
+    "Afiș program de lucru salon",
+    "Afiș program de lucru cabinet",
+    "Afiș program de lucru service",
+    "Afiș program de lucru farmacie",
+    "Afiș program de lucru coafor",
+    "Afiș program de lucru bar",
+    "Afiș program de lucru restaurant",
+    "Afiș program de lucru cafenea",
+    "Afiș program de lucru fast food",
+    "Afiș program de lucru firmă curierat",
+    "Afiș program de lucru depozit",
+    "Afiș program de lucru birou",
+    "Afiș program de lucru weekend",
+    "Afiș program de lucru sâmbătă",
+    "Afiș program de lucru duminică",
+    "Afiș deschis în weekend",
+    "Afiș închis duminica",
+    "Afiș închis sâmbăta",
+    "Afiș pauză între ore",
+    "Afiș orar de vară",
+    "Afiș orar de iarnă",
+    "Afiș orar special sărbători",
+    "Afiș program sărbători",
+    "Afiș deschis de Crăciun",
+    "Afiș închis de Crăciun",
+    "Afiș deschis de Paște",
+    "Afiș închis de Paște",
+    "Afiș închis 1 Mai",
+    "Afiș închis de Revelion",
+    "Afiș deschis non stop",
+    "Afiș program zilnic",
+    "Afiș orar zilnic",
+    "Afiș orar personalizat",
+    "Afiș program personalizat",
+    "Afiș program companie",
+    "Afiș program instituție",
+    "Afiș program școală",
+    "Afiș program grădiniță",
+    "Afiș program clinică",
+    "Afiș program cabinet veterinar",
+    "Afiș program dentist",
+    "Afiș program notar",
+    "Afiș program avocat",
+    "Afiș program bancă",
+    "Afiș program poștă",
+    "Afiș program transport",
+    "Afiș program stație",
+    "Afiș program orar clienți",
+    "Afiș program acces public",
+    "Afiș program intrare",
+    "Afiș program ieșire",
+    "Afiș deschidere nou magazin",
+    "Afiș deschidere restaurant",
+    "Afiș deschidere salon",
+    "Afiș deschidere birou",
+    "Afiș inaugurare",
+    "Afiș lansare produs",
+    "Afiș lansare film",
+    "Afiș lansare campanie",
+    "Afiș reducere",
+    "Afiș promoție",
+    "Afiș ofertă specială",
+    "Afiș Black Friday",
+    "Afiș reducere 50%",
+    // Posters - removed generic entries without images
+    // "Poster Ronaldo",
+    // ...
+    // "Poster Urban Night",
+];
+
+export const AFISE_PRODUCTS: any[] = AFISE_LABELS.map((label) => {
+    const clean = label.replace(/^Afiș\s*[–-]?\s*/i, "").replace(/^Afis\s*[–-]?\s*/i, "");
+    const slug = slugify(clean);
+    return {
+        id: `afise-${slug}`,
+        slug,
+        routeSlug: slug,
+        title: label,
+        description: `Afiș personalizat – ${clean}.`,
+        priceBase: 3,
+        currency: "RON",
+        tags: ["afise"],
+        metadata: { category: "afise" },
+    };
+});

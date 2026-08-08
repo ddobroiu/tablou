@@ -1,0 +1,4996 @@
+// Auto-generated canvas products
+export const CANVAS_PRODUCTS = [
+  {
+    "id": "canvas-abstracte",
+    "slug": "canvas-abstracte",
+    "routeSlug": "canvas-abstracte",
+    "title": "Tablouri Canvas Abstracte",
+    "description": "Descoperă 60 modele unice de tablouri canvas abstracte. Print de calitate pe pânză premium, întinsă pe șasiu de lemn.",
+    "images": [
+      "/canvas/abstract-white-waves.jpg"
+    ],
+    "priceBase": 79,
+    "currency": "RON",
+    "tags": [
+      "canvas",
+      "abstracte",
+      "tablouri",
+      "print"
+    ],
+    "metadata": {
+      "category": "Canvas",
+      "subcategory": "Abstracte",
+      "productCount": 60,
+      "allProducts": [
+        {
+          "name": "Abstract White Waves",
+          "image": "/canvas/abstract-white-waves.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-white-waves?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-white-waves.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Blue Art",
+          "image": "/canvas/abstract-blue-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-blue-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-blue-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Moons",
+          "image": "/canvas/abstract-moons.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-moons?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Fportret%2Fabstract-moons.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Black Abstract Lines",
+          "image": "/canvas/black-abstract-lines.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-abstract-lines?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Fblack-abstract-lines.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Golden Abstract Marble",
+          "image": "/canvas/golden-abstract-marble.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-golden-abstract-marble?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fmarble%2Fmockup-1%2F2x3%2Flandscape%2Fgolden-abstract-marble.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Los Angeles",
+          "image": "/canvas/abstract-los-angeles.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-los-angeles?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-los-angeles.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract City Painting",
+          "image": "/canvas/abstract-city-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-city-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-city-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Golden Art",
+          "image": "/canvas/abstract-golden-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-golden-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-golden-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Flowers",
+          "image": "/canvas/abstract-flowers.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-flowers?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-flowers.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Gold Lines (2)",
+          "image": "/canvas/abstract-gold-lines-2.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-gold-lines-(2)?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-gold-lines-(2).jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Flower Art",
+          "image": "/canvas/abstract-flower-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-flower-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-flower-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Circle Painting",
+          "image": "/canvas/abstract-circle-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-circle-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-circle-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Drawing Portret",
+          "image": "/canvas/abstract-drawing-portret.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-drawing-portret?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fporterete%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-drawing-portret.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Couple Kissing",
+          "image": "/canvas/abstract-couple-kissing.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-couple-kissing?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Ffemei-abstracte%2Fmockup-1%2F2x3%2Fportret%2Fabstract-couple-kissing.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Pink Flowers",
+          "image": "/canvas/abstract-pink-flowers.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-pink-flowers?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-pink-flowers.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Shades",
+          "image": "/canvas/abstract-shades.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-shades?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fmarble%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-shades.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Green Artwork",
+          "image": "/canvas/abstract-green-artwork.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-green-artwork?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-green-artwork.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Gold Blue Pattern",
+          "image": "/canvas/abstract-gold-blue-pattern.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-gold-blue-pattern?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-gold-blue-pattern.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Golden Landscape 1",
+          "image": "/canvas/abstract-golden-landscape-1.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-golden-landscape-1?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-golden-landscape-1.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Fire Painting",
+          "image": "/canvas/abstract-fire-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-fire-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Ffoc%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-fire-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Lips",
+          "image": "/canvas/abstract-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Flips%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-lips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Torn Paper",
+          "image": "/canvas/abstract-torn-paper.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-torn-paper?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-torn-paper.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Lily Painting",
+          "image": "/canvas/abstract-lily-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-lily-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Fportret%2Fabstract-lily-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Brown Face",
+          "image": "/canvas/abstract-brown-face.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-brown-face?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Fportret%2Fabstract-brown-face.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Painting",
+          "image": "/canvas/abstract-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Fportret%2Fabstract-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Flower Painting",
+          "image": "/canvas/abstract-flower-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-flower-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-flower-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Combination",
+          "image": "/canvas/abstract-combination.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-combination?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Ffemei-abstracte%2Fmockup-1%2F2x3%2Fportret%2Fabstract-combination.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Turquoise Marble",
+          "image": "/canvas/abstract-turquoise-marble.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-turquoise-marble?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fmarble%2Fmockup-1%2F2x3%2Fportret%2Fabstract-turquoise-marble.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Autumn Woman",
+          "image": "/canvas/abstract-autumn-woman.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-autumn-woman?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Ffemei-abstracte%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-autumn-woman.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Blonde Face",
+          "image": "/canvas/abstract-blonde-face.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-blonde-face?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Ffemei-abstracte%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-blonde-face.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Mountains Abstract",
+          "image": "/canvas/gold-mountains-abstract.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-mountains-abstract?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fgold-mountains-abstract.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Flowers Plants Animals Horses Watercolor Art Background (9)",
+          "image": "/canvas/abstract-flowers-plants-animals-horses-watercolor-art-background-9.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-flowers-plants-animals-horses-watercolor-art-background-(9)?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fbuddha%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-flowers-plants-animals-horses-watercolor-art-background-(9).jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Concept Collage",
+          "image": "/canvas/abstract-concept-collage.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-concept-collage?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fcolaje%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-concept-collage.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Vase Art",
+          "image": "/canvas/abstract-vase-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-vase-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-vaza%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-vase-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "White Gold Abstract",
+          "image": "/canvas/white-gold-abstract.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-white-gold-abstract?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fmarble%2Fmockup-1%2F2x3%2Flandscape%2Fwhite-gold-abstract.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Blue Face",
+          "image": "/canvas/abstract-blue-face.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-blue-face?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Fportret%2Fabstract-blue-face.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Abstract Painting",
+          "image": "/canvas/beautiful-abstract-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-abstract-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-abstract-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Mix Color",
+          "image": "/canvas/abstract-mix-color.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-mix-color?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-mix-color.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Fantasy Science",
+          "image": "/canvas/abstract-fantasy-science.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-fantasy-science?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fpeisaje-sf%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-fantasy-science.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Orange Face",
+          "image": "/canvas/abstract-orange-face.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-orange-face?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Fportret%2Fabstract-orange-face.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Frecventa Abstracta",
+          "image": "/canvas/frecventa-abstracta.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-frecventa-abstracta?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fgeometrice%2Fmockup-1%2F2x3%2Flandscape%2Ffrecventa-abstracta.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Illusion",
+          "image": "/canvas/abstract-illusion.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-illusion?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fmarble%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-illusion.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Grey Face 1",
+          "image": "/canvas/abstract-grey-face-1.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-grey-face-1?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Fportret%2Fabstract-grey-face-1.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Color Work",
+          "image": "/canvas/abstract-color-work.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-color-work?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fculori-vibrante%2Fmockup-1%2F2x3%2Fportret%2Fabstract-color-work.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Buildings",
+          "image": "/canvas/abstract-buildings.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-buildings?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-buildings.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Marble",
+          "image": "/canvas/abstract-marble.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-marble?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fmarble%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-marble.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Gold Woman",
+          "image": "/canvas/abstract-gold-woman.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-gold-woman?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-gold-woman.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract White Clouds",
+          "image": "/canvas/abstract-white-clouds.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-white-clouds?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-white-clouds.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Flowers Plants Animals Horses Watercolor Art Background Aureate Buddha (12)",
+          "image": "/canvas/abstract-flowers-plants-animals-horses-watercolor-art-background-aureate-buddha-12.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-flowers-plants-animals-horses-watercolor-art-background-aureate-buddha-(12)?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fbuddha%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-flowers-plants-animals-horses-watercolor-art-background-aureate-buddha-(12).jpg&w=3840&q=75"
+        },
+        {
+          "name": "African Abstract Art",
+          "image": "/canvas/african-abstract-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-african-abstract-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Ffemei-africane%2Fmockup-1%2F2x3%2Fportret%2Fafrican-abstract-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Lemons",
+          "image": "/canvas/abstract-lemons.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-lemons?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Fportret%2Fabstract-lemons.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Pink Hair",
+          "image": "/canvas/abstract-pink-hair.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-pink-hair?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fdigitale%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-pink-hair.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Marble Art",
+          "image": "/canvas/abstract-marble-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-marble-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-marble-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Alcohol Ink",
+          "image": "/canvas/abstract-alcohol-ink.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-alcohol-ink?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-alcohol-ink.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Fire Art",
+          "image": "/canvas/abstract-fire-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-fire-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Ffoc%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-fire-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Woman Abstract Lips",
+          "image": "/canvas/woman-abstract-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-woman-abstract-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Flips%2Fmockup-1%2F2x3%2Flandscape%2Fwoman-abstract-lips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Woman Lips",
+          "image": "/canvas/abstract-woman-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-woman-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Flips%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-woman-lips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Green Face",
+          "image": "/canvas/abstract-green-face.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-green-face?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Fportret%2Fabstract-green-face.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Black",
+          "image": "/canvas/abstract-black.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-black?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fmarble%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-black.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Male Face",
+          "image": "/canvas/abstract-male-face.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-male-face?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fcolaje%2Fmockup-1%2F2x3%2Fportret%2Fabstract-male-face.jpg&w=3840&q=75"
+        }
+      ]
+    }
+  },
+  {
+    "id": "canvas-flori",
+    "slug": "canvas-flori",
+    "routeSlug": "canvas-flori",
+    "title": "Tablouri Canvas Flori",
+    "description": "Descoperă 172 modele unice de tablouri canvas flori. Print de calitate pe pânză premium, întinsă pe șasiu de lemn.",
+    "images": [
+      "/canvas/magnolino.jpg"
+    ],
+    "priceBase": 79,
+    "currency": "RON",
+    "tags": [
+      "canvas",
+      "flori",
+      "tablouri",
+      "print"
+    ],
+    "metadata": {
+      "category": "Canvas",
+      "subcategory": "Flori",
+      "productCount": 172,
+      "allProducts": [
+        {
+          "name": "Magnolino",
+          "image": "/canvas/magnolino.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-magnolino?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmagnolii%2Fmockup-1%2F2x3%2Flandscape%2Fmagnolino.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Colorful Daisy Mix",
+          "image": "/canvas/colorful-daisy-mix.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-colorful-daisy-mix?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmargarete%2Fmockup-1%2F2x3%2Flandscape%2Fcolorful-daisy-mix.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Lily On Blue Painting",
+          "image": "/canvas/lily-on-blue-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-lily-on-blue-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Flandscape%2Flily-on-blue-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Golden Rose On Wood",
+          "image": "/canvas/golden-rose-on-wood.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-golden-rose-on-wood?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fgolden-rose-on-wood.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Lily With Gold Painting",
+          "image": "/canvas/lily-with-gold-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-lily-with-gold-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Flandscape%2Flily-with-gold-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Flowers",
+          "image": "/canvas/abstract-flowers.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-flowers?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-flowers.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Cream Poppy",
+          "image": "/canvas/gold-cream-poppy.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-cream-poppy?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmaci%2Fmockup-1%2F2x3%2Flandscape%2Fgold-cream-poppy.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Flower Art",
+          "image": "/canvas/abstract-flower-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-flower-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-flower-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Opened Rose",
+          "image": "/canvas/opened-rose.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-opened-rose?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Fopened-rose.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Red Poppy Painting",
+          "image": "/canvas/red-poppy-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-red-poppy-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fred-poppy-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Bouquet Painting",
+          "image": "/canvas/bouquet-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-bouquet-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Fportret%2Fbouquet-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Poppy Grass Field",
+          "image": "/canvas/poppy-grass-field.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-poppy-grass-field?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmaci%2Fmockup-1%2F2x3%2Flandscape%2Fpoppy-grass-field.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Flower Mix Art",
+          "image": "/canvas/flower-mix-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-flower-mix-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fflower-mix-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Poppy Field",
+          "image": "/canvas/poppy-field.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-poppy-field?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmaci%2Fmockup-1%2F2x3%2Flandscape%2Fpoppy-field.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Poppy Black",
+          "image": "/canvas/gold-poppy-black.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-poppy-black?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmaci%2Fmockup-1%2F2x3%2Flandscape%2Fgold-poppy-black.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Yellow Flower Art Vase",
+          "image": "/canvas/yellow-flower-art-vase.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-yellow-flower-art-vase?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-vaza%2Fmockup-1%2F2x3%2Fportret%2Fyellow-flower-art-vase.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Paint Texture Flower",
+          "image": "/canvas/paint-texture-flower.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-paint-texture-flower?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Fportret%2Fpaint-texture-flower.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Red Roses Bouquet",
+          "image": "/canvas/beautiful-red-roses-bouquet.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-red-roses-bouquet?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Fportret%2Fbeautiful-red-roses-bouquet.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Vector_Nature_Landscape_With_Beautiful_Yellow_Flowers_Watercolor",
+          "image": "/canvas/vector_nature_landscape_with_beautiful_yellow_flowers_watercolor.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-vector_nature_landscape_with_beautiful_yellow_flowers_watercolor?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-natura%2Fmockup-1%2F2x3%2Flandscape%2Fvector_nature_landscape_with_beautiful_yellow_flowers_watercolor.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Lily With Orange Painting",
+          "image": "/canvas/lily-with-orange-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-lily-with-orange-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Flandscape%2Flily-with-orange-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Orange Rose Vase",
+          "image": "/canvas/orange-rose-vase.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-orange-rose-vase?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-vaza%2Fmockup-1%2F2x3%2Flandscape%2Forange-rose-vase.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pink Magnolia",
+          "image": "/canvas/pink-magnolia.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pink-magnolia?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmagnolii%2Fmockup-1%2F2x3%2Flandscape%2Fpink-magnolia.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Red Roses",
+          "image": "/canvas/beautiful-red-roses.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-red-roses?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-red-roses.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Pink Flowers",
+          "image": "/canvas/abstract-pink-flowers.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-pink-flowers?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-pink-flowers.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cream Rose On Blue",
+          "image": "/canvas/cream-rose-on-blue.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cream-rose-on-blue?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fcream-rose-on-blue.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cream Roses Close Up",
+          "image": "/canvas/cream-roses-close-up.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cream-roses-close-up?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Fportret%2Fcream-roses-close-up.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Vintage Bouquet Art",
+          "image": "/canvas/vintage-bouquet-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-vintage-bouquet-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Flandscape%2Fvintage-bouquet-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Lily Painting",
+          "image": "/canvas/gold-lily-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-lily-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Flandscape%2Fgold-lily-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Black Poppy",
+          "image": "/canvas/gold-black-poppy.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-black-poppy?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmaci%2Fmockup-1%2F2x3%2Flandscape%2Fgold-black-poppy.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Mixed Roses",
+          "image": "/canvas/mixed-roses.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-mixed-roses?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Fmixed-roses.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Vecteezy_Ai Generated Bouquet Of Fresh Spring Flowers On Light_23373362_865",
+          "image": "/canvas/vecteezy_ai-generated-bouquet-of-fresh-spring-flowers-on-light_23373362_865.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-vecteezy_ai-generated-bouquet-of-fresh-spring-flowers-on-light_23373362_865?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-vaza%2Fmockup-1%2F2x3%2Flandscape%2Fvecteezy_ai-generated-bouquet-of-fresh-spring-flowers-on-light_23373362_865.jpg&w=3840&q=75"
+        },
+        {
+          "name": "White Beautiful Daisy",
+          "image": "/canvas/white-beautiful-daisy.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-white-beautiful-daisy?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmargarete%2Fmockup-1%2F2x3%2Flandscape%2Fwhite-beautiful-daisy.jpg&w=3840&q=75"
+        },
+        {
+          "name": "White Pretty Lily On Grey",
+          "image": "/canvas/white-pretty-lily-on-grey.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-white-pretty-lily-on-grey?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Flandscape%2Fwhite-pretty-lily-on-grey.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Light Orange Rose Close Up",
+          "image": "/canvas/light-orange-rose-close-up.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-light-orange-rose-close-up?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Flight-orange-rose-close-up.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Orange Blue Rose",
+          "image": "/canvas/orange-blue-rose.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-orange-blue-rose?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Forange-blue-rose.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Green Lily",
+          "image": "/canvas/green-lily.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-green-lily?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Flandscape%2Fgreen-lily.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Bih Pink Rose",
+          "image": "/canvas/bih-pink-rose.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-bih-pink-rose?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Fbih-pink-rose.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Roses",
+          "image": "/canvas/blue-roses.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-roses?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Fblue-roses.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Love Green Rose",
+          "image": "/canvas/love-green-rose.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-love-green-rose?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Fportret%2Flove-green-rose.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Red Orange Flower Vase",
+          "image": "/canvas/red-orange-flower-vase.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-red-orange-flower-vase?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-vaza%2Fmockup-1%2F2x3%2Flandscape%2Fred-orange-flower-vase.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Painted Daisy",
+          "image": "/canvas/painted-daisy.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-painted-daisy?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmargarete%2Fmockup-1%2F2x3%2Fportret%2Fpainted-daisy.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cream Mix Flower",
+          "image": "/canvas/cream-mix-flower.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cream-mix-flower?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fcream-mix-flower.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Big Red Rose",
+          "image": "/canvas/big-red-rose.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-big-red-rose?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Fbig-red-rose.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Pink Roses",
+          "image": "/canvas/beautiful-pink-roses.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-pink-roses?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-pink-roses.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Rose",
+          "image": "/canvas/gold-rose.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-rose?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Fgold-rose.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Oil Flower Portrait",
+          "image": "/canvas/oil-flower-portrait.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-oil-flower-portrait?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fporterete%2Fmockup-1%2F2x3%2Flandscape%2Foil-flower-portrait.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Lily Painting",
+          "image": "/canvas/abstract-lily-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-lily-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Fportret%2Fabstract-lily-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Dreamy Field Flowers",
+          "image": "/canvas/dreamy-field-flowers.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-dreamy-field-flowers?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fdreamy-field-flowers.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Bouquet Flowers Vase",
+          "image": "/canvas/bouquet-flowers-vase.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-bouquet-flowers-vase?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Flandscape%2Fbouquet-flowers-vase.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Flower Painting",
+          "image": "/canvas/abstract-flower-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-flower-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-flower-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cream Roses Wall",
+          "image": "/canvas/cream-roses-wall.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cream-roses-wall?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Fcream-roses-wall.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Red Rose",
+          "image": "/canvas/beautiful-red-rose.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-red-rose?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-red-rose.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Purple Rose",
+          "image": "/canvas/blue-purple-rose.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-purple-rose?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Fblue-purple-rose.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Daily Daisy",
+          "image": "/canvas/daily-daisy.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-daily-daisy?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmargarete%2Fmockup-1%2F2x3%2Flandscape%2Fdaily-daisy.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Grey Orange Rose",
+          "image": "/canvas/grey-orange-rose.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-grey-orange-rose?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Fgrey-orange-rose.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Flowers Plants Animals Horses Watercolor Art Background (9)",
+          "image": "/canvas/abstract-flowers-plants-animals-horses-watercolor-art-background-9.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-flowers-plants-animals-horses-watercolor-art-background-(9)?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fbuddha%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-flowers-plants-animals-horses-watercolor-art-background-(9).jpg&w=3840&q=75"
+        },
+        {
+          "name": "Light Pink Lily Art",
+          "image": "/canvas/light-pink-lily-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-light-pink-lily-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Fportret%2Flight-pink-lily-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Big Lily View",
+          "image": "/canvas/big-lily-view.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-big-lily-view?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Flandscape%2Fbig-lily-view.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Daisy Art",
+          "image": "/canvas/beautiful-daisy-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-daisy-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmargarete%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-daisy-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Exotic Flower Plant",
+          "image": "/canvas/exotic-flower-plant.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-exotic-flower-plant?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-exotice%2Fmockup-1%2F2x3%2Flandscape%2Fexotic-flower-plant.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Grey White Daisy",
+          "image": "/canvas/grey-white-daisy.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-grey-white-daisy?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmargarete%2Fmockup-1%2F2x3%2Flandscape%2Fgrey-white-daisy.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Bird Exotic Flower",
+          "image": "/canvas/bird-exotic-flower.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-bird-exotic-flower?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-exotice%2Fmockup-1%2F2x3%2Fportret%2Fbird-exotic-flower.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Watercolor Spring Flowers",
+          "image": "/canvas/watercolor-spring-flowers.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-watercolor-spring-flowers?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fprimavara%2Fmockup-1%2F2x3%2Flandscape%2Fwatercolor-spring-flowers.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful White Lily",
+          "image": "/canvas/beautiful-white-lily.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-white-lily?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-white-lily.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cosmos Flower",
+          "image": "/canvas/cosmos-flower.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cosmos-flower?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-natura%2Fmockup-1%2F2x3%2Flandscape%2Fcosmos-flower.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Green Rose Love",
+          "image": "/canvas/green-rose-love.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-green-rose-love?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Fportret%2Fgreen-rose-love.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Opened Pink Rose",
+          "image": "/canvas/opened-pink-rose.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-opened-pink-rose?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Fopened-pink-rose.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Lily",
+          "image": "/canvas/gold-lily.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-lily?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Flandscape%2Fgold-lily.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cream Purple Bouquet",
+          "image": "/canvas/cream-purple-bouquet.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cream-purple-bouquet?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Flandscape%2Fcream-purple-bouquet.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pretty Flower Vase",
+          "image": "/canvas/pretty-flower-vase.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pretty-flower-vase?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-vaza%2Fmockup-1%2F2x3%2Fportret%2Fpretty-flower-vase.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Dreamy Wild Flower",
+          "image": "/canvas/dreamy-wild-flower.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-dreamy-wild-flower?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-natura%2Fmockup-1%2F2x3%2Fportret%2Fdreamy-wild-flower.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Lily Pretty Pink",
+          "image": "/canvas/lily-pretty-pink.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-lily-pretty-pink?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Fportret%2Flily-pretty-pink.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cute White Lily Painting",
+          "image": "/canvas/cute-white-lily-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cute-white-lily-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Flandscape%2Fcute-white-lily-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pink Flowers Floating",
+          "image": "/canvas/pink-flowers-floating.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pink-flowers-floating?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fpink-flowers-floating.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Pink Lily",
+          "image": "/canvas/beautiful-pink-lily.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-pink-lily?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Fportret%2Fbeautiful-pink-lily.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Orange Cream Lily",
+          "image": "/canvas/orange-cream-lily.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-orange-cream-lily?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Flandscape%2Forange-cream-lily.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Mixed Roses Bouquet",
+          "image": "/canvas/mixed-roses-bouquet.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-mixed-roses-bouquet?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Flandscape%2Fmixed-roses-bouquet.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue White Rose",
+          "image": "/canvas/blue-white-rose.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-white-rose?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Fblue-white-rose.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Poppy Glass",
+          "image": "/canvas/poppy-glass.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-poppy-glass?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmaci%2Fmockup-1%2F2x3%2Fportret%2Fpoppy-glass.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Grey Lily",
+          "image": "/canvas/blue-grey-lily.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-grey-lily?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Flandscape%2Fblue-grey-lily.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Daisy Painting",
+          "image": "/canvas/daisy-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-daisy-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmargarete%2Fmockup-1%2F2x3%2Flandscape%2Fdaisy-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Golden Rose On Blue",
+          "image": "/canvas/golden-rose-on-blue.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-golden-rose-on-blue?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fgolden-rose-on-blue.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Light Pink Lily View",
+          "image": "/canvas/light-pink-lily-view.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-light-pink-lily-view?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Flandscape%2Flight-pink-lily-view.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cosmos Flowers Beautiful",
+          "image": "/canvas/cosmos-flowers-beautiful.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cosmos-flowers-beautiful?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-natura%2Fmockup-1%2F2x3%2Flandscape%2Fcosmos-flowers-beautiful.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Dark Flower Bouquet",
+          "image": "/canvas/dark-flower-bouquet.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-dark-flower-bouquet?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Fportret%2Fdark-flower-bouquet.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Grey White Lily",
+          "image": "/canvas/grey-white-lily.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-grey-white-lily?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Flandscape%2Fgrey-white-lily.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Bouquet",
+          "image": "/canvas/bouquet.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-bouquet?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Flandscape%2Fbouquet.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Orange Flowers Vase",
+          "image": "/canvas/orange-flowers-vase.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-orange-flowers-vase?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-vaza%2Fmockup-1%2F2x3%2Fportret%2Forange-flowers-vase.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Colorful Flower Bouquet",
+          "image": "/canvas/colorful-flower-bouquet.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-colorful-flower-bouquet?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Fportret%2Fcolorful-flower-bouquet.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Buddha Lotus Flower",
+          "image": "/canvas/buddha-lotus-flower.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-buddha-lotus-flower?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fbuddha%2Fmockup-1%2F2x3%2Flandscape%2Fbuddha-lotus-flower.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Dreamy Purple Flower",
+          "image": "/canvas/dreamy-purple-flower.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-dreamy-purple-flower?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-natura%2Fmockup-1%2F2x3%2Flandscape%2Fdreamy-purple-flower.jpg&w=3840&q=75"
+        },
+        {
+          "name": "White Orange Lily",
+          "image": "/canvas/white-orange-lily.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-white-orange-lily?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Fportret%2Fwhite-orange-lily.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Girly Pink Bouquet",
+          "image": "/canvas/girly-pink-bouquet.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-girly-pink-bouquet?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Flandscape%2Fgirly-pink-bouquet.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Big Pink Rose Bouquet",
+          "image": "/canvas/big-pink-rose-bouquet.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-big-pink-rose-bouquet?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Flandscape%2Fbig-pink-rose-bouquet.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Yellow View Flower",
+          "image": "/canvas/yellow-view-flower.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-yellow-view-flower?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fyellow-view-flower.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Big Rose Painted",
+          "image": "/canvas/big-rose-painted.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-big-rose-painted?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Fbig-rose-painted.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Lonely Rose",
+          "image": "/canvas/lonely-rose.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-lonely-rose?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Flonely-rose.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Flower Garden",
+          "image": "/canvas/beautiful-flower-garden.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-flower-garden?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-natura%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-flower-garden.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Glowing Roses",
+          "image": "/canvas/glowing-roses.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-glowing-roses?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Fglowing-roses.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cosmos Flowers Grassland",
+          "image": "/canvas/cosmos-flowers-grassland.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cosmos-flowers-grassland?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-natura%2Fmockup-1%2F2x3%2Flandscape%2Fcosmos-flowers-grassland.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cute Purple Bouquet",
+          "image": "/canvas/cute-purple-bouquet.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cute-purple-bouquet?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Flandscape%2Fcute-purple-bouquet.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Red Poppy Liquid",
+          "image": "/canvas/beautiful-red-poppy-liquid.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-red-poppy-liquid?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmaci%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-red-poppy-liquid.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cute Roses Bouquet",
+          "image": "/canvas/cute-roses-bouquet.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cute-roses-bouquet?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Flandscape%2Fcute-roses-bouquet.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pretty Pink Flower Vase",
+          "image": "/canvas/pretty-pink-flower-vase.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pretty-pink-flower-vase?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-vaza%2Fmockup-1%2F2x3%2Flandscape%2Fpretty-pink-flower-vase.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Orange Cream Rose",
+          "image": "/canvas/orange-cream-rose.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-orange-cream-rose?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Forange-cream-rose.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Flower",
+          "image": "/canvas/flower.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-flower?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-exotice%2Fmockup-1%2F2x3%2Flandscape%2Fflower.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Heart Shaped Daisy",
+          "image": "/canvas/heart-shaped-daisy.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-heart-shaped-daisy?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmargarete%2Fmockup-1%2F2x3%2Flandscape%2Fheart-shaped-daisy.jpg&w=3840&q=75"
+        },
+        {
+          "name": "White Daisy Art",
+          "image": "/canvas/white-daisy-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-white-daisy-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmargarete%2Fmockup-1%2F2x3%2Fportret%2Fwhite-daisy-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Baby Pink Bouquet",
+          "image": "/canvas/baby-pink-bouquet.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-baby-pink-bouquet?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Flandscape%2Fbaby-pink-bouquet.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pink Cream Flower Vase",
+          "image": "/canvas/pink-cream-flower-vase.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pink-cream-flower-vase?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-vaza%2Fmockup-1%2F2x3%2Fportret%2Fpink-cream-flower-vase.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cream Black Lily",
+          "image": "/canvas/cream-black-lily.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cream-black-lily?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Flandscape%2Fcream-black-lily.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pretty Watercolor Bouquet",
+          "image": "/canvas/pretty-watercolor-bouquet.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pretty-watercolor-bouquet?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Flandscape%2Fpretty-watercolor-bouquet.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cherry Spring Flower",
+          "image": "/canvas/cherry-spring-flower.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cherry-spring-flower?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fprimavara%2Fmockup-1%2F2x3%2Flandscape%2Fcherry-spring-flower.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pink Nature Flower",
+          "image": "/canvas/pink-nature-flower.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pink-nature-flower?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fnatura%2Fmockup-1%2F2x3%2Flandscape%2Fpink-nature-flower.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Lotus Flower Buddha",
+          "image": "/canvas/lotus-flower-buddha.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-lotus-flower-buddha?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fbuddha%2Fmockup-1%2F2x3%2Flandscape%2Flotus-flower-buddha.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pink Red Bouquet",
+          "image": "/canvas/pink-red-bouquet.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pink-red-bouquet?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Fportret%2Fpink-red-bouquet.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Light Lily Art",
+          "image": "/canvas/light-lily-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-light-lily-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Flandscape%2Flight-lily-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Yellow Flower Portrait",
+          "image": "/canvas/yellow-flower-portrait.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-yellow-flower-portrait?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fporterete%2Fmockup-1%2F2x3%2Flandscape%2Fyellow-flower-portrait.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Orange Roses Vase",
+          "image": "/canvas/orange-roses-vase.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-orange-roses-vase?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-vaza%2Fmockup-1%2F2x3%2Flandscape%2Forange-roses-vase.jpg&w=3840&q=75"
+        },
+        {
+          "name": "White Flower Buddha Art",
+          "image": "/canvas/white-flower-buddha-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-white-flower-buddha-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fbuddha%2Fmockup-1%2F2x3%2Flandscape%2Fwhite-flower-buddha-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Flowers Plants Animals Horses Watercolor Art Background Aureate Buddha (12)",
+          "image": "/canvas/abstract-flowers-plants-animals-horses-watercolor-art-background-aureate-buddha-12.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-flowers-plants-animals-horses-watercolor-art-background-aureate-buddha-(12)?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fbuddha%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-flowers-plants-animals-horses-watercolor-art-background-aureate-buddha-(12).jpg&w=3840&q=75"
+        },
+        {
+          "name": "Exotic White Flower",
+          "image": "/canvas/exotic-white-flower.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-exotic-white-flower?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-exotice%2Fmockup-1%2F2x3%2Flandscape%2Fexotic-white-flower.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Purple Vase Flowers",
+          "image": "/canvas/purple-vase-flowers.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-purple-vase-flowers?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-vaza%2Fmockup-1%2F2x3%2Flandscape%2Fpurple-vase-flowers.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Flowers In Vase",
+          "image": "/canvas/flowers-in-vase.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-flowers-in-vase?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-vaza%2Fmockup-1%2F2x3%2Flandscape%2Fflowers-in-vase.jpg&w=3840&q=75"
+        },
+        {
+          "name": "White Tulips Bouquet",
+          "image": "/canvas/white-tulips-bouquet.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-white-tulips-bouquet?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Flalele%2Fmockup-1%2F2x3%2Flandscape%2Fwhite-tulips-bouquet.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Buddha Flower",
+          "image": "/canvas/gold-buddha-flower.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-buddha-flower?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fbuddha%2Fmockup-1%2F2x3%2Flandscape%2Fgold-buddha-flower.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Flower Elephant",
+          "image": "/canvas/flower-elephant.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-flower-elephant?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fanimale%2Felefanti%2Fmockup-1%2F2x3%2Fportret%2Fflower-elephant.jpg&w=3840&q=75"
+        },
+        {
+          "name": "White Grey Daisy",
+          "image": "/canvas/white-grey-daisy.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-white-grey-daisy?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmargarete%2Fmockup-1%2F2x3%2Flandscape%2Fwhite-grey-daisy.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Dreamy Sprig Pink Flower",
+          "image": "/canvas/dreamy-sprig-pink-flower.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-dreamy-sprig-pink-flower?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fprimavara%2Fmockup-1%2F2x3%2Flandscape%2Fdreamy-sprig-pink-flower.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pretty Flowers On Blue",
+          "image": "/canvas/pretty-flowers-on-blue.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pretty-flowers-on-blue?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fpretty-flowers-on-blue.jpg&w=3840&q=75"
+        },
+        {
+          "name": "White Spa Flower",
+          "image": "/canvas/white-spa-flower.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-white-spa-flower?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fnatura%2Fmockup-1%2F2x3%2Flandscape%2Fwhite-spa-flower.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Light Pink Lily",
+          "image": "/canvas/light-pink-lily.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-light-pink-lily?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Flandscape%2Flight-pink-lily.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Flower Water Glass",
+          "image": "/canvas/flower-water-glass.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-flower-water-glass?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fapa%2Fmockup-1%2F2x3%2Fportret%2Fflower-water-glass.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Cherry Flower",
+          "image": "/canvas/beautiful-cherry-flower.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-cherry-flower?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fnatura%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-cherry-flower.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Orange Yellow Daisy",
+          "image": "/canvas/orange-yellow-daisy.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-orange-yellow-daisy?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmargarete%2Fmockup-1%2F2x3%2Flandscape%2Forange-yellow-daisy.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Red Flower Lake",
+          "image": "/canvas/red-flower-lake.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-red-flower-lake?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Flacuri%2Fmockup-1%2F2x3%2Flandscape%2Fred-flower-lake.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Grey Moon Flowers",
+          "image": "/canvas/grey-moon-flowers.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-grey-moon-flowers?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fnatura%2Fmockup-1%2F2x3%2Fportret%2Fgrey-moon-flowers.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Glass Poppy",
+          "image": "/canvas/blue-glass-poppy.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-glass-poppy?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmaci%2Fmockup-1%2F2x3%2Fportret%2Fblue-glass-poppy.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Purple Orange Lily",
+          "image": "/canvas/purple-orange-lily.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-purple-orange-lily?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Fportret%2Fpurple-orange-lily.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pretty Orange Rose Vase",
+          "image": "/canvas/pretty-orange-rose-vase.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pretty-orange-rose-vase?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-vaza%2Fmockup-1%2F2x3%2Flandscape%2Fpretty-orange-rose-vase.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Dreamy White Daisy",
+          "image": "/canvas/dreamy-white-daisy.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-dreamy-white-daisy?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmargarete%2Fmockup-1%2F2x3%2Fportret%2Fdreamy-white-daisy.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Light Purple Poppy",
+          "image": "/canvas/light-purple-poppy.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-light-purple-poppy?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmaci%2Fmockup-1%2F2x3%2Flandscape%2Flight-purple-poppy.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Purple Cute Bouquet",
+          "image": "/canvas/purple-cute-bouquet.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-purple-cute-bouquet?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Flandscape%2Fpurple-cute-bouquet.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Yellow Lily",
+          "image": "/canvas/beautiful-yellow-lily.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-yellow-lily?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-yellow-lily.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Dreamy Daisy",
+          "image": "/canvas/dreamy-daisy.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-dreamy-daisy?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmargarete%2Fmockup-1%2F2x3%2Flandscape%2Fdreamy-daisy.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Dark Pink Rose",
+          "image": "/canvas/dark-pink-rose.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-dark-pink-rose?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Fdark-pink-rose.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Roses Bouquet",
+          "image": "/canvas/blue-roses-bouquet.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-roses-bouquet?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Flandscape%2Fblue-roses-bouquet.jpg&w=3840&q=75"
+        },
+        {
+          "name": "White Tiny Flower Vase",
+          "image": "/canvas/white-tiny-flower-vase.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-white-tiny-flower-vase?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-vaza%2Fmockup-1%2F2x3%2Flandscape%2Fwhite-tiny-flower-vase.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Colorfull Flowers Painting",
+          "image": "/canvas/colorfull-flowers-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-colorfull-flowers-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fcolorfull-flowers-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Light Orange Lily",
+          "image": "/canvas/light-orange-lily.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-light-orange-lily?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Fportret%2Flight-orange-lily.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Green Vase Flowers",
+          "image": "/canvas/green-vase-flowers.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-green-vase-flowers?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-vaza%2Fmockup-1%2F2x3%2Flandscape%2Fgreen-vase-flowers.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pink Beautiful Bouquet",
+          "image": "/canvas/pink-beautiful-bouquet.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pink-beautiful-bouquet?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Flandscape%2Fpink-beautiful-bouquet.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Orange Lily In The Sun",
+          "image": "/canvas/orange-lily-in-the-sun.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-orange-lily-in-the-sun?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Flandscape%2Forange-lily-in-the-sun.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Color Mix Flower Bouquet",
+          "image": "/canvas/color-mix-flower-bouquet.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-color-mix-flower-bouquet?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Flandscape%2Fcolor-mix-flower-bouquet.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Flowers Garden",
+          "image": "/canvas/flowers-garden.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-flowers-garden?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-natura%2Fmockup-1%2F2x3%2Flandscape%2Fflowers-garden.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pink Vase Flower",
+          "image": "/canvas/pink-vase-flower.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pink-vase-flower?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-vaza%2Fmockup-1%2F2x3%2Fportret%2Fpink-vase-flower.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Blue Pink Rose",
+          "image": "/canvas/beautiful-blue-pink-rose.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-blue-pink-rose?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-blue-pink-rose.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Lily Orange Art",
+          "image": "/canvas/lily-orange-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-lily-orange-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Flandscape%2Flily-orange-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Lily Set",
+          "image": "/canvas/lily-set.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-lily-set?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Flandscape%2Flily-set.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Stone Orange Flower",
+          "image": "/canvas/stone-orange-flower.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-stone-orange-flower?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fpietre%2Fmockup-1%2F2x3%2Fportret%2Fstone-orange-flower.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Golden Rose",
+          "image": "/canvas/beautiful-golden-rose.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-golden-rose?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-golden-rose.jpg&w=3840&q=75"
+        },
+        {
+          "name": "3D White Roses",
+          "image": "/canvas/3d-white-roses.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-3d-white-roses?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2F3d-white-roses.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Yellow Flower Nature",
+          "image": "/canvas/yellow-flower-nature.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-yellow-flower-nature?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fnatura%2Fmockup-1%2F2x3%2Flandscape%2Fyellow-flower-nature.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pastel Orange Bouquet",
+          "image": "/canvas/pastel-orange-bouquet.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pastel-orange-bouquet?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Fportret%2Fpastel-orange-bouquet.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Daylight Flower",
+          "image": "/canvas/daylight-flower.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-daylight-flower?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-natura%2Fmockup-1%2F2x3%2Flandscape%2Fdaylight-flower.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Wild Cream Flower",
+          "image": "/canvas/wild-cream-flower.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-wild-cream-flower?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-natura%2Fmockup-1%2F2x3%2Flandscape%2Fwild-cream-flower.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Orange Pretty Daisy",
+          "image": "/canvas/orange-pretty-daisy.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-orange-pretty-daisy?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmargarete%2Fmockup-1%2F2x3%2Flandscape%2Forange-pretty-daisy.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Opened Peonies Bouquet",
+          "image": "/canvas/opened-peonies-bouquet.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-opened-peonies-bouquet?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Flandscape%2Fopened-peonies-bouquet.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Exotic Flower",
+          "image": "/canvas/beautiful-exotic-flower.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-exotic-flower?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-exotice%2Fmockup-1%2F2x3%2Fportret%2Fbeautiful-exotic-flower.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Sunset Exotic Flower",
+          "image": "/canvas/sunset-exotic-flower.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-sunset-exotic-flower?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-exotice%2Fmockup-1%2F2x3%2Flandscape%2Fsunset-exotic-flower.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Big Yellow Lily",
+          "image": "/canvas/big-yellow-lily.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-big-yellow-lily?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Flandscape%2Fbig-yellow-lily.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Fake Flowers Wall",
+          "image": "/canvas/fake-flowers-wall.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-fake-flowers-wall?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Flandscape%2Ffake-flowers-wall.jpg&w=3840&q=75"
+        }
+      ]
+    }
+  },
+  {
+    "id": "canvas-peisaje",
+    "slug": "canvas-peisaje",
+    "routeSlug": "canvas-peisaje",
+    "title": "Tablouri Canvas Peisaje",
+    "description": "Descoperă 88 modele unice de tablouri canvas peisaje. Print de calitate pe pânză premium, întinsă pe șasiu de lemn.",
+    "images": [
+      "/canvas/tatra-view.jpg"
+    ],
+    "priceBase": 79,
+    "currency": "RON",
+    "tags": [
+      "canvas",
+      "peisaje",
+      "tablouri",
+      "print"
+    ],
+    "metadata": {
+      "category": "Canvas",
+      "subcategory": "Peisaje",
+      "productCount": 88,
+      "allProducts": [
+        {
+          "name": "Tatra View",
+          "image": "/canvas/tatra-view.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-tatra-view?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fmunti%2Fmockup-1%2F2x3%2Flandscape%2Ftatra-view.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cloudy Mountains View",
+          "image": "/canvas/cloudy-mountains-view.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cloudy-mountains-view?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fmunti%2Fmockup-1%2F2x3%2Flandscape%2Fcloudy-mountains-view.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Sunset Sea Art",
+          "image": "/canvas/sunset-sea-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-sunset-sea-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fsunset-sea-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Autumn Nature Art",
+          "image": "/canvas/autumn-nature-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-autumn-nature-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fautumn-nature-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Beach",
+          "image": "/canvas/beautiful-beach.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-beach?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fplaje%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-beach.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Relaxing Nature",
+          "image": "/canvas/relaxing-nature.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-relaxing-nature?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fnatura%2Fmockup-1%2F2x3%2Flandscape%2Frelaxing-nature.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Small River Forest",
+          "image": "/canvas/small-river-forest.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-small-river-forest?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fpaduri%2Fmockup-1%2F2x3%2Flandscape%2Fsmall-river-forest.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Relaxing Spa Nature",
+          "image": "/canvas/relaxing-spa-nature.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-relaxing-spa-nature?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fnatura%2Fmockup-1%2F2x3%2Flandscape%2Frelaxing-spa-nature.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Vector_Nature_Landscape_With_Beautiful_Yellow_Flowers_Watercolor",
+          "image": "/canvas/vector_nature_landscape_with_beautiful_yellow_flowers_watercolor.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-vector_nature_landscape_with_beautiful_yellow_flowers_watercolor?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-natura%2Fmockup-1%2F2x3%2Flandscape%2Fvector_nature_landscape_with_beautiful_yellow_flowers_watercolor.jpg&w=3840&q=75"
+        },
+        {
+          "name": "The Sun Is Rising Over A River In A Foggy Forest",
+          "image": "/canvas/the-sun-is-rising-over-a-river-in-a-foggy-forest.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-the-sun-is-rising-over-a-river-in-a-foggy-forest?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Flacuri%2Fmockup-1%2F2x3%2Flandscape%2Fthe-sun-is-rising-over-a-river-in-a-foggy-forest.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Forest Light",
+          "image": "/canvas/forest-light.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-forest-light?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fpaduri%2Fmockup-1%2F2x3%2Fportret%2Fforest-light.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cream Chinese Mountain",
+          "image": "/canvas/cream-chinese-mountain.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cream-chinese-mountain?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fasiatic%2Fmockup-1%2F2x3%2Flandscape%2Fcream-chinese-mountain.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Beach Landscape",
+          "image": "/canvas/beautiful-beach-landscape.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-beach-landscape?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fplaje%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-beach-landscape.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Angry Wolf In The Forest",
+          "image": "/canvas/angry-wolf-in-the-forest.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-angry-wolf-in-the-forest?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fanimale%2Flupi%2Fmockup-1%2F2x3%2Fportret%2Fangry-wolf-in-the-forest.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Purple Lake",
+          "image": "/canvas/purple-lake.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-purple-lake?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fmunti%2Fmockup-1%2F2x3%2Flandscape%2Fpurple-lake.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Lake Pink Night",
+          "image": "/canvas/lake-pink-night.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-lake-pink-night?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Flacuri%2Fmockup-1%2F2x3%2Flandscape%2Flake-pink-night.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Sunset Beach Rocks",
+          "image": "/canvas/sunset-beach-rocks.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-sunset-beach-rocks?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fapus-de-soare%2Fmockup-1%2F2x3%2Flandscape%2Fsunset-beach-rocks.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Autumn Forest",
+          "image": "/canvas/autumn-forest.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-autumn-forest?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Ftoamna%2Fmockup-1%2F2x3%2Flandscape%2Fautumn-forest.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Golden Landscape 1",
+          "image": "/canvas/abstract-golden-landscape-1.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-golden-landscape-1?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-golden-landscape-1.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Sunrise Beach View",
+          "image": "/canvas/sunrise-beach-view.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-sunrise-beach-view?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fplaje%2Fmockup-1%2F2x3%2Flandscape%2Fsunrise-beach-view.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Lake Green Mountain",
+          "image": "/canvas/lake-green-mountain.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-lake-green-mountain?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fmunti%2Fmockup-1%2F2x3%2Flandscape%2Flake-green-mountain.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Magic Lake",
+          "image": "/canvas/blue-magic-lake.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-magic-lake?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Flacuri%2Fmockup-1%2F2x3%2Flandscape%2Fblue-magic-lake.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beach Dramatic Sunset",
+          "image": "/canvas/beach-dramatic-sunset.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beach-dramatic-sunset?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fapus-de-soare%2Fmockup-1%2F2x3%2Flandscape%2Fbeach-dramatic-sunset.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Yin Yang Mountain",
+          "image": "/canvas/yin-yang-mountain.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-yin-yang-mountain?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fasiatic%2Fmockup-1%2F2x3%2Flandscape%2Fyin-yang-mountain.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Mountain Sunrise Lake",
+          "image": "/canvas/mountain-sunrise-lake.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-mountain-sunrise-lake?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Flacuri%2Fmockup-1%2F2x3%2Flandscape%2Fmountain-sunrise-lake.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beach Painting Art",
+          "image": "/canvas/beach-painting-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beach-painting-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fplaje%2Fmockup-1%2F2x3%2Flandscape%2Fbeach-painting-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Autumn Seasoning",
+          "image": "/canvas/autumn-seasoning.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-autumn-seasoning?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Fcondimente%2Fmockup-1%2F2x3%2Flandscape%2Fautumn-seasoning.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Japan Lake Man",
+          "image": "/canvas/japan-lake-man.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-japan-lake-man?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Flacuri%2Fmockup-1%2F2x3%2Flandscape%2Fjapan-lake-man.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Lake Autumn View",
+          "image": "/canvas/lake-autumn-view.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-lake-autumn-view?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Flacuri%2Fmockup-1%2F2x3%2Flandscape%2Flake-autumn-view.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cream Nature",
+          "image": "/canvas/cream-nature.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cream-nature?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fnatura%2Fmockup-1%2F2x3%2Fportret%2Fcream-nature.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Landscape Colorful Trees",
+          "image": "/canvas/landscape-colorful-trees.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-landscape-colorful-trees?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fprimavara%2Fmockup-1%2F2x3%2Flandscape%2Flandscape-colorful-trees.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Mountain Reflection",
+          "image": "/canvas/mountain-reflection.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-mountain-reflection?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Flacuri%2Fmockup-1%2F2x3%2Flandscape%2Fmountain-reflection.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Mountains Abstract",
+          "image": "/canvas/gold-mountains-abstract.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-mountains-abstract?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fgold-mountains-abstract.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Forest Tulips",
+          "image": "/canvas/forest-tulips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-forest-tulips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-natura%2Fmockup-1%2F2x3%2Flandscape%2Fforest-tulips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Big Trees Forest",
+          "image": "/canvas/big-trees-forest.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-big-trees-forest?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fpaduri%2Fmockup-1%2F2x3%2Fportret%2Fbig-trees-forest.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Orange Beach",
+          "image": "/canvas/blue-orange-beach.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-orange-beach?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fplaje%2Fmockup-1%2F2x3%2Flandscape%2Fblue-orange-beach.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beach Road",
+          "image": "/canvas/beach-road.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beach-road?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fplaje%2Fmockup-1%2F2x3%2Flandscape%2Fbeach-road.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Island Beach",
+          "image": "/canvas/island-beach.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-island-beach?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fplaje%2Fmockup-1%2F2x3%2Flandscape%2Fisland-beach.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beach Sunset View",
+          "image": "/canvas/beach-sunset-view.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beach-sunset-view?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fplaje%2Fmockup-1%2F2x3%2Flandscape%2Fbeach-sunset-view.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Asiatic Purple Mountain",
+          "image": "/canvas/asiatic-purple-mountain.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-asiatic-purple-mountain?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fasiatic%2Fmockup-1%2F2x3%2Flandscape%2Fasiatic-purple-mountain.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Autumn Field Lake",
+          "image": "/canvas/autumn-field-lake.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-autumn-field-lake?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Flacuri%2Fmockup-1%2F2x3%2Flandscape%2Fautumn-field-lake.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Green Light Forest",
+          "image": "/canvas/green-light-forest.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-green-light-forest?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fpaduri%2Fmockup-1%2F2x3%2Flandscape%2Fgreen-light-forest.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Exotic Beach Ocean",
+          "image": "/canvas/exotic-beach-ocean.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-exotic-beach-ocean?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fplaje%2Fmockup-1%2F2x3%2Flandscape%2Fexotic-beach-ocean.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Golden Mountains",
+          "image": "/canvas/golden-mountains.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-golden-mountains?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fmunti%2Fmockup-1%2F2x3%2Flandscape%2Fgolden-mountains.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Clear Lake Rain",
+          "image": "/canvas/clear-lake-rain.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-clear-lake-rain?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fapa%2Fmockup-1%2F2x3%2Flandscape%2Fclear-lake-rain.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Green Mountain Moon",
+          "image": "/canvas/green-mountain-moon.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-green-mountain-moon?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fasiatic%2Fmockup-1%2F2x3%2Flandscape%2Fgreen-mountain-moon.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Nature Painting",
+          "image": "/canvas/nature-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-nature-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fnature-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pink Nature Flower",
+          "image": "/canvas/pink-nature-flower.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pink-nature-flower?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fnatura%2Fmockup-1%2F2x3%2Flandscape%2Fpink-nature-flower.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cream Blue Beach",
+          "image": "/canvas/cream-blue-beach.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cream-blue-beach?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fplaje%2Fmockup-1%2F2x3%2Flandscape%2Fcream-blue-beach.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Purple Blue Beach",
+          "image": "/canvas/purple-blue-beach.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-purple-blue-beach?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fplaje%2Fmockup-1%2F2x3%2Flandscape%2Fpurple-blue-beach.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Carpathian Mountain",
+          "image": "/canvas/carpathian-mountain.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-carpathian-mountain?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fpaduri%2Fmockup-1%2F2x3%2Flandscape%2Fcarpathian-mountain.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Nature Bridge",
+          "image": "/canvas/nature-bridge.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-nature-bridge?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fnatura%2Fmockup-1%2F2x3%2Flandscape%2Fnature-bridge.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cloudy Beach",
+          "image": "/canvas/cloudy-beach.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cloudy-beach?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fplaje%2Fmockup-1%2F2x3%2Flandscape%2Fcloudy-beach.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Grey Clouds Beach",
+          "image": "/canvas/grey-clouds-beach.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-grey-clouds-beach?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fplaje%2Fmockup-1%2F2x3%2Flandscape%2Fgrey-clouds-beach.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Waves Beach",
+          "image": "/canvas/blue-waves-beach.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-waves-beach?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fplaje%2Fmockup-1%2F2x3%2Flandscape%2Fblue-waves-beach.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful White Nature",
+          "image": "/canvas/beautiful-white-nature.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-white-nature?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fnatura%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-white-nature.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Mountain Rural View",
+          "image": "/canvas/mountain-rural-view.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-mountain-rural-view?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Frural%2Fmockup-1%2F2x3%2Flandscape%2Fmountain-rural-view.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Lake Canada",
+          "image": "/canvas/beautiful-lake-canada.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-lake-canada?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Flacuri%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-lake-canada.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Amazing Foggy Mountain",
+          "image": "/canvas/amazing-foggy-mountain.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-amazing-foggy-mountain?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fmunti%2Fmockup-1%2F2x3%2Flandscape%2Famazing-foggy-mountain.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Light Lake",
+          "image": "/canvas/blue-light-lake.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-light-lake?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Flacuri%2Fmockup-1%2F2x3%2Flandscape%2Fblue-light-lake.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beach Tower",
+          "image": "/canvas/beach-tower.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beach-tower?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fplaje%2Fmockup-1%2F2x3%2Fportret%2Fbeach-tower.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Black Lambo Sea",
+          "image": "/canvas/black-lambo-sea.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-lambo-sea?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmasini%2Fmasini-sport%2Fmockup-1%2F2x3%2Flandscape%2Fblack-lambo-sea.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Ancient Forest Dragon",
+          "image": "/canvas/ancient-forest-dragon.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-ancient-forest-dragon?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fdragoni%2Fmockup-1%2F2x3%2Flandscape%2Fancient-forest-dragon.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Fishman Lake View",
+          "image": "/canvas/fishman-lake-view.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-fishman-lake-view?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Flacuri%2Fmockup-1%2F2x3%2Flandscape%2Ffishman-lake-view.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Red Flower Lake",
+          "image": "/canvas/red-flower-lake.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-red-flower-lake?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Flacuri%2Fmockup-1%2F2x3%2Flandscape%2Fred-flower-lake.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beach Family",
+          "image": "/canvas/beach-family.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beach-family?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fplaje%2Fmockup-1%2F2x3%2Flandscape%2Fbeach-family.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beach Sunrise",
+          "image": "/canvas/beach-sunrise.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beach-sunrise?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fplaje%2Fmockup-1%2F2x3%2Flandscape%2Fbeach-sunrise.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pink Blue Nature",
+          "image": "/canvas/pink-blue-nature.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pink-blue-nature?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fnatura%2Fmockup-1%2F2x3%2Flandscape%2Fpink-blue-nature.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Landscape Painting",
+          "image": "/canvas/gold-landscape-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-landscape-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fasiatic%2Fmockup-1%2F2x3%2Flandscape%2Fgold-landscape-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Sunset Art Lake",
+          "image": "/canvas/sunset-art-lake.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-sunset-art-lake?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Flacuri%2Fmockup-1%2F2x3%2Flandscape%2Fsunset-art-lake.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Japan Lake Gate",
+          "image": "/canvas/japan-lake-gate.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-japan-lake-gate?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fasiatic%2Fmockup-1%2F2x3%2Flandscape%2Fjapan-lake-gate.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Orange Light Lake",
+          "image": "/canvas/orange-light-lake.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-orange-light-lake?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Flacuri%2Fmockup-1%2F2x3%2Flandscape%2Forange-light-lake.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Nature Rocks Waterfall",
+          "image": "/canvas/nature-rocks-waterfall.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-nature-rocks-waterfall?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fcascade%2Fmockup-1%2F2x3%2Flandscape%2Fnature-rocks-waterfall.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Sunset Lake View",
+          "image": "/canvas/sunset-lake-view.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-sunset-lake-view?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Flacuri%2Fmockup-1%2F2x3%2Flandscape%2Fsunset-lake-view.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Forest Autumn Day",
+          "image": "/canvas/forest-autumn-day.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-forest-autumn-day?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fpaduri%2Fmockup-1%2F2x3%2Flandscape%2Fforest-autumn-day.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cream Orchid In Nature",
+          "image": "/canvas/cream-orchid-in-nature.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cream-orchid-in-nature?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Forhidee%2Fmockup-1%2F2x3%2Flandscape%2Fcream-orchid-in-nature.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Asian Mountain View",
+          "image": "/canvas/asian-mountain-view.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-asian-mountain-view?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fasiatic%2Fmockup-1%2F2x3%2Flandscape%2Fasian-mountain-view.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Forest Lake Rocks",
+          "image": "/canvas/forest-lake-rocks.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-forest-lake-rocks?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fpaduri%2Fmockup-1%2F2x3%2Flandscape%2Fforest-lake-rocks.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Sea Watercolor",
+          "image": "/canvas/sea-watercolor.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-sea-watercolor?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fapa%2Fmockup-1%2F2x3%2Fportret%2Fsea-watercolor.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Sky Beach",
+          "image": "/canvas/blue-sky-beach.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-sky-beach?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fplaje%2Fmockup-1%2F2x3%2Flandscape%2Fblue-sky-beach.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Green Blue Beach",
+          "image": "/canvas/green-blue-beach.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-green-blue-beach?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fplaje%2Fmockup-1%2F2x3%2Flandscape%2Fgreen-blue-beach.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Nature Woman",
+          "image": "/canvas/nature-woman.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-nature-woman?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Ffemei-abstracte%2Fmockup-1%2F2x3%2Fportret%2Fnature-woman.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Moraine Lake",
+          "image": "/canvas/beautiful-moraine-lake.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-moraine-lake?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Flacuri%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-moraine-lake.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Yellow Flower Nature",
+          "image": "/canvas/yellow-flower-nature.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-yellow-flower-nature?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fnatura%2Fmockup-1%2F2x3%2Flandscape%2Fyellow-flower-nature.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Lake Reflection",
+          "image": "/canvas/lake-reflection.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-lake-reflection?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fmunti%2Fmockup-1%2F2x3%2Flandscape%2Flake-reflection.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cream Pink Nature",
+          "image": "/canvas/cream-pink-nature.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cream-pink-nature?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fnatura%2Fmockup-1%2F2x3%2Flandscape%2Fcream-pink-nature.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Far Away Mountain",
+          "image": "/canvas/far-away-mountain.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-far-away-mountain?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fmunti%2Fmockup-1%2F2x3%2Flandscape%2Ffar-away-mountain.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Lake Blue Woman",
+          "image": "/canvas/lake-blue-woman.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-lake-blue-woman?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Flake-blue-woman.jpg&w=3840&q=75"
+        }
+      ]
+    }
+  },
+  {
+    "id": "canvas-auriu",
+    "slug": "canvas-auriu",
+    "routeSlug": "canvas-auriu",
+    "title": "Tablouri Canvas Auriu",
+    "description": "Descoperă 92 modele unice de tablouri canvas auriu. Print de calitate pe pânză premium, întinsă pe șasiu de lemn.",
+    "images": [
+      "/canvas/gold-birds-flying.jpg"
+    ],
+    "priceBase": 79,
+    "currency": "RON",
+    "tags": [
+      "canvas",
+      "auriu",
+      "tablouri",
+      "print"
+    ],
+    "metadata": {
+      "category": "Canvas",
+      "subcategory": "Auriu",
+      "productCount": 92,
+      "allProducts": [
+        {
+          "name": "Gold Birds Flying",
+          "image": "/canvas/gold-birds-flying.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-birds-flying?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fgold-birds-flying.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Spiral Points",
+          "image": "/canvas/gold-spiral-points.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-spiral-points?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fgold-spiral-points.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Golden Abstract Marble",
+          "image": "/canvas/golden-abstract-marble.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-golden-abstract-marble?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fmarble%2Fmockup-1%2F2x3%2Flandscape%2Fgolden-abstract-marble.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Golden Rose On Wood",
+          "image": "/canvas/golden-rose-on-wood.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-golden-rose-on-wood?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fgolden-rose-on-wood.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Golden Art",
+          "image": "/canvas/abstract-golden-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-golden-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-golden-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Lily With Gold Painting",
+          "image": "/canvas/lily-with-gold-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-lily-with-gold-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Flandscape%2Flily-with-gold-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Balck With Gold Leafs",
+          "image": "/canvas/balck-with-gold-leafs.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-balck-with-gold-leafs?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Fportret%2Fbalck-with-gold-leafs.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Golden Green Painting",
+          "image": "/canvas/golden-green-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-golden-green-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Fgolden-green-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Black Gold Eyeliner",
+          "image": "/canvas/black-gold-eyeliner.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-gold-eyeliner?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Fportret%2Fblack-gold-eyeliner.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Gold Lines (2)",
+          "image": "/canvas/abstract-gold-lines-2.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-gold-lines-(2)?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-gold-lines-(2).jpg&w=3840&q=75"
+        },
+        {
+          "name": "Golden Lips",
+          "image": "/canvas/golden-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-golden-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Flandscape%2Fgolden-lips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Cream Poppy",
+          "image": "/canvas/gold-cream-poppy.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-cream-poppy?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmaci%2Fmockup-1%2F2x3%2Flandscape%2Fgold-cream-poppy.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold And Green Leafes",
+          "image": "/canvas/gold-and-green-leafes.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-and-green-leafes?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fgold-and-green-leafes.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Gold Wings",
+          "image": "/canvas/beautiful-gold-wings.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-gold-wings?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-gold-wings.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Golden Blue Marble",
+          "image": "/canvas/golden-blue-marble.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-golden-blue-marble?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fgolden-blue-marble.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Grey With Gold Painting",
+          "image": "/canvas/grey-with-gold-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-grey-with-gold-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Fgrey-with-gold-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Golden Luxury Lips",
+          "image": "/canvas/golden-luxury-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-golden-luxury-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Flandscape%2Fgolden-luxury-lips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Liquid Grey Marble",
+          "image": "/canvas/gold-liquid-grey-marble.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-liquid-grey-marble?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fmarble%2Fmockup-1%2F2x3%2Flandscape%2Fgold-liquid-grey-marble.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold With Grey Circle",
+          "image": "/canvas/gold-with-grey-circle.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-with-grey-circle?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Fgold-with-grey-circle.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Covered By Gold",
+          "image": "/canvas/covered-by-gold.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-covered-by-gold?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Fportret%2Fcovered-by-gold.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Poppy Black",
+          "image": "/canvas/gold-poppy-black.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-poppy-black?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmaci%2Fmockup-1%2F2x3%2Flandscape%2Fgold-poppy-black.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Oil Paint",
+          "image": "/canvas/gold-oil-paint.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-oil-paint?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fgold-oil-paint.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Blue Art Wave",
+          "image": "/canvas/gold-blue-art-wave.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-blue-art-wave?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fapa%2Fmockup-1%2F2x3%2Flandscape%2Fgold-blue-art-wave.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Golden Wings Art",
+          "image": "/canvas/golden-wings-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-golden-wings-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fgolden-wings-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Black Gold Skin",
+          "image": "/canvas/black-gold-skin.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-gold-skin?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Fportret%2Fblack-gold-skin.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold And White Brush",
+          "image": "/canvas/gold-and-white-brush.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-and-white-brush?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fgold-and-white-brush.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Grey Gold Marble Gigapixel Art Scale 0_50X",
+          "image": "/canvas/grey-gold-marble-gigapixel-art-scale-0_50x.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-grey-gold-marble-gigapixel-art-scale-0_50x?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fmarble%2Fmockup-1%2F2x3%2Flandscape%2Fgrey-gold-marble-gigapixel-art-scale-0_50x.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold With Black Wave",
+          "image": "/canvas/gold-with-black-wave.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-with-black-wave?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Fgold-with-black-wave.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Black Skin",
+          "image": "/canvas/gold-black-skin.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-black-skin?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Fportret%2Fgold-black-skin.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Fingertips Art",
+          "image": "/canvas/gold-fingertips-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-fingertips-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Fportret%2Fgold-fingertips-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Lily Painting",
+          "image": "/canvas/gold-lily-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-lily-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Flandscape%2Fgold-lily-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Japanese Temple",
+          "image": "/canvas/gold-japanese-temple.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-japanese-temple?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fasiatic%2Fmockup-1%2F2x3%2Flandscape%2Fgold-japanese-temple.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Gold Blue Pattern",
+          "image": "/canvas/abstract-gold-blue-pattern.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-gold-blue-pattern?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-gold-blue-pattern.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Black Poppy",
+          "image": "/canvas/gold-black-poppy.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-black-poppy?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmaci%2Fmockup-1%2F2x3%2Flandscape%2Fgold-black-poppy.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Glamorous Gold Lips",
+          "image": "/canvas/glamorous-gold-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-glamorous-gold-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Fportret%2Fglamorous-gold-lips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Golden Leaves Blue",
+          "image": "/canvas/golden-leaves-blue.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-golden-leaves-blue?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ffrunze%2Fmockup-1%2F2x3%2Fportret%2Fgolden-leaves-blue.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Sunrise",
+          "image": "/canvas/gold-sunrise.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-sunrise?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fsport%2Fgolf%2Fmockup-1%2F2x3%2Flandscape%2Fgold-sunrise.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold 3D Buddha",
+          "image": "/canvas/gold-3d-buddha.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-3d-buddha?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fbuddha%2Fmockup-1%2F2x3%2Flandscape%2Fgold-3d-buddha.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Golden Landscape 1",
+          "image": "/canvas/abstract-golden-landscape-1.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-golden-landscape-1?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-golden-landscape-1.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Acrylic Fluid",
+          "image": "/canvas/gold-acrylic-fluid.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-acrylic-fluid?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fgold-acrylic-fluid.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Attractive Gold Woman",
+          "image": "/canvas/attractive-gold-woman.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-attractive-gold-woman?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Fportret%2Fattractive-gold-woman.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Dark Green Golden Marble",
+          "image": "/canvas/dark-green-golden-marble.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-dark-green-golden-marble?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fmarble%2Fmockup-1%2F2x3%2Flandscape%2Fdark-green-golden-marble.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Explosion",
+          "image": "/canvas/gold-explosion.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-explosion?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fgold-explosion.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Fingertips Gold Makeup",
+          "image": "/canvas/fingertips-gold-makeup.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-fingertips-gold-makeup?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Fportret%2Ffingertips-gold-makeup.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Artistic Gold Blue",
+          "image": "/canvas/artistic-gold-blue.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-artistic-gold-blue?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fapa%2Fmockup-1%2F2x3%2Flandscape%2Fartistic-gold-blue.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Rose",
+          "image": "/canvas/gold-rose.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-rose?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Fgold-rose.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Golden Waves With Black",
+          "image": "/canvas/golden-waves-with-black.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-golden-waves-with-black?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fgolden-waves-with-black.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Gold Wave",
+          "image": "/canvas/blue-gold-wave.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-gold-wave?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fapa%2Fmockup-1%2F2x3%2Flandscape%2Fblue-gold-wave.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Chaotic Golden Painting",
+          "image": "/canvas/chaotic-golden-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-chaotic-golden-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Fportret%2Fchaotic-golden-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Wave",
+          "image": "/canvas/gold-wave.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-wave?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fminimaliste%2Fmockup-1%2F2x3%2Flandscape%2Fgold-wave.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Golden Marble Shades",
+          "image": "/canvas/golden-marble-shades.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-golden-marble-shades?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fmarble%2Fmockup-1%2F2x3%2Flandscape%2Fgolden-marble-shades.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Green Colors With Gold",
+          "image": "/canvas/green-colors-with-gold.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-green-colors-with-gold?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Fgreen-colors-with-gold.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Golden Face",
+          "image": "/canvas/golden-face.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-golden-face?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Fportret%2Fgolden-face.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Mountains Abstract",
+          "image": "/canvas/gold-mountains-abstract.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-mountains-abstract?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fgold-mountains-abstract.jpg&w=3840&q=75"
+        },
+        {
+          "name": "White Gold Abstract",
+          "image": "/canvas/white-gold-abstract.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-white-gold-abstract?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fmarble%2Fmockup-1%2F2x3%2Flandscape%2Fwhite-gold-abstract.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Modern Circle With Gold",
+          "image": "/canvas/modern-circle-with-gold.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-modern-circle-with-gold?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fmodern-circle-with-gold.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Golden Black Blue Art",
+          "image": "/canvas/golden-black-blue-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-golden-black-blue-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Fportret%2Fgolden-black-blue-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Lily",
+          "image": "/canvas/gold-lily.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-lily?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fcrini%2Fmockup-1%2F2x3%2Flandscape%2Fgold-lily.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Gold Buddha",
+          "image": "/canvas/blue-gold-buddha.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-gold-buddha?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fbuddha%2Fmockup-1%2F2x3%2Flandscape%2Fblue-gold-buddha.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Brown Horse",
+          "image": "/canvas/gold-brown-horse.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-brown-horse?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fanimale%2Fcai%2Fmockup-1%2F2x3%2Flandscape%2Fgold-brown-horse.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Golden Rose On Blue",
+          "image": "/canvas/golden-rose-on-blue.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-golden-rose-on-blue?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fgolden-rose-on-blue.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Chain Gold Eyelids",
+          "image": "/canvas/chain-gold-eyelids.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-chain-gold-eyelids?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Fportret%2Fchain-gold-eyelids.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Circle With Lines (2)",
+          "image": "/canvas/gold-circle-with-lines-2.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-circle-with-lines-(2)?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Fgold-circle-with-lines-(2).jpg&w=3840&q=75"
+        },
+        {
+          "name": "Messy Gold Art",
+          "image": "/canvas/messy-gold-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-messy-gold-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Fportret%2Fmessy-gold-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Green Gold Water",
+          "image": "/canvas/green-gold-water.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-green-gold-water?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fapa%2Fmockup-1%2F2x3%2Flandscape%2Fgreen-gold-water.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Golden Glamour",
+          "image": "/canvas/golden-glamour.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-golden-glamour?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Flandscape%2Fgolden-glamour.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Golden Mountains",
+          "image": "/canvas/golden-mountains.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-golden-mountains?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fmunti%2Fmockup-1%2F2x3%2Flandscape%2Fgolden-mountains.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Honeycomb Girl",
+          "image": "/canvas/gold-honeycomb-girl.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-honeycomb-girl?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Fportret%2Fgold-honeycomb-girl.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Brush",
+          "image": "/canvas/gold-brush.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-brush?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fminimaliste%2Fmockup-1%2F2x3%2Fportret%2Fgold-brush.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Lips Gold Eyelids",
+          "image": "/canvas/lips-gold-eyelids.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-lips-gold-eyelids?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Fportret%2Flips-gold-eyelids.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Golden Girl",
+          "image": "/canvas/golden-girl.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-golden-girl?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Flandscape%2Fgolden-girl.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Gold Woman",
+          "image": "/canvas/abstract-gold-woman.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-gold-woman?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-gold-woman.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Portrait Falling",
+          "image": "/canvas/gold-portrait-falling.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-portrait-falling?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Flandscape%2Fgold-portrait-falling.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Strong Gold Buddha",
+          "image": "/canvas/strong-gold-buddha.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-strong-gold-buddha?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fbuddha%2Fmockup-1%2F2x3%2Flandscape%2Fstrong-gold-buddha.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Glitter Watercolor",
+          "image": "/canvas/gold-glitter-watercolor.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-glitter-watercolor?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Fportret%2Fgold-glitter-watercolor.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Poppies",
+          "image": "/canvas/gold-poppies.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-poppies?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmaci%2Fmockup-1%2F2x3%2Flandscape%2Fgold-poppies.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Eyelids Gold Makeup",
+          "image": "/canvas/eyelids-gold-makeup.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-eyelids-gold-makeup?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Fportret%2Feyelids-gold-makeup.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Makeup Nails",
+          "image": "/canvas/gold-makeup-nails.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-makeup-nails?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Fportret%2Fgold-makeup-nails.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Buddha Flower",
+          "image": "/canvas/gold-buddha-flower.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-buddha-flower?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fbuddha%2Fmockup-1%2F2x3%2Flandscape%2Fgold-buddha-flower.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Grey Painting With Gold Lines",
+          "image": "/canvas/grey-painting-with-gold-lines.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-grey-painting-with-gold-lines?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Fgrey-painting-with-gold-lines.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Modern Golden Paint",
+          "image": "/canvas/modern-golden-paint.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-modern-golden-paint?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Ffemei-abstracte%2Fmockup-1%2F2x3%2Fportret%2Fmodern-golden-paint.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Close Gold Lips",
+          "image": "/canvas/close-gold-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-close-gold-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Flips%2Fmockup-1%2F2x3%2Flandscape%2Fclose-gold-lips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Circle With Lines",
+          "image": "/canvas/gold-circle-with-lines.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-circle-with-lines?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Fgold-circle-with-lines.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Beautiful Jewelry",
+          "image": "/canvas/gold-beautiful-jewelry.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-beautiful-jewelry?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fbijuterii-si-accesorii%2Fmockup-1%2F2x3%2Fportret%2Fgold-beautiful-jewelry.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Dark Gold Face",
+          "image": "/canvas/dark-gold-face.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-dark-gold-face?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Flandscape%2Fdark-gold-face.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Big Gold Lips",
+          "image": "/canvas/big-gold-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-big-gold-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Flips%2Fmockup-1%2F2x3%2Flandscape%2Fbig-gold-lips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Landscape Painting",
+          "image": "/canvas/gold-landscape-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-landscape-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fasiatic%2Fmockup-1%2F2x3%2Flandscape%2Fgold-landscape-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Chain Gold Lips",
+          "image": "/canvas/chain-gold-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-chain-gold-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Fportret%2Fchain-gold-lips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "White Square With Gold",
+          "image": "/canvas/white-square-with-gold.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-white-square-with-gold?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Fwhite-square-with-gold.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Golden Rose",
+          "image": "/canvas/beautiful-golden-rose.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-golden-rose?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ftrandafiri%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-golden-rose.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Fingertips Chain",
+          "image": "/canvas/gold-fingertips-chain.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-fingertips-chain?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Fportret%2Fgold-fingertips-chain.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Golden Leaves",
+          "image": "/canvas/golden-leaves.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-golden-leaves?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Ffrunze%2Fmockup-1%2F2x3%2Flandscape%2Fgolden-leaves.jpg&w=3840&q=75"
+        }
+      ]
+    }
+  },
+  {
+    "id": "canvas-aripi",
+    "slug": "canvas-aripi",
+    "routeSlug": "canvas-aripi",
+    "title": "Tablouri Canvas Aripi",
+    "description": "Descoperă 6 modele unice de tablouri canvas aripi. Print de calitate pe pânză premium, întinsă pe șasiu de lemn.",
+    "images": [
+      "/canvas/white-angel-wings.jpg"
+    ],
+    "priceBase": 79,
+    "currency": "RON",
+    "tags": [
+      "canvas",
+      "aripi",
+      "tablouri",
+      "print"
+    ],
+    "metadata": {
+      "category": "Canvas",
+      "subcategory": "Aripi",
+      "productCount": 6,
+      "allProducts": [
+        {
+          "name": "White Angel Wings",
+          "image": "/canvas/white-angel-wings.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-white-angel-wings?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fwhite-angel-wings.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Los Angeles",
+          "image": "/canvas/abstract-los-angeles.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-los-angeles?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-los-angeles.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pretty Angel Wings",
+          "image": "/canvas/pretty-angel-wings.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pretty-angel-wings?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fpretty-angel-wings.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Gold Wings",
+          "image": "/canvas/beautiful-gold-wings.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-gold-wings?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-gold-wings.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Golden Wings Art",
+          "image": "/canvas/golden-wings-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-golden-wings-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fgolden-wings-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Los Angeles Night",
+          "image": "/canvas/los-angeles-night.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-los-angeles-night?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Forase%2Forase-americane%2Fmockup-1%2F2x3%2Flandscape%2Flos-angeles-night.jpg&w=3840&q=75"
+        }
+      ]
+    }
+  },
+  {
+    "id": "canvas-fashion",
+    "slug": "canvas-fashion",
+    "routeSlug": "canvas-fashion",
+    "title": "Tablouri Canvas Fashion",
+    "description": "Descoperă 34 modele unice de tablouri canvas fashion. Print de calitate pe pânză premium, întinsă pe șasiu de lemn.",
+    "images": [
+      "/canvas/black-gold-eyeliner.jpg"
+    ],
+    "priceBase": 79,
+    "currency": "RON",
+    "tags": [
+      "canvas",
+      "fashion",
+      "tablouri",
+      "print"
+    ],
+    "metadata": {
+      "category": "Canvas",
+      "subcategory": "Fashion",
+      "productCount": 34,
+      "allProducts": [
+        {
+          "name": "Black Gold Eyeliner",
+          "image": "/canvas/black-gold-eyeliner.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-gold-eyeliner?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Fportret%2Fblack-gold-eyeliner.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Golden Lips",
+          "image": "/canvas/golden-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-golden-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Flandscape%2Fgolden-lips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Golden Luxury Lips",
+          "image": "/canvas/golden-luxury-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-golden-luxury-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Flandscape%2Fgolden-luxury-lips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pastel Tulips",
+          "image": "/canvas/pastel-tulips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pastel-tulips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Flalele%2Fmockup-1%2F2x3%2Flandscape%2Fpastel-tulips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Glamorous Gold Lips",
+          "image": "/canvas/glamorous-gold-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-glamorous-gold-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Fportret%2Fglamorous-gold-lips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Asiatic Red Lips",
+          "image": "/canvas/asiatic-red-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-asiatic-red-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-etnica%2Fmockup-1%2F2x3%2Fportret%2Fasiatic-red-lips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Asiatic Red Makeup",
+          "image": "/canvas/asiatic-red-makeup.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-asiatic-red-makeup?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-etnica%2Fmockup-1%2F2x3%2Fportret%2Fasiatic-red-makeup.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Fingertips Gold Makeup",
+          "image": "/canvas/fingertips-gold-makeup.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-fingertips-gold-makeup?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Fportret%2Ffingertips-gold-makeup.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Big Juicy Lips Woman",
+          "image": "/canvas/big-juicy-lips-woman.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-big-juicy-lips-woman?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-moderna%2Fmockup-1%2F2x3%2Fportret%2Fbig-juicy-lips-woman.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Lips",
+          "image": "/canvas/abstract-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Flips%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-lips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Dreamy White Tulips",
+          "image": "/canvas/dreamy-white-tulips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-dreamy-white-tulips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Flalele%2Fmockup-1%2F2x3%2Flandscape%2Fdreamy-white-tulips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pink Tulips Vase",
+          "image": "/canvas/pink-tulips-vase.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pink-tulips-vase?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-vaza%2Fmockup-1%2F2x3%2Flandscape%2Fpink-tulips-vase.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Forest Tulips",
+          "image": "/canvas/forest-tulips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-forest-tulips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-natura%2Fmockup-1%2F2x3%2Flandscape%2Fforest-tulips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Hand Lips",
+          "image": "/canvas/blue-hand-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-hand-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Flips%2Fmockup-1%2F2x3%2Flandscape%2Fblue-hand-lips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Grey Lips",
+          "image": "/canvas/grey-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-grey-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Flips%2Fmockup-1%2F2x3%2Fportret%2Fgrey-lips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Fluorescent Green Lips",
+          "image": "/canvas/fluorescent-green-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-fluorescent-green-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fculori-vibrante%2Fmockup-1%2F2x3%2Flandscape%2Ffluorescent-green-lips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Garden Tulips Mix",
+          "image": "/canvas/garden-tulips-mix.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-garden-tulips-mix?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-natura%2Fmockup-1%2F2x3%2Flandscape%2Fgarden-tulips-mix.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Lips Gold Eyelids",
+          "image": "/canvas/lips-gold-eyelids.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-lips-gold-eyelids?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Fportret%2Flips-gold-eyelids.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Eyelids Gold Makeup",
+          "image": "/canvas/eyelids-gold-makeup.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-eyelids-gold-makeup?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Fportret%2Feyelids-gold-makeup.jpg&w=3840&q=75"
+        },
+        {
+          "name": "White Tulips Bouquet",
+          "image": "/canvas/white-tulips-bouquet.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-white-tulips-bouquet?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Flalele%2Fmockup-1%2F2x3%2Flandscape%2Fwhite-tulips-bouquet.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gold Makeup Nails",
+          "image": "/canvas/gold-makeup-nails.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gold-makeup-nails?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Fportret%2Fgold-makeup-nails.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Glitter Red Tulips",
+          "image": "/canvas/glitter-red-tulips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-glitter-red-tulips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Flalele%2Fmockup-1%2F2x3%2Flandscape%2Fglitter-red-tulips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Grey Bullet Lips",
+          "image": "/canvas/grey-bullet-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-grey-bullet-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Flips%2Fmockup-1%2F2x3%2Flandscape%2Fgrey-bullet-lips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Close Gold Lips",
+          "image": "/canvas/close-gold-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-close-gold-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Flips%2Fmockup-1%2F2x3%2Flandscape%2Fclose-gold-lips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Big Gold Lips",
+          "image": "/canvas/big-gold-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-big-gold-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Flips%2Fmockup-1%2F2x3%2Flandscape%2Fbig-gold-lips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Woman Green Fashion",
+          "image": "/canvas/woman-green-fashion.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-woman-green-fashion?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-moderna%2Fmockup-1%2F2x3%2Fportret%2Fwoman-green-fashion.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Fashionista Design",
+          "image": "/canvas/fashionista-design.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-fashionista-design?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-moderna%2Fmockup-1%2F2x3%2Flandscape%2Ffashionista-design.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Woman Abstract Lips",
+          "image": "/canvas/woman-abstract-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-woman-abstract-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Flips%2Fmockup-1%2F2x3%2Flandscape%2Fwoman-abstract-lips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Chain Gold Lips",
+          "image": "/canvas/chain-gold-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-chain-gold-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fblack-and-gold%2Fmockup-1%2F2x3%2Fportret%2Fchain-gold-lips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Abstract Woman Lips",
+          "image": "/canvas/abstract-woman-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-abstract-woman-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Flips%2Fmockup-1%2F2x3%2Flandscape%2Fabstract-woman-lips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Lips",
+          "image": "/canvas/beautiful-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Flips%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-lips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Yellow Blue Lips Art",
+          "image": "/canvas/yellow-blue-lips-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-yellow-blue-lips-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Flips%2Fmockup-1%2F2x3%2Flandscape%2Fyellow-blue-lips-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Mix Color Lips",
+          "image": "/canvas/mix-color-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-mix-color-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Flips%2Fmockup-1%2F2x3%2Flandscape%2Fmix-color-lips.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pink Lips",
+          "image": "/canvas/pink-lips.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pink-lips?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Flips%2Fmockup-1%2F2x3%2Flandscape%2Fpink-lips.jpg&w=3840&q=75"
+        }
+      ]
+    }
+  },
+  {
+    "id": "canvas-altele",
+    "slug": "canvas-altele",
+    "routeSlug": "canvas-altele",
+    "title": "Tablouri Canvas Altele",
+    "description": "Descoperă 351 modele unice de tablouri canvas altele. Print de calitate pe pânză premium, întinsă pe șasiu de lemn.",
+    "images": [
+      "/canvas/acrylic-silver-paint.jpg"
+    ],
+    "priceBase": 79,
+    "currency": "RON",
+    "tags": [
+      "canvas",
+      "altele",
+      "tablouri",
+      "print"
+    ],
+    "metadata": {
+      "category": "Canvas",
+      "subcategory": "Altele",
+      "productCount": 351,
+      "allProducts": [
+        {
+          "name": "Acrylic Silver Paint",
+          "image": "/canvas/acrylic-silver-paint.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-acrylic-silver-paint?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Facrylic-silver-paint.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Colorful Water Splash",
+          "image": "/canvas/colorful-water-splash.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-colorful-water-splash?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fculori-vibrante%2Fmockup-1%2F2x3%2Flandscape%2Fcolorful-water-splash.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Bamboo Plant Water",
+          "image": "/canvas/bamboo-plant-water.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-bamboo-plant-water?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fapa%2Fmockup-1%2F2x3%2Flandscape%2Fbamboo-plant-water.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Orange Lines On Blue",
+          "image": "/canvas/orange-lines-on-blue.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-orange-lines-on-blue?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Forange-lines-on-blue.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Light Blue Waves",
+          "image": "/canvas/light-blue-waves.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-light-blue-waves?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Fportret%2Flight-blue-waves.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Tree",
+          "image": "/canvas/blue-tree.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-tree?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Flacuri%2Fmockup-1%2F2x3%2Flandscape%2Fblue-tree.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Peonies On The Table",
+          "image": "/canvas/peonies-on-the-table.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-peonies-on-the-table?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbujori%2Fmockup-1%2F2x3%2Flandscape%2Fpeonies-on-the-table.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Peony Painting Art",
+          "image": "/canvas/peony-painting-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-peony-painting-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbujori%2Fmockup-1%2F2x3%2Flandscape%2Fpeony-painting-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Marble",
+          "image": "/canvas/blue-marble.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-marble?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fmarble%2Fmockup-1%2F2x3%2Flandscape%2Fblue-marble.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Vibrant Colors On Blue Background",
+          "image": "/canvas/vibrant-colors-on-blue-background.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-vibrant-colors-on-blue-background?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fvibrant-colors-on-blue-background.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Paradise Island",
+          "image": "/canvas/paradise-island.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-paradise-island?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fplaje%2Fmockup-1%2F2x3%2Flandscape%2Fparadise-island.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Gray Orange Painting",
+          "image": "/canvas/gray-orange-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-gray-orange-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Fgray-orange-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Jordan Drip",
+          "image": "/canvas/jordan-drip.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-jordan-drip?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fdigitale%2Fmockup-1%2F2x3%2Flandscape%2Fjordan-drip.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Orange Square Painting",
+          "image": "/canvas/orange-square-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-orange-square-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Forange-square-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "White Orchids Painting",
+          "image": "/canvas/white-orchids-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-white-orchids-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fwhite-orchids-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Gray Color",
+          "image": "/canvas/blue-gray-color.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-gray-color?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fblue-gray-color.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Black Sand Yinyang",
+          "image": "/canvas/black-sand-yinyang.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-sand-yinyang?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fyin-yang%2Fmockup-1%2F2x3%2Flandscape%2Fblack-sand-yinyang.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Orange Vintage Vase",
+          "image": "/canvas/orange-vintage-vase.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-orange-vintage-vase?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-vaza%2Fmockup-1%2F2x3%2Flandscape%2Forange-vintage-vase.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Jungle View Waterfall",
+          "image": "/canvas/jungle-view-waterfall.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-jungle-view-waterfall?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fcascade%2Fmockup-1%2F2x3%2Flandscape%2Fjungle-view-waterfall.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Rural Farm",
+          "image": "/canvas/rural-farm.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-rural-farm?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Frural%2Fmockup-1%2F2x3%2Flandscape%2Frural-farm.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Green Tree Yinyang",
+          "image": "/canvas/green-tree-yinyang.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-green-tree-yinyang?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fyin-yang%2Fmockup-1%2F2x3%2Flandscape%2Fgreen-tree-yinyang.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Sunset Fog",
+          "image": "/canvas/sunset-fog.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-sunset-fog?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fasiatic%2Fmockup-1%2F2x3%2Flandscape%2Fsunset-fog.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Berries Art",
+          "image": "/canvas/berries-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-berries-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Ffructe%2Fmockup-1%2F2x3%2Flandscape%2Fberries-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Japanese Temple",
+          "image": "/canvas/japanese-temple.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-japanese-temple?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fasiatic%2Fmockup-1%2F2x3%2Flandscape%2Fjapanese-temple.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Azure Chic Woman",
+          "image": "/canvas/azure-chic-woman.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-azure-chic-woman?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Ffemei-africane%2Fmockup-1%2F2x3%2Fportret%2Fazure-chic-woman.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Paris Colours",
+          "image": "/canvas/paris-colours.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-paris-colours?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Forase%2Forase-europene%2Fmockup-1%2F2x3%2Flandscape%2Fparis-colours.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Colorful Turban Woman",
+          "image": "/canvas/colorful-turban-woman.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-colorful-turban-woman?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Ffemei-africane%2Fmockup-1%2F2x3%2Flandscape%2Fcolorful-turban-woman.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Autumn Stones",
+          "image": "/canvas/autumn-stones.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-autumn-stones?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fnatura%2Fmockup-1%2F2x3%2Flandscape%2Fautumn-stones.jpg&w=3840&q=75"
+        },
+        {
+          "name": "New York Skyline",
+          "image": "/canvas/new-york-skyline.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-new-york-skyline?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Forase%2Forase-americane%2Fmockup-1%2F2x3%2Flandscape%2Fnew-york-skyline.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Sunset Land",
+          "image": "/canvas/sunset-land.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-sunset-land?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fapus-de-soare%2Fmockup-1%2F2x3%2Flandscape%2Fsunset-land.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Sunrise Painting Poppies",
+          "image": "/canvas/sunrise-painting-poppies.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-sunrise-painting-poppies?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmaci%2Fmockup-1%2F2x3%2Flandscape%2Fsunrise-painting-poppies.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Spring Pink Trees",
+          "image": "/canvas/spring-pink-trees.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-spring-pink-trees?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fprimavara%2Fmockup-1%2F2x3%2Flandscape%2Fspring-pink-trees.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Dinning Blue Sky",
+          "image": "/canvas/dinning-blue-sky.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-dinning-blue-sky?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fplaje%2Fmockup-1%2F2x3%2Flandscape%2Fdinning-blue-sky.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Marble Shades",
+          "image": "/canvas/marble-shades.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-marble-shades?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fmarble%2Fmockup-1%2F2x3%2Flandscape%2Fmarble-shades.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Buddha Art",
+          "image": "/canvas/beautiful-buddha-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-buddha-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fbuddha%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-buddha-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Buddha Meditation Art",
+          "image": "/canvas/buddha-meditation-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-buddha-meditation-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fbuddha%2Fmockup-1%2F2x3%2Flandscape%2Fbuddha-meditation-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Big Glasses Woman",
+          "image": "/canvas/big-glasses-woman.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-big-glasses-woman?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-moderna%2Fmockup-1%2F2x3%2Flandscape%2Fbig-glasses-woman.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pink Asian View",
+          "image": "/canvas/pink-asian-view.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pink-asian-view?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fasiatic%2Fmockup-1%2F2x3%2Flandscape%2Fpink-asian-view.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Black Square Pattern",
+          "image": "/canvas/black-square-pattern.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-square-pattern?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fgeometrice%2Fmockup-1%2F2x3%2Flandscape%2Fblack-square-pattern.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Farmhouse Painting",
+          "image": "/canvas/farmhouse-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-farmhouse-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Frural%2Fmockup-1%2F2x3%2Flandscape%2Ffarmhouse-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Fluorescent Couple",
+          "image": "/canvas/fluorescent-couple.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-fluorescent-couple?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fculori-vibrante%2Fmockup-1%2F2x3%2Flandscape%2Ffluorescent-couple.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Appetizers",
+          "image": "/canvas/appetizers.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-appetizers?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Fdulciuri%2Fmockup-1%2F2x3%2Fportret%2Fappetizers.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Castle Vianden",
+          "image": "/canvas/castle-vianden.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-castle-vianden?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fcastele%2Fmockup-1%2F2x3%2Flandscape%2Fcastle-vianden.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Fire Water Yin Yang",
+          "image": "/canvas/fire-water-yin-yang.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-fire-water-yin-yang?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fyin-yang%2Fmockup-1%2F2x3%2Flandscape%2Ffire-water-yin-yang.jpg&w=3840&q=75"
+        },
+        {
+          "name": "After Coffee",
+          "image": "/canvas/after-coffee.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-after-coffee?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Fcafea%2Fmockup-1%2F2x3%2Flandscape%2Fafter-coffee.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Black Blue Yinyang",
+          "image": "/canvas/black-blue-yinyang.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-blue-yinyang?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fyin-yang%2Fmockup-1%2F2x3%2Flandscape%2Fblack-blue-yinyang.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pink Yellow Trees",
+          "image": "/canvas/pink-yellow-trees.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pink-yellow-trees?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fprimavara%2Fmockup-1%2F2x3%2Flandscape%2Fpink-yellow-trees.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Purple Dress Woman",
+          "image": "/canvas/purple-dress-woman.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-purple-dress-woman?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fpurple-dress-woman.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Buddha 3D Head",
+          "image": "/canvas/buddha-3d-head.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-buddha-3d-head?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fbuddha%2Fmockup-1%2F2x3%2Flandscape%2Fbuddha-3d-head.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pink Grey Marble 01",
+          "image": "/canvas/pink-grey-marble-01.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pink-grey-marble-01?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fmarble%2Fmockup-1%2F2x3%2Flandscape%2Fpink-grey-marble-01.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Asian Woman",
+          "image": "/canvas/beautiful-asian-woman.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-asian-woman?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-moderna%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-asian-woman.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Sailing Boat",
+          "image": "/canvas/sailing-boat.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-sailing-boat?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fsailing-boat.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Black Liquid Yinyang",
+          "image": "/canvas/black-liquid-yinyang.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-liquid-yinyang?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fyin-yang%2Fmockup-1%2F2x3%2Flandscape%2Fblack-liquid-yinyang.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Brunette Art",
+          "image": "/canvas/beautiful-brunette-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-brunette-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-etnica%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-brunette-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Autumn Path",
+          "image": "/canvas/autumn-path.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-autumn-path?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Ftoamna%2Fmockup-1%2F2x3%2Flandscape%2Fautumn-path.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Big Blue Glasses",
+          "image": "/canvas/big-blue-glasses.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-big-blue-glasses?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-moderna%2Fmockup-1%2F2x3%2Flandscape%2Fbig-blue-glasses.jpg&w=3840&q=75"
+        },
+        {
+          "name": "All U Need",
+          "image": "/canvas/all-u-need.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-all-u-need?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Fbauturi%2Fmockup-1%2F2x3%2Fportret%2Fall-u-need.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful African Art",
+          "image": "/canvas/beautiful-african-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-african-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-etnica%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-african-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Green Waterfall",
+          "image": "/canvas/green-waterfall.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-green-waterfall?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fcascade%2Fmockup-1%2F2x3%2Flandscape%2Fgreen-waterfall.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Girl With Poppies",
+          "image": "/canvas/girl-with-poppies.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-girl-with-poppies?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmaci%2Fmockup-1%2F2x3%2Flandscape%2Fgirl-with-poppies.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Black Stone Yinyang",
+          "image": "/canvas/black-stone-yinyang.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-stone-yinyang?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fyin-yang%2Fmockup-1%2F2x3%2Flandscape%2Fblack-stone-yinyang.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Dreamy Modern Female",
+          "image": "/canvas/dreamy-modern-female.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-dreamy-modern-female?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-moderna%2Fmockup-1%2F2x3%2Flandscape%2Fdreamy-modern-female.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Big Black Hat",
+          "image": "/canvas/big-black-hat.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-big-black-hat?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-moderna%2Fmockup-1%2F2x3%2Fportret%2Fbig-black-hat.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Banana Blouse",
+          "image": "/canvas/banana-blouse.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-banana-blouse?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-moderna%2Fmockup-1%2F2x3%2Fportret%2Fbanana-blouse.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Water Color Art",
+          "image": "/canvas/water-color-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-water-color-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fminimaliste%2Fmockup-1%2F2x3%2Fportret%2Fwater-color-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Autumn Farm House",
+          "image": "/canvas/autumn-farm-house.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-autumn-farm-house?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Frural%2Fmockup-1%2F2x3%2Flandscape%2Fautumn-farm-house.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Balancing Pebbles",
+          "image": "/canvas/balancing-pebbles.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-balancing-pebbles?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fpietre%2Fmockup-1%2F2x3%2Flandscape%2Fbalancing-pebbles.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Black Lines On Yellow Light",
+          "image": "/canvas/black-lines-on-yellow-light.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-lines-on-yellow-light?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Fportret%2Fblack-lines-on-yellow-light.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Casa Loma",
+          "image": "/canvas/casa-loma.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-casa-loma?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fcastele%2Fmockup-1%2F2x3%2Flandscape%2Fcasa-loma.jpg&w=3840&q=75"
+        },
+        {
+          "name": "American Heritage Chocolate",
+          "image": "/canvas/american-heritage-chocolate.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-american-heritage-chocolate?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Fdulciuri%2Fmockup-1%2F2x3%2Flandscape%2Famerican-heritage-chocolate.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Coconut Tree Sunset",
+          "image": "/canvas/coconut-tree-sunset.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-coconut-tree-sunset?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fplaje%2Fmockup-1%2F2x3%2Flandscape%2Fcoconut-tree-sunset.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Black Yellow Yinyang",
+          "image": "/canvas/black-yellow-yinyang.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-yellow-yinyang?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fyin-yang%2Fmockup-1%2F2x3%2Flandscape%2Fblack-yellow-yinyang.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Wild Plant",
+          "image": "/canvas/blue-wild-plant.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-wild-plant?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-natura%2Fmockup-1%2F2x3%2Flandscape%2Fblue-wild-plant.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Black Red Poppies",
+          "image": "/canvas/black-red-poppies.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-red-poppies?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmaci%2Fmockup-1%2F2x3%2Fportret%2Fblack-red-poppies.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Dreamy Painting Peony",
+          "image": "/canvas/dreamy-painting-peony.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-dreamy-painting-peony?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbujori%2Fmockup-1%2F2x3%2Flandscape%2Fdreamy-painting-peony.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Peonies Art",
+          "image": "/canvas/peonies-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-peonies-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbujori%2Fmockup-1%2F2x3%2Flandscape%2Fpeonies-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Chateau Castle",
+          "image": "/canvas/chateau-castle.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-chateau-castle?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fcastele%2Fmockup-1%2F2x3%2Flandscape%2Fchateau-castle.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Red Tennis Rackets",
+          "image": "/canvas/red-tennis-rackets.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-red-tennis-rackets?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fsport%2Ftenis%2Fmockup-1%2F2x3%2Flandscape%2Fred-tennis-rackets.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Full Moon Smoke",
+          "image": "/canvas/full-moon-smoke.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-full-moon-smoke?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fpeisaje-sf%2Fmockup-1%2F2x3%2Flandscape%2Ffull-moon-smoke.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Castle La Mota",
+          "image": "/canvas/castle-la-mota.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-castle-la-mota?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fcastele%2Fmockup-1%2F2x3%2Flandscape%2Fcastle-la-mota.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Aroma Coffee",
+          "image": "/canvas/aroma-coffee.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-aroma-coffee?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Fcafea%2Fmockup-1%2F2x3%2Flandscape%2Faroma-coffee.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Grey Vase Orange",
+          "image": "/canvas/grey-vase-orange.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-grey-vase-orange?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-vaza%2Fmockup-1%2F2x3%2Flandscape%2Fgrey-vase-orange.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Breathtaking View",
+          "image": "/canvas/breathtaking-view.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-breathtaking-view?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Flacuri%2Fmockup-1%2F2x3%2Flandscape%2Fbreathtaking-view.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Apple Art",
+          "image": "/canvas/apple-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-apple-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Ffructe%2Fmockup-1%2F2x3%2Flandscape%2Fapple-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Poppies Sunset",
+          "image": "/canvas/poppies-sunset.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-poppies-sunset?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmaci%2Fmockup-1%2F2x3%2Flandscape%2Fpoppies-sunset.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cream Water Drop",
+          "image": "/canvas/cream-water-drop.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cream-water-drop?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fapa%2Fmockup-1%2F2x3%2Fportret%2Fcream-water-drop.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Sunset Lensball",
+          "image": "/canvas/sunset-lensball.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-sunset-lensball?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fapa%2Fmockup-1%2F2x3%2Flandscape%2Fsunset-lensball.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Poppies Vase",
+          "image": "/canvas/poppies-vase.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-poppies-vase?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-vaza%2Fmockup-1%2F2x3%2Flandscape%2Fpoppies-vase.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Poker Game",
+          "image": "/canvas/poker-game.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-poker-game?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fdigitale%2Fmockup-1%2F2x3%2Flandscape%2Fpoker-game.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Water Bubble Reflecting",
+          "image": "/canvas/water-bubble-reflecting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-water-bubble-reflecting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fapa%2Fmockup-1%2F2x3%2Flandscape%2Fwater-bubble-reflecting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Snow Falling Painting",
+          "image": "/canvas/snow-falling-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-snow-falling-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fiarna%2Fmockup-1%2F2x3%2Flandscape%2Fsnow-falling-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Dancing Woman Drawn",
+          "image": "/canvas/dancing-woman-drawn.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-dancing-woman-drawn?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fsiluete%2Fmockup-1%2F2x3%2Fportret%2Fdancing-woman-drawn.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Dancing Woman",
+          "image": "/canvas/dancing-woman.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-dancing-woman?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Ffemei-abstracte%2Fmockup-1%2F2x3%2Fportret%2Fdancing-woman.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Fantasy Futuristic Cityscape",
+          "image": "/canvas/fantasy-futuristic-cityscape.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-fantasy-futuristic-cityscape?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fpeisaje-sf%2Fmockup-1%2F2x3%2Flandscape%2Ffantasy-futuristic-cityscape.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Japanese Temple Art",
+          "image": "/canvas/japanese-temple-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-japanese-temple-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Forase%2Forase-asiatice%2Fmockup-1%2F2x3%2Flandscape%2Fjapanese-temple-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Winter View Houses",
+          "image": "/canvas/winter-view-houses.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-winter-view-houses?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fiarna%2Fmockup-1%2F2x3%2Flandscape%2Fwinter-view-houses.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Autumn Pumpkins",
+          "image": "/canvas/autumn-pumpkins.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-autumn-pumpkins?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Flegume%2Fmockup-1%2F2x3%2Flandscape%2Fautumn-pumpkins.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cyber Chronicle",
+          "image": "/canvas/cyber-chronicle.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cyber-chronicle?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fpeisaje-sf%2Fmockup-1%2F2x3%2Flandscape%2Fcyber-chronicle.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pretty Vase",
+          "image": "/canvas/pretty-vase.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pretty-vase?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-vaza%2Fmockup-1%2F2x3%2Fportret%2Fpretty-vase.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Black Ink Boat",
+          "image": "/canvas/black-ink-boat.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-ink-boat?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fasiatic%2Fmockup-1%2F2x3%2Flandscape%2Fblack-ink-boat.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Black Square Marble",
+          "image": "/canvas/black-square-marble.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-square-marble?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fmarble%2Fmockup-1%2F2x3%2Fportret%2Fblack-square-marble.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Grey With Green Painting",
+          "image": "/canvas/grey-with-green-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-grey-with-green-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fgrey-with-green-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Modern Brushstrokes",
+          "image": "/canvas/modern-brushstrokes.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-modern-brushstrokes?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Fportret%2Fmodern-brushstrokes.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Bag Of Coffee Beans",
+          "image": "/canvas/bag-of-coffee-beans.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-bag-of-coffee-beans?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Fcafea%2Fmockup-1%2F2x3%2Flandscape%2Fbag-of-coffee-beans.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Black Ink Woman",
+          "image": "/canvas/black-ink-woman.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-ink-woman?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fsiluete%2Fmockup-1%2F2x3%2Fportret%2Fblack-ink-woman.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Colorful Splash Rainbow",
+          "image": "/canvas/colorful-splash-rainbow.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-colorful-splash-rainbow?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fculori-vibrante%2Fmockup-1%2F2x3%2Flandscape%2Fcolorful-splash-rainbow.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cosmic Craze",
+          "image": "/canvas/cosmic-craze.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cosmic-craze?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fpeisaje-sf%2Fmockup-1%2F2x3%2Flandscape%2Fcosmic-craze.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Chrysanthemums",
+          "image": "/canvas/chrysanthemums.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-chrysanthemums?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Freproduceri%2Fclaude-monet%2Fmockup-1%2F2x3%2Fportret%2Fchrysanthemums.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Purple Iris Painting",
+          "image": "/canvas/purple-iris-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-purple-iris-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Firis%2Fmockup-1%2F2x3%2Fportret%2Fpurple-iris-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pink Circle Vase",
+          "image": "/canvas/pink-circle-vase.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pink-circle-vase?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-vaza%2Fmockup-1%2F2x3%2Flandscape%2Fpink-circle-vase.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Asiatic Blue Bird",
+          "image": "/canvas/asiatic-blue-bird.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-asiatic-blue-bird?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fasiatic%2Fmockup-1%2F2x3%2Flandscape%2Fasiatic-blue-bird.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Spices Black Board",
+          "image": "/canvas/spices-black-board.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-spices-black-board?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Fcondimente%2Fmockup-1%2F2x3%2Flandscape%2Fspices-black-board.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Human Conection",
+          "image": "/canvas/human-conection.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-human-conection?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Falb-negru%2Fmockup-1%2F2x3%2Fportret%2Fhuman-conection.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Black Coffee Beans",
+          "image": "/canvas/black-coffee-beans.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-coffee-beans?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Fcafea%2Fmockup-1%2F2x3%2Flandscape%2Fblack-coffee-beans.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cherry Blossom Birds",
+          "image": "/canvas/cherry-blossom-birds.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cherry-blossom-birds?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fasiatic%2Fmockup-1%2F2x3%2Flandscape%2Fcherry-blossom-birds.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Coffee Blue Orange",
+          "image": "/canvas/coffee-blue-orange.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-coffee-blue-orange?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Fcafea%2Fmockup-1%2F2x3%2Flandscape%2Fcoffee-blue-orange.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Green Orange Exotic",
+          "image": "/canvas/green-orange-exotic.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-green-orange-exotic?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-exotice%2Fmockup-1%2F2x3%2Flandscape%2Fgreen-orange-exotic.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cymbidium Orchid",
+          "image": "/canvas/cymbidium-orchid.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cymbidium-orchid?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-natura%2Fmockup-1%2F2x3%2Flandscape%2Fcymbidium-orchid.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Big Orange Accesories",
+          "image": "/canvas/big-orange-accesories.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-big-orange-accesories?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-moderna%2Fmockup-1%2F2x3%2Flandscape%2Fbig-orange-accesories.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pretty Plumeria",
+          "image": "/canvas/pretty-plumeria.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pretty-plumeria?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-exotice%2Fmockup-1%2F2x3%2Flandscape%2Fpretty-plumeria.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Orange Green Exotic",
+          "image": "/canvas/orange-green-exotic.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-orange-green-exotic?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-exotice%2Fmockup-1%2F2x3%2Flandscape%2Forange-green-exotic.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Colors Blue Background",
+          "image": "/canvas/colors-blue-background.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-colors-blue-background?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fcolors-blue-background.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Stunning View Painting",
+          "image": "/canvas/stunning-view-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-stunning-view-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Forase%2Forase-europene%2Fmockup-1%2F2x3%2Flandscape%2Fstunning-view-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Black 3D Lines",
+          "image": "/canvas/black-3d-lines.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-3d-lines?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Filuzii-optice%2Fmockup-1%2F2x3%2Flandscape%2Fblack-3d-lines.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Basketball Hoop On Black",
+          "image": "/canvas/basketball-hoop-on-black.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-basketball-hoop-on-black?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fsport%2Fbaschet%2Fmockup-1%2F2x3%2Flandscape%2Fbasketball-hoop-on-black.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Purple Orange Iris Art",
+          "image": "/canvas/purple-orange-iris-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-purple-orange-iris-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Firis%2Fmockup-1%2F2x3%2Flandscape%2Fpurple-orange-iris-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Autumn Sunset",
+          "image": "/canvas/autumn-sunset.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-autumn-sunset?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Ftoamna%2Fmockup-1%2F2x3%2Flandscape%2Fautumn-sunset.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Vibrant Color Woman Paint",
+          "image": "/canvas/vibrant-color-woman-paint.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-vibrant-color-woman-paint?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Ffemei-abstracte%2Fmockup-1%2F2x3%2Flandscape%2Fvibrant-color-woman-paint.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Autumn Vegetables",
+          "image": "/canvas/autumn-vegetables.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-autumn-vegetables?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Ftoamna%2Fmockup-1%2F2x3%2Flandscape%2Fautumn-vegetables.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Exotic Orange Green",
+          "image": "/canvas/exotic-orange-green.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-exotic-orange-green?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-exotice%2Fmockup-1%2F2x3%2Fportret%2Fexotic-orange-green.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cosmos Field Sunset",
+          "image": "/canvas/cosmos-field-sunset.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cosmos-field-sunset?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-natura%2Fmockup-1%2F2x3%2Flandscape%2Fcosmos-field-sunset.jpg&w=3840&q=75"
+        },
+        {
+          "name": "White Pebbles Plants",
+          "image": "/canvas/white-pebbles-plants.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-white-pebbles-plants?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fnatura%2Fmockup-1%2F2x3%2Flandscape%2Fwhite-pebbles-plants.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Peony Art",
+          "image": "/canvas/peony-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-peony-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fpeony-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Art Castle",
+          "image": "/canvas/blue-art-castle.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-art-castle?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fcastele%2Fmockup-1%2F2x3%2Fportret%2Fblue-art-castle.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Boat Blue Sky",
+          "image": "/canvas/boat-blue-sky.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-boat-blue-sky?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fplaje%2Fmockup-1%2F2x3%2Flandscape%2Fboat-blue-sky.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cream Dreamy Peony",
+          "image": "/canvas/cream-dreamy-peony.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cream-dreamy-peony?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbujori%2Fmockup-1%2F2x3%2Flandscape%2Fcream-dreamy-peony.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Wild Horses Painting",
+          "image": "/canvas/wild-horses-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-wild-horses-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fwild-horses-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Butterfly Wild Plant",
+          "image": "/canvas/butterfly-wild-plant.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-butterfly-wild-plant?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-natura%2Fmockup-1%2F2x3%2Flandscape%2Fbutterfly-wild-plant.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Japan Plant Art",
+          "image": "/canvas/japan-plant-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-japan-plant-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fasiatic%2Fmockup-1%2F2x3%2Fportret%2Fjapan-plant-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Dreamy Path Dorest",
+          "image": "/canvas/dreamy-path-dorest.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-dreamy-path-dorest?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fpaduri%2Fmockup-1%2F2x3%2Flandscape%2Fdreamy-path-dorest.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Exotic Orange Red",
+          "image": "/canvas/exotic-orange-red.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-exotic-orange-red?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-exotice%2Fmockup-1%2F2x3%2Flandscape%2Fexotic-orange-red.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Watercolor Drops",
+          "image": "/canvas/watercolor-drops.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-watercolor-drops?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fculori-vibrante%2Fmockup-1%2F2x3%2Flandscape%2Fwatercolor-drops.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Asiatic Beautiful View",
+          "image": "/canvas/asiatic-beautiful-view.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-asiatic-beautiful-view?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fasiatic%2Fmockup-1%2F2x3%2Flandscape%2Fasiatic-beautiful-view.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Orange Light Statue",
+          "image": "/canvas/orange-light-statue.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-orange-light-statue?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fcolaje%2Fmockup-1%2F2x3%2Fportret%2Forange-light-statue.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blurred Girl",
+          "image": "/canvas/blurred-girl.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blurred-girl?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fsiluete%2Fmockup-1%2F2x3%2Fportret%2Fblurred-girl.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Huge Red Moon",
+          "image": "/canvas/huge-red-moon.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-huge-red-moon?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fpeisaje-sf%2Fmockup-1%2F2x3%2Flandscape%2Fhuge-red-moon.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Watercolor Stylish Model",
+          "image": "/canvas/watercolor-stylish-model.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-watercolor-stylish-model?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-moderna%2Fmockup-1%2F2x3%2Fportret%2Fwatercolor-stylish-model.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Daylight Butterfly",
+          "image": "/canvas/daylight-butterfly.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-daylight-butterfly?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-natura%2Fmockup-1%2F2x3%2Flandscape%2Fdaylight-butterfly.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Burg Eltz Castle",
+          "image": "/canvas/burg-eltz-castle.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-burg-eltz-castle?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fcastele%2Fmockup-1%2F2x3%2Flandscape%2Fburg-eltz-castle.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Meditation Mandala",
+          "image": "/canvas/meditation-mandala.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-meditation-mandala?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fyin-yang%2Fmockup-1%2F2x3%2Flandscape%2Fmeditation-mandala.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Autumn Painting Tree",
+          "image": "/canvas/autumn-painting-tree.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-autumn-painting-tree?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fpaduri%2Fmockup-1%2F2x3%2Flandscape%2Fautumn-painting-tree.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Jerry",
+          "image": "/canvas/jerry.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-jerry?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fdigitale%2Fmockup-1%2F2x3%2Fportret%2Fjerry.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Bamboo Stones",
+          "image": "/canvas/bamboo-stones.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-bamboo-stones?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fpietre%2Fmockup-1%2F2x3%2Flandscape%2Fbamboo-stones.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cream Wild Butterfly",
+          "image": "/canvas/cream-wild-butterfly.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cream-wild-butterfly?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-natura%2Fmockup-1%2F2x3%2Flandscape%2Fcream-wild-butterfly.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Orange White Exotic",
+          "image": "/canvas/orange-white-exotic.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-orange-white-exotic?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-exotice%2Fmockup-1%2F2x3%2Flandscape%2Forange-white-exotic.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Futuristic Background",
+          "image": "/canvas/futuristic-background.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-futuristic-background?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Ffuturistic-background.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cream Exotic Art",
+          "image": "/canvas/cream-exotic-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cream-exotic-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-exotice%2Fmockup-1%2F2x3%2Flandscape%2Fcream-exotic-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Light Pink Exotic",
+          "image": "/canvas/light-pink-exotic.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-light-pink-exotic?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-exotice%2Fmockup-1%2F2x3%2Flandscape%2Flight-pink-exotic.jpg&w=3840&q=75"
+        },
+        {
+          "name": "African Profile Woman",
+          "image": "/canvas/african-profile-woman.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-african-profile-woman?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-etnica%2Fmockup-1%2F2x3%2Flandscape%2Fafrican-profile-woman.jpg&w=3840&q=75"
+        },
+        {
+          "name": "3D Color Splash",
+          "image": "/canvas/3d-color-splash.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-3d-color-splash?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fculori-vibrante%2Fmockup-1%2F2x3%2Flandscape%2F3d-color-splash.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cute Pink Peonies",
+          "image": "/canvas/cute-pink-peonies.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cute-pink-peonies?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Flandscape%2Fcute-pink-peonies.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Toji Gate",
+          "image": "/canvas/toji-gate.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-toji-gate?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fasiatic%2Fmockup-1%2F2x3%2Flandscape%2Ftoji-gate.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Irises Painting",
+          "image": "/canvas/irises-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-irises-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Firis%2Fmockup-1%2F2x3%2Fportret%2Firises-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Colorful Wild Field",
+          "image": "/canvas/colorful-wild-field.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-colorful-wild-field?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-natura%2Fmockup-1%2F2x3%2Flandscape%2Fcolorful-wild-field.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Bojnice Castle Slovakia",
+          "image": "/canvas/bojnice-castle-slovakia.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-bojnice-castle-slovakia?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fcastele%2Fmockup-1%2F2x3%2Flandscape%2Fbojnice-castle-slovakia.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Daylight Bee",
+          "image": "/canvas/daylight-bee.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-daylight-bee?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-natura%2Fmockup-1%2F2x3%2Flandscape%2Fdaylight-bee.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Carcassonne France",
+          "image": "/canvas/carcassonne-france.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-carcassonne-france?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fcastele%2Fmockup-1%2F2x3%2Flandscape%2Fcarcassonne-france.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Handdrawn Doodle",
+          "image": "/canvas/handdrawn-doodle.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-handdrawn-doodle?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-moderna%2Fmockup-1%2F2x3%2Fportret%2Fhanddrawn-doodle.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Exotic Pink Plant",
+          "image": "/canvas/exotic-pink-plant.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-exotic-pink-plant?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-exotice%2Fmockup-1%2F2x3%2Flandscape%2Fexotic-pink-plant.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Grey Painting Vase",
+          "image": "/canvas/grey-painting-vase.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-grey-painting-vase?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-vaza%2Fmockup-1%2F2x3%2Flandscape%2Fgrey-painting-vase.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Big Old Tree",
+          "image": "/canvas/big-old-tree.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-big-old-tree?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fpaduri%2Fmockup-1%2F2x3%2Fportret%2Fbig-old-tree.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Bee Wild Tree",
+          "image": "/canvas/bee-wild-tree.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-bee-wild-tree?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-natura%2Fmockup-1%2F2x3%2Flandscape%2Fbee-wild-tree.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pastel Green Plant",
+          "image": "/canvas/pastel-green-plant.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pastel-green-plant?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-exotice%2Fmockup-1%2F2x3%2Flandscape%2Fpastel-green-plant.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Black Brushstrokes",
+          "image": "/canvas/black-brushstrokes.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-brushstrokes?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Fportret%2Fblack-brushstrokes.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Flying Piramids",
+          "image": "/canvas/flying-piramids.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-flying-piramids?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fpeisaje-sf%2Fmockup-1%2F2x3%2Flandscape%2Fflying-piramids.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Chinese Wind Art",
+          "image": "/canvas/chinese-wind-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-chinese-wind-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fasiatic%2Fmockup-1%2F2x3%2Flandscape%2Fchinese-wind-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Black Lines On Face",
+          "image": "/canvas/black-lines-on-face.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-lines-on-face?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-moderna%2Fmockup-1%2F2x3%2Fportret%2Fblack-lines-on-face.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Bellpepper Green Grey",
+          "image": "/canvas/bellpepper-green-grey.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-bellpepper-green-grey?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Flegume%2Fmockup-1%2F2x3%2Flandscape%2Fbellpepper-green-grey.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Exotic Watercolor",
+          "image": "/canvas/exotic-watercolor.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-exotic-watercolor?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-exotice%2Fmockup-1%2F2x3%2Flandscape%2Fexotic-watercolor.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Painted Wolf",
+          "image": "/canvas/painted-wolf.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-painted-wolf?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fanimale%2Flupi%2Fmockup-1%2F2x3%2Flandscape%2Fpainted-wolf.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Man Orange Orb",
+          "image": "/canvas/man-orange-orb.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-man-orange-orb?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fpeisaje-sf%2Fmockup-1%2F2x3%2Flandscape%2Fman-orange-orb.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Pretty Bird",
+          "image": "/canvas/blue-pretty-bird.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-pretty-bird?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fanimale%2Fpasari%2Fmockup-1%2F2x3%2Fportret%2Fblue-pretty-bird.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Muslim Design",
+          "image": "/canvas/muslim-design.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-muslim-design?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fpeisaje-sf%2Fmockup-1%2F2x3%2Flandscape%2Fmuslim-design.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Neon Space Galaxy",
+          "image": "/canvas/neon-space-galaxy.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-neon-space-galaxy?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fpeisaje-sf%2Fmockup-1%2F2x3%2Flandscape%2Fneon-space-galaxy.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Futuristic Alien Buildings",
+          "image": "/canvas/futuristic-alien-buildings.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-futuristic-alien-buildings?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fpeisaje-sf%2Fmockup-1%2F2x3%2Fportret%2Ffuturistic-alien-buildings.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Green Yellow Autumn",
+          "image": "/canvas/green-yellow-autumn.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-green-yellow-autumn?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Ftoamna%2Fmockup-1%2F2x3%2Flandscape%2Fgreen-yellow-autumn.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Night City",
+          "image": "/canvas/night-city.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-night-city?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fpeisaje-sf%2Fmockup-1%2F2x3%2Flandscape%2Fnight-city.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Balance Pebbles Pyramid",
+          "image": "/canvas/balance-pebbles-pyramid.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-balance-pebbles-pyramid?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fpietre%2Fmockup-1%2F2x3%2Flandscape%2Fbalance-pebbles-pyramid.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pink Purple Sky  Man",
+          "image": "/canvas/pink-purple-sky-man.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pink-purple-sky--man?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fnatura%2Fmockup-1%2F2x3%2Flandscape%2Fpink-purple-sky--man.jpg&w=3840&q=75"
+        },
+        {
+          "name": "White World Map",
+          "image": "/canvas/white-world-map.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-white-world-map?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fharti%2Fcontinenete%2Fmockup-1%2F2x3%2Flandscape%2Fwhite-world-map.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Big Green Drop",
+          "image": "/canvas/big-green-drop.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-big-green-drop?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fapa%2Fmockup-1%2F2x3%2Fportret%2Fbig-green-drop.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Orange Iris",
+          "image": "/canvas/orange-iris.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-orange-iris?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Firis%2Fmockup-1%2F2x3%2Fportret%2Forange-iris.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Celestial Chronicler",
+          "image": "/canvas/celestial-chronicler.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-celestial-chronicler?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fpeisaje-sf%2Fmockup-1%2F2x3%2Flandscape%2Fcelestial-chronicler.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Apple Wall",
+          "image": "/canvas/apple-wall.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-apple-wall?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Ffructe%2Fmockup-1%2F2x3%2Flandscape%2Fapple-wall.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Yellow Green Spiral",
+          "image": "/canvas/yellow-green-spiral.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-yellow-green-spiral?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fculori-vibrante%2Fmockup-1%2F2x3%2Flandscape%2Fyellow-green-spiral.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Watercolor Purple Iris",
+          "image": "/canvas/watercolor-purple-iris.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-watercolor-purple-iris?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Firis%2Fmockup-1%2F2x3%2Flandscape%2Fwatercolor-purple-iris.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Green Circle Lines",
+          "image": "/canvas/green-circle-lines.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-green-circle-lines?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fminimaliste%2Fmockup-1%2F2x3%2Fportret%2Fgreen-circle-lines.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Architecture Reflections",
+          "image": "/canvas/architecture-reflections.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-architecture-reflections?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Forase%2Forase-asiatice%2Fmockup-1%2F2x3%2Fportret%2Farchitecture-reflections.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Amazing Sunset View",
+          "image": "/canvas/amazing-sunset-view.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-amazing-sunset-view?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fapus-de-soare%2Fmockup-1%2F2x3%2Flandscape%2Famazing-sunset-view.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Hand Draw Red Painting",
+          "image": "/canvas/hand-draw-red-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-hand-draw-red-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fculori-vibrante%2Fmockup-1%2F2x3%2Flandscape%2Fhand-draw-red-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Interstellar Journey",
+          "image": "/canvas/interstellar-journey.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-interstellar-journey?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fpeisaje-sf%2Fmockup-1%2F2x3%2Flandscape%2Finterstellar-journey.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Autumn Waterfall",
+          "image": "/canvas/autumn-waterfall.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-autumn-waterfall?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Ftoamna%2Fmockup-1%2F2x3%2Flandscape%2Fautumn-waterfall.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Lavender Field",
+          "image": "/canvas/lavender-field.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-lavender-field?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fpaduri%2Fmockup-1%2F2x3%2Flandscape%2Flavender-field.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Angry Orange Tiger",
+          "image": "/canvas/angry-orange-tiger.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-angry-orange-tiger?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fanimale%2Ftigri%2Fmockup-1%2F2x3%2Flandscape%2Fangry-orange-tiger.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Old Map Cream",
+          "image": "/canvas/old-map-cream.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-old-map-cream?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fharti%2Fharti-vechi%2Fmockup-1%2F2x3%2Flandscape%2Fold-map-cream.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Brown Black Horses",
+          "image": "/canvas/brown-black-horses.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-brown-black-horses?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fanimale%2Fcai%2Fmockup-1%2F2x3%2Flandscape%2Fbrown-black-horses.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Close Up Dreamy Peony",
+          "image": "/canvas/close-up-dreamy-peony.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-close-up-dreamy-peony?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbujori%2Fmockup-1%2F2x3%2Flandscape%2Fclose-up-dreamy-peony.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Autumnal Painting",
+          "image": "/canvas/autumnal-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-autumnal-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Ftoamna%2Fmockup-1%2F2x3%2Flandscape%2Fautumnal-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Foggy Morning",
+          "image": "/canvas/foggy-morning.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-foggy-morning?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Flacuri%2Fmockup-1%2F2x3%2Flandscape%2Ffoggy-morning.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Ocean Blue Marble",
+          "image": "/canvas/ocean-blue-marble.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-ocean-blue-marble?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fmarble%2Fmockup-1%2F2x3%2Flandscape%2Focean-blue-marble.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Brightly Color Splashing",
+          "image": "/canvas/brightly-color-splashing.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-brightly-color-splashing?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fculori-vibrante%2Fmockup-1%2F2x3%2Fportret%2Fbrightly-color-splashing.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Powder Holi Woman",
+          "image": "/canvas/powder-holi-woman.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-powder-holi-woman?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Ffemei-abstracte%2Fmockup-1%2F2x3%2Flandscape%2Fpowder-holi-woman.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Modern Oil Painting With White",
+          "image": "/canvas/modern-oil-painting-with-white.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-modern-oil-painting-with-white?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Fportret%2Fmodern-oil-painting-with-white.jpg&w=3840&q=75"
+        },
+        {
+          "name": "London Love",
+          "image": "/canvas/london-love.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-london-love?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Forase%2Forase-europene%2Fmockup-1%2F2x3%2Flandscape%2Flondon-love.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Dancing Woman",
+          "image": "/canvas/beautiful-dancing-woman.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-dancing-woman?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fsiluete%2Fmockup-1%2F2x3%2Fportret%2Fbeautiful-dancing-woman.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Basket Hoop",
+          "image": "/canvas/blue-basket-hoop.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-basket-hoop?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fsport%2Fbaschet%2Fmockup-1%2F2x3%2Fportret%2Fblue-basket-hoop.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cream Pink Peony",
+          "image": "/canvas/cream-pink-peony.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cream-pink-peony?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbujori%2Fmockup-1%2F2x3%2Flandscape%2Fcream-pink-peony.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Color Floating",
+          "image": "/canvas/color-floating.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-color-floating?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fculori-vibrante%2Fmockup-1%2F2x3%2Flandscape%2Fcolor-floating.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Body And Soul",
+          "image": "/canvas/body-and-soul.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-body-and-soul?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fdigitale%2Fmockup-1%2F2x3%2Fportret%2Fbody-and-soul.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Magic Cat Witch",
+          "image": "/canvas/magic-cat-witch.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-magic-cat-witch?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fvrajitoare%2Fmockup-1%2F2x3%2Flandscape%2Fmagic-cat-witch.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Countryside Charm",
+          "image": "/canvas/countryside-charm.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-countryside-charm?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Frural%2Fmockup-1%2F2x3%2Flandscape%2Fcountryside-charm.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beer Woman",
+          "image": "/canvas/beer-woman.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beer-woman?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Fbauturi%2Fmockup-1%2F2x3%2Flandscape%2Fbeer-woman.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Black Line Art",
+          "image": "/canvas/black-line-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-line-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Falb-negru%2Fmockup-1%2F2x3%2Fportret%2Fblack-line-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "White Red Buddha",
+          "image": "/canvas/white-red-buddha.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-white-red-buddha?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fbuddha%2Fmockup-1%2F2x3%2Flandscape%2Fwhite-red-buddha.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Yellow Light Buddha",
+          "image": "/canvas/yellow-light-buddha.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-yellow-light-buddha?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fbuddha%2Fmockup-1%2F2x3%2Flandscape%2Fyellow-light-buddha.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Baby Animals",
+          "image": "/canvas/baby-animals.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-baby-animals?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fcopii%2Fbebelusi%2Fmockup-1%2F2x3%2Flandscape%2Fbaby-animals.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Clear Water",
+          "image": "/canvas/blue-clear-water.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-clear-water?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fplaje%2Fmockup-1%2F2x3%2Flandscape%2Fblue-clear-water.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Wild Poppies",
+          "image": "/canvas/wild-poppies.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-wild-poppies?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmaci%2Fmockup-1%2F2x3%2Flandscape%2Fwild-poppies.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Yellow Hibiscus",
+          "image": "/canvas/yellow-hibiscus.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-yellow-hibiscus?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-exotice%2Fmockup-1%2F2x3%2Flandscape%2Fyellow-hibiscus.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Intense Fiery Portrait",
+          "image": "/canvas/intense-fiery-portrait.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-intense-fiery-portrait?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-etnica%2Fmockup-1%2F2x3%2Flandscape%2Fintense-fiery-portrait.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Love On My Toes",
+          "image": "/canvas/love-on-my-toes.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-love-on-my-toes?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fdigitale%2Fmockup-1%2F2x3%2Flandscape%2Flove-on-my-toes.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Splash",
+          "image": "/canvas/beautiful-splash.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-splash?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fculori-vibrante%2Fmockup-1%2F2x3%2Fportret%2Fbeautiful-splash.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Smell Like Money",
+          "image": "/canvas/smell-like-money.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-smell-like-money?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fdigitale%2Fmockup-1%2F2x3%2Fportret%2Fsmell-like-money.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Mint Leaves Lemonade",
+          "image": "/canvas/mint-leaves-lemonade.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-mint-leaves-lemonade?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Fbauturi%2Fmockup-1%2F2x3%2Flandscape%2Fmint-leaves-lemonade.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Colorful Epoxy",
+          "image": "/canvas/beautiful-colorful-epoxy.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-colorful-epoxy?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fculori-vibrante%2Fmockup-1%2F2x3%2Fportret%2Fbeautiful-colorful-epoxy.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Light Cream Marble",
+          "image": "/canvas/light-cream-marble.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-light-cream-marble?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fmarble%2Fmockup-1%2F2x3%2Fportret%2Flight-cream-marble.jpg&w=3840&q=75"
+        },
+        {
+          "name": "The Kiss",
+          "image": "/canvas/the-kiss.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-the-kiss?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Freproduceri%2Fgustav-klimt%2Fmockup-1%2F2x3%2Fportret%2Fthe-kiss.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Oily Splash Explosion",
+          "image": "/canvas/oily-splash-explosion.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-oily-splash-explosion?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fculori-vibrante%2Fmockup-1%2F2x3%2Flandscape%2Foily-splash-explosion.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Singer Painting",
+          "image": "/canvas/singer-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-singer-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-moderna%2Fmockup-1%2F2x3%2Flandscape%2Fsinger-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Asiatic View",
+          "image": "/canvas/beautiful-asiatic-view.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-asiatic-view?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fasiatic%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-asiatic-view.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Pink Exotic",
+          "image": "/canvas/beautiful-pink-exotic.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-pink-exotic?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-exotice%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-pink-exotic.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Elephant Sunset",
+          "image": "/canvas/elephant-sunset.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-elephant-sunset?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fanimale%2Felefanti%2Fmockup-1%2F2x3%2Flandscape%2Felephant-sunset.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Ocean Painting",
+          "image": "/canvas/blue-ocean-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-ocean-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fplaje%2Fmockup-1%2F2x3%2Fportret%2Fblue-ocean-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Painted Purple Orchid",
+          "image": "/canvas/painted-purple-orchid.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-painted-purple-orchid?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Forhidee%2Fmockup-1%2F2x3%2Flandscape%2Fpainted-purple-orchid.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Dark Purple Splash",
+          "image": "/canvas/dark-purple-splash.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-dark-purple-splash?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fculori-vibrante%2Fmockup-1%2F2x3%2Flandscape%2Fdark-purple-splash.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Neon Lights Hair",
+          "image": "/canvas/neon-lights-hair.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-neon-lights-hair?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fdigitale%2Fmockup-1%2F2x3%2Flandscape%2Fneon-lights-hair.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Wild Horses Art",
+          "image": "/canvas/wild-horses-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-wild-horses-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Ftextura-de-pictura%2Fmockup-1%2F2x3%2Flandscape%2Fwild-horses-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Pink Pastel",
+          "image": "/canvas/beautiful-pink-pastel.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-pink-pastel?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fbuchet-de-flori%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-pink-pastel.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Chinese Red Leafs",
+          "image": "/canvas/chinese-red-leafs.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-chinese-red-leafs?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fasiatic%2Fmockup-1%2F2x3%2Flandscape%2Fchinese-red-leafs.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Green Leaves Bridge View",
+          "image": "/canvas/green-leaves-bridge-view.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-green-leaves-bridge-view?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fcascade%2Fmockup-1%2F2x3%2Fportret%2Fgreen-leaves-bridge-view.jpg&w=3840&q=75"
+        },
+        {
+          "name": "World Map Vintage",
+          "image": "/canvas/world-map-vintage.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-world-map-vintage?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fharti%2Fharti-vechi%2Fmockup-1%2F2x3%2Flandscape%2Fworld-map-vintage.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Colorful Eye",
+          "image": "/canvas/colorful-eye.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-colorful-eye?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fdigitale%2Fmockup-1%2F2x3%2Fportret%2Fcolorful-eye.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Galaxy Hair",
+          "image": "/canvas/galaxy-hair.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-galaxy-hair?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Ffemei-abstracte%2Fmockup-1%2F2x3%2Fportret%2Fgalaxy-hair.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Dark Panorama",
+          "image": "/canvas/dark-panorama.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-dark-panorama?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fculori-vibrante%2Fmockup-1%2F2x3%2Flandscape%2Fdark-panorama.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Purple Blue Iris",
+          "image": "/canvas/purple-blue-iris.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-purple-blue-iris?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Firis%2Fmockup-1%2F2x3%2Flandscape%2Fpurple-blue-iris.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Poppies",
+          "image": "/canvas/blue-poppies.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-poppies?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmaci%2Fmockup-1%2F2x3%2Flandscape%2Fblue-poppies.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Asian Orange Sunset",
+          "image": "/canvas/asian-orange-sunset.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-asian-orange-sunset?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fasiatic%2Fmockup-1%2F2x3%2Flandscape%2Fasian-orange-sunset.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Cloud Moon",
+          "image": "/canvas/blue-cloud-moon.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-cloud-moon?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fnori%2Fmockup-1%2F2x3%2Flandscape%2Fblue-cloud-moon.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Wolf Head",
+          "image": "/canvas/blue-wolf-head.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-wolf-head?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fanimale%2Flupi%2Fmockup-1%2F2x3%2Flandscape%2Fblue-wolf-head.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Black Grey Shape",
+          "image": "/canvas/black-grey-shape.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-grey-shape?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fblack-grey-shape.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Black Woman Shilouette",
+          "image": "/canvas/black-woman-shilouette.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-woman-shilouette?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fsiluete%2Fmockup-1%2F2x3%2Fportret%2Fblack-woman-shilouette.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Coffe Art",
+          "image": "/canvas/coffe-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-coffe-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Fcafea%2Fmockup-1%2F2x3%2Flandscape%2Fcoffe-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Exotic Patern",
+          "image": "/canvas/exotic-patern.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-exotic-patern?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-exotice%2Fmockup-1%2F2x3%2Flandscape%2Fexotic-patern.jpg&w=3840&q=75"
+        },
+        {
+          "name": "White Plumeria",
+          "image": "/canvas/white-plumeria.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-white-plumeria?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-exotice%2Fmockup-1%2F2x3%2Flandscape%2Fwhite-plumeria.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Sunset Scenery View",
+          "image": "/canvas/sunset-scenery-view.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-sunset-scenery-view?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Flacuri%2Fmockup-1%2F2x3%2Flandscape%2Fsunset-scenery-view.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Zola",
+          "image": "/canvas/zola.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-zola?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Ffemei-africane%2Fmockup-1%2F2x3%2Fportret%2Fzola.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Mistic Woman",
+          "image": "/canvas/mistic-woman.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-mistic-woman?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fsiluete%2Fmockup-1%2F2x3%2Fportret%2Fmistic-woman.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Purple Iris On White",
+          "image": "/canvas/purple-iris-on-white.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-purple-iris-on-white?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Firis%2Fmockup-1%2F2x3%2Fportret%2Fpurple-iris-on-white.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Autumn Color Spices",
+          "image": "/canvas/autumn-color-spices.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-autumn-color-spices?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Fcondimente%2Fmockup-1%2F2x3%2Flandscape%2Fautumn-color-spices.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Paint On Wood",
+          "image": "/canvas/paint-on-wood.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-paint-on-wood?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fpaint-on-wood.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Lion Love",
+          "image": "/canvas/lion-love.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-lion-love?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fanimale%2Flei%2Fmockup-1%2F2x3%2Fportret%2Flion-love.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Ocean Woman Shilouette",
+          "image": "/canvas/ocean-woman-shilouette.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-ocean-woman-shilouette?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fsiluete%2Fmockup-1%2F2x3%2Flandscape%2Focean-woman-shilouette.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Adorable Giraffe",
+          "image": "/canvas/adorable-giraffe.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-adorable-giraffe?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fcopii%2Fbebelusi%2Fmockup-1%2F2x3%2Flandscape%2Fadorable-giraffe.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Buddha Cream Blue",
+          "image": "/canvas/buddha-cream-blue.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-buddha-cream-blue?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fbuddha%2Fmockup-1%2F2x3%2Flandscape%2Fbuddha-cream-blue.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pretty Woman Portrait",
+          "image": "/canvas/pretty-woman-portrait.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pretty-woman-portrait?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fporterete%2Fmockup-1%2F2x3%2Fportret%2Fpretty-woman-portrait.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Relax Wave",
+          "image": "/canvas/relax-wave.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-relax-wave?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fapa%2Fmockup-1%2F2x3%2Flandscape%2Frelax-wave.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Yin Yang Koi",
+          "image": "/canvas/yin-yang-koi.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-yin-yang-koi?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Falb-negru%2Fmockup-1%2F2x3%2Flandscape%2Fyin-yang-koi.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Asian Bird",
+          "image": "/canvas/asian-bird.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-asian-bird?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fanimale%2Fpasari%2Fmockup-1%2F2x3%2Fportret%2Fasian-bird.jpg&w=3840&q=75"
+        },
+        {
+          "name": "White Purple Wild",
+          "image": "/canvas/white-purple-wild.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-white-purple-wild?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-natura%2Fmockup-1%2F2x3%2Flandscape%2Fwhite-purple-wild.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Big Purple Exotic",
+          "image": "/canvas/big-purple-exotic.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-big-purple-exotic?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-exotice%2Fmockup-1%2F2x3%2Fportret%2Fbig-purple-exotic.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Moving Butterflies",
+          "image": "/canvas/moving-butterflies.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-moving-butterflies?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fanimale%2Ffluturi%2Fmockup-1%2F2x3%2Flandscape%2Fmoving-butterflies.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Graffity Bulldog",
+          "image": "/canvas/graffity-bulldog.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-graffity-bulldog?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fgraffiti%2Fmockup-1%2F2x3%2Flandscape%2Fgraffity-bulldog.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Silver Liquid Woman",
+          "image": "/canvas/silver-liquid-woman.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-silver-liquid-woman?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fdigitale%2Fmockup-1%2F2x3%2Flandscape%2Fsilver-liquid-woman.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Autumn Yellow View",
+          "image": "/canvas/autumn-yellow-view.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-autumn-yellow-view?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Ftoamna%2Fmockup-1%2F2x3%2Flandscape%2Fautumn-yellow-view.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Wolf Pink Moon",
+          "image": "/canvas/wolf-pink-moon.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-wolf-pink-moon?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fanimale%2Flupi%2Fmockup-1%2F2x3%2Fportret%2Fwolf-pink-moon.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pink Coat Woman",
+          "image": "/canvas/pink-coat-woman.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pink-coat-woman?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-moderna%2Fmockup-1%2F2x3%2Fportret%2Fpink-coat-woman.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Dark F1 Car",
+          "image": "/canvas/dark-f1-car.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-dark-f1-car?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmasini%2Fformula-1%2Fmockup-1%2F2x3%2Flandscape%2Fdark-f1-car.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pile Rocks",
+          "image": "/canvas/pile-rocks.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pile-rocks?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fpietre%2Fmockup-1%2F2x3%2Flandscape%2Fpile-rocks.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Artistic Yellow Painting",
+          "image": "/canvas/artistic-yellow-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-artistic-yellow-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fculori-vibrante%2Fmockup-1%2F2x3%2Flandscape%2Fartistic-yellow-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Grey Wolf Looking",
+          "image": "/canvas/grey-wolf-looking.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-grey-wolf-looking?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fanimale%2Flupi%2Fmockup-1%2F2x3%2Fportret%2Fgrey-wolf-looking.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Water Drop",
+          "image": "/canvas/beautiful-water-drop.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-water-drop?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fapa%2Fmockup-1%2F2x3%2Fportret%2Fbeautiful-water-drop.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Colorful Geometric Background",
+          "image": "/canvas/colorful-geometric-background.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-colorful-geometric-background?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Flandscape%2Fcolorful-geometric-background.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Beautiful Purple Iris",
+          "image": "/canvas/beautiful-purple-iris.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-beautiful-purple-iris?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Firis%2Fmockup-1%2F2x3%2Flandscape%2Fbeautiful-purple-iris.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pink Blue Marble",
+          "image": "/canvas/pink-blue-marble.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pink-blue-marble?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fmarble%2Fmockup-1%2F2x3%2Flandscape%2Fpink-blue-marble.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Rock Group",
+          "image": "/canvas/rock-group.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-rock-group?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fpietre%2Fmockup-1%2F2x3%2Fportret%2Frock-group.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pretty African Art Splash",
+          "image": "/canvas/pretty-african-art-splash.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pretty-african-art-splash?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-etnica%2Fmockup-1%2F2x3%2Flandscape%2Fpretty-african-art-splash.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Acrylic Textured Paint",
+          "image": "/canvas/acrylic-textured-paint.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-acrylic-textured-paint?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Facrylic-textured-paint.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Spa Purple Rock",
+          "image": "/canvas/spa-purple-rock.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-spa-purple-rock?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Fpietre%2Fmockup-1%2F2x3%2Flandscape%2Fspa-purple-rock.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Baseball Gorilla",
+          "image": "/canvas/baseball-gorilla.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-baseball-gorilla?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fsport%2Fbaseball%2Fmockup-1%2F2x3%2Flandscape%2Fbaseball-gorilla.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pretty Girl Portrait",
+          "image": "/canvas/pretty-girl-portrait.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pretty-girl-portrait?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fporterete%2Fmockup-1%2F2x3%2Fportret%2Fpretty-girl-portrait.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Cream Orange Buddha",
+          "image": "/canvas/cream-orange-buddha.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-cream-orange-buddha?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fbuddha%2Fmockup-1%2F2x3%2Flandscape%2Fcream-orange-buddha.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Orange Floating",
+          "image": "/canvas/blue-orange-floating.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-orange-floating?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Filuzii-optice%2Fmockup-1%2F2x3%2Flandscape%2Fblue-orange-floating.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Black Pepper",
+          "image": "/canvas/black-pepper.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-pepper?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Fcondimente%2Fmockup-1%2F2x3%2Flandscape%2Fblack-pepper.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Black Coffee Bean",
+          "image": "/canvas/black-coffee-bean.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-coffee-bean?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Fcafea%2Fmockup-1%2F2x3%2Flandscape%2Fblack-coffee-bean.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Spices Spoons",
+          "image": "/canvas/spices-spoons.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-spices-spoons?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Fcondimente%2Fmockup-1%2F2x3%2Flandscape%2Fspices-spoons.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Iris In Vase",
+          "image": "/canvas/iris-in-vase.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-iris-in-vase?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Firis%2Fmockup-1%2F2x3%2Flandscape%2Firis-in-vase.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Chateau Chenonceau Castle",
+          "image": "/canvas/chateau-chenonceau-castle.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-chateau-chenonceau-castle?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fcastele%2Fmockup-1%2F2x3%2Flandscape%2Fchateau-chenonceau-castle.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Dimension Dasher",
+          "image": "/canvas/dimension-dasher.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-dimension-dasher?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fscience-fiction%2Fpeisaje-sf%2Fmockup-1%2F2x3%2Flandscape%2Fdimension-dasher.jpg&w=3840&q=75"
+        },
+        {
+          "name": "White Table Vase",
+          "image": "/canvas/white-table-vase.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-white-table-vase?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-vaza%2Fmockup-1%2F2x3%2Flandscape%2Fwhite-table-vase.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Sunset  Silhouette",
+          "image": "/canvas/sunset-silhouette.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-sunset--silhouette?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fanimale%2Felefanti%2Fmockup-1%2F2x3%2Flandscape%2Fsunset--silhouette.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pastel Yellow Iris",
+          "image": "/canvas/pastel-yellow-iris.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pastel-yellow-iris?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Firis%2Fmockup-1%2F2x3%2Fportret%2Fpastel-yellow-iris.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Kimono Headphones",
+          "image": "/canvas/kimono-headphones.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-kimono-headphones?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-etnica%2Fmockup-1%2F2x3%2Fportret%2Fkimono-headphones.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Dreamy Pink Exotic",
+          "image": "/canvas/dreamy-pink-exotic.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-dreamy-pink-exotic?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-exotice%2Fmockup-1%2F2x3%2Fportret%2Fdreamy-pink-exotic.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Black Tulip In Vase",
+          "image": "/canvas/black-tulip-in-vase.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-black-tulip-in-vase?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Flalele%2Fmockup-1%2F2x3%2Fportret%2Fblack-tulip-in-vase.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Vintage Map",
+          "image": "/canvas/vintage-map.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-vintage-map?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fharti%2Fharti-vechi%2Fmockup-1%2F2x3%2Flandscape%2Fvintage-map.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Grey Art Marble",
+          "image": "/canvas/grey-art-marble.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-grey-art-marble?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Falb-negru%2Fmockup-1%2F2x3%2Flandscape%2Fgrey-art-marble.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Guitarist Art",
+          "image": "/canvas/guitarist-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-guitarist-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fdigitale%2Fmockup-1%2F2x3%2Fportret%2Fguitarist-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Old Bmw Headlight",
+          "image": "/canvas/old-bmw-headlight.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-old-bmw-headlight?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmasini%2Fmasini-sport%2Fmockup-1%2F2x3%2Flandscape%2Fold-bmw-headlight.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Minimalist Sunset Art",
+          "image": "/canvas/minimalist-sunset-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-minimalist-sunset-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fpeisaje%2Fapus-de-soare%2Fmockup-1%2F2x3%2Flandscape%2Fminimalist-sunset-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Ignite Radiance",
+          "image": "/canvas/ignite-radiance.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-ignite-radiance?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffeng-shui%2Ffoc%2Fmockup-1%2F2x3%2Flandscape%2Fignite-radiance.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pink Light Vase",
+          "image": "/canvas/pink-light-vase.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pink-light-vase?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fflori-in-vaza%2Fmockup-1%2F2x3%2Fportret%2Fpink-light-vase.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Polygonal Pretty Girl",
+          "image": "/canvas/polygonal-pretty-girl.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-polygonal-pretty-girl?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fdigitale%2Fmockup-1%2F2x3%2Fportret%2Fpolygonal-pretty-girl.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Sugar Skull Face",
+          "image": "/canvas/sugar-skull-face.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-sugar-skull-face?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-etnica%2Fmockup-1%2F2x3%2Fportret%2Fsugar-skull-face.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Tall Black Pants",
+          "image": "/canvas/tall-black-pants.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-tall-black-pants?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-moderna%2Fmockup-1%2F2x3%2Fportret%2Ftall-black-pants.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Fruit Salad",
+          "image": "/canvas/fruit-salad.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-fruit-salad?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Ffructe%2Fmockup-1%2F2x3%2Flandscape%2Ffruit-salad.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Red Poppies",
+          "image": "/canvas/red-poppies.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-red-poppies?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Fmaci%2Fmockup-1%2F2x3%2Flandscape%2Fred-poppies.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Grey Plant",
+          "image": "/canvas/grey-plant.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-grey-plant?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Falb-negru%2Fmockup-1%2F2x3%2Flandscape%2Fgrey-plant.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Colorful Explosion Paint",
+          "image": "/canvas/colorful-explosion-paint.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-colorful-explosion-paint?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fculori-vibrante%2Fmockup-1%2F2x3%2Fportret%2Fcolorful-explosion-paint.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Orange Racing Car",
+          "image": "/canvas/orange-racing-car.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-orange-racing-car?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmasini%2Fformula-1%2Fmockup-1%2F2x3%2Flandscape%2Forange-racing-car.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Berries Macarons",
+          "image": "/canvas/berries-macarons.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-berries-macarons?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Fdulciuri%2Fmockup-1%2F2x3%2Flandscape%2Fberries-macarons.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Iris Leaf",
+          "image": "/canvas/iris-leaf.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-iris-leaf?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Firis%2Fmockup-1%2F2x3%2Flandscape%2Firis-leaf.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Yellow Shiny Tulip",
+          "image": "/canvas/yellow-shiny-tulip.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-yellow-shiny-tulip?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Flalele%2Fmockup-1%2F2x3%2Flandscape%2Fyellow-shiny-tulip.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Acrylic Close Up",
+          "image": "/canvas/acrylic-close-up.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-acrylic-close-up?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fculori-vibrante%2Fmockup-1%2F2x3%2Flandscape%2Facrylic-close-up.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Watercolor City Skyline",
+          "image": "/canvas/watercolor-city-skyline.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-watercolor-city-skyline?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Forase%2Forase-americane%2Fmockup-1%2F2x3%2Flandscape%2Fwatercolor-city-skyline.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Blue Watercolor",
+          "image": "/canvas/blue-watercolor.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-blue-watercolor?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fmarble%2Fmockup-1%2F2x3%2Flandscape%2Fblue-watercolor.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Vintage Red White",
+          "image": "/canvas/vintage-red-white.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-vintage-red-white?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmasini%2Fmasini-vintage%2Fmockup-1%2F2x3%2Flandscape%2Fvintage-red-white.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Newspaper Painting Girl",
+          "image": "/canvas/newspaper-painting-girl.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-newspaper-painting-girl?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-moderna%2Fmockup-1%2F2x3%2Flandscape%2Fnewspaper-painting-girl.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Closeup Oil Painting",
+          "image": "/canvas/closeup-oil-painting.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-closeup-oil-painting?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Farta-abstracta%2Fmockup-1%2F2x3%2Flandscape%2Fcloseup-oil-painting.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Coffee Cups Mix",
+          "image": "/canvas/coffee-cups-mix.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-coffee-cups-mix?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Fcafea%2Fmockup-1%2F2x3%2Flandscape%2Fcoffee-cups-mix.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pink Tulip With Drops",
+          "image": "/canvas/pink-tulip-with-drops.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pink-tulip-with-drops?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Flalele%2Fmockup-1%2F2x3%2Flandscape%2Fpink-tulip-with-drops.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Unique Acrylic Paintings",
+          "image": "/canvas/unique-acrylic-paintings.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-unique-acrylic-paintings?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fabstracte%2Fabstract-cu-linii%2Fmockup-1%2F2x3%2Fportret%2Funique-acrylic-paintings.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Armenia Map",
+          "image": "/canvas/armenia-map.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-armenia-map?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fharti%2Ftari%2Fmockup-1%2F2x3%2Flandscape%2Farmenia-map.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Intense Portrait Art",
+          "image": "/canvas/intense-portrait-art.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-intense-portrait-art?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-etnica%2Fmockup-1%2F2x3%2Flandscape%2Fintense-portrait-art.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Unique Smokey Eyes",
+          "image": "/canvas/unique-smokey-eyes.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-unique-smokey-eyes?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffashion%2Fmoda-etnica%2Fmockup-1%2F2x3%2Flandscape%2Funique-smokey-eyes.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Purple Orange Iris",
+          "image": "/canvas/purple-orange-iris.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-purple-orange-iris?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Firis%2Fmockup-1%2F2x3%2Flandscape%2Fpurple-orange-iris.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Sun Water Butterfly",
+          "image": "/canvas/sun-water-butterfly.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-sun-water-butterfly?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fanimale%2Ffluturi%2Fmockup-1%2F2x3%2Fportret%2Fsun-water-butterfly.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Vintage Botanical",
+          "image": "/canvas/vintage-botanical.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-vintage-botanical?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fmoderne%2Fcolaje%2Fmockup-1%2F2x3%2Flandscape%2Fvintage-botanical.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Orange Drink",
+          "image": "/canvas/orange-drink.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-orange-drink?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Falimente%2Fbauturi%2Fmockup-1%2F2x3%2Flandscape%2Forange-drink.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Stormy Day",
+          "image": "/canvas/stormy-day.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-stormy-day?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Fsiluete%2Fmockup-1%2F2x3%2Flandscape%2Fstormy-day.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Orchid In Rain",
+          "image": "/canvas/orchid-in-rain.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-orchid-in-rain?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Fflori%2Forhidee%2Fmockup-1%2F2x3%2Flandscape%2Forchid-in-rain.jpg&w=3840&q=75"
+        },
+        {
+          "name": "Pretty Blue Face",
+          "image": "/canvas/pretty-blue-face.jpg",
+          "originalUrl": "https://www.arthub.ro/tablou-canvas-pretty-blue-face?size=20x30cm",
+          "sourceImage": "https://www.arthub.ro/_next/image?url=https%3A%2F%2Fimages-arthub.fra1.cdn.digitaloceanspaces.com%2Fproduse-amazon%2Ftablouri-canvas%2Ffemei%2Ffemei-abstracte%2Fmockup-1%2F2x3%2Fportret%2Fpretty-blue-face.jpg&w=3840&q=75"
+        }
+      ]
+    }
+  }
+];

@@ -1,0 +1,173 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { prisma } from '@/lib/prisma';
+import { calculateShippingParams, determinePackingType } from '@/lib/shippingUtils';
+import { createShipment, printExtended, decodeBase64PdfToBuffer, trackingUrlForAwb, type CreateShipmentRequest, type ShipmentSender } from '../../../../lib/dpdService';
+
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
+/**
+ * POST /api/dpd/awb
+ * Body: {
+ *   shipment: CreateShipmentRequest (DPD shapes: recipient, service, content, payment, ref1/ref2, note)
+ *   print?: { paperSize?: 'A6'|'A4'|'A4_4xA6', format?: 'pdf'|'zpl' }
+ * }
+ *
+ * Returns: { success, shipmentId, parcels, labelBase64?, labelFileName? }
+ *
+ * NOTE: DPD requires a valid serviceId and address (siteName+postCode or siteId etc.).
+ */
+export async function POST(req: NextRequest) {
+  try {
+    const { shipment, print, orderId } = (await req.json()) as {
+      shipment?: CreateShipmentRequest;
+      print?: { paperSize?: 'A6' | 'A4' | 'A4_4xA6'; format?: 'pdf' | 'zpl' };
+      orderId?: string;
+    };
+
+    if (!shipment?.recipient || !shipment?.service || !shipment?.content || !shipment?.payment) {
+      return NextResponse.json(
+        { success: false, message: 'Parametri lipsă: recipient, service, content, payment' },
+        { status: 400 }
+      );
+    }
+
+    // --- LOGICĂ NOUĂ: Calcul Greutate & Conținut din Comandă ---
+    if (orderId) {
+      try {
+        const order = await prisma.order.findUnique({
+          where: { id: orderId },
+          include: { items: true }
+        });
+
+        if (order && order.items.length > 0) {
+          // 1. Calculăm greutatea fizică/volumetrică
+          let totalW = 0;
+          order.items.forEach((item: any) => {
+            const meta = item.metadata || {};
+            const quantity = item.quantity || item.qty || 1;
+
+            // Încercăm să luăm dimensiunile
+            let w = parseFloat(meta.width || '0');
+            let h = parseFloat(meta.height || '0');
+
+            // Fallback pentru produse standard care nu au width/height în metadata dar au tip știut
+            if (w === 0 && h === 0) {
+              // Putem pune dimensiuni medii implicite sau greutate fixă
+              // Aici punem o greutate fixă default de 0.5kg per item dacă nu știm dimensiunile
+              totalW += (0.5 * quantity);
+            } else {
+              const slug = item.slug || item.name || '';
+              const pType = determinePackingType(slug, item);
+              const shp = calculateShippingParams({ width: w, height: h, quantity, type: pType });
+              totalW += shp.billingWeight;
+            }
+          });
+
+          // Greutate minimă 1kg
+          const finalWeight = Math.max(1, parseFloat(totalW.toFixed(2)));
+
+          // Actualizăm shipment-ul cu greutatea reală
+          shipment.content.totalWeight = finalWeight;
+
+          // 2. Setăm conținutul (descriere)
+          if (!shipment.content.contents || shipment.content.contents === 'Produse') {
+            const desc = order.items.map((i: any) => `${i.name} x${i.quantity}`).join(', ').slice(0, 70);
+            shipment.content.contents = desc || 'Produse Tipografice';
+          }
+
+          // 3. Verificăm Rambursul (COD)
+          // Dacă comanda e ramburs, forțăm serviciul COD pe DPD
+          const isRamburs = (order.paymentMethod === 'Ramburs');
+          // Dacă shipment-ul nu are deja COD setat și comanda e Ramburs:
+          if (isRamburs && (!shipment.service.additionalServices?.cod)) {
+            const val = Number(order.totalAmount || 0);
+            if (val > 0) {
+              shipment.service.additionalServices = {
+                ...shipment.service.additionalServices,
+                cod: { amount: val, currencyCode: 'RON' }
+              };
+            }
+          }
+        }
+      } catch (calcError) {
+        console.warn('[DPD Calc] Eroare la calcul greutate autometă:', calcError);
+        // Continuăm cu ce a trimis frontend-ul dacă dă eroare
+      }
+    }
+    // -----------------------------------------------------------
+
+    // Create shipment
+    // Merge optional default sender from env if not present
+    if (!shipment.sender) {
+      const clientId = process.env.DPD_SENDER_CLIENT_ID ? Number(process.env.DPD_SENDER_CLIENT_ID) : undefined;
+      const phone = process.env.DPD_SENDER_PHONE || undefined;
+      const email = process.env.DPD_SENDER_EMAIL || undefined;
+      const name = process.env.DPD_SENDER_NAME || undefined;
+      const siteName = process.env.DPD_SENDER_SITE_NAME || undefined;
+      const postCode = process.env.DPD_SENDER_POST_CODE || undefined;
+      const addressNote = process.env.DPD_SENDER_ADDRESS_NOTE || undefined;
+      const dropoffOfficeId = process.env.DPD_PICKUP_OFFICE_ID ? Number(process.env.DPD_PICKUP_OFFICE_ID) : undefined;
+      let sender: ShipmentSender | undefined;
+      if (clientId) {
+        sender = { clientId, dropoffOfficeId } as ShipmentSender;
+      } else if (siteName || postCode || addressNote || name || phone || email || dropoffOfficeId) {
+        sender = {
+          clientName: name,
+          email,
+          phone1: phone ? { number: phone } : undefined as any,
+          address: siteName || postCode || addressNote ? { countryId: 642, siteName, postCode, addressNote } : undefined,
+          dropoffOfficeId,
+        } as ShipmentSender;
+      }
+      if (sender) (shipment as any).sender = sender;
+    }
+
+    const resp = await createShipment(shipment);
+    if (resp?.error || !resp?.id) {
+      return NextResponse.json(
+        { success: false, message: resp?.error?.message || 'Eroare creare expediție', error: resp?.error, raw: resp },
+        { status: 400 }
+      );
+    }
+
+    const shipmentId = resp.id!;
+    const parcels = resp.parcels || [];
+
+    // Optional print label via extended endpoint (base64 PDF)
+    let labelBase64: string | undefined;
+    let labelFileName: string | undefined;
+    if (print?.format !== 'zpl') {
+      const { base64 } = await printExtended({
+        paperSize: print?.paperSize || 'A6',
+        parcels: parcels.map((p) => ({ id: p.id })),
+        format: 'pdf',
+      });
+      if (base64) {
+        labelBase64 = base64;
+        labelFileName = `DPD_${shipmentId}.pdf`;
+      }
+    }
+
+    // Salvează AWB-ul în DB dacă avem orderId (inclusiv eticheta, dacă există)
+    if (orderId) {
+      try {
+        // prisma importat static sus
+        const updateData: any = { awbNumber: shipmentId, awbCarrier: 'DPD' };
+        if (labelBase64) {
+          updateData.awbLabelBase64 = labelBase64;
+          updateData.awbLabelFileName = labelFileName;
+        }
+        await prisma.order.update({ where: { id: orderId }, data: updateData });
+        console.log('[AWB UPDATE] orderId:', orderId, 'awbNumber:', shipmentId, 'awbCarrier: DPD');
+      } catch (e) {
+        console.error('[AWB UPDATE ERROR] orderId:', orderId, 'awbNumber:', shipmentId, 'awbCarrier: DPD', 'error:', (e as any)?.message || e);
+      }
+    }
+    const trackingUrl = trackingUrlForAwb(shipmentId);
+    return NextResponse.json({ success: true, shipmentId, parcels, labelBase64, labelFileName, trackingUrl });
+  } catch (e: any) {
+    console.error('[API /dpd/awb] Error:', e?.message || e);
+    return NextResponse.json({ success: false, message: 'Eroare internă.' }, { status: 500 });
+  }
+}

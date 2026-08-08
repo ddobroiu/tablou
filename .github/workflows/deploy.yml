@@ -1,0 +1,123 @@
+name: Deploy Tablou
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          platforms: linux/arm64
+          tags: ghcr.io/${{ github.repository_owner }}/tablou:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          build-args: |
+             DATABASE_URL=${{ secrets.DATABASE_URL }}
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Deploy to Hetzner
+        uses: appleboy/ssh-action@v1.2.0
+        env:
+          DATABASE_URL: "${{ secrets.DATABASE_URL }}"
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        with:
+          host: 178.104.33.34
+          username: root
+          password: ${{ secrets.SERVER_PASSWORD }}
+          envs: DATABASE_URL,GITHUB_TOKEN
+          command_timeout: 60m
+          timeout: 120s
+          script: |
+            set -euo pipefail
+            export DOCKER_CLIENT_TIMEOUT=1200
+            export COMPOSE_HTTP_TIMEOUT=1200
+
+            mkdir -p /opt/apps/tablou
+            cd /opt/apps/tablou
+            echo "$GITHUB_TOKEN" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+            echo "${{ secrets.ENV_CONTENTS }}" > .env
+            # If ENV_CONTENTS already contains DATABASE_URL (often empty), remove it
+            sed -i '/^DATABASE_URL=/d' .env
+            # Ensure DATABASE_URL is actually present (empty breaks Prisma)
+            if [ -z "$DATABASE_URL" ]; then
+              echo "ERROR: DATABASE_URL is empty/missing (GitHub Secret DATABASE_URL not set for this repo)."
+              exit 1
+            fi
+            echo "DATABASE_URL=\"$DATABASE_URL\"" >> .env
+            echo "NEXTAUTH_URL=https://www.tablou.net" >> .env
+            echo "NEXT_PUBLIC_SITE_URL=https://www.tablou.net" >> .env
+            echo "PUBLIC_BASE_URL=https://www.tablou.net" >> .env
+            echo "NEXT_PUBLIC_ALLOWED_ORIGIN=https://www.tablou.net" >> .env
+            echo "EMAIL_FROM=contact@tablou.net" >> .env
+            echo "ADMIN_EMAIL=contact@tablou.net" >> .env
+            echo "SUPPORT_EMAIL=contact@tablou.net" >> .env
+
+            echo "ENV CHECK (masked):"
+            (grep -n '^DATABASE_URL=' .env | sed -E 's/(DATABASE_URL=\").*(\")/\1***\2/' || true)
+
+            cat <<EOF > docker-compose.yml
+            services:
+              tablou-app:
+                image: ghcr.io/${{ github.repository_owner }}/tablou:latest
+                container_name: tablou-app
+                restart: unless-stopped
+                ports:
+                  - "3004:3000"
+                env_file: .env
+            EOF
+
+            echo "=== Pull imagine (ARM: poate dura 15-25 min) ==="
+            docker compose pull
+            echo "=== Pornire container ==="
+            docker compose up -d --force-recreate
+
+            echo "=== Așteptare container (max ~2 min) ==="
+            for i in $(seq 1 60); do
+              if docker inspect -f '{{.State.Running}}' tablou-app 2>/dev/null | grep -q true; then
+                break
+              fi
+              sleep 2
+            done
+            docker exec tablou-app node -e "process.exit(0)" >/dev/null 2>&1 || (echo "Container did not become ready" && docker logs --tail=200 tablou-app && exit 1)
+
+            echo "CONTAINER CHECK (masked):"
+            docker exec tablou-app sh -lc 'if [ -n "${DATABASE_URL:-}" ]; then echo "DATABASE_URL=***"; else echo "DATABASE_URL is EMPTY"; fi' || true
+
+            echo "=== Prisma db push ==="
+            docker exec -e DATABASE_URL="$DATABASE_URL" tablou-app npx prisma db push --schema=prisma/schema.prisma --accept-data-loss
+
+            echo "=== Curățare după deploy reușit ==="
+            docker image prune -af
+            find /var/lib/docker/containers -name '*-json.log' -exec truncate -s 0 {} \; 2>/dev/null || true
+            rm -rf /opt/proxy/data/logs/* 2>/dev/null || true
+            journalctl --vacuum-size=200M 2>/dev/null || true
