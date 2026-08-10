@@ -1,11 +1,19 @@
 "use client";
 
-import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
+import React, { Suspense, useState, useEffect, ChangeEvent, FormEvent } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { CheckCircle2 } from "lucide-react";
 
 export default function RetragereContractPage() {
+    return (
+        <Suspense fallback={null}>
+            <RetragereContractForm />
+        </Suspense>
+    );
+}
+
+function RetragereContractForm() {
     const searchParams = useSearchParams();
     const [form, setForm] = useState({ name: "", email: "", phone: "", orderRef: "", products: "", message: "" });
 
