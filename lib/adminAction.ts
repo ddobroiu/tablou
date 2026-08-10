@@ -20,7 +20,7 @@ export type AdminActionPayload = {
     country?: string;
   };
   items?: { name: string; qty: number }[]; // optional to keep token short
-  paymentType?: 'Ramburs' | 'Card';
+  paymentType?: 'Ramburs' | 'OP' | 'Card';
   totalAmount?: number; // total order amount (RON) – used for COD when Ramburs
   // optional overrides for service and sender office
   serviceId?: number;

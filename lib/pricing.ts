@@ -668,42 +668,42 @@ export const AUTOCOLANTE_CONSTANTS = {
   MATERIALS: [
     {
       key: "oracal_3641", label: "Economic — Folie economică", bands: [
-        { max_sqm: 1, price_per_sqm: 54 },
-        { max_sqm: 5, price_per_sqm: 40.5 },
-        { max_sqm: 20, price_per_sqm: 36 },
-        { max_sqm: Infinity, price_per_sqm: 31.5 },
+        { max_sqm: 1, price_per_sqm: 108 },
+        { max_sqm: 5, price_per_sqm: 81 },
+        { max_sqm: 20, price_per_sqm: 72 },
+        { max_sqm: Infinity, price_per_sqm: 63 },
       ]
     },
     {
       key: "oracal_transparent", label: "Transparent — Folie transparentă", bands: [
-        { max_sqm: 1, price_per_sqm: 90 },
-        { max_sqm: 5, price_per_sqm: 67.5 },
-        { max_sqm: 20, price_per_sqm: 60 },
-        { max_sqm: Infinity, price_per_sqm: 52.5 },
+        { max_sqm: 1, price_per_sqm: 180 },
+        { max_sqm: 5, price_per_sqm: 135 },
+        { max_sqm: 20, price_per_sqm: 120 },
+        { max_sqm: Infinity, price_per_sqm: 105 },
       ]
     },
     {
       key: "oracal_621", label: "Removabil — Folie cu adeziv removabil", bands: [
-        { max_sqm: 1, price_per_sqm: 90 },
-        { max_sqm: 5, price_per_sqm: 67.5 },
-        { max_sqm: 20, price_per_sqm: 60 },
-        { max_sqm: Infinity, price_per_sqm: 52.5 },
+        { max_sqm: 1, price_per_sqm: 180 },
+        { max_sqm: 5, price_per_sqm: 135 },
+        { max_sqm: 20, price_per_sqm: 120 },
+        { max_sqm: Infinity, price_per_sqm: 105 },
       ]
     },
     {
       key: "oracal_970", label: "Auto — Folie auto", bands: [
-        { max_sqm: 1, price_per_sqm: 90 },
-        { max_sqm: 5, price_per_sqm: 67.5 },
-        { max_sqm: 20, price_per_sqm: 60 },
-        { max_sqm: Infinity, price_per_sqm: 52.5 },
+        { max_sqm: 1, price_per_sqm: 180 },
+        { max_sqm: 5, price_per_sqm: 135 },
+        { max_sqm: 20, price_per_sqm: 120 },
+        { max_sqm: Infinity, price_per_sqm: 105 },
       ]
     },
   ],
-  PRO_DESIGN_FEE: 50,
+  PRO_DESIGN_FEE: 100,
   /** Latura max (cm) — sub aceasta aplicăm taxă de tăiere/buc (nu mai umflăm mp facturați). */
   SMALL_PIECE_MAX_SIDE_CM: 30,
   /** Lei/buc tăiere+weed (print_cut). Calibrat: 2500×5×5 cm economic ≈ 750 lei fără laminare. */
-  CUT_FEE_PER_PIECE: 0.21,
+  CUT_FEE_PER_PIECE: 0.42,
   LAMINATE_MARKUP: 1.4,
   TRANSFER_FILM_MARKUP: 1.2,
 };

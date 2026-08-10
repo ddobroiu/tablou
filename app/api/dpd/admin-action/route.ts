@@ -89,7 +89,8 @@ export async function GET(req: NextRequest) {
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:end;">
               <label>Tip plată
                 <select name="paymentType" style="width:100%;padding:6px">
-                  <option value="Ramburs" ${payload.paymentType !== 'Card' ? 'selected' : ''}>Ramburs</option>
+                  <option value="Ramburs" ${(!payload.paymentType || payload.paymentType === 'Ramburs') ? 'selected' : ''}>Ramburs</option>
+                  <option value="OP" ${payload.paymentType === 'OP' ? 'selected' : ''}>OP (transfer bancar)</option>
                   <option value="Card" ${payload.paymentType === 'Card' ? 'selected' : ''}>Card</option>
                 </select>
               </label>
@@ -322,7 +323,8 @@ export async function POST(req: NextRequest) {
             postCode: String(form.get('postCode') || payload.address.postCode || ''),
             country: String(form.get('country') || payload.address.country || 'RO'),
         };
-        const paymentType = (String(form.get('paymentType') || payload.paymentType || 'Ramburs') === 'Card') ? 'Card' : 'Ramburs';
+        const paymentTypeRaw = String(form.get('paymentType') || payload.paymentType || 'Ramburs');
+        const paymentType = paymentTypeRaw === 'Card' ? 'Card' : paymentTypeRaw === 'OP' ? 'OP' : 'Ramburs';
         const totalAmountRaw = Number(String(form.get('totalAmount') || ''));
         const totalAmount = Number.isFinite(totalAmountRaw) ? totalAmountRaw : payload.totalAmount;
         const serviceIdRaw = Number(String(form.get('serviceId') || ''));

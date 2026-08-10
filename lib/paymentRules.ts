@@ -27,6 +27,22 @@ export function computeCheckoutTotal(orderData: {
   return Math.max(0, subtotal + shipping - discount);
 }
 
+/** Comandă minimă pentru tricouri: 5 buc. total, combinate pe orice mărimi/modele. */
+export const MIN_TRICOURI_QUANTITY = 5;
+
+export function validateMinTricouQuantity(
+  items?: Array<{ quantity?: number; metadata?: { productType?: string } }>
+): string | null {
+  const tricouQty = (items || [])
+    .filter((it) => it.metadata?.productType === 'tricouri')
+    .reduce((sum, it) => sum + Number(it.quantity || 0), 0);
+
+  if (tricouQty > 0 && tricouQty < MIN_TRICOURI_QUANTITY) {
+    return `Comanda minimă pentru tricouri este de ${MIN_TRICOURI_QUANTITY} bucăți (poți combina mărimi diferite). Ai ${tricouQty} ${tricouQty === 1 ? 'bucată' : 'bucăți'} în coș.`;
+  }
+  return null;
+}
+
 export function validateCheckoutPaymentMethod(
   paymentMethod: string,
   total: number,

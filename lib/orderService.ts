@@ -90,7 +90,7 @@ async function sendEmails(
   billing: Billing,
   cart: any[] = [],
   invoiceLink: string | null,
-  paymentType: 'Ramburs' | 'Card',
+  paymentType: 'Ramburs' | 'OP' | 'Card',
   marketing?: MarketingInfo,
   orderNo?: number,
   createdPassword?: string,
@@ -181,7 +181,7 @@ export async function fulfillOrder(
     stripeSessionId?: string;
     source?: string;
   },
-  paymentType: 'Ramburs' | 'Card'
+  paymentType: 'Ramburs' | 'OP' | 'Card'
 ): Promise<{ invoiceLink: string | null; orderNo?: number; orderId?: string; createdPassword?: string }> {
   const { address, billing, marketing, source } = orderData;
   const cart = orderData.cart || orderData.items || [];
@@ -258,13 +258,13 @@ export async function fulfillOrder(
     const fee = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : getEstimatedShippingCost(address.country || 'RO', cart);
     const finalTotal = subtotal + fee;
 
-    // -- DUPLICATE CHECK FOR RAMBURS --
+    // -- DUPLICATE CHECK FOR RAMBURS/OP --
     // Previne crearea de comenzi duble si saltul numerelor in caz de dublu-click
-    if (paymentType === 'Ramburs') {
+    if (paymentType === 'Ramburs' || paymentType === 'OP') {
       const recentOrders = await prisma.order.findMany({
         where: {
           totalAmount: finalTotal,
-          paymentMethod: 'Ramburs',
+          paymentMethod: paymentType,
           source: source || 'Tablou.net',
           createdAt: { gt: new Date(Date.now() - 60000) } // Ultima 1 minut
         }

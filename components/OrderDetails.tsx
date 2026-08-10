@@ -88,8 +88,8 @@ export default function OrderDetails({ order }: { order: any }) {
                                     <div className="text-sm text-slate-300">
                                         <div className="flex justify-between items-center">
                                             <span className="text-slate-400">Metodă plată:</span>
-                                            <span className={`font-semibold ${order.paymentMethod === 'card' ? 'text-emerald-300' : 'text-orange-300'}`}>
-                                                {order.paymentMethod === 'card' ? 'Card Online' : 'Ramburs'}
+                                            <span className={`font-semibold ${order.paymentMethod?.toLowerCase() === 'card' ? 'text-emerald-300' : 'text-orange-300'}`}>
+                                                {order.paymentMethod?.toLowerCase() === 'card' ? 'Card Online' : order.paymentMethod === 'OP' ? 'Transfer bancar (OP)' : 'Ramburs'}
                                             </span>
                                         </div>
                                     </div>

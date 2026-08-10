@@ -28,7 +28,7 @@ export async function GET(
     const address = typeof order.shippingAddress === 'object' ? (order.shippingAddress as any) : (typeof order.shippingAddress === 'string' ? JSON.parse(order.shippingAddress || '{}') : {});
 
     // Construim payload-ul identic cu cel din email
-    const paymentType: 'Ramburs' | 'Card' | undefined = order.paymentMethod === 'Ramburs' ? 'Ramburs' : order.paymentMethod === 'Card' ? 'Card' : 'Ramburs';
+    const paymentType: 'Ramburs' | 'OP' | 'Card' = order.paymentMethod === 'Card' ? 'Card' : order.paymentMethod === 'OP' ? 'OP' : 'Ramburs';
 
     const payload = {
       action: "validate", // Pornim cu validarea

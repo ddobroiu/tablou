@@ -28,6 +28,7 @@ import {
   MAX_RAMBURS_LIMIT,
   FREE_SHIPPING_THRESHOLD,
   validateCheckoutPaymentMethod,
+  validateMinTricouQuantity,
   BANK_TRANSFER_BENEFICIARY,
   BANK_TRANSFER_BANK_NAME,
   BANK_TRANSFER_IBAN,
@@ -570,6 +571,12 @@ export default function CheckoutPage() {
       }
     }
 
+    const tricouQtyError = validateMinTricouQuantity(items);
+    if (tricouQtyError) {
+      showToast(tricouQtyError, "error");
+      return;
+    }
+
     const paymentError = validateCheckoutPaymentMethod(
       paymentMethod,
       totalWithShipping,
@@ -987,7 +994,7 @@ export default function CheckoutPage() {
                       </Link>{" "}
                       și cu{" "}
                       <Link
-                        href="/politica-de-confidentialitate"
+                        href="/confidentialitate"
                         className="text-emerald-600 dark:text-emerald-400 font-semibold underline-offset-2 hover:underline"
                         target="_blank"
                       >

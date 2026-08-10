@@ -473,6 +473,7 @@ export default function TextileConfigurator({ type, productSlug, productImage, r
             quantity: input.quantity,
             currency: "RON",
             metadata: {
+                productType: type,
                 "Model": selectedModelConfig.name,
                 "Culoare": input.color,
                 "Mărime": input.size,

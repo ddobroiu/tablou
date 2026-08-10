@@ -278,7 +278,7 @@ export default async function OrderDetailsPage({ params }: { params: Promise<{ i
                                         <div>
                                             <p className="text-xs text-zinc-500 dark:text-zinc-400">Metodă de plată</p>
                                             <p className="text-sm font-semibold text-zinc-900 dark:text-white capitalize">
-                                                {order.paymentMethod === 'card' ? 'Card bancar' : 'Ramburs'}
+                                                {order.paymentMethod?.toLowerCase() === 'card' ? 'Card bancar' : order.paymentMethod === 'OP' ? 'Transfer bancar (OP)' : 'Ramburs'}
                                             </p>
                                         </div>
                                     </div>

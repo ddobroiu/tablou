@@ -120,7 +120,7 @@ function mapDatabaseOrder(r: any): StoredOrder | null {
 }
 
 export async function appendOrder(data: {
-    paymentType: 'Ramburs' | 'Card';
+    paymentType: 'Ramburs' | 'OP' | 'Card';
     address: Address;
     billing: Billing;
     items: { name: string; qty: number; unit: number; total: number; artworkUrl?: string | null; metadata?: any }[];

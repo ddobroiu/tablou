@@ -171,16 +171,17 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({ url: session.url });
         } else {
             // Ramburs / OP
+            const paymentType = paymentMethod === 'bank_transfer' ? 'OP' : 'Ramburs';
             try {
                 const { invoiceLink, orderNo, orderId } = await fulfillOrder(
                     { ...orderData, userId, cart: orderData.items, source },
-                    'Ramburs'
+                    paymentType
                 );
 
                 // Forward către ShopPrint (hub admin)
                 await forwardToShopprint({
                     source,
-                    paymentType: 'Ramburs',
+                    paymentType,
                     paymentMethod,
                     address: orderData.address,
                     billing: orderData.billing,

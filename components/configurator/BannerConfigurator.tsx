@@ -751,7 +751,7 @@ export default function BannerConfigurator({ productSlug, initialWidth: initW, i
                                                         Încărcare Fișier
                                                     </button>
                                                     <button
-                                                        onClick={() => updateInput("designOption", "text_only")}
+                                                        onClick={() => { setArtworkUrl(null); updateInput("designOption", "text_only"); }}
                                                         className={`flex-1 py-2 px-3 rounded-lg border text-sm font-semibold transition-colors ${input.designOption === 'text_only' ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white border-gray-300 text-gray-700 dark:text-gray-300 hover:bg-slate-50 dark:bg-slate-800'}`}
                                                     >
                                                         Doar Text
@@ -791,7 +791,7 @@ export default function BannerConfigurator({ productSlug, initialWidth: initW, i
                                         <>
                                             <div className="flex -mb-px overflow-x-auto no-scrollbar">
                                                 <TabButton active={input.designOption === 'upload'} onClick={() => updateInput("designOption", 'upload')}>Am Grafică</TabButton>
-                                                <TabButton active={input.designOption === 'text_only'} onClick={() => updateInput("designOption", 'text_only')}>Doar Text</TabButton>
+                                                <TabButton active={input.designOption === 'text_only'} onClick={() => { setArtworkUrl(null); updateInput("designOption", 'text_only'); }}>Doar Text</TabButton>
                                                 <TabButton active={input.designOption === 'pro'} onClick={() => updateInput("designOption", 'pro')}>Vreau Grafică</TabButton>
                                                 <Link 
                                                     href={`/editor?w=${input.width_cm}&h=${input.height_cm}&product=banner`}
