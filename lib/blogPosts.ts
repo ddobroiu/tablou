@@ -181,31 +181,143 @@ const STATIC_POSTS: BlogPost[] = [
   },
 ];
 
-const COUNTY_POSTS: BlogPost[] = JUDETE_DATA.map((j, index) => ({
-  slug: `servicii-print-judet-${j.slug}`,
-  title: `Servicii de print în județul ${j.name} - Tablou.net`,
-  description: `Găsește soluții de print profesional în județul ${j.name}. Livrăm rapid bannere, autocolante și pliante în ${j.localities.join(', ')} și localitățile învecinate.`,
-  date: new Date(2024, 8, 1 + (index * 6), 9 + (index % 8), (index * 7) % 60).toISOString(),
-  author: "Echipa Tablou",
-  tags: [j.name.toLowerCase(), "print digital", "bannere", j.slug],
-  contentHtml: `
-    <p>Dacă ai nevoie de materiale publicitare de impact în județul <b>${j.name}</b>, Tablou.net este soluția ta modernă și rapidă. Oferim servicii de print digital de înaltă calitate, optimizate pentru vizibilitate maximă.</p>
+type Judet = { name: string; slug: string; localities: string[] };
 
-    <h2>Livrare rapidă în ${j.name}</h2>
-    <p>Sistemul nostru de logistică asigură livrarea comenzilor tale în cel mai scurt timp în localități precum: ${j.localities.join(', ')}.</p>
+function hashSeed(str: string): number {
+  let h = 0;
+  for (let i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) >>> 0;
+  return h;
+}
 
-    <h2>Produse disponibile:</h2>
-    <ul>
-      <li><b>Bannere Publicitare:</b> Ideale pentru promovare outdoor durabilă.</li>
-      <li><b>Autocolante Personalizate:</b> Decupate la formă, gata de aplicat.</li>
-      <li><b>Pliante și Flyere:</b> Pentru o comunicare directă cu potențialii clienți.</li>
-      <li><b>Canvas și Tablouri:</b> Transformă sediul într-un spațiu modern.</li>
-      <li><b>Panouri Rigide:</b> Din plexiglass sau PVC, pentru semnalistică premium.</li>
-    </ul>
+const COUNTY_PRODUCT_CATALOG = [
+  { label: "Bannere Publicitare", desc: "Ideale pentru promovare outdoor durabilă, rezistente la intemperii." },
+  { label: "Autocolante Personalizate", desc: "Decupate la formă, gata de aplicat pe orice suprafață." },
+  { label: "Pliante și Flyere", desc: "Pentru o comunicare directă cu potențialii clienți." },
+  { label: "Canvas și Tablouri", desc: "Transformă orice spațiu într-unul modern și personal." },
+  { label: "Panouri Rigide (PVC / Plexiglass / Alucobond)", desc: "Semnalistică premium, rezistentă în timp." },
+  { label: "Rollup-uri", desc: "Portabile, ideale pentru târguri și evenimente." },
+  { label: "Tricouri și Hanorace Personalizate", desc: "Print de calitate pe textile, pentru echipe și evenimente." },
+];
 
-    <p>Folosește configuratorul nostru online pentru a calcula prețul instant. Selectezi materialul, introduci dimensiunile și plasezi comanda fără telefoane sau e-mailuri inutile. Calitatea Tablou.net este acum disponibilă pentru orice afacere din <b>${j.name}</b>!</p>
-  `
-}));
+function pickRotating<T>(arr: T[], offset: number, count: number): T[] {
+  const out: T[] = [];
+  for (let i = 0; i < count; i++) out.push(arr[(offset + i) % arr.length]);
+  return out;
+}
+
+function buildCountyPost(j: Judet, index: number, siteName: string, shortName: string): BlogPost {
+  const seed = hashSeed(j.slug);
+  const variant = seed % 6;
+  const localityOffset = seed % j.localities.length;
+  const productOffset = seed % COUNTY_PRODUCT_CATALOG.length;
+  const mainLocality = j.localities[localityOffset];
+  const otherLocalities = j.localities.filter((l) => l !== mainLocality);
+  const products = pickRotating(COUNTY_PRODUCT_CATALOG, productOffset, Math.min(4, COUNTY_PRODUCT_CATALOG.length));
+  const productListHtml = products.map((p) => `<li><b>${p.label}:</b> ${p.desc}</li>`).join("\n");
+  const date = new Date(2023, 11, 23, 15, index).toISOString();
+  const tags = [j.name.toLowerCase(), "print digital", j.slug];
+  const slug = `servicii-print-judet-${j.slug}`;
+  const author = `Echipa ${shortName}`;
+
+  if (variant === 0) {
+    return {
+      slug,
+      title: `Print și materiale publicitare cu livrare rapidă în ${mainLocality} și tot județul ${j.name}`,
+      description: `Comandă online bannere, autocolante și materiale publicitare cu livrare rapidă în ${mainLocality}${otherLocalities.length ? `, ${otherLocalities.slice(0, 2).join(", ")}` : ""} și restul județului ${j.name}.`,
+      date, author, tags,
+      contentHtml: `
+        <p>Dacă ești din ${mainLocality} sau din altă localitate din județul <b>${j.name}</b> și ai nevoie de materiale publicitare rapid, nu mai e nevoie să cauți un atelier local — configurezi online, plasezi comanda și primești coletul direct la adresă, fără drumuri și fără telefoane.</p>
+        <h2>Livrare în toate localitățile din ${j.name}</h2>
+        <p>Livrăm regulat comenzi în ${mainLocality}${otherLocalities.length ? `, dar și în ${otherLocalities.join(", ")}` : ""}. Curierul preia coletul direct de la noi din producție, fără intermediari.</p>
+        <h2>Ce poți comanda:</h2>
+        <ul>${productListHtml}</ul>
+        <p>Configuratorul online îți arată prețul exact înainte să plasezi comanda — introduci dimensiunile, alegi materialul și vezi costul final, fără surprize la livrare.</p>
+      `
+    };
+  }
+  if (variant === 1) {
+    return {
+      slug,
+      title: `De ce afacerile din ${j.name} aleg print digital de calitate, nu doar cel mai ieftin`,
+      description: `Tehnologie de print digital, materiale rezistente și finisaje corecte pentru afacerile din județul ${j.name} — nu doar cel mai mic preț.`,
+      date, author, tags,
+      contentHtml: `
+        <p>În județul <b>${j.name}</b>, ca oriunde altundeva, diferența dintre un banner care arată bine 6 luni și unul care se decolorează în 6 săptămâni stă în calitatea materialului și a cernelii folosite, nu neapărat în preț.</p>
+        <h2>Tehnologie de print, nu doar "printăm orice"</h2>
+        <p>Folosim echipamente de print digital calibrate pentru culori fidele și rezistență UV — relevant mai ales pentru materialele expuse afară, indiferent dacă ești în ${mainLocality} sau în altă zonă din ${j.name}.</p>
+        <h2>Ce producem la calitate constantă:</h2>
+        <ul>${productListHtml}</ul>
+        <p>Verifică prin configuratorul online exact ce materiale sunt disponibile pentru fiecare produs și alege în funcție de unde va fi expus (interior/exterior), nu doar după preț.</p>
+      `
+    };
+  }
+  if (variant === 2) {
+    return {
+      slug,
+      title: `Cum comanzi materiale publicitare online din ${j.name}, în 3 pași`,
+      description: `Ghid rapid pentru a comanda print personalizat din județul ${j.name}: alegi produsul, configurezi online, primești livrarea la adresă.`,
+      date, author, tags,
+      contentHtml: `
+        <p>Dacă n-ai mai comandat print online până acum, procesul e mai simplu decât pare — mai ales dacă ești din ${j.name} și vrei să eviți drumul până la un atelier fizic.</p>
+        <h2>Pasul 1: Alegi produsul</h2>
+        <p>Din categoriile disponibile — ${products.map((p) => p.label).join(", ")} — alegi ce ai nevoie.</p>
+        <h2>Pasul 2: Configurezi online</h2>
+        <p>Introduci dimensiunile, alegi materialul și, dacă vrei, încarci propria grafică. Prețul se actualizează instant, deci știi exact cât plătești înainte de a comanda.</p>
+        <h2>Pasul 3: Primești livrarea</h2>
+        <p>Coletul ajunge prin curier direct la adresa ta din ${mainLocality} sau din orice altă localitate din județul ${j.name}, fără să fie nevoie să te deplasezi.</p>
+      `
+    };
+  }
+  if (variant === 3) {
+    return {
+      slug,
+      title: `Ce comandă cel mai des o afacere mică din ${j.name} când are nevoie de print`,
+      description: `De la bannere pentru deschidere până la autocolante pentru vitrină — ce materiale publicitare comandă frecvent afacerile locale din județul ${j.name}.`,
+      date, author, tags,
+      contentHtml: `
+        <p>Fie că ai un magazin în ${mainLocality}, un restaurant sau un service auto undeva în județul <b>${j.name}</b>, nevoile de print se repetă: ceva vizibil de la distanță, ceva pentru interior, și eventual material promoțional pentru clienți.</p>
+        <h2>Cele mai comandate materiale pentru afaceri locale:</h2>
+        <ul>${productListHtml}</ul>
+        <p>Nu ai nevoie de o comandă mare pentru a începe — poți comanda o singură piesă pentru a testa calitatea înainte de a comanda pentru toate punctele de lucru din ${otherLocalities[0] || j.name} sau din restul județului.</p>
+      `
+    };
+  }
+  if (variant === 4) {
+    return {
+      slug,
+      title: `Întrebări frecvente despre comenzile de print din județul ${j.name}`,
+      description: `Răspunsuri scurte la cele mai frecvente întrebări despre print online, livrare și materiale disponibile pentru clienții din județul ${j.name}.`,
+      date, author, tags,
+      contentHtml: `
+        <h2>Livrați și în ${mainLocality}?</h2>
+        <p>Da, livrăm prin curier în ${mainLocality} și în toate localitățile din județul ${j.name}${otherLocalities.length ? `, inclusiv ${otherLocalities.slice(0, 2).join(" și ")}` : ""}.</p>
+        <h2>Cât durează producția?</h2>
+        <p>De regulă 2-4 zile lucrătoare, în funcție de produs și cantitate, plus timpul de livrare al curierului până la adresa ta.</p>
+        <h2>Ce pot comanda?</h2>
+        <ul>${productListHtml}</ul>
+        <h2>Pot vedea prețul înainte să comand?</h2>
+        <p>Da — configuratorul online calculează prețul exact în timp real, pe măsură ce alegi dimensiunile și materialul.</p>
+      `
+    };
+  }
+  return {
+    slug,
+    title: `Atelier local sau print online? Ce merită pentru clienții din ${j.name}`,
+    description: `Comparație rapidă între un atelier de print local din județul ${j.name} și comanda online, pentru materiale publicitare personalizate.`,
+    date, author, tags,
+    contentHtml: `
+      <p>Dacă ești din ${j.name} și cauți unde să comanzi materiale publicitare, ai practic două variante: un atelier local sau o comandă online. Fiecare are avantaje, dar depinde ce contează mai mult pentru tine.</p>
+      <h2>Atelierul local din ${mainLocality}</h2>
+      <p>Avantaj clar: poți vedea materialul fizic înainte să plătești și poți discuta față în față. Dezavantaj: program limitat, prețuri uneori negociate ad-hoc, stoc limitat de materiale.</p>
+      <h2>Comanda online</h2>
+      <p>Configurator disponibil oricând, preț fix și transparent, o gamă mai largă de materiale decât în orice atelier fizic din ${j.name}, livrare directă la adresă în ${mainLocality} sau oriunde altundeva în județ.</p>
+      <h2>Ce poți comanda online:</h2>
+      <ul>${productListHtml}</ul>
+    `
+  };
+}
+
+const COUNTY_POSTS: BlogPost[] = JUDETE_DATA.map((j, index) => buildCountyPost(j, index, "tablou.net", "Tablou"));
 
 export const POSTS: BlogPost[] = [...STATIC_POSTS, ...COUNTY_POSTS];
 
