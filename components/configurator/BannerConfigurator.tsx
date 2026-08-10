@@ -636,7 +636,7 @@ export default function BannerConfigurator({ productSlug, initialWidth: initW, i
                                             onFocus={(e) => e.target.select()}
                                             onChange={(e) => handleDimChange(e.target.value, setLengthText, "width_cm")}
                                             placeholder="200"
-                                            className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all shadow-sm text-lg font-medium"
+                                            className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all shadow-sm text-lg font-medium bg-white text-slate-900"
                                         />
                                     </div>
                                     <div>
@@ -648,7 +648,7 @@ export default function BannerConfigurator({ productSlug, initialWidth: initW, i
                                             onFocus={(e) => e.target.select()}
                                             onChange={(e) => handleDimChange(e.target.value, setHeightText, "height_cm")}
                                             placeholder="100"
-                                            className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all shadow-sm text-lg font-medium"
+                                            className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all shadow-sm text-lg font-medium bg-white text-slate-900"
                                         />
                                     </div>
                                     <div className="col-span-1 sm:col-span-2">
