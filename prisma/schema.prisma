@@ -223,6 +223,20 @@ model AbandonedCart {
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
   source          String   @default("prynt.ro")
-  
+
   @@unique([email, configuratorId])
+}
+
+/// Cerere de retragere dintr-un contract la distanță (OUG 18/2026 - dreptul de retur).
+model WithdrawalRequest {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  phone       String?
+  orderRef    String
+  products    String   @db.Text
+  message     String?  @db.Text
+  status      String   @default("pending")
+  source      String   @default("tablou.net")
+  createdAt   DateTime @default(now())
 }

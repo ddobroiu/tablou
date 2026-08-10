@@ -70,6 +70,8 @@ export default function Footer() {
                             <li><Link href="/livrare" className="hover:text-slate-950 transition-colors">Livrare</Link></li>
                             <li><Link href="/termeni" className="hover:text-slate-950 transition-colors">Termeni</Link></li>
                             <li><Link href="/confidentialitate" className="hover:text-slate-950 transition-colors">Confidențialitate</Link></li>
+                            <li><Link href="/politica-retur" className="hover:text-slate-950 transition-colors">Politica de Retur</Link></li>
+                            <li><Link href="/retragere-contract" className="hover:text-slate-950 transition-colors">Retrage-te din Contract</Link></li>
                             <li><Link href="/noutati" className="hover:text-slate-950 transition-colors">Noutăți</Link></li>
                         </ul>
                     </div>

@@ -154,6 +154,13 @@ export default function AccountOrderCard({ order }: AccountOrderCardProps) {
                         <span>Factură</span>
                     </a>
                 )}
+
+                <Link
+                    href={`/retragere-contract?order=${encodeURIComponent(String(order.orderNo))}`}
+                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-100 px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-200 transition-colors"
+                >
+                    <span>Retrage-te din contract</span>
+                </Link>
             </div>
         </li>
     );
