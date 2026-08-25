@@ -301,6 +301,28 @@ export async function fulfillOrder(
 
     return { invoiceLink, orderNo: saved.orderNo, orderId: saved.id, createdPassword };
   } catch (e: any) {
+    // If we collided on unique stripeSessionId (e.g. a Stripe webhook retry racing
+    // the original request), return the existing order instead of resending emails.
+    if (
+      e?.code === 'P2002' &&
+      Array.isArray(e?.meta?.target) &&
+      e.meta.target.includes('stripeSessionId') &&
+      orderData.stripeSessionId
+    ) {
+      try {
+        const existing = await prisma.order.findUnique({
+          where: { stripeSessionId: orderData.stripeSessionId },
+          select: { id: true, orderNo: true, invoiceUrl: true },
+        });
+        if (existing) {
+          console.warn(`[OrderService] stripeSessionId already exists (${orderData.stripeSessionId}). Returning existing order.`);
+          return { invoiceLink: existing.invoiceUrl, orderNo: existing.orderNo, orderId: existing.id };
+        }
+      } catch (lookupErr) {
+        console.error('[OrderService] Failed to lookup existing order after P2002:', lookupErr);
+      }
+    }
+
     console.error('[OrderService] fulfillOrder CRITICAL ERROR:', e);
     try { await sendEmails(address, billing, cart, invoiceLink, paymentType, marketing, undefined, createdPassword, undefined, source); } catch { }
     return { invoiceLink, createdPassword };
