@@ -146,12 +146,16 @@ export default function Footer() {
                         
                         <span className="hidden md:inline mx-2 text-slate-300">•</span>
                         
-                        {/* Partners */}
-                        <div className="flex items-center gap-4 text-[10px] font-semibold tracking-tight text-slate-500">
-                            <a href="https://www.prynt.ro" target="_blank" className="hover:text-slate-950 transition-colors">Prynt.ro</a>
-                            <a href="https://www.adbanner.ro" target="_blank" className="hover:text-slate-950 transition-colors">AdBanner</a>
+                        {/* Rețeaua noastră */}
+                        <div className="flex flex-wrap items-center justify-center gap-4 text-[10px] font-semibold tracking-tight text-slate-500">
+                            <a href="https://www.adbanner.ro" target="_blank" rel="noopener noreferrer" className="hover:text-slate-950 transition-colors">AdBanner</a>
+                            <a href="https://www.euprint.ro" target="_blank" rel="noopener noreferrer" className="hover:text-slate-950 transition-colors">EuPrint</a>
+                            <a href="https://www.prynt.ro" target="_blank" rel="noopener noreferrer" className="hover:text-slate-950 transition-colors">Prynt.ro</a>
+                            <a href="https://www.shopprint.ro" target="_blank" rel="noopener noreferrer" className="hover:text-slate-950 transition-colors">ShopPrint</a>
+                            <a href="https://www.homeprint.ro" target="_blank" rel="noopener noreferrer" className="hover:text-slate-950 transition-colors">HomePrint</a>
+                            <a href="https://www.anexa1.ro" target="_blank" rel="noopener noreferrer" className="hover:text-slate-950 transition-colors">Anexa1</a>
                             <span className="text-slate-300">|</span>
-                            <a href="https://e-web.ro" target="_blank" className="text-slate-500 hover:text-slate-950 transition-colors">Site realizat de e-web.ro</a>
+                            <a href="https://e-web.ro" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-slate-950 transition-colors">Site realizat de e-web.ro</a>
                         </div>
                     </div>
                 </div>
