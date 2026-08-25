@@ -6,15 +6,18 @@ import { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, MessageCircle, Zap } from 'lucide-react';
 import { INDUSTRIE_DATA } from '@/lib/seo/industriiData';
 import { CONFIGURATORS_REGISTRY } from '@/lib/configurators-registry';
+import { siteConfig } from '@/lib/siteConfig';
 
-// Spintax helper
+// Spintax helper - seed salted with the site domain so the same industry/product
+// slug doesn't render identical copy across every site in the network.
 function spintax(text: string, seed: string) {
     const matches = text.match(/\{[^{}]+\}/g);
     if (!matches) return text;
-    
+
+    const salted = `${siteConfig.domain}::${seed}`;
     let hash = 0;
-    for (let i = 0; i < seed.length; i++) {
-        hash = seed.charCodeAt(i) + ((hash << 5) - hash);
+    for (let i = 0; i < salted.length; i++) {
+        hash = salted.charCodeAt(i) + ((hash << 5) - hash);
     }
     
     let result = text;

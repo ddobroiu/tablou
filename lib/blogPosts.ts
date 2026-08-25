@@ -206,7 +206,9 @@ function pickRotating<T>(arr: T[], offset: number, count: number): T[] {
 }
 
 function buildCountyPost(j: Judet, index: number, siteName: string, shortName: string): BlogPost {
-  const seed = hashSeed(j.slug);
+  // Salted with siteName so the same județ doesn't render byte-identical
+  // copy across every site in the network (duplicate content across domains).
+  const seed = hashSeed(`${siteName}::${j.slug}`);
   const variant = seed % 6;
   const localityOffset = seed % j.localities.length;
   const productOffset = seed % COUNTY_PRODUCT_CATALOG.length;

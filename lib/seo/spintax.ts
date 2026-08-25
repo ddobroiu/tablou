@@ -1,10 +1,16 @@
+import { siteConfig } from "@/lib/siteConfig";
+
 /**
  * Simple Spintax system to generate unique variations of text.
  * Example input: "{Livrare|Expediere} rapidă în {oraș}."
+ *
+ * The seed is salted with this site's own domain, so the same page (same
+ * locality/product/dimension seed) picks different word choices on each site
+ * in the network instead of every site rendering identical phrasing.
  */
 export function spintax(text: string, seed: string = ""): string {
-    const random = getSeededRandom(seed);
-    
+    const random = getSeededRandom(`${siteConfig.domain}::${seed}`);
+
     return text.replace(/{([^{}]+)}/g, (_, choice) => {
         const parts = choice.split('|');
         const index = Math.floor(random * parts.length);
