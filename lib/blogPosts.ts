@@ -179,6 +179,149 @@ const STATIC_POSTS: BlogPost[] = [
       </div>
     `,
   },
+  {
+    slug: "cum-alegi-poza-de-familie-pentru-tablou-canvas-mare",
+    source: "tablou.net",
+    title: "Cum alegi o poză de familie pentru un tablou canvas mare: rezoluție, cadraj, lumină — ghid fără termeni tehnici",
+    description: "Ai zeci de poze de familie în telefon și nu știi pe care s-o pui pe un canvas mare de living? Ghid practic, fără jargon foto, ca să alegi poza care chiar arată bine mărită.",
+    date: "2026-05-19T09:00:00.000Z",
+    author: "Echipa Tablou.net",
+    tags: ["poză de familie", "canvas mare", "ghid cumpărare", "decor living", "tablou.net"],
+    hero: "/blog/poza-familie-canvas-mare.jpg",
+    contentHtml: `
+      <p>Ai o galerie întreagă de poze de familie în telefon și trebuie să alegi una singură pentru un canvas mare de living. Toate arată bine pe ecran, dar știi din experiență (sau din povestea unui prieten) că nu orice poză "arată bine pe telefon" iese la fel de bine mărită pe un perete de 90x120 cm. Vestea bună: nu ai nevoie de cunoștințe de fotografie ca să alegi corect. Ai nevoie doar să te uiți la poză cu trei întrebări simple în minte — cine trebuie să se vadă clar, cum cade lumina, și dacă poza "ține" atunci când o privești mărită.</p>
+
+      <h2 class="text-2xl font-bold mt-12 mb-6">Întrebarea 1: cine trebuie să fie clar vizibil în poză?</h2>
+      <p>Într-o poză de familie cu 5-6 persoane, aproape mereu una sau două fețe sunt puțin întoarse, cu ochii închiși sau parțial acoperite de altcineva din cadru. Pe un telefon, la dimensiune mică, nu observi asta — creierul "completează" automat ce lipsește. Mărit pe un canvas de un metru lățime, orice detaliu de genul acesta devine vizibil imediat.</p>
+      <ul class="list-disc pl-6 space-y-2 my-6">
+        <li><b>Verificare rapidă:</b> mărește poza pe calculator (nu pe telefon) la dimensiune mare pe ecran și uită-te rând pe rând la fiecare față din cadru. Dacă toate sunt clare, cu ochii deschiși și orientate spre cameră sau natural într-o direcție, poza e un candidat bun.</li>
+        <li><b>Dacă una singură persoană nu iese bine:</b> nu renunța automat — verifică dacă ai o altă poză din aceeași serie (majoritatea telefoanelor fac mai multe cadre la rând) unde exact persoana respectivă arată mai bine.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold mt-12 mb-6">Întrebarea 2: cum cade lumina pe fețe?</h2>
+      <p>Nu ai nevoie de termeni tehnici ca să recunoști o poză bine luminată — ai nevoie doar să te uiți dacă fețele au umbre dure (nas, pomeți, bărbie foarte întunecate față de restul feței) sau dacă totul e cam plat și fără contrast, semn că poza a fost făcută cu blitz direct, de aproape. Ambele situații se văd mult mai accentuat pe un format mare decât pe ecranul unui telefon.</p>
+      <ul class="list-disc pl-6 space-y-2 my-6">
+        <li><b>Semn bun:</b> lumină uniformă pe fețe, fără umbre dure, culori naturale ale pielii (nu prea gălbui, nu prea albăstrui) — de obicei poze făcute lângă o fereastră sau afară, într-o zi înnorată sau la umbră.</li>
+        <li><b>Semn de atenție:</b> poze făcute cu soare puternic direct în față (ochii mijiți, umbre dure sub nas) sau cu blitz de telefon în interior, seara (fețe albite, fundal foarte întunecat) — pot ieși pe canvas, dar cu un contrast mai dur decât te aștepți.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold mt-12 mb-6">Întrebarea 3: cum arată cadrul, nu doar oamenii din el?</h2>
+      <p>O poză de familie foarte bună ca amintire (toată lumea râde, momentul e autentic) nu e automat și o poză bună pentru un tablou canvas mare, dacă fundalul e aglomerat — o bucătărie plină de vase, o stradă cu multe mașini, alți oameni străini în plan secund. Pe un format mare, ochiul rătăcește spre acele detalii din fundal în loc să rămână pe familia ta.</p>
+      <ul class="list-disc pl-6 space-y-2 my-6">
+        <li><b>Fundal simplu:</b> perete neutru, cer, iarbă, apă, nisip — orice fundal fără prea multe detalii concurente ajută subiectul principal să iasă în evidență pe formatul mare.</li>
+        <li><b>Fundal aglomerat, dar poza e prea bună ca s-o pierzi:</b> nu-i nicio problemă — alege pur și simplu un format mai apropiat de cadru (mai puțin lat) sau discută cu noi despre o decupare care elimină din marginile aglomerate, păstrând familia în centru.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold mt-12 mb-6">Un test simplu, fără nicio aplicație: privește poza de la 2 metri</h2>
+      <p>Cel mai practic truc, valabil pentru orice poză pe care ești pe cale s-o alegi: pune telefonul sau ecranul calculatorului la o distanță de 2-2,5 metri de tine (cam cât e distanța reală de la canapea până la peretele unde va sta canvasul) și privește poza de acolo. Dacă la acea distanță toate fețele se disting clar și poza încă "spune ceva", e un semn bun. Dacă la 2 metri deja pare neclară sau greu de citit, aceeași senzație se va accentua pe un canvas fizic de dimensiuni mari.</p>
+
+      <h2 class="text-2xl font-bold mt-12 mb-6">Rezoluția, pe scurt, fără cifre complicate</h2>
+      <p>Nu trebuie să calculezi nimic — încarcă poza direct în configuratorul nostru și alege dimensiunea de canvas la care te gândești. Dacă fișierul e prea mic pentru acel format, sistemul te avertizează automat înainte să plasezi comanda, cu o explicație simplă despre ce dimensiune de canvas s-ar potrivi mai bine acelei poze. Nu ai nevoie să știi ce înseamnă "rezoluție" sau "pixeli" — configuratorul face verificarea în locul tău.</p>
+
+      <h2 class="text-2xl font-bold mt-12 mb-6">Când ai mai multe poze aproape identice, cum alegi una singură?</h2>
+      <p>La o ședință foto de familie sau la o sărbătoare, de obicei rămâi cu 10-20 de poze foarte asemănătoare. În loc să te chinui să le compari una câte una pe ecran mic, trimite-le pe toate pe un ecran mai mare (calculator sau televizor, dacă are opțiunea) și elimină rapid pe rând pe cele cu cineva care clipește, cu priviri în altă parte decât camera, sau cu compoziție ciudată (cineva tăiat pe jumătate din cadru). De regulă rămâi, după acest proces de eliminare, cu 2-3 favorite reale — și din acelea alegi finala uitându-te la lumină și la fundal, așa cum am descris mai sus.</p>
+
+      <div class="my-10 p-8 bg-emerald-50 border-l-4 border-emerald-500 rounded-r-2xl">
+        <h3 class="text-emerald-900 font-bold mb-2">Pe scurt, cele 3 verificări înainte să comanzi:</h3>
+        <p class="text-emerald-800 italic">Fețele clare și fără ochi închiși, lumină uniformă fără umbre dure, fundal simplu care nu distrage atenția de la familie. Dacă poza trece de toate trei, ai un candidat foarte bun pentru un canvas mare.</p>
+      </div>
+    `,
+  },
+  {
+    slug: "galerie-de-perete-aranjare-tablouri-canvas",
+    source: "tablou.net",
+    title: "Galerie de perete: cum aranjezi mai multe tablouri canvas împreună, cu șabloane simple de aranjare",
+    description: "Un perete gol devine o galerie de familie cu 3-6 tablouri canvas aranjate corect. Trei șabloane simple, cu distanțe și înălțimi exacte, ca să nu greșești la găurit.",
+    date: "2026-06-02T09:00:00.000Z",
+    author: "Echipa Tablou.net",
+    tags: ["galerie de perete", "aranjare tablouri", "decor interior", "canvas multiplu", "tablou.net"],
+    hero: "/blog/galerie-perete-canvas.jpg",
+    contentHtml: `
+      <p>Un singur tablou canvas, oricât de reușit, poate arăta singuratic pe un perete lung. O galerie de perete — mai multe tablouri canvas aranjate împreună — umple spațiul cu personalitate și îți dă ocazia să pui laolaltă poze din momente diferite, nu doar una singură. Problema, în practică, e că "aranjare frumoasă" sună subiectiv și mulți oameni amână proiectul de teamă să nu găurească peretele degeaba. Nu trebuie să fie complicat — sunt doar câteva șabloane simple care funcționează aproape garantat.</p>
+
+      <h2 class="text-2xl font-bold mt-12 mb-6">De ce o galerie de tablouri arată adesea mai bine decât unul singur, mare</h2>
+      <p>Un canvas foarte mare, pe un perete lung, are nevoie de o poză cu compoziție puternică și rezoluție foarte bună ca să "umple" bine spațiul fără să pară gol pe la margini. O galerie de 3-6 tablouri mai mici rezolvă asta natural: fiecare piesă are propriul ei subiect, iar per total, spațiul e umplut vizual chiar dacă fiecare tablou în parte e de dimensiune moderată (30x40 cm, 40x60 cm). În plus, poți combina poze din perioade diferite (o nuntă, un copil mic, o vacanță recentă) fără ca asta să pară incoerent, atât timp cât respecți un șablon de aranjare consistent.</p>
+
+      <h2 class="text-2xl font-bold mt-12 mb-6">Șablonul 1: rândul unic, aceeași înălțime</h2>
+      <p>Cel mai simplu și cel mai sigur șablon: 3-5 tablouri de aceeași înălțime (chiar dacă lățimile diferă — un portret lângă un peisaj, de exemplu), aliniate pe un singur rând orizontal, cu centrul fiecărui tablou la aceeași înălțime de la podea. E ideal pentru holuri, coridoare sau deasupra unei console/comode lungi.</p>
+      <ul class="list-disc pl-6 space-y-2 my-6">
+        <li><b>Distanța între tablouri:</b> 5-8 cm între margini, constant pe tot rândul — nu mai puțin (arată aglomerat), nu mai mult de 10-12 cm (arată ca piese separate, nu ca un set).</li>
+        <li><b>Înălțimea centrului:</b> aproximativ 145-150 cm de la podea până la centrul fiecărui tablou, standard folosit în muzee și galerii pentru a se potrivi cu nivelul natural al privirii unui adult.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold mt-12 mb-6">Șablonul 2: grid simetric (2x2 sau 3x3)</h2>
+      <p>Tablouri identice ca dimensiune, aranjate într-un grid perfect simetric — 4 tablouri în format 2x2 sau 9 tablouri în 3x3. Funcționează foarte bine cu poze din aceeași ședință foto sau cu aceeași temă (de exemplu 4 poze din aceeași vacanță, sau 4 poze cu fiecare membru al familiei, la aceeași dimensiune). Efectul e ordonat, aproape arhitectural — potrivit pentru living modern sau birou.</p>
+      <ul class="list-disc pl-6 space-y-2 my-6">
+        <li><b>Distanța constantă:</b> 5-6 cm între toate tablourile, atât pe orizontală cât și pe verticală — cheia acestui șablon e consistența perfectă a spațiilor, altfel se pierde efectul de grid.</li>
+        <li><b>Sfat practic:</b> comandă toate piesele grid-ului la aceeași dimensiune (de exemplu patru bucăți de 40x40 cm) — diferențele mici de mărime, invizibile separat, devin vizibile imediat într-un grid simetric.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold mt-12 mb-6">Șablonul 3: aranjarea liberă ("salon"), pentru cine nu vrea simetrie perfectă</h2>
+      <p>Tablouri de dimensiuni diferite, aranjate organic în jurul unui punct central, fără reguli stricte de aliniere — genul de perete plin de amintiri pe care îl vezi în case cu multă istorie de familie. Pare mai greu de planificat, dar există un truc simplu: alege un tablou "ancoră" (cel mai mare din set) și poziționează-l aproximativ la centru, apoi adaugă celelalte piese în jurul lui, urmărind să echilibrezi vizual stânga cu dreapta și sus cu jos, fără să te forțezi să alinieri marginile perfect.</p>
+      <ul class="list-disc pl-6 space-y-2 my-6">
+        <li><b>Regulă de bază:</b> distanța minimă între orice două tablouri, chiar și în aranjarea liberă, ar trebui să fie de minimum 5 cm — sub acea distanță, ochiul le percepe ca fiind lipite accidental, nu ca o compoziție intenționată.</li>
+        <li><b>Tablou ancoră:</b> alege pentru piesa centrală cea mai puternică poză din set (cea cu cea mai bună compoziție sau cea mai importantă emoțional) — restul pieselor se organizează vizual în jurul ei.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold mt-12 mb-6">Cum planifici aranjarea înainte să dai o singură gaură în perete</h2>
+      <p>Trucul folosit de aproape toți cei care montează o galerie de perete pentru prima dată: decupezi din hârtie de ambalaj sau ziar dreptunghiuri exact la dimensiunea fiecărui tablou comandat și le lipești temporar pe perete cu bandă adezivă, în aranjamentul ales. Poți muta, ajusta distanțele și verifica din diverse unghiuri ale camerei înainte să bați vreun cui. Abia după ce ești mulțumit de aranjament, marchezi cu creion poziția exactă a fiecărui colț și treci la montaj efectiv.</p>
+
+      <h2 class="text-2xl font-bold mt-12 mb-6">O greșeală frecventă: prea sus pe perete</h2>
+      <p>Cea mai comună greșeală la o galerie nouă e montarea prea sus, la înălțimea la care "pare corect" din picioare, dar nu și din poziția în care stai de obicei în cameră (așezat pe canapea, de exemplu). Regula celor 145-150 cm până la centrul compoziției, menționată la șablonul 1, se aplică și galeriilor cu mai multe piese — calculează centrul întregii compoziții (nu al fiecărui tablou individual) la acea înălțime, apoi distribuie restul pieselor în jurul lui.</p>
+
+      <div class="my-10 p-8 bg-emerald-50 border-l-4 border-emerald-500 rounded-r-2xl">
+        <h3 class="text-emerald-900 font-bold mb-2">Cel mai sigur punct de plecare:</h3>
+        <p class="text-emerald-800 italic">Dacă e prima ta galerie de perete, alege șablonul 1 (rândul unic, aceeași înălțime) — e cel mai iertător la mici greșeli de aliniere și arată bine aproape garantat, chiar dacă distanțele nu sunt milimetrice.</p>
+      </div>
+    `,
+  },
+  {
+    slug: "tablou-canvas-alb-negru-sau-color",
+    source: "tablou.net",
+    title: "Tablou canvas alb-negru sau color? Când alegi fiecare variantă, în funcție de decor",
+    description: "Aceeași poză poate arăta complet diferit pe canvas, în funcție de alegerea alb-negru sau color. Ghid practic despre când merită fiecare variantă, în funcție de stilul camerei.",
+    date: "2026-06-16T09:00:00.000Z",
+    author: "Echipa Tablou.net",
+    tags: ["alb-negru", "canvas color", "decor interior", "stil foto", "ghid cumpărare", "tablou.net"],
+    hero: "/blog/canvas-alb-negru-color.jpg",
+    contentHtml: `
+      <p>O întrebare pe care o primim des în configurator: aceeași poză, dar oare arată mai bine în alb-negru sau păstrată în culorile originale? Nu există un răspuns universal valabil — depinde de poza în sine, dar mai ales de camera unde va atârna tabloul. Alb-negru și color spun povești diferite pe perete, iar alegerea corectă ține mai mult de decor decât de "modă".</p>
+
+      <h2 class="text-2xl font-bold mt-12 mb-6">Ce face alb-negru cu o poză</h2>
+      <p>Eliminând culoarea, alb-negru mută atenția privitorului direct pe formă, expresie și contrast — practic, pe emoția din poză, nu pe contextul din jurul ei. O poză de familie în alb-negru pare automat mai "atemporală", pentru că nu mai poți lega imaginea de o anumită modă vestimentară sau de o culoare de perete la modă într-un anumit an. E motivul pentru care multe portrete de familie sau poze de cuplu arată surprinzător de bine în alb-negru, chiar dacă poza originală color nu părea nimic special.</p>
+      <ul class="list-disc pl-6 space-y-2 my-6">
+        <li><b>Alb-negru funcționează foarte bine pentru:</b> portrete, poze cu expresii puternice (râs, emoție evidentă), poze cu multă textură (riduri, mâini, material de haine), și poze unde culorile din fundal sunt cam haotice sau nu se potrivesc bine între ele.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold mt-12 mb-6">Ce păstrează color, pe care alb-negru îl pierde</h2>
+      <p>Culoarea păstrează exact atmosfera reală a momentului — cerul de la apus într-o poză de vacanță, rochia de o anumită culoare de la o nuntă, verdele proaspăt al ierbii dintr-o poză de primăvară cu copiii. Dacă acele detalii de culoare contează pentru amintirea respectivă, transformarea în alb-negru le elimină definitiv, chiar dacă rezultatul arată "artistic".</p>
+      <ul class="list-disc pl-6 space-y-2 my-6">
+        <li><b>Color funcționează foarte bine pentru:</b> peisaje, poze de vacanță, poze cu copii mici (unde culorile vii ale hainelor sau jucăriilor fac parte din farmecul pozei), și orice poză unde vrei să recreezi exact atmosfera reală a momentului, nu o versiune stilizată a ei.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold mt-12 mb-6">În funcție de stilul camerei unde va sta tabloul</h2>
+      <p>Aici intervine partea practică, cea care contează cel mai mult în alegerea finală. Un tablou nu trăiește izolat — trăiește pe un perete, lângă o anumită paletă de culori a camerei.</p>
+      <ul class="list-disc pl-6 space-y-2 my-6">
+        <li><b>Decor minimalist, tonuri neutre (alb, gri, bej, lemn deschis):</b> alb-negru se integrează aproape întotdeauna perfect, fără să intre în conflict cu nicio culoare din cameră. E alegerea "sigură" pentru un living modern, minimalist.</li>
+        <li><b>Decor colorat, cu accente vii (pernele, covorul, pereți colorați):</b> un canvas color poate prelua și accentua acele culori din cameră, creând o legătură vizuală între tablou și restul decorului — de exemplu o poză de vacanță cu multă apă turcoaz, într-o cameră cu accente similare.</li>
+        <li><b>Decor clasic, cald (lemn închis, tonuri de maro, crem):</b> ambele variante funcționează, dar alb-negru cu ramă simplă neagră sau naturală tinde să arate mai "de galerie", în timp ce color cu tonuri calde se armonizează natural cu lemnul închis.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold mt-12 mb-6">Combinarea alb-negru și color în aceeași galerie de perete</h2>
+      <p>Dacă plănuiești o galerie de perete cu mai multe tablouri (vezi și ghidul nostru dedicat aranjării mai multor tablouri împreună), un truc simplu care funcționează aproape mereu: toate piesele în alb-negru, cu o singură excepție color ca "punct de accent" — de exemplu 4 poze alb-negru și una singură color, care devine automat punctul central al compoziției fără niciun efort suplimentar. Amestecul aleatoriu, jumătate-jumătate, fără un plan clar, tinde să arate neintenționat mai degrabă decât stilizat.</p>
+
+      <h2 class="text-2xl font-bold mt-12 mb-6">Când alb-negru "salvează" o poză cu probleme de culoare</h2>
+      <p>Poze vechi, scanate de pe hârtie, sau poze făcute în interior cu lumină artificială galbenă au adesea un ton de culoare ciudat — prea gălbui, prea verzui, greu de corectat perfect. În aceste cazuri, alb-negru e adesea alegerea practică cea mai bună: elimină complet problema de culoare, în loc să încerci s-o corectezi și să riști un rezultat nenatural. E motivul pentru care multe poze de familie vechi, moștenite de la bunici, arată mai bine transformate în alb-negru decât păstrate în culorile originale, adesea decolorate de trecerea timpului.</p>
+
+      <h2 class="text-2xl font-bold mt-12 mb-6">Nu trebuie să decizi definitiv înainte să vezi rezultatul</h2>
+      <p>În configuratorul nostru poți previzualiza poza atât în varianta color originală, cât și transformată în alb-negru, înainte de a plasa comanda. Recomandarea noastră practică: dacă ești nehotărât, uită-te la ambele variante direct pe ecran, la dimensiunea reală a canvasului ales — diferența de impact între cele două variante devine mult mai clară la dimensiune mare decât pe o poză mică, de previzualizare.</p>
+
+      <div class="my-10 p-8 bg-emerald-50 border-l-4 border-emerald-500 rounded-r-2xl">
+        <h3 class="text-emerald-900 font-bold mb-2">Regulă simplă de decizie:</h3>
+        <p class="text-emerald-800 italic">Dacă în poză culoarea "spune ceva" important despre moment (locul, sezonul, o culoare specifică) — păstreaz-o color. Dacă poza e mai degrabă despre oameni și emoție, iar fundalul sau culorile nu adaugă nimic esențial — încearcă alb-negru, se potrivește aproape mereu cu orice stil de decor.</p>
+      </div>
+    `,
+  },
 ];
 
 type Judet = { name: string; slug: string; localities: string[] };
