@@ -55,3 +55,21 @@ export function isIndexableLocality(judetSlug: string, localitateSlug: string): 
     const list = INDEXABLE_LOCALITY_SLUGS[String(judetSlug || "").toLowerCase()];
     return Array.isArray(list) && list.includes(String(localitateSlug || "").toLowerCase());
 }
+
+/**
+ * Alte localități curate din același județ, pentru cross-link intern între
+ * pagini reale (exclude localitatea curentă). Pornim rotația de la poziția
+ * localității curente în listă, ca nu toate paginile din județ să afișeze
+ * exact aceleași orașe vecine în aceeași ordine.
+ */
+export function getSiblingLocalitySlugs(judetSlug: string, currentLocSlug: string, max = 4): string[] {
+    const list = INDEXABLE_LOCALITY_SLUGS[String(judetSlug || "").toLowerCase()];
+    if (!Array.isArray(list) || list.length <= 1) return [];
+
+    const others = list.filter((s) => s !== currentLocSlug);
+    if (others.length <= max) return others;
+
+    const startIndex = list.indexOf(currentLocSlug);
+    const offset = startIndex >= 0 ? startIndex % others.length : 0;
+    return [...others.slice(offset), ...others.slice(0, offset)].slice(0, max);
+}

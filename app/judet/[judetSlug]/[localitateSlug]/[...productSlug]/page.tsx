@@ -8,7 +8,7 @@ import Script from "next/script";
 import { ShieldCheck, Zap, Truck, MessageCircle, Star, Info, HelpCircle, MapPin, ArrowRight, ChevronLeft, ChevronRight, Globe, Award, Sparkles, CheckCircle2 } from "lucide-react";
 import { CONFIGURATORS_REGISTRY } from "@/lib/configurators-registry";
 import { buildLocalContent } from "@/lib/seo/localContent";
-import { isIndexableLocality } from "@/lib/seo/indexableLocalities";
+import { isIndexableLocality, getSiblingLocalitySlugs } from "@/lib/seo/indexableLocalities";
 import { LocalFaq } from "@/components/LocalFaq";
 
 import { MATERIALE_DATA } from "@/lib/seo/materialeData";
@@ -138,6 +138,12 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
         judetSlug: judet.slug,
         judetName: judet.name,
     });
+
+    // Cross-links to sibling curated localities in the same județ, for the
+    // same product — closes the internal-linking gap between indexed pages.
+    const siblingLocalities = getSiblingLocalitySlugs(judet.slug, loc.slug, 4)
+        .map((siblingSlug) => getLocalitateBySlug(judet.slug, siblingSlug))
+        .filter((l): l is NonNullable<typeof l> => Boolean(l));
 
     return (
         <div className="bg-[#fafafc] min-h-screen font-sans overflow-x-hidden w-full max-w-full box-border">
@@ -371,6 +377,34 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                     </div>
                 </div>
             </div>
+
+            {/* Sibling Localities Cross-Link Section */}
+            {siblingLocalities.length > 0 && (
+                <div className="bg-white py-24 border-t border-slate-100">
+                    <div className="max-w-7xl mx-auto px-4">
+                        <div className="text-center mb-12">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-100 text-slate-500 text-[10px] font-black uppercase tracking-widest mb-4">
+                                <MapPin size={14} className="text-emerald-500" /> JUDEȚUL {judet.name.toUpperCase()}
+                            </div>
+                            <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase leading-none">
+                                Comandă {productTitle} și în alte orașe din județul {judet.name}
+                            </h2>
+                        </div>
+
+                        <div className="flex flex-wrap justify-center gap-3">
+                            {siblingLocalities.map((sibling) => (
+                                <Link
+                                    key={sibling.slug}
+                                    href={`/judet/${judet.slug}/${sibling.slug}/${productSlug.join('/')}`}
+                                    className="px-6 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 hover:border-emerald-200 transition-all text-sm font-bold"
+                                >
+                                    {productTitle} {sibling.name}
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Local FAQ Section */}
             <div className="bg-white py-24 border-t border-slate-100">
