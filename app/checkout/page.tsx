@@ -85,6 +85,20 @@ function sanitizeString(v: any): string | undefined {
   return trimmed;
 }
 
+/** Desparte un nume complet in prenume/nume dupa primul spatiu. Se apeleaza
+ *  DOAR la finalizare (submit), nu la fiecare tasta - altfel un spatiu final
+ *  tastat de utilizator e eliminat imediat la urmatorul re-render (bug:
+ *  campul "Nume si Prenume" nu parea sa accepte spatiul). */
+function splitFullName(raw: string): { firstName: string; lastName: string } {
+  const trimmed = (raw || "").trim();
+  const spaceIndex = trimmed.indexOf(" ");
+  if (spaceIndex === -1) return { firstName: trimmed, lastName: "" };
+  return {
+    firstName: trimmed.substring(0, spaceIndex),
+    lastName: trimmed.substring(spaceIndex + 1).trim(),
+  };
+}
+
 function mergeAddress(oldVal: Address, newVal: Partial<Address>): Address {
   return {
     ...oldVal,
@@ -219,7 +233,9 @@ export default function CheckoutPage() {
 
   // Map local address/billing to CheckoutForm expected shapes
   function toFormAddress(a: Address) {
-    const fullName = [a.firstName || "", a.lastName || ""].join(" ").trim();
+    // a.lastName e gol in timpul editarii (vezi fromFormAddress) - afisam
+    // exact ce e in firstName, fara join/trim care ar inghiti un spatiu final.
+    const fullName = a.lastName ? `${a.firstName || ""} ${a.lastName}` : (a.firstName || "");
     return {
       nume_prenume: fullName,
       email: a.email || "",
@@ -233,27 +249,17 @@ export default function CheckoutPage() {
   }
 
   function fromFormAddress(prev: Address, formAddr: any): Address {
-    // Păstrăm valoarea exactă din câmpul nume_prenume pentru a permite editare liberă
-    const name = formAddr?.nume_prenume || "";
-
-    // Separăm firstName și lastName doar când facem submit/validare
-    // În timpul editării, păstrăm întregul text în firstName
-    // și vom face split-ul corect doar la final
-    const trimmedName = name.trim();
-    let firstName = trimmedName;
-    let lastName = "";
-
-    // Dacă există cel puțin un spațiu, facem split
-    if (trimmedName.includes(" ")) {
-      const spaceIndex = trimmedName.indexOf(" ");
-      firstName = trimmedName.substring(0, spaceIndex);
-      lastName = trimmedName.substring(spaceIndex + 1);
-    }
+    // Pastram valoarea exacta din campul nume_prenume, caracter cu caracter
+    // (inclusiv spatii), cat timp utilizatorul editeaza - orice split/trim
+    // aici ar sterge un spatiu abia tastat inainte ca utilizatorul sa apuce
+    // sa scrie al doilea cuvant. Impartirea reala in prenume/nume se face
+    // o singura data, la trimiterea comenzii (vezi splitFullName in onPlaceOrder).
+    const name = formAddr?.nume_prenume ?? "";
 
     return {
       ...prev,
-      firstName: firstName,
-      lastName: lastName,
+      firstName: name,
+      lastName: "",
       email: formAddr?.email ?? prev.email,
       phone: formAddr?.telefon ?? prev.phone,
       county: formAddr?.judet ?? prev.county,
@@ -265,7 +271,9 @@ export default function CheckoutPage() {
   }
 
   function toFormBilling(b: BillingInfo) {
-    const fullName = [b.firstName || "", b.lastName || ""].join(" ").trim();
+    // b.lastName e gol in timpul editarii (vezi fromFormBilling) - la fel ca
+    // la adresa de livrare, evitam join/trim care ar inghiti un spatiu final.
+    const fullName = b.lastName ? `${b.firstName || ""} ${b.lastName}` : (b.firstName || "");
     const tip_factura = b.type === "company" ? ("persoana_juridica" as const) : ("persoana_fizica" as const);
     return {
       tip_factura,
@@ -285,27 +293,18 @@ export default function CheckoutPage() {
 
   function fromFormBilling(prev: BillingInfo, formBill: any): BillingInfo {
     const tip_factura = formBill?.tip_factura === "persoana_juridica" ? "company" : "individual";
-    const name = formBill?.name || "";
-
-    // Separăm firstName și lastName doar când facem submit/validare
-    const trimmedName = name.trim();
-    let firstName = trimmedName;
-    let lastName = "";
-
-    // Dacă există cel puțin un spațiu, facem split
-    if (trimmedName.includes(" ")) {
-      const spaceIndex = trimmedName.indexOf(" ");
-      firstName = trimmedName.substring(0, spaceIndex);
-      lastName = trimmedName.substring(spaceIndex + 1);
-    }
+    // Pastram textul exact tastat (inclusiv spatii) cat timp utilizatorul
+    // editeaza - split-ul real in prenume/nume se face doar la submit
+    // (splitFullName), altfel un spatiu final e sters la fiecare re-render.
+    const name = formBill?.name ?? "";
 
     return {
       ...prev,
       type: tip_factura,
       email: formBill?.email ?? prev.email,
       phone: formBill?.telefon ?? prev.phone,
-      firstName: tip_factura === "individual" ? firstName : prev.firstName,
-      lastName: tip_factura === "individual" ? lastName : prev.lastName,
+      firstName: tip_factura === "individual" ? name : prev.firstName,
+      lastName: tip_factura === "individual" ? "" : prev.lastName,
       companyName: tip_factura === "company" ? (formBill?.denumire_companie ?? prev.companyName) : prev.companyName,
       cui: tip_factura === "company" ? (formBill?.cui ?? prev.cui) : prev.cui,
       regCom: tip_factura === "company" ? (formBill?.reg_com ?? prev.regCom) : prev.regCom,
@@ -592,10 +591,18 @@ export default function CheckoutPage() {
     const shippingCostForPayload =
       cartTotal >= FREE_SHIPPING_THRESHOLD ? 0 : getEstimatedShippingCost(address.country || 'RO', items);
 
+    // Impartim numele complet (tinut nedespartit in firstName cat timp s-a
+    // editat) in prenume/nume abia acum, o singura data, pentru payload.
+    const finalAddress = { ...address, ...splitFullName(address.firstName || "") };
+    const finalBilling =
+      billing.type === "individual"
+        ? { ...billing, ...splitFullName(billing.firstName || "") }
+        : billing;
+
     const payload = {
       items: normalizeCart(items),
-      address,
-      billing,
+      address: finalAddress,
+      billing: finalBilling,
       sameAsDelivery,
       createAccount: createAccount && !session?.user,
       paymentMethod,
