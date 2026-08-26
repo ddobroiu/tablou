@@ -1,4 +1,5 @@
 import { JudetProfile, getJudetProfile } from "./judetProfiles";
+import { INDEXABLE_LOCALITY_SLUGS } from "./indexableLocalities";
 
 /**
  * Generator de conținut pentru paginile județ/localitate/produs, care înlocuiește
@@ -114,14 +115,29 @@ function pickDeterministic<T>(arr: T[], seedParts: string[]): T {
   return arr[hash % arr.length];
 }
 
-/** Alege o frază factuală despre județ, relevantă pentru tipul de produs. */
-function pickFactualNote(judet: JudetProfile, judetName: string, productSlug: string): string {
+/** True doar pentru orașul reședință de județ (primul din lista curată) —
+ *  Ilfov nu are reședință proprie (consiliul județean e în București), deci
+ *  e exclus explicit ca să nu facem o afirmație greșită. */
+function isJudetSeat(judetSlug: string, locSlug: string): boolean {
+  if (!locSlug || judetSlug === "ilfov") return false;
+  const list = INDEXABLE_LOCALITY_SLUGS[judetSlug];
+  return Array.isArray(list) && list[0] === locSlug;
+}
+
+/** Alege o frază factuală despre județ/localitate, relevantă pentru produs.
+ *  Industria menționată variază per localitate+produs (rotește prin toate
+ *  industriile reale din profilul județului, nu doar prima), iar orașul
+ *  reședință de județ primește o formulare distinctă și adevărată. */
+function pickFactualNote(judet: JudetProfile, judetName: string, productSlug: string, locSlug: string): string {
   const isOutdoor = OUTDOOR_SENSITIVE_PRODUCTS.has(productSlug);
   if (isOutdoor) {
     return `În ${judet.regiune === "București" ? "București" : `județul ${judetName}`}, ${judet.notaGeografica}.`;
   }
-  const industrie = judet.industrii[0];
-  return `Zona e cunoscută pentru ${industrie}, iar ${judet.reper} e unul dintre reperele locale.`;
+  const industrie = pickDeterministic(judet.industrii, [locSlug, productSlug]);
+  if (isJudetSeat(judet.slug, locSlug)) {
+    return `Fiind reședința județului ${judetName}, zona e cunoscută pentru ${industrie}, iar ${judet.reper} e unul dintre reperele orașului.`;
+  }
+  return `Zona e cunoscută pentru ${industrie}, iar ${judet.reper} e unul dintre reperele județului ${judetName}.`;
 }
 
 export type LocalContentInput = {
@@ -129,6 +145,7 @@ export type LocalContentInput = {
   productTitle: string;
   productSlug: string;
   locName: string;
+  locSlug: string;
   judetSlug: string;
   judetName: string;
 };
@@ -139,7 +156,7 @@ export type LocalContentOutput = {
 };
 
 export function buildLocalContent(input: LocalContentInput): LocalContentOutput {
-  const { brand, productTitle, productSlug, locName, judetSlug, judetName } = input;
+  const { brand, productTitle, productSlug, locName, locSlug, judetSlug, judetName } = input;
   const voice = BRAND_VOICES[brand];
   const judetProfile = getJudetProfile(judetSlug);
 
@@ -157,7 +174,7 @@ export function buildLocalContent(input: LocalContentInput): LocalContentOutput 
     .replace(/\{localitate\}/g, locName);
 
   const factualNote = judetProfile
-    ? pickFactualNote(judetProfile, judetName, productSlug)
+    ? pickFactualNote(judetProfile, judetName, productSlug, locSlug)
     : "";
 
   const heroText = [opener, factualNote, closer].filter(Boolean).join(" ");

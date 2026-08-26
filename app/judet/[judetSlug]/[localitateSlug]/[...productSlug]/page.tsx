@@ -57,6 +57,7 @@ export async function generateMetadata({ params }: { params: Promise<{ judetSlug
         productTitle,
         productSlug: baseSlug,
         locName: loc.name,
+        locSlug: loc.slug,
         judetSlug: judet.slug,
         judetName: judet.name,
     });
@@ -133,6 +134,7 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
         productTitle,
         productSlug: productCategoryKey,
         locName: loc.name,
+        locSlug: loc.slug,
         judetSlug: judet.slug,
         judetName: judet.name,
     });
