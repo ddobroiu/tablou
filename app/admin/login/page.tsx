@@ -21,7 +21,7 @@ function LoginInner() {
         </div>
         <h1 className="text-xl font-bold mb-4">Autentificare Admin</h1>
         {err ? (
-          <div className="mb-3 rounded-md bg-red-500/10 border border-red-500/30 text-red-200 px-3 py-2 text-sm">
+          <div className="mb-3 rounded-md bg-red-50 border border-red-300 text-red-800 px-3 py-2 text-sm">
             Parolă invalidă.
           </div>
         ) : null}
@@ -31,7 +31,7 @@ function LoginInner() {
             <input
               type="password"
               name="password"
-              className="w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 outline-none focus:border-emerald-400"
+              className="w-full rounded-md border border-slate-200 bg-slate-50 px-3 py-2 outline-none focus:border-emerald-400"
               placeholder="Parola admin"
               required
             />

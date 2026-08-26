@@ -1,6 +1,38 @@
 
 import { toPng } from 'html-to-image';
 
+/** Trebuie să rămână sincron cu `baseDim` din Workspace.tsx — acolo lungimea
+ *  fizică mai mare (max(w,h) cm) e mereu randată pe ecran la acest număr de px. */
+const WORKSPACE_BASE_DIM_PX = 600;
+
+/** Plafon de siguranță pe latura lungă a exportului, ca să nu depășim limitele
+ *  de canvas/memorie ale browserului (mai ales pe mobil) la formate mari. */
+const MAX_EXPORT_DIMENSION_PX = 6000;
+
+/** DPI țintă în funcție de latura fizică mai mare — produsele mici (cărți de
+ *  vizită, poze) au nevoie de rezoluție mare; formatele mari (bannere) se
+ *  văd de la distanță, deci un DPI mai mic e suficient și ține fișierul lucrabil. */
+function pickTargetDpi(longerSideCm: number): number {
+    if (longerSideCm <= 60) return 300;
+    if (longerSideCm <= 120) return 200;
+    if (longerSideCm <= 250) return 120;
+    return 80;
+}
+
+/** Calculează pixelRatio-ul necesar pentru html-to-image ca exportul să aibă
+ *  rezoluție de print reală (DPI), nu doar rezoluția de pe ecran a editorului. */
+export function computeExportPixelRatio(sizeCm: string): number {
+    const parts = sizeCm.split('x').map((n) => Number(n.trim()));
+    const wCm = Number.isFinite(parts[0]) && parts[0] > 0 ? parts[0] : 40;
+    const hCm = Number.isFinite(parts[1]) && parts[1] > 0 ? parts[1] : 60;
+    const longerSideCm = Math.max(wCm, hCm);
+
+    const dpi = pickTargetDpi(longerSideCm);
+    const targetPx = Math.min((longerSideCm / 2.54) * dpi, MAX_EXPORT_DIMENSION_PX);
+
+    return Math.max(1, targetPx / WORKSPACE_BASE_DIM_PX);
+}
+
 function dataUrlToBlob(dataUrl: string): Blob {
     const [header, data] = dataUrl.split(',');
     if (!data) throw new Error('Format imagine invalid');
@@ -19,16 +51,23 @@ function shouldIncludeInCapture(node: HTMLElement): boolean {
 }
 
 export async function captureDesign(
-    containerRef: React.RefObject<HTMLDivElement | null>
+    containerRef: React.RefObject<HTMLDivElement | null>,
+    sizeCm?: string
 ): Promise<string> {
     if (!containerRef.current) throw new Error('Workspace-ul nu a fost găsit');
 
     const workspaceDiv = containerRef.current;
 
-    try {
-        const dataUrl = await toPng(workspaceDiv, {
-            quality: 0.92,
-            pixelRatio: Math.min(2, typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1),
+    // Rezoluție de print reală (calculată din dimensiunea fizică comandată),
+    // nu rezoluția de ecran a editorului — altfel un banner de 100x150cm iese
+    // la ~20 DPI (blurat/pixelat la print) indiferent cât de mare e comanda.
+    const targetPixelRatio = sizeCm
+        ? computeExportPixelRatio(sizeCm)
+        : Math.min(2, typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1);
+
+    const attemptCapture = (pixelRatio: number) =>
+        toPng(workspaceDiv, {
+            pixelRatio,
             cacheBust: true,
             skipFonts: true,
             includeQueryParams: true,
@@ -37,6 +76,22 @@ export async function captureDesign(
                 return shouldIncludeInCapture(node);
             },
         });
+
+    try {
+        let dataUrl: string;
+        try {
+            dataUrl = await attemptCapture(targetPixelRatio);
+        } catch (err) {
+            // Pe formate foarte mari, un canvas prea mare poate depăși limitele
+            // de memorie ale browserului (mai ales mobil) — reîncearcă la jumătate
+            // de rezoluție în loc să eșuăm direct.
+            if (targetPixelRatio > 1) {
+                console.warn('Capture at full resolution failed, retrying at half:', err);
+                dataUrl = await attemptCapture(Math.max(1, targetPixelRatio / 2));
+            } else {
+                throw err;
+            }
+        }
 
         if (!dataUrl || dataUrl.length < 200) {
             throw new Error('Captura designului a eșuat (imagine goală)');

@@ -162,7 +162,7 @@ export default function ConfiguratorClient() {
                 requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
             });
 
-            const dataUrl = await captureDesign(workspaceContainerRef);
+            const dataUrl = await captureDesign(workspaceContainerRef, size);
             const uploadUrl = await uploadToCloudinary(dataUrl);
 
             const parts = size.split('x');
