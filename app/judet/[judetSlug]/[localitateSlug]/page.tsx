@@ -4,6 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getLocalitateBySlug, getJudetBySlug } from "@/lib/localitati";
 import { CONFIGURATORS_REGISTRY } from "@/lib/configurators-registry";
+import { isIndexableLocality } from "@/lib/seo/indexableLocalities";
 
 // Seeded random for deterministic Spintax & Ratings
 function getSeededRandom(seedStr: string) {
@@ -27,6 +28,10 @@ export async function generateMetadata({ params }: { params: Promise<{ judetSlug
 
     const routeUrl = `https://www.tablou.net/judet/${judet.slug}/${loc.slug}`;
 
+    // Only the curated towns are index candidates. The rest stay live and
+    // crawlable (follow keeps link equity flowing) but noindex.
+    const indexable = isIndexableLocality(judet.slug, loc.slug);
+
     return {
         title,
         description,
@@ -40,6 +45,9 @@ export async function generateMetadata({ params }: { params: Promise<{ judetSlug
             type: 'website',
         },
         alternates: { canonical: routeUrl },
+        robots: indexable
+            ? { index: true, follow: true }
+            : { index: false, follow: true },
     };
 }
 
