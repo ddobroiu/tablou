@@ -59,6 +59,13 @@ export default function CheckoutForm({
     const [companyIdentified, setCompanyIdentified] = useState(false);
     const lastFetchedCui = useRef("");
     const userEditedFields = useRef(new Set<keyof Billing>());
+    // Ultimul CUI aflat efectiv in campul de input, actualizat live - folosit
+    // ca sa ignoram un raspuns ANAF intarziat daca utilizatorul a schimbat
+    // deja CUI-ul cat timp cererea era in zbor (race condition).
+    const liveCuiRef = useRef(billing.cui || "");
+    useEffect(() => {
+        liveCuiRef.current = billing.cui || "";
+    }, [billing.cui]);
 
     const markBillEdited = <K extends keyof Billing>(k: K, v: Billing[K]) => {
         if (AUTO_FILL_FIELDS.includes(k)) userEditedFields.current.add(k);
@@ -87,6 +94,13 @@ export default function CheckoutForm({
 
             if (!res.ok) {
                 setCuiError(data.error || "Compania nu a fost găsită");
+                return;
+            }
+
+            const currentCleanCui = (liveCuiRef.current || "").replace(/\D/g, "");
+            if (currentCleanCui !== cleanCui) {
+                // Utilizatorul a schimbat deja CUI-ul cat timp astepta acest
+                // raspuns - il ignoram ca sa nu suprascriem cu firma veche.
                 return;
             }
 
