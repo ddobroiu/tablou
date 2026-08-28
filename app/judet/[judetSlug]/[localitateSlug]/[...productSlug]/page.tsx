@@ -63,9 +63,6 @@ export async function generateMetadata({ params }: { params: Promise<{ judetSlug
     });
 
     const routeUrl = `https://www.tablou.net/judet/${judet.slug}/${loc.slug}/${productSlug.join('/')}`;
-    // Only the curated towns are index candidates. The rest stay live and
-    // crawlable (follow keeps link equity flowing) but noindex.
-    const indexable = isIndexableLocality(judet.slug, loc.slug);
 
     return {
         title,
@@ -77,9 +74,7 @@ export async function generateMetadata({ params }: { params: Promise<{ judetSlug
             images: [(product as any).image || '/placeholder.png'],
         },
         alternates: { canonical: routeUrl },
-        robots: indexable
-            ? { index: true, follow: true }
-            : { index: false, follow: true }
+        robots: { index: true, follow: true }
     };
 }
 
