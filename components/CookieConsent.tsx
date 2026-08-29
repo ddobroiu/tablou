@@ -44,6 +44,16 @@ export default function CookieConsent({ gtagId, gtmId, tiktokId }: CookieConsent
         setIsVisible(false);
     };
 
+    /**
+     * Inchiderea bannerului cu "X" nu e o alegere — nu o persistam ca refuz.
+     * Consimtamantul ramane refuzat pe durata sesiunii, dar utilizatorul e intrebat
+     * din nou la o vizita viitoare. Inainte scriam "denied" definitiv, asa ca cine
+     * inchidea bannerul o data nu mai putea accepta niciodata.
+     */
+    const handleDismiss = () => {
+        setIsVisible(false);
+    };
+
     return (
         <>
             {consentStatus === "granted" && (
@@ -96,27 +106,27 @@ export default function CookieConsent({ gtagId, gtmId, tiktokId }: CookieConsent
                                 <div className="p-2 bg-emerald-100 text-emerald-600 rounded-full">
                                     <Cookie size={20} />
                                 </div>
-                                <h3 className="font-bold text-slate-900 text-lg tracking-tight">Setări Cookies</h3>
+                                <h3 className="font-bold text-slate-900 text-lg tracking-tight">Accepți cookie-urile?</h3>
                             </div>
-                            <button onClick={handleDecline} className="text-slate-400 hover:text-slate-600 transition-colors p-1" aria-label="Închide">
+                            <button onClick={handleDismiss} className="text-slate-400 hover:text-slate-600 transition-colors p-1" aria-label="Închide">
                                 <X size={20} />
                             </button>
                         </div>
                         <p className="text-sm text-slate-500 mb-6 leading-relaxed">
-                            Folosim cookie-uri pentru a-ți personaliza experiența, a analiza traficul (Analytics) și pentru performanța configuratoarelor noastre. Poți alege să accepți doar cookie-urile strict necesare. Mai multe informații în <Link href="/politica-cookies" className="text-emerald-600 hover:underline">Politica de Cookies</Link>.
+                            Ne ajută să înțelegem cum e folosit site-ul și să-ți arătăm oferte relevante. <Link href="/politica-cookies" className="text-emerald-600 hover:underline">Detalii</Link>.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-3">
-                            <button
-                                onClick={handleDecline}
-                                className="flex-1 px-4 py-2.5 rounded-xl block border border-slate-200 text-slate-600 font-bold hover:bg-slate-50 transition-colors text-sm"
-                            >
-                                Doar Strict Necesare
-                            </button>
                             <button
                                 onClick={handleAccept}
                                 className="flex-1 px-4 py-2.5 rounded-xl block bg-emerald-600 text-white font-bold hover:bg-emerald-500 shadow-lg shadow-emerald-600/20 transition-all active:scale-95 text-sm"
                             >
-                                Acceptă Toate
+                                Accept
+                            </button>
+                            <button
+                                onClick={handleDecline}
+                                className="flex-1 px-4 py-2.5 rounded-xl block border border-slate-200 text-slate-600 font-bold hover:bg-slate-50 transition-colors text-sm"
+                            >
+                                Doar necesare
                             </button>
                         </div>
                     </div>
