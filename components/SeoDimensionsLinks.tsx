@@ -1,8 +1,6 @@
-"use client";
-
 import React from 'react';
 import Link from 'next/link';
-import { PRODUCT_INTENTS } from '@/lib/seo/intents';
+import { getPopularSizes, getSizesForProduct, dimensionUrl, isDimensionProduct } from '@/lib/seo/dimensionPages';
 
 interface SeoDimensionsLinksProps {
     productId: string;
@@ -11,67 +9,45 @@ interface SeoDimensionsLinksProps {
     currentH: number;
 }
 
-// Common dimensions for Romanian printing market
-const STANDARD_STEPS = [
-    50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 250, 300, 400, 500
-];
-
+/**
+ * Link-uri vizibile către paginile de dimensiune ale produsului
+ * (/dimensiuni/{produs}/{L}x{H}). Înlocuiește vechea listă ascunsă de
+ * link-uri către /configurator/{produs}-{L}x{H}: paginile de dimensiune au
+ * acum conținut real (preț, greutate, fișier, montaj), deci merită arătate.
+ */
 export const SeoDimensionsLinks: React.FC<SeoDimensionsLinksProps> = ({
     productId,
     productName,
     currentW,
     currentH
 }) => {
-    // Generate dimension combinations
-    const combinations: { w: number, h: number }[] = [];
-    STANDARD_STEPS.forEach(w => {
-        STANDARD_STEPS.forEach(h => {
-            if (w === currentW && h === currentH) return;
-            combinations.push({ w, h });
-        });
-    });
-
-    // Generate Intent links
-    const intents = PRODUCT_INTENTS[productId] || [];
+    if (!isDimensionProduct(productId)) return null;
+    const total = getSizesForProduct(productId).length;
+    if (total === 0) return null;
+    const popular = getPopularSizes(productId, 12).filter((s) => !(s.w === currentW && s.h === currentH));
 
     return (
-        <section 
-            style={{ 
-                position: 'absolute', 
-                width: '1px', 
-                height: '1px', 
-                padding: '0', 
-                margin: '-1px', 
-                overflow: 'hidden', 
-                clip: 'rect(0, 0, 0, 0)', 
-                whiteSpace: 'nowrap', 
-                borderWidth: '0',
-                opacity: 0,
-                pointerEvents: 'none'
-            }}
-            aria-hidden="true"
-        >
-            <h2>Dimensiuni disponibile pentru {productName}</h2>
-            <div>
-                {combinations.map((comb, idx) => (
-                    <Link 
-                        key={`dim-${idx}`}
-                        href={`/configurator/${productId}-${comb.w}x${comb.h}`}
+        <section className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 md:p-8">
+            <h2 className="text-xl font-black text-slate-900 tracking-tight">Prețuri pe dimensiuni pentru {productName}</h2>
+            <p className="text-sm text-slate-500 mt-1 mb-5">
+                {total} formate cu preț calculat, greutate, rezoluție de fișier și recomandări de montaj.
+            </p>
+            <div className="flex flex-wrap gap-2">
+                {popular.map((s) => (
+                    <Link
+                        key={`${s.w}x${s.h}`}
+                        href={dimensionUrl(productId, s.w, s.h)}
+                        className="px-3 py-2 bg-slate-50 border border-slate-200 text-slate-700 rounded-xl text-xs font-bold hover:bg-slate-900 hover:text-white transition-all"
                     >
-                        {productName} {comb.w}x{comb.h} cm
+                        {productName} {s.w}×{s.h} cm
                     </Link>
                 ))}
-            </div>
-            <h2>Proiecte și modele {productName}</h2>
-            <div>
-                {intents.map((intent, idx) => (
-                    <Link 
-                        key={`intent-${idx}`}
-                        href={`/configurator/${productId}-${intent}`}
-                    >
-                        {productName} {intent.replace(/-/g, ' ')}
-                    </Link>
-                ))}
+                <Link
+                    href={`/dimensiuni/${productId}`}
+                    className="px-3 py-2 bg-emerald-50 border border-emerald-200 text-emerald-700 rounded-xl text-xs font-black hover:bg-emerald-600 hover:text-white transition-all"
+                >
+                    Toate dimensiunile →
+                </Link>
             </div>
         </section>
     );

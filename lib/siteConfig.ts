@@ -110,9 +110,11 @@ export const siteConfig = {
         },
     ],
     business: {
-        legalName: "TABLOU DIGITAL SRL",
+        legalName: "CULOAREA DIN VIATA SA SRL",
         tradeName: "Tablou",
-        cui: "RO12345678", // Placeholder - are nevoie de CUI real înainte de lansare
+        cui: "44820819",
+        regCom: "J2021001108100",
+        vatId: "44820819",
         address: {
             fullAddress: "Jud. Buzău, Sat Topliceni, Com. Topliceni, G Topliceni, nr. 214",
             city: "Topliceni",

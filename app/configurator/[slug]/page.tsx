@@ -3,7 +3,8 @@ import Script from 'next/script';
 import { siteConfig } from '@/lib/siteConfig';
 import ConfiguratorDispatcher from "@/components/configurator/ConfiguratorDispatcher";
 import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
+import { getSize, dimensionUrl } from '@/lib/seo/dimensionPages';
 import { SeoDimensionsLinks } from '@/components/SeoDimensionsLinks';
 import { INTENT_LABELS } from '@/lib/seo/intents';
 import { SeoIntentLanding } from '@/components/SeoIntentLanding';
@@ -160,7 +161,7 @@ export default async function DynamicConfiguratorPage({ params, searchParams: sP
                     intent={parsed.intent!}
                     intentLabel={parsed.intentLabel!}
                 />
-                <div className="hidden">
+                <div className="container mx-auto px-4 pb-16">
                     <SeoDimensionsLinks 
                         productId={parsed.productId} 
                         productName={parsed.productName} 
@@ -173,6 +174,12 @@ export default async function DynamicConfiguratorPage({ params, searchParams: sP
     }
 
     // NEW: Show landing page for specific dimensions if not yet on config step
+    // Dimensiunile din grila lib/seo/dimensionPages.ts au pagină proprie, cu
+    // conținut real (preț, greutate, fișier, montaj): trimitem acolo definitiv.
+    if (parsed.w && parsed.h && !isConfigStep && !parsed.productSlug && getSize(parsed.productId, parsed.w, parsed.h)) {
+        permanentRedirect(dimensionUrl(parsed.productId, parsed.w, parsed.h));
+    }
+
     if (parsed.w && parsed.h && !isConfigStep) {
         return (
             <>
@@ -182,7 +189,7 @@ export default async function DynamicConfiguratorPage({ params, searchParams: sP
                     w={parsed.w}
                     h={parsed.h}
                 />
-                <div className="hidden">
+                <div className="container mx-auto px-4 pb-16">
                     <SeoDimensionsLinks 
                         productId={parsed.productId} 
                         productName={parsed.productName} 

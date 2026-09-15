@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 200" width="880" height="200" role="img" aria-label="Tablou.net">
+  <defs>
+    <linearGradient id="tb-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ede9fe"/>
+      <stop offset="1" stop-color="#c4b5fd"/>
+    </linearGradient>
+  </defs>
+  <!-- ramă de tablou cu un peisaj mic în interior -->
+  <rect x="14" y="22" width="176" height="156" rx="18" fill="#1e1b4b"/>
+  <rect x="30" y="38" width="144" height="124" rx="10" fill="url(#tb-sky)"/>
+  <circle cx="132" cy="72" r="14" fill="#f59e0b"/>
+  <path d="M30 150 L74 98 L104 128 L124 108 L174 150 Z" fill="#7c3aed"/>
+  <path d="M30 162 L30 150 L174 150 L174 162 Z" fill="#5b21b6"/>
+  <!-- text -->
+  <text x="216" y="140" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="126" font-weight="800" letter-spacing="-4" fill="#1e1b4b">Tablou</text>
+  <text x="644" y="140" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="96" font-weight="700" letter-spacing="-2" fill="#7c3aed">.net</text>
+</svg>

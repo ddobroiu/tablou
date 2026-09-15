@@ -1,4 +1,5 @@
 import { LOCS_PER_SITEMAP } from "@/lib/seo/sitemapPaging";
+import { getDimensionSitemapParts } from "@/lib/seo/dimensionPages";
 import { JUDETE_FULL_DATA } from "@/lib/localitati";
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.tablou.net';
 
@@ -29,7 +30,14 @@ export async function GET() {
 
     // DIMENSIONS SITEMAP — curated realistic size pairs per product (a few hundred URLs total,
     // down from the old ~188,000-combination brute-force grid), fits in a single part.
-    xml += `  <sitemap>\n    <loc>${BASE_URL}/server-sitemap/dimensions-0</loc>\n  </sitemap>\n`;
+    // DIMENSIUNI: /dimensiuni/{produs}/{L}x{H}, paginat cu aceeași constantă ca
+    // generatorul (lib/seo/dimensionPages.ts).
+    for (let d = 0; d < getDimensionSitemapParts(); d++) {
+        xml += `  <sitemap>
+    <loc>${BASE_URL}/server-sitemap/dimensions-${d}</loc>
+  </sitemap>
+`;
+    }
 
     // SEO CLUSTER SITEMAPS
     xml += `  <sitemap>\n    <loc>${BASE_URL}/server-sitemap/materiale</loc>\n  </sitemap>\n`;

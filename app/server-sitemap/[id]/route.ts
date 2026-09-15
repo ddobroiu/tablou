@@ -1,4 +1,5 @@
 import { LOCS_PER_SITEMAP } from '@/lib/seo/sitemapPaging';
+import { getAllDimensionEntries, DIMENSION_URLS_PER_SITEMAP, DIMENSION_PRODUCT_IDS, dimensionUrl } from '@/lib/seo/dimensionPages';
 import { bannerProducts } from '@/lib/products/banner-products';
 import { signageProducts } from '@/lib/products/signage-products';
 import canvasProductsRaw from '@/lib/products/canvas-products.json';
@@ -162,24 +163,22 @@ export async function GET(request: Request, props: any) {
         }
 
     } else if (id && id.startsWith('dimensions-')) {
-        const part = parseInt(id.replace('dimensions-', ''));
+        // Pagini de dimensiune: /dimensiuni/{produs}/{L}x{H}, una pentru fiecare
+        // combinație din grila lib/seo/dimensionPages.ts. Indexul (app/sitemap.xml)
+        // anunță câte părți există folosind aceeași constantă DIMENSION_URLS_PER_SITEMAP.
+        const part = parseInt(id.replace('dimensions-', '')) || 0;
+        const entries = getAllDimensionEntries();
+        const startIdx = part * DIMENSION_URLS_PER_SITEMAP;
+        const slice = entries.slice(startIdx, startIdx + DIMENSION_URLS_PER_SITEMAP);
 
-        // Curated, realistic dimension pairs per product (see PRODUCT_DIMENSIONS above).
-        // Total is a few hundred URLs, so a single sitemap part (part 0) covers everything.
-        const allCombos: { pk: string; w: number; h: number }[] = [];
-        for (const pk of Object.keys(PRODUCT_DIMENSIONS)) {
-            for (const { w, h } of PRODUCT_DIMENSIONS[pk]) {
-                allCombos.push({ pk, w, h });
+        if (part === 0) {
+            xml += generateUrlNode(`${BASE_URL}/dimensiuni`, '0.7', 'monthly');
+            for (const pid of DIMENSION_PRODUCT_IDS) {
+                xml += generateUrlNode(`${BASE_URL}/dimensiuni/${pid}`, '0.6', 'monthly');
             }
         }
-
-        const MAX_PER_PART = 45000;
-        const startIdx = part * MAX_PER_PART;
-        const endIdx = startIdx + MAX_PER_PART;
-        const pageCombos = allCombos.slice(startIdx, endIdx);
-
-        for (const combo of pageCombos) {
-            xml += generateUrlNode(`${BASE_URL}/configurator/${combo.pk}-${combo.w}x${combo.h}`, '0.5', 'monthly');
+        for (const e of slice) {
+            xml += generateUrlNode(`${BASE_URL}${dimensionUrl(e.productId, e.w, e.h)}`, '0.5', 'monthly');
         }
 
     } else if (id && id.startsWith('intents-')) {

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="Tablou.net">
+  <defs>
+    <linearGradient id="sb-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ede9fe"/>
+      <stop offset="1" stop-color="#c4b5fd"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="240" height="240" rx="48" fill="#1e1b4b"/>
+  <rect x="36" y="36" width="184" height="184" rx="20" fill="url(#sb-sky)"/>
+  <circle cx="168" cy="88" r="20" fill="#f59e0b"/>
+  <path d="M36 196 L96 122 L134 162 L160 136 L220 196 Z" fill="#7c3aed"/>
+  <path d="M36 214 L36 196 L220 196 L220 214 Z" fill="#5b21b6"/>
+</svg>

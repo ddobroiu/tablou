@@ -29,6 +29,7 @@ const GUIDE_LINKS = [
     { href: "/servicii", label: "Rame și finisaje" },
     { href: "/stil", label: "Stiluri de tablouri" },
     { href: "/judet", label: "Livrare pe județe" },
+    { href: "/dimensiuni", label: "Prețuri pe dimensiuni" },
     { href: "/sectoare-bucuresti", label: "Sectoare București" },
 ];
 
