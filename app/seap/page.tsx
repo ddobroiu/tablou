@@ -208,11 +208,11 @@ export default function SeapPage() {
             {/* SEO Content Section */}
             <section className="py-24 bg-white">
                 <div className="container mx-auto px-4 max-w-4xl">
-                    <h2 className="text-4xl font-black text-slate-900 mb-12 text-center uppercase tracking-tight">Experți în Semnalistică pentru Fonduri Europene și SEAP</h2>
+                    <h2 className="text-4xl font-black text-slate-900 mb-12 text-center uppercase tracking-tight">Tablouri, afișe și materiale de informare pentru instituții, prin SEAP</h2>
 
                     <div className="prose prose-slate prose-lg max-w-none prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight prose-a:text-green-600 prose-strong:text-slate-900">
                         <p>
-                            Platforma <strong>Tablou.net</strong> este pregătită să preia și să proceseze comenzi complexe prin sistemul electronic de achiziții publice. Înțelegem rigurozitatea cerută de manualele de identitate vizuală (MIV) pentru proiectele finanțate prin <strong>PNRR</strong>, <strong>Programul Regional</strong>, sau <strong>Fonduri Structurale</strong>.
+                            <strong>Tablou.net</strong> livrează primăriilor, școlilor, muzeelor, bibliotecilor și instituțiilor publice, prin sistemul electronic de achiziții publice, tablouri canvas pentru birouri și săli de consiliu, afișe și panouri de informare, roll-up-uri pentru evenimente și plăcuțele obligatorii pentru proiectele finanțate prin <strong>PNRR</strong>, <strong>Programul Regional</strong> sau <strong>Fonduri Structurale</strong>, respectând manualele de identitate vizuală (MIV).
                         </p>
 
                         <h3>Categorii CPV Populare în Catalogul Nostru:</h3>
@@ -226,10 +226,10 @@ export default function SeapPage() {
 
                         <div className="p-10 bg-slate-50 rounded-[2rem] border border-slate-200 mt-12 mb-12 shadow-inner">
                             <h4 className="flex items-center gap-3 text-2xl font-black mb-4">
-                                <TrendingUp className="text-green-600" /> SEO & Vizibilitate Online
+                                <TrendingUp className="text-green-600" /> Ce primește instituția la fiecare comandă
                             </h4>
                             <p>
-                                Pentru a ne asigura că suntem soluția nr. 1 în căutările pentru <strong>achiziții publice print</strong>, <strong>bannere seap</strong>, sau <strong>pliante sicap</strong>, actualizăm constant catalogul nostru. Oferim prețuri competitive de producător, eliminând intermediarii, ceea ce reprezintă un avantaj major în evaluarea ofertelor economice.
+                                Ofertă scrisă cu specificații tehnice complete (material, dimensiuni, finisaj, sistem de prindere), bun de tipar trimis pe e-mail înainte de producție, proces-verbal de recepție și factură electronică e-Factura. Prețul este de producător, fără intermediari, ceea ce contează direct la evaluarea ofertei economice.
                             </p>
                         </div>
 

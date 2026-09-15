@@ -1,5 +1,5 @@
 import { JudetProfile, getJudetProfile } from "./judetProfiles";
-import { INDEXABLE_LOCALITY_SLUGS } from "./indexableLocalities";
+import { getTargetLocalitiesForJudet } from "./targetLocalities";
 
 /**
  * Generator de conținut pentru paginile județ/localitate/produs, care înlocuiește
@@ -120,8 +120,8 @@ function pickDeterministic<T>(arr: T[], seedParts: string[]): T {
  *  e exclus explicit ca să nu facem o afirmație greșită. */
 function isJudetSeat(judetSlug: string, locSlug: string): boolean {
   if (!locSlug || judetSlug === "ilfov") return false;
-  const list = INDEXABLE_LOCALITY_SLUGS[judetSlug];
-  return Array.isArray(list) && list[0] === locSlug;
+  const list = getTargetLocalitiesForJudet(judetSlug);
+  return list.length > 0 && list[0].loc.slug === locSlug;
 }
 
 /** Alege o frază factuală despre județ/localitate, relevantă pentru produs.

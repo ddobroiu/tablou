@@ -5,8 +5,8 @@ import { ArrowRight, Settings, Zap, ShieldCheck } from 'lucide-react';
 import { MATERIALE_DATA } from '@/lib/seo/materialeData';
 
 export const metadata: Metadata = {
-    title: 'Materiale și Suporturi de Print',
-    description: 'Descoperă gama completă de materiale de print: Banner Mesh, Autocolant Sablat, Blueback, Plexiglass Opal. Specificații tehnice și utilizări recomandate.',
+    title: 'Pânză Canvas, Hârtie și Materiale de Print - Ghid',
+    description: 'Pe ce printăm tablourile și restul produselor: pânză canvas 360 g/mp, tapet mat sau adeziv, hârtie foto, blueback, autocolant, mesh și panouri rigide. Specificații tehnice și unde se potrivește fiecare material.',
   alternates: { canonical: 'https://www.tablou.net/material' }
 };
 

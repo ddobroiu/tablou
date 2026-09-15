@@ -6,8 +6,8 @@ import { ArrowRight, Settings, Zap, ShieldCheck, Box } from 'lucide-react';
 import { CONFIGURATORS_REGISTRY } from '@/lib/configurators-registry';
 
 export const metadata: Metadata = {
-    title: 'Configuratoare Online Print - Calculator de Preț',
-    description: 'Folosește configuratoarele noastre online pentru bannere, autocolante, canvas și materiale publicitare. Calculează prețul instant și comandă personalizat.',
+    title: 'Preț instant - Configuratoare pentru Canvas, Fototapet și Print',
+    description: 'Încarci poza, alegi dimensiunea și vezi prețul pe loc. Configuratoare online pentru tablouri canvas, fototapet, tricouri, afișe, autocolante, bannere, roll-up și panouri rigide, cu comandă direct din pagină.',
     alternates: { canonical: 'https://www.tablou.net/configuratoare' }
 };
 

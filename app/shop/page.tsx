@@ -15,9 +15,9 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
     }
 
     return {
-        title: 'Shop - Toate Produsele și Serviciile',
-        description: 'Explorează gama noastră completă de produse de tipar digital: de la tablouri canvas și acrilice, până la bannere publicitare, autocolante și semnalistică.',
-        keywords: ['shop print', 'tablou produse', 'bannere online', 'tablouri personalizate', 'autocolante vinyl', 'rollup', 'afise'],
+        title: 'Catalog - Tablouri Canvas, Fototapet și Print Personalizat',
+        description: 'Tot catalogul Tablou.net: tablouri canvas din poza ta și modele gata făcute, fototapet, tricouri și hanorace personalizate, afișe, autocolante, bannere, roll-up-uri, semnalistică și kituri pentru fonduri UE. Preț calculat pe loc.',
+        keywords: ['tablouri canvas', 'tablouri personalizate', 'modele tablouri canvas', 'fototapet', 'tricouri personalizate', 'bannere online', 'afise', 'tablou.net'],
         alternates: { canonical: '/shop' },
     };
 }

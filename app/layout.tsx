@@ -34,21 +34,22 @@ export const viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.tablou.net"),
   title: {
-    default: "Tablou.net - Tipar Digital & Producție Publicitară",
-    template: "%s | Tablou",
+    default: "Tablou.net - Tablouri Canvas din Poza Ta",
+    template: "%s | Tablou.net",
   },
   description:
-    "Comenzi de materiale publicitare la calitate inalta. Experienta in executia de print digital de lux. Livrare rapidă în toată țara.",
+    "Tablouri canvas din fotografiile tale: un tablou, colaj sau set de 3, cu șasiu de lemn inclus și poza verificată gratuit. Același atelier printează fototapet, tricouri, afișe, bannere și panouri rigide. Livrare în toată România.",
   keywords: [
-    "tipar digital",
-    "bannere publicitare",
-    "afișe personalizate",
-    "canvas pe pânză",
-    "autocolante vinyl",
-    "materiale rigide",
-    "publicitate outdoor",
-    "print online România",
-    "tablou"
+    "tablou canvas",
+    "tablou din poza",
+    "tablouri canvas personalizate",
+    "colaj foto canvas",
+    "set 3 tablouri",
+    "canvas nunta",
+    "canvas botez",
+    "fototapet personalizat",
+    "cadou personalizat foto",
+    "tablou.net"
   ],
   manifest: '/manifest.json',
   icons: {
@@ -60,9 +61,9 @@ export const metadata: Metadata = {
     google: 'FPQT6X0QSD',
   },
   openGraph: {
-    title: "Tablou.net | Tipar Digital & Producție Publicitară",
+    title: "Tablou.net | Tablouri canvas din poza ta",
     description:
-      "Tipar digital profesional: bannere, afișe, canvas și autocolante. Configuratoare online cu prețuri instant.",
+      "Încarci poza, alegi formatul, vezi prețul pe loc. Tabloul vine gata de agățat, cu șasiu de lemn inclus, în 2-4 zile.",
     url: "https://www.tablou.net",
     siteName: "Tablou.net",
     locale: "ro_RO",
@@ -72,14 +73,14 @@ export const metadata: Metadata = {
         url: "/logo.png",
         width: 1200,
         height: 630,
-        alt: "Tablou.net - Tipar Digital Profesional",
+        alt: "Tablou.net - Tablouri canvas personalizate din fotografiile tale",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tablou.net | Print Digital Online",
-    description: "Bannere, canvas și semnalistică cu personalizare rapidă.",
+    title: "Tablou.net | Tablouri canvas din poza ta",
+    description: "Tablouri canvas, colaje și seturi de 3 din fotografiile tale, cu șasiu de lemn inclus. Livrare în toată România.",
     images: ["/logo.png"],
   },
   robots: {
@@ -103,6 +104,46 @@ export default function RootLayout({
   return (
     <html lang="ro" data-theme="light">
       <head>
+        {/* Consent Mode v2 — trebuie să ruleze înainte de gtag.js, de aceea stă
+            aici în <head>-ul layout-ului rădăcină. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('consent', 'default', {
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'analytics_storage': 'denied',
+                'functionality_storage': 'granted',
+                'security_storage': 'granted',
+                'wait_for_update': 500
+              });
+              try {
+                if (localStorage.getItem('cookie_consent') === 'granted') {
+                  gtag('consent', 'update', {
+                    'ad_storage': 'granted',
+                    'ad_user_data': 'granted',
+                    'ad_personalization': 'granted',
+                    'analytics_storage': 'granted'
+                  });
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
+        {/* GA4 property "Tablou.net", în contul Culoarea din Viata SA SRL.
+            Site-ul nu avea deloc măsurare până acum. */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-NZ9X76TF43" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              gtag('js', new Date());
+              gtag('config', 'G-NZ9X76TF43');
+            `,
+          }}
+        />
         <link rel="icon" href="/simbol.png" />
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
         <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="anonymous" />

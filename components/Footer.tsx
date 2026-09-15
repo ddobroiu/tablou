@@ -1,36 +1,76 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/lib/siteConfig";
-import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { usePathname } from "next/navigation";
+
+const PRODUCT_LINKS = [
+    { href: "/configurator/canvas", label: "Tablouri canvas din poza ta" },
+    { href: "/configurator/canvas-colaj-foto", label: "Colaj foto pe canvas" },
+    { href: "/shop/canvas", label: "Modele de tablouri gata făcute" },
+    { href: "/configurator/tapet", label: "Fototapet personalizat" },
+    { href: "/configurator/tricouri", label: "Tricouri, hanorace, șepci" },
+    { href: "/configurator/autocolante", label: "Autocolante" },
+    { href: "/configurator/afise", label: "Afișe, pliante, flyere" },
+    { href: "/configurator/carti-vizita", label: "Cărți de vizită" },
+    { href: "/configurator/banner", label: "Bannere, mesh, roll-up" },
+    { href: "/configurator/window-graphics", label: "Window graphics" },
+    { href: "/configurator/materiale/pvc-forex", label: "Panouri rigide" },
+    { href: "/fonduri-pnrr", label: "Kituri fonduri UE" },
+];
+
+const GUIDE_LINKS = [
+    { href: "/#format", label: "Ce format aleg pentru perete" },
+    { href: "/blog", label: "Ghiduri foto și decor" },
+    { href: "/material", label: "Pânză, hârtie, materiale" },
+    { href: "/servicii", label: "Rame și finisaje" },
+    { href: "/stil", label: "Stiluri de tablouri" },
+    { href: "/judet", label: "Livrare pe județe" },
+    { href: "/sectoare-bucuresti", label: "Sectoare București" },
+];
+
+const COMPANY_LINKS = [
+    { href: "/despre-noi", label: "Despre Tablou.net" },
+    { href: "/industrii", label: "Print pentru firme, pe industrii" },
+    { href: "/seap", label: "Achiziții SEAP / SICAP" },
+    { href: "/contact", label: "Ofertă pentru volume mari" },
+    { href: "/livrare", label: "Livrare și termene" },
+    { href: "/urmareste-comanda", label: "Status comandă" },
+    { href: "/noutati", label: "Noutăți" },
+];
+
+const LEGAL_LINKS = [
+    { href: "/termeni", label: "Termeni" },
+    { href: "/confidentialitate", label: "Confidențialitate" },
+    { href: "/politica-cookies", label: "Cookies" },
+    { href: "/politica-retur", label: "Retur" },
+    { href: "/retragere-contract", label: "Retragere din contract" },
+    { href: "/harta-site", label: "Harta site" },
+];
 
 export default function Footer() {
     const pathname = usePathname();
 
     if (pathname?.startsWith("/admin") || pathname === "/editor") return null;
 
+    const phoneHref = `tel:${siteConfig.phone.replace(/\s+/g, "").replace(/^0/, "+40")}`;
+
     return (
-        <footer className="bg-white text-slate-700 py-14 relative isolate border-t border-slate-200/60 overflow-hidden">
-            {/* CMYK strip */}
-            <div className="absolute top-0 left-0 w-full h-[3px] bg-[linear-gradient(90deg,var(--color-cyan),var(--color-magenta),var(--color-yellow))]"></div>
-            {/* Thin hairline */}
-            <div className="absolute top-[3px] left-0 w-full h-px bg-slate-200/70"></div>
-            
-            <div className="container mx-auto px-6 lg:px-12 !max-w-7xl">
-                
-                {/* Main Grid: 4 columns */}
+        <footer className="bg-[#FBF7F2] text-stone-600 relative isolate border-t border-stone-200 overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#B8385A]/60 to-transparent" />
+
+            <div className="container mx-auto px-6 lg:px-12 !max-w-7xl py-14">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-12">
-                    
-                    {/* Brand Info */}
-                    <div className="lg:col-span-4 flex flex-col gap-6">
+                    {/* Brand */}
+                    <div className="lg:col-span-4 flex flex-col gap-5">
                         <Link href="/" className="inline-block relative group">
-                            <div className="relative w-36 h-8 transition-all duration-300">
+                            <div className="relative w-36 h-8 group-hover:opacity-80 transition-opacity duration-300">
                                 <Image
                                     src="/logo.png"
-                                    alt="Tablou Logo"
+                                    alt="Tablou.net"
                                     width={144}
                                     height={32}
                                     className="object-contain"
@@ -38,128 +78,83 @@ export default function Footer() {
                                 />
                             </div>
                         </Link>
-                        
-                        <p className="text-sm text-slate-600 leading-relaxed max-w-sm">
-                            Soluții premium de print digital și producție publicitară la nivel național.
+                        <p className="text-sm text-stone-600 leading-relaxed max-w-sm">
+                            Tablouri canvas din fotografiile tale: un tablou, colaj sau set de 3, cu șasiu de lemn inclus
+                            și poza verificată înainte de print. Același atelier din Buzău printează și fototapet, textile,
+                            afișe, bannere și panouri rigide, cu livrare în toată țara.
                         </p>
-
-                        <div className="flex items-center gap-2 text-xs font-semibold text-slate-600">
-                            <span className="px-3 py-1.5 rounded-full border border-slate-200/70 bg-slate-50">CMYK ready</span>
-                            <span className="px-3 py-1.5 rounded-full border border-slate-200/70 bg-slate-50">DTP verificare</span>
-                            <span className="px-3 py-1.5 rounded-full border border-slate-200/70 bg-slate-50">24–48h</span>
-                        </div>
-                    </div>
-
-                    {/* Links: Production */}
-                     <div className="lg:col-span-2">
-                        <h4 className="text-slate-900 text-sm font-semibold tracking-tight mb-4">Producție</h4>
-                        <ul className="space-y-3 text-sm">
-                            <li><Link href="/configuratoare" className="hover:text-slate-950 transition-colors">Configuratoare</Link></li>
-                            <li><Link href="/shop" className="hover:text-slate-950 transition-colors">Catalog Shop</Link></li>
-                            <li><Link href="/seap" className="hover:text-slate-950 transition-colors">Publicitate SEAP</Link></li>
-                            <li><Link href="/contact" className="hover:text-slate-950 transition-colors">Comenzi B2B</Link></li>
-                        </ul>
-                    </div>
-                    
-                    {/* Links: Info */}
-                    <div className="lg:col-span-2">
-                        <h4 className="text-slate-900 text-sm font-semibold tracking-tight mb-4">Informații</h4>
-                        <ul className="space-y-3 text-sm">
-                            <li><Link href="/despre-noi" className="hover:text-slate-950 transition-colors">Despre Noi</Link></li>
-                            <li><Link href="/urmareste-comanda" className="hover:text-slate-950 transition-colors">Status Comandă</Link></li>
-                            <li><Link href="/livrare" className="hover:text-slate-950 transition-colors">Livrare</Link></li>
-                            <li><Link href="/termeni" className="hover:text-slate-950 transition-colors">Termeni</Link></li>
-                            <li><Link href="/confidentialitate" className="hover:text-slate-950 transition-colors">Confidențialitate</Link></li>
-                            <li><Link href="/politica-retur" className="hover:text-slate-950 transition-colors">Politica de Retur</Link></li>
-                            <li><Link href="/retragere-contract" className="hover:text-slate-950 transition-colors">Retrage-te din Contract</Link></li>
-                            <li><Link href="/noutati" className="hover:text-slate-950 transition-colors">Noutăți</Link></li>
-                        </ul>
-                    </div>
-
-                    {/* Links: Expertiza */}
-                    <div className="lg:col-span-2">
-                        <h4 className="text-slate-900 text-sm font-semibold tracking-tight mb-4">Expertiză</h4>
-                        <ul className="space-y-3 text-sm">
-                            <li><Link href="/material" className="hover:text-slate-950 transition-colors">Materiale</Link></li>
-                            <li><Link href="/servicii" className="hover:text-slate-950 transition-colors">Servicii & Finisaje</Link></li>
-                            <li><Link href="/norme" className="hover:text-slate-950 transition-colors">Norme & Reglementări</Link></li>
-                            <li><Link href="/stil" className="hover:text-slate-950 transition-colors">Stiluri de Design</Link></li>
-                            <li><Link href="/industrii" className="hover:text-slate-950 transition-colors">Industrii</Link></li>
-                            <li><Link href="/judet" className="hover:text-slate-950 transition-colors">Toate Județele</Link></li>
-                        </ul>
-                    </div>
-
-                    {/* Contact Details */}
-                    <div className="lg:col-span-2">
-                        <h4 className="text-slate-900 text-sm font-semibold tracking-tight mb-4">Contact</h4>
-                        <div className="space-y-4 text-sm">
-                            <div className="flex gap-3">
-                                <MapPin size={16} className="text-slate-900 shrink-0 mt-0.5" />
-                                <span className="text-slate-700">Com. Topliceni, nr. 214, Jud. Buzău</span>
+                        <div className="space-y-3 text-sm">
+                            <a href={phoneHref} className="flex items-center gap-3 hover:text-stone-900 transition-colors">
+                                <Phone size={16} className="text-[#B8385A] shrink-0" />
+                                <span>{siteConfig.phone}</span>
+                            </a>
+                            <a href={`mailto:${siteConfig.email.toLowerCase()}`} className="flex items-center gap-3 hover:text-stone-900 transition-colors">
+                                <Mail size={16} className="text-[#B8385A] shrink-0" />
+                                <span>{siteConfig.email.toLowerCase()}</span>
+                            </a>
+                            <div className="flex items-center gap-3">
+                                <Clock size={16} className="text-[#B8385A] shrink-0" />
+                                <span>Luni - Vineri 09:00 - 18:00</span>
                             </div>
-                            <div className="flex gap-3">
-                                <Phone size={16} className="text-slate-900 shrink-0 mt-0.5" />
-                                <a href={`tel:${siteConfig.phone.replace(/\s+/g, '').replace(/^0/, '+40')}`} className="hover:text-slate-950 transition-colors text-slate-700">{siteConfig.phone}</a>
-                            </div>
-                            <div className="flex gap-3">
-                                <Mail size={16} className="text-slate-900 shrink-0 mt-0.5" />
-                                <a href="mailto:contact@Tablou.net" className="hover:text-slate-950 transition-colors text-slate-700">contact@Tablou.net</a>
+                            <div className="flex items-start gap-3">
+                                <MapPin size={16} className="text-[#B8385A] shrink-0 mt-0.5" />
+                                <span>{siteConfig.business.address.fullAddress}</span>
                             </div>
                         </div>
-
-                        {/* Social Links */}
-                        <div className="flex items-center gap-4 mt-6">
-                            {siteConfig.socialLinks.filter(l => l.title !== "Twitter").map((link) => (
+                        <div className="flex items-center gap-3 pt-1">
+                            {siteConfig.socialLinks.filter((l) => l.title !== "Twitter" && l.title !== "Email").map((link) => (
                                 <Link
                                     key={link.title}
                                     href={link.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     title={link.title}
-                                    className="w-9 h-9 rounded-full bg-slate-50 border border-slate-200/60 flex items-center justify-center text-slate-700 hover:text-white hover:bg-slate-950 hover:border-slate-950 transition-colors"
+                                    className="w-8 h-8 rounded-full bg-white border border-stone-200 flex items-center justify-center text-stone-600 hover:text-white hover:bg-[#B8385A] hover:border-[#B8385A] transition-colors"
                                 >
                                     <link.icon size={14} />
                                 </Link>
                             ))}
                         </div>
                     </div>
+
+                    <FooterColumn title="Produse" links={PRODUCT_LINKS} />
+                    <FooterColumn title="Ghiduri" links={GUIDE_LINKS} />
+                    <FooterColumn title="Firme & instituții" links={COMPANY_LINKS} />
+                    <FooterColumn title="Legal" links={LEGAL_LINKS} />
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="pt-6 border-t border-slate-200/60 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-medium text-slate-500">
-                    <p className="text-slate-600">&copy; {new Date().getFullYear()} {siteConfig.name}. Toate drepturile rezervate.</p>
-                    
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        {/* Official ANPC Badges */}
-                        <div className="flex items-center gap-2">
-                            <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-                                <span className="inline-flex items-center justify-center h-10 px-2 rounded-lg border border-slate-200/70 bg-slate-50">
-                                    <img src="/250x50_icon_ANPC-SAL.webp" alt="Solutionarea Alternativa a Litigiilor" width={200} height={40} className="h-8 w-auto" loading="lazy" />
-                                </span>
-                            </a>
-                            <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-                                <span className="inline-flex items-center justify-center h-10 px-2 rounded-lg border border-slate-200/70 bg-slate-50">
-                                    <img src="/250x50_icon_ANPC-SOL.webp" alt="Solutionarea Online a Litigiilor" width={200} height={40} className="h-8 w-auto" loading="lazy" />
-                                </span>
-                            </a>
-                        </div>
-                        
-                        <span className="hidden md:inline mx-2 text-slate-300">•</span>
-                        
-                        {/* Rețeaua noastră */}
-                        <div className="flex flex-wrap items-center justify-center gap-4 text-[10px] font-semibold tracking-tight text-slate-500">
-                            <a href="https://www.adbanner.ro" target="_blank" rel="noopener noreferrer nofollow" className="hover:text-slate-950 transition-colors">AdBanner</a>
-                            <a href="https://www.euprint.ro" target="_blank" rel="noopener noreferrer nofollow" className="hover:text-slate-950 transition-colors">EuPrint</a>
-                            <a href="https://www.prynt.ro" target="_blank" rel="noopener noreferrer nofollow" className="hover:text-slate-950 transition-colors">Prynt.ro</a>
-                            <a href="https://www.shopprint.ro" target="_blank" rel="noopener noreferrer nofollow" className="hover:text-slate-950 transition-colors">ShopPrint</a>
-                            <a href="https://www.homeprint.ro" target="_blank" rel="noopener noreferrer nofollow" className="hover:text-slate-950 transition-colors">HomePrint</a>
-                            <a href="https://www.anexa1.ro" target="_blank" rel="noopener noreferrer nofollow" className="hover:text-slate-950 transition-colors">Anexa1</a>
-                            <span className="text-slate-300">|</span>
-                            <a href="https://e-web.ro" target="_blank" rel="noopener noreferrer nofollow" className="text-slate-500 hover:text-slate-950 transition-colors">Site realizat de e-web.ro</a>
-                        </div>
+                <div className="pt-6 border-t border-stone-200 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-stone-500">
+                    <p>
+                        &copy; {new Date().getFullYear()} {siteConfig.name}.net · {siteConfig.business.legalName} · CUI {siteConfig.business.cui}
+                    </p>
+                    <div className="flex items-center gap-2">
+                        <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+                            <img src="/250x50_icon_ANPC-SAL.webp" alt="Soluționarea Alternativă a Litigiilor" width={200} height={40} className="h-10 w-auto" loading="lazy" />
+                        </a>
+                        <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+                            <img src="/250x50_icon_ANPC-SOL.webp" alt="Soluționarea Online a Litigiilor" width={200} height={40} className="h-10 w-auto" loading="lazy" />
+                        </a>
                     </div>
                 </div>
             </div>
         </footer>
+    );
+}
+
+function FooterColumn({ title, links }: { title: string; links: { href: string; label: string }[] }) {
+    return (
+        <div className="lg:col-span-2">
+            <h4 className="text-stone-900 text-xs font-bold uppercase tracking-widest mb-4">{title}</h4>
+            <ul className="space-y-2.5 text-sm">
+                {links.map((l) => (
+                    <li key={l.href}>
+                        <Link href={l.href} className="hover:text-[#B8385A] transition-colors">
+                            {l.label}
+                        </Link>
+                    </li>
+                ))}
+            </ul>
+        </div>
     );
 }

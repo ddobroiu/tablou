@@ -4,17 +4,10 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getLocalitateBySlug, getJudetBySlug } from "@/lib/localitati";
 import { CONFIGURATORS_REGISTRY } from "@/lib/configurators-registry";
-import { isIndexableLocality } from "@/lib/seo/indexableLocalities";
 
-// Seeded random for deterministic Spintax & Ratings
-function getSeededRandom(seedStr: string) {
-    let hash = 0;
-    for (let i = 0; i < seedStr.length; i++) {
-        hash = seedStr.charCodeAt(i) + ((hash << 5) - hash);
-    }
-    const x = Math.sin(hash++) * 10000;
-    return x - Math.floor(x);
-}
+// Toate localitățile au pagină: nu pre-generăm nimic, se randează la cerere din
+// lib/seo/ro_localitati.json. Restrângerea la o listă "curată" (plus
+// dynamicParams = false) scotea ~13.000 de pagini care aduceau trafic organic.
 
 export async function generateMetadata({ params }: { params: Promise<{ judetSlug: string, localitateSlug: string }> }) {
     const { judetSlug, localitateSlug } = await params;
@@ -23,21 +16,20 @@ export async function generateMetadata({ params }: { params: Promise<{ judetSlug
 
     if (!loc || !judet) return {};
 
-    const title = `Tipografie & Print în ${loc.name}`;
-    const description = `Comandă bannere, autocolante și materiale publicitare personalizate în ${loc.name}. Producție directă în 24-48h, prețuri competitive și livrare rapidă în tot județul ${judet.name}.`;
+    const title = `Tablouri Canvas din Poza Ta în ${loc.name}`;
+    const description = `Comandă tablouri canvas personalizate, colaje foto și seturi de 3 cu livrare în ${loc.name}, județul ${judet.name}. Șasiu de lemn inclus, poza verificată gratuit, gata în 2-4 zile. Tot aici: fototapet, tricouri, afișe, bannere și panouri rigide.`;
 
     const routeUrl = `https://www.tablou.net/judet/${judet.slug}/${loc.slug}`;
-
 
     return {
         title,
         description,
-        keywords: `print ${loc.name}, publicitate ${loc.name}, bannere ${loc.name}, materiale promotionale ${loc.name}, tipografie ${loc.name}`,
+        keywords: `tablou canvas ${loc.name}, tablouri personalizate ${loc.name}, canvas din poza ${loc.name}, fototapet ${loc.name}, print ${loc.name}`,
         openGraph: {
             title,
             description,
             url: routeUrl,
-            siteName: 'Tablou',
+            siteName: 'Tablou.net',
             locale: 'ro_RO',
             type: 'website',
         },
@@ -53,7 +45,32 @@ export default async function LocalitatePage({ params }: { params: Promise<{ jud
 
     if (!loc || !judet) notFound();
 
-    const configurators = CONFIGURATORS_REGISTRY;
+    // Canvasul primul, apoi decor/textile, apoi restul catalogului.
+    const configurators = [
+        ...CONFIGURATORS_REGISTRY.filter((c) => c.category === 'decor'),
+        ...CONFIGURATORS_REGISTRY.filter((c) => c.category === 'textile'),
+        ...CONFIGURATORS_REGISTRY.filter((c) => c.category !== 'decor' && c.category !== 'textile'),
+    ];
+    const siblingLocalities = judet.localitati.filter((l) => l.slug !== loc.slug);
+
+    const faq = [
+        {
+            q: `Cât durează până primesc tabloul în ${loc.name}?`,
+            a: "Printul, întinsul pe șasiu și uscarea durează 2-4 zile lucrătoare, iar curierul mai adaugă de regulă o zi. Dacă tabloul e cadou cu dată fixă, scrie-ne data în comentariile comenzii și îți confirmăm dacă putem intra la termen."
+        },
+        {
+            q: "Ce rezoluție trebuie să aibă poza?",
+            a: "Pentru un tablou de 40×60 cm ajunge o fotografie de minimum 2000×3000 pixeli, adică orice poză făcută cu un telefon din ultimii ani. Configuratorul îți spune pe loc dacă poza e prea mică pentru formatul ales, iar un coleg o mai verifică o dată înainte de print."
+        },
+        {
+            q: `Puteți livra tabloul direct la persoana care primește cadoul, în ${loc.name}?`,
+            a: "Da. Pui la comandă adresa destinatarului, iar factura se trimite pe e-mailul tău, nu în colet. Ambalăm cu colțare de protecție și folie, iar la cerere adăugăm o felicitare cu mesajul tău."
+        },
+        {
+            q: `Ce altceva printați pentru ${loc.name}?`,
+            a: "Din același atelier pleacă fototapet din poza ta, tricouri, hanorace și șepci personalizate, afișe, pliante, cărți de vizită, bannere, roll-up-uri, autocolante și panouri rigide. Fiecare produs are configurator cu preț calculat instant."
+        }
+    ];
 
     return (
         <div className="min-h-screen bg-white">
@@ -65,10 +82,10 @@ export default async function LocalitatePage({ params }: { params: Promise<{ jud
                         {
                             "@context": "https://schema.org",
                             "@type": "Service",
-                            "name": `Print și Publicitate Tablou ${loc.name}`,
+                            "name": `Tablouri canvas personalizate Tablou.net ${loc.name}`,
                             "provider": {
                                 "@type": "LocalBusiness",
-                                "name": "Tablou",
+                                "name": "Tablou.net",
                                 "url": `https://www.tablou.net/judet/${judet.slug}/${loc.slug}`,
                                 "areaServed": { "@type": "City", "name": loc.name }
                             }
@@ -85,54 +102,51 @@ export default async function LocalitatePage({ params }: { params: Promise<{ jud
                         {
                             "@context": "https://schema.org",
                             "@type": "FAQPage",
-                            "mainEntity": [
-                                {
-                                    "@type": "Question",
-                                    "name": `Ce servicii de print sunt disponibile în ${loc.name}?`,
-                                    "acceptedAnswer": {
-                                        "@type": "Answer",
-                                        "text": `În ${loc.name} oferim servicii complete de tipar digital: bannere publicitare, tablouri canvas, autocolante, rollup-uri și materiale rigide, toate cu livrare rapidă direct la adresa ta.`
-                                    }
-                                },
-                                {
-                                    "@type": "Question",
-                                    "name": `Cât durează livrarea în ${loc.name}?`,
-                                    "acceptedAnswer": {
-                                        "@type": "Answer",
-                                        "text": "Comenzile sunt produse în 24-48 de ore și expediate prin DPD Express, ajungând de regulă în ziua următoare finalizării producției."
-                                    }
-                                },
-                                {
-                                    "@type": "Question",
-                                    "name": "Cum pot vedea prețurile pentru produsele mele?",
-                                    "acceptedAnswer": {
-                                        "@type": "Answer",
-                                        "text": "Alege orice produs din lista de mai sus și folosește configuratorul online. Prețul se calculează instantaneu pe baza dimensiunilor și opțiunilor tale."
-                                    }
-                                }
-                            ]
+                            "mainEntity": faq.map((f) => ({
+                                "@type": "Question",
+                                "name": f.q,
+                                "acceptedAnswer": { "@type": "Answer", "text": f.a }
+                            }))
                         }
                     ])
                 }}
             />
 
-            {/* Premium Header/Nav */}
             {/* Simple Header - No Hero */}
             <div className="pt-24 pb-12 border-b border-slate-100">
                 <div className="container mx-auto px-6">
                     <nav className="text-[10px] font-black text-slate-400 mb-6 flex gap-3 items-center uppercase tracking-widest">
-                        <Link href="/judet" className="hover:text-emerald-600 transition-colors">Județe</Link> 
+                        <Link href="/judet" className="hover:text-emerald-600 transition-colors">Județe</Link>
                         <span>/</span>
-                        <Link href={`/judet/${judet.slug}`} className="hover:text-emerald-600 transition-colors">{judet.name}</Link> 
+                        <Link href={`/judet/${judet.slug}`} className="hover:text-emerald-600 transition-colors">{judet.name}</Link>
                         <span>/</span>
                         <span className="text-slate-900">{loc.name}</span>
                     </nav>
-                    <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-4 tracking-tighter">
-                        Print & Publicitate <span className="text-emerald-500">{loc.name}</span>
-                    </h1>
-                    <p className="text-lg text-slate-500 max-w-2xl">
-                        Producție și livrare rapidă materiale publicitare în <span className="text-slate-900 font-bold">{loc.name}</span>. Alege produsele dorite și configurează-le online.
-                    </p>
+                    <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+                        <div className="min-w-0">
+                            <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-4 tracking-tighter">
+                                Tablouri canvas <span className="text-emerald-500">{loc.name}</span>
+                            </h1>
+                            <p className="text-lg text-slate-500 max-w-2xl">
+                                O poză din telefon, printată pe pânză și întinsă pe șasiu de lemn, livrată prin curier în <span className="text-slate-900 font-bold">{loc.name}</span>. Un singur tablou, colaj sau set de 3, pentru nuntă, botez, aniversări sau cadou pentru părinți.
+                            </p>
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 shrink-0">
+                            <Link
+                                href={`/judet/${judet.slug}/${loc.slug}/canvas`}
+                                className="inline-flex items-center justify-center px-6 py-3 rounded-2xl font-black text-sm uppercase tracking-widest bg-emerald-600 text-white hover:bg-emerald-500 transition-all shadow-xl shadow-emerald-600/20 active:scale-[0.99]"
+                            >
+                                Încarcă poza
+                            </Link>
+                            <Link
+                                href="/contact"
+                                className="inline-flex items-center justify-center px-6 py-3 rounded-2xl font-black text-sm uppercase tracking-widest border-2 border-slate-200 bg-white text-slate-900 hover:border-emerald-500 hover:text-emerald-600 transition-all shadow-sm active:scale-[0.99]"
+                            >
+                                Cere ofertă
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -140,26 +154,26 @@ export default async function LocalitatePage({ params }: { params: Promise<{ jud
             <section className="py-40">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-24">
-                        <h2 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter mb-6">Produse <span className="text-emerald-500">Configurabile</span></h2>
+                        <h2 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter mb-6">Ce printăm pentru <span className="text-emerald-500">{loc.name}</span></h2>
                         <div className="h-2 w-24 bg-emerald-500 mx-auto rounded-full mb-8"></div>
-                        <p className="text-xl text-slate-500 font-light max-w-2xl mx-auto">Sistemele noastre de configurare îți permit să alegi dimensiuni, finisaje și materiale specifice, cu preț calculat instant.</p>
+                        <p className="text-xl text-slate-500 font-light max-w-2xl mx-auto">Tablourile canvas sunt primele, dar același atelier face și fototapetul, tricourile, afișele și bannerele. Fiecare produs are configurator cu preț calculat pe loc.</p>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-                        {configurators.map((p: any) => {
+                        {configurators.map((p) => {
                             const cleanSlug = p.slug || p.id;
                             const productUrl = `/judet/${judet.slug}/${loc.slug}/${cleanSlug}`;
 
                             return (
-                                <Link 
-                                    href={productUrl} 
-                                    key={p.id} 
+                                <Link
+                                    href={productUrl}
+                                    key={p.id}
                                     className="group flex flex-col items-center text-center space-y-8"
                                 >
                                     <div className="w-full aspect-square bg-slate-50 rounded-[4rem] overflow-hidden border border-slate-100 group-hover:border-emerald-500 group-hover:shadow-2xl group-hover:-translate-y-4 transition-all duration-700 relative">
                                         <Image
                                             src={p.image || '/placeholder.png'}
-                                            alt={`${p.name} personalizat în ${loc.name}, județul ${judet.name} - Tablou`}
+                                            alt={`${p.name} personalizat în ${loc.name}, județul ${judet.name} - Tablou.net`}
                                             fill
                                             className="object-cover group-hover:scale-110 transition-transform duration-1000"
                                         />
@@ -171,7 +185,7 @@ export default async function LocalitatePage({ params }: { params: Promise<{ jud
                                     </div>
                                     <div>
                                         <h3 className="text-2xl font-black text-slate-900 group-hover:text-emerald-600 transition-colors mb-2">{p.name}</h3>
-                                        <p className="text-slate-400 text-sm font-medium uppercase tracking-widest">Preț de Producător</p>
+                                        <p className="text-slate-400 text-sm font-medium uppercase tracking-widest">Preț de producător</p>
                                     </div>
                                 </Link>
                             );
@@ -188,13 +202,13 @@ export default async function LocalitatePage({ params }: { params: Promise<{ jud
 
                 <div className="container mx-auto px-6 relative z-10 text-center max-w-5xl">
                     <h2 className="text-5xl md:text-8xl font-black tracking-tighter mb-16 leading-[0.8]">
-                        Parteneriat Local <br /> <span className="text-emerald-500 italic">fără Intermediari</span>
+                        Gata de agățat, <br /> <span className="text-emerald-500 italic">ambalat ca pentru cadou</span>
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-16 text-left">
                         {[
-                            { title: "Livrare DPD", text: `Toate produsele comandate în ${loc.name} sunt expediate prioritar prin curier rapid.` },
-                            { title: "Calitate UV", text: "Printăm la rezoluție maximă cu rezistență 5 ani la exterior și intemperii." },
-                            { title: "Echipa Tehnică", text: "Oferim suport pentru fișierele de print și consultanță în alegerea materialelor." }
+                            { title: "Șasiu de lemn inclus", text: "Pânza vine întinsă pe șasiu de lemn uscat, cu marginile oglindite și sistem de agățat montat pe spate. Îți trebuie doar un cui." },
+                            { title: "Poza verificată gratuit", text: "Fiecare fotografie e deschisă de un om înainte de print. Dacă e prea mică pentru formatul ales, îți spunem înainte, nu după." },
+                            { title: `Livrare în ${loc.name}`, text: "Tabloul pleacă prin curier cu colțare de protecție și folie, cu AWB pe e-mail. Factura vine pe e-mail, nu în colet, când e cadou." }
                         ].map((item, i) => (
                             <div key={i} className="space-y-6">
                                 <div className="text-emerald-500 font-black text-4xl">0{i+1}.</div>
@@ -207,27 +221,29 @@ export default async function LocalitatePage({ params }: { params: Promise<{ jud
             </section>
 
             {/* Other Localities List */}
-            <section className="py-32 bg-slate-50">
-                <div className="container mx-auto px-6">
-                    <div className="flex flex-col md:flex-row items-center justify-between gap-8 border-b border-slate-200 pb-16">
-                        <div>
-                            <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tighter">Tipografie în Județul {judet.name}</h2>
-                            <p className="text-slate-500 mt-2 font-medium">Livrăm materiale personalizate și în localitățile vecine:</p>
-                        </div>
-                        <div className="flex flex-wrap gap-3">
-                            {judet.localitati.filter(l => l.slug !== loc.slug).slice(0, 8).map(l => (
-                                <Link
-                                    key={l.slug}
-                                    href={`/judet/${judet.slug}/${l.slug}`}
-                                    className="px-6 py-3 bg-white border border-slate-200 text-slate-600 rounded-2xl text-sm font-black hover:bg-slate-900 hover:text-white transition-all shadow-sm"
-                                >
-                                    {l.name}
-                                </Link>
-                            ))}
+            {siblingLocalities.length > 0 && (
+                <section className="py-32 bg-slate-50">
+                    <div className="container mx-auto px-6">
+                        <div className="flex flex-col md:flex-row items-center justify-between gap-8 border-b border-slate-200 pb-16">
+                            <div>
+                                <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tighter">Tablouri canvas în județul {judet.name}</h2>
+                                <p className="text-slate-500 mt-2 font-medium">Livrăm tablouri personalizate și în localitățile vecine:</p>
+                            </div>
+                            <div className="flex flex-wrap gap-3">
+                                {siblingLocalities.slice(0, 8).map(l => (
+                                    <Link
+                                        key={l.slug}
+                                        href={`/judet/${judet.slug}/${l.slug}`}
+                                        className="px-6 py-3 bg-white border border-slate-200 text-slate-600 rounded-2xl text-sm font-black hover:bg-slate-900 hover:text-white transition-all shadow-sm"
+                                    >
+                                        {l.name}
+                                    </Link>
+                                ))}
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            )}
 
         </div>
     );

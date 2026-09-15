@@ -1,3 +1,4 @@
+import { LOCS_PER_SITEMAP } from '@/lib/seo/sitemapPaging';
 import { bannerProducts } from '@/lib/products/banner-products';
 import { signageProducts } from '@/lib/products/signage-products';
 import canvasProductsRaw from '@/lib/products/canvas-products.json';
@@ -7,6 +8,7 @@ import { seoCampaignProducts } from '@/lib/products/seo-campaign-products';
 import { getAllPosts } from '@/lib/blogPosts';
 import { listAllLandingRoutes } from '@/lib/landingData';
 import { JUDETE_FULL_DATA } from '@/lib/localitati';
+import { CONFIGURATORS_REGISTRY } from '@/lib/configurators-registry';
 
 import { PRODUCT_INTENTS, INTENT_LABELS, MARKETING_INTENTS } from '@/lib/seo/intents';
 import { MATERIALE_DATA } from '@/lib/seo/materialeData';
@@ -78,83 +80,8 @@ const PRODUCT_DIMENSIONS: Record<string, { w: number; h: number }[]> = {
     ],
 };
 
-// The curated real-town list — the only localities the judet/product SEO matrix is advertised
-// for in the sitemap (down from all ~13,344 localities). Includes the 42 județ reședințe (county
-// seats) plus additional real towns with meaningful search demand (e.g. Râmnicu Sărat), so
-// cities beyond the county seat can also get a dedicated page.
-//
-// Keyed by județ slug (not a flat list): many Romanian village names repeat across unrelated
-// counties (e.g. "Slobozia", "Budești", "Comănești" are all common comuna names found in a dozen+
-// județe besides the one intended here), so matching this list against ALL localities nationwide
-// — instead of only the named județ's own list — would silently pull in the wrong, unrelated
-// villages. Matching is scoped per-județ below to avoid that.
-const CURATED_TOWNS_BY_JUDET: Record<string, string[]> = {
-    'alba': ["Alba Iulia", "Sebeș", "Aiud", "Blaj", "Cugir", "Câmpeni", "Ocna Mureș"],
-    'arad': ["Arad", "Ineu", "Lipova", "Chișineu-Criș", "Sântana"],
-    'arges': ["Pitești", "Curtea de Argeș", "Câmpulung", "Mioveni", "Topoloveni"],
-    'bacau': ["Bacău", "Onești", "Moinești", "Comănești", "Buhuși", "Târgu Ocna"],
-    'bihor': ["Oradea", "Salonta", "Marghita", "Beiuș", "Aleșd"],
-    'bistrita-nasaud': ["Bistrița", "Beclean", "Năsăud"],
-    'botosani': ["Botoșani", "Dorohoi", "Săveni"],
-    'braila': ["Brăila", "Ianca", "Însurăței"],
-    'brasov': ["Brașov", "Făgăraș", "Săcele", "Codlea", "Zărnești", "Rupea", "Predeal"],
-    'buzau': ["Buzău", "Râmnicu Sărat", "Nehoiu", "Pogoanele"],
-    'caras-severin': ["Reșița", "Caransebeș", "Oravița", "Bocșa", "Oțelu Roșu"],
-    'calarasi': ["Călărași", "Oltenița", "Budești"],
-    'cluj': ["Cluj-Napoca", "Turda", "Dej", "Câmpia Turzii", "Gherla", "Huedin"],
-    'constanta': ["Constanța", "Medgidia", "Mangalia", "Năvodari", "Cernavodă", "Techirghiol", "Eforie", "Ovidiu", "Murfatlar"],
-    'covasna': ["Sfântu Gheorghe", "Târgu Secuiesc", "Covasna", "Baraolt"],
-    'dambovita': ["Târgoviște", "Moreni", "Pucioasa", "Găești", "Titu"],
-    'dolj': ["Craiova", "Băilești", "Calafat", "Filiași", "Segarcea"],
-    'galati': ["Galați", "Tecuci", "Târgu Bujor"],
-    'giurgiu': ["Giurgiu", "Bolintin-Vale"],
-    'gorj': ["Târgu Jiu", "Motru", "Rovinari", "Târgu Cărbunești", "Bumbești-Jiu"],
-    'harghita': ["Miercurea Ciuc", "Odorheiu Secuiesc", "Gheorgheni", "Toplița", "Cristuru Secuiesc"],
-    'hunedoara': ["Deva", "Hunedoara", "Petroșani", "Orăștie", "Brad", "Vulcan", "Lupeni", "Simeria", "Călan", "Hațeg"],
-    'ialomita': ["Slobozia", "Fetești", "Urziceni", "Țăndărei"],
-    'iasi': ["Iași", "Pașcani", "Hârlău", "Târgu Frumos"],
-    'ilfov': ["Voluntari", "Buftea", "Otopeni", "Pantelimon", "Bragadiru", "Popești-Leordeni", "Chitila", "Măgurele", "Chiajna"],
-    'maramures': ["Baia Mare", "Sighetu Marmației", "Borșa", "Vișeu de Sus", "Târgu Lăpuș"],
-    'mehedinti': ["Drobeta-Turnu Severin", "Orșova", "Strehaia"],
-    'mures': ["Târgu Mureș", "Reghin", "Sighișoara", "Târnăveni", "Luduș", "Sovata"],
-    'neamt': ["Piatra Neamț", "Roman", "Târgu Neamț", "Bicaz"],
-    'olt': ["Slatina", "Caracal", "Balș", "Corabia", "Drăgănești-Olt"],
-    'prahova': ["Ploiești", "Câmpina", "Sinaia", "Bușteni", "Comarnic", "Mizil", "Băicoi", "Vălenii de Munte"],
-    'satu-mare': ["Satu Mare", "Carei", "Negrești-Oaș", "Tășnad"],
-    'salaj': ["Zalău", "Jibou", "Șimleu Silvaniei", "Cehu Silvaniei"],
-    'sibiu': ["Sibiu", "Mediaș", "Cisnădie", "Avrig", "Agnita", "Copșa Mică"],
-    'suceava': ["Suceava", "Fălticeni", "Rădăuți", "Câmpulung Moldovenesc", "Vatra Dornei", "Gura Humorului", "Siret"],
-    'teleorman': ["Alexandria", "Roșiori de Vede", "Turnu Măgurele", "Zimnicea"],
-    'timis': ["Timișoara", "Lugoj", "Sânnicolau Mare", "Jimbolia", "Buziaș", "Făget"],
-    'tulcea': ["Tulcea", "Măcin", "Babadag", "Isaccea"],
-    'vaslui': ["Vaslui", "Bârlad", "Huși", "Negrești"],
-    'valcea': ["Râmnicu Vâlcea", "Drăgășani", "Horezu", "Băbeni"],
-    'vrancea': ["Focșani", "Adjud", "Panciu", "Odobești"],
-    'bucuresti': ["București", "Sector 1", "Sector 2", "Sector 3", "Sector 4", "Sector 5", "Sector 6"],
-};
-
-function normalizeRoName(s: string): string {
-    return s
-        .toLowerCase()
-        .normalize('NFD')
-        .replace(/[̀-ͯ]/g, '')
-        .replace(/[^a-z0-9]/g, '');
-}
-
-const NORMALIZED_TOWNS_BY_JUDET: Record<string, Set<string>> = Object.fromEntries(
-    Object.entries(CURATED_TOWNS_BY_JUDET).map(([slug, towns]) => [slug, new Set(towns.map(normalizeRoName))])
-);
-
-// Picks every locality in this județ's own localitati list that matches that same județ's
-// curated town names (case/diacritics-insensitive, scoped to this județ only — see note above).
-// Unmatched curated names are silently skipped (some towns in the list may not exist as a
-// distinct entry in this dataset). Falls back to the first listed locality if the județ has no
-// match at all (or isn't in the curated map), so every județ still gets at least one page.
-function pickCuratedLocalities(judet: { name: string; slug: string; localitati: { name: string; slug: string }[] }) {
-    const wanted = NORMALIZED_TOWNS_BY_JUDET[judet.slug];
-    const matches = wanted ? judet.localitati.filter(l => wanted.has(normalizeRoName(l.name))) : [];
-    return matches.length > 0 ? matches : [judet.localitati[0]].filter(Boolean);
-}
+// Județ x localitate x produs: TOATE localitățile din lib/seo/ro_localitati.json
+// au pagină și intră în sitemap (vezi ramura paginată de mai jos).
 
 const ALL_PRODUCTS = [
     ...bannerProducts,
@@ -165,8 +92,15 @@ const ALL_PRODUCTS = [
     ...seoCampaignProducts
 ];
 
-function generateUrlNode(url: string, priority: string, changefreq: string) {
-    return `  <url>\n    <loc>${url}</loc>\n    <lastmod>${new Date().toISOString()}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>\n`;
+/**
+ * Last meaningful content change for evergreen pages. Bump when the catalog or
+ * copy actually changes. A per-request `new Date()` told Google every URL
+ * changed today, every day, so it learned to ignore the field.
+ */
+const CONTENT_LASTMOD = '2026-09-12';
+
+function generateUrlNode(url: string, priority: string, changefreq: string, lastmod: string = CONTENT_LASTMOD) {
+    return `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>\n`;
 }
 
 export async function GET(request: Request, props: any) {
@@ -201,7 +135,7 @@ export async function GET(request: Request, props: any) {
         }
 
         for (const post of getAllPosts()) {
-            xml += generateUrlNode(`${BASE_URL}/blog/${post.slug}`, '0.7', 'weekly');
+            xml += generateUrlNode(`${BASE_URL}/blog/${post.slug}`, '0.7', 'weekly', post.date ? post.date.slice(0, 10) : CONTENT_LASTMOD);
         }
 
         for (const route of listAllLandingRoutes()) {
@@ -321,33 +255,42 @@ export async function GET(request: Request, props: any) {
         }
 
     } else {
-        // Judet/locality SEO matrix — restricted to the ~218-town curated list (county seats plus
-        // other real towns with meaningful search demand) instead of all ~13,344 localities, and
-        // to the site's real configurator products instead of the ~250-item SEO campaign product
-        // list. Even the largest județ's curated town count comfortably fits in a single sitemap
-        // part, so pagePart beyond 0 is a no-op.
-        const [judetIndexStr, pagePartStr] = id.split('-');
+        // TOATE localitățile județului, paginat: id-ul e "{judetIndex}-{pagePart}".
+        //
+        // Paginile de localitate sunt cele care aduc traficul organic, deci le
+        // listăm pe toate (~13.300 din lib/seo/ro_localitati.json), încrucișate
+        // cu configuratoarele reale. Indexul (app/sitemap.xml) anunță câte părți
+        // are fiecare județ folosind aceeași constantă LOCS_PER_SITEMAP.
+        //
+        // Un id necunoscut (inclusiv vechiul "localities") dă un urlset valid,
+        // dar gol, ca să nu erorizeze URL-urile de sitemap deja indexate.
+        const [judetIndexStr, pagePartStr] = String(id ?? '').split('-');
         const judetIndex = parseInt(judetIndexStr);
         const pagePart = parseInt(pagePartStr || '0');
+        const judet = Number.isInteger(judetIndex) ? JUDETE_FULL_DATA[judetIndex] : undefined;
 
-        const judet = JUDETE_FULL_DATA[judetIndex];
+        if (judet) {
+            const startLocIndex = pagePart * LOCS_PER_SITEMAP;
+            const localitiesSlice = judet.localitati.slice(
+                startLocIndex,
+                startLocIndex + LOCS_PER_SITEMAP
+            );
 
-        if (judet && pagePart === 0) {
-            xml += generateUrlNode(`${BASE_URL}/judet/${judet.slug}`, '0.6', 'monthly');
+            // Pagina județului o emitem o singură dată, nu în fiecare parte.
+            if (pagePart === 0) {
+                xml += generateUrlNode(`${BASE_URL}/judet/${judet.slug}`, '0.6', 'monthly');
+            }
 
-            const locs = pickCuratedLocalities(judet);
-            for (const loc of locs) {
+            for (const loc of localitiesSlice) {
                 xml += generateUrlNode(`${BASE_URL}/judet/${judet.slug}/${loc.slug}`, '0.5', 'monthly');
 
-                for (const p of configuratorProducts) {
-                    const rootSlug = (p as any).routeSlug || (p as any).slug || p.id;
-                    const normalizedPSlug = rootSlug?.startsWith('/') ? rootSlug.slice(1) : rootSlug;
-                    xml += generateUrlNode(`${BASE_URL}/judet/${judet.slug}/${loc.slug}/${normalizedPSlug}`, '0.4', 'monthly');
+                for (const cfg of CONFIGURATORS_REGISTRY) {
+                    const cfgSlug = (cfg as any).slug || cfg.id;
+                    xml += generateUrlNode(`${BASE_URL}/judet/${judet.slug}/${loc.slug}/${cfgSlug}`, '0.4', 'monthly');
                 }
             }
         }
     }
-
     xml += `</urlset>`;
 
     return new Response(xml, {

@@ -163,7 +163,7 @@ export default function Navbar() {
                             <div className="relative w-36 sm:w-44 h-10">
                                 <Image
                                     src="/logo.png"
-                                    alt="Tablou Logo"
+                                    alt="Tablou.net"
                                     fill
                                     className="object-contain object-left group-hover:opacity-90 transition-opacity"
                                     priority
@@ -270,7 +270,7 @@ export default function Navbar() {
                         <div className="relative w-32 h-10">
                             <Image
                                 src="/logo.png"
-                                alt="Tablou Logo"
+                                alt="Tablou.net"
                                 fill
                                 className="object-contain"
                                 priority

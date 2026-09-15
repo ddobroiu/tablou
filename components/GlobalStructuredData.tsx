@@ -15,7 +15,7 @@ export default function GlobalStructuredData() {
         "name": siteConfig.name,
         "url": baseUrl,
         "logo": `${baseUrl}/logo.png`,
-        "description": "Tipografie digitală și producție publicitară online - bannere, afișe, canvas, autocolante și materiale rigide.",
+        "description": "Tablouri canvas din fotografiile clienților - un tablou, colaj sau set de 3, cu șasiu de lemn inclus - plus fototapet, textile personalizate, afișe, bannere, panouri rigide și kituri pentru fonduri UE, printate în același atelier și livrate în toată România.",
         "address": {
             "@type": "PostalAddress",
             "addressCountry": "RO",

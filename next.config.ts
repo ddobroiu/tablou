@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
         destination: "https://www.tablou.net/:path*",
         permanent: true,
       },
+      { source: '/parteneri', destination: '/', permanent: true },
       {
         source: '/banner',
         destination: '/configurator/banner',

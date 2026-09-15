@@ -6,8 +6,8 @@ import { MapPin, ArrowRight, Zap, ShieldCheck, Truck } from 'lucide-react';
 import { getJudetBySlug } from '@/lib/localitati';
 
 export const metadata: Metadata = {
-    title: 'Print & Publicitate pe Sectoare în București',
-    description: 'Servicii rapide de tipar digital în București. Livrare în toate sectoarele: Sector 1, 2, 3, 4, 5 și 6. Producție proprie, preț instant.',
+    title: 'Tablouri Canvas cu Livrare în București, pe Sectoare',
+    description: 'Tablouri canvas din poza ta, fototapet, textile și materiale de print livrate prin curier în toate sectoarele Bucureștiului: Sector 1, 2, 3, 4, 5 și 6. Șasiu de lemn inclus, preț calculat pe loc.',
     alternates: { canonical: 'https://www.tablou.net/sectoare-bucuresti' }
 };
 

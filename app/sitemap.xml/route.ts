@@ -1,5 +1,5 @@
+import { LOCS_PER_SITEMAP } from "@/lib/seo/sitemapPaging";
 import { JUDETE_FULL_DATA } from "@/lib/localitati";
-
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.tablou.net';
 
 export async function GET() {
@@ -8,12 +8,24 @@ export async function GET() {
     // Main sitemap
     xml += `  <sitemap>\n    <loc>${BASE_URL}/server-sitemap/main</loc>\n  </sitemap>\n`;
 
-    // JUDET/LOCALITY SITEMAPS — one part per județ, restricted server-side to the județ's
-    // reședință (county seat) and the real configurator product list. See
-    // app/server-sitemap/[id]/route.ts for the curation logic.
+    // LOCALITĂȚI: fiecare județ, cu TOATE localitățile lui, împărțite în părți
+    // de câte LOCS_PER_SITEMAP. Paginile de localitate sunt cele care aduc
+    // traficul organic, așa că sunt listate integral (~13.300), nu doar
+    // reședințele de județ.
+    //
+    // Numărul de părți se calculează din aceeași constantă pe care o folosește
+    // generatorul, altfel localitățile din coada fiecărui județ n-ar fi servite
+    // niciodată.
     for (let i = 0; i < JUDETE_FULL_DATA.length; i++) {
-        xml += `  <sitemap>\n    <loc>${BASE_URL}/server-sitemap/${i}-0</loc>\n  </sitemap>\n`;
+        const parts = Math.max(
+            1,
+            Math.ceil(JUDETE_FULL_DATA[i].localitati.length / LOCS_PER_SITEMAP)
+        );
+        for (let p = 0; p < parts; p++) {
+            xml += `  <sitemap>\n    <loc>${BASE_URL}/server-sitemap/${i}-${p}</loc>\n  </sitemap>\n`;
+        }
     }
+
 
     // DIMENSIONS SITEMAP — curated realistic size pairs per product (a few hundred URLs total,
     // down from the old ~188,000-combination brute-force grid), fits in a single part.

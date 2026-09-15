@@ -8,7 +8,7 @@ import Script from "next/script";
 import { ShieldCheck, Zap, Truck, MessageCircle, Star, Info, HelpCircle, MapPin, ArrowRight, ChevronLeft, ChevronRight, Globe, Award, Sparkles, CheckCircle2 } from "lucide-react";
 import { CONFIGURATORS_REGISTRY } from "@/lib/configurators-registry";
 import { buildLocalContent } from "@/lib/seo/localContent";
-import { isIndexableLocality, getSiblingLocalitySlugs } from "@/lib/seo/indexableLocalities";
+import { getSiblingLocalitySlugs } from "@/lib/seo/indexableLocalities";
 import { LocalFaq } from "@/components/LocalFaq";
 
 import { MATERIALE_DATA } from "@/lib/seo/materialeData";
@@ -36,6 +36,9 @@ function getTargetInfo(slug: string) {
 
     return null;
 }
+
+// Toate localitățile din lib/seo/ro_localitati.json au pagini de produs, randate
+// la cerere (fără listă "curată" și fără dynamicParams = false).
 
 export async function generateMetadata({ params }: { params: Promise<{ judetSlug: string, localitateSlug: string, productSlug: string[] }> }) {
     const { judetSlug, localitateSlug, productSlug } = await params;
@@ -134,8 +137,8 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
         judetName: judet.name,
     });
 
-    // Cross-links to sibling curated localities in the same județ, for the
-    // same product — closes the internal-linking gap between indexed pages.
+    // Cross-links către alte localități din același județ, pentru același produs.
+    const judetLocalities = judet.localitati.filter((l) => l.slug !== loc.slug);
     const siblingLocalities = getSiblingLocalitySlugs(judet.slug, loc.slug, 4)
         .map((siblingSlug) => getLocalitateBySlug(judet.slug, siblingSlug))
         .filter((l): l is NonNullable<typeof l> => Boolean(l));
@@ -346,7 +349,8 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                 </div>
             </div>
 
-            {/* Proximity Network */}
+            {/* Proximity Network - curated localities of the same județ */}
+            {judetLocalities.length > 0 && (
             <div className="bg-slate-900 py-24">
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
@@ -360,7 +364,7 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-                        {judet.localitati.filter(l => l.slug !== loc.slug).slice(0, 18).map((l, i) => (
+                        {judetLocalities.slice(0, 18).map((l) => (
                             <Link
                                 key={l.slug}
                                 href={`/judet/${judet.slug}/${l.slug}/${productSlug.join('/')}`}
@@ -372,6 +376,7 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                     </div>
                 </div>
             </div>
+            )}
 
             {/* Sibling Localities Cross-Link Section */}
             {siblingLocalities.length > 0 && (
