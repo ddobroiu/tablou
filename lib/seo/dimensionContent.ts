@@ -73,9 +73,9 @@ const PRODUCTS: Record<string, ProductInfo> = {
         fileNote: "Nu e nevoie de bleed la banner, dar ține textele la cel puțin 5 cm de margine, în zona tivului și a capselor.",
         usage: {
             mic: "Sub jumătate de metru pătrat, bannerul lucrează ca o etichetă mare: pe ușa magazinului, pe un stand, pe gardul unui șantier mic sau ca tăbliță „de vânzare” ori „de închiriat”. La această suprafață prețul pe metru pătrat e mai mare, pentru că tăierea și finisarea costă la fel ca la un banner mare, așa că merită să comanzi mai multe bucăți odată.",
-            mediu: "E formatul clasic pentru vitrină, balcon sau intrarea unui magazin: se citește de la 10-20 m și se prinde cu patru până la opt capse sau cu bandă pe un cadru. Încape pe majoritatea fațadelor de parter fără să acopere ferestrele.",
-            mare: "E un format de fațadă și de gard: textul principal se vede de la 30-50 m dacă literele au cel puțin 15-20 cm. Se montează cu coliere sau șuruburi prin capse, la fiecare 50 cm, și la exterior trebuie întins uniform ca să nu fluture.",
-            "foarte-mare": "Peste 6 m² bannerul devine o suprafață mare pe care vântul apasă serios: recomandăm găuri de vânt sau, pentru fațade și schele, trecerea la mesh microperforat. Se livrează în sul și se montează în doi, pe cadru sau direct pe structura clădirii.",
+            mediu: "E formatul clasic pentru vitrină, balcon sau intrarea unui magazin: se citește de la 10-20 m și se prinde în patru până la opt capse sau cu bandă pe un cadru. Încape pe majoritatea fațadelor de parter fără să acopere ferestrele.",
+            mare: "E un format de fațadă și de gard: textul principal se vede de la 30-50 m dacă literele au cel puțin 15-20 cm. Se prinde prin capse, la fiecare 50 cm, și la exterior trebuie întins uniform ca să nu fluture.",
+            "foarte-mare": "Peste 6 m² bannerul devine o suprafață mare pe care vântul apasă serios: recomandăm găuri de vânt sau, pentru fațade și schele, trecerea la mesh microperforat. Se livrează în sul; la această mărime se manevrează în doi.",
         },
         mounting: [
             "Pe cadru sau gard: prin capse, cu coliere de plastic sau sârmă, întins pe toate laturile.",
@@ -107,7 +107,7 @@ const PRODUCTS: Record<string, ProductInfo> = {
             mic: "Un mesh mic are rost doar acolo unde vântul e problema: pe un gard de plasă, pe balustrada unui balcon sau pe o schelă de reparații mărunte. Pentru afișaj obișnuit la această mărime, un banner frontlit e mai ieftin și mai contrastant.",
             mediu: "Pe garduri de șantier și pe balustrade, mesh-ul lasă aerul să treacă și nu smulge prinderea la prima furtună. Se citește bine de la distanță medie, deși perforațiile reduc puțin saturația culorilor.",
             mare: "E formatul de schelă și de fațadă: acoperă lucrarea, ține praful și reclama în același timp și rezistă la vânt fără găuri suplimentare. Prinderea se face la fiecare capsă, pe toate laturile.",
-            "foarte-mare": "La suprafețe foarte mari, mesh-ul e singura opțiune sigură pe fațade și schele: presiunea vântului trece prin material. Se livrează în sul și se montează pe etape, de sus în jos, cu coliere la fiecare capsă.",
+            "foarte-mare": "La suprafețe foarte mari, mesh-ul e singura opțiune sigură pe fațade și schele: presiunea vântului trece prin material. Se livrează în sul; se fixează cu coliere la fiecare capsă.",
         },
         mounting: [
             "Pe schelă: coliere de plastic prin fiecare capsă, la fiecare 50 cm, întins pe toată suprafața.",
@@ -122,8 +122,8 @@ const PRODUCTS: Record<string, ProductInfo> = {
         usage: {
             mic: "Sub jumătate de metru pătrat vorbim de etichete, stickere de produs, semne pentru uși și logo-uri pe vitrină. La bucăți mici comanda se face de regulă în serie: prețul pe bucată scade vizibil de la 10-25 de bucăți în sus.",
             mediu: "Format tipic pentru colantarea unei vitrine, a unui panou de reclamă existent sau a unei uși de sticlă. Se aplică ud (apă cu puțin detergent) ca să poată fi repoziționat înainte de presare.",
-            mare: "La această mărime autocolantul acoperă o vitrină întreagă sau o latură de dubă. Se aplică de două persoane, cu racletă, de la centru spre margini, și e bine să fie laminat dacă stă la exterior.",
-            "foarte-mare": "Suprafețele foarte mari se împart în benzi de maximum 137 cm (lățimea rolei) cu suprapunere de 1 cm. Se aplică de o echipă cu experiență, pe suprafață curată și la temperatură peste 10 °C.",
+            mare: "La această mărime autocolantul acoperă o vitrină întreagă sau o latură de dubă. Se aplică cu racletă, de la centru spre margini, și e bine să fie laminat dacă stă la exterior.",
+            "foarte-mare": "Suprafețele foarte mari se împart în benzi de maximum 137 cm (lățimea rolei) cu suprapunere de 1 cm. Se aplică pe suprafață curată și la temperatură peste 10 °C.",
         },
         mounting: [
             "Aplicare uscată pentru bucăți mici, cu folie de transfer pentru literele decupate.",
@@ -152,12 +152,12 @@ const PRODUCTS: Record<string, ProductInfo> = {
     },
     tapet: {
         shortName: "Fototapet", article: "un", noun: "fototapet", outdoor: false, gsm: null, dpi: 100, bleedMm: 50,
-        fileNote: "Măsoară peretele în trei puncte și comandă cu 5 cm în plus pe fiecare latură; surplusul se taie la montaj.",
+        fileNote: "Măsoară peretele în trei puncte și comandă cu 5 cm în plus pe fiecare latură; surplusul se taie la lipire.",
         usage: {
             mic: "Un fototapet mic acoperă o nișă, o ușă, spatele unei biblioteci sau un perete de deasupra biroului. E cea mai ieftină cale de a schimba un colț de cameră fără vopsit.",
             mediu: "Format de perete parțial: capul patului, zona de deasupra canapelei sau spatele recepției. Se livrează în benzi verticale care se aliniază după model.",
             mare: "Acoperă un perete întreg de dormitor sau living. Recomandăm varianta non-adezivă, lipită cu clei, pentru pereți care nu sunt perfect netezi, și varianta adezivă pe gips-carton finisat.",
-            "foarte-mare": "Pentru pereți foarte mari (birouri, spații comerciale, holuri), tapetul se livrează în benzi numerotate și se montează pe etape. Verifică plafonul și pardoseala: dacă nu sunt paralele, pune surplus pe verticală.",
+            "foarte-mare": "Pentru pereți foarte mari (birouri, spații comerciale, holuri), tapetul se livrează în benzi numerotate. Verifică plafonul și pardoseala: dacă nu sunt paralele, pune surplus pe verticală.",
         },
         mounting: [
             "Non-adeziv: clei de tapet aplicat pe perete, benzi montate cap la cap, fără suprapunere.",
@@ -165,7 +165,7 @@ const PRODUCTS: Record<string, ProductInfo> = {
             "Peretele trebuie neted, uscat și grunduit; tapetul nu acoperă fisuri sau denivelări.",
         ],
         delivery: () => "în sul, în tub de carton",
-        extraFacts: (w) => [{ label: "Benzi de montaj", value: `${Math.max(1, Math.ceil(w / 100))} ${Math.ceil(w / 100) === 1 ? "bandă" : "benzi"}`, detail: "benzi verticale de aproximativ 1 m lățime, numerotate" }],
+        extraFacts: (w) => [{ label: "Benzi", value: `${Math.max(1, Math.ceil(w / 100))} ${Math.ceil(w / 100) === 1 ? "bandă" : "benzi"}`, detail: "benzi verticale de aproximativ 1 m lățime, numerotate" }],
     },
     "window-graphics": {
         shortName: "Folie perforată pentru geam", article: "o", noun: "folie one-way", outdoor: true, gsm: null, dpi: 100, bleedMm: 5,
@@ -173,8 +173,8 @@ const PRODUCTS: Record<string, ProductInfo> = {
         usage: {
             mic: "O folie perforată mică acoperă un geam de ușă sau un ochi de vitrină: reclamă spre stradă, vizibilitate spre interior. Merge și pe luneta unei mașini.",
             mediu: "E formatul unei vitrine de magazin obișnuite sau al unui geam de birou: din exterior se vede reclama, din interior lumina și strada rămân vizibile.",
-            mare: "Acoperă vitrine mari și fațade de sticlă; se aplică pe bucăți de maximum 137 cm lățime, aliniate după model. Laminarea protejează printul de ploaie și de spălare.",
-            "foarte-mare": "Suprafețe vitrate întregi (showroom, birouri pe colț) se acoperă în benzi numerotate, aplicate de o echipă. Din exterior fațada devine un singur afiș; din interior se vede afară ca printr-o plasă fină.",
+            mare: "Acoperă vitrine mari și fațade de sticlă; se livrează pe bucăți de maximum 137 cm lățime, aliniate după model. Laminarea protejează printul de ploaie și de spălare.",
+            "foarte-mare": "Suprafețe vitrate întregi (showroom, birouri pe colț) se acoperă în benzi numerotate. Din exterior fațada devine un singur afiș; din interior se vede afară ca printr-o plasă fină.",
         },
         mounting: [
             "Se aplică pe exteriorul geamului, pe sticlă curată și uscată, cu racletă de la centru spre margini.",
@@ -188,8 +188,8 @@ const PRODUCTS: Record<string, ProductInfo> = {
         shortName: "Placă plexiglas printată", article: "o", noun: "placă de plexiglas", outdoor: true, gsm: null, dpi: 150, bleedMm: 3,
         fileNote: "La plexiglas transparent printul se face pe spate, în oglindă, ca să fie protejat de placă; specifică dacă vrei un strat alb sub culori.",
         usage: {
-            mic: "Plăcuțe de ușă, tăblițe de birou, etichete premium de raft și rame pentru meniuri: plexiglasul mic se montează cu distanțiere metalice și arată ca un obiect finisat, nu ca un afiș.",
-            mediu: "E mărimea firmelor de intrare, a panourilor de recepție și a display-urilor de produs. Se montează pe distanțiere sau se așază pe suport; grosimea de 3 mm e suficientă pentru interior.",
+            mic: "Plăcuțe de ușă, tăblițe de birou, etichete premium de raft și rame pentru meniuri: plexiglasul mic se fixează cu distanțiere metalice și arată ca un obiect finisat, nu ca un afiș.",
+            mediu: "E mărimea firmelor de intrare, a panourilor de recepție și a display-urilor de produs. Se fixează pe distanțiere sau se așază pe suport; grosimea de 3 mm e suficientă pentru interior.",
             mare: "Panouri de recepție, totemuri de interior și firme luminoase: la această suprafață recomandăm minimum 4-5 mm grosime ca placa să nu se curbeze, plus prindere în cel puțin șase puncte.",
             "foarte-mare": "Plăcile foarte mari se taie din coli de 400 × 200 cm și cântăresc mult; au nevoie de structură de susținere și de transport pe paletă. Gândește panoul în module dacă trebuie urcat pe scări.",
         },
@@ -205,7 +205,7 @@ const PRODUCTS: Record<string, ProductInfo> = {
         fileNote: "Culorile pline pe toată suprafața se printează UV direct; pentru text mic pe fond alb, Forex-ul mat dă cel mai bun contrast.",
         usage: {
             mic: "Tăblițe de birou, indicatoare de ușă, semne „împinge / trage”, etichete de raft rigide: Forex-ul mic e ieftin, ușor și se prinde cu bandă dublu adezivă.",
-            mediu: "E placa standard de firmă pentru intrare, indicator de direcție, panou de informare într-un magazin sau la o expoziție. La 3 mm rămâne dreaptă și se montează cu șuruburi sau adeziv.",
+            mediu: "E placa standard de firmă pentru intrare, indicator de direcție, panou de informare într-un magazin sau la o expoziție. La 3 mm rămâne dreaptă și se prinde cu șuruburi sau adeziv.",
             mare: "Panou de firmă, panou de șantier, fundal de stand: la peste 1 m pe latură recomandăm 5 mm grosime sau un cadru pe spate ca să nu se curbeze la soare.",
             "foarte-mare": "Plăcile mari se taie din coli de 305 × 205 cm; peste această mărime se îmbină pe cadru. Pentru exterior permanent, alucobondul rezistă mai bine la căldură decât Forex-ul.",
         },
@@ -221,9 +221,9 @@ const PRODUCTS: Record<string, ProductInfo> = {
         fileNote: "Panoul se poate freza pe contur; trimite forma ca traseu vectorial dacă vrei altceva decât dreptunghi.",
         usage: {
             mic: "Plăcuțe de firmă la intrare, numere de casă, etichete de aparate și plăcuțe pentru sedii de firmă: alucobondul mic arată ca metal masiv și nu se degradează la soare.",
-            mediu: "Firma de la intrare, panoul de la poartă sau indicatorul de pe fațadă: aluminiul compozit rezistă peste 10 ani la exterior și se montează pe distanțiere sau direct pe perete.",
+            mediu: "Firma de la intrare, panoul de la poartă sau indicatorul de pe fațadă: aluminiul compozit rezistă peste 10 ani la exterior, pe distanțiere sau direct pe perete.",
             mare: "Panouri de fațadă, totemuri și panouri publicitare permanente. Placa e rigidă și nu se deformează, dar la peste 1,5 m pe latură are nevoie de o structură de prindere pe spate.",
-            "foarte-mare": "Panourile foarte mari se taie din coli de 305 × 205 cm și se montează pe cadru metalic, de obicei pe segmente. Se livrează pe paletă, cu folie de protecție.",
+            "foarte-mare": "Panourile foarte mari se taie din coli de 305 × 205 cm și se livrează pe segmente. Se livrează pe paletă, cu folie de protecție.",
         },
         mounting: [
             "Pe perete: distanțiere metalice sau șuruburi prin găuri pre-forate, la colțuri și pe laturile lungi.",
@@ -255,7 +255,7 @@ const PRODUCTS: Record<string, ProductInfo> = {
             mic: "Semne mici de exterior: „de vânzare”, „proaspăt vopsit”, indicatoare pentru parcare sau pentru evenimente. Se prind pe gard cu coliere sau pe țăruș în pământ.",
             mediu: "E panoul clasic de agenție imobiliară, de șantier sau de afișaj electoral: ușor, impermeabil, se prinde cu coliere prin găuri și rezistă câteva sezoane afară.",
             mare: "Panouri de șantier, indicatoare de eveniment și display-uri reutilizabile: la peste 1 m pe latură se prinde în cel puțin șase puncte ca să nu vibreze în vânt.",
-            "foarte-mare": "Formatele mari se montează pe cadru; panoul e ușor, dar suprafața prinde vânt. Pentru afișaj permanent la această mărime, alucobondul e mai stabil.",
+            "foarte-mare": "Formatele mari au nevoie de cadru; panoul e ușor, dar suprafața prinde vânt. Pentru afișaj permanent la această mărime, alucobondul e mai stabil.",
         },
         mounting: [
             "Pe gard sau stâlp: coliere de plastic prin găuri date la colțuri.",
@@ -281,12 +281,12 @@ const PRODUCTS: Record<string, ProductInfo> = {
         fileNote: "Ține textele importante în treimea de sus a printului; partea de jos, sub 60 cm, e acoperită adesea de mese sau de public.",
         usage: {
             mic: "Roll-up-ul compact merge la conferințe și în magazine, unde spațiul e strâmt.",
-            mediu: "E formatul standard de stand, recepție și eveniment: se montează în 30 de secunde și intră în geanta livrată.",
+            mediu: "E formatul standard de stand, recepție și eveniment: se desface în 30 de secunde și intră în geanta livrată.",
             mare: "Lățimile mari se folosesc ca fundal de prezentare sau ca perete de stand din două-trei bucăți alăturate.",
             "foarte-mare": "Pentru pereți întregi de stand, combină mai multe roll-up-uri de aceeași lățime.",
         },
         mounting: ["Se desface în 30 de secunde: scoți piciorul, ridici catargul, agăți printul.", "Doar interior sau exterior fără vânt și ploaie.", "Printul se poate înlocui, caseta rămâne."],
-        delivery: () => "în geantă de transport, gata de montat",
+        delivery: () => "în geantă de transport, gata de folosit",
     },
     pliante: {
         shortName: "Pliant", article: "un", noun: "pliant", outdoor: false, gsm: 135, dpi: 300, bleedMm: 3,
@@ -347,9 +347,9 @@ const VOICES: Record<BrandKey, BrandVoice> = {
         angle: "publicitate outdoor",
         intro: (p, size, cls, from) => [
             `${cap(p.article)} ${p.noun} de ${size} cm este ${cls}. AdBanner îl produce în atelier propriu, cu preț calculat pe suprafață: de la ${from} pe bucată, cu grafica ta, fără costuri ascunse.`,
-            "Mai jos ai prețurile la fiecare cantitate, greutatea și numărul de capse pentru montaj, rezoluția la care trebuie trimis fișierul și unde se folosește de obicei această mărime.",
+            "Mai jos ai prețurile la fiecare cantitate, greutatea și numărul de capse, rezoluția la care trebuie trimis fișierul și unde se folosește de obicei această mărime.",
         ],
-        sections: ["price", "facts", "usage", "mounting", "file", "faq", "neighbors", "localities"],
+        sections: ["price", "facts", "usage", "file", "faq", "neighbors", "localities"],
         priceHeading: "Preț calculat pentru",
         usageHeading: "Unde se folosește această mărime",
         fileHeading: "Fișierul pentru print",
@@ -363,10 +363,10 @@ const VOICES: Record<BrandKey, BrandVoice> = {
         brandName: "Anexa1",
         angle: "panouri rigide și semnalistică",
         intro: (p, size, cls, from) => [
-            `Fișă de produs pentru ${p.noun} ${size} cm, ${cls}: preț de la ${from} pe bucată, cu specificațiile de material, greutate și montaj listate mai jos.`,
+            `Fișă de produs pentru ${p.noun} ${size} cm, ${cls}: preț de la ${from} pe bucată, cu specificațiile de material, greutate și fișier listate mai jos.`,
             "Anexa1 lucrează cu firme și instituții care au nevoie de dimensiuni exacte și de un preț clar înainte de comandă; totul se configurează online, cu grafica ta.",
         ],
-        sections: ["facts", "price", "mounting", "file", "usage", "faq", "neighbors", "localities"],
+        sections: ["facts", "price", "file", "usage", "faq", "neighbors", "localities"],
         priceHeading: "Listă de preț pentru",
         usageHeading: "Aplicații tipice",
         fileHeading: "Specificații fișier",
@@ -383,7 +383,7 @@ const VOICES: Record<BrandKey, BrandVoice> = {
             `${cap(p.article)} ${p.noun} de ${size} cm, ${cls}, costă de la ${from} pe bucată la EuPrint, cu grafica ta și prețul calculat automat pe suprafață.`,
             "Această mărime apare des în proiectele cu finanțare europeană și națională (panouri temporare, plăci permanente, afișe de informare), unde dimensiunea e stabilită de manualul de identitate; mai jos ai datele de care ai nevoie ca să o comanzi corect.",
         ],
-        sections: ["price", "usage", "facts", "file", "mounting", "faq", "neighbors", "localities"],
+        sections: ["price", "usage", "facts", "file", "faq", "neighbors", "localities"],
         priceHeading: "Prețuri pentru",
         usageHeading: "Pentru ce se folosește",
         fileHeading: "Cum pregătești fișierul",
@@ -398,9 +398,9 @@ const VOICES: Record<BrandKey, BrandVoice> = {
         angle: "decor și print pentru casă",
         intro: (p, size, cls, from) => [
             `Dacă ai măsurat peretele sau spațiul și ai ajuns la ${size} cm, ${p.noun} de la HomePrint costă de la ${from}, cu poza sau grafica ta.`,
-            `E ${cls}; mai jos vezi cum arată în cameră, cât cântărește, cum se montează și ce rezoluție trebuie să aibă fotografia ca să iasă clară la această mărime.`,
+            `E ${cls}; mai jos vezi cum arată în cameră, cât cântărește și ce rezoluție trebuie să aibă fotografia ca să iasă clară la această mărime.`,
         ],
-        sections: ["usage", "price", "file", "facts", "mounting", "faq", "neighbors", "localities"],
+        sections: ["usage", "price", "file", "facts", "faq", "neighbors", "localities"],
         priceHeading: "Cât costă",
         usageHeading: "Cum arată în spațiu",
         fileHeading: "Ce rezoluție trebuie să aibă poza",
@@ -417,7 +417,7 @@ const VOICES: Record<BrandKey, BrandVoice> = {
             `${cap(p.noun)} ${size} cm la Prynt: de la ${from} pe bucată, ${cls}, gata în ${"{turnaround}"}.`,
             "Încarci grafica, alegi materialul și vezi prețul pe loc. Mai jos ai prețurile pe cantități, dimensiunea fișierului în pixeli și recomandările pentru această mărime.",
         ],
-        sections: ["price", "file", "usage", "facts", "mounting", "faq", "neighbors", "localities"],
+        sections: ["price", "file", "usage", "facts", "faq", "neighbors", "localities"],
         priceHeading: "Prețul pentru",
         usageHeading: "La ce e bună mărimea asta",
         fileHeading: "Fișierul tău",
@@ -432,9 +432,9 @@ const VOICES: Record<BrandKey, BrandVoice> = {
         angle: "tipografie online",
         intro: (p, size, cls, from) => [
             `${cap(p.article)} ${p.noun} de ${size} cm se comandă online la ShopPrint de la ${from} pe bucată; e ${cls}, produs în tipografie proprie și livrat prin curier.`,
-            "Pagina de mai jos strânge tot ce trebuie să știi înainte de comandă: prețul la 1, 2, 5 și 10 bucăți, greutatea, cum se pregătește fișierul și cum se montează.",
+            "Pagina de mai jos strânge tot ce trebuie să știi înainte de comandă: prețul la 1, 2, 5 și 10 bucăți, greutatea și cum se pregătește fișierul.",
         ],
-        sections: ["price", "facts", "file", "usage", "mounting", "faq", "neighbors", "localities"],
+        sections: ["price", "facts", "file", "usage", "faq", "neighbors", "localities"],
         priceHeading: "Prețuri",
         usageHeading: "Utilizări frecvente",
         fileHeading: "Pregătirea fișierului",
@@ -449,9 +449,9 @@ const VOICES: Record<BrandKey, BrandVoice> = {
         angle: "tablouri și decor din fotografii",
         intro: (p, size, cls, from) => [
             `${cap(p.noun)} de ${size} cm, ${cls}: de la ${from} cu fotografia ta, printată la Tablou.net.`,
-            "Mai jos vezi ce rezoluție trebuie să aibă poza ca să iasă clară la această mărime, cât cântărește produsul final, cum se montează și cât costă la mai multe bucăți.",
+            "Mai jos vezi ce rezoluție trebuie să aibă poza ca să iasă clară la această mărime, cât cântărește produsul final și cât costă la mai multe bucăți.",
         ],
-        sections: ["file", "price", "usage", "facts", "mounting", "faq", "neighbors", "localities"],
+        sections: ["file", "price", "usage", "facts", "faq", "neighbors", "localities"],
         priceHeading: "Preț pentru",
         usageHeading: "Unde se potrivește",
         fileHeading: "Rezoluția pozei",
@@ -676,13 +676,8 @@ export function buildDimensionContent(input: {
     if (["banner", "banner-verso", "mesh"].includes(productId)) {
         const grommets = Math.max(4, Math.ceil((2 * (w + h)) / 50));
         faq.push({
-            q: `Câte capse are un banner de ${w}x${h} cm și cum îl montez?`,
-            a: `La pasul standard de 50 cm rezultă ${grommets} capse pe perimetrul de ${fmtInt(2 * (w + h))} cm. ${info.mounting[0]} ${sqm >= 6 ? "La această suprafață recomandăm găuri de vânt sau mesh pentru exterior." : ""}`.trim(),
-        });
-    } else if (info.mounting.length > 0) {
-        faq.push({
-            q: `Cum se montează ${info.noun} de ${w}x${h} cm?`,
-            a: info.mounting.join(" "),
+            q: `Câte capse are un banner de ${w}x${h} cm?`,
+            a: `La pasul standard de 50 cm rezultă ${grommets} capse pe perimetrul de ${fmtInt(2 * (w + h))} cm, plus tiv pe toate laturile. ${sqm >= 6 ? "La această suprafață recomandăm găuri de vânt sau mesh pentru exterior." : "Dacă vrei alt pas sau buzunar pentru tub, scrie în observațiile comenzii."}`,
         });
     }
     if (cfg.faq && cfg.faq.length > 0) {
@@ -753,7 +748,7 @@ function aspectAdvice(productId: string, aspect: Aspect, orientation: Orientatio
                     : `Formatul de bandă orizontală (${ratioText(w, h)}) e tipic pentru indicatoare, frize și panouri de deasupra ușii, cu text pe un singur rând.`;
         }
         return isBannerLike
-            ? `Formatul vertical alungit (${ratioText(w, h)}) se montează pe stâlpi, lângă uși sau ca steag pe consolă; textul se pune pe rânduri scurte, unul sub altul, sau rotit pe verticală.`
+            ? `Formatul vertical alungit (${ratioText(w, h)}) se folosește pe stâlpi, lângă uși sau ca steag pe consolă; textul se pune pe rânduri scurte, unul sub altul, sau rotit pe verticală.`
             : isDecor
                 ? `Formatul vertical alungit se potrivește pe pereți înguști, între ferestre sau uși, cu o fotografie portret sau un detaliu de peisaj tăiat pe înălțime.`
                 : `Formatul vertical alungit (${ratioText(w, h)}) e tipic pentru totemuri și indicatoare de lângă uși, cu informația ordonată de sus în jos.`;
@@ -773,7 +768,7 @@ function aspectAdvice(productId: string, aspect: Aspect, orientation: Orientatio
                 ? `Proporția de ${ratioText(w, h)} e apropiată de cadrul unei fotografii obișnuite (3:2 sau 4:3), deci poza se folosește aproape fără tăieturi.`
                 : `Proporția de ${ratioText(w, h)}, orizontală, e formatul obișnuit de panou de firmă și de afișaj informativ.`
         : isBannerLike
-            ? `Formatul vertical de ${ratioText(w, h)} se montează pe stâlpi, pe laterala intrării sau pe garduri înalte; textul se așază pe rânduri scurte.`
+            ? `Formatul vertical de ${ratioText(w, h)} se folosește pe stâlpi, pe laterala intrării sau pe garduri înalte; textul se așază pe rânduri scurte.`
             : isDecor
                 ? `Formatul vertical de ${ratioText(w, h)} e potrivit pentru portrete și fotografii de pe telefon, care sunt oricum verticale.`
                 : `Formatul vertical de ${ratioText(w, h)} e tipic pentru afișe, indicatoare de ușă și totemuri de interior.`;

@@ -2096,17 +2096,6 @@ export const seoCampaignProducts: any[] = [
         category: "Campanii SEO",
         tags: ["print urgent", "banner rapid", "livrare astazi"]
     },
-    {
-        id: "seo-montaj-inaltime",
-        slug: "montaj-bannere-la-inaltime-alpinisti-utilitari",
-        routeSlug: "contact",
-        title: "Montaj Bannere la Înălțime (Alpiniști)",
-        description: "Echipa noastră oferă servicii de montaj profesional pentru bannere, mesh-uri și reclame pe fațade prin alpiniști utilitari.",
-        image: "/products/banner/banner-1.webp",
-        price: "Cotație Rapidă",
-        category: "Campanii SEO",
-        tags: ["montaj inaltime", "alpinisti utilitari", "montaj banner"]
-    },
     // --- NOI CAMPANII SEO STICKERE ---
     {
         id: "seo-sticker-vinil-durabil",

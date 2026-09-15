@@ -273,23 +273,5 @@ export const EXTRA_SEO_CAMPAIGN_DATA: Record<string, LandingInfo> = {
       </ul>
     `
     },
-    "montaj-bannere-la-inaltime-alpinisti-utilitari": {
-        key: "montaj-inaltime",
-        title: "Montaj Bannere la Înălțime — Alpiniști Utilitari",
-        shortDescription: "Servicii profesionale de montaj și tensionare bannere pe fațade de clădiri.",
-        seoTitle: "Montaj Bannere la Inaltime | Alpinisti Utilitari | Service",
-        seoDescription: "Echipă de alpiniști utilitari pentru montaj bannere, mesh-uri și reclame luminoase la orice înălțime.",
-        images: ["/images/generic-banner.jpg"],
-        contentHtml: `
-      <h2>Montaj Profesional la Orice Înălțime</h2>
-      <p>Nu doar producem bannere, ci ne asigurăm că acestea sunt montate corect și în sigunranță. Colaborăm cu echipe de alpiniști utilitari autorizați pentru a instala reclame de mari dimensiuni pe clădiri de birouri, blocuri sau structuri metalice.</p>
-      <ul>
-        <li>Tensionare corectă pentru a evita ruperea la vânt.</li>
-        <li>Sisteme de prindere sigure (brizuri, sufe, dibluri).</li>
-        <li>Inspectare periodică a montajelor existente.</li>
-        <li>Montaj pe fațade vitrate, beton sau structuri speciale.</li>
-      </ul>
-    `
-    }
 };
 
