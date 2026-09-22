@@ -13,7 +13,7 @@ const IDEAS = [
         href: "/configurator/canvas-nunta",
         eyebrow: "Tablou de nuntă",
         title: "Poza de la primul dans, pentru dormitor",
-        text: "Un singur tablou portret, 60×80 sau 80×120 cm, cu ramă albă sau fără. Cel mai comandat cadou de aniversare a căsătoriei și cel mai des dat de nași după nuntă.",
+        text: "Un singur tablou portret, 60×80 sau 80×120 cm, pe șasiu de lemn sau doar pânza printată. Cel mai comandat cadou de aniversare a căsătoriei și cel mai des dat de nași după nuntă.",
         image: "/products/canvas/canvas-3.webp",
         alt: "Tablou canvas portret cu fotografie de la nuntă, montat în dormitor",
     },

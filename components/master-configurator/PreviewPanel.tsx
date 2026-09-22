@@ -256,7 +256,7 @@ export const PreviewPanel = ({ currentStep, selectedConfig, state, totalPrice, c
                                     break;
                                 case 'frameType':
                                     label = "Ramă";
-                                    displayValue = value === 'framed' ? 'Cu Ramă' : 'Fără Ramă';
+                                    displayValue = value === 'framed' ? 'Cu șasiu' : 'Fără șasiu';
                                     break;
                                 case 'framedShape':
                                     label = "Formă Ramă";

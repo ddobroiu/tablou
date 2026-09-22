@@ -44,13 +44,13 @@ export const StepDimensions = ({ currentStep, selectedConfig, state, setState, u
                             onClick={() => setState(prev => ({ ...prev, options: { ...prev.options, frameType: 'none', formattedSize: undefined } }))}
                             className={`flex-1 py-2 rounded-lg text-xs font-bold transition-all ${(!state.options.frameType || state.options.frameType === 'none') ? 'bg-white text-indigo-600 shadow-sm' : 'text-slate-500 hover:text-slate-700 dark:text-slate-300'}`}
                         >
-                            Fără Ramă (Custom)
+                            Fără șasiu (doar pânză, custom)
                         </button>
                         <button
                             onClick={() => setState(prev => ({ ...prev, options: { ...prev.options, frameType: 'framed', framedShape: prev.options.framedShape || 'rectangle' } }))}
                             className={`flex-1 py-2 rounded-lg text-xs font-bold transition-all ${(state.options.frameType === 'framed') ? 'bg-white text-indigo-600 shadow-sm' : 'text-slate-500 hover:text-slate-700 dark:text-slate-300'}`}
                         >
-                            Cu Ramă (Standard)
+                            Cu șasiu (standard)
                         </button>
                     </div>
 

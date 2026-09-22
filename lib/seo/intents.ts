@@ -1,7 +1,7 @@
 export const PRODUCT_INTENTS: Record<string, string[]> = {
     'banner': ['de-vanzare', 'de-inchiriat', 'deschidere-magazin', 'electoral', 'promotie', 'reducere', 'santier', 'publicitar', 'buzunare', 'capse-dese'],
     'afise': ['concert', 'eveniment', 'electoral', 'promotie', 'film', 'conferinta', 'oferta', 'happy-hour', 'horeca'],
-    'canvas': ['nunta', 'botez', 'familie', 'peisaj', 'cadou-aniversare', 'colaj-foto', 'abstract', 'modern', 'rama-neagra', 'rama-alba'],
+    'canvas': ['nunta', 'botez', 'familie', 'peisaj', 'cadou-aniversare', 'colaj-foto', 'abstract', 'modern'],
     'autocolante': ['program-functionare', 'logo-firma', 'geamuri', 'decorativ', 'perete', 'vinyl', 'promotie', 'transparent', 'lucios', 'mat', 'window-graphics', 'imobiliare'],
     'rollup': ['expozitie', 'conferinta', 'prezentare', 'eveniment', 'receptie'],
     'pliante': ['meniu', 'servicii', 'prezentare', 'oferta', 'turism', 'horeca'],
@@ -65,8 +65,6 @@ export const INTENT_LABELS: Record<string, string> = {
     'mat': 'Mat',
     'buzunare': 'Cu Buzunare',
     'capse-dese': 'Cu Capse Dese',
-    'rama-neagra': 'Cu Ramă Neagră',
-    'rama-alba': 'Cu Ramă Albă',
     'happy-hour': 'Happy Hour',
     'horeca': 'Horeca / Restaurant',
     'placa-sediu': 'Placă Sediu',

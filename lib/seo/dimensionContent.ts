@@ -134,21 +134,19 @@ const PRODUCTS: Record<string, ProductInfo> = {
         extraFacts: (w) => (w > 137 ? [{ label: "Împărțire în benzi", value: `${Math.ceil(w / 137)} benzi`, detail: "lățimea rolei e 137 cm; benzile se aplică cu suprapunere de 1 cm" }] : []),
     },
     canvas: {
-        shortName: "Tablou canvas", article: "un", noun: "tablou canvas", outdoor: false, gsm: 360, dpi: 150, bleedMm: 20,
-        fileNote: "Marginea oglindită se generează automat pe cei 2 cm ai șasiului, deci nu trebuie să lași spațiu în plus în fișier.",
-        weightNote: "pânza singură; șasiul de lemn adaugă aproximativ 0,5-1,5 kg în funcție de mărime",
+        shortName: "Canvas printat", article: "o", noun: "pânză canvas printată", outdoor: false, gsm: 360, dpi: 150, bleedMm: 0,
+        fileNote: "Varianta fără șasiu se livrează ca pânză printată, rulată, la dimensiunea comandată. Dacă vrei tabloul gata de agățat, alege în configurator varianta cu șasiu, la dimensiuni fixe.",
         usage: {
-            mic: "Un canvas de dimensiunea asta stă bine pe birou, pe noptieră sau într-un grup de trei-patru tablouri pe același perete. E formatul tipic pentru portrete de familie și cadouri: se împachetează ușor și nu are nevoie de perete mare.",
-            mediu: "E mărimea clasică pentru deasupra canapelei sau a patului, unde un singur tablou trebuie să umple peretele fără să-l domine. Fotografia trebuie să aibă subiectul clar; detaliile fine se văd de la 1-2 m.",
-            mare: "La această mărime tablourile devin piesa centrală a camerei: hol de intrare, perete de living, recepție de birou. Pânza se întinde pe șasiu întărit cu traversă ca să nu se deformeze în timp.",
-            "foarte-mare": "Formatele foarte mari se fac pe șasiu cu traverse duble și se livrează cu colțare de protecție. Merită gândite ca triptic dacă peretele nu permite transportul unei singure piese pe scări.",
+            mic: "O pânză canvas printată la această mărime se întinde ușor pe un șasiu mic sau se pune într-o ramă cu paspartu; e formatul tipic pentru portrete de familie și cadouri. Se livrează rulată, într-un tub, și se împachetează ușor.",
+            mediu: "E mărimea clasică pentru deasupra canapelei sau a patului. Pânza printată se livrează rulată; fotografia trebuie să aibă subiectul clar, pentru că detaliile fine se văd de la 1-2 m.",
+            mare: "La această mărime pânza devine piesa centrală a camerei: hol de intrare, perete de living, recepție de birou. Rulată în tub, e ușor de transportat; la întindere are nevoie de un șasiu cu traversă ca să rămână plană în timp.",
+            "foarte-mare": "Formatele foarte mari se livrează rulate, în tub rigid, și se întind pe loc; merită gândite ca triptic dacă peretele sau scara nu permit o singură piesă.",
         },
         mounting: [
-            "Șasiul are 2 cm grosime și se agață direct în cui sau în cârlig, fără ramă suplimentară.",
-            "Pentru tablouri late, două puncte de prindere țin pânza dreaptă.",
+            "Pânza se poate întinde pe șasiu la orice atelier de înrămare sau se pune în ramă cu sticlă.",
             "Nu expune canvasul la soare direct sau la umezeală constantă (baie).",
         ],
-        delivery: () => "montat pe șasiu, cu colțare de protecție și folie",
+        delivery: () => "rulată, în tub",
     },
     tapet: {
         shortName: "Fototapet", article: "un", noun: "fototapet", outdoor: false, gsm: null, dpi: 100, bleedMm: 50,
@@ -527,7 +525,7 @@ function weightKg(productId: string, w: number, h: number): { kg: number; note: 
         case "banner": return { kg: sqm * 0.44, note: "Frontlit 440 g/m²" };
         case "banner-verso": return { kg: sqm * 0.65, note: "Blockout 650 g/m²" };
         case "mesh": return { kg: sqm * 0.37, note: "mesh 370 g/m²" };
-        case "canvas": return { kg: sqm * 0.36 + (2 * (w + h)) / 100 * 0.25, note: "pânză 360 g/m² plus șasiu de lemn" };
+        case "canvas": return { kg: sqm * 0.36, note: "pânză polyester 360 g/m², fără șasiu" };
         case "plexiglass": return { kg: sqm * 1.19 * 3, note: "plexiglas 3 mm, densitate 1,19 g/cm³" };
         case "pvc-forex": return { kg: sqm * 0.55 * 3, note: "Forex 3 mm, aproximativ 0,55 g/cm³" };
         case "alucobond": return { kg: sqm * 3.8, note: "alucobond 3 mm, 3,8 kg/m²" };
@@ -616,7 +614,7 @@ export function buildDimensionContent(input: {
         facts.push({ label: "Litere", value: `până la ${letter} cm`, detail: `un rând de text cu litere de ${letter} cm se citește de la ~${Math.round(letter * 3)} m` });
     }
     if (productId === "canvas") {
-        facts.push({ label: "Șasiu", value: "lemn, 2 cm", detail: `perimetru ${fmtInt(2 * (w + h))} cm; imaginea continuă pe margine (oglindit)` });
+        facts.push({ label: "Variantă", value: "fără șasiu", detail: "pânza printată, rulată; varianta cu șasiu (gata de agățat) are dimensiuni fixe, în configurator" });
     }
     facts.push({ label: "Fișier la 1:1", value: `${fmtInt(pxAt(w, info.dpi))} × ${fmtInt(pxAt(h, info.dpi))} px`, detail: `la ${info.dpi} DPI, scara 1:1` });
     facts.push({ label: "Producție", value: turnaround, detail: `se livrează ${info.delivery(w, h)}` });
@@ -635,7 +633,7 @@ export function buildDimensionContent(input: {
     if (Math.max(w, h) >= 300) {
         fileItems.push(`La formate de peste 3 m poți trimite și la 72 DPI (${fmtInt(pxAt(w, 72))} × ${fmtInt(pxAt(h, 72))} px); de la distanța de citire diferența nu se vede.`);
     }
-    if (info.bleedMm > 0 && productId !== "canvas" && productId !== "tapet") {
+    if (info.bleedMm > 0 && productId !== "tapet") {
         fileItems.push(`Adaugă bleed de ${info.bleedMm} mm pe fiecare latură: documentul devine ${fmtMm(w * 10 + 2 * info.bleedMm)} × ${fmtMm(h * 10 + 2 * info.bleedMm)} mm.`);
     }
     fileItems.push(info.fileNote);
@@ -680,7 +678,7 @@ export function buildDimensionContent(input: {
             a: `La pasul standard de 50 cm rezultă ${grommets} capse pe perimetrul de ${fmtInt(2 * (w + h))} cm, plus tiv pe toate laturile. ${sqm >= 6 ? "La această suprafață recomandăm găuri de vânt sau mesh pentru exterior." : "Dacă vrei alt pas sau buzunar pentru tub, scrie în observațiile comenzii."}`,
         });
     }
-    if (cfg.faq && cfg.faq.length > 0) {
+    if (cfg.faq && cfg.faq.length > 0 && productId !== "canvas") {
         const extra = cfg.faq[(w + h) % cfg.faq.length];
         if (extra && !faq.some((f) => f.q === extra.q)) faq.push({ q: extra.q, a: extra.a });
     }

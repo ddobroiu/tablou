@@ -133,7 +133,7 @@ export function getVariants(productId: string): PriceVariant[] {
         case "canvas":
             return [
                 {
-                    key: "canvas-360", label: "Pânză polyester 360 g/m² pe șasiu de lemn, margine oglindită", recommended: true,
+                    key: "canvas-360", label: "Pânză canvas printată, fără șasiu (rulată)", note: "varianta cu șasiu, gata de agățat, are dimensiuni fixe în configurator", recommended: true,
                     total: (w, h, q) => calculateCanvasPrice({ width_cm: w, height_cm: h, quantity: q, edge_type: "mirror", designOption: "upload", frameType: "none" }).finalPrice,
                 },
             ];

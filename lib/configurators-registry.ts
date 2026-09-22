@@ -411,7 +411,7 @@ export const CONFIGURATORS_REGISTRY: ConfiguratorMetadata[] = [
         slug: 'canvas',
         url: '/configurator/canvas',
         category: 'decor',
-        description: 'Tablouri canvas printate pe pânză textilă, întinse pe șasiu de lemn. Cu sau fără ramă, margine oglindită automată.',
+        description: 'Tablouri canvas printate pe pânză textilă: cu șasiu de lemn (dimensiuni fixe, gata de agățat, margine oglindită) sau fără șasiu (doar pânza printată, rulată, orice dimensiune).',
         keywords: ['canvas', 'tablou', 'panza', 'decoratiune', 'personalizat', 'fotografie', 'art', 'rama'],
         useCases: [
             'Tablouri decorative casă',
@@ -458,7 +458,7 @@ export const CONFIGURATORS_REGISTRY: ConfiguratorMetadata[] = [
         shippingNotes: 'Livrat cu protecție specială, pregătit pentru montaj imediat',
         technicalSpecs: [
             'Margine oglindită AUTOMATĂ (imaginea continuă pe laterale)',
-            'Șasiu lemn inclus (înălțime 2cm)',
+            'Varianta cu șasiu: șasiu lemn 2 cm inclus, gata de agățat; varianta fără șasiu: doar pânza printată, rulată',
             'Fișiere recomandate: JPG/PNG min 150 DPI la dimensiunea finală'
         ],
         faq: [

@@ -132,7 +132,7 @@ Folie PVC 140μ, 50% printabil/50% transparent, vizibilitate unidirecțională
 **Canvas** (20% REDUCERE aplicată, prețuri finale):
   <1 mp: 180 lei/mp | 1-3 mp: 160 | 3-5 mp: 140 | >5 mp: 120 lei/mp
   Margine: OGLINDITĂ (fix, imaginea continuă pe laterale - NU se alege tip margine)
-  Opțiuni: Cu Ramă (dimensiuni fixe) sau Fără Ramă (dimensiuni personalizate)
+  Opțiuni: Cu șasiu (dimensiuni fixe) sau Fără șasiu (dimensiuni personalizate)
   Design: Am Fotografie (încarcă) sau Colaj/Editare (+40 lei Design Pro)
   Include: șasiu lemn (20 lei/ml perimetru)
 
@@ -272,10 +272,10 @@ export const tools: OpenAI.Chat.Completions.ChatCompletionTool[] = [
         type: "object",
         properties: {
           product_type: { type: "string", enum: ["autocolant", "canvas", "tapet"] },
-          width_cm: { type: "number", description: "Lățime în cm (doar pentru Fără Ramă)" },
-          height_cm: { type: "number", description: "Înălțime în cm (doar pentru Fără Ramă)" },
+          width_cm: { type: "number", description: "Lățime în cm (doar pentru Fără șasiu)" },
+          height_cm: { type: "number", description: "Înălțime în cm (doar pentru Fără șasiu)" },
           quantity: { type: "number" },
-          framed_size: { type: "string", description: "Dimensiune cu ramă (ex: '60x90'). Dacă este setat, înseamnă Cu Ramă." },
+          framed_size: { type: "string", description: "Dimensiune cu șasiu (ex: '60x90'). Dacă este setat, înseamnă Cu șasiu." },
           design_pro: { type: "boolean", description: "Dacă clientul dorește Design Pro (+40 lei pentru Canvas)" },
           material_subtype: { type: "string" },
           canvas_edge: { type: "string" },
@@ -665,7 +665,7 @@ REGULI DE INTERACȚIUNE
   * Design → ||OPTIONS: ["Am Fotografie", "Design Pro"]||
   * Print Autocolante → ||OPTIONS: ["Print+Cut", "Print Only"]||
   * Găuri/Tiv → ||OPTIONS: ["Da", "Nu"]||
-  * Cu/Fără Ramă → ||OPTIONS: ["Cu Ramă", "Fără Ramă"]||
+  * Cu/Fără șasiu → ||OPTIONS: ["Cu șasiu", "Fără șasiu"]||
 
 - **ADAPTARE LA CONFIGURATOR**: Fiecare produs are parametri diferiți - pune doar întrebările relevante pentru produsul respectiv
 - **CONVERSAȚIE NATURALĂ**: Fii concis și direct
@@ -726,14 +726,14 @@ REGULI DE INTERACȚIUNE
 8. → Calculează
 
 **FLOW PENTRU CANVAS:**
-1. "Cu Ramă sau Fără Ramă?" ||OPTIONS: ["Cu Ramă", "Fără Ramă"]||
-2. Dacă Cu Ramă: 
+1. "Cu șasiu sau Fără șasiu?" ||OPTIONS: ["Cu șasiu", "Fără șasiu"]||
+2. Dacă Cu șasiu: 
    - "Formă?" ||OPTIONS: ["Dreptunghi", "Pătrat"]||
    - "Dimensiune?" ||OPTIONS: ["20×30", "30×40", "40×60", "50×70", "60×90", "80×120", "100×150"]||
    - "Câte bucăți?"
    - "Ai fotografie sau Colaj/Editare?" ||OPTIONS: ["Am fotografie", "Colaj/Editare +40 lei"]||
    - → **calculate_roll_print_price** cu: {product_type: "canvas", framed_size: "60x90", quantity: 1, design_pro: false}
-3. Dacă Fără Ramă:
+3. Dacă Fără șasiu:
    - "Lățime? (cm)"
    - "Înălțime? (cm)"
    - "Câte bucăți?"
@@ -834,8 +834,8 @@ Include casetă + print + geantă ✅"
 
 **EXEMPLU 4 - Canvas (întrebări scurte, pe rând):**
 👤 User: "canvas"
-🤖 AI: "Cu Ramă sau Fără Ramă?"
-||OPTIONS: ["Cu Ramă", "Fără Ramă"]||
+🤖 AI: "Cu șasiu sau Fără șasiu?"
+||OPTIONS: ["Cu șasiu", "Fără șasiu"]||
 
 👤 User: "cu rama"
 🤖 AI: "Formă?"
@@ -854,7 +854,7 @@ Include casetă + print + geantă ✅"
 
 👤 User: "am fotografie"
 🤖 AI: [calculează]
-"Canvas 50×70cm cu ramă:
+"Canvas 50×70cm cu șasiu:
 - **169 lei** (margine oglindită, include șasiu)
 Colaj/Editare: +40 lei"
 

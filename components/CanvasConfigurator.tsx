@@ -63,7 +63,7 @@ const AccordionStep = ({ stepNumber, title, summary, isOpen, onClick, children, 
 
 const productFaqs: QA[] = [
   { question: "Ce material folosiți pentru tablouri?", answer: "Folosim Canvas Fine Art - pânză realizată prin combinația de bumbac și poliester, 330 g/mp, pentru imprimări de cea mai bună calitate. Materialul nu se cutează iar la tăiere țesătura nu se destramă." },
-  { question: "Tabloul vine gata de agățat?", answer: "Da, pânza este întinsă pe un șasiu din lemn uscat, cu margine oglindită (imaginea continuă pe laterale). Tabloul include sistem de prindere și este gata de pus pe perete imediat ce îl scoateți din cutie." },
+  { question: "Tabloul vine gata de agățat?", answer: "La varianta cu șasiu, da: pânza este întinsă pe un șasiu din lemn uscat, cu margine oglindită (imaginea continuă pe laterale) și sistem de prindere, gata de pus pe perete. La varianta fără șasiu primești doar pânza printată, rulată, pe care o poți întinde ulterior la orice atelier de înrămare." },
   { question: "Pentru ce tipuri de imagini este recomandat?", answer: "Canvas Fine Art este ideal pentru reproduceri de opere de artă, tablouri, portrete, peisaje, decor teatru și film, colaje și decorări speciale de interior." },
 ];
 
@@ -212,7 +212,7 @@ export default function CanvasConfigurator({
     } else if (input.frameType === "framed") {
       const [w, h] = (input.framedSize || "").split("x");
       const shapeLabel = input.framedShape === "square" ? "Pătrat" : "Dreptunghi";
-      title = `Tablou Canvas cu Ramă ${shapeLabel} ${w}×${h} cm`;
+      title = `Tablou Canvas pe șasiu ${shapeLabel} ${w}×${h} cm`;
     } else {
       title = `Tablou Canvas ${input.width_cm}×${input.height_cm} cm`;
     }
@@ -230,7 +230,7 @@ export default function CanvasConfigurator({
       quantity: input.quantity,
       currency: "RON",
       metadata: {
-        "Tip": input.frameType === "framed" ? "Cu Ramă" : "Fără Ramă",
+        "Tip": input.frameType === "framed" ? "Cu șasiu" : "Fără șasiu (doar pânza)",
         ...(input.frameType === "framed" && { "Formă": input.framedShape === "square" ? "Pătrat" : "Dreptunghi" }),
         "Grafică": input.designOption === 'pro' ? 'Vreau grafică' : 'Grafică proprie',
         ...(productTitle && { "Model": productTitle }),
@@ -248,7 +248,7 @@ export default function CanvasConfigurator({
   }, []);
   useEffect(() => setActiveImage(GALLERY[activeIndex]), [activeIndex]);
 
-  const summaryStep1 = input.frameType === "framed" ? "Cu Ramă" : "Fără Ramă";
+  const summaryStep1 = input.frameType === "framed" ? "Cu șasiu" : "Fără șasiu (doar pânza)";
   const summaryStep2 = input.frameType === "framed"
     ? `${input.framedShape === "square" ? "Pătrat" : "Dreptunghi"} ${input.framedSize?.replace("x", "×")} cm, ${input.quantity} buc.`
     : (input.width_cm > 0 && input.height_cm > 0 ? `${input.width_cm}×${input.height_cm} cm, ${input.quantity} buc.` : "Alege dimensiuni");
@@ -335,14 +335,14 @@ export default function CanvasConfigurator({
                     <OptionButton
                       active={input.frameType === "framed"}
                       onClick={() => updateInput("frameType", "framed")}
-                      title="Cu Ramă"
-                      subtitle="Dimensiuni prestabilite"
+                      title="Cu șasiu"
+                      subtitle="Pânză întinsă pe șasiu de lemn, dimensiuni fixe"
                     />
                     <OptionButton
                       active={input.frameType === "none"}
                       onClick={() => updateInput("frameType", "none")}
-                      title="Fără Ramă"
-                      subtitle="Dimensiuni personalizate"
+                      title="Fără șasiu"
+                      subtitle="Doar pânza printată, rulată, orice dimensiune"
                     />
                   </div>
                 </div>

@@ -4,7 +4,7 @@ export const siteConfig = {
     name: "Tablou",
     domain: "tablou.net",
     url: "https://www.tablou.net",
-    description: "Tablou.net face tablouri canvas din fotografiile tale: un tablou, colaj, set de 3 sau canvas cu ramă, pentru nuntă, botez, aniversări și cadouri pentru părinți. Șasiu de lemn inclus, poza verificată gratuit, livrare în toată România. În același atelier printăm fototapet, textile, afișe, bannere, panouri rigide și kituri fonduri UE.",
+    description: "Tablou.net face tablouri canvas din fotografiile tale: un tablou, colaj, set de 3 sau canvas pe șasiu, pentru nuntă, botez, aniversări și cadouri pentru părinți. Șasiu de lemn inclus, poza verificată gratuit, livrare în toată România. În același atelier printăm fototapet, textile, afișe, bannere, panouri rigide și kituri fonduri UE.",
     email: "contact@tablou.net",
     phone: "0750 473 111",
     address: "Jud. Buzău, Sat Topliceni, Com. Topliceni, G Topliceni, nr. 214",

@@ -22,8 +22,8 @@ export const metadata = {
     "ghid tablouri canvas",
     "dimensiuni tablou canvas",
     "margine canvas oglindă răsfrântă",
-    "canvas cu ramă",
-    "canvas fără ramă"
+    "canvas cu șasiu",
+    "canvas fără șasiu"
   ],
   alternates: { canonical: "/canvas" },
   openGraph: {
@@ -64,12 +64,12 @@ const CANVAS_FAQS = [
     a: "JPG, PNG sau TIFF. Recomandăm poza originală, direct din galeria telefonului sau dintr-un email/Drive, nu una descărcată dintr-o conversație de WhatsApp, unde imaginea e comprimată automat."
   },
   {
-    q: "Care e diferența dintre canvas cu ramă și canvas clasic pe șasiu?",
-    a: "Canvas-ul clasic pe șasiu acceptă orice dimensiune personalizată și are aspect modern, fără chenar vizibil. Canvas-ul cu ramă vine la dimensiuni prestabilite, cu preț calculat din tabel și discount automat de la 2 bucăți identice comandate, util pentru comenzi corporate sau cadouri multiple."
+    q: "Care e diferența dintre canvas cu șasiu și canvas fără șasiu?",
+    a: "Cu șasiu: pânza este întinsă pe șasiu de lemn, la dimensiuni fixe, cu margine oglindită, gata de agățat, cu discount automat de la 2 bucăți identice. Fără șasiu: primești doar pânza printată, rulată, la orice dimensiune introdusă în configurator, pe care o poți întinde ulterior la orice atelier de înrămare."
   },
   {
     q: "Pot comanda dimensiuni personalizate?",
-    a: "Da — la varianta fără ramă introduci direct în configurator lățimea și înălțimea dorite, în centimetri, fără să fii limitat la o listă fixă de formate."
+    a: "Da — la varianta fără șasiu (doar pânza printată) introduci direct în configurator lățimea și înălțimea dorite, în centimetri, fără să fii limitat la o listă fixă de formate."
   },
   {
     q: "Cât durează producția și livrarea?",
@@ -231,7 +231,7 @@ export default async function CanvasPage({
           <div className="mt-16 border-t border-slate-200 pt-16">
             <h3 className="text-3xl font-black text-slate-900 mb-4 text-center uppercase">Dimensiuni Disponibile</h3>
             <p className="text-slate-600 text-center max-w-2xl mx-auto mb-10">
-              <strong>Canvas cu ramă</strong> vine în dimensiuni prestabilite, gata de expus. <strong>Canvas fără ramă (clasic pe șasiu)</strong> acceptă orice dimensiune personalizată, introdusă direct în configurator.
+              <strong>Canvas cu șasiu</strong> vine în dimensiuni prestabilite, întins pe lemn, gata de agățat. <strong>Canvas fără șasiu</strong> înseamnă doar pânza printată, rulată, la orice dimensiune introdusă direct în configurator.
             </p>
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 max-w-4xl mx-auto">
               {FRAMED_SIZES.map((size) => (
@@ -285,8 +285,8 @@ export default async function CanvasPage({
               <Link href="/blog/tablou-canvas-cadou-personalizat-ocazii" className="text-indigo-600 font-bold hover:underline">Ghid pe ocazii: nuntă, părinți, colegi →</Link>
             </div>
             <div>
-              <h3 className="text-2xl font-bold text-slate-800 border-b-2 border-indigo-500 pb-2 inline-block mb-4">Cu ramă sau clasic pe șasiu?</h3>
-              <p className="text-slate-600 leading-relaxed mb-4">Canvas-ul clasic pe șasiu se potrivește oricărei dimensiuni și are un aspect modern, fără chenar vizibil. Varianta cu ramă vine la dimensiuni fixe, cu discount automat de la 2 bucăți în sus — utilă pentru comenzi corporate sau cadouri multiple identice.</p>
+              <h3 className="text-2xl font-bold text-slate-800 border-b-2 border-indigo-500 pb-2 inline-block mb-4">Cu șasiu sau fără șasiu?</h3>
+              <p className="text-slate-600 leading-relaxed mb-4">Varianta cu șasiu vine la dimensiuni fixe, întinsă pe lemn și gata de agățat, cu discount de la 2 bucăți identice. Varianta fără șasiu este doar pânza printată, rulată, la orice dimensiune: o alegi când vrei să o întinzi sau să o înrămezi tu, la un atelier local.</p>
               <Link href="/blog/canvas-cu-rama-vs-canvas-clasic-pe-sasiu" className="text-indigo-600 font-bold hover:underline">Diferența explicată pe larg →</Link>
             </div>
           </div>
