@@ -10,6 +10,7 @@ import { CONFIGURATORS_REGISTRY } from "@/lib/configurators-registry";
 import { buildLocalContent } from "@/lib/seo/localContent";
 import { getSiblingLocalitySlugs } from "@/lib/seo/indexableLocalities";
 import { LocalFaq } from "@/components/LocalFaq";
+import { LocalSizePrices } from "@/components/seo/LocalSizePrices";
 
 import { MATERIALE_DATA } from "@/lib/seo/materialeData";
 import { REGLEMENTARI_DATA } from "@/lib/seo/reglementariData";
@@ -210,6 +211,8 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                                 </a>
                             </div>
 
+                            <LocalSizePrices productIds={[baseSlug, productCategoryKey]} locName={loc.name} />
+
                             <div className="flex flex-wrap gap-8">
                                 <div className="flex items-center gap-3">
                                     <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-emerald-500">
@@ -221,13 +224,13 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                                     <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-amber-500">
                                         <Star size={20} className="fill-current" />
                                     </div>
-                                    <span className="text-xs font-bold text-slate-600 uppercase tracking-widest">Materiale<br/>Certificate</span>
+                                    <span className="text-xs font-bold text-slate-600 uppercase tracking-widest">Producție<br/>Proprie</span>
                                 </div>
                                 <div className="flex items-center gap-3">
                                     <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-blue-500">
                                         <ShieldCheck size={20} />
                                     </div>
-                                    <span className="text-xs font-bold text-slate-600 uppercase tracking-widest">Garanție<br/>Print UV</span>
+                                    <span className="text-xs font-bold text-slate-600 uppercase tracking-widest">Print UV<br/>Rezistent</span>
                                 </div>
                             </div>
                         </div>
@@ -248,7 +251,7 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                                     <div className="absolute bottom-6 left-6 right-6 p-4 bg-white/80 backdrop-blur-md rounded-2xl border border-white/50 shadow-lg flex items-center justify-between">
                                         <div className="flex items-center gap-3">
                                             <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                                            <span className="text-xs font-black text-slate-900 uppercase">Producție activă {judet.name}</span>
+                                            <span className="text-xs font-black text-slate-900 uppercase">Livrare prin curier în {loc.name}</span>
                                         </div>
                                         <span className="text-[10px] font-bold text-emerald-600">24H Livrare</span>
                                     </div>

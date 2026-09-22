@@ -117,7 +117,7 @@ export async function GET(request: Request, props: any) {
             '/configurator/afise', '/configurator/autocolante', '/configurator/pliante', '/configurator/flayere',
             '/configurator/window-graphics', '/configurator/canvas', '/configurator/tapet',
             '/configurator/custom-glass', '/configurator/fonduri-eu', '/materiale/plexiglass', '/materiale/pvc-forex',
-            '/contact', '/termeni', '/confidentialitate', '/livrare', '/politica-cookies', '/urmareste-comanda',
+            '/contact', '/termeni', '/confidentialitate', '/livrare', '/politica-cookies',
             '/anpc', '/litigii', '/judet', '/seap'
         ];
 
