@@ -79,7 +79,7 @@ export function SeoIntentLanding({ productId, productName, intent, intentLabel }
 
                             <div className="flex flex-wrap justify-center lg:justify-start gap-8 opacity-70">
                                 <div className="flex items-center gap-2"><ShieldCheck size={18} className="text-emerald-500" /><span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest">Garanție Calitate</span></div>
-                                <div className="flex items-center gap-2"><Truck size={18} className="text-slate-900" /><span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest">Livrare 24-48h</span></div>
+                                <div className="flex items-center gap-2"><Truck size={18} className="text-slate-900" /><span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest">Livrare 2-4 zile lucrătoare</span></div>
                                 <div className="flex items-center gap-2"><Star size={18} className="text-amber-500 fill-amber-500" /><span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest">Design Premium</span></div>
                             </div>
                         </div>
@@ -163,7 +163,7 @@ export function SeoIntentLanding({ productId, productName, intent, intentLabel }
                             },
                             { 
                                 title: "LIVRARE RAPIDĂ", 
-                                desc: "Producție accelerată în 24-48h. Ambalare de protecție pentru transport securizat oriunde în țară.",
+                                desc: "Producție accelerată în 2-4 zile lucrătoare. Ambalare de protecție pentru transport securizat oriunde în țară.",
                                 icon: <Truck />,
                                 color: "text-amber-500",
                                 bg: "bg-amber-50",
@@ -249,7 +249,7 @@ export function SeoIntentLanding({ productId, productName, intent, intentLabel }
                         {[
                             {
                                 q: `Cât durează producția pentru ${productName.toLowerCase()} de ${intentLabel.toLowerCase()}?`,
-                                a: `De regulă, timpul de execuție este de 24-48 de ore din momentul confirmării graficii. Suntem echipați pentru a gestiona comenzi urgente pentru evenimente de tip ${intentLabel.toLowerCase()}.`
+                                a: `De regulă, timpul de execuție este de 2-4 zile lucrătoare din momentul confirmării graficii. Suntem echipați pentru a gestiona comenzi urgente pentru evenimente de tip ${intentLabel.toLowerCase()}.`
                             },
                             {
                                 q: `Pot folosi aceste ${productName.toLowerCase()} în exterior?`,

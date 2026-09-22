@@ -835,7 +835,7 @@ export const seoCampaignProducts: any[] = [
         routeSlug: "configurator/banner-verso",
         title: "Banner Stradal Față-Verso (Blockout)",
         description: "Banner publicitar cu print pe ambele fețe, material blockout care nu permite trecerea luminii. Vizibilitate maximă din ambele sensuri de mers.",
-        image: "/products/banner/banner-2.webp",
+        image: '/products/banner/banner-1.webp',
         price: "De la 55 LEI/mp",
         category: "Campanii SEO",
         tags: ["banner verso", "banner dubla fata", "blockout", "banner stradal"]
@@ -846,7 +846,7 @@ export const seoCampaignProducts: any[] = [
         routeSlug: "configurator/banner-verso",
         title: "Banner Premium Față-Verso pentru Evenimente",
         description: "Soluție elegantă pentru expoziții și evenimente. Print de înaltă rezoluție pe ambele fețe, finisaje premium incluse (capse, tivit).",
-        image: "/products/banner/banner-2.webp",
+        image: '/products/banner/banner-1.webp',
         price: "De la 60 LEI/mp",
         category: "Campanii SEO",
         tags: ["banner evenimente", "print dubla fata", "banner premium"]
@@ -891,7 +891,7 @@ export const seoCampaignProducts: any[] = [
         routeSlug: "configurator/banner",
         title: "Banner Vulcanizare / Service Auto",
         description: "Promovează-ți vulcanizarea cu un banner rezistent la praf și uzură. Mesaje clare, vizibile de la distanță pentru șoferi.",
-        image: "/products/banner/banner-3.webp",
+        image: '/products/banner/banner-1.webp',
         price: "De la 29 LEI/mp",
         category: "Campanii SEO",
         tags: ["banner vulcanizare", "service auto", "reclama anvelope", "banner schimbi roti"]
@@ -949,7 +949,7 @@ export const seoCampaignProducts: any[] = [
         routeSlug: "configurator/banner",
         title: "Banner Prevenire Incendii (Pompiere / IGSU)",
         description: "Bannere de avertizare și informare pentru unitățile de pompieri. Mesaje de prevenire, vizibilitate mare, rezistență la temperaturi extreme.",
-        image: "/products/banner/banner-3.webp",
+        image: '/products/banner/banner-1.webp',
         price: "De la 29 LEI/mp",
         category: "Campanii SEO",
         tags: ["banner pompiere", "igsu", "prevenire incendii", "ssm"]
@@ -1018,7 +1018,7 @@ export const seoCampaignProducts: any[] = [
         routeSlug: "configurator/banner",
         title: "Banner pentru Armată (Recrutare și Festivități)",
         description: "Bannere pentru unități militare: campanii de recrutare, ceremonii, puncte de informare. Materiale robuste, durată mare de viață.",
-        image: "/products/banner/banner-3.webp",
+        image: '/products/banner/banner-1.webp',
         price: "De la 29 LEI/mp",
         category: "Campanii SEO",
         tags: ["banner armata", "recrutare", "mapn", "ceremonie militara"]
@@ -1801,7 +1801,7 @@ export const seoCampaignProducts: any[] = [
         slug: "banner-personalizat-online-creare-design-propriul-banner",
         routeSlug: "configurator/banner",
         title: "Banner Personalizat (Creat Online)",
-        description: "Creează-ți propriul banner personalizat online. Încarcă designul tău sau alege opțiunile dorite și primești produsul gata de montaj în 24-48h.",
+        description: "Creează-ți propriul banner personalizat online. Încarcă designul tău sau alege opțiunile dorite și primești produsul gata de montaj în 2-4 zile lucrătoare.",
         image: "/products/banner/banner-1.webp",
         price: "De la 39 LEI",
         category: "Campanii SEO",

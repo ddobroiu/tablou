@@ -368,7 +368,7 @@ export const bannerProducts: BannerProduct[] = [
         `,
         faqs: [
             { question: "La ce distanță se vede bannerul?", answer: "Un banner de 3x1 metri cu text mare poate fi citit de la o distanță de peste 50 de metri, fiind ideal pentru captarea atenției șoferilor." },
-            { question: "Cât de repede primesc bannerul?", answer: "Producem și livrăm în 24-48h, astfel încât să poți semnaliza rapid sediul vulcanizării tale." }
+            { question: "Cât de repede primesc bannerul?", answer: "Producem și livrăm în 2-4 zile lucrătoare, astfel încât să poți semnaliza rapid sediul vulcanizării tale." }
         ],
         metadata: {
             type: "banner-predefinit",
@@ -811,7 +811,7 @@ export const bannerProducts: BannerProduct[] = [
         slug: "banner-2",
         title: "Banner Banner 2",
         description: "Design predefinit pentru Banner 2 pe Tablou.net — ideal pentru cadouri și obiecte personalizate, alege mărimea și adaugă imaginea ta.",
-        image: "/products/banner/banner-2.webp",
+        image: '/products/banner/banner-1.webp',
         price: "De la 49 LEI/mp",
         category: "Diverse",
         tags: ["banner", "diverse", "model"],
@@ -829,7 +829,7 @@ export const bannerProducts: BannerProduct[] = [
         slug: "banner-3",
         title: "Banner Banner 3",
         description: "Design predefinit pentru Banner 3 pe Tablou.net — ideal pentru cadouri și obiecte personalizate, alege mărimea și adaugă imaginea ta.",
-        image: "/products/banner/banner-3.webp",
+        image: '/products/banner/banner-1.webp',
         price: "De la 49 LEI/mp",
         category: "Diverse",
         tags: ["banner", "diverse", "model"],
@@ -847,7 +847,7 @@ export const bannerProducts: BannerProduct[] = [
         slug: "banner-4",
         title: "Banner Banner 4",
         description: "Design predefinit pentru Banner 4 pe Tablou.net — ideal pentru cadouri și obiecte personalizate, alege mărimea și adaugă imaginea ta.",
-        image: "/products/banner/banner-4.webp",
+        image: '/products/banner/banner-1.webp',
         price: "De la 49 LEI/mp",
         category: "Diverse",
         tags: ["banner", "diverse", "model"],

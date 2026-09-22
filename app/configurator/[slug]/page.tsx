@@ -7,7 +7,7 @@ import { notFound, permanentRedirect } from 'next/navigation';
 import { getSize, dimensionUrl } from '@/lib/seo/dimensionPages';
 import { SeoDimensionsLinks } from '@/components/SeoDimensionsLinks';
 import { INTENT_LABELS } from '@/lib/seo/intents';
-import { SeoIntentLanding } from '@/components/SeoIntentLanding';
+import { IntentLanding } from '@/components/seo/IntentLanding';
 import { SeoDimensionLanding } from '@/components/SeoDimensionLanding';
 import SeoProductContent from '@/components/seo/SeoProductContent';
 
@@ -124,7 +124,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
 
     const title = `${parsed.productName} ${parsed.w}x${parsed.h}`;
-    const description = `Comandă ${parsed.productName} la dimensiunea fixă de ${parsed.w}x${parsed.h} cm. Producător direct, preț calculat instant, print HD rezistent UV și livrare rapidă în 24-48h. Personalizează acum formatul ${parsed.w}x${parsed.h} cm pe Tablou.net!`;
+    const description = `Comandă ${parsed.productName} la dimensiunea fixă de ${parsed.w}x${parsed.h} cm. Producător direct, preț calculat instant, print HD rezistent UV și livrare rapidă în 2-4 zile lucrătoare. Personalizează acum formatul ${parsed.w}x${parsed.h} cm pe Tablou.net!`;
 
     return {
         title,
@@ -155,12 +155,7 @@ export default async function DynamicConfiguratorPage({ params, searchParams: sP
     if (hasIntent && !isConfigStep) {
         return (
             <>
-                <SeoIntentLanding 
-                    productId={parsed.productId}
-                    productName={parsed.productName}
-                    intent={parsed.intent!}
-                    intentLabel={parsed.intentLabel!}
-                />
+                <IntentLanding productId={parsed.productId} productName={parsed.productName} intent={parsed.intent!} intentLabel={parsed.intentLabel!} configHref={`/configurator/${slug}?step=config`} />
                 <div className="container mx-auto px-4 pb-16">
                     <SeoDimensionsLinks 
                         productId={parsed.productId} 

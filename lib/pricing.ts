@@ -1994,7 +1994,7 @@ export const TEXTILE_CONSTANTS = {
   PRICES: {
     tricouri: { base: 60, fata_si_spate: 20 },
     polo: { base: 75, fata_si_spate: 25 },
-    hanorace: { base: 160, fata_si_spate: 30 },
+    hanorace: { base: 180, fata_si_spate: 30 },
     sepci: { base: 45, fata_si_spate: 0 }
   },
   PRO_DESIGN_FEE: 50,

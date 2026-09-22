@@ -66,6 +66,9 @@ jobs:
             cd /opt/apps/tablou
             echo "$GITHUB_TOKEN" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
             echo "${{ secrets.ENV_CONTENTS }}" > .env
+            # Cheia API Oblio se ține în secretul dedicat OBLIO_CLIENT_SECRET, ca să poată fi rotită fără a rescrie tot .env
+            sed -i '/^OBLIO_CLIENT_SECRET=/d' .env
+            echo "OBLIO_CLIENT_SECRET=${{ secrets.OBLIO_CLIENT_SECRET }}" >> .env
             # If ENV_CONTENTS already contains DATABASE_URL (often empty), remove it
             sed -i '/^DATABASE_URL=/d' .env
             # Ensure DATABASE_URL is actually present (empty breaks Prisma)

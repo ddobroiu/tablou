@@ -31,6 +31,7 @@ const GUIDE_LINKS = [
     { href: "/judet", label: "Livrare pe județe" },
     { href: "/dimensiuni", label: "Prețuri pe dimensiuni" },
     { href: "/preturi", label: "Prețuri pe cantități" },
+    { href: "/comparatii", label: "Ce material aleg" },
     { href: "/sectoare-bucuresti", label: "Sectoare București" },
 ];
 

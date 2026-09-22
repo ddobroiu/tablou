@@ -1042,7 +1042,7 @@ export default function BannerConfigurator({ productSlug, initialWidth: initW, i
                                         </div>
                                         <div className="flex-1">
                                             <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1">Livrare Rapidă</h3>
-                                            <p className="text-sm text-gray-600 dark:text-gray-400">Producție și expediere în 24-48h</p>
+                                            <p className="text-sm text-gray-600 dark:text-gray-400">Producție și expediere în 2-4 zile lucrătoare</p>
                                         </div>
                                     </div>
 

@@ -56,7 +56,7 @@ export default function SepciConfigPage() {
                     },
                     {
                         question: "Cât durează comanda?",
-                        answer: "Producție rapidă (DTF nu are timp de uscare îndelungat), livrare prin curier de regulă în 24-48h."
+                        answer: "Producție rapidă (DTF nu are timp de uscare îndelungat), livrare prin curier de regulă în 2-4 zile lucrătoare."
                     }
                 ]}
             />
@@ -128,7 +128,7 @@ export default function SepciConfigPage() {
                                 },
                                 {
                                     q: "Cât durează comanda?",
-                                    a: "Producție rapidă (DTF nu are timp de uscare îndelungat), livrare prin curier de regulă în 24-48h."
+                                    a: "Producție rapidă (DTF nu are timp de uscare îndelungat), livrare prin curier de regulă în 2-4 zile lucrătoare."
                                 }
                             ].map((faq, idx) => (
                                 <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">

@@ -11,6 +11,8 @@ import { buildLocalContent } from "@/lib/seo/localContent";
 import { getSiblingLocalitySlugs } from "@/lib/seo/indexableLocalities";
 import { LocalFaq } from "@/components/LocalFaq";
 import { LocalSizePrices } from "@/components/seo/LocalSizePrices";
+import { getFromPrice } from "@/lib/seo/fromPrice";
+import { whatsappHref } from "@/components/seo/WhatsAppBar";
 
 import { MATERIALE_DATA } from "@/lib/seo/materialeData";
 import { REGLEMENTARI_DATA } from "@/lib/seo/reglementariData";
@@ -55,8 +57,11 @@ export async function generateMetadata({ params }: { params: Promise<{ judetSlug
     const targetInfo = targetSlug ? getTargetInfo(targetSlug) : null;
     const productTitle = targetInfo ? `${product.title} ${targetInfo.label}` : product.title;
 
-    const title = `Print ${productTitle} în ${loc.name}`;
-    const { description } = buildLocalContent({
+    const fromPrice = getFromPrice([baseSlug, (product as any).routeSlug?.replace('configurator/', ''), product.id]);
+    const title = fromPrice
+        ? `${productTitle} în ${loc.name} – de la ${fromPrice.text}, gata în 2-4 zile`
+        : `Print ${productTitle} în ${loc.name}`;
+    const { description: baseDescription } = buildLocalContent({
         brand: "tablou",
         productTitle,
         productSlug: baseSlug,
@@ -65,6 +70,9 @@ export async function generateMetadata({ params }: { params: Promise<{ judetSlug
         judetSlug: judet.slug,
         judetName: judet.name,
     });
+    const description = fromPrice
+        ? `De la ${fromPrice.text}/buc (${fromPrice.basis}). ${baseDescription}`.slice(0, 158)
+        : baseDescription;
 
     const routeUrl = `https://www.tablou.net/judet/${judet.slug}/${loc.slug}/${productSlug.join('/')}`;
 
@@ -193,22 +201,22 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                                <a 
+                                    href={whatsappHref(`Bună ziua, aș dori o ofertă pentru ${product.title} în ${loc.name}.`)}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="px-10 py-5 bg-[#25D366] text-white border-2 border-[#25D366] rounded-2xl font-black text-lg hover:bg-[#1ebe5d] transition-all flex items-center justify-center gap-3 shadow-sm active:scale-95 group uppercase italic tracking-tighter"
+                                >
+                                    <MessageCircle size={22} />
+                                    OFERTĂ PE WHATSAPP
+                                </a>
                                 <Link 
                                     href={shopUrl} 
-                                    className="px-10 py-5 bg-emerald-600 text-white rounded-2xl font-black text-lg hover:bg-emerald-500 transition-all flex items-center justify-center gap-3 shadow-2xl shadow-emerald-500/20 active:scale-95 group uppercase italic tracking-tighter"
+                                    className="px-10 py-5 bg-slate-900 text-white rounded-2xl font-black text-lg hover:bg-slate-700 transition-all flex items-center justify-center gap-3 shadow-xl active:scale-95 group uppercase italic tracking-tighter"
                                 >
                                     <Zap size={22} className="fill-current group-hover:animate-pulse" />
                                     CONFIGUREAZĂ ONLINE
                                 </Link>
-                                <a 
-                                    href={`https://wa.me/40750473111?text=Bună%20ziua,%20as%20dori%20mai%20multe%20detalii%20despre%20${encodeURIComponent(product.title)}%20în%20${encodeURIComponent(loc.name)}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="px-10 py-5 bg-white text-slate-900 border-2 border-slate-200 rounded-2xl font-black text-lg hover:border-emerald-500 hover:text-emerald-600 transition-all flex items-center justify-center gap-3 shadow-sm active:scale-95 group uppercase italic tracking-tighter"
-                                >
-                                    <MessageCircle size={22} className="group-hover:text-emerald-500" />
-                                    WHATSAPP
-                                </a>
                             </div>
 
                             <LocalSizePrices productIds={[baseSlug, productCategoryKey]} locName={loc.name} />
@@ -251,14 +259,84 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                                     <div className="absolute bottom-6 left-6 right-6 p-4 bg-white/80 backdrop-blur-md rounded-2xl border border-white/50 shadow-lg flex items-center justify-between">
                                         <div className="flex items-center gap-3">
                                             <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                                            <span className="text-xs font-black text-slate-900 uppercase">Livrare prin curier în {loc.name}</span>
+                                            <span className="text-xs font-black text-slate-900 uppercase truncate">Livrare prin curier în {loc.name}</span>
                                         </div>
-                                        <span className="text-[10px] font-bold text-emerald-600">24H Livrare</span>
+                                        
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            {/* Local FAQ Section */}
+            <div className="bg-white py-24 border-t border-slate-100">
+                <div className="max-w-4xl mx-auto px-4">
+                    <div className="text-center mb-16">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-100 text-slate-500 text-[10px] font-black uppercase tracking-widest mb-4">
+                            <HelpCircle size={14} className="text-emerald-500" /> SUPORT LOCAL {loc.name.toUpperCase()}
+                        </div>
+                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase leading-none">Întrebări Frecvente</h2>
+                        <p className="text-slate-500 mt-4 font-medium italic">Tot ce trebuie să știi despre comanda ta de {productTitle.toLowerCase()} în {loc.name}.</p>
+                    </div>
+                    
+                    <div className="bg-slate-50/50 rounded-[3rem] p-8 md:p-12 border border-slate-100">
+                        <LocalFaq 
+                            productTitle={productTitle} 
+                            locName={loc.name} 
+                            judetName={judet.name}
+                        />
+                    </div>
+                </div>
+            </div>
+
+            {/* Other Products Section - MOVED HIGHER */}
+            <div className="max-w-7xl mx-auto px-4 py-24">
+                <div className="text-center mb-16">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-100 text-slate-500 text-[10px] font-black uppercase tracking-widest mb-4">
+                        <Zap size={14} className="text-emerald-500" /> TOATE CONFIGURATOARELE
+                    </div>
+                    <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase leading-none">Produse în {loc.name}</h2>
+                    <p className="text-slate-500 mt-4 font-medium italic">Vezi toată gama de produse disponibile cu livrare rapidă.</p>
+                </div>
+
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
+                    {CONFIGURATORS_REGISTRY.slice(0, 18).map((config) => {
+                        const rpSlug = config.slug || config.id;
+                        if (rpSlug === baseSlug) return null;
+
+                        return (
+                            <Link
+                                key={config.id}
+                                href={`/judet/${judet.slug}/${loc.slug}/${rpSlug}`}
+                                className="group relative flex flex-col items-center text-center rounded-[2rem] border border-slate-200/60 transition-all duration-500 overflow-hidden hover:border-emerald-400 hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.15)] hover:-translate-y-2 bg-white h-full"
+                            >
+                                <div className="w-full aspect-square relative bg-slate-50 border-b border-slate-100 flex items-center justify-center overflow-hidden">
+                                    {config.image ? (
+                                        <Image
+                                            src={config.image}
+                                            alt={config.name}
+                                            width={320}
+                                            height={320}
+                                            sizes="(max-width: 640px) 45vw, 220px"
+                                            loading="lazy"
+                                            className="w-[70%] h-[70%] object-contain p-4 transition-transform duration-700 group-hover:scale-110"
+                                        />
+                                    ) : (
+                                        <div className="w-full h-full bg-slate-200 animate-pulse flex items-center justify-center text-slate-400 font-black uppercase text-[10px] tracking-widest">Imagine Lipsă</div>
+                                    )}
+                                    <div className="absolute inset-0 bg-emerald-500/0 group-hover:bg-emerald-500/[0.03] transition-colors duration-500" />
+                                </div>
+
+                                <div className="p-4 w-full flex-1 flex flex-col items-center justify-center bg-white relative">
+                                    <h4 className="font-black text-[10px] md:text-xs leading-tight tracking-tight transition-all duration-300 text-slate-800 group-hover:text-emerald-600 uppercase italic tracking-tighter">
+                                        {config.name}
+                                    </h4>
+                                </div>
+                            </Link>
+                        );
+                    })}
                 </div>
             </div>
 
@@ -304,51 +382,6 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                             </div>
                         ))}
                     </div>
-                </div>
-            </div>
-
-            {/* Other Products Section - MOVED HIGHER */}
-            <div className="max-w-7xl mx-auto px-4 py-24">
-                <div className="text-center mb-16">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-100 text-slate-500 text-[10px] font-black uppercase tracking-widest mb-4">
-                        <Zap size={14} className="text-emerald-500" /> TOATE CONFIGURATOARELE
-                    </div>
-                    <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase leading-none">Produse în {loc.name}</h2>
-                    <p className="text-slate-500 mt-4 font-medium italic">Vezi toată gama de produse disponibile cu livrare rapidă.</p>
-                </div>
-
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
-                    {CONFIGURATORS_REGISTRY.slice(0, 18).map((config) => {
-                        const rpSlug = config.slug || config.id;
-                        if (rpSlug === baseSlug) return null;
-
-                        return (
-                            <Link
-                                key={config.id}
-                                href={`/judet/${judet.slug}/${loc.slug}/${rpSlug}`}
-                                className="group relative flex flex-col items-center text-center rounded-[2rem] border border-slate-200/60 transition-all duration-500 overflow-hidden hover:border-emerald-400 hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.15)] hover:-translate-y-2 bg-white h-full"
-                            >
-                                <div className="w-full aspect-square relative bg-slate-50 border-b border-slate-100 flex items-center justify-center overflow-hidden">
-                                    {config.image ? (
-                                        <img
-                                            src={config.image}
-                                            alt={config.name}
-                                            className="w-[70%] h-[70%] object-contain p-4 transition-transform duration-700 group-hover:scale-110"
-                                        />
-                                    ) : (
-                                        <div className="w-full h-full bg-slate-200 animate-pulse flex items-center justify-center text-slate-400 font-black uppercase text-[10px] tracking-widest">Imagine Lipsă</div>
-                                    )}
-                                    <div className="absolute inset-0 bg-emerald-500/0 group-hover:bg-emerald-500/[0.03] transition-colors duration-500" />
-                                </div>
-
-                                <div className="p-4 w-full flex-1 flex flex-col items-center justify-center bg-white relative">
-                                    <h4 className="font-black text-[10px] md:text-xs leading-tight tracking-tight transition-all duration-300 text-slate-800 group-hover:text-emerald-600 uppercase italic tracking-tighter">
-                                        {config.name}
-                                    </h4>
-                                </div>
-                            </Link>
-                        );
-                    })}
                 </div>
             </div>
 
@@ -408,27 +441,6 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                     </div>
                 </div>
             )}
-
-            {/* Local FAQ Section */}
-            <div className="bg-white py-24 border-t border-slate-100">
-                <div className="max-w-4xl mx-auto px-4">
-                    <div className="text-center mb-16">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-100 text-slate-500 text-[10px] font-black uppercase tracking-widest mb-4">
-                            <HelpCircle size={14} className="text-emerald-500" /> SUPORT LOCAL {loc.name.toUpperCase()}
-                        </div>
-                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase leading-none">Întrebări Frecvente</h2>
-                        <p className="text-slate-500 mt-4 font-medium italic">Tot ce trebuie să știi despre comanda ta de {productTitle.toLowerCase()} în {loc.name}.</p>
-                    </div>
-                    
-                    <div className="bg-slate-50/50 rounded-[3rem] p-8 md:p-12 border border-slate-100">
-                        <LocalFaq 
-                            productTitle={productTitle} 
-                            locName={loc.name} 
-                            judetName={judet.name}
-                        />
-                    </div>
-                </div>
-            </div>
 
             {/* Mobile Sticky CTA */}
             <div className="fixed bottom-0 left-0 right-0 p-4 bg-white/80 backdrop-blur-md border-t border-slate-100 flex gap-3 md:hidden z-50">

@@ -22,7 +22,7 @@ import {
   type PriceInputAfise
 } from "@/lib/pricing";
 
-const GALLERY_BASE = ["/products/afise/afise-1.webp", "/products/afise/afise-2.webp", "/products/afise/afise-3.webp", "/products/afise/afise-4.webp"] as const;
+const GALLERY_BASE = ["/products/afise/afise-1.webp"] as const;
 
 const afiseFaqs: QA[] = [
   { question: "Ce tipuri de hârtie pot alege?", answer: "Oferim o varietate de hârtii, de la cele subțiri (150g) pentru volume mari, la cartoane de 300g pentru un aspect premium. De asemenea, avem materiale speciale precum Blueback pentru lipire pe panouri sau hârtie foto." },

@@ -19,8 +19,7 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import { PopularDimensions } from "./PopularDimensions";
 
 const GALLERY_BASE = [
-    "/products/afise/afise-1.webp",
-    "/products/afise/afise-2.webp"
+    "/products/afise/afise-1.webp"
 ] as const;
 
 const afiseFaqs: QA[] = [

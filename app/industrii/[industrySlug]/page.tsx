@@ -50,7 +50,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ indus
                 "name": `Cât durează execuția materialelor pentru ${ind.name.split(' (')[0]}?`,
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Execuția majorității produselor (bannere, autocolante, rollup-uri) se realizează în 24-48 de ore lucrătoare de la confirmarea graficii."
+                    "text": "Execuția majorității produselor (bannere, autocolante, rollup-uri) se realizează în 2-4 zile lucrătoare lucrătoare de la confirmarea graficii."
                 }
             },
             {

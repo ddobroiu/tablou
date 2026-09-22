@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
     }
 
     const seoTitle = product.title;
-    const seoDesc = (product.description + " Print UV, finisaje incluse, livrare rapidă 24-48h.").substring(0, 160);
+    const seoDesc = (product.description + " Print UV, finisaje incluse, livrare rapidă 2-4 zile lucrătoare.").substring(0, 160);
 
     return {
         title: seoTitle,

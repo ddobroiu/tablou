@@ -18,8 +18,7 @@ import {
 } from "@/lib/pricing";
 
 const GALLERY_BASE = [
-    "/products/pliante/pliante-1.webp",
-    "/products/pliante/pliante-2.webp"
+    "/products/pliante/pliante-1.webp"
 ] as const;
 
 const productFaqs: QA[] = [

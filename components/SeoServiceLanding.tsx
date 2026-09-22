@@ -171,7 +171,7 @@ export function SeoServiceLanding({ service }: SeoServiceLandingProps) {
 
                     <div className="space-y-4 px-4">
                         {[
-                            { q: `Care este timpul de execuție pentru ${service.name.toLowerCase()}?`, a: "Majoritatea serviciilor noastre sunt finalizate în 24-48 de ore de la confirmarea bunului de tipar (BT), în funcție de volumul comenzii." },
+                            { q: `Care este timpul de execuție pentru ${service.name.toLowerCase()}?`, a: "Majoritatea serviciilor noastre sunt finalizate în 2-4 zile lucrătoare de la confirmarea bunului de tipar (BT), în funcție de volumul comenzii." },
                             { q: "Pot trimite grafica mea proprie?", a: "Absolut! În configurator poți încărca direct fișierul tău (PDF, TIFF, JPG la 300dpi). Dacă ai nevoie de ajustări, echipa noastră DTP te poate ajuta pe WhatsApp." },
                             { q: "Oferiți factură pentru firme?", a: "Toate comenzile sunt însoțite de factură fiscală. Poți introduce datele firmei tale direct la finalizarea comenzii în platformă." },
                             { q: "Cum se face livrarea produselor?", a: "Livrăm oriunde în România prin curierat rapid (Fan Courier sau SameDay). Produsele sunt ambalate în tuburi rigide sau cutii de protecție pentru a evita orice deteriorare." }

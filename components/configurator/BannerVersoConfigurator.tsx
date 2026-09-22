@@ -143,7 +143,7 @@ export default function BannerVersoConfigurator({ productSlug, initialWidth: ini
     const [lengthText, setLengthText] = useState(input.width_cm ? String(input.width_cm) : "");
     const [heightText, setHeightText] = useState(input.height_cm ? String(input.height_cm) : "");
 
-    const galleryImages = useMemo(() => productImage ? [productImage, "/products/banner/verso/banner-verso-1.webp", "/products/banner/verso/banner-verso-2.webp", "/products/banner/verso/banner-verso-3.webp"] : ["/products/banner/verso/banner-verso-1.webp", "/products/banner/verso/banner-verso-2.webp", "/products/banner/verso/banner-verso-3.webp", "/products/banner/verso/banner-verso-4.webp"], [productImage]);
+    const galleryImages = useMemo(() => productImage ? [productImage, "/products/banner/verso/banner-verso-1.webp"] : ["/products/banner/verso/banner-verso-1.webp"], [productImage]);
 
     const [viewMode, setViewMode] = useState<ViewMode>('gallery');
 

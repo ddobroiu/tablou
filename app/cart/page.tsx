@@ -10,7 +10,7 @@ import { getEstimatedShippingCost } from "@/lib/shippingUtils";
 const DEFAULT_IMAGES: Record<string, string> = {
     'canvas': '/products/canvas/canvas-1.webp',
     'banner': '/products/banner/banner-1.webp',
-    'banner-verso': '/products/banner/banner-2.webp',
+    'banner-verso': '/products/banner/verso/banner-verso-1.webp',
     'mesh': '/products/mesh/mesh_publicitar_personalizat.jpg',
     'autocolante': '/products/autocolante/autocolante-1.webp',
     'afise': '/products/afise/afise-1.webp',

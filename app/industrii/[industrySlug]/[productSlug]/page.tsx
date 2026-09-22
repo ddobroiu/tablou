@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<{ industryS
     if (!ind || !prod) return {};
 
     const title = `${prod.name} pentru ${ind.name.split(' (')[0]} | Tablou`;
-    const description = `Comandă ${prod.name.toLowerCase()} personalizate special pentru ${ind.name.split(' (')[0]}. Producție rapidă 24-48h, calitate UV și prețuri de producător.`;
+    const description = `Comandă ${prod.name.toLowerCase()} personalizate special pentru ${ind.name.split(' (')[0]}. Producție rapidă 2-4 zile lucrătoare, calitate UV și prețuri de producător.`;
 
     return {
         title,
@@ -104,7 +104,7 @@ export default async function IndustryProductPage({ params }: { params: Promise<
                                 <span className="text-emerald-500 italic">pentru {industryName}</span>
                             </h1>
                             <p className="text-xl text-slate-500 mb-10 leading-relaxed">
-                                {spintax(`{Realizăm|Producem|Oferim} ${productName.toLowerCase()} {premium|de calitate superioară|personalizate} adaptate {perfect|ideal} pentru cerințele sectorului ${industryName}. {Livrare rapidă în 24-48h direct din producția noastră.|Comandă online și beneficiezi de prețuri de producător.}`, seed)}
+                                {spintax(`{Realizăm|Producem|Oferim} ${productName.toLowerCase()} {premium|de calitate superioară|personalizate} adaptate {perfect|ideal} pentru cerințele sectorului ${industryName}. {Livrare rapidă în 2-4 zile lucrătoare direct din producția noastră.|Comandă online și beneficiezi de prețuri de producător.}`, seed)}
                             </p>
                             
                             <div className="flex flex-col sm:flex-row gap-4">

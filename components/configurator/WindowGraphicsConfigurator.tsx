@@ -17,8 +17,7 @@ import {
 } from "@/lib/pricing";
 
 const GALLERY_BASE = [
-    "/products/window-graphics/window-graphics-1.webp",
-    "/products/window-graphics/window-graphics-2.webp"
+    "/products/window-graphics/window-graphics-1.webp"
 ] as const;
 
 const productFaqs: QA[] = [

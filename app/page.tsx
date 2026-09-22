@@ -363,7 +363,7 @@ export default function Home() {
                 <h2 className="font-[family-name:var(--font-fraunces)] text-2xl md:text-3xl text-stone-900">Livrăm în toată România, ambalat ca pentru cadou</h2>
               </div>
               <p className="text-stone-600 leading-relaxed">
-                Tablourile pleacă din atelierul nostru din județul Buzău prin curier, cu colțare de protecție și folie, către orice reședință de județ și toate sectoarele Bucureștiului. Livrare {siteConfig.shipping.standardDelivery.price} lei, gratuită peste 500 lei, în 24-48h după ce iese din producție.
+                Tablourile pleacă din atelierul nostru din județul Buzău prin curier, cu colțare de protecție și folie, către orice reședință de județ și toate sectoarele Bucureștiului. Livrare {siteConfig.shipping.standardDelivery.price} lei, gratuită peste 500 lei, în 2-4 zile lucrătoare după ce iese din producție.
               </p>
             </div>
             <div className="lg:col-span-5">

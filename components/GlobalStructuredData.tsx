@@ -101,7 +101,7 @@ export default function GlobalStructuredData() {
             "name": `Care este timpul de execuție pentru ${lastSlug}?`,
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Executăm comenzile în 24-48 de ore lucrătoare de la confirmarea graficii, utilizând echipamente HP Latex / UV de ultimă generație."
+              "text": "Executăm comenzile în 2-4 zile lucrătoare lucrătoare de la confirmarea graficii, utilizând echipamente HP Latex / UV de ultimă generație."
             }
           },
           {

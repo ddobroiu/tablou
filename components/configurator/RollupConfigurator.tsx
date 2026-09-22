@@ -18,8 +18,7 @@ import {
 import { PopularDimensions } from "./PopularDimensions";
 
 const GALLERY_BASE = [
-    "/products/rollup/rollup-1.webp",
-    "/products/rollup/rollup-2.webp"
+    "/products/rollup/rollup-1.webp"
 ] as const;
 
 const productFaqs: QA[] = [

@@ -24,10 +24,7 @@ import {
 } from "@/lib/pricing";
 
 const GALLERY_BASE = [
-  "/products/autocolante/autocolante-1.webp",
-  "/products/autocolante/autocolante-2.webp",
-  "/products/autocolante/autocolante-3.webp",
-  "/products/autocolante/autocolante-4.webp"
+  "/products/autocolante/autocolante-1.webp"
 ] as const;
 
 /* --- FAQs SPECIFIC PRODUSULUI --- */

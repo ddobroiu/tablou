@@ -208,7 +208,7 @@ export default function ProductVariantSelector({
                             <div className="inline-flex items-center gap-6 px-4 py-2 bg-slate-50 rounded-full border border-slate-100">
                                 <div className="flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-wide">
                                     <Check size={14} className="text-emerald-500 stroke-[3]" />
-                                    <span>Livrare 24-48h</span>
+                                    <span>Livrare 2-4 zile lucrătoare</span>
                                 </div>
                                 <div className="w-px h-3 bg-slate-300" />
                                 <div className="flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-wide">

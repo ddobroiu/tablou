@@ -20,10 +20,7 @@ import {
 } from "@/lib/pricing";
 
 const GALLERY = [
-  "/products/rollup/rollup-1.webp",
-  "/products/rollup/rollup-2.webp",
-  "/products/rollup/rollup-3.webp",
-  "/products/rollup/rollup-4.webp"
+  "/products/rollup/rollup-1.webp"
 ] as const;
 
 /* --- UI COMPONENTS --- */

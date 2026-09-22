@@ -23,10 +23,7 @@ import {
 } from "@/lib/pricing";
 
 const GALLERY = [
-  "/products/pliante/pliante-1.webp",
-  "/products/pliante/pliante-2.webp",
-  "/products/pliante/pliante-3.webp",
-  "/products/pliante/pliante-4.webp"
+  "/products/pliante/pliante-1.webp"
 ] as const;
 
 /* --- UI COMPONENTS --- */
@@ -76,7 +73,7 @@ type Props = { productSlug?: string; initialWidth?: number; initialHeight?: numb
 /* --- MAIN COMPONENT --- */
 export default function PlianteConfigurator({ productSlug, productImage }: Props) {
   const { addItem } = useCart();
-  const GALLERY = useMemo(() => productImage ? [productImage, "/products/pliante/pliante-1.webp", "/products/pliante/pliante-2.webp", "/products/pliante/pliante-3.webp"] : ["/products/pliante/pliante-1.webp", "/products/pliante/pliante-2.webp", "/products/pliante/pliante-3.webp", "/products/pliante/pliante-4.webp"], [productImage]);
+  const GALLERY = useMemo(() => productImage ? [productImage, "/products/pliante/pliante-1.webp"] : ["/products/pliante/pliante-1.webp"], [productImage]);
   const [weight, setWeight] = useState<PlianteWeightKey>("115");
   const [quantity, setQuantity] = useState<number>(MIN_QTY);
   const [fold, setFold] = useState<PlianteFoldType>("simplu");

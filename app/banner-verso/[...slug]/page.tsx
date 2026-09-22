@@ -44,7 +44,7 @@ export default async function Page({ params }: Props) {
 
   // LOGICA IMAGINE ROBUSTĂ
   const slugKey = String(product.slug ?? product.id ?? "").toLowerCase();
-  const genericSet = new Set<string>(["/products/banner/banner-1.webp","/products/banner/banner-2.webp","/products/banner/banner-3.webp","/products/banner/banner-4.webp","/placeholder.png"]);
+  const genericSet = new Set<string>(["/products/banner/banner-1.webp","/placeholder.png"]);
   const imgs = product.images ?? [];
   let img = imgs.find((x) => !!x && slugKey && x.toLowerCase().includes(slugKey));
   if (!img) img = imgs.find((x) => !!x && !genericSet.has(x.toLowerCase())) ?? imgs[0] ?? "/products/banner/banner-1.webp";

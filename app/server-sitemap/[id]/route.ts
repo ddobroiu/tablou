@@ -1,6 +1,8 @@
 import { LOCS_PER_SITEMAP } from '@/lib/seo/sitemapPaging';
 import { getAllDimensionEntries, DIMENSION_URLS_PER_SITEMAP, DIMENSION_PRODUCT_IDS, dimensionUrl } from '@/lib/seo/dimensionPages';
 import { QTY_PRODUCTS, getAllQtyEntries, qtyUrl } from '@/lib/seo/quantityPages';
+import { COMPARISONS } from '@/lib/seo/comparisons';
+import { getAllJudetDimensionEntries, judetDimensionUrl } from '@/lib/seo/judetDimensionPages';
 import { bannerProducts } from '@/lib/products/banner-products';
 import { signageProducts } from '@/lib/products/signage-products';
 import canvasProductsRaw from '@/lib/products/canvas-products.json';
@@ -161,6 +163,17 @@ export async function GET(request: Request, props: any) {
             for (const prod of ind.recommendedProducts) {
                 xml += generateUrlNode(`${BASE_URL}/industrii/${ind.slug}/${prod}`, '0.7', 'weekly');
             }
+        }
+
+    } else if (id === 'judet-dimensiuni') {
+        for (const e of getAllJudetDimensionEntries()) {
+            xml += generateUrlNode(`${BASE_URL}${judetDimensionUrl(e.judetSlug, e.productId, e.w, e.h)}`, '0.5', 'monthly');
+        }
+
+    } else if (id === 'comparatii') {
+        xml += generateUrlNode(`${BASE_URL}/comparatii`, '0.6', 'monthly');
+        for (const c of COMPARISONS) {
+            xml += generateUrlNode(`${BASE_URL}/comparatii/${c.slug}`, '0.6', 'monthly');
         }
 
     } else if (id === 'preturi') {

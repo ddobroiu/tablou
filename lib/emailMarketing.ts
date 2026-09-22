@@ -30,7 +30,7 @@ export const MAIN_CONFIGURATORS = [
     title: 'Mesh publicitar',
     description: 'Microperforat, același preț/mp ca bannerul standard',
     url: '/configurator/mesh',
-    image: '/products/banner/banner-2.webp',
+    image: '/products/mesh/mesh_publicitar_personalizat.jpg',
     category: 'outdoor',
     startingPrice: 50,
     benefits: ['Permeabil la vânt', 'Tiv și capse incluse', 'Ideal fațade și garduri', 'Preț comparabil cu bannerul 440g']

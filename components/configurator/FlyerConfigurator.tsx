@@ -16,8 +16,7 @@ import {
 } from "@/lib/pricing";
 
 const GALLERY_BASE = [
-    "/products/flayere/flayere-1.webp",
-    "/products/flayere/flayere-2.webp"
+    "/products/flayere/flayere-1.webp"
 ] as const;
 
 const productFaqs: QA[] = [

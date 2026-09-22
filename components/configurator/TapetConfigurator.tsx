@@ -17,8 +17,7 @@ import {
 } from "@/lib/pricing";
 
 const GALLERY_BASE = [
-    "/products/tapet/tapet-1.webp",
-    "/products/tapet/tapet-2.webp"
+    "/products/tapet/tapet-1.webp"
 ] as const;
 
 const productFaqs: QA[] = [

@@ -73,7 +73,7 @@ const CANVAS_FAQS = [
   },
   {
     q: "Cât durează producția și livrarea?",
-    a: "Pânza se întinde manual, deci producția durează aproximativ 24h lucrătoare, plus livrarea prin curier — de regulă tabloul ajunge acasă în 24-48h. Pentru un eveniment programat (nuntă, aniversare), recomandăm să comanzi cu cel puțin 4-5 zile lucrătoare înainte."
+    a: "Pânza se întinde manual, deci producția durează aproximativ 24h lucrătoare, plus livrarea prin curier — de regulă tabloul ajunge acasă în 2-4 zile lucrătoare. Pentru un eveniment programat (nuntă, aniversare), recomandăm să comanzi cu cel puțin 4-5 zile lucrătoare înainte."
   },
   {
     q: "Cum întrețin și curăț un tablou canvas?",

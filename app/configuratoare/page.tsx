@@ -119,7 +119,7 @@ export default function ConfiguratoarePage() {
                                 <Box size={32} />
                             </div>
                             <h4 className="text-2xl font-black mb-4">Livrare Rapidă</h4>
-                            <p className="text-slate-400">Toate comenzile sunt expediate prin DPD Express în 24-48 de ore de la comandă.</p>
+                            <p className="text-slate-400">Toate comenzile sunt expediate prin DPD Express în 2-4 zile lucrătoare de la comandă.</p>
                         </div>
                     </div>
                 </div>

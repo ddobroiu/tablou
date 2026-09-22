@@ -20,10 +20,7 @@ import {
 } from "@/lib/pricing";
 
 const GALLERY = [
-  "/products/window-graphics/window-graphics-1.webp",
-  "/products/window-graphics/window-graphics-2.webp",
-  "/products/window-graphics/window-graphics-3.webp",
-  "/products/window-graphics/window-graphics-4.webp"
+  "/products/window-graphics/window-graphics-1.webp"
 ] as const;
 
 /* --- UI COMPONENTS --- */

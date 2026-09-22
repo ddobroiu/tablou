@@ -28,7 +28,7 @@ export const configuratorProducts: ConfiguratorProduct[] = [
         routeSlug: "configurator/banner-verso",
         title: "Print Banner Față-Verso",
         description: "Banner cu print pe ambele fețe (Blockout). Ideal pentru expunere stradală vizibilă din ambele sensuri.",
-        image: "/products/banner/banner-2.webp",
+        image: '/products/banner/banner-1.webp',
         price: "De la 55 LEI/mp",
         category: "Configuratoare",
         tags: ["banner", "double sided", "blockout", "configurator"]
@@ -160,7 +160,7 @@ export const configuratorProducts: ConfiguratorProduct[] = [
         routeSlug: "configurator/materiale/carton",
         title: "Display Carton (Ondulat & Fagure)",
         description: "Comandă plăci din carton ondulat sau fagure personalizate. Imprimare UV de înaltă calitate, tăiere la dimensiune. Soluții eco-friendly.",
-        image: "/products/banner/banner-2.webp", // Fallback, will ideally use their specific folder if exists
+        image: '/products/master/panouri-carton-plume-foam-board-personalizat.png', // Fallback, will ideally use their specific folder if exists
         price: "De la 25 LEI",
         category: "Configuratoare",
         tags: ["carton", "fagure", "eco", "configurator"]

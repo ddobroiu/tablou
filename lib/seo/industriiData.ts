@@ -68,7 +68,7 @@ export const INDUSTRIE_DATA: IndustryData[] = [
         longDescription: 'Fie că participi la un târg internațional sau organizezi o lansare de produs, prezența ta trebuie să fie impecabilă. Tablou oferă sisteme retractabile portabile și printuri de mari dimensiuni cu montaj ușor.',
         benefits: [
             'Sisteme ușoare și portabile cu geantă inclusă',
-            'Timp de producție record (24-48h)',
+            'Timp de producție record (2-4 zile lucrătoare)',
             'Print pe materiale "No-Curl" care nu se ondulează',
             'Personalizare 100% pe orice dimensiune'
         ],

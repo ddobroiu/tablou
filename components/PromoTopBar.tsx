@@ -20,7 +20,7 @@ export default function PromoTopBar() {
                         <span className="font-bold text-white">NOU</span>
                     </span>
                     <span>
-                        Livrăm oriunde în țară în 24-48h!
+                        Livrăm oriunde în țară în 2-4 zile lucrătoare!
                         <span className="hidden sm:inline text-emerald-300 mx-2">•</span>
                         <span className="hidden sm:inline">Transport Gratuit la peste 500 Lei</span>
                     </span>

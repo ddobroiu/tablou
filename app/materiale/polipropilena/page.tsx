@@ -48,7 +48,7 @@ export default function PolipropilenaPage() {
                         },
                         {
                             question: "Cât durează comanda?",
-                            answer: "Producție rapidă prin print UV, livrare prin curier de regulă în 24-48h — bun de planificat cu câteva zile înainte de eveniment."
+                            answer: "Producție rapidă prin print UV, livrare prin curier de regulă în 2-4 zile lucrătoare — bun de planificat cu câteva zile înainte de eveniment."
                         }
                     ]}
                 />
@@ -121,7 +121,7 @@ export default function PolipropilenaPage() {
                                     },
                                     {
                                         q: "Cât durează comanda?",
-                                        a: "Producție rapidă prin print UV, livrare prin curier de regulă în 24-48h — bun de planificat cu câteva zile înainte de eveniment."
+                                        a: "Producție rapidă prin print UV, livrare prin curier de regulă în 2-4 zile lucrătoare — bun de planificat cu câteva zile înainte de eveniment."
                                     }
                                 ].map((faq, idx) => (
                                     <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">

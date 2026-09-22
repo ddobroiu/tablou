@@ -8,7 +8,7 @@ import { SeoDimensionsLinks } from '@/components/SeoDimensionsLinks';
 
 export const metadata: Metadata = {
   title: 'Banner Personalizat pentru Orice Ocazie - Configurator Online | Tablou',
-  description: 'Bannere personalizate pentru evenimente, aniversări, deschideri de afacere sau reclame — configurezi online, alegi dimensiunea, vezi prețul instant. Livrare 24-48h.',
+  description: 'Bannere personalizate pentru evenimente, aniversări, deschideri de afacere sau reclame — configurezi online, alegi dimensiunea, vezi prețul instant. Livrare 2-4 zile lucrătoare.',
   keywords: ['banner personalizat', 'banner eveniment', 'banner aniversare', 'configurator banner online', 'tablou'],
   alternates: {
     canonical: '/configurator/banner',
@@ -58,7 +58,7 @@ export default function BannerPage() {
           },
           {
             question: "În câte zile îl primesc, dacă am eveniment în weekend?",
-            answer: "Producția e rapidă (cerneala UV se usucă instant), iar livrarea prin curier durează de regulă 24-48h de la aprobarea designului — planifică-ți comanda cu câteva zile înainte de eveniment, ca să ai rezervă de timp."
+            answer: "Producția e rapidă (cerneala UV se usucă instant), iar livrarea prin curier durează de regulă 2-4 zile lucrătoare de la aprobarea designului — planifică-ți comanda cu câteva zile înainte de eveniment, ca să ai rezervă de timp."
           }
         ]}
       />
@@ -131,7 +131,7 @@ export default function BannerPage() {
                 },
                 {
                   q: "În câte zile îl primesc, dacă am eveniment în weekend?",
-                  a: "Producția e rapidă (cerneala UV se usucă instant), iar livrarea prin curier durează de regulă 24-48h de la aprobarea designului — planifică-ți comanda cu câteva zile înainte de eveniment, ca să ai rezervă de timp."
+                  a: "Producția e rapidă (cerneala UV se usucă instant), iar livrarea prin curier durează de regulă 2-4 zile lucrătoare de la aprobarea designului — planifică-ți comanda cu câteva zile înainte de eveniment, ca să ai rezervă de timp."
                 }
               ].map((faq, idx) => (
                 <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">

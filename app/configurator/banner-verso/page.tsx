@@ -101,7 +101,7 @@ export default function BannerVersoPage() {
                                     },
                                     {
                                         q: "Cât durează comanda?",
-                                        a: "Producție de regulă în 24-48h lucrătoare, plus livrarea prin curier — planifică din timp dacă ai un eveniment cu dată fixă."
+                                        a: "Producție de regulă în 2-4 zile lucrătoare, plus livrarea prin curier — planifică din timp dacă ai un eveniment cu dată fixă."
                                     }
                                 ].map((faq, idx) => (
                                     <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
@@ -129,7 +129,7 @@ export default function BannerVersoPage() {
                         },
                         {
                             question: "Cât durează comanda?",
-                            answer: "Producție de regulă în 24-48h lucrătoare, plus livrarea prin curier — planifică din timp dacă ai un eveniment cu dată fixă."
+                            answer: "Producție de regulă în 2-4 zile lucrătoare, plus livrarea prin curier — planifică din timp dacă ai un eveniment cu dată fixă."
                         }
                     ]}
                 />

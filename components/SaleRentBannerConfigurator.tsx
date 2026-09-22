@@ -503,7 +503,7 @@ export default function SaleRentBannerConfigurator({ product }: Props) {
                             </>
                         )}
                         {activeTab === "recenzii" && <Reviews productSlug={product.slug} />}
-                        {activeTab === "faq" && <FaqAccordion qa={[{ question: "Cât durează livrarea?", answer: "De obicei 24-48h lucrătoare." }]} />}
+                        {activeTab === "faq" && <FaqAccordion qa={[{ question: "Cât durează livrarea?", answer: "De obicei 2-4 zile lucrătoare." }]} />}
                     </div>
                 </div>
 

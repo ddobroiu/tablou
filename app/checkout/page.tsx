@@ -529,11 +529,6 @@ export default function CheckoutPage() {
           ...(newErrors.billing ?? {}),
           cui: "CUI este obligatoriu.",
         };
-      if (!sanitizeString(billing.regCom))
-        newErrors.billing = {
-          ...(newErrors.billing ?? {}),
-          regCom: "Nr. Reg. Com. este obligatoriu.",
-        };
     }
 
     if (!acceptTerms) {
