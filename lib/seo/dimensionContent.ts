@@ -80,7 +80,6 @@ const PRODUCTS: Record<string, ProductInfo> = {
         mounting: [
             "Pe cadru sau gard: prin capse, cu coliere de plastic sau sârmă, întins pe toate laturile.",
             "Pe perete: cu tub metalic sus și jos (buzunar cusut) sau cu șuruburi și șaibe late prin capse.",
-            "Temporar, la interior: bandă dublu adezivă pe spatele bannerului fără finisaje.",
         ],
         delivery: (w, h) => (Math.max(w, h) >= 300 ? "în sul, ca să nu se cuteze printul" : "pliat, într-un colet compact"),
     },

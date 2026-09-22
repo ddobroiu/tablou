@@ -77,15 +77,15 @@ export function getVariants(productId: string): PriceVariant[] {
         case "banner":
             return [
                 {
-                    key: "frontlit-440", label: "Frontlit 440 g/m², fără finisaje", recommended: true,
-                    total: (w, h, q) => calculateBannerPrice({ width_cm: w, height_cm: h, quantity: q, material: "frontlit_440", banner_type: "single", want_wind_holes: false, want_hem_and_grommets: false, designOption: "upload" }).finalPrice,
-                },
-                {
-                    key: "frontlit-440-capse", label: "Frontlit 440 g/m², tiv și capse", note: "+10% față de varianta fără finisaje",
+                    key: "frontlit-440", label: "Frontlit 440 g/m², tiv și capse incluse", recommended: true,
                     total: (w, h, q) => calculateBannerPrice({ width_cm: w, height_cm: h, quantity: q, material: "frontlit_440", banner_type: "single", want_wind_holes: false, want_hem_and_grommets: true, designOption: "upload" }).finalPrice,
                 },
                 {
-                    key: "frontlit-510-capse", label: "Frontlit 510 g/m², tiv și capse", note: "material premium, 12-24 luni la exterior",
+                    key: "frontlit-440-vant", label: "Frontlit 440 g/m², tiv și capse, cu găuri de vânt", note: "+10%",
+                    total: (w, h, q) => calculateBannerPrice({ width_cm: w, height_cm: h, quantity: q, material: "frontlit_440", banner_type: "single", want_wind_holes: true, want_hem_and_grommets: true, designOption: "upload" }).finalPrice,
+                },
+                {
+                    key: "frontlit-510", label: "Frontlit 510 g/m², tiv și capse incluse", note: "material premium, 12-24 luni la exterior",
                     total: (w, h, q) => calculateBannerPrice({ width_cm: w, height_cm: h, quantity: q, material: "frontlit_510", banner_type: "single", want_wind_holes: false, want_hem_and_grommets: true, designOption: "upload" }).finalPrice,
                 },
             ];

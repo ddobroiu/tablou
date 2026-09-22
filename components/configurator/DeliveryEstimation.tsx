@@ -23,13 +23,13 @@ export default function DeliveryEstimation({ county }: Props) {
                 if (data.ok && data.label) {
                     setLabel(data.label);
                 } else {
-                    setLabel("3-4 zile lucrătoare");
+                    setLabel("2-4 zile lucrătoare");
                 }
                 setLoading(false);
             })
             .catch((err) => {
                 if (err.name !== "AbortError") {
-                    setLabel("3-5 zile lucrătoare");
+                    setLabel("2-4 zile lucrătoare");
                 }
                 setLoading(false);
             });
