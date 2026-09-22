@@ -30,6 +30,7 @@ const GUIDE_LINKS = [
     { href: "/stil", label: "Stiluri de tablouri" },
     { href: "/judet", label: "Livrare pe județe" },
     { href: "/dimensiuni", label: "Prețuri pe dimensiuni" },
+    { href: "/preturi", label: "Prețuri pe cantități" },
     { href: "/sectoare-bucuresti", label: "Sectoare București" },
 ];
 
@@ -146,7 +147,7 @@ function FooterColumn({ title, links }: { title: string; links: { href: string; 
         <div className="lg:col-span-2">
             <h4 className="text-stone-900 text-xs font-bold uppercase tracking-widest mb-4">{title}</h4>
             <ul className="space-y-1.5 text-[13px]">
-                {[...links.filter((l) => l.href === "/judet" || l.href === "/dimensiuni"), ...links.filter((l) => l.href !== "/judet" && l.href !== "/dimensiuni")].slice(0, 6).map((l) => (
+                {[...links.filter((l) => l.href === "/judet" || l.href === "/dimensiuni" || l.href === "/preturi"), ...links.filter((l) => l.href !== "/judet" && l.href !== "/dimensiuni" && l.href !== "/preturi")].slice(0, 6).map((l) => (
                     <li key={l.href}>
                         <Link href={l.href} className="hover:text-[#B8385A] transition-colors">
                             {l.label}

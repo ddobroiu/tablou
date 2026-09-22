@@ -1,5 +1,6 @@
 import { LOCS_PER_SITEMAP } from '@/lib/seo/sitemapPaging';
 import { getAllDimensionEntries, DIMENSION_URLS_PER_SITEMAP, DIMENSION_PRODUCT_IDS, dimensionUrl } from '@/lib/seo/dimensionPages';
+import { QTY_PRODUCTS, getAllQtyEntries, qtyUrl } from '@/lib/seo/quantityPages';
 import { bannerProducts } from '@/lib/products/banner-products';
 import { signageProducts } from '@/lib/products/signage-products';
 import canvasProductsRaw from '@/lib/products/canvas-products.json';
@@ -160,6 +161,16 @@ export async function GET(request: Request, props: any) {
             for (const prod of ind.recommendedProducts) {
                 xml += generateUrlNode(`${BASE_URL}/industrii/${ind.slug}/${prod}`, '0.7', 'weekly');
             }
+        }
+
+    } else if (id === 'preturi') {
+        // Pagini de preț pe cantitate (lib/seo/quantityPages.ts).
+        xml += generateUrlNode(`${BASE_URL}/preturi`, '0.7', 'monthly');
+        for (const p of QTY_PRODUCTS) {
+            xml += generateUrlNode(`${BASE_URL}/preturi/${p.slug}`, '0.6', 'monthly');
+        }
+        for (const e of getAllQtyEntries()) {
+            xml += generateUrlNode(`${BASE_URL}${qtyUrl(e.product, e.format, e.qty)}`, '0.5', 'monthly');
         }
 
     } else if (id && id.startsWith('dimensions-')) {

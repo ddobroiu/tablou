@@ -78,6 +78,7 @@ export default function DimensionsIndex() {
                             );
                         })}
                     </div>
+                    <div className="mt-10"><Link href="/preturi" className="font-bold text-emerald-700 hover:underline">Cauți prețul unui tiraj (500 flyere, 1000 cărți de vizită, 50 tricouri)? Vezi prețurile pe cantități →</Link></div>
                 </div>
             </section>
         </div>
