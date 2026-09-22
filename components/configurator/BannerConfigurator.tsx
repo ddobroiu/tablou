@@ -233,8 +233,8 @@ export default function BannerConfigurator({ productSlug, initialWidth: initW, i
             return [...MESH_GALLERY_IMAGES];
         }
         return productImage
-            ? [productImage, "/products/banner/banner-1.webp", "/products/banner/banner-2.webp", "/products/banner/banner-3.webp"]
-            : ["/products/banner/banner-1.webp", "/products/banner/banner-2.webp", "/products/banner/banner-3.webp", "/products/banner/banner-4.webp"];
+            ? [productImage, "/products/banner/banner-1.webp"]
+            : ["/products/banner/banner-1.webp"];
     }, [productImage, productKind]);
 
     const [viewMode, setViewMode] = useState<ViewMode>(() => {

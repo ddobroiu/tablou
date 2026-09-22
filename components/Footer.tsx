@@ -63,26 +63,24 @@ export default function Footer() {
         <footer className="bg-[#FBF7F2] text-stone-600 relative isolate border-t border-stone-200 overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#B8385A]/60 to-transparent" />
 
-            <div className="container mx-auto px-6 lg:px-12 !max-w-7xl py-14">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-12">
+            <div className="container mx-auto px-6 lg:px-12 !max-w-7xl py-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6 mb-8">
                     {/* Brand */}
-                    <div className="lg:col-span-4 flex flex-col gap-5">
+                    <div className="lg:col-span-4 flex flex-col gap-4">
                         <Link href="/" className="inline-block relative group">
-                            <div className="relative w-36 h-8 group-hover:opacity-80 transition-opacity duration-300">
+                            <div className="relative h-8 flex items-center">
                                 <Image
                                     src="/logo.png"
                                     alt="Tablou.net"
                                     width={144}
                                     height={32}
-                                    className="object-contain"
+                                    className="h-8 w-auto object-contain object-left"
                                     loading="lazy"
                                 />
                             </div>
                         </Link>
                         <p className="text-sm text-stone-600 leading-relaxed max-w-sm">
-                            Tablouri canvas din fotografiile tale: un tablou, colaj sau set de 3, cu șasiu de lemn inclus
-                            și poza verificată înainte de print. Același atelier din Buzău printează și fototapet, textile,
-                            afișe, bannere și panouri rigide, cu livrare în toată țara.
+                            Tablouri canvas din fotografiile tale, printate în atelier propriu și livrate în toată țara.
                         </p>
                         <div className="space-y-3 text-sm">
                             <a href={phoneHref} className="flex items-center gap-3 hover:text-stone-900 transition-colors">
@@ -131,10 +129,10 @@ export default function Footer() {
                     </p>
                     <div className="flex items-center gap-2">
                         <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-                            <img src="/250x50_icon_ANPC-SAL.webp" alt="Soluționarea Alternativă a Litigiilor" width={200} height={40} className="h-10 w-auto" loading="lazy" />
+                            <img src="/250x50-icon-anpc-sal.webp" alt="Soluționarea Alternativă a Litigiilor" width={200} height={40} className="h-10 w-auto" loading="lazy" />
                         </a>
                         <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-                            <img src="/250x50_icon_ANPC-SOL.webp" alt="Soluționarea Online a Litigiilor" width={200} height={40} className="h-10 w-auto" loading="lazy" />
+                            <img src="/250x50-icon-anpc-sol.webp" alt="Soluționarea Online a Litigiilor" width={200} height={40} className="h-10 w-auto" loading="lazy" />
                         </a>
                     </div>
                 </div>
@@ -147,8 +145,8 @@ function FooterColumn({ title, links }: { title: string; links: { href: string; 
     return (
         <div className="lg:col-span-2">
             <h4 className="text-stone-900 text-xs font-bold uppercase tracking-widest mb-4">{title}</h4>
-            <ul className="space-y-2.5 text-sm">
-                {links.map((l) => (
+            <ul className="space-y-1.5 text-[13px]">
+                {[...links.filter((l) => l.href === "/judet" || l.href === "/dimensiuni"), ...links.filter((l) => l.href !== "/judet" && l.href !== "/dimensiuni")].slice(0, 6).map((l) => (
                     <li key={l.href}>
                         <Link href={l.href} className="hover:text-[#B8385A] transition-colors">
                             {l.label}
