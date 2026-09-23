@@ -13,6 +13,20 @@ import RelatedProducts from "./RelatedProducts";
 import QuickNav from "@/components/QuickNav";
 import { formatMoneyDisplay, calculateBannerPrice, getBannerUpsell, BANNER_CONSTANTS, type PriceInputBanner, roundMoney } from "@/lib/pricing";
 
+/** "100x50cm" -> 100 x 50 cm; "1x0.5m" / "0-5m-x-1m" -> 100 x 50 cm. Sub 10 fara "cm" = metri. */
+function parseVariantSizeCm(size: string): { width_cm: number; height_cm: number } {
+    const raw = String(size || "").toLowerCase().trim();
+    const isCm = /cm/.test(raw);
+    const s = raw.replace(/cm|m/g, "").replace(/\s/g, "").replace(/-x-/g, "x").replace(/-x/g, "x").replace(/x-/g, "x");
+    const [wPart, hPart] = s.split("x");
+    if (!wPart || !hPart) return { width_cm: 0, height_cm: 0 };
+    let w = parseFloat(wPart.replace(/-/g, "."));
+    let h = parseFloat(hPart.replace(/-/g, "."));
+    if (!isFinite(w) || !isFinite(h)) return { width_cm: 0, height_cm: 0 };
+    if (!isCm && w < 10 && h < 10) { w *= 100; h *= 100; }
+    return { width_cm: Math.round(w), height_cm: Math.round(h) };
+}
+
 const AccordionStep = ({ stepNumber, title, summary, isOpen, onClick, children, isLast = false }: { stepNumber: number; title: string; summary: string; isOpen: boolean; onClick: () => void; children: React.ReactNode; isLast?: boolean; }) => (
     <div className="relative pl-12">
         <div className="absolute top-5 left-0 flex flex-col items-center h-full">
@@ -105,34 +119,7 @@ export default function SaleRentBannerConfigurator({ product }: Props) {
     const priceData = useMemo(() => {
         if (!selectedVariant) return { finalPrice: 0, oldTotalPrice: 0, discountPercent: 0, upsellMessage: null as string | null };
 
-        let width_cm = 0;
-        let height_cm = 0;
-
-        // Robust parser for size strings like "1x0.5m", "0-5m-x-1m", "1m-x-2m"
-        try {
-            // Remove 'm' and spaces
-            let s = selectedVariant.size.toLowerCase().replace(/[m\s]/g, '');
-
-            // Should now look like "0-5-x-1" or "1x0.5" or "1-x-2"
-
-            // Split by 'x' (handling -x-, x, etc)
-            // If we have "-x-", replace it with "x" first
-            s = s.replace(/-x-/g, 'x').replace(/-x/g, 'x').replace(/x-/g, 'x');
-
-            const [wPart, hPart] = s.split('x');
-
-            if (wPart && hPart) {
-                // Now we might have "0-5" (meaning 0.5) or "1" or "1-5" (1.5)
-                // Replace remaining dashes with dots
-                const wClean = wPart.replace(/-/g, '.');
-                const hClean = hPart.replace(/-/g, '.');
-
-                width_cm = parseFloat(wClean) * 100;
-                height_cm = parseFloat(hClean) * 100;
-            }
-        } catch (e) {
-            console.error("Error parsing dimensions:", selectedVariant.size);
-        }
+        const { width_cm, height_cm } = parseVariantSizeCm(selectedVariant.size);
 
         const input: PriceInputBanner = {
             width_cm,
