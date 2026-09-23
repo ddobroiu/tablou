@@ -27,7 +27,7 @@ export default function TermeniPage() {
 
                 <h2 className="text-xl font-semibold mt-6 mb-2">2. Comenzi și livrare</h2>
                 <p className="text-slate-600 dark:text-slate-400 mb-4">
-                    Termenul standard de livrare este 24–48h din momentul confirmării comenzii. Livrarea se face prin DPD România. Tablou.net nu este responsabil pentru întârzierile datorate firmelor de curierat.
+                    Termenul standard de producție este de 2-4 zile lucrătoare de la confirmarea comenzii, la care se adaugă timpul de livrare prin curier. Livrarea se face prin DPD România. Tablou.net nu este responsabil pentru întârzierile datorate firmelor de curierat.
                 </p>
 
                 <h2 className="text-xl font-semibold mt-6 mb-2">3. Plată și facturare</h2>

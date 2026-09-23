@@ -157,7 +157,7 @@ export function SeoRegulatoryLanding({ data }: SeoRegulatoryLandingProps) {
                             { q: `Este materialul conform cu ${data.lawReference}?`, a: `Da, folosim exclusiv standardele cromatice și simbolurile ISO impuse de ${data.lawReference}. Panourile rezultate sunt gata pentru inspecțiile oficiale.` },
                             { q: "Ce grosime ar trebui să aleg pentru un panou de șantier?", a: "Legea recomandă o vizibilitate sporită. Recomandăm PVC de 5mm pentru panouri sub 1 metru și Banner 510g pentru dimensiuni mai mari (mash-uri)." },
                             { q: "Oferiți și servicii de instalare?", a: "Produsele noastre vin cu soluție de fixare rapidă inclusă (bandă dublu-adezivă profesională). Pentru sisteme complexe, livrăm toate accesoriile necesare." },
-                            { q: "Cât de repede primesc panourile în caz de control?", a: "Dacă grafica este confirmată urgent, producția poate fi finalizată în 24 de ore, asigurând livrarea rapidă prin curier." }
+                            { q: "Cât de repede primesc panourile în caz de control?", a: "Dacă grafica este confirmată urgent, producția durează 2-4 zile lucrătoare, iar livrarea se face prin curier." }
                         ].map((faq, i) => (
                             <div key={i} className="bg-slate-50 p-8 rounded-2xl border border-slate-100 group hover:border-emerald-200 transition-all">
                                 <h4 className="text-base font-black text-slate-900 mb-4 flex items-start gap-3 uppercase tracking-tight italic">

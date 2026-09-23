@@ -80,7 +80,7 @@ export function SeoDimensionLanding({ productId, productName, w, h }: SeoDimensi
         },
         {
             question: `În cât timp este gata comanda pentru formatul ${w}x${h} cm?`,
-            answer: spintax(`{Orice ${productName.toLowerCase()} de ${w}x${h} cm intră în producție imediat după confirmarea graficii.|Termenul de execuție pentru dimensiunea ${w}x${h} cm este de 24-48 ore lucrătoare.} {Livrarea se face prin curier rapid în toată România, astfel încât să primești pachetul cât mai repede.|Expediem rapid prin curier direct la adresa ta, oriunde în țară.}`, `${productId}-${w}x${h}-time`)
+            answer: spintax(`{Orice ${productName.toLowerCase()} de ${w}x${h} cm intră în producție imediat după confirmarea graficii.|Termenul de execuție pentru dimensiunea ${w}x${h} cm este de 2-4 zile lucrătoare.} {Livrarea se face prin curier rapid în toată România, astfel încât să primești pachetul cât mai repede.|Expediem rapid prin curier direct la adresa ta, oriunde în țară.}`, `${productId}-${w}x${h}-time`)
         },
         {
             question: `Ce rezoluție trebuie să aibă grafica pentru ${w}x${h} cm?`,
@@ -193,7 +193,7 @@ export function SeoDimensionLanding({ productId, productName, w, h }: SeoDimensi
                         <div className="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm flex flex-col justify-between aspect-square md:aspect-auto md:h-64">
                             <Truck size={32} className="text-emerald-500 mb-4" />
                             <div className="text-left">
-                                <h3 className="text-xl font-black text-slate-900 uppercase mb-2 leading-none tracking-tight">Livrăm în 24h</h3>
+                                <h3 className="text-xl font-black text-slate-900 uppercase mb-2 leading-none tracking-tight">Gata în 2-4 zile</h3>
                                 <p className="text-slate-400 text-xs font-medium leading-tight text-left">Producție accelerată pentru orice comandă plasată azi.</p>
                             </div>
                         </div>

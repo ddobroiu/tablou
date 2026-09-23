@@ -497,3 +497,21 @@ export const MARKETING_CONTENT: Record<string, { title: (product: string) => str
 export function getIntentSpec(productId: string, intent: string): IntentSpec | null {
     return INTENT_CONTENT[productId]?.[intent] ?? null;
 }
+
+/** Recunoaște un slug de forma "{produs}-{intenție}" (ex. "banner-de-vanzare", "canvas-nunta", "tricouri-ieftin"). */
+export function parseIntentSlug(slug: string): { productId: string; intent: string; intentLabel: string; productName: string } | null {
+    // importuri locale ca să evităm dependențe circulare la încărcare
+    const { PRODUCT_INTENTS, MARKETING_INTENTS, INTENT_LABELS } = require("./intents") as { PRODUCT_INTENTS: Record<string, string[]>; MARKETING_INTENTS: string[]; INTENT_LABELS: Record<string, string> };
+    const { CONFIGURATORS_REGISTRY } = require("@/lib/configurators-registry") as { CONFIGURATORS_REGISTRY: Array<{ id: string; name: string }> };
+    const s = String(slug || "").toLowerCase();
+    const ids = CONFIGURATORS_REGISTRY.map((c) => c.id).sort((a, b) => b.length - a.length);
+    for (const productId of ids) {
+        if (!s.startsWith(productId + "-")) continue;
+        const intent = s.slice(productId.length + 1);
+        const known = (PRODUCT_INTENTS[productId] ?? []).includes(intent) || MARKETING_INTENTS.includes(intent);
+        if (!known) continue;
+        const cfg = CONFIGURATORS_REGISTRY.find((c) => c.id === productId)!;
+        return { productId, intent, intentLabel: INTENT_LABELS[intent] ?? intent.replace(/-/g, " "), productName: cfg.name };
+    }
+    return null;
+}

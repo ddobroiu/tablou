@@ -56,7 +56,7 @@ export default function JudetePage() {
                         </div>
                         <div className="w-px h-4 bg-slate-200"></div>
                         <div className="text-slate-400 font-bold uppercase tracking-widest text-xs italic">
-                            Livrare în 24-48 ore
+                            Livrare în 2-4 zile lucrătoare
                         </div>
                     </div>
                 </div>

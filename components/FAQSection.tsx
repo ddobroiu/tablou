@@ -44,7 +44,7 @@ export default function FAQSection() {
     const faqs = [
         {
             question: "În cât timp livrați comanda?",
-            answer: "Termenul standard de producție este de 2-4 zile lucrătoare lucrătoare de la confirmarea bunului de tipar ('BT'). Livrarea prin curier mai durează, de regulă, încă 24 de ore. Pentru urgențe, scrie-ne pe WhatsApp!"
+            answer: "Termenul standard de producție este de 2-4 zile lucrătoare de la confirmarea bunului de tipar ('BT'). Livrarea prin curier mai durează, de regulă, încă 24 de ore. Pentru urgențe, scrie-ne pe WhatsApp!"
         },
         {
             question: "Cum trimit fișierele pentru print?",

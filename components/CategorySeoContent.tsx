@@ -150,7 +150,7 @@ export default function CategorySeoContent({ kind }: { kind: string }) {
       return (
         <div>
           <h2 className="text-xl font-semibold mb-2">Despre produs</h2>
-          <p className="mb-2">Configurează dimensiunile și opțiunile, încarcă fișierele și obține prețul instant. Livrare 24–48h.</p>
+          <p className="mb-2">Configurează dimensiunile și opțiunile, încarcă fișierele și obține prețul instant. Producție 2-4 zile lucrătoare, livrare prin curier.</p>
         </div>
       );
   }
