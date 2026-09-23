@@ -65,11 +65,13 @@ export async function captureDesign(
         ? computeExportPixelRatio(sizeCm)
         : Math.min(2, typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1);
 
-    const attemptCapture = (pixelRatio: number) =>
+    // skipFonts=false include fonturile web (Google Fonts, cu CORS) în export, ca textul
+    // printat să arate ca în editor; dacă embedding-ul eșuează, reîncercăm fără fonturi.
+    const attemptCapture = (pixelRatio: number, skipFonts = false) =>
         toPng(workspaceDiv, {
             pixelRatio,
             cacheBust: true,
-            skipFonts: true,
+            skipFonts,
             includeQueryParams: true,
             filter: (node) => {
                 if (!(node instanceof HTMLElement)) return true;
@@ -82,14 +84,19 @@ export async function captureDesign(
         try {
             dataUrl = await attemptCapture(targetPixelRatio);
         } catch (err) {
-            // Pe formate foarte mari, un canvas prea mare poate depăși limitele
-            // de memorie ale browserului (mai ales mobil) — reîncearcă la jumătate
-            // de rezoluție în loc să eșuăm direct.
-            if (targetPixelRatio > 1) {
-                console.warn('Capture at full resolution failed, retrying at half:', err);
-                dataUrl = await attemptCapture(Math.max(1, targetPixelRatio / 2));
-            } else {
-                throw err;
+            console.warn('Capture with embedded fonts failed, retrying without fonts:', err);
+            try {
+                dataUrl = await attemptCapture(targetPixelRatio, true);
+            } catch (err2) {
+                // Pe formate foarte mari, un canvas prea mare poate depăși limitele
+                // de memorie ale browserului (mai ales mobil) — reîncearcă la jumătate
+                // de rezoluție în loc să eșuăm direct.
+                if (targetPixelRatio > 1) {
+                    console.warn('Capture at full resolution failed, retrying at half:', err2);
+                    dataUrl = await attemptCapture(Math.max(1, targetPixelRatio / 2), true);
+                } else {
+                    throw err2;
+                }
             }
         }
 

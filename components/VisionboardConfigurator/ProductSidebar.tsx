@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import { ShoppingCart, Box, Eye, X, Ruler, Check, ArrowRight, PencilRuler } from 'lucide-react';
-import Script from 'next/script';
 import { ConfigElement } from './Configurator.types';
+import { EDITOR_PRODUCTS } from './SelectionStep';
 
 interface ProductSidebarProps {
     isMobile: boolean;
@@ -122,22 +122,7 @@ export const ProductSidebar: React.FC<ProductSidebarProps> = ({
                     overflowY: 'auto',
                     paddingRight: '0.5rem'
                 }}>
-                    {[
-                        { id: 'canvas', label: 'Tablou Canvas' },
-                        { id: 'banner', label: 'Banner Frontlit' },
-                        { id: 'banner-verso', label: 'Banner Față-Verso' },
-                        { id: 'afise', label: 'Afișe HD' },
-                        { id: 'rollup', label: 'Sisteme Roll-up' },
-                        { id: 'autocolante', label: 'Autocolante' },
-                        { id: 'window-graphics', label: 'Stickere Geam' },
-                        { id: 'tapet', label: 'Tapet Custom' },
-                        { id: 'plexiglass', label: 'Plexiglass (Acrylic)' },
-                        { id: 'forex', label: 'PVC Forex' },
-                        { id: 'polipropilena', label: 'Placă Polipropilenă' },
-                        { id: 'carton', label: 'Placă Carton' },
-                        { id: 'carti-vizita', label: 'Cărți de Vizită' },
-                        { id: 'tricouri', label: 'Tricouri / Textile' },
-                    ].map((p) => (
+                    {EDITOR_PRODUCTS.map((p) => (
                         <button
                             key={p.id}
                             onClick={() => setMaterial(p.id)}

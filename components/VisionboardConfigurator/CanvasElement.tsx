@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { X } from 'lucide-react';
 import { ConfigElement } from './Configurator.types';
+import { TEXT_PLACEHOLDER } from './Toolbar';
 
 interface CanvasElementProps {
     el: ConfigElement;
@@ -114,7 +115,7 @@ export const CanvasElement: React.FC<CanvasElementProps> = ({
                                 boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
                             }}
                             className="hover:bg-red-600 transition-colors"
-                            title="ș˜terge element"
+                            title="Șterge elementul"
                         >
                             <X size={14} strokeWidth={3} />
                         </button>
@@ -124,7 +125,17 @@ export const CanvasElement: React.FC<CanvasElementProps> = ({
                     <div
                         contentEditable
                         suppressContentEditableWarning
-                        onBlur={(e) => handleTextChange(el.id, e.currentTarget.textContent || '')}
+                        onBlur={(e) => handleTextChange(el.id, (e.currentTarget.textContent || '').trim() || TEXT_PLACEHOLDER)}
+                        onFocus={(e) => {
+                            if ((e.currentTarget.textContent || '').trim() === TEXT_PLACEHOLDER) {
+                                const range = document.createRange();
+                                range.selectNodeContents(e.currentTarget);
+                                const sel = window.getSelection();
+                                sel?.removeAllRanges();
+                                sel?.addRange(range);
+                            }
+                        }}
+                        onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); e.currentTarget.blur(); } }}
                         style={{
                             fontSize: `${el.fontSize || 24}px`,
                             color: el.color || '#000000',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Upload, Type, Image as ImageIcon, LayoutGrid, Sparkles, LayoutTemplate, Download } from 'lucide-react';
+import { Upload, Type, Image as ImageIcon, LayoutGrid, Sparkles, Download } from 'lucide-react';
 
 interface ToolbarProps {
     activeTool: string | null;
@@ -7,11 +7,14 @@ interface ToolbarProps {
     addElement: (type: 'image' | 'text', content: string) => void;
     isMobile: boolean;
     onExportSvgCut?: () => void;
+    /** Exportul SVG cu contur de tăiere e unealtă internă (producție), nu pentru clienți. */
+    isAdmin?: boolean;
 }
 
-export const Toolbar: React.FC<ToolbarProps> = ({ activeTool, setActiveTool, addElement, isMobile, onExportSvgCut }) => {
+export const TEXT_PLACEHOLDER = 'Scrie textul tău';
 
-    // Extracted logic for sidebar style
+export const Toolbar: React.FC<ToolbarProps> = ({ activeTool, setActiveTool, addElement, isMobile, onExportSvgCut, isAdmin }) => {
+
     const sidebarStyle: React.CSSProperties = isMobile ? {
         display: 'flex',
         flexDirection: 'row',
@@ -39,32 +42,34 @@ export const Toolbar: React.FC<ToolbarProps> = ({ activeTool, setActiveTool, add
 
     return (
         <aside style={sidebarStyle}>
-            <button className={`tool-btn ${activeTool === 'upload' ? 'active' : ''}`} title="Upload Image" onClick={() => setActiveTool(activeTool === 'upload' ? null : 'upload')}>
+            <button className={`tool-btn ${activeTool === 'upload' ? 'active' : ''}`} title="Încarcă poză" aria-label="Încarcă poză" onClick={() => setActiveTool(activeTool === 'upload' ? null : 'upload')}>
                 <Upload size={24} />
                 <span style={{ fontSize: '0.75rem', marginTop: '0.25rem' }}>Upload</span>
             </button>
-            <button className={`tool-btn ${activeTool === 'text' ? 'active' : ''}`} title="Add Text" onClick={() => addElement('text', 'Dublu click pentru editare')}>
+            <button className={`tool-btn ${activeTool === 'text' ? 'active' : ''}`} title="Adaugă text" aria-label="Adaugă text" onClick={() => addElement('text', TEXT_PLACEHOLDER)}>
                 <Type size={24} />
                 <span style={{ fontSize: '0.75rem', marginTop: '0.25rem' }}>Text</span>
             </button>
-            <button className={`tool-btn ${activeTool === 'bg' ? 'active' : ''}`} title="Background" onClick={() => setActiveTool(activeTool === 'bg' ? null : 'bg')}>
+            <button className={`tool-btn ${activeTool === 'bg' ? 'active' : ''}`} title="Fundal" aria-label="Fundal" onClick={() => setActiveTool(activeTool === 'bg' ? null : 'bg')}>
                 <ImageIcon size={24} />
                 <span style={{ fontSize: '0.75rem', marginTop: '0.25rem' }}>Fundal</span>
             </button>
 
-            <button className={`tool-btn ${activeTool === 'library' ? 'active' : ''}`} title="Library" onClick={() => setActiveTool(activeTool === 'library' ? null : 'library')}>
+            <button className={`tool-btn ${activeTool === 'library' ? 'active' : ''}`} title="Bibliotecă de imagini" aria-label="Bibliotecă de imagini" onClick={() => setActiveTool(activeTool === 'library' ? null : 'library')}>
                 <LayoutGrid size={24} />
                 <span style={{ fontSize: '0.75rem', marginTop: '0.25rem' }}>Bibliotecă</span>
             </button>
-            <button className={`tool-btn ${activeTool === 'elements' ? 'active' : ''}`} title="Elements" onClick={() => setActiveTool(activeTool === 'elements' ? null : 'elements')}>
+            <button className={`tool-btn ${activeTool === 'elements' ? 'active' : ''}`} title="Elemente și forme" aria-label="Elemente și forme" onClick={() => setActiveTool(activeTool === 'elements' ? null : 'elements')}>
                 <Sparkles size={24} />
                 <span style={{ fontSize: '0.75rem', marginTop: '0.25rem' }}>Elemente</span>
             </button>
 
-            <button className="tool-btn" title="Export SVG (CUT)" onClick={() => onExportSvgCut?.()}>
-                <Download size={24} />
-                <span style={{ fontSize: '0.75rem', marginTop: '0.25rem' }}>SVG CUT</span>
-            </button>
+            {isAdmin && (
+                <button className="tool-btn" title="Export SVG cu contur de tăiere (admin)" aria-label="Export SVG CUT" onClick={() => onExportSvgCut?.()}>
+                    <Download size={24} />
+                    <span style={{ fontSize: '0.75rem', marginTop: '0.25rem' }}>SVG CUT</span>
+                </button>
+            )}
 
             <style jsx>{`
                 .tool-btn {

@@ -405,3 +405,31 @@ input[type=number] {
   -webkit-text-fill-color: transparent !important;
   color: transparent !important;
 }
+
+/* Visionboard Text Effects — setul complet din PropertiesPanel */
+.effect-glow { text-shadow: 0 0 8px currentColor, 0 0 16px currentColor; }
+.effect-soft-glow { text-shadow: 0 0 12px rgba(255, 255, 255, 0.9), 0 0 24px rgba(255, 255, 255, 0.6); }
+.effect-outer-glow { text-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 20px #38bdf8, 0 0 40px #38bdf8; }
+.effect-gradient-sunset, .effect-gradient-ocean, .effect-rainbow, .effect-duotone, .effect-gold, .effect-metallic, .effect-vaporwave {
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+.effect-gradient-sunset { background-image: linear-gradient(90deg, #f97316, #ec4899, #8b5cf6); }
+.effect-gradient-ocean { background-image: linear-gradient(90deg, #0ea5e9, #06b6d4, #10b981); }
+.effect-rainbow { background-image: linear-gradient(90deg, #ef4444, #f59e0b, #facc15, #22c55e, #3b82f6, #8b5cf6); }
+.effect-duotone { background-image: linear-gradient(180deg, #0f172a 50%, #f97316 50%); }
+.effect-gold { background-image: linear-gradient(180deg, #fde68a 0%, #f59e0b 45%, #b45309 55%, #fde68a 100%); }
+.effect-metallic { background-image: linear-gradient(180deg, #f8fafc 0%, #94a3b8 45%, #475569 55%, #e2e8f0 100%); }
+.effect-vaporwave { background-image: linear-gradient(180deg, #f472b6 0%, #a78bfa 50%, #22d3ee 100%); }
+.effect-outline { -webkit-text-stroke: 1.5px currentColor; -webkit-text-fill-color: #ffffff; paint-order: stroke fill; }
+.effect-double-outline { -webkit-text-stroke: 2px currentColor; -webkit-text-fill-color: #ffffff; paint-order: stroke fill; text-shadow: 0 0 0 4px #ffffff, 3px 3px 0 currentColor; }
+.effect-extruded { text-shadow: 1px 1px 0 #475569, 2px 2px 0 #475569, 3px 3px 0 #475569, 4px 4px 0 #475569, 5px 5px 0 #475569, 6px 6px 0 #475569; }
+.effect-shadow-stack { text-shadow: 3px 3px 0 #f97316, 6px 6px 0 #0ea5e9, 9px 9px 0 #8b5cf6; }
+.effect-long-shadow { text-shadow: 1px 1px 0 rgba(0,0,0,.25), 2px 2px 0 rgba(0,0,0,.25), 3px 3px 0 rgba(0,0,0,.25), 4px 4px 0 rgba(0,0,0,.25), 5px 5px 0 rgba(0,0,0,.25), 6px 6px 0 rgba(0,0,0,.25), 7px 7px 0 rgba(0,0,0,.25), 8px 8px 0 rgba(0,0,0,.25), 9px 9px 0 rgba(0,0,0,.25), 10px 10px 0 rgba(0,0,0,.25); }
+.effect-bubble { -webkit-text-stroke: 2px #0f172a; -webkit-text-fill-color: #fde047; paint-order: stroke fill; text-shadow: 3px 3px 0 #0f172a; letter-spacing: 0.02em; }
+.effect-candy { -webkit-text-stroke: 1.5px #be185d; -webkit-text-fill-color: #fbcfe8; paint-order: stroke fill; text-shadow: 2px 2px 0 #be185d, 4px 4px 0 #f9a8d4; }
+.effect-cartoon { -webkit-text-stroke: 2px #0f172a; paint-order: stroke fill; text-shadow: 4px 4px 0 #0f172a; }
+.effect-glass { color: rgba(255,255,255,0.85) !important; text-shadow: 0 1px 0 rgba(255,255,255,0.6), 0 -1px 0 rgba(0,0,0,0.25), 0 4px 12px rgba(0,0,0,0.25); }
+.effect-retro { text-shadow: 3px 3px 0 #fde047, 6px 6px 0 #f97316; letter-spacing: 0.03em; }
+.effect-cyberpunk { color: #22d3ee !important; text-shadow: 2px 0 0 #f0abfc, -2px 0 0 #fde047, 0 0 12px #22d3ee; }

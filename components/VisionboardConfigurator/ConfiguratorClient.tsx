@@ -2,7 +2,6 @@
 
 import { useSession } from "next-auth/react";
 import { useState, useEffect, useRef } from 'react';
-import Script from 'next/script';
 
 import { Toolbar } from './Toolbar';
 import { PropertiesPanel } from './PropertiesPanel';
@@ -200,7 +199,7 @@ export default function ConfiguratorClient() {
             const url = URL.createObjectURL(blob);
             const a = document.createElement("a");
             a.href = url;
-            a.download = `shopprint-cut-${material}-${size}.svg`;
+            a.download = `cut-${material}-${size}.svg`;
             document.body.appendChild(a);
             a.click();
             a.remove();
@@ -246,7 +245,12 @@ export default function ConfiguratorClient() {
     return (
         <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', height: '100%', overflow: 'hidden', position: 'relative' }}>
             {showSelection && <SelectionStep onComplete={handleSelectionComplete} />}
-            <Script src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js" type="module" strategy="afterInteractive" />
+            {/* Fonturile din lista editorului; crossOrigin ca html-to-image să le poată include în export. */}
+            <link
+                rel="stylesheet"
+                crossOrigin="anonymous"
+                href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Bebas+Neue&family=Righteous&family=Playfair+Display:wght@700&family=Cinzel:wght@700&family=Dancing+Script:wght@700&family=Pacifico&family=Caveat:wght@700&family=Great+Vibes&family=Satisfy&family=Courgette&family=Lobster&display=swap"
+            />
 
             <input
                 type="file"
@@ -269,6 +273,7 @@ export default function ConfiguratorClient() {
                 addElement={addElement}
                 isMobile={isMobile}
                 onExportSvgCut={handleExportSvgCut}
+                isAdmin={isAdmin}
             />
 
             <div style={toolPanelStyle}>

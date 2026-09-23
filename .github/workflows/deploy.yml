@@ -69,6 +69,8 @@ jobs:
             # Cheia API Oblio se ține în secretul dedicat OBLIO_CLIENT_SECRET, ca să poată fi rotită fără a rescrie tot .env
             sed -i '/^OBLIO_CLIENT_SECRET=/d' .env
             echo "OBLIO_CLIENT_SECRET=${{ secrets.OBLIO_CLIENT_SECRET }}" >> .env
+            sed -i '/^PIXABAY_API_KEY=/d' .env
+            echo "PIXABAY_API_KEY=${{ secrets.PIXABAY_API_KEY }}" >> .env
             # If ENV_CONTENTS already contains DATABASE_URL (often empty), remove it
             sed -i '/^DATABASE_URL=/d' .env
             # Ensure DATABASE_URL is actually present (empty breaks Prisma)
