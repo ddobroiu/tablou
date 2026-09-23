@@ -9,7 +9,7 @@ import PromoSection from '@/components/PromoSection';
 
 export const metadata: Metadata = {
   authors: [{ name: 'Echipa Tablou.net', url: 'https://www.tablou.net' }],
-  title: 'Tablouri Canvas din Poza Ta, Gata de Agățat | Tablou.net',
+  title: 'Tablouri Canvas din Poza Ta, Gata de Agățat',
   description: 'Tablou.net transformă fotografiile tale în tablouri canvas: un singur tablou, colaj, set de 3 sau canvas pe șasiu, pentru nuntă, botez, aniversări și cadouri pentru părinți. Șasiu de lemn inclus, margine oglindită, verificăm rezoluția pozei gratuit. Printăm în același atelier și fototapet, afișe, bannere, textile, panouri rigide și kituri fonduri UE. Livrare în toată România.',
   keywords: ['tablou canvas', 'tablou din poza', 'tablouri canvas personalizate', 'canvas nunta', 'canvas botez', 'colaj foto canvas', 'set 3 tablouri', 'cadou personalizat foto', 'tablou.net'],
   other: {

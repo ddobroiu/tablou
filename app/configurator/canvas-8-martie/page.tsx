@@ -9,7 +9,7 @@ const Canvas8MartieConfigurator = dynamic(() => import('@/components/configurato
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
-    title: "Canvas 8 Martie Personalizat - Cadou pentru Mama sau Soție | Tablou",
+    title: "Canvas 8 Martie Personalizat - Cadou pentru Mama sau Soție",
     description: "Creează un cadou memorabil de 8 Martie. Tablou canvas personalizat cu fotografia și mesajul tău pentru mama, soție sau iubită. Calitate premium, preț instant.",
     keywords: ['8 martie', 'canvas 8 martie', 'cadou ziua femeii', 'cadou mama', 'tablou canvas personalizat', 'tablou'],
     alternates: {
@@ -25,6 +25,7 @@ export default function Canvas8MartiePage() {
 
     return (
         <div className="pt-24 max-w-7xl mx-auto px-4">
+            <h1 className="sr-only">Tablou canvas cadou de 8 Martie</h1>
             <Breadcrumbs items={breadcrumbItems} />
             <ProductSchema
                 name="Canvas 8 Martie Personalizat"

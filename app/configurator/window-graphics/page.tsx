@@ -6,7 +6,7 @@ import { Metadata } from 'next';
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-    title: 'Folie Geam Perforată Personalizată - One-Way Vision | Tablou',
+    title: 'Folie Geam Perforată Personalizată - One-Way Vision',
     description: 'Folie perforată personalizată pentru geamul casei, al mașinii sau vitrina afacerii tale. Vezi afară fără să fii văzut înăuntru, cu protecție UV suplimentară. Preț instant.',
     keywords: ['folie geam personalizata', 'folie one way vision', 'folie confidentialitate geam', 'sticker luneta masina', 'window graphics', 'tablou'],
     alternates: {

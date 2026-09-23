@@ -7,7 +7,7 @@ import { Metadata } from 'next';
 import { SeoDimensionsLinks } from '@/components/SeoDimensionsLinks';
 
 export const metadata: Metadata = {
-    title: "Tablou Canvas din Poza Ta - Cadou Personalizat | Tablou",
+    title: "Tablou Canvas din Poza Ta - Cadou Personalizat",
     description: "Transformă poza ta preferată într-un tablou canvas pe pânză 100% bumbac, cu șasiu din lemn natural. Cadou personalizat pentru orice ocazie, gata de agățat pe perete.",
     keywords: ['tablou canvas personalizat', 'cadou personalizat din poza', 'tablou foto pe panza', 'tablou', 'cadou aniversare'],
 };

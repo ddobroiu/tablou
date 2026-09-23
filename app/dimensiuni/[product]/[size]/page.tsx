@@ -25,6 +25,11 @@ import { JUDETE_FULL_DATA } from "@/lib/localitati";
 // Google, dar nu îngroapă prețul și butonul.
 export const revalidate = 604800;
 
+export const dynamicParams = true;
+// Paginile se randează la cerere și rămân în cache (ISR) până la revalidate.
+export function generateStaticParams() {
+    return [];
+}
 type Params = { product: string; size: string };
 
 const BASE_URL = String(siteConfig.url || "").toLowerCase().replace(/\/$/, "");

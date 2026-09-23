@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 export default function PVCForexPage() {
     return (
         <div className="pt-20">
+            <h1 className="sr-only">Configurator PVC Forex (Expandat)</h1>
             <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-slate-500">Se încarcă configuratorul PVC Forex...</div>}>
                 <ConfiguratorDispatcher configuratorId="pvc-forex" />
             </Suspense>

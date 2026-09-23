@@ -8,7 +8,7 @@ import FAQSchema from "@/components/FAQSchema";
 const CanvasMartisorConfigurator = dynamic(() => import('@/components/configurator/CanvasMartisorConfigurator'));
 
 export const metadata: Metadata = {
-    title: "Canvas Mărțișor Personalizat - Cadou de 1 Martie | Tablou",
+    title: "Canvas Mărțișor Personalizat - Cadou de 1 Martie",
     description: "Creează un cadou de mărțișor deosebit. Tablou canvas personalizat cu fotografia și textul tău, disponibil în dimensiuni mari pentru un impact maxim.",
     keywords: ['martisor', 'canvas martisor', 'cadou 1 martie', 'martisor personalizat', 'tablou canvas', 'tablou'],
     alternates: {
@@ -19,6 +19,7 @@ export const metadata: Metadata = {
 export default function CanvasMartisorPage() {
     return (
         <>
+            <h1 className="sr-only">Tablou canvas de Mărțișor</h1>
             <div className="pt-20">
                 <BreadcrumbSchema
                     items={[

@@ -6,7 +6,7 @@ import { Award, Users, ShieldCheck, Zap, Factory, Target } from 'lucide-react';
 import { siteConfig } from '@/lib/siteConfig';
 
 export const metadata: Metadata = {
-    title: 'Despre Noi Romania',
+    title: 'Despre noi',
     description: 'Peste 10 ani de experiență, echipamente de ultimă generație și o echipă pasionată de print digital și producție publicitară la cel mai înalt nivel.',
     alternates: {
         canonical: '/despre-noi',

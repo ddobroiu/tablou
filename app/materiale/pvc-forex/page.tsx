@@ -6,7 +6,7 @@ import { Metadata } from 'next';
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-    title: 'PVC Forex Personalizat - Panouri Publicitare | Tablou',
+    title: 'PVC Forex Personalizat - Panouri Publicitare',
     description: 'Personalizează panouri din PVC expandat (Forex). Material ușor și rigid, ideal pentru semnalistică outdoor și indoor. Grosimi 3-10mm. Calcul preț pe loc.',
     keywords: ['pvc forex personalizat', 'panouri publicitare', 'pvc expandat', 'placi pvc semnalistica', 'tablou'],
     alternates: {
@@ -16,9 +16,10 @@ export const metadata: Metadata = {
 
 export default function PVCForexPage() {
     return (
+        <>
+        <h1 className="sr-only">PVC Forex Personalizat</h1>
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Se încarcă configuratorul PVC Forex...</div>}>
             <div className="pt-20">
-                <h1 className="sr-only">PVC Forex Personalizat</h1>
                 <BreadcrumbSchema
                     items={[
                         { name: "Acasă", item: "/" },
@@ -119,5 +120,6 @@ export default function PVCForexPage() {
                 </section>
             </div>
         </Suspense>
+        </>
     );
 }

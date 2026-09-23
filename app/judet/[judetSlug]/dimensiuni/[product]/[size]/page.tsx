@@ -15,6 +15,11 @@ import { WhatsAppBar, WhatsAppButton } from "@/components/seo/WhatsAppBar";
 
 export const revalidate = 604800;
 
+export const dynamicParams = true;
+// Paginile se randează la cerere și rămân în cache (ISR) până la revalidate.
+export function generateStaticParams() {
+    return [];
+}
 type Params = { judetSlug: string; product: string; size: string };
 const BASE_URL = String(siteConfig.url || "").toLowerCase().replace(/\/$/, "");
 const BRAND = brandKeyFromName(siteConfig.name);

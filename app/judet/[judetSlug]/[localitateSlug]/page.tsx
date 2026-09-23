@@ -1,3 +1,4 @@
+import { siteConfig } from "@/lib/siteConfig";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ judetSlug
     const title = `Tablouri Canvas din Poza Ta în ${loc.name}`;
     const description = `Comandă tablouri canvas personalizate, colaje foto și seturi de 3 cu livrare în ${loc.name}, județul ${judet.name}. Șasiu de lemn inclus, poza verificată gratuit, gata în 2-4 zile. Tot aici: fototapet, tricouri, afișe, bannere și panouri rigide.`;
 
-    const routeUrl = `https://www.tablou.net/judet/${judet.slug}/${loc.slug}`;
+    const routeUrl = `${siteConfig.url}/judet/${judet.slug}/${loc.slug}`;
 
     return {
         title,
@@ -86,7 +87,7 @@ export default async function LocalitatePage({ params }: { params: Promise<{ jud
                             "provider": {
                                 "@type": "LocalBusiness",
                                 "name": "Tablou.net",
-                                "url": `https://www.tablou.net/judet/${judet.slug}/${loc.slug}`,
+                                "url": `${siteConfig.url}/judet/${judet.slug}/${loc.slug}`,
                                 "areaServed": { "@type": "City", "name": loc.name }
                             }
                         },
@@ -94,8 +95,8 @@ export default async function LocalitatePage({ params }: { params: Promise<{ jud
                             "@context": "https://schema.org",
                             "@type": "BreadcrumbList",
                             "itemListElement": [
-                                { "@type": "ListItem", "position": 1, "name": "Acasă", "item": "https://www.tablou.net/" },
-                                { "@type": "ListItem", "position": 2, "name": judet.name, "item": `https://www.tablou.net/judet/${judet.slug}` },
+                                { "@type": "ListItem", "position": 1, "name": "Acasă", "item": `${siteConfig.url}/` },
+                                { "@type": "ListItem", "position": 2, "name": judet.name, "item": `${siteConfig.url}/judet/${judet.slug}` },
                                 { "@type": "ListItem", "position": 3, "name": loc.name }
                             ]
                         },

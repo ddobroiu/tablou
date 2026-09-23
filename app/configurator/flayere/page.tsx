@@ -6,7 +6,7 @@ import { Metadata } from 'next';
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-    title: 'Flyere Personalizate pentru Evenimente Locale | Tablou',
+    title: 'Flyere Personalizate pentru Evenimente Locale',
     description: 'Comandă flyere ieftine pentru un eveniment de familie, vânzare de garaj, meditații sau cursuri locale. Formate A6, A5, DL, tiraje mici sau mari, livrare rapidă.',
     keywords: ['flyere personalizate', 'flyere eveniment local', 'flyere ieftine', 'print flyere', 'flyer meditatii', 'tablou'],
     alternates: {

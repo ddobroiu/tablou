@@ -4,8 +4,9 @@ import { getJudete } from "@/lib/localitati";
 import { MapPin, ArrowRight } from "lucide-react";
 
 export const metadata = {
-    title: "Toate Județele din România",
-    description: "Configurator și producție materiale publicitare cu livrare națională. Alege județul tău pentru detalii specifice și transport rapid.",
+    title: "Tablouri canvas livrate în toate județele din România",
+    alternates: { canonical: "/judet" },
+    description: "Tablou.net printează tablouri canvas din pozele tale și le livrează în toate cele 41 de județe și în București. Alege județul și vezi formatele și prețurile. Producție 2-4 zile lucrătoare.",
 };
 
 export default function JudetePage() {
@@ -17,7 +18,7 @@ export default function JudetePage() {
             <div className="border-b border-slate-100 mb-12">
                 <div className="container mx-auto px-6 py-16">
                     <h1 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter mb-4">
-                         Prezență <span className="text-emerald-500">Națională</span>
+                         Tablouri canvas <span className="text-emerald-500">în toate județele</span>
                     </h1>
                     <p className="text-lg text-slate-500 max-w-2xl">
                         Suntem prezenți în toate județele din România cu servicii profesionale de tipar digital și livrare express prin curier. Alege județul tău pentru a începe.

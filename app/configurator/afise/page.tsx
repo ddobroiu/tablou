@@ -7,7 +7,7 @@ import { Suspense } from "react";
 import { SeoDimensionsLinks } from '@/components/SeoDimensionsLinks';
 
 export const metadata: Metadata = {
-    title: 'Poster Personalizat pentru Cameră sau Petrecere | Tablou',
+    title: 'Poster Personalizat pentru Cameră sau Petrecere',
     description: 'Printează un poster din poza sau designul tău — pentru cameră, ca decor de perete sau ca afiș mare la o petrecere privată. Formate A3 până la A0, hârtie foto sau Blueback outdoor.',
     keywords: ['poster personalizat', 'afis personalizat petrecere', 'poster camera decor', 'print poster online', 'afis a3 a2 a1 a0', 'tablou'],
     alternates: {

@@ -6,7 +6,7 @@ import { Metadata } from 'next';
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-    title: 'Cărți de Vizită Personalizate pentru Freelanceri | Tablou',
+    title: 'Cărți de Vizită Personalizate pentru Freelanceri',
     description: 'Cărți de vizită premium din carton sau plastic, cu plastifiere soft-touch și colțuri rotunjite. Ideale pentru freelanceri, meșteșugari și afaceri mici pornite de acasă.',
     keywords: ['carti de vizita personalizate', 'carti de vizita freelancer', 'business cards afacere mica', 'carti vizita plastic', 'tablou'],
     alternates: {

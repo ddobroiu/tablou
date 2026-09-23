@@ -6,7 +6,7 @@ import FAQSchema from "@/components/FAQSchema";
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Stickere Personalizate pentru Laptop, Sticlă și Decor | Tablou',
+    title: 'Stickere Personalizate pentru Laptop, Sticlă și Decor',
     description: 'Creează-ți propriile stickere personalizate — pentru laptop, sticlă de apă, jurnal sau decor. Tăiere pe contur, forme oricât de complexe, comandă online.',
     keywords: ['stickere personalizate', 'autocolante laptop', 'stickere decor', 'tablou', 'stickere design propriu'],
     alternates: {

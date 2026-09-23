@@ -6,7 +6,7 @@ import { Metadata } from 'next';
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-    title: 'Fototapet Personalizat din Poza Ta - Decor Cameră | Tablou',
+    title: 'Fototapet Personalizat din Poza Ta - Decor Cameră',
     description: 'Transformă un perete din camera ta, a copilului sau din living cu un fototapet din poza sau designul tău. Material vinilic lavabil, print HD, croit exact pe măsura peretelui.',
     keywords: ['fototapet personalizat', 'tapet din poza', 'tapet camera copil', 'tapet living personalizat', 'decor perete poza', 'tablou'],
     alternates: {

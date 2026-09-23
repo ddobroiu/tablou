@@ -6,7 +6,7 @@ import { Metadata } from 'next';
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-    title: 'Pliante Personalizate - Pliere Z-fold, C-fold | Tablou',
+    title: 'Pliante Personalizate - Pliere Z-fold, C-fold',
     description: 'Comandă pliante publicitare personalizate. Diverse tipuri de împăturire, hârtie premium 115g-250g. Preț instant și livrare rapidă.',
     keywords: ['pliante personalizate', 'broșuri', 'print pliante', 'tablou', 'flyere îndoite', 'marketing offline', 'pliante ieftine'],
     alternates: {

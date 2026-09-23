@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 export default function PolipropilenaPage() {
     return (
         <div className="pt-20">
+            <h1 className="sr-only">Configurator Plăci Polipropilenă (PP)</h1>
             <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-slate-500">Se încarcă configuratorul de polipropilenă...</div>}>
                 <ConfiguratorDispatcher configuratorId="configuratoare-polipropilena" />
             </Suspense>

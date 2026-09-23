@@ -1,8 +1,8 @@
+import { siteConfig } from "@/lib/siteConfig";
 import React from "react";
 import Link from "next/link";
 import { getAllPosts } from "@/lib/blogPosts";
 import Image from "next/image";
-import { headers } from "next/headers";
 import { ArrowRight, Newspaper, Bookmark, Clock } from "lucide-react";
 
 export const metadata = {
@@ -21,8 +21,7 @@ export const metadata = {
 };
 
 export default async function NoutatiPage() {
-    const headersList = await headers();
-    const host = headersList.get('host') || '';
+    const host = new URL(siteConfig.url).host;
 
     let source = 'Tablou.net';
     if (host.includes('prynt')) source = 'prynt.ro';

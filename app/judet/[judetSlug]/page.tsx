@@ -1,9 +1,16 @@
+import { siteConfig } from "@/lib/siteConfig";
 import React from "react";
 import Link from "next/link";
-import { getJudetBySlug } from "@/lib/localitati";
+import { getJudetBySlug, getJudete } from "@/lib/localitati";
 import { getProducts } from "@/lib/products";
 import { notFound } from "next/navigation";
 import { MapPin, ArrowRight } from "lucide-react";
+
+export const revalidate = 86400;
+export const dynamicParams = true;
+export function generateStaticParams() {
+    return getJudete().map((j) => ({ judetSlug: j.slug }));
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ judetSlug: string }> }) {
     const { judetSlug } = await params;
@@ -17,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ judetSlug
         title,
         description,
         alternates: {
-            canonical: `https://www.tablou.net/judet/${judetSlug}`
+            canonical: `${siteConfig.url}/judet/${judetSlug}`
         }
     };
 }
@@ -71,8 +78,8 @@ export default async function JudetPage({ params }: { params: Promise<{ judetSlu
                             "@context": "https://schema.org",
                             "@type": "BreadcrumbList",
                             "itemListElement": [
-                                { "@type": "ListItem", "position": 1, "name": "Acasă", "item": "https://www.tablou.net/" },
-                                { "@type": "ListItem", "position": 2, "name": "Județe", "item": "https://www.tablou.net/judet" },
+                                { "@type": "ListItem", "position": 1, "name": "Acasă", "item": `${siteConfig.url}/` },
+                                { "@type": "ListItem", "position": 2, "name": "Județe", "item": `${siteConfig.url}/judet` },
                                 { "@type": "ListItem", "position": 3, "name": judet.name }
                             ]
                         },

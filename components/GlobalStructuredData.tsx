@@ -1,11 +1,6 @@
-"use client";
-import Script from 'next/script';
-import { usePathname } from 'next/navigation';
 import { siteConfig } from '@/lib/siteConfig';
 
 export default function GlobalStructuredData() {
-  const pathname = usePathname() || '';
-
     const baseUrl = siteConfig.url;
 
     const organizationData = {
@@ -87,51 +82,16 @@ export default function GlobalStructuredData() {
     };
 
     
-  let faqData = null;
-  if (pathname.length > 2) {
-    const slugParts = pathname.split('/').filter(Boolean);
-    const lastSlug = slugParts[slugParts.length - 1];
-    
-    faqData = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": `Care este timpul de execuție pentru ${lastSlug}?`,
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Executăm comenzile în 2-4 zile lucrătoare de la confirmarea graficii, utilizând echipamente HP Latex / UV de ultimă generație."
-            }
-          },
-          {
-             "@type": "Question",
-             "name": `Livrati si in afara localitatii pentru comenzi online?`,
-             "acceptedAnswer": {
-               "@type": "Answer",
-               "text": "Da, livram national (inclusiv Bucuresti, Cluj, Timisoara, Iasi etc.) prin curier rapid direct din productie."
-             }
-          }
-        ]
-    };
-  }
 
   return (
         <>
-            <Script
+            <script
                 id="global-structured-data"
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify([organizationData, localBusinessData, websiteData]),
                 }}
             />
-      {faqData && (
-        <Script
-          id="dynamic-faq-schema"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData) }}
-        />
-      )}
         </>
     );
 }

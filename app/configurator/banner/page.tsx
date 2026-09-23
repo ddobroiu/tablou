@@ -7,14 +7,14 @@ import { Metadata } from 'next';
 import { SeoDimensionsLinks } from '@/components/SeoDimensionsLinks';
 
 export const metadata: Metadata = {
-  title: 'Banner Personalizat pentru Orice Ocazie - Configurator Online | Tablou',
+  title: 'Banner Personalizat pentru Orice Ocazie - Configurator Online',
   description: 'Bannere personalizate pentru evenimente, aniversări, deschideri de afacere sau reclame — configurezi online, alegi dimensiunea, vezi prețul instant. Livrare 2-4 zile lucrătoare.',
   keywords: ['banner personalizat', 'banner eveniment', 'banner aniversare', 'configurator banner online', 'tablou'],
   alternates: {
     canonical: '/configurator/banner',
   },
   openGraph: {
-    title: 'Banner Personalizat pentru Orice Ocazie | Tablou',
+    title: 'Banner Personalizat pentru Orice Ocazie',
     description: 'Alege dimensiunea, vezi prețul, comandă online.',
     images: ['/products/banner/banner-1.webp'],
   }

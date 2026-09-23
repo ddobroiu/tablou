@@ -16,7 +16,6 @@ export const metadata: Metadata = {
     'materiale rigide',
     'fonduri europene'
   ],
-  alternates: { canonical: '/configuratoare' },
   openGraph: {
     title: 'Configuratoare Online | Toate Produsele',
     description: 'Configurează online bannere, afișe, autocolante, tapet, canvas, materiale rigide. 18 configuratoare cu preview instant și calculare automată.',

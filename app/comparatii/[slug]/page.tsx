@@ -8,6 +8,11 @@ import { formatLei } from "@/lib/seo/dimensionPricing";
 import { WhatsAppBar, WhatsAppButton } from "@/components/seo/WhatsAppBar";
 
 export const revalidate = 604800;
+export const dynamicParams = true;
+// Paginile se randează la cerere și rămân în cache (ISR) până la revalidate.
+export function generateStaticParams() {
+    return [];
+}
 const BASE_URL = String(siteConfig.url || "").toLowerCase().replace(/\/$/, "");
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {

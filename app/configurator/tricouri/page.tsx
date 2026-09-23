@@ -6,14 +6,14 @@ import FAQSchema from "@/components/FAQSchema";
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Tricou Personalizat cu Text sau Poză - Cadou Unic | Tablou',
+    title: 'Tricou Personalizat cu Text sau Poză - Cadou Unic',
     description: 'Creează-ți propriul tricou cu text, poză sau design. Bumbac 100%, print DTF rezistent la spălare, mai multe mărimi și culori. Idee de cadou sau ținută de grup.',
     keywords: ['tricou personalizat', 'tricou cu poza', 'cadou personalizat', 'print dtf tricou', 'tablou'],
     alternates: {
         canonical: '/configurator/tricouri',
     },
     openGraph: {
-        title: 'Tricou Personalizat cu Text sau Poză | Tablou',
+        title: 'Tricou Personalizat cu Text sau Poză',
         description: 'Alege designul, mărimea, comandă online.',
         images: ['/placeholder.png'],
     }
@@ -22,6 +22,7 @@ export const metadata: Metadata = {
 export default function TricouriPage() {
     return (
         <div className="pt-20">
+            <h1 className="sr-only">Tricou Personalizat cu Text sau Poză</h1>
             <BreadcrumbSchema
                 items={[
                     { name: "Acasă", item: "/" },

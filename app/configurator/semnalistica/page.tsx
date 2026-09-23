@@ -6,7 +6,7 @@ import FAQSchema from "@/components/FAQSchema";
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Semnalistică și Panouri Indicatoare Personalizate | Tablou',
+    title: 'Semnalistică și Panouri Indicatoare Personalizate',
     description: 'Comandă online semnalistică și panouri indicatoare. Protectia muncii (SSM/SU), șantier, rutiere sau direcționale. PVC, Bond sau Plexiglass. Preț instant.',
     keywords: ['semnalistica', 'panouri indicatoare', 'semne protectia muncii', 'panouri direcționale', 'semnalistică interioară', 'tablou'],
     alternates: {

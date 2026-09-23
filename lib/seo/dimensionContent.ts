@@ -20,6 +20,24 @@ export function brandKeyFromName(name: string): BrandKey {
     return (known.find((b) => k.startsWith(b)) ?? "shopprint") as BrandKey;
 }
 
+// Titluri meta formulate diferit pe fiecare brand (aceleasi date, alt unghi), ca sa nu avem
+// 7 domenii cu titluri identice pe aceleasi combinatii.
+const TITLE_PATTERNS: Record<BrandKey, (core: string, price: string) => string> = {
+    adbanner: (c, p) => `${c}: preț ${p}, gata în 2-4 zile`,
+    anexa1: (c, p) => `${c} – ${p}, calcul instant`,
+    euprint: (c, p) => `${c} ${p} – comandă online`,
+    homeprint: (c, p) => `${c} – preț ${p}`,
+    prynt: (c, p) => `${c}, ${p} – preț pe loc`,
+    shopprint: (c, p) => `${c} – preț ${p}, livrare în toată țara`,
+    tablou: (c, p) => `${c} – ${p}, produs în 2-4 zile`,
+};
+
+/** `core` = "Banner PVC 200x100 cm" sau "1000 buc flyere A6"; `price` = "de la 165 lei" sau "480 lei". */
+export function brandMetaTitle(brand: BrandKey, core: string, price: string, brandName: string): string {
+    const fn = TITLE_PATTERNS[brand] ?? TITLE_PATTERNS.shopprint;
+    return `${fn(core, price)} | ${brandName}`;
+}
+
 export type SectionId = "price" | "facts" | "usage" | "file" | "mounting" | "faq" | "neighbors" | "localities";
 
 export type DimensionFact = { label: string; value: string; detail?: string };
@@ -683,7 +701,7 @@ export function buildDimensionContent(input: {
     }
 
     // ---- meta
-    const metaTitle = `${info.shortName} ${w}x${h} cm – preț de la ${from} | ${voice.brandName}`;
+    const metaTitle = brandMetaTitle(brand, `${info.shortName} ${w}x${h} cm`, `de la ${from}`, voice.brandName);
     const metaDescription = trimTo(
         `${voice.descPrefix} ${info.noun} ${w}x${h} cm (${fmtSqm(sqm)} m²) de la ${from}/buc, ${formatLei(qLast.unit)}/buc la ${qLast.qty} buc. ${wt ? `~${fmtKg(wt.kg)}, ` : ""}fișier ${fmtInt(pxAt(w, info.dpi))}×${fmtInt(pxAt(h, info.dpi))} px, gata în ${turnaround}.`,
         158,

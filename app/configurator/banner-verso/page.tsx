@@ -5,7 +5,7 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSchema from "@/components/FAQSchema";
 
 export const metadata = {
-    title: 'Banner Față-Verso pentru Evenimente - Blockout | Tablou',
+    title: 'Banner Față-Verso pentru Evenimente - Blockout',
     description: 'Banner printat pe ambele fețe, material 100% opac, perfect pentru un banner de intrare la petrecere, suspendat sau perpendicular pe stradă. Preț instant.',
     keywords: ['banner fata-verso', 'banner petrecere', 'banner blockout', 'banner eveniment doua fete', 'tablou'],
     alternates: { canonical: "/configurator/banner-verso" },

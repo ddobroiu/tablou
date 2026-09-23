@@ -6,7 +6,7 @@ import FAQSchema from "@/components/FAQSchema";
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Kit Vizibilitate PNRR & Fonduri Europene | Tablou',
+    title: 'Kit Vizibilitate PNRR & Fonduri Europene',
     description: 'Toate materialele obligatorii de vizibilitate pentru PNRR, Regio, POC. Panouri șantier, plăci permanente, autocolante și comunicate de presă conform MIV.',
     keywords: ['fonduri europene', 'vizibilitate pnrr', 'panouri santier', 'placi permanente', 'comunicat de presa fonduri', 'tablou'],
     alternates: {

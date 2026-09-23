@@ -35,5 +35,13 @@ export async function GET() {
   if (!env.emailFromSet) notes.push('EMAIL_FROM lipsă. Setează adresa expeditorului.');
   if (!env.adminEmailSet) notes.push('ADMIN_EMAIL lipsă. Setează adresa de primire pentru admin.');
 
-  return NextResponse.json({ ok: true, env, db, notes });
+  let disk: { freeGB: number; totalGB: number } | undefined;
+  try {
+    const { statfs } = await import('fs/promises');
+    const st: any = await (statfs as any)('/');
+    disk = { freeGB: +((st.bavail * st.bsize) / 1e9).toFixed(1), totalGB: +((st.blocks * st.bsize) / 1e9).toFixed(1) };
+  } catch {}
+  const proc = { rssMB: Math.round(process.memoryUsage().rss / 1e6), uptimeMin: Math.round(process.uptime() / 60), node: process.version };
+
+  return NextResponse.json({ ok: true, env, db, disk, proc, notes });
 }

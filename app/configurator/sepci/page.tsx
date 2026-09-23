@@ -6,14 +6,14 @@ import FAQSchema from "@/components/FAQSchema";
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Șapcă Personalizată cu Text sau Logo - Cadou Unic | Tablou',
+    title: 'Șapcă Personalizată cu Text sau Logo - Cadou Unic',
     description: 'Personalizează o șapcă cu textul, inițialele sau logo-ul tău. Print DTF rezistent la spălare și soare, mai multe culori, livrare rapidă. Idee de cadou pentru orice ocazie.',
     keywords: ['sapca personalizata', 'sapca cu text', 'cadou personalizat barbati', 'print dtf sapca', 'tablou'],
     alternates: {
         canonical: '/configurator/sepci',
     },
     openGraph: {
-        title: 'Șapcă Personalizată cu Text sau Logo | Tablou',
+        title: 'Șapcă Personalizată cu Text sau Logo',
         description: 'Alege culoarea, adaugă textul tău, comandă online.',
         images: ['/placeholder.png'],
     }
@@ -22,6 +22,7 @@ export const metadata: Metadata = {
 export default function SepciConfigPage() {
     return (
         <div className="pt-20">
+            <h1 className="sr-only">Șapcă Personalizată cu Text sau Logo</h1>
             <BreadcrumbSchema
                 items={[
                     { name: "Acasă", item: "/" },

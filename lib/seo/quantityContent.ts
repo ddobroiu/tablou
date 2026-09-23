@@ -5,7 +5,7 @@
 // producție (2-4 zile lucrătoare pe toate produsele).
 import { QtyFormat, QtyPricing, QtyProduct, getRegistryEntry } from "./quantityPages";
 import { formatLei } from "./dimensionPricing";
-import { brandKeyFromName, BrandKey } from "./dimensionContent";
+import { brandKeyFromName, brandMetaTitle, BrandKey } from "./dimensionContent";
 
 export { brandKeyFromName };
 
@@ -170,7 +170,7 @@ export function buildQtyContent(input: { brand: BrandKey; product: QtyProduct; f
         if (extra) faq.push({ q: extra.q, a: extra.a });
     }
 
-    const metaTitle = `${fmtInt(qty)} ${product.unit} ${fmtText} – preț ${from} | ${voice.brandName}`;
+    const metaTitle = brandMetaTitle(brand, `${fmtInt(qty)} ${product.unit} ${fmtText}`, from, voice.brandName);
     const metaDescription = trimTo(`${voice.descPrefix} ${fmtInt(qty)} ${product.unit} ${fmtText}: ${from} (${formatLei(rec.unit)}/buc) pe ${rec.label.toLowerCase()}. ${nextBreak ? `De la ${fmtInt(nextBreak.qty)} buc: ${formatLei(nextBreak.unit)}/buc. ` : ""}Producție 2-4 zile lucrătoare, livrare prin curier.`, 158);
 
     return {

@@ -1,9 +1,8 @@
+import { siteConfig } from "@/lib/siteConfig";
 import React from "react";
 import Link from "next/link";
 import { getAllPosts } from "@/lib/blogPosts";
 import Image from "next/image";
-import { headers } from "next/headers";
-
 export const metadata = {
     title: "Blog - Sfaturi de Print și Publicitate",
     description: "Ghiduri practice, noutăți din industria tiparului și sfaturi pentru materialele tale publicitare. Află cum să alegi cele mai bune soluții de print.",
@@ -20,8 +19,7 @@ export const metadata = {
 };
 
 export default async function BlogPage() {
-    const headersList = await headers();
-    const host = headersList.get('host') || '';
+    const host = new URL(siteConfig.url).host;
 
     let source = 'Tablou.net';
     if (host.includes('prynt')) source = 'prynt.ro';
@@ -29,8 +27,6 @@ export default async function BlogPage() {
     else if (host.includes('adbanner')) source = 'adbanner.ro';
     else if (host.includes('tablou')) source = 'tablou.net';
     else if (host.includes('visionboard')) source = 'visionboard.ro';
-
-    console.log(`[BlogPage] Host: ${host}, Source: ${source}`);
 
 
     const allPosts = getAllPosts();

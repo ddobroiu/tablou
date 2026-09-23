@@ -22,6 +22,7 @@ export const metadata: Metadata = {
 export default function HanoracePage() {
     return (
         <div className="pt-20">
+            <h1 className="sr-only">Configurator Hanorace Personalizate</h1>
             <BreadcrumbSchema
                 items={[
                     { name: "Acasă", item: "/" },

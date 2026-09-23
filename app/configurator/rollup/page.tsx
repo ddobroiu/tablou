@@ -6,7 +6,7 @@ import { Metadata } from 'next';
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-    title: 'Rollup Banner Personalizat pentru Evenimente | Tablou',
+    title: 'Rollup Banner Personalizat pentru Evenimente',
     description: 'Sistem rollup cu casetă din aluminiu, print HD și geantă de transport inclusă. Perfect pentru nunți, botezuri, aniversări sau standuri expoziționale. Preț instant.',
     keywords: ['rollup banner personalizat', 'rollup nunta', 'rollup eveniment', 'banner retractabil', 'rollup pret', 'tablou'],
     alternates: {
