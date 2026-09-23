@@ -326,8 +326,8 @@ export default function Home() {
                   <div className="min-w-0 flex-1">
                     <p className="text-[10px] uppercase tracking-wider text-stone-400 font-semibold">{GROUP_LABEL[p.category] || p.category}</p>
                     <h3 className="font-bold text-stone-900 leading-tight group-hover:text-[#B8385A] transition-colors truncate">{p.name}</h3>
-                    <div className="mt-1.5 flex items-center justify-between gap-2 text-xs">
-                      {price ? <span className="text-[#B8385A] font-semibold whitespace-nowrap">{price}</span> : <span />}
+                    <div className="mt-1.5 flex flex-wrap items-center justify-between gap-x-2 gap-y-1 text-xs">
+                      {price ? <span className="text-[#B8385A] font-semibold">{price}</span> : <span />}
                       <span className="text-stone-400 whitespace-nowrap shrink-0">{p.turnaroundTime.replace(" lucrătoare", "")}</span>
                     </div>
                   </div>
