@@ -25,11 +25,7 @@ import { JUDETE_FULL_DATA } from "@/lib/localitati";
 // Google, dar nu îngroapă prețul și butonul.
 export const revalidate = 604800;
 
-export const dynamicParams = true;
-// Paginile se randează la cerere și rămân în cache (ISR) până la revalidate.
-export function generateStaticParams() {
-    return [];
-}
+// Fara ISR aici: 8.336 de pagini x ~125 KB ar umple discul serverului (40 GB, ~12 GB liberi).
 type Params = { product: string; size: string };
 
 const BASE_URL = String(siteConfig.url || "").toLowerCase().replace(/\/$/, "");
