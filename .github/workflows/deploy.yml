@@ -71,6 +71,11 @@ jobs:
             echo "OBLIO_CLIENT_SECRET=${{ secrets.OBLIO_CLIENT_SECRET }}" >> .env
             sed -i '/^PIXABAY_API_KEY=/d' .env
             echo "PIXABAY_API_KEY=${{ secrets.PIXABAY_API_KEY }}" >> .env
+            # Cheia Resend (email) se poate roti din secretul dedicat; dacă lipsește, rămâne cea din ENV_CONTENTS
+            if [ -n "${{ secrets.RESEND_API_KEY }}" ]; then
+              sed -i '/^RESEND_API_KEY=/d' .env
+              echo "RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}" >> .env
+            fi
             # If ENV_CONTENTS already contains DATABASE_URL (often empty), remove it
             sed -i '/^DATABASE_URL=/d' .env
             # Ensure DATABASE_URL is actually present (empty breaks Prisma)
