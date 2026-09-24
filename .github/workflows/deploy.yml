@@ -135,7 +135,7 @@ jobs:
             docker exec tablou-app sh -lc 'if [ -n "${DATABASE_URL:-}" ]; then echo "DATABASE_URL=***"; else echo "DATABASE_URL is EMPTY"; fi' || true
 
             echo "=== Prisma db push ==="
-            docker exec -e DATABASE_URL="$DATABASE_URL" tablou-app npx prisma db push --schema=prisma/schema.prisma --accept-data-loss
+            docker exec -e DATABASE_URL="$DATABASE_URL" tablou-app npx prisma db push --schema=prisma/schema.prisma
 
             echo "=== Curățare după deploy reușit ==="
             docker image prune -af

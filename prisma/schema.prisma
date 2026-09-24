@@ -240,3 +240,28 @@ model WithdrawalRequest {
   source      String   @default("tablou.net")
   createdAt   DateTime @default(now())
 }
+
+// Shared print database: every site's schema must list every table, otherwise
+// `prisma db push` on deploy would treat it as unknown (it belongs to shopprint's AI graphics).
+model AiGraphicGeneration {
+  id                String   @id @default(cuid())
+  ipHash            String
+  previewUrl        String   @unique
+  cleanPublicId     String?
+  printWidthCm      Int      @default(100)
+  printHeightCm     Int      @default(100)
+  userPrompt        String   @default("") @db.Text
+  imagePrompt       String?  @db.Text
+  product           String?
+  productKind       String?
+  material          String?
+  referenceImageUrl String?
+  mode              String   @default("create")
+  productionStatus  String   @default("preview")
+  orderId           String?
+  createdAt         DateTime @default(now())
+
+  @@index([ipHash, createdAt])
+  @@index([orderId])
+  @@index([productionStatus])
+}
