@@ -104,6 +104,9 @@ jobs:
                 ports:
                   - "3004:3000"
                 env_file: .env
+                # Limită de memorie: un container nu poate îngheța toată mașina (7 site-uri pe același server)
+                mem_limit: 1g
+                memswap_limit: 1g
             EOF
 
             echo "=== Pull imagine (ARM: poate dura 15-25 min) ==="
