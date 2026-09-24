@@ -90,7 +90,7 @@ export async function POST(req: Request, ctx: any) {
           const payload = {
             cif: process.env.OBLIO_CIF_FIRMA,
             client,
-            issueDate: new Date().toISOString().slice(0, 10),
+            issueDate: new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Bucharest' }).format(new Date()),
             seriesName: process.env.OBLIO_SERIE_FACTURA,
             documentType: 'Factura',
             products,

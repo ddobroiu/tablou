@@ -221,7 +221,7 @@ export async function fulfillOrder(
       const invoice = await createOblioInvoice({
         cif: process.env.OBLIO_CIF_FIRMA,
         client: { name: clientName, address: billingAddressLine, email: billing.email || address.email, cif: clientCif, rc: billing.reg_com },
-        issueDate: new Date().toISOString().slice(0, 10),
+        issueDate: new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Bucharest' }).format(new Date()),
         seriesName: process.env.OBLIO_SERIE_FACTURA,
         documentType: 'Factura',
         products: productsForOblio,
