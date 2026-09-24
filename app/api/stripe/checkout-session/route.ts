@@ -32,6 +32,8 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'STRIPE_SECRET_KEY nu este setat' }, { status: 500 });
     }
     const stripe = new Stripe(secret);
+    // Visitor id set by the mydashboard.ro tracker: links the payment to the visit's traffic source
+    const mdVid = /^[a-f0-9]{32}$/.test(req.cookies.get('_md_vid')?.value || '') ? req.cookies.get('_md_vid')!.value : undefined;
     // Avoid sending large blobs to Stripe metadata (limit 500 chars per value).
     // Send a compact summary instead and include an address email for reference.
     const safeCartItems = JSON.stringify((cart ?? []).map((it: any) => ({ id: it.id, name: it.name, quantity: it.quantity })));
@@ -78,10 +80,11 @@ export async function POST(req: NextRequest) {
         ...metadata,
         source: 'tablou.net',
         group: 'print',
-        project: 'tablou'
+        project: 'tablou',
+        ...(mdVid && { md_vid: mdVid })
       },
       // Tagged on the payment too: the Stripe account is shared by several sites
-      payment_intent_data: { metadata: { group: 'print', project: 'tablou', source: 'tablou.net' } },
+      payment_intent_data: { metadata: { group: 'print', project: 'tablou', ...(mdVid && { md_vid: mdVid }), source: 'tablou.net' } },
       // 3. Redirect după plată (Embedded Checkout)
       return_url: `${origin}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
     });
