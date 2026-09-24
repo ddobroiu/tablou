@@ -14,34 +14,6 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
-async function forwardToShopprint(payload: any) {
-    const url = process.env.SHOPPRINT_ORDER_INGEST_URL;
-    const secret = process.env.ORDER_INGEST_SECRET;
-    if (!url || !secret) return;
-
-    const controller = new AbortController();
-    const t = setTimeout(() => controller.abort(), 8000);
-    try {
-        const res = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${secret}`,
-            },
-            body: JSON.stringify(payload),
-            signal: controller.signal,
-        });
-        if (!res.ok) {
-            const txt = await res.text().catch(() => '');
-            console.warn(`[OrderForward] Shopprint ingest failed (${res.status})`, txt);
-        }
-    } catch (e) {
-        console.warn('[OrderForward] Failed forwarding to shopprint:', e);
-    } finally {
-        clearTimeout(t);
-    }
-}
-
 export async function POST(req: NextRequest) {
     try {
         const orderData = await req.json();
@@ -141,8 +113,12 @@ export async function POST(req: NextRequest) {
                 ],
                 success_url: `${origin}/checkout/success/stripe?session_id={CHECKOUT_SESSION_ID}`,
                 cancel_url: `${origin}/checkout`,
+                // Tagged on the payment too: the Stripe account is shared by several sites
+                payment_intent_data: { metadata: { group: 'print', project: 'tablou', source } },
                 metadata: {
                     source: source,
+                    group: 'print',
+                    project: 'tablou',
                     address_email: transformedAddress.email,
                     name: transformedAddress.nume_prenume,
                     phone: transformedAddress.telefon,
@@ -178,16 +154,6 @@ export async function POST(req: NextRequest) {
                     paymentType
                 );
 
-                // Forward către ShopPrint (hub admin)
-                await forwardToShopprint({
-                    source,
-                    paymentType,
-                    paymentMethod,
-                    address: orderData.address,
-                    billing: orderData.billing,
-                    items: orderData.items,
-                    marketing: orderData.marketing,
-                });
 
                 return NextResponse.json({
                     success: true,

@@ -76,8 +76,12 @@ export async function POST(req: NextRequest) {
       // 2. Datele comenzii în metadata (webhook le folosește la fulfillOrder)
       metadata: {
         ...metadata,
-        source: 'tablou.net'
+        source: 'tablou.net',
+        group: 'print',
+        project: 'tablou'
       },
+      // Tagged on the payment too: the Stripe account is shared by several sites
+      payment_intent_data: { metadata: { group: 'print', project: 'tablou', source: 'tablou.net' } },
       // 3. Redirect după plată (Embedded Checkout)
       return_url: `${origin}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
     });

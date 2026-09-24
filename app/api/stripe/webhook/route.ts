@@ -8,34 +8,6 @@ import { fulfillOrder } from '@/lib/orderService';
 
 export const dynamic = 'force-dynamic';
 
-async function forwardToShopprint(payload: any) {
-    const url = process.env.SHOPPRINT_ORDER_INGEST_URL;
-    const secret = process.env.ORDER_INGEST_SECRET;
-    if (!url || !secret) return;
-
-    const controller = new AbortController();
-    const t = setTimeout(() => controller.abort(), 8000);
-    try {
-        const res = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${secret}`,
-            },
-            body: JSON.stringify(payload),
-            signal: controller.signal,
-        });
-        if (!res.ok) {
-            const txt = await res.text().catch(() => '');
-            console.warn(`[OrderForward] Shopprint ingest failed (${res.status})`, txt);
-        }
-    } catch (e) {
-        console.warn('[OrderForward] Failed forwarding to shopprint:', e);
-    } finally {
-        clearTimeout(t);
-    }
-}
-
 export async function POST(req: NextRequest) {
     const body = await req.text();
     const headersList = await headers();
@@ -66,12 +38,14 @@ export async function POST(req: NextRequest) {
     if (event.type === 'checkout.session.completed') {
         const session = event.data.object as Stripe.Checkout.Session;
 
-        // FILTRARE DUPĂ SURSĂ
-        const allowedSources = ['prynt.ro', 'visionboard.ro', 'euprint.ro', 'adbanner.ro', 'tablou.net', 'shopprint.ro'];
-        const source = String(session.metadata?.source || 'tablou.net').toLowerCase();
+        // Contul Stripe și baza de date sunt comune tuturor site-urilor de print: fiecare site procesează
+        // doar plățile făcute pe el (altfel aceeași plată ar da mai multe facturi și emailuri)
+        const meta = session.metadata || {};
+        const isMine = meta.project ? meta.project === 'tablou' : meta.source === 'tablou.net';
+        const source = String(meta.source || 'tablou.net').toLowerCase();
 
-        if (!allowedSources.includes(source)) {
-            console.log(`[Tablou Webhook] Ignored event for source: ${source}`);
+        if (!isMine) {
+            console.log(`[Webhook] Ignored payment of ${meta.project || meta.source || 'untagged'}`);
             return NextResponse.json({ received: true, ignored: true });
         }
 
@@ -137,16 +111,6 @@ export async function POST(req: NextRequest) {
                 'Card'
             );
 
-            // Forward către ShopPrint (hub admin)
-            await forwardToShopprint({
-                source,
-                paymentType: 'Card',
-                stripeSessionId: session.id,
-                address: checkoutData.address,
-                billing: checkoutData.billing,
-                items: checkoutData.cart || checkoutData.items || [],
-                marketing: checkoutData.marketing,
-            });
 
             // Actualizăm statusul comenzii la 'active' (sau echivalentul pt plătit)
             // Deoarece fulfillOrder o creează ca 'pending'
