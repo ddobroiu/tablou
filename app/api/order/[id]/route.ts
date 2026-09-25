@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getOrder } from '@/lib/orderStore';
 import { prisma } from '@/lib/prisma';
+import { verifyAdminSession } from '@/lib/adminSession';
 
 type Params = {
   params: Promise<{ id: string }>;
@@ -18,7 +19,9 @@ export async function GET(req: NextRequest, { params }: Params) {
 
     // Check if ID is a number (orderNo) or UUID (id)
     const orderNo = parseInt(id, 10);
-    if (Number.isFinite(orderNo) && orderNo > 0) {
+    // Cautarea dupa numar (secvential, usor de ghicit) e doar pentru admin
+    const admin = Boolean(verifyAdminSession(req.cookies.get('admin_auth')?.value));
+    if (admin && Number.isFinite(orderNo) && orderNo > 0) {
       // Search by orderNo in database
       if (process.env.DATABASE_URL) {
         try {
