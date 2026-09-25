@@ -265,3 +265,23 @@ model AiGraphicGeneration {
   @@index([orderId])
   @@index([productionStatus])
 }
+
+// Cheltuiala pe reclame (Google Ads, trimisa de scriptul din cont), un rand pe campanie pe zi.
+// Baza e comuna tuturor site-urilor de print: modelul e in schema fiecaruia, ca db push sa nu-l stearga.
+model AdSpendDaily {
+  id              String   @id @default(cuid())
+  provider        String
+  date            DateTime @db.Date
+  campaignId      String
+  campaignName    String
+  currency        String
+  spend           Decimal  @db.Decimal(14, 2)
+  impressions     Int      @default(0)
+  clicks          Int      @default(0)
+  conversions     Decimal  @default(0) @db.Decimal(14, 2)
+  conversionValue Decimal  @default(0) @db.Decimal(14, 2)
+  updatedAt       DateTime @updatedAt
+
+  @@unique([provider, date, campaignId])
+  @@index([date])
+}
