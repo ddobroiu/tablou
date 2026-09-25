@@ -15,6 +15,8 @@ interface Order {
     invoiceLink?: string | null;
     total: number;
     itemsCount?: number;
+    // Starea coletului de la DPD (vezi lib/dpdTracking.ts)
+    delivery?: { state: string; text: string; at: string | null } | null;
 }
 
 function trackingUrl(awb: string | null | undefined, carrier: string | null | undefined): string | null {
@@ -26,14 +28,26 @@ function trackingUrl(awb: string | null | undefined, carrier: string | null | un
     return `https://tracking.dpd.ro/?shipmentNumber=${a}&language=ro`;
 }
 
-// Etapele comenzii: plasata -> in lucru -> expediata (are AWB) -> finalizata
+// Etapele comenzii: plasata -> in lucru -> expediata (are AWB) -> livrata
 function stepOf(o: Order) {
-    if (o.status === "fulfilled") return 3;
+    if (o.delivery?.state === "livrat") return 3;
+    if (o.status === "fulfilled" && !o.awbNumber) return 3;
     if (o.awbNumber && o.awbNumber !== "0") return 2;
     if (o.status === "active" || o.status === "processing" || o.status === "in_progress") return 1;
     return 0;
 }
-const STEPS = ["Plasată", "În lucru", "Expediată", "Finalizată"];
+const STEPS = ["Plasată", "În lucru", "Expediată", "Livrată"];
+
+// Ce ii spunem clientului despre colet, pe scurt
+const DELIVERY_LABEL: Record<string, { label: string; tone: string }> = {
+    inregistrat: { label: "Coletul e pregătit, așteaptă curierul", tone: "bg-slate-50 text-slate-700" },
+    nepreluat: { label: "Coletul e pregătit, așteaptă curierul", tone: "bg-slate-50 text-slate-700" },
+    tranzit: { label: "Coletul e pe drum", tone: "bg-sky-50 text-sky-900" },
+    in_livrare: { label: "Curierul îl aduce azi", tone: "bg-indigo-50 text-indigo-900" },
+    livrat: { label: "Coletul a fost livrat", tone: "bg-emerald-50 text-emerald-900" },
+    problema: { label: "Curierul nu a putut livra: te va contacta", tone: "bg-amber-50 text-amber-900" },
+    retur: { label: "Coletul se întoarce la noi", tone: "bg-rose-50 text-rose-900" },
+};
 
 export default function AccountOrderCard({ order }: { order: Order }) {
     const canceled = order.status === "canceled";
@@ -70,13 +84,23 @@ export default function AccountOrderCard({ order }: { order: Order }) {
                 </ol>
             )}
 
-            {awbUrl && !canceled && (
-                <a href={awbUrl} target="_blank" rel="noopener noreferrer"
-                    className="mt-4 flex items-center justify-between gap-3 rounded-xl bg-emerald-50 px-4 py-3 text-sm text-emerald-900 hover:bg-emerald-100">
-                    <span className="inline-flex items-center gap-2"><Truck size={16} /> Coletul e pe drum · AWB <b className="font-mono">{order.awbNumber}</b></span>
-                    <span className="font-semibold">Urmărește →</span>
-                </a>
-            )}
+            {awbUrl && !canceled && (() => {
+                const d = DELIVERY_LABEL[order.delivery?.state ?? ""] ?? { label: "Coletul a fost predat curierului", tone: "bg-emerald-50 text-emerald-900" };
+                const when = order.delivery?.at
+                    ? new Date(order.delivery.at).toLocaleString("ro-RO", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit", timeZone: "Europe/Bucharest" })
+                    : null;
+                return (
+                    <a href={awbUrl} target="_blank" rel="noopener noreferrer" className={`mt-4 block rounded-xl px-4 py-3 text-sm hover:brightness-95 ${d.tone}`}>
+                        <span className="flex items-center justify-between gap-3">
+                            <span className="inline-flex items-center gap-2 font-semibold"><Truck size={16} /> {d.label}</span>
+                            <span className="shrink-0 font-semibold">Urmărește →</span>
+                        </span>
+                        <span className="mt-1 block text-xs opacity-80">
+                            {order.delivery?.text ?? "Detaliile apar pe pagina DPD."}{when ? ` · ${when}` : ""} · AWB <span className="font-mono">{order.awbNumber}</span>
+                        </span>
+                    </a>
+                );
+            })()}
 
             <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-slate-100 pt-4">
                 <OrderDetails order={order} />

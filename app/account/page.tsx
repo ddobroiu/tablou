@@ -1,6 +1,7 @@
 import { getAuthSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import AccountClientPage from "./AccountClientPage";
+import { trackAwbs } from "@/lib/dpdTracking";
 import Link from "next/link";
 
 export const dynamic = 'force-dynamic';
@@ -47,7 +48,13 @@ export default async function AccountPage() {
             take: 50,
         });
 
+        // Starea coletelor, direct de la DPD (doar comenzile clientului care au AWB)
+        const tracks = await trackAwbs(
+            orderRecords.map((o) => (o.awbNumber && o.awbNumber !== '0' ? String(o.awbNumber) : '')).filter(Boolean),
+        ).catch(() => new Map());
+
         const orders = orderRecords.map((o) => {
+            const t = o.awbNumber ? tracks.get(String(o.awbNumber)) : undefined;
             // Map Prisma Order to frontend Order interface
             const items = (o.items || []).map((it) => ({
                 name: it.name,
@@ -70,6 +77,7 @@ export default async function AccountPage() {
                 awbCarrier: o.awbCarrier || null,
                 invoiceLink: o.invoiceUrl || null,
                 shippingFee: Number(o.shippingFee ?? 0),
+                delivery: t ? { state: t.state, text: t.text, at: t.at } : null,
             };
         });
 
