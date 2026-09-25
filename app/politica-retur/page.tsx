@@ -68,8 +68,38 @@ export default function PoliticaReturPage() {
               </div>
             </section>
 
+            <section id="cum-te-retragi">
+              <h2 className="text-2xl lg:text-3xl border-l-4 border-emerald-600 pl-6">02. Cum te retragi din contract</h2>
+              <p>
+                Termenul legal este de <strong>14 zile calendaristice de la primirea produselor</strong>. Cererea o trimiți online, în câțiva pași:
+              </p>
+              <ol>
+                <li>
+                  Deschide formularul <a href="/retragere-contract" className="text-emerald-600 font-bold">„Retrage-te din contract”</a>. Îl găsești în subsolul
+                  oricărei pagini, în <strong>Contul meu</strong> (la fiecare comandă) și pe această pagină.
+                </li>
+                <li>
+                  Completează numele, emailul, numărul comenzii și, opțional, telefonul. După numărul comenzii și emailul de pe comandă îți arătăm
+                  produsele: bifezi ce returnezi și câte bucăți. Poți returna doar o parte din comandă.
+                </li>
+                <li>
+                  Apasă <strong>„Confirmă retragerea”</strong>. Primești imediat pe email confirmarea, cu conținutul cererii, data și ora transmiterii.
+                </li>
+                <li>
+                  Trimite produsele în cel mult 14 zile de la cerere, la adresa pe care ți-o comunicăm pe email. Costul returului este suportat de tine.
+                </li>
+              </ol>
+              <p>
+                <strong>Rambursarea</strong> se face în cel mult 14 zile de la primirea cererii, prin aceeași metodă de plată folosită la comandă.
+                Putem amâna rambursarea până primim produsele sau dovada că le-ai expediat.
+              </p>
+              <p>
+                <strong>Excepții:</strong> produsele realizate după specificațiile tale (cu grafica sau textul tău, pe dimensiunea aleasă de tine) nu pot fi
+                returnate, conform art. 16 lit. c din OUG 34/2014, decât dacă au defecte. Cererea o poți trimite oricum: o analizăm și îți răspundem pe email.
+              </p>
+            </section>
             <section>
-              <h2 className="text-2xl lg:text-3xl border-l-4 border-emerald-600 pl-6">02. Garanția de Calitate</h2>
+              <h2 className="text-2xl lg:text-3xl border-l-4 border-emerald-600 pl-6">03. Garanția de Calitate</h2>
               <p>
                 Dacă produsul primit prezintă un defect de material, print sau asamblare, Tablou se angajează să refacă comanda gratuit.
               </p>
@@ -77,7 +107,7 @@ export default function PoliticaReturPage() {
             </section>
 
             <section>
-              <h2 className="text-2xl lg:text-3xl border-l-4 border-emerald-600 pl-6">03. Anularea Comenzii</h2>
+              <h2 className="text-2xl lg:text-3xl border-l-4 border-emerald-600 pl-6">04. Anularea Comenzii</h2>
               <p>
                 O comandă personalizată care a intrat deja în procesul de producție nu mai poate fi anulată sau rambursată, deoarece materialele folosite sunt deja consumate conform cerințelor dvs.
               </p>

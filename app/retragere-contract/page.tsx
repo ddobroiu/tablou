@@ -28,6 +28,41 @@ function RetragereContractForm() {
     const [error, setError] = useState<string | null>(null);
     const [submittedAt, setSubmittedAt] = useState<string | null>(null);
 
+    // Retur partial (OUG 18/2026): dupa numarul comenzii si email incarcam produsele, iar clientul
+    // bifeaza ce returneaza si cate bucati. Daca nu gasim comanda, ramane campul text.
+    const [items, setItems] = useState<{ id: string; name: string; qty: number }[] | null>(null);
+    const [picked, setPicked] = useState<Record<string, number>>({});
+    const [lookup, setLookup] = useState<"idle" | "loading" | "found" | "notfound">("idle");
+
+    useEffect(() => {
+        const ref = form.orderRef.replace(/\D/g, "");
+        if (!ref || !form.email.includes("@")) { setItems(null); setLookup("idle"); return; }
+        const t = setTimeout(async () => {
+            setLookup("loading");
+            try {
+                const res = await fetch("/api/retur/order", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ orderRef: ref, email: form.email }),
+                });
+                if (!res.ok) throw new Error("not found");
+                const data = await res.json();
+                setItems(data.items || []);
+                setPicked({});
+                setLookup("found");
+            } catch {
+                setItems(null);
+                setLookup("notfound");
+            }
+        }, 700);
+        return () => clearTimeout(t);
+    }, [form.orderRef, form.email]);
+
+    const pickedText = (items || [])
+        .filter((i) => picked[i.id] > 0)
+        .map((i) => `${i.name} × ${picked[i.id]} (din ${i.qty})`)
+        .join("; ");
+
     function handleChange(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
         setForm({ ...form, [e.target.name]: e.target.value });
         if (error) setError(null);
@@ -39,6 +74,11 @@ function RetragereContractForm() {
             setError("Bifează confirmarea de mai jos înainte de a trimite cererea.");
             return;
         }
+        const products = items ? pickedText : form.products;
+        if (!products.trim()) {
+            setError(items ? "Bifează produsele pe care le returnezi." : "Scrie produsele vizate.");
+            return;
+        }
         setLoading(true);
         setError(null);
 
@@ -46,7 +86,7 @@ function RetragereContractForm() {
             const response = await fetch("/api/retur", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ ...form, source: "tablou.net" }),
+                body: JSON.stringify({ ...form, products, source: "tablou.net" }),
             });
             const data = await response.json();
             if (!response.ok) throw new Error(data.error || "A apărut o eroare la trimitere.");
@@ -115,10 +155,41 @@ function RetragereContractForm() {
                         </label>
                     </div>
 
-                    <label className="block">
-                        <span className="text-sm font-bold text-slate-700 dark:text-slate-300 mb-1.5 block">Produsele vizate *</span>
-                        <input required name="products" value={form.products} onChange={handleChange} placeholder="ex: Banner 200x100cm, cantitate 1" className="w-full p-3 border border-slate-300 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 text-slate-900 dark:text-white" />
-                    </label>
+                    {items ? (
+                        <fieldset className="rounded-xl border border-slate-200 dark:border-slate-800 p-4">
+                            <legend className="px-1 text-sm font-bold text-slate-700 dark:text-slate-300">Ce returnezi din comandă? *</legend>
+                            <p className="mb-3 text-xs text-slate-500">Poți returna doar o parte din produse sau din cantitate.</p>
+                            <ul className="space-y-2">
+                                {items.map((i) => (
+                                    <li key={i.id} className="flex flex-wrap items-center gap-3 rounded-lg bg-slate-50 dark:bg-slate-800/50 px-3 py-2">
+                                        <label className="flex flex-1 cursor-pointer items-center gap-3 text-sm text-slate-800 dark:text-slate-200">
+                                            <input type="checkbox" className="h-5 w-5 rounded border-slate-300 text-emerald-600"
+                                                checked={(picked[i.id] || 0) > 0}
+                                                onChange={(e) => setPicked((p) => ({ ...p, [i.id]: e.target.checked ? i.qty : 0 }))} />
+                                            {i.name}
+                                        </label>
+                                        {(picked[i.id] || 0) > 0 && i.qty > 1 && (
+                                            <label className="flex items-center gap-2 text-xs text-slate-600">
+                                                Bucăți
+                                                <input type="number" min={1} max={i.qty} value={picked[i.id]}
+                                                    onChange={(e) => setPicked((p) => ({ ...p, [i.id]: Math.max(1, Math.min(i.qty, Number(e.target.value) || 1)) }))}
+                                                    className="w-20 rounded-lg border border-slate-300 bg-white p-1.5 text-sm dark:bg-slate-800" />
+                                                din {i.qty}
+                                            </label>
+                                        )}
+                                    </li>
+                                ))}
+                            </ul>
+                        </fieldset>
+                    ) : (
+                        <label className="block">
+                            <span className="text-sm font-bold text-slate-700 dark:text-slate-300 mb-1.5 block">Produsele vizate *</span>
+                            <input name="products" value={form.products} onChange={handleChange} placeholder="ex: Banner 200x100cm, cantitate 1" className="w-full p-3 border border-slate-300 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 text-slate-900 dark:text-white" />
+                            <span className="mt-1 block text-xs text-slate-500">
+                                {lookup === "loading" ? "Caut comanda…" : lookup === "notfound" ? "N-am găsit comanda cu acest email: scrie produsele de mână." : "Completează numărul comenzii și emailul de pe comandă ca să alegi produsele din listă."}
+                            </span>
+                        </label>
+                    )}
 
                     <label className="block">
                         <span className="text-sm font-bold text-slate-700 dark:text-slate-300 mb-1.5 block">Mesaj (opțional)</span>
