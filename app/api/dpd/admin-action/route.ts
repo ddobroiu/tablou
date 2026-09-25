@@ -1,3 +1,4 @@
+import { alerta } from '../../../../lib/alerts';
 import { NextRequest } from 'next/server';
 import { verifyAdminAction, signAdminAction } from '../../../../lib/adminAction';
 import { createShipment, getPickupPoints, printExtended, trackingUrlForAwb, type ShipmentSender, validateShipment } from '../../../../lib/dpdService';
@@ -248,6 +249,7 @@ export async function GET(req: NextRequest) {
 
             const created = await createShipment(shipment);
             if ((created as any)?.error || !created?.id) {
+                void alerta("error", "dpd", `AWB-ul DPD nu s-a generat pentru comanda ${payload.orderId || "necunoscuta"}: ${String((created as any)?.error?.message || "fara id de expeditie").slice(0, 400)}`);
                 return htmlPage('Eroare AWB', `<h1>Eroare creare</h1><p>${(created as any)?.error?.message}</p>`);
             }
 

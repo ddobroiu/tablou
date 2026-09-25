@@ -1,4 +1,5 @@
 
+import { alerta } from './alerts';
 import { Address, Billing, StoredOrderItem, StoredOrder, MarketingInfo, appendOrder } from './orderStore';
 import { prisma } from './prisma';
 import bcrypt from 'bcryptjs';
@@ -189,6 +190,7 @@ export async function fulfillOrder(
   if (!billing.email) (billing as any).email = address.email;
 
   let invoiceLink: string | null = null;
+  let oblioError: string | null = null;
   let createdPassword: string | undefined;
   let finalUserId = orderData.userId || null;
 
@@ -229,7 +231,8 @@ export async function fulfillOrder(
 
       invoiceLink = invoice?.data?.link || invoice?.link || null;
       if (invoiceLink) console.log('[OrderService] Factura generata:', invoiceLink);
-    } catch (e) { console.warn('[OrderService] Oblio failed:', e); }
+      if (!invoiceLink) oblioError = "raspuns Oblio fara link de factura";
+    } catch (e: any) { console.warn('[OrderService] Oblio failed:', e); oblioError = String(e?.message || e); }
   }
 
   // 1.5 Newsletter
@@ -294,6 +297,7 @@ export async function fulfillOrder(
       stripeSessionId: orderData.stripeSessionId,
       source: source || 'Tablou.net'
     });
+    if (oblioError) void alerta("error", "oblio", `factura Oblio nu s-a emis pentru comanda ${saved.orderNo}: ${oblioError}`);
 
     await sendEmails(address, billing, cart, invoiceLink, paymentType, marketing, saved.orderNo, createdPassword, saved.id, source);
 
@@ -324,6 +328,7 @@ export async function fulfillOrder(
     }
 
     console.error('[OrderService] fulfillOrder CRITICAL ERROR:', e);
+    void alerta("error", "order", `comanda NU s-a salvat in baza de date (${paymentType}, ${address?.email || "fara email"}): ${String(e?.message || e).slice(0, 300)}${oblioError ? ` | si factura Oblio a esuat: ${oblioError}` : ""}`);
     try { await sendEmails(address, billing, cart, invoiceLink, paymentType, marketing, undefined, createdPassword, undefined, source); } catch { }
     return { invoiceLink, createdPassword };
   }

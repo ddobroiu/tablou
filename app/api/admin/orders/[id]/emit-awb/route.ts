@@ -1,3 +1,4 @@
+import { alerta } from '@/lib/alerts';
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { verifyAdminSession } from '@/lib/adminSession';
@@ -119,6 +120,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
       const dpdError = (created as any)?.error;
       const errorMsg = dpdError?.message || dpdError?.context || 'Eroare creare expediție';
       console.error('[emit-awb] DPD Error:', dpdError);
+      void alerta("error", "dpd", `AWB-ul DPD nu s-a generat pentru comanda ${order.orderNo}: ${String(errorMsg).slice(0, 400)}`);
       return NextResponse.json({ 
         ok: false, 
         message: `DPD: ${errorMsg}`, 

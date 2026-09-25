@@ -1,5 +1,6 @@
 
 export const revalidate = 0;
+import { alerta } from '@/lib/alerts';
 import { headers } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
@@ -93,6 +94,7 @@ export async function POST(req: NextRequest) {
                     console.log('[Tablou Webhook] Constructed fallback checkoutData from metadata');
                 } else {
                     console.error('[Tablou Webhook] CRITICAL: No pending checkout AND no address_email in metadata.');
+                    void alerta("error", "stripe-webhook", `plata Stripe primita, dar lipsesc datele comenzii (sesiune ${session.id}) - comanda nu s-a creat`);
                     return NextResponse.json({ error: 'Pending checkout not found and metadata insufficient' }, { status: 404 });
                 }
             } else {
@@ -135,6 +137,7 @@ export async function POST(req: NextRequest) {
 
         } catch (error) {
             console.error('[Tablou Webhook] Error fulfilling order:', error);
+            void alerta("error", "stripe-webhook", `plata Stripe primita, dar comanda nu s-a finalizat (sesiune ${session.id}): ${String((error as any)?.message || error).slice(0, 400)}`);
             return NextResponse.json({ error: 'Error fulfilling order' }, { status: 500 });
         }
     }

@@ -1,3 +1,4 @@
+import { alerta } from '@/lib/alerts';
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 import { verifyAdminSession } from '../../../../../../lib/adminSession';
@@ -105,6 +106,7 @@ export async function POST(req: Request, ctx: any) {
           }
         } catch (e: any) {
           console.error('[admin/invoice] Oblio error:', e?.message || e);
+          void alerta("error", "oblio", `factura Oblio nu s-a emis pentru comanda ${order.orderNo}: ${String(e?.message || e).slice(0, 400)}`);
           return NextResponse.json({ ok: false, message: 'Eroare la emitere factura: ' + (e?.message || e) }, { status: 500 });
         }
       }

@@ -1,3 +1,4 @@
+import { alerta, faraCredite } from "@/lib/alerts";
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
 import { tools, SYSTEM_PROMPT } from "@/lib/ai-shared";
@@ -488,6 +489,9 @@ export async function POST(req: Request) {
     return NextResponse.json({ status: "ok" });
   } catch (error: any) {
     console.error("Webhook Error:", error);
+    if (faraCredite(error)) {
+      void alerta("credits", "openai", `OpenAI a refuzat cererea - credite terminate, asistentul AI pe WhatsApp nu merge: ${String(error?.message ?? error).slice(0, 300)}`);
+    }
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
