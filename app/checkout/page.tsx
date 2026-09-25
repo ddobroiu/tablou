@@ -33,6 +33,11 @@ import {
   BANK_TRANSFER_BANK_NAME,
   BANK_TRANSFER_IBAN,
 } from "@/lib/paymentRules";
+import dynamic from "next/dynamic";
+import type { DpdPointChoice } from "@/components/checkout/DpdPointPicker";
+
+// Harta cu lockere / puncte DPD (Leaflet), doar in browser
+const DpdPointPicker = dynamic(() => import("@/components/checkout/DpdPointPicker"), { ssr: false });
 
 
 const stripePromise = loadStripe(
@@ -73,7 +78,7 @@ type BillingInfo = {
 type PaymentMethod = "card" | "bank_transfer" | "cash_on_delivery";
 
 type CheckoutErrors = {
-  address?: Partial<Record<keyof Address, string>>;
+  address?: Partial<Record<keyof Address | "dpdPoint", string>>;
   billing?: Partial<Record<keyof BillingInfo, string>>;
   global?: string;
 };
@@ -186,6 +191,10 @@ export default function CheckoutPage() {
   );
 
   const [sameAsDelivery, setSameAsDelivery] = useState(true);
+  // Livrare la adresa sau la un locker / punct DPD ales pe harta
+  const [deliveryType, setDeliveryType] = useState<"address" | "dpd_point">("address");
+  const [dpdPoint, setDpdPoint] = useState<DpdPointChoice | null>(null);
+  const atPoint = deliveryType === "dpd_point" && (!address.country || address.country === "RO");
   const [createAccount, setCreateAccount] = useState(true);
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("card");
   const [acceptTerms, setAcceptTerms] = useState(false);
@@ -223,7 +232,9 @@ export default function CheckoutPage() {
 
   const isRambursDisabled =
     totalWithShipping > MAX_RAMBURS_LIMIT ||
-    (address.country && address.country !== "RO");
+    (address.country && address.country !== "RO") ||
+    // la unele puncte DPD nu se poate plati la ridicare
+    (atPoint && dpdPoint !== null && !dpdPoint.cod);
 
   useEffect(() => {
     if (isRambursDisabled && paymentMethod === "cash_on_delivery") {
@@ -329,6 +340,7 @@ export default function CheckoutPage() {
     if (a.city) out["address.localitate"] = a.city;
     if (a.street) out["address.strada_nr"] = a.street;
     if (a.postalCode) out["address.postCode"] = a.postalCode;
+    if (a.dpdPoint) out["address.dpdPoint"] = a.dpdPoint;
     if (b.companyName) out["billing.denumire_companie"] = b.companyName as string;
     if (b.cui) out["billing.cui"] = b.cui as string;
     if (b.regCom) out["billing.reg_com"] = b.regCom as string;
@@ -497,22 +509,27 @@ export default function CheckoutPage() {
         ...(newErrors.address ?? {}),
         phone: "Telefonul este obligatoriu.",
       };
-    if (!sanitizeString(address.county))
+    if (atPoint && !dpdPoint)
+      newErrors.address = {
+        ...(newErrors.address ?? {}),
+        dpdPoint: "Alege lockerul sau punctul DPD de pe hartă.",
+      };
+    if (!atPoint && !sanitizeString(address.county))
       newErrors.address = {
         ...(newErrors.address ?? {}),
         county: "Județul este obligatoriu.",
       };
-    if (!sanitizeString(address.city))
+    if (!atPoint && !sanitizeString(address.city))
       newErrors.address = {
         ...(newErrors.address ?? {}),
         city: "Orașul este obligatoriu.",
       };
-    if (!sanitizeString(address.street))
+    if (!atPoint && !sanitizeString(address.street))
       newErrors.address = {
         ...(newErrors.address ?? {}),
         street: "Adresa este obligatorie.",
       };
-    if (!sanitizeString(address.postalCode))
+    if (!atPoint && !sanitizeString(address.postalCode))
       newErrors.address = {
         ...(newErrors.address ?? {}),
         postalCode: "Codul poștal este obligatoriu.",
@@ -588,7 +605,21 @@ export default function CheckoutPage() {
 
     // Impartim numele complet (tinut nedespartit in firstName cat timp s-a
     // editat) in prenume/nume abia acum, o singura data, pentru payload.
-    const finalAddress = { ...address, ...splitFullName(address.firstName || "") };
+    const finalAddress = atPoint && dpdPoint
+      ? {
+          ...address,
+          ...splitFullName(address.firstName || ""),
+          // Livrare la punct DPD: adresa e a punctului, iar AWB-ul se emite cu pickupOfficeId
+          country: "RO",
+          city: dpdPoint.city,
+          street: `${dpdPoint.type === "L" ? "Locker" : "Punct"} DPD ${dpdPoint.name} – ${dpdPoint.address}`,
+          postalCode: dpdPoint.postCode,
+          county: address.county || "",
+          deliveryType: "dpd_point",
+          dpdOfficeId: dpdPoint.id,
+          dpdOfficeName: `${dpdPoint.type === "L" ? "Locker" : "Punct"} DPD ${dpdPoint.name}`,
+        }
+      : { ...address, ...splitFullName(address.firstName || "") };
     const finalBilling =
       billing.type === "individual"
         ? { ...billing, ...splitFullName(billing.firstName || "") }
@@ -762,6 +793,9 @@ export default function CheckoutPage() {
               sameAsDelivery={sameAsDelivery}
               setSameAsDelivery={setSameAsDelivery}
               errors={formErrors}
+              deliveryType={deliveryType}
+              setDeliveryType={setDeliveryType}
+              pointPicker={<DpdPointPicker items={normalizeCart(items)} value={dpdPoint} onChange={setDpdPoint} />}
             />
           </section>
 

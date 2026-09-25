@@ -135,12 +135,17 @@ export async function GET(req: NextRequest) {
                     email: address.email,
                     phone1: { number: address.telefon },
                     privatePerson: true,
-                    address: {
-                        countryId: COUNTRY_IDS[(address.country || 'RO').toUpperCase()] || 642,
-                        siteName: address.localitate,
-                        postCode: address.postCode,
-                        addressNote: `${address.strada_nr}, ${address.localitate}, ${address.judet}, ${address.country || 'RO'}`
-                    },
+                    // Livrare la locker / punct DPD: DPD livreaza la punct, fara adresa
+                    ...(address?.dpdOfficeId
+                        ? { pickupOfficeId: Number(address.dpdOfficeId) }
+                        : {
+                            address: {
+                            countryId: COUNTRY_IDS[(address.country || 'RO').toUpperCase()] || 642,
+                                siteName: address.localitate,
+                                postCode: address.postCode,
+                                addressNote: `${address.strada_nr}, ${address.localitate}, ${address.judet}, ${address.country || 'RO'}`
+                            },
+                        }),
                 },
                 service: { serviceId, autoAdjustPickupDate: true },
                 content: { parcelsCount: 1, totalWeight: 1, contents: contentDesc, package: 'Pachet' },
@@ -212,12 +217,17 @@ export async function GET(req: NextRequest) {
                     email: address.email,
                     phone1: { number: address.telefon },
                     privatePerson: true,
-                    address: {
-                        countryId: COUNTRY_IDS[(address.country || 'RO').toUpperCase()] || 642,
-                        siteName: address.localitate,
-                        postCode: address.postCode,
-                        addressNote: `${address.strada_nr}, ${address.localitate}, ${address.judet}, ${address.country || 'RO'}`,
-                    },
+                    // Livrare la locker / punct DPD: DPD livreaza la punct, fara adresa
+                    ...(address?.dpdOfficeId
+                        ? { pickupOfficeId: Number(address.dpdOfficeId) }
+                        : {
+                            address: {
+                            countryId: COUNTRY_IDS[(address.country || 'RO').toUpperCase()] || 642,
+                                siteName: address.localitate,
+                                postCode: address.postCode,
+                                addressNote: `${address.strada_nr}, ${address.localitate}, ${address.judet}, ${address.country || 'RO'}`,
+                            },
+                        }),
                 },
                 service: {
                     serviceId,
@@ -323,6 +333,8 @@ export async function POST(req: NextRequest) {
             strada_nr: String(form.get('strada_nr') || payload.address.strada_nr || ''),
             postCode: String(form.get('postCode') || payload.address.postCode || ''),
             country: String(form.get('country') || payload.address.country || 'RO'),
+            // punctul DPD ales de client nu se editeaza in formular: il pastram
+            ...(payload.address.dpdOfficeId && { deliveryType: 'dpd_point' as const, dpdOfficeId: payload.address.dpdOfficeId, dpdOfficeName: payload.address.dpdOfficeName }),
         };
         const paymentTypeRaw = String(form.get('paymentType') || payload.paymentType || 'Ramburs');
         const paymentType = paymentTypeRaw === 'Card' ? 'Card' : paymentTypeRaw === 'OP' ? 'OP' : 'Ramburs';

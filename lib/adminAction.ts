@@ -18,6 +18,10 @@ export type AdminActionPayload = {
     strada_nr: string;
     postCode?: string;
     country?: string;
+    // livrare la locker / punct DPD
+    deliveryType?: 'address' | 'dpd_point';
+    dpdOfficeId?: number;
+    dpdOfficeName?: string;
   };
   items?: { name: string; qty: number }[]; // optional to keep token short
   paymentType?: 'Ramburs' | 'OP' | 'Card';

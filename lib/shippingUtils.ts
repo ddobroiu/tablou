@@ -72,7 +72,7 @@ const DENSITIES = {
  * Încearcă să extragă dimensiunile (width, height) dintr-un item.
  * PRIORITIZEAZĂ extragerea din TITLU și OPȚIUNI pentru a suprascrie metadata incorectă.
  */
-function extractDimensions(item: any): { w: number, h: number } {
+export function extractDimensions(item: any): { w: number, h: number } {
     let w = 0, h = 0;
 
     // 1. PRIMA DATĂ: Scanăm textul (Titlu + Opțiuni) pentru că este cel mai de încredere (ce vede clientul)

@@ -61,12 +61,17 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
         email: address?.email || (order as any).user?.email || undefined,
         phone1: { number: address?.telefon || (order as any).user?.phone || undefined },
         privatePerson: true,
-        address: {
-          countryId: countryId,
-          siteName: address?.localitate,
-          postCode: address?.postCode,
-          addressNote: `${address?.strada_nr || ''}, ${address?.localitate || ''}, ${address?.judet || ''}, ${countryCode}`
-        },
+        // Livrare la locker / punct DPD: DPD livreaza la punct, fara adresa
+        ...(address?.dpdOfficeId
+            ? { pickupOfficeId: Number(address.dpdOfficeId) }
+            : {
+                address: {
+              countryId: countryId,
+                  siteName: address?.localitate,
+                  postCode: address?.postCode,
+                  addressNote: `${address?.strada_nr || ''}, ${address?.localitate || ''}, ${address?.judet || ''}, ${countryCode}`
+                },
+            }),
       },
       service: { serviceId, autoAdjustPickupDate: true },
       content: { parcelsCount: 1, totalWeight: 1, contents: contentDesc, package: 'Pachet' },

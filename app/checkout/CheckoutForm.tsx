@@ -41,6 +41,9 @@ export default function CheckoutForm({
     sameAsDelivery,
     setSameAsDelivery,
     errors,
+    deliveryType = "address",
+    setDeliveryType,
+    pointPicker,
 }: {
     address: Address;
     setAddress: (updater: (a: Address) => Address) => void;
@@ -49,7 +52,12 @@ export default function CheckoutForm({
     sameAsDelivery: boolean;
     setSameAsDelivery: (v: boolean) => void;
     errors: Record<string, string>;
+    // Livrare la adresa sau la un locker / punct DPD (harta vine din pagina de checkout)
+    deliveryType?: "address" | "dpd_point";
+    setDeliveryType?: (t: "address" | "dpd_point") => void;
+    pointPicker?: React.ReactNode;
 }) {
+    const atPoint = deliveryType === "dpd_point";
     const onAddr = (k: keyof Address, v: string) => setAddress((a) => ({ ...a, [k]: v }));
     const onBill = <K extends keyof Billing>(k: K, v: Billing[K]) => setBilling((b) => ({ ...b, [k]: v }));
 
@@ -183,14 +191,26 @@ export default function CheckoutForm({
                     Date de livrare
                 </h2>
 
+                {setDeliveryType && (!address.country || address.country === 'RO') && (
+                    <div className="mb-5 grid grid-cols-2 gap-2">
+                        {([["address", "La adresă", "Curierul vine la tine"], ["dpd_point", "Locker sau punct DPD", "Ridici când îți convine"]] as const).map(([k, t, d]) => (
+                            <button key={k} type="button" onClick={() => setDeliveryType(k)}
+                                className={`rounded-xl border-2 p-3 text-left transition ${deliveryType === k ? "border-emerald-600 bg-emerald-50" : "border-slate-200 hover:border-slate-300"}`}>
+                                <span className="block text-sm font-bold text-slate-900">{t}</span>
+                                <span className="block text-xs text-slate-500">{d}</span>
+                            </button>
+                        ))}
+                    </div>
+                )}
+
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                    <div className="md:col-span-2">
+                    {!atPoint && <div className="md:col-span-2">
                         <Field id="address.country" label="Țară">
                             <select className={inputCls()} value={address.country || 'RO'} onChange={(e) => { const c = e.target.value; setAddress(a => ({ ...a, country: c, judet: '', localitate: '' })); }}>
                                 {DPD_COUNTRIES.map(c => <option key={c.code} value={c.code}>{c.name}</option>)}
                             </select>
                         </Field>
-                    </div>
+                    </div>}
                     <div className="md:col-span-2">
                         <Field id="address.nume_prenume" label="Nume și Prenume" error={errors["address.nume_prenume"]}>
                             <input className={inputCls(errors["address.nume_prenume"])} value={address.nume_prenume} onChange={(e) => onAddr("nume_prenume", e.target.value)} placeholder="ex: Popescu Ion" />
@@ -207,7 +227,12 @@ export default function CheckoutForm({
                         </Field>
                     </div>
 
-                    {(!address.country || address.country === 'RO') ? (
+                    {atPoint ? (
+                        <div className="md:col-span-4">
+                            {pointPicker}
+                            {errors["address.dpdPoint"] && <p className="mt-1 text-xs text-red-500">{errors["address.dpdPoint"]}</p>}
+                        </div>
+                    ) : (!address.country || address.country === 'RO') ? (
                         <>
                             <div className="md:col-span-2">
                                 <JudetSelector label="Județ" value={address.judet} onChange={v => onAddr("judet", v)} />
@@ -242,7 +267,7 @@ export default function CheckoutForm({
                         </>
                     )}
 
-                    <div className="md:col-span-3">
+                    {!atPoint && <><div className="md:col-span-3">
                         <Field id="address.strada_nr" label="Adresă" error={errors["address.strada_nr"]}>
                             <input className={inputCls(errors["address.strada_nr"])} value={address.strada_nr} onChange={(e) => onAddr("strada_nr", e.target.value)} placeholder="Stradă, număr, bloc..." />
                         </Field>
@@ -251,7 +276,7 @@ export default function CheckoutForm({
                         <Field id="address.postCode" label="Cod poștal">
                             <input className={inputCls()} value={address.postCode || ""} onChange={(e) => onAddr("postCode", e.target.value)} placeholder="000000" />
                         </Field>
-                    </div>
+                    </div></>}
                 </div>
             </div>
 

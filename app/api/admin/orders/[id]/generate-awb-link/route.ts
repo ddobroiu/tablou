@@ -42,6 +42,7 @@ export async function GET(
         strada_nr: address.strada_nr || "",
         postCode: address.postCode || "",
         country: address.country || "RO",
+        ...(address.dpdOfficeId && { deliveryType: "dpd_point", dpdOfficeId: Number(address.dpdOfficeId), dpdOfficeName: address.dpdOfficeName }),
       },
       paymentType,
       totalAmount: Number(order.totalAmount || 0),

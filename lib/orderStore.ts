@@ -14,6 +14,10 @@ export interface Address {
     ap?: string;
     interfon?: string;
     country?: string;
+    // livrare la locker / punct DPD
+    deliveryType?: 'address' | 'dpd_point';
+    dpdOfficeId?: number;
+    dpdOfficeName?: string;
 }
 
 export interface Billing {

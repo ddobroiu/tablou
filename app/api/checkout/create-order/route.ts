@@ -50,6 +50,13 @@ export async function POST(req: NextRequest) {
             localitate: orderData.address.city || orderData.address.localitate || '',
             strada_nr: orderData.address.street || orderData.address.strada_nr || '',
             postCode: orderData.address.postalCode || orderData.address.postCode || '',
+            country: orderData.address.country || 'RO',
+            // Livrare la locker / punct DPD ales in checkout
+            ...(orderData.address.deliveryType === 'dpd_point' && Number(orderData.address.dpdOfficeId) > 0 && {
+                deliveryType: 'dpd_point',
+                dpdOfficeId: Number(orderData.address.dpdOfficeId),
+                dpdOfficeName: String(orderData.address.dpdOfficeName || '').slice(0, 120),
+            }),
         };
 
         const isBillingCompany = orderData.billing.type === 'company' || orderData.billing.tip_factura === 'persoana_juridica';
