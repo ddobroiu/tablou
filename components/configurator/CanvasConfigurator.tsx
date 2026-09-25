@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useMemo, useState, useEffect, useRef } from "react";
+import ArtworkFitEditor, { DEFAULT_FIT, fitMetadata, type ArtworkFit } from "./ArtworkFitEditor";
 import { useSearchParams } from "next/navigation";
 import { useCart } from "@/components/CartContext";
 import { Plus, Minus, ShoppingCart, Info, ChevronDown, X, UploadCloud, MessageCircle, TrendingUp, Box, Image as ImageIcon, Sparkles, Settings2, FileText, Truck, Shield, HelpCircle, Star, Palette, Trash2, PencilRuler } from "lucide-react";
@@ -123,6 +124,9 @@ export default function CanvasConfigurator({ productSlug, initialWidth: initW, i
     const [viewMode, setViewMode] = useState<'gallery' | '3d'>('gallery');
 
     const [artworkUrl, setArtworkUrl] = useState<string | null>(null);
+    // Incadrarea graficii pe tablou (pozitie, zoom) si pixelii imaginii, salvate in comanda
+    const [artworkFit, setArtworkFit] = useState<ArtworkFit>(DEFAULT_FIT);
+    const [artworkPx, setArtworkPx] = useState<{ w: number; h: number } | null>(null);
     const [uploading, setUploading] = useState(false);
     const [uploadError, setUploadError] = useState<string | null>(null);
 
@@ -267,6 +271,8 @@ export default function CanvasConfigurator({ productSlug, initialWidth: initW, i
     const handleArtworkFileInput = async (file: File | null) => {
         setArtworkUrl(null); setUploadError(null);
         if (!file) return;
+        setArtworkFit(DEFAULT_FIT);
+        setArtworkPx(null);
         try {
             setUploading(true);
             const form = new FormData(); form.append("file", file);
@@ -333,6 +339,8 @@ export default function CanvasConfigurator({ productSlug, initialWidth: initW, i
                 "Tip": input.frameType === "framed" ? "Cu șasiu" : "Fără șasiu (doar pânza)",
                 "Grafică": input.designOption === 'pro' ? 'Vreau grafică' : 'Grafică proprie',
                 "artworkUrl": artworkUrl,
+                ...(input.designOption === "upload" && artworkUrl
+                    ? fitMetadata(exportW, exportH, artworkPx, artworkFit) : {}),
                 "width": exportW,
                 "height": exportH,
                 "Margine": input.edge_type === 'mirror' ? 'Oglindită (Mirror)' : 'Albă',
@@ -549,7 +557,22 @@ export default function CanvasConfigurator({ productSlug, initialWidth: initW, i
                                 {viewMode === 'gallery' ? (
                                     <div className="relative w-full h-full flex items-center justify-center p-4 overflow-hidden">
                                         <div className="relative">
-                                            <img src={activeImage} alt="Canvas" className="max-h-full max-w-full object-contain shadow-2xl" />
+                                            {input.designOption === "upload" && artworkUrl ? (
+                                                <div className="h-[min(70vw,520px)] w-[min(80vw,560px)]">
+                                                    <ArtworkFitEditor
+                                                        widthCm={currentW}
+                                                        heightCm={currentH}
+                                                        imageUrl={artworkUrl}
+                                                        fit={artworkFit}
+                                                        onChange={setArtworkFit}
+                                                        onImageSize={setArtworkPx}
+                                                        safeMarginCm={input.frameType === "framed" ? 3 : 1}
+                                                        viewingFactor={1.2}
+                                                    />
+                                                </div>
+                                            ) : (
+                                                <img src={activeImage} alt="Canvas" className="max-h-full max-w-full object-contain shadow-2xl" />
+                                            )}
                                             {input.edge_type === 'white' && (
                                                 <>
                                                     {/* Fold marks for white border */}

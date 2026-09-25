@@ -1,5 +1,6 @@
 "use client";
 import React, { useMemo, useState, useEffect } from "react";
+import ArtworkFitEditor, { DEFAULT_FIT, fitMetadata, type ArtworkFit } from "./ArtworkFitEditor";
 import { useCart } from "@/components/CartContext";
 import { Plus, Minus, ShoppingCart, Info, ChevronDown, X, UploadCloud, Image as ImageIcon, Ruler, PlayCircle, TrendingUp, Percent, MessageCircle, PencilRuler } from "lucide-react";
 import DeliveryEstimation from "./DeliveryEstimation";
@@ -154,6 +155,9 @@ export default function BannerVersoConfigurator({ productSlug, initialWidth: ini
 
 
     const [artworkUrl, setArtworkUrl] = useState<string | null>(null);
+    // Incadrarea graficii pe produs (pozitie, zoom) si pixelii imaginii, salvate in comanda
+    const [artworkFit, setArtworkFit] = useState<ArtworkFit>(DEFAULT_FIT);
+    const [artworkPx, setArtworkPx] = useState<{ w: number; h: number } | null>(null);
     const [artworkUrlVerso, setArtworkUrlVerso] = useState<string | null>(null);
     const [textDesign, setTextDesign] = useState<string | null>(null);
     const [textDesignVerso, setTextDesignVerso] = useState<string | null>(null);
@@ -215,6 +219,8 @@ export default function BannerVersoConfigurator({ productSlug, initialWidth: ini
         if (side === 'front') setArtworkUrl(null); else setArtworkUrlVerso(null);
 
         if (!file) return;
+        setArtworkFit(DEFAULT_FIT);
+        setArtworkPx(null);
         try {
             const previewUrl = URL.createObjectURL(file);
             if (side === 'front' || input.same_graphic) {
@@ -294,6 +300,8 @@ export default function BannerVersoConfigurator({ productSlug, initialWidth: ini
             metadata: {
                 ...selectedOptions,
                 artworkUrl: artworkUrl,
+                ...(input.designOption === "upload" && artworkUrl
+                    ? fitMetadata(input.width_cm, input.height_cm, artworkPx, artworkFit) : {}),
                 artworkUrlVerso: artworkUrlVerso,
                 textDesign: textDesign,
                 textDesignVerso: textDesignVerso,
@@ -385,7 +393,21 @@ export default function BannerVersoConfigurator({ productSlug, initialWidth: ini
                                 {viewMode === 'gallery' && (
                                     <>
                                         <div className="h-full w-full flex items-center justify-center p-4">
-                                            <img src={activeImage} alt="Banner Față-Verso" className="max-h-full max-w-full object-contain animate-in fade-in duration-300" />
+                                            {input.designOption === "upload" && artworkUrl && input.width_cm > 0 && input.height_cm > 0 ? (
+                                                <ArtworkFitEditor
+                                                    widthCm={input.width_cm}
+                                                    heightCm={input.height_cm}
+                                                    imageUrl={artworkUrl}
+                                                    fit={artworkFit}
+                                                    onChange={setArtworkFit}
+                                                    onImageSize={setArtworkPx}
+                                                    grommets
+                                                    safeMarginCm={3}
+                                                    viewingFactor={1.5}
+                                                />
+                                            ) : (
+                                                <img src={activeImage} alt="Banner Față-Verso" className="max-h-full max-w-full object-contain animate-in fade-in duration-300" />
+                                            )}
                                         </div>
 
                                     </>

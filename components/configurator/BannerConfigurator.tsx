@@ -2,6 +2,7 @@
 // components/configurator/BannerConfigurator.tsx
 
 import { NumberInput } from "./ui/NumberInput";
+import ArtworkFitEditor, { DEFAULT_FIT, fitMetadata, type ArtworkFit } from "./ArtworkFitEditor";
 import React, { useMemo, useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { useCart } from "@/components/CartContext";
@@ -13,7 +14,6 @@ import Link from 'next/link';
 import FaqAccordion from "./FaqAccordion";
 import Reviews from "../Reviews"; // Adjusted path
 import DynamicBannerPreview from "./DynamicBannerPreview";
-import ArtworkRatioPreview from "./ArtworkRatioPreview";
 
 import dynamic from 'next/dynamic';
 const RelatedProducts = dynamic(() => import('../RelatedProducts'), { ssr: false }); // Adjusted path and usage if needed
@@ -247,6 +247,9 @@ export default function BannerConfigurator({ productSlug, initialWidth: initW, i
     const [activeImage, setActiveImage] = useState<string>(galleryImages[0]);
     const [videoOpen, setVideoOpen] = useState(false);
     const [artworkUrl, setArtworkUrl] = useState<string | null>(null);
+    // Incadrarea graficii pe banner (pozitie, zoom) si pixelii imaginii, salvate in comanda
+    const [artworkFit, setArtworkFit] = useState<ArtworkFit>(DEFAULT_FIT);
+    const [artworkPx, setArtworkPx] = useState<{ w: number; h: number } | null>(null);
     const [uploading, setUploading] = useState(false);
     const [uploadError, setUploadError] = useState<string | null>(null);
 
@@ -392,6 +395,8 @@ export default function BannerConfigurator({ productSlug, initialWidth: initW, i
         setUploadError(null);
 
         if (!file) return;
+        setArtworkFit(DEFAULT_FIT);
+        setArtworkPx(null);
         try {
             const previewUrl = URL.createObjectURL(file);
             setArtworkUrl(previewUrl);
@@ -453,6 +458,8 @@ export default function BannerConfigurator({ productSlug, initialWidth: initW, i
                 ...(input.designOption === 'pro' && { "Cost grafică": formatMoneyDisplay(BANNER_CONSTANTS.PRO_DESIGN_FEE) }),
                 // Trimitem artworkUrl și textDesign pentru salvare în DB (backend le extrage)
                 artworkUrl,
+                ...(input.designOption === "upload" && artworkUrl
+                    ? fitMetadata(input.width_cm, input.height_cm, artworkPx, artworkFit) : {}),
                 textDesign: input.designOption === 'text_only' ? textDesign : undefined,
             },
         });
@@ -522,7 +529,19 @@ export default function BannerConfigurator({ productSlug, initialWidth: initW, i
                                                 priority
                                             />
                                         ) : artworkUrl ? (
-                                            <Image 
+                                            input.width_cm > 0 && input.height_cm > 0 ? (
+                                                <ArtworkFitEditor
+                                                    widthCm={input.width_cm}
+                                                    heightCm={input.height_cm}
+                                                    imageUrl={artworkUrl}
+                                                    fit={artworkFit}
+                                                    onChange={setArtworkFit}
+                                                    onImageSize={setArtworkPx}
+                                                    grommets={input.want_hem_and_grommets}
+                                                    safeMarginCm={3}
+                                                />
+                                            ) : (
+                                                <Image 
                                                 src={artworkUrl} 
                                                 alt="Grafică Încărcată" 
                                                 fill
@@ -530,6 +549,7 @@ export default function BannerConfigurator({ productSlug, initialWidth: initW, i
                                                 sizes="(max-width: 768px) 100vw, 50vw"
                                                 priority
                                             />
+                                            )
                                         ) : (
                                             <Image 
                                                 src={activeImage} 

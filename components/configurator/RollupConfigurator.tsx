@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useMemo, useState, useEffect } from "react";
+import ArtworkFitEditor, { DEFAULT_FIT, fitMetadata, type ArtworkFit } from "./ArtworkFitEditor";
 import { useCart } from "@/components/CartContext";
 import { Plus, Minus, ShoppingCart, Info, ChevronDown, X, UploadCloud, MessageCircle, TrendingUp, PencilRuler } from "lucide-react";
 import Link from 'next/link';
@@ -48,6 +49,9 @@ export default function RollupConfigurator({ productSlug, initialWidth: initW, p
     const [activeIndex, setActiveIndex] = useState<number>(0);
 
     const [artworkUrl, setArtworkUrl] = useState<string | null>(null);
+    // Incadrarea graficii pe produs (pozitie, zoom) si pixelii imaginii, salvate in comanda
+    const [artworkFit, setArtworkFit] = useState<ArtworkFit>(DEFAULT_FIT);
+    const [artworkPx, setArtworkPx] = useState<{ w: number; h: number } | null>(null);
     const [uploading, setUploading] = useState(false);
     const [uploadError, setUploadError] = useState<string | null>(null);
 
@@ -66,6 +70,8 @@ export default function RollupConfigurator({ productSlug, initialWidth: initW, p
     const handleArtworkFileInput = async (file: File | null) => {
         setArtworkUrl(null); setUploadError(null);
         if (!file) return;
+        setArtworkFit(DEFAULT_FIT);
+        setArtworkPx(null);
         try {
             setUploading(true);
             const form = new FormData(); form.append("file", file);
@@ -101,6 +107,8 @@ export default function RollupConfigurator({ productSlug, initialWidth: initW, p
                 "Pachet": "Casetă + Print + Geantă",
                 "Grafică": input.designOption === 'pro' ? 'Design Pro' : 'Grafică proprie',
                 "artworkUrl": artworkUrl,
+                ...(input.designOption === "upload" && artworkUrl
+                    ? fitMetadata(input.width_cm, 200, artworkPx, artworkFit) : {}),
             },
         });
         alert("Adăugat în coș!");
@@ -125,7 +133,19 @@ export default function RollupConfigurator({ productSlug, initialWidth: initW, p
                     <div className="lg:sticky top-24 h-max space-y-6">
                         <div className="bg-white rounded-2xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.05)] border border-gray-200 dark:border-slate-800 overflow-hidden">
                             <div className="aspect-square relative flex items-center justify-center p-4">
-                                <Image 
+                                {input.designOption === "upload" && artworkUrl && input.width_cm > 0 ? (
+                                    <ArtworkFitEditor
+                                        widthCm={input.width_cm}
+                                        heightCm={200}
+                                        imageUrl={artworkUrl}
+                                        fit={artworkFit}
+                                        onChange={setArtworkFit}
+                                        onImageSize={setArtworkPx}
+                                        safeMarginCm={3}
+                                        viewingFactor={1.0}
+                                    />
+                                ) : (
+                                    <Image 
                                     src={activeImage} 
                                     alt="Rollup" 
                                     fill
@@ -133,6 +153,7 @@ export default function RollupConfigurator({ productSlug, initialWidth: initW, p
                                     sizes="(max-width: 768px) 100vw, 50vw"
                                     priority
                                 />
+                                )}
                             </div>
                             <div className="p-2 grid grid-cols-4 gap-2 border-t border-gray-100">
                                 {GALLERY.map((src, i) => (
