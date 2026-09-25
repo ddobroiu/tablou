@@ -4,7 +4,7 @@ import GoogleProvider from "next-auth/providers/google";
 import FacebookProvider from "next-auth/providers/facebook";
 import CredentialsProvider from "next-auth/providers/credentials";
 import EmailProvider from "next-auth/providers/email";
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import { siteAuthAdapter } from "./siteAuthAdapter";
 import { prisma } from "@/lib/prisma";
 import bcrypt from "bcryptjs";
 import { getConfigForSource, sendEmail } from './email';
@@ -29,7 +29,8 @@ function getLoginHtml({ url, config }: { url: string; config: any }) {
 }
 
 export const authOptions: NextAuthOptions = {
-    adapter: PrismaAdapter(prisma),
+    // Conturi separate pe fiecare site (email + site), vezi lib/siteAuthAdapter.ts
+    adapter: siteAuthAdapter(prisma, "Tablou.net"),
     session: {
         strategy: "jwt",
     },
@@ -38,6 +39,15 @@ export const authOptions: NextAuthOptions = {
         error: '/login',
     },
     providers: [
+        // Google: activ doar cand exista cheile (GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET).
+        // Google verifica emailul, deci un cont existent cu acelasi email se leaga automat.
+        ...(process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET
+            ? [GoogleProvider({
+                clientId: process.env.GOOGLE_CLIENT_ID,
+                clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+                allowDangerousEmailAccountLinking: true,
+            })]
+            : []),
         EmailProvider({
             server: "",
             from: "contact@Tablou.net", // Placeholder
@@ -102,6 +112,14 @@ export const authOptions: NextAuthOptions = {
             }
         })
     ],
+    events: {
+        // Emailul confirmat de Google marcheaza contul ca verificat
+        async signIn({ user, account, profile }) {
+            if (account?.provider === "google" && (profile as any)?.email_verified && user?.id) {
+                await prisma.user.update({ where: { id: user.id }, data: { emailVerified: new Date() } }).catch(() => {});
+            }
+        },
+    },
     callbacks: {
         async jwt({ token, user, trigger, session }) {
             if (user) {

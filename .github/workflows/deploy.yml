@@ -72,6 +72,10 @@ jobs:
             # Seria Oblio a grupului print (o singură serie pentru toate site-urile de print)
             sed -i '/^OBLIO_SERIE_FACTURA=/d' .env
             echo "OBLIO_SERIE_FACTURA=PRT" >> .env
+            # Autentificare Google: ID-ul e public, secretul vine din secretul GitHub dedicat
+            sed -i '/^GOOGLE_CLIENT_ID=/d' .env
+            echo "GOOGLE_CLIENT_ID=742620052668-7dpk497ofnmmsvk9l7rmg7altnkhnoqo.apps.googleusercontent.com" >> .env
+            if [ -n "${{ secrets.GOOGLE_CLIENT_SECRET }}" ]; then sed -i '/^GOOGLE_CLIENT_SECRET=/d' .env; echo "GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}" >> .env; fi
             sed -i '/^PIXABAY_API_KEY=/d' .env
             echo "PIXABAY_API_KEY=${{ secrets.PIXABAY_API_KEY }}" >> .env
             # Cheia Resend (email) se poate roti din secretul dedicat; dacă lipsește, rămâne cea din ENV_CONTENTS

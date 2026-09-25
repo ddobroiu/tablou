@@ -5,6 +5,7 @@ import { signIn } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
 import { Eye, EyeOff } from 'lucide-react';
+import GoogleSignInButton from "@/components/GoogleSignInButton";
 
 export default function LoginPage() {
     const [tab, setTab] = useState<'login' | 'register'>('login');
@@ -152,6 +153,8 @@ export default function LoginPage() {
                 )}
 
                 <div className="space-y-5">
+
+                    {!isResetView && <GoogleSignInButton callbackUrl={tab === 'register' ? '/account?welcome=1' : '/account'} />}
 
                     {tab === 'login' && !isResetView && (
                         <form onSubmit={onSubmit} className="space-y-4">
