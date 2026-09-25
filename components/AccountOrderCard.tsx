@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Check, FileText, Truck, Upload } from "lucide-react";
 import OrderDetails from "@/components/OrderDetails";
 import ReorderButton from "@/components/ReorderButton";
 
@@ -16,153 +17,85 @@ interface Order {
     itemsCount?: number;
 }
 
-interface AccountOrderCardProps {
-    order: Order;
-}
-
-function getAwbTrackingUrl(awb: string | null | undefined, carrier: string | null | undefined): string | null {
+function trackingUrl(awb: string | null | undefined, carrier: string | null | undefined): string | null {
     if (!awb || awb === "0") return null;
-    const awbClean = encodeURIComponent(awb);
-    const carrierLower = (carrier || "").toLowerCase();
-
-    if (carrierLower.includes("dpd")) return `https://tracking.dpd.ro/?shipmentNumber=${awbClean}&language=ro`;
-    if (carrierLower.includes("fan")) return `https://www.fancourier.ro/awb-tracking/?awb=${awbClean}`;
-    if (carrierLower.includes("sameday")) return `https://sameday.ro/awb-tracking/?awb=${awbClean}`;
-
-    return `https://tracking.dpd.ro/?shipmentNumber=${awbClean}&language=ro`;
+    const a = encodeURIComponent(awb);
+    const c = (carrier || "").toLowerCase();
+    if (c.includes("fan")) return `https://www.fancourier.ro/awb-tracking/?awb=${a}`;
+    if (c.includes("sameday")) return `https://sameday.ro/awb-tracking/?awb=${a}`;
+    return `https://tracking.dpd.ro/?shipmentNumber=${a}&language=ro`;
 }
 
-function getStatusMeta(status: string | null | undefined) {
-    switch (status) {
-        case "fulfilled":
-            return {
-                label: "Finalizată",
-                badge: "bg-emerald-100 text-emerald-800 border border-emerald-200",
-                icon: "✓",
-            };
-        case "canceled":
-            return {
-                label: "Anulată",
-                badge: "bg-red-100 text-red-800 border border-red-200",
-                icon: "✕",
-            };
-        case "processing":
-            return {
-                label: "În procesare",
-                badge: "bg-emerald-100 text-emerald-800 border border-emerald-200",
-                icon: "⧖",
-            };
-        default:
-            return {
-                label: "În lucru",
-                badge: "bg-amber-100 text-amber-800 border border-amber-200",
-                icon: "◐",
-            };
-    }
+// Etapele comenzii: plasata -> in lucru -> expediata (are AWB) -> finalizata
+function stepOf(o: Order) {
+    if (o.status === "fulfilled") return 3;
+    if (o.awbNumber && o.awbNumber !== "0") return 2;
+    if (o.status === "active" || o.status === "processing" || o.status === "in_progress") return 1;
+    return 0;
 }
+const STEPS = ["Plasată", "În lucru", "Expediată", "Finalizată"];
 
-export default function AccountOrderCard({ order }: AccountOrderCardProps) {
-    const statusMeta = getStatusMeta(order.status);
-    const awbUrl = getAwbTrackingUrl(order.awbNumber, order.awbCarrier);
-    const hasAwb = order.awbNumber && order.awbNumber !== "0";
-
-    const formattedDate = new Date(order.createdAt).toLocaleString("ro-RO", {
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-        hour: "2-digit",
-        minute: "2-digit",
-    });
-
-    const formattedTotal = new Intl.NumberFormat("ro-RO", {
-        style: "currency",
-        currency: "RON",
-    }).format(order.total);
+export default function AccountOrderCard({ order }: { order: Order }) {
+    const canceled = order.status === "canceled";
+    const step = stepOf(order);
+    const awbUrl = trackingUrl(order.awbNumber, order.awbCarrier);
+    const date = new Date(order.createdAt).toLocaleDateString("ro-RO", { day: "numeric", month: "long", year: "numeric" });
+    const total = new Intl.NumberFormat("ro-RO", { style: "currency", currency: "RON" }).format(order.total);
 
     return (
-        <li className="p-4 sm:p-6 rounded-xl border-2 border-gray-200 bg-white hover:shadow-lg transition-all duration-200 hover:border-emerald-400">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
-                <div className="flex items-center gap-3">
-                    <div className="shrink-0 w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center">
-                        <span className="text-emerald-600 font-bold">#</span>
-                    </div>
-                    <div>
-                        <h3 className="text-lg font-bold text-slate-900">
-                            Comanda #{order.orderNo}
-                        </h3>
-                        <p className="text-xs text-gray-500 mt-0.5">{formattedDate}</p>
-                    </div>
+        <li className="rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-slate-300 hover:shadow-sm sm:p-5">
+            <div className="flex flex-wrap items-start justify-between gap-3">
+                <div>
+                    <p className="font-semibold text-slate-900">Comanda #{order.orderNo}</p>
+                    <p className="text-sm text-slate-500">
+                        {date}{order.itemsCount ? ` · ${order.itemsCount} ${order.itemsCount === 1 ? "produs" : "produse"}` : ""}
+                    </p>
                 </div>
-                <span className={`px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap ${statusMeta.badge}`}>
-                    {statusMeta.icon} {statusMeta.label}
-                </span>
+                <p className="text-lg font-bold tabular-nums text-slate-900">{total}</p>
             </div>
 
-            {hasAwb && (
-                <div className="mb-4 p-3 bg-emerald-50 border border-emerald-200 rounded-lg flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                        <span className="text-sm font-mono font-semibold text-emerald-900">
-                            AWB: {order.awbNumber}
-                        </span>
-                    </div>
-                    {awbUrl && (
-                        <a
-                            href={awbUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-xs font-bold bg-emerald-600 text-white px-3 py-1 rounded hover:bg-emerald-700 transition-colors"
-                        >
-                            Track →
-                        </a>
-                    )}
-                </div>
+            {/* Unde e comanda */}
+            {canceled ? (
+                <p className="mt-4 inline-flex rounded-full bg-rose-50 px-3 py-1 text-xs font-medium text-rose-700">Comandă anulată</p>
+            ) : (
+                <ol className="mt-4 grid grid-cols-4 gap-1" aria-label="Stadiul comenzii">
+                    {STEPS.map((s, i) => (
+                        <li key={s} className="min-w-0">
+                            <span className={`block h-1.5 rounded-full ${i <= step ? "bg-emerald-500" : "bg-slate-200"}`} />
+                            <span className={`mt-1.5 flex items-center gap-1 truncate text-[11px] sm:text-xs ${i === step ? "font-semibold text-slate-900" : i < step ? "text-emerald-700" : "text-slate-400"}`}>
+                                {i < step && <Check size={12} className="shrink-0" />} {s}
+                            </span>
+                        </li>
+                    ))}
+                </ol>
             )}
 
-            <div className="grid grid-cols-2 gap-3 mb-4 p-3 bg-slate-50 rounded-lg">
-                <div>
-                    <p className="text-xs text-gray-600 font-medium">Total</p>
-                    <p className="text-lg font-bold text-slate-900">{formattedTotal}</p>
-                </div>
-                <div>
-                    <p className="text-xs text-gray-600 font-medium">Produse</p>
-                    <p className="text-lg font-bold text-slate-900">{order.itemsCount || "—"}</p>
-                </div>
-            </div>
+            {awbUrl && !canceled && (
+                <a href={awbUrl} target="_blank" rel="noopener noreferrer"
+                    className="mt-4 flex items-center justify-between gap-3 rounded-xl bg-emerald-50 px-4 py-3 text-sm text-emerald-900 hover:bg-emerald-100">
+                    <span className="inline-flex items-center gap-2"><Truck size={16} /> Coletul e pe drum · AWB <b className="font-mono">{order.awbNumber}</b></span>
+                    <span className="font-semibold">Urmărește →</span>
+                </a>
+            )}
 
-            <div className="flex flex-wrap gap-2 pt-4 border-t border-gray-200">
-                <Link
-                    href={`/account/orders/${order.id}`}
-                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-emerald-700 transition-colors flex-1 sm:flex-none"
-                >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
-                    </svg>
-                    <span>Grafică</span>
-                </Link>
-
+            <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-slate-100 pt-4">
                 <OrderDetails order={order} />
-
                 <ReorderButton orderId={order.id} variant="secondary" />
-
                 {order.invoiceLink && (
-                    <a
-                        href={order.invoiceLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-100 px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-200 transition-colors"
-                    >
-                        <span>Factură</span>
+                    <a href={order.invoiceLink} target="_blank" rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50">
+                        <FileText size={15} /> Factura
                     </a>
                 )}
-
-                <Link
-                    href={`/retragere-contract?order=${encodeURIComponent(String(order.orderNo))}`}
-                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-100 px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-200 transition-colors"
-                >
-                    <span>Retrage-te din contract</span>
+                <Link href={`/account/orders/${order.id}`}
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50">
+                    <Upload size={15} /> Grafica
+                </Link>
+                <Link href={`/retragere-contract?order=${encodeURIComponent(String(order.orderNo))}`}
+                    className="ml-auto text-xs text-slate-400 hover:text-slate-600 hover:underline">
+                    Retragere din contract
                 </Link>
             </div>
         </li>
     );
 }
-

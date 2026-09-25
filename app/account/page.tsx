@@ -10,12 +10,14 @@ export default async function AccountPage() {
 
     if (!session?.user) {
         return (
-            <div className="mx-auto max-w-3xl px-6 py-16 text-center">
-                <h1 className="text-2xl font-bold mb-4 text-slate-900">Contul meu</h1>
-                <p className="text-gray-500 mb-6">Pentru a accesa istoricul comenzilor, te rugăm să te autentifici.</p>
-                <Link href="/login" className="inline-block bg-emerald-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-emerald-700 transition">
-                    Mergi la autentificare
-                </Link>
+            <div className="min-h-[70vh] bg-slate-50 px-4 pb-16 pt-28">
+                <div className="mx-auto max-w-md rounded-3xl bg-white p-8 text-center shadow-sm ring-1 ring-slate-200">
+                    <h1 className="text-2xl font-bold text-slate-900">Contul meu</h1>
+                    <p className="mt-2 text-slate-500">Intră în cont ca să vezi comenzile, facturile și unde e coletul.</p>
+                    <Link href="/login" className="mt-6 inline-flex w-full justify-center rounded-xl bg-emerald-600 px-6 py-3 font-semibold text-white hover:bg-emerald-500">
+                        Intră în cont
+                    </Link>
+                </div>
             </div>
         );
     }
@@ -23,21 +25,19 @@ export default async function AccountPage() {
     const userId = (session.user as any).id as string;
     const userEmail = session.user.email;
 
+    // Comenzile clientului de pe acest site: cele facute din cont si, daca emailul contului e
+    // verificat (ex. autentificare Google), si cele plasate fara cont cu acelasi email.
+    // Fara verificare nu legam dupa email: altfel oricine si-ar face cont cu emailul altcuiva.
+    const account = await prisma.user.findUnique({ where: { id: userId }, select: { emailVerified: true } });
+    const emails = userEmail && account?.emailVerified ? [...new Set([userEmail, userEmail.toLowerCase()])] : [];
     const whereCondition: any = {
+        source: { equals: 'tablou.net', mode: 'insensitive' },
+        type: 'order',
         OR: [
-            { userId: userId },
+            { userId },
+            ...emails.map((email) => ({ shippingAddress: { path: ['email'], equals: email } })),
         ],
-        // Filtrare strictă pentru a afișa doar comenzile plasate pe acest site (Tablou.net)
-        AND: [
-            { source: 'Tablou.net' }
-        ]
     };
-
-    if (userEmail) {
-        // Also match by email in shipping address or potential billing fields if feasible,
-        // but in new schema we might just rely on userId or maybe match json fields.
-        // Simplifying to userId for now or manual email match.
-    }
 
     try {
         const orderRecords = await prisma.order.findMany({
@@ -74,9 +74,7 @@ export default async function AccountPage() {
         });
 
         return (
-            <div className="container mx-auto px-4 py-8">
-                <AccountClientPage orders={orders} />
-            </div>
+            <AccountClientPage orders={orders} />
         );
 
     } catch (error) {

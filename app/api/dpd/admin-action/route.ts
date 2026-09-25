@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 import { verifyAdminAction, signAdminAction } from '../../../../lib/adminAction';
-import { createShipment, printExtended, trackingUrlForAwb, type ShipmentSender, validateShipment } from '../../../../lib/dpdService';
+import { createShipment, getPickupPoints, printExtended, trackingUrlForAwb, type ShipmentSender, validateShipment } from '../../../../lib/dpdService';
 import { sendEmail } from '../../../../lib/email';
 import { prisma } from '../../../../lib/prisma';
 
@@ -48,17 +48,15 @@ export async function GET(req: NextRequest) {
             const currentServiceId = Number(payload.serviceId || sidParam || process.env.DPD_DEFAULT_SERVICE_ID || '2505');
             const currentSenderId = Number(payload.senderClientId || scidParam || process.env.DPD_SENDER_CLIENT_ID || '');
 
+            // Sediile din contractul DPD (aceleasi ca in admin); daca DPD nu raspunde, lista din env
+            const points = await getPickupPoints().catch(() => []);
             const senderIdsEnv = (process.env.DPD_SENDER_CLIENT_IDS || '').trim();
-            const senderIds = senderIdsEnv
-                ? senderIdsEnv.split(',').map((x) => x.trim()).filter(Boolean)
-                : [
-                    '44820819000:Topliceni',
-                ];
-
-            const options = senderIds;
+            const options: Array<[string, string]> = points.length
+                ? points.map((p) => [String(p.clientId), `${p.name} – ${p.address}`])
+                : (senderIdsEnv ? senderIdsEnv.split(',').map((x) => x.trim()).filter(Boolean) : ['44820819000:Topliceni'])
+                    .map((id) => (id.includes(':') ? (id.split(':', 2) as [string, string]) : [id, `Sediu ${id}`]));
             const optsHtml = options
-                .map((id) => {
-                    const [val, label] = id.includes(':') ? id.split(':', 2) : [id, `Sediu ${id}`];
+                .map(([val, label]) => {
                     const sel = String(currentSenderId) === String(val) ? 'selected' : '';
                     return `<option value="${val}" ${sel}>${label} (${val})</option>`;
                 })
@@ -121,8 +119,10 @@ export async function GET(req: NextRequest) {
             const contentDesc = safeContent(payload.items ?? []);
 
             const sender: ShipmentSender | undefined = ((): ShipmentSender | undefined => {
-                const clientId = (payload as any).senderClientId ?? (process.env.DPD_SENDER_CLIENT_ID ? Number(process.env.DPD_SENDER_CLIENT_ID) : undefined);
-                const dropoffOfficeId = process.env.DPD_PICKUP_OFFICE_ID ? Number(process.env.DPD_PICKUP_OFFICE_ID) : undefined;
+                const chosen = (payload as any).senderClientId;
+                const clientId = chosen ?? (process.env.DPD_SENDER_CLIENT_ID ? Number(process.env.DPD_SENDER_CLIENT_ID) : undefined);
+                // Sediu ales explicit: curierul ridica de acolo, fara predare la oficiu
+                const dropoffOfficeId = !chosen && process.env.DPD_PICKUP_OFFICE_ID ? Number(process.env.DPD_PICKUP_OFFICE_ID) : undefined;
                 if (clientId) return { clientId, dropoffOfficeId } as any;
                 return undefined;
             })();
@@ -194,7 +194,8 @@ export async function GET(req: NextRequest) {
             const sender: ShipmentSender | undefined = ((): ShipmentSender | undefined => {
                 const overrideClientId = scidParam ? Number(scidParam) : (payload as any).senderClientId;
                 const clientId = (overrideClientId ? Number(overrideClientId) : undefined) ?? (process.env.DPD_SENDER_CLIENT_ID ? Number(process.env.DPD_SENDER_CLIENT_ID) : undefined);
-                const dropoffOfficeId = process.env.DPD_PICKUP_OFFICE_ID ? Number(process.env.DPD_PICKUP_OFFICE_ID) : undefined;
+                // Sediu ales explicit: curierul ridica de acolo, fara predare la oficiu
+                const dropoffOfficeId = !overrideClientId && process.env.DPD_PICKUP_OFFICE_ID ? Number(process.env.DPD_PICKUP_OFFICE_ID) : undefined;
                 if (clientId) return { clientId, dropoffOfficeId } as any;
                 return undefined;
             })();

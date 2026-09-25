@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Package } from "lucide-react";
 import AccountOrderCard from "@/components/AccountOrderCard";
 
 interface Order {
@@ -15,45 +16,24 @@ interface Order {
     itemsCount?: number;
 }
 
-interface AccountOrdersListProps {
-    orders: Order[];
-}
-
-export default function AccountOrdersList({ orders }: AccountOrdersListProps) {
+export default function AccountOrdersList({ orders }: { orders: Order[] }) {
     if (orders.length === 0) {
         return (
-            <div className="text-center py-12 sm:py-16 bg-white rounded-xl border-2 border-dashed border-gray-300">
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Nu ai nicio comandă</h3>
-                <p className="text-gray-600 mb-6">Încă nu ai plasat o comandă pe site-ul nostru.</p>
-                <Link
-                    href="/"
-                    className="inline-flex items-center gap-2 bg-emerald-600 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-emerald-700 transition-colors"
-                >
-                    Începe cumpărăturile
+            <div className="rounded-2xl border border-dashed border-slate-300 px-6 py-14 text-center">
+                <span className="mx-auto flex size-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600"><Package size={22} /></span>
+                <h3 className="mt-4 font-semibold text-slate-900">Nu ai încă nicio comandă</h3>
+                <p className="mt-1 text-sm text-slate-500">Alege un produs, vezi prețul pe loc și comanzi în câteva minute.</p>
+                <Link href="/configuratoare" className="mt-5 inline-flex rounded-xl bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-emerald-500">
+                    Vezi produsele
                 </Link>
             </div>
         );
     }
-
     return (
-        <div className="space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
-                <div>
-                    <h3 className="text-lg font-bold text-slate-900">
-                        Comenzile mele
-                    </h3>
-                    <p className="text-sm text-gray-600 mt-1">
-                        {orders.length} comand{orders.length === 1 ? "ă" : "e"} în total
-                    </p>
-                </div>
-            </div>
-
-            <ul className="space-y-4">
-                {orders.map((order) => (
-                    <AccountOrderCard key={order.id} order={order} />
-                ))}
-            </ul>
-        </div>
+        <ul className="space-y-3">
+            {orders.map((order) => (
+                <AccountOrderCard key={order.id} order={order} />
+            ))}
+        </ul>
     );
 }
-

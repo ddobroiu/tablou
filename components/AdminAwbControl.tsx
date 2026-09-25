@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Truck, Plus, ExternalLink, Edit2, Check, X, Loader2, DownloadCloud } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,6 +11,26 @@ export default function AdminAwbControl({ orderId, currentAwb }: { orderId: stri
   const [loading, setLoading] = useState(false);
   const [downloading, setDownloading] = useState(false);
   const [manualInput, setManualInput] = useState(currentAwb || "");
+  // Punctul de ridicare DPD (sediul de unde vine curierul); ultimul ales se tine minte
+  const [points, setPoints] = useState<{ clientId: number; name: string; address: string }[]>([]);
+  const [sender, setSender] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (currentAwb) return;
+    fetch('/api/admin/dpd/pickup-points').then((r) => r.json()).then((d) => {
+      const list = Array.isArray(d.points) ? d.points : [];
+      setPoints(list);
+      let saved: number | null = null;
+      try { saved = Number(localStorage.getItem('dpd_sender')) || null; } catch { }
+      const pick = [saved, d.defaultId].find((id) => id && list.some((p: any) => p.clientId === id)) ?? list[0]?.clientId ?? null;
+      setSender(pick);
+    }).catch(() => { });
+  }, [currentAwb]);
+
+  const chooseSender = (id: number) => {
+    setSender(id);
+    try { localStorage.setItem('dpd_sender', String(id)); } catch { }
+  };
 
   const generateAwb = async () => {
     setLoading(true);
@@ -19,6 +39,7 @@ export default function AdminAwbControl({ orderId, currentAwb }: { orderId: stri
       const res = await fetch(`/api/admin/orders/${orderId}/emit-awb`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ senderClientId: sender }),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -38,7 +59,7 @@ export default function AdminAwbControl({ orderId, currentAwb }: { orderId: stri
   const validateAwb = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`/api/admin/orders/${orderId}/generate-awb-link`);
+      const res = await fetch(`/api/admin/orders/${orderId}/generate-awb-link${sender ? `?sender=${sender}` : ''}`);
       if (!res.ok) throw new Error('Err');
       const data = await res.json();
       if (data?.url) {
@@ -126,6 +147,21 @@ export default function AdminAwbControl({ orderId, currentAwb }: { orderId: stri
 
   return (
     <div className="flex flex-col gap-2">
+      {points.length > 0 && (
+        <label className="block text-left">
+          <span className="mb-1 block text-[11px] font-medium text-slate-500">Curierul ridică de la</span>
+          <select
+            value={sender ?? ''}
+            onChange={(e) => chooseSender(Number(e.target.value))}
+            className="w-full rounded-lg border border-slate-200 bg-white px-2 py-1.5 text-xs text-slate-800"
+            title={points.find((p) => p.clientId === sender)?.address}
+          >
+            {points.map((p) => (
+              <option key={p.clientId} value={p.clientId}>{p.name} · {p.address.replace(/^[^\]]*\]\s*/, '').slice(0, 40)}</option>
+            ))}
+          </select>
+        </label>
+      )}
       <div className="flex items-center gap-2">
         <Button size="sm" variant="outline" onClick={validateAwb} disabled={loading} className="h-8 text-[10px] bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border-emerald-100 flex-1 font-bold">
           {loading ? <Loader2 size={12} className="animate-spin" /> : <><Truck size={12} className="mr-1" /> Validare AWB</>}

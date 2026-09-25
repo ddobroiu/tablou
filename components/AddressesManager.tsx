@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useCuiAutofill, type CompanyFound } from "@/components/useCuiAutofill";
 import JudetSelector from "./JudetSelector";
 import LocalitateSelector from "./LocalitateSelector";
 import { DPD_COUNTRIES } from "@/lib/shippingUtils";
@@ -52,6 +53,9 @@ export default function AddressesManager() {
     function onForm<K extends keyof Address>(k: K, v: Address[K]) {
         setForm((prev) => ({ ...prev, [k]: v }));
     }
+
+    // CUI-ul completeaza singur firma, Reg. Com. si sediul (doar campurile inca goale)
+    const newCui = useCuiAutofill(form.cui, (c) => setForm((prev) => fillFromCompany(prev, c)), form.type === "billing");
 
     async function saveNew() {
         setSaving(true);
@@ -139,6 +143,7 @@ export default function AddressesManager() {
                                 <Field id="form.cui" label="CUI / CIF">
                                     <input className={inputCls()} placeholder="RO12345678" value={form.cui || ""} onChange={(e) => onForm("cui", e.target.value)} />
                                 </Field>
+                                <p className={`mt-1 text-xs ${newCui.state === "notfound" ? "text-amber-600" : newCui.state === "found" ? "text-emerald-700" : "text-slate-500"}`}>{newCui.hint}</p>
                             </div>
                             <div className="md:col-span-1">
                                 <Field id="form.regCom" label="Nr. Reg. Com.">
@@ -263,6 +268,8 @@ function EditRow({ a, onCancel, onSave }: { a: Address; onCancel: () => void; on
     const [f, setF] = useState<Address>({ ...a });
     const [saving, setSaving] = useState(false);
     const on = <K extends keyof Address>(k: K, v: Address[K]) => setF((p) => ({ ...p, [k]: v }));
+    // CUI-ul completeaza singur firma, Reg. Com. si sediul (doar campurile inca goale)
+    const editCui = useCuiAutofill(f.cui, (c) => setF((p) => fillFromCompany(p, c)), f.type === "billing");
     async function submit() { setSaving(true); try { await onSave({ ...f }); } finally { setSaving(false); } }
 
     return (
@@ -290,6 +297,7 @@ function EditRow({ a, onCancel, onSave }: { a: Address; onCancel: () => void; on
                         <Field id="edit.cui" label="CUI">
                             <input className={inputCls()} value={f.cui || ''} onChange={(e) => on('cui', e.target.value)} />
                         </Field>
+                        <p className={`mt-1 text-xs ${editCui.state === "notfound" ? "text-amber-600" : editCui.state === "found" ? "text-emerald-700" : "text-slate-500"}`}>{editCui.hint}</p>
                     </div>
                     <div className="md:col-span-1">
                         <Field id="edit.regCom" label="Reg. Com.">
@@ -372,3 +380,18 @@ function inputCls(hasError?: string, disabled?: boolean) {
     return `w-full rounded-xl border px-4 py-2.5 focus:outline-none focus:ring-2 bg-white dark:bg-slate-800 text-slate-900 dark:text-white border-slate-200 dark:border-slate-800 focus:ring-emerald-500 placeholder-slate-400 font-medium transition-all ${hasError ? "border-red-500 ring-1 ring-red-500/20" : ""} ${disabled ? "opacity-50 cursor-not-allowed" : ""}`;
 }
 
+
+// Completeaza din ANAF doar ce nu a scris deja clientul
+function fillFromCompany(prev: Address, c: CompanyFound): Address {
+    const pick = (cur: string | undefined | null, v?: string) => (cur && String(cur).trim() ? cur : v || cur || "");
+    return {
+        ...prev,
+        company: pick(prev.company, c.denumire),
+        regCom: pick(prev.regCom, c.regCom),
+        strada_nr: pick(prev.strada_nr, c.adresa),
+        judet: pick(prev.judet, c.judet),
+        localitate: pick(prev.localitate, c.localitate),
+        postCode: pick(prev.postCode, c.codPostal),
+        telefon: pick(prev.telefon, c.telefon),
+    };
+}

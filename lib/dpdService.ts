@@ -314,3 +314,24 @@ export async function validateShipment(req: CreateShipmentRequest): Promise<{ va
   if (data?.error) return { valid: false, error: data.error };
   return { valid: false, error: { message: 'Unknown validation response' } };
 }
+
+// Punctele de ridicare din contractul DPD (sediile firmei de unde vine curierul).
+// Le cerem de la DPD (POST /client/contract) si le tinem o ora in memorie.
+export type PickupPoint = { clientId: number; name: string; address: string };
+let pickupCache: { at: number; points: PickupPoint[] } | null = null;
+
+export async function getPickupPoints(): Promise<PickupPoint[]> {
+  if (pickupCache && Date.now() - pickupCache.at < 3_600_000) return pickupCache.points;
+  const res = await dpdFetch('/client/contract', {});
+  const clients: any[] = Array.isArray((res.data as any)?.clients) ? (res.data as any).clients : [];
+  const points = clients
+    .filter((c) => c?.clientId)
+    .map((c) => {
+      const a = c.address || {};
+      const place = String(a.siteName || '').trim();
+      const full = String(a.fullAddressString || '').trim();
+      return { clientId: Number(c.clientId), name: place ? place.charAt(0) + place.slice(1).toLowerCase() : String(c.objectName || c.clientName || c.clientId), address: full };
+    });
+  if (points.length) pickupCache = { at: Date.now(), points };
+  return points;
+}

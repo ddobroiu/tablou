@@ -46,6 +46,8 @@ export async function GET(
       paymentType,
       totalAmount: Number(order.totalAmount || 0),
       items: order.items.map((i) => ({ name: i.name, qty: i.quantity })),
+      // Punctul de ridicare ales in admin
+      ...(Number(req.nextUrl.searchParams.get("sender")) > 0 && { senderClientId: Number(req.nextUrl.searchParams.get("sender")) }),
     };
 
     // Semnăm token-ul

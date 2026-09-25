@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { verifyAdminSession } from '@/lib/adminSession';
-import { createShipment, printExtended, trackingUrlForAwb } from '@/lib/dpdService';
+import { createShipment, getPickupPoints, printExtended, trackingUrlForAwb } from '@/lib/dpdService';
 import { sendEmail } from '@/lib/email';
 import { calculateShippingParams, determinePackingType } from '@/lib/shippingUtils';
 
@@ -47,7 +47,11 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     const isRambursValid = (order.paymentMethod === 'Ramburs' || order.paymentMethod === 'cash_on_delivery') && countryCode === 'RO';
     const codAmount = isRambursValid ? Math.max(0, Number(order.totalAmount || 0)) : 0;
 
-    const senderClientId = process.env.DPD_SENDER_CLIENT_ID ? Number(process.env.DPD_SENDER_CLIENT_ID) : undefined;
+    // Punctul de ridicare ales in admin (unul din sediile din contractul DPD); altfel cel implicit
+    const body = await req.json().catch(() => ({}));
+    const wanted = Number(body?.senderClientId || 0);
+    const allowed = wanted ? (await getPickupPoints().catch(() => [])).some((p) => p.clientId === wanted) : false;
+    const senderClientId = allowed ? wanted : process.env.DPD_SENDER_CLIENT_ID ? Number(process.env.DPD_SENDER_CLIENT_ID) : undefined;
 
     const shipment: any = {
       sender: senderClientId ? { clientId: senderClientId } : undefined,
