@@ -147,8 +147,6 @@ export default function RootLayout({
         <link rel="icon" href="/simbol.png" />
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
         <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="anonymous" />
-        {/* mydashboard.ro: vizite, surse de trafic si legatura cu platile (proiectul Print) */}
-        <script defer src="https://mydashboard.ro/t.js" data-site="d56e4346614fcb28" />
       </head>
 
       <body className={`${inter.variable} ${outfit.variable} ${fraunces.variable} bg-white text-slate-900 antialiased font-sans selection:bg-emerald-500 selection:text-white relative`}>

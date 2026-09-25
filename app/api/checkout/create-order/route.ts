@@ -88,8 +88,6 @@ export async function POST(req: NextRequest) {
             if (!secret) return NextResponse.json({ error: 'STRIPE_SECRET_KEY missing' }, { status: 500 });
 
             const stripe = new Stripe(secret);
-            // Visitor id set by the mydashboard.ro tracker: links the payment to the visit's traffic source
-            const mdVid = /^[a-f0-9]{32}$/.test(req.cookies.get('_md_vid')?.value || '') ? req.cookies.get('_md_vid')!.value : undefined;
 
             const session = await stripe.checkout.sessions.create({
                 mode: 'payment',
@@ -116,12 +114,11 @@ export async function POST(req: NextRequest) {
                 success_url: `${origin}/checkout/success/stripe?session_id={CHECKOUT_SESSION_ID}`,
                 cancel_url: `${origin}/checkout`,
                 // Tagged on the payment too: the Stripe account is shared by several sites
-                payment_intent_data: { metadata: { group: 'print', project: 'tablou', ...(mdVid && { md_vid: mdVid }), source } },
+                payment_intent_data: { metadata: { group: 'print', project: 'tablou', source } },
                 metadata: {
                     source: source,
                     group: 'print',
                     project: 'tablou',
-                    ...(mdVid && { md_vid: mdVid }),
                     address_email: transformedAddress.email,
                     name: transformedAddress.nume_prenume,
                     phone: transformedAddress.telefon,
