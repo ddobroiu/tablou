@@ -11,7 +11,7 @@ import { ShieldCheck, Zap, Truck, MessageCircle, Star, Info, HelpCircle, MapPin,
 import { CONFIGURATORS_REGISTRY } from "@/lib/configurators-registry";
 import { buildLocalContent } from "@/lib/seo/localContent";
 import { getSiblingLocalitySlugs } from "@/lib/seo/indexableLocalities";
-import { LocalFaq } from "@/components/LocalFaq";
+import { LocalFaq, getLocalFaqs } from "@/components/LocalFaq";
 import { LocalSizePrices } from "@/components/seo/LocalSizePrices";
 import { getFromPrice } from "@/lib/seo/fromPrice";
 import { whatsappHref } from "@/components/seo/WhatsAppBar";
@@ -171,6 +171,25 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                             "description": `Printăm și livrăm ${productTitle} în ${loc.name}, ${judet.name}. Calitate premium UV.`,
                             "brand": { "@type": "Brand", "name": "Tablou" },
                             "manufacturer": { "@type": "Organization", "name": "Tablou", "url": `${siteConfig.url}` },
+                        },
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "BreadcrumbList",
+                            itemListElement: [
+                                { "@type": "ListItem", position: 1, name: "Acasă", item: `${siteConfig.url}/` },
+                                { "@type": "ListItem", position: 2, name: judet.name, item: `${siteConfig.url}/judet/${judet.slug}` },
+                                { "@type": "ListItem", position: 3, name: loc.name, item: `${siteConfig.url}/judet/${judet.slug}/${loc.slug}` },
+                                { "@type": "ListItem", position: 4, name: productTitle, item: `${siteConfig.url}/judet/${judet.slug}/${loc.slug}/${productSlug.join("/")}` },
+                            ],
+                        },
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "FAQPage",
+                            mainEntity: getLocalFaqs({ productTitle, locName: loc.name, judetName: judet.name }).map((f) => ({
+                                "@type": "Question",
+                                name: f.question,
+                                acceptedAnswer: { "@type": "Answer", text: f.answer },
+                            })),
                         }
                     ])
                 }}
@@ -334,9 +353,9 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                                 </div>
 
                                 <div className="p-4 w-full flex-1 flex flex-col items-center justify-center bg-white relative">
-                                    <h4 className="font-black text-[10px] md:text-xs leading-tight tracking-tight transition-all duration-300 text-slate-800 group-hover:text-emerald-600 uppercase italic tracking-tighter">
+                                    <h3 className="font-black text-[10px] md:text-xs leading-tight tracking-tight transition-all duration-300 text-slate-800 group-hover:text-emerald-600 uppercase italic tracking-tighter">
                                         {config.name}
-                                    </h4>
+                                    </h3>
                                 </div>
                             </Link>
                         );

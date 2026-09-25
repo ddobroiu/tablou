@@ -3,191 +3,224 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { ArrowRight, Check, Phone, Truck, Upload, MousePointerClick } from "lucide-react";
 import { getLocalitateBySlug, getJudetBySlug } from "@/lib/localitati";
 import { CONFIGURATORS_REGISTRY } from "@/lib/configurators-registry";
+import { getSiblingLocalitySlugs } from "@/lib/seo/indexableLocalities";
+import { buildLocalContent } from "@/lib/seo/localContent";
+import { getJudetProfile } from "@/lib/seo/judetProfiles";
+import { getFromPrice } from "@/lib/seo/fromPrice";
+import { WhatsAppBar, WhatsAppButton } from "@/components/seo/WhatsAppBar";
 
-// Toate localitățile au pagină: nu pre-generăm nimic, se randează la cerere din
-// lib/seo/ro_localitati.json. Restrângerea la o listă "curată" (plus
-// dynamicParams = false) scotea ~13.000 de pagini care aduceau trafic organic.
+// Pagina unei localitati: scurta si clara, cu butoanele la vedere din primul ecran.
+// Textul unic vine din faptele reale ale judetului (lib/seo/localContent.ts), nu din umplutura.
+// Intrebarile frecvente sunt afisate pe pagina, identice cu cele din datele structurate.
 
-export async function generateMetadata({ params }: { params: Promise<{ judetSlug: string, localitateSlug: string }> }) {
+type Params = { params: Promise<{ judetSlug: string; localitateSlug: string }> };
+
+// Cele mai comandate, afisate primele si in cardul din primul ecran
+const TOP = ["canvas", "tapet", "afise", "autocolante", "banner", "rollup", "plexiglass", "pvc-forex"];
+
+function orderedProducts() {
+    const rank = (id: string) => (TOP.includes(id) ? TOP.indexOf(id) : TOP.length);
+    return [...CONFIGURATORS_REGISTRY].sort((a, b) => rank(a.id) - rank(b.id));
+}
+
+function faqFor(locName: string, judetName: string, tier: string | undefined) {
+    const livrare =
+        tier === "apropiat"
+            ? "de regulă a doua zi după ce comanda e gata"
+            : tier === "distant"
+                ? "în 1-2 zile lucrătoare după ce comanda e gata"
+                : "în 24-48 de ore după ce comanda e gata";
+    return [
+        {
+            q: `Cât durează până primesc comanda în ${locName}?`,
+            a: `Producem în 1-3 zile lucrătoare, apoi curierul DPD o aduce la adresa ta din ${locName}, ${livrare}.`,
+        },
+        {
+            q: "Cum aflu prețul?",
+            a: "Alegi produsul, introduci dimensiunea și cantitatea, iar prețul apare imediat, fără cerere de ofertă. Pentru comenzi mari ne scrii pe WhatsApp.",
+        },
+        {
+            q: "Pot plăti la livrare?",
+            a: `Da. Poți plăti cu cardul online, prin transfer bancar sau ramburs, la curier, când primești coletul în ${locName}.`,
+        },
+        {
+            q: "Ce fac dacă nu am grafică?",
+            a: `O facem noi, pe baza textului și a logo-ului tău. Iar dacă ai grafica ta, vezi înainte de comandă cum se încadrează pe dimensiunea aleasă. Livrăm oriunde în județul ${judetName}.`,
+        },
+    ];
+}
+
+export async function generateMetadata({ params }: Params) {
     const { judetSlug, localitateSlug } = await params;
     const loc = getLocalitateBySlug(judetSlug, localitateSlug);
     const judet = getJudetBySlug(judetSlug);
-
     if (!loc || !judet) return {};
 
-    const title = `Tablouri Canvas din Poza Ta în ${loc.name}`;
-    const description = `Comandă tablouri canvas personalizate, colaje foto și seturi de 3 cu livrare în ${loc.name}, județul ${judet.name}. Șasiu de lemn inclus, poza verificată gratuit, gata în 2-4 zile. Tot aici: fototapet, tricouri, afișe, bannere și panouri rigide.`;
-
+    const from = getFromPrice(["canvas"]);
+    const title = `Tablouri canvas în ${loc.name}${from ? ` – canvas de la ${from.text}` : ""}`;
+    const description = `Tablouri canvas din poze, colaje și seturi, cu livrare în ${loc.name}, jud. ${judet.name}. Preț calculat pe loc, producție în 1-3 zile, plată la livrare.`;
     const routeUrl = `${siteConfig.url}/judet/${judet.slug}/${loc.slug}`;
 
     return {
         title,
         description,
-        keywords: `tablou canvas ${loc.name}, tablouri personalizate ${loc.name}, canvas din poza ${loc.name}, fototapet ${loc.name}, print ${loc.name}`,
-        openGraph: {
-            title,
-            description,
-            url: routeUrl,
-            siteName: 'Tablou.net',
-            locale: 'ro_RO',
-            type: 'website',
-        },
+        openGraph: { title, description, url: routeUrl, siteName: "Tablou.net", locale: "ro_RO", type: "website" },
         alternates: { canonical: routeUrl },
         robots: { index: true, follow: true },
     };
 }
 
-export default async function LocalitatePage({ params }: { params: Promise<{ judetSlug: string, localitateSlug: string }> }) {
+export default async function LocalitatePage({ params }: Params) {
     const { judetSlug, localitateSlug } = await params;
     const loc = getLocalitateBySlug(judetSlug, localitateSlug);
     const judet = getJudetBySlug(judetSlug);
-
     if (!loc || !judet) notFound();
 
-    // Canvasul primul, apoi decor/textile, apoi restul catalogului.
-    const configurators = [
-        ...CONFIGURATORS_REGISTRY.filter((c) => c.category === 'decor'),
-        ...CONFIGURATORS_REGISTRY.filter((c) => c.category === 'textile'),
-        ...CONFIGURATORS_REGISTRY.filter((c) => c.category !== 'decor' && c.category !== 'textile'),
-    ];
-    const siblingLocalities = judet.localitati.filter((l) => l.slug !== loc.slug);
-
-    const faq = [
-        {
-            q: `Cât durează până primesc tabloul în ${loc.name}?`,
-            a: "Printul, întinsul pe șasiu și uscarea durează 2-4 zile lucrătoare, iar curierul mai adaugă de regulă o zi. Dacă tabloul e cadou cu dată fixă, scrie-ne data în comentariile comenzii și îți confirmăm dacă putem intra la termen."
-        },
-        {
-            q: "Ce rezoluție trebuie să aibă poza?",
-            a: "Pentru un tablou de 40×60 cm ajunge o fotografie de minimum 2000×3000 pixeli, adică orice poză făcută cu un telefon din ultimii ani. Configuratorul îți spune pe loc dacă poza e prea mică pentru formatul ales, iar un coleg o mai verifică o dată înainte de print."
-        },
-        {
-            q: `Puteți livra tabloul direct la persoana care primește cadoul, în ${loc.name}?`,
-            a: "Da. Pui la comandă adresa destinatarului, iar factura se trimite pe e-mailul tău, nu în colet. Ambalăm cu colțare de protecție și folie, iar la cerere adăugăm o felicitare cu mesajul tău."
-        },
-        {
-            q: `Ce altceva printați pentru ${loc.name}?`,
-            a: "Din același atelier pleacă fototapet din poza ta, tricouri, hanorace și șepci personalizate, afișe, pliante, cărți de vizită, bannere, roll-up-uri, autocolante și panouri rigide. Fiecare produs are configurator cu preț calculat instant."
-        }
-    ];
+    const profile = getJudetProfile(judet.slug);
+    // Din textul generat pastram doar fraza cu faptul real despre zona (face pagina unica)
+    const generated = buildLocalContent({
+        brand: "tablou",
+        productTitle: "tablouri canvas",
+        productSlug: "print",
+        locName: loc.name,
+        locSlug: loc.slug,
+        judetSlug: judet.slug,
+        judetName: judet.name,
+    }).heroText.split(/(?<=\.)\s+/);
+    const localFact = generated.length >= 3 ? generated.slice(1, -1).join(" ") : "";
+    const intro = `Tablouri canvas din fotografiile tale, colaje și seturi, livrate la adresa ta din ${loc.name}. ${localFact}`.trim();
+    const products = orderedProducts();
+    const top = products.filter((p) => TOP.slice(0, 3).includes(p.id));
+    const faq = faqFor(loc.name, judet.name, profile?.tierLivrare);
+    const neighbours = getSiblingLocalitySlugs(judet.slug, loc.slug, 12)
+        .map((slug) => judet.localitati.find((l) => l.slug === slug))
+        .filter((l): l is NonNullable<typeof l> => Boolean(l));
+    const bannerFrom = getFromPrice(["canvas"]);
+    const pageUrl = `${siteConfig.url}/judet/${judet.slug}/${loc.slug}`;
+    const waMessage = `Bună ziua! Aș dori o ofertă pentru tablouri canvas cu livrare în ${loc.name}, jud. ${judet.name}.`;
 
     return (
-        <div className="min-h-screen bg-white">
+        <div className="bg-white">
             <script
-                id="local-schema-city"
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify([
                         {
                             "@context": "https://schema.org",
                             "@type": "Service",
-                            "name": `Tablouri canvas personalizate Tablou.net ${loc.name}`,
-                            "provider": {
-                                "@type": "LocalBusiness",
-                                "name": "Tablou.net",
-                                "url": `${siteConfig.url}/judet/${judet.slug}/${loc.slug}`,
-                                "areaServed": { "@type": "City", "name": loc.name }
-                            }
+                            name: `Tablouri canvas în ${loc.name}`,
+                            serviceType: "Tablouri canvas",
+                            areaServed: { "@type": "City", name: loc.name, containedInPlace: { "@type": "AdministrativeArea", name: `Județul ${judet.name}` } },
+                            provider: { "@type": "Organization", name: "Tablou.net", url: siteConfig.url, telephone: siteConfig.phone },
+                            url: pageUrl,
                         },
                         {
                             "@context": "https://schema.org",
                             "@type": "BreadcrumbList",
-                            "itemListElement": [
-                                { "@type": "ListItem", "position": 1, "name": "Acasă", "item": `${siteConfig.url}/` },
-                                { "@type": "ListItem", "position": 2, "name": judet.name, "item": `${siteConfig.url}/judet/${judet.slug}` },
-                                { "@type": "ListItem", "position": 3, "name": loc.name }
-                            ]
+                            itemListElement: [
+                                { "@type": "ListItem", position: 1, name: "Acasă", item: `${siteConfig.url}/` },
+                                { "@type": "ListItem", position: 2, name: "Județe", item: `${siteConfig.url}/judet` },
+                                { "@type": "ListItem", position: 3, name: judet.name, item: `${siteConfig.url}/judet/${judet.slug}` },
+                                { "@type": "ListItem", position: 4, name: loc.name, item: pageUrl },
+                            ],
                         },
                         {
                             "@context": "https://schema.org",
                             "@type": "FAQPage",
-                            "mainEntity": faq.map((f) => ({
-                                "@type": "Question",
-                                "name": f.q,
-                                "acceptedAnswer": { "@type": "Answer", "text": f.a }
-                            }))
-                        }
-                    ])
+                            mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+                        },
+                    ]),
                 }}
             />
 
-            {/* Simple Header - No Hero */}
-            <div className="pt-24 pb-12 border-b border-slate-100">
-                <div className="container mx-auto px-6">
-                    <nav className="text-[10px] font-black text-slate-400 mb-6 flex gap-3 items-center uppercase tracking-widest">
-                        <Link href="/judet" className="hover:text-emerald-600 transition-colors">Județe</Link>
-                        <span>/</span>
-                        <Link href={`/judet/${judet.slug}`} className="hover:text-emerald-600 transition-colors">{judet.name}</Link>
-                        <span>/</span>
-                        <span className="text-slate-900">{loc.name}</span>
-                    </nav>
-                    <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-                        <div className="min-w-0">
-                            <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-4 tracking-tighter">
-                                Tablouri canvas <span className="text-emerald-500">{loc.name}</span>
-                            </h1>
-                            <p className="text-lg text-slate-500 max-w-2xl">
-                                O poză din telefon, printată pe pânză și întinsă pe șasiu de lemn, livrată prin curier în <span className="text-slate-900 font-bold">{loc.name}</span>. Un singur tablou, colaj sau set de 3, pentru nuntă, botez, aniversări sau cadou pentru părinți.
-                            </p>
-                        </div>
+            {/* Primul ecran: ce oferim, in 2 randuri, si butoanele */}
+            <section className="border-b border-slate-100 bg-gradient-to-b from-emerald-50/60 to-white">
+                <div className="container mx-auto grid gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[1.4fr_1fr] lg:items-center lg:py-14">
+                    <div>
+                        <nav aria-label="Breadcrumb" className="mb-4 flex flex-wrap items-center gap-1.5 text-xs text-slate-500">
+                            <Link href="/judet" className="hover:text-emerald-700">Județe</Link>
+                            <span aria-hidden>/</span>
+                            <Link href={`/judet/${judet.slug}`} className="hover:text-emerald-700">{judet.name}</Link>
+                            <span aria-hidden>/</span>
+                            <span className="text-slate-800">{loc.name}</span>
+                        </nav>
+                        <p className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1 text-xs font-medium text-emerald-700 ring-1 ring-emerald-200">
+                            <Truck size={14} /> Livrăm în {loc.name}, jud. {judet.name}
+                        </p>
+                        <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
+                            Tablouri canvas în <span className="text-emerald-600">{loc.name}</span>
+                        </h1>
+                        <p className="mt-4 max-w-2xl text-base text-slate-600 sm:text-lg">{intro}</p>
 
-                        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 shrink-0">
-                            <Link
-                                href={`/judet/${judet.slug}/${loc.slug}/canvas`}
-                                className="inline-flex items-center justify-center px-6 py-3 rounded-2xl font-black text-sm uppercase tracking-widest bg-emerald-600 text-white hover:bg-emerald-500 transition-all shadow-xl shadow-emerald-600/20 active:scale-[0.99]"
-                            >
-                                Încarcă poza
-                            </Link>
-                            <Link
-                                href="/contact"
-                                className="inline-flex items-center justify-center px-6 py-3 rounded-2xl font-black text-sm uppercase tracking-widest border-2 border-slate-200 bg-white text-slate-900 hover:border-emerald-500 hover:text-emerald-600 transition-all shadow-sm active:scale-[0.99]"
-                            >
-                                Cere ofertă
-                            </Link>
+                        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                            <a href="#produse" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-7 py-4 text-base font-bold text-white shadow-lg shadow-emerald-600/25 transition hover:bg-emerald-500">
+                                Vezi produsele și prețurile <ArrowRight size={18} />
+                            </a>
+                            <WhatsAppButton message={waMessage} className="!rounded-2xl !px-7 !py-4 !text-base !normal-case !tracking-normal">
+                                Cere ofertă pe WhatsApp
+                            </WhatsAppButton>
                         </div>
+                        <a href={`tel:${siteConfig.phone.replace(/\s/g, "")}`} className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-slate-600 hover:text-emerald-700">
+                            <Phone size={15} /> sau sună la {siteConfig.phone}
+                        </a>
+
+                        <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-700">
+                            {["Preț calculat pe loc", "Producție în 1-3 zile", "Plată la livrare", "Livrare DPD"].map((t) => (
+                                <li key={t} className="inline-flex items-center gap-1.5"><Check size={16} className="text-emerald-600" /> {t}</li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Cele mai comandate, cu pret: al doilea buton din primul ecran */}
+                    <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-xl shadow-slate-900/5">
+                        <p className="mb-3 text-sm font-semibold text-slate-900">Cele mai comandate în {loc.name}</p>
+                        <ul className="divide-y divide-slate-100">
+                            {top.map((p) => {
+                                const from = getFromPrice([p.id]);
+                                return (
+                                    <li key={p.id}>
+                                        <Link href={`/judet/${judet.slug}/${loc.slug}/${p.slug || p.id}`} className="group flex items-center gap-3 py-3">
+                                            <span className="relative size-14 shrink-0 overflow-hidden rounded-xl bg-slate-100">
+                                                <Image src={p.image || "/placeholder.png"} alt="" fill sizes="56px" className="object-cover" />
+                                            </span>
+                                            <span className="min-w-0 flex-1">
+                                                <span className="block truncate font-semibold text-slate-900 group-hover:text-emerald-700">{p.name}</span>
+                                                {from && <span className="text-sm text-slate-500">de la <b className="text-slate-900">{from.text}</b></span>}
+                                            </span>
+                                            <span className="rounded-xl bg-emerald-600 px-3 py-2 text-xs font-bold text-white group-hover:bg-emerald-500">Comandă</span>
+                                        </Link>
+                                    </li>
+                                );
+                            })}
+                        </ul>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            {/* Main Content - Configurators */}
-            <section className="py-40">
-                <div className="container mx-auto px-6">
-                    <div className="text-center mb-24">
-                        <h2 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter mb-6">Ce printăm pentru <span className="text-emerald-500">{loc.name}</span></h2>
-                        <div className="h-2 w-24 bg-emerald-500 mx-auto rounded-full mb-8"></div>
-                        <p className="text-xl text-slate-500 font-light max-w-2xl mx-auto">Tablourile canvas sunt primele, dar același atelier face și fototapetul, tricourile, afișele și bannerele. Fiecare produs are configurator cu preț calculat pe loc.</p>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-                        {configurators.map((p) => {
-                            const cleanSlug = p.slug || p.id;
-                            const productUrl = `/judet/${judet.slug}/${loc.slug}/${cleanSlug}`;
-
+            {/* Toate produsele */}
+            <section id="produse" className="scroll-mt-20 py-12 sm:py-16">
+                <div className="container mx-auto px-4 sm:px-6">
+                    <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Produse cu livrare în {loc.name}</h2>
+                    <p className="mt-2 text-slate-600">Alegi dimensiunea și vezi prețul imediat.</p>
+                    <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-4">
+                        {products.map((p) => {
+                            const from = getFromPrice([p.id]);
                             return (
-                                <Link
-                                    href={productUrl}
-                                    key={p.id}
-                                    className="group flex flex-col items-center text-center space-y-8"
-                                >
-                                    <div className="w-full aspect-square bg-slate-50 rounded-[4rem] overflow-hidden border border-slate-100 group-hover:border-emerald-500 group-hover:shadow-2xl group-hover:-translate-y-4 transition-all duration-700 relative">
-                                        <Image
-                                            src={p.image || '/placeholder.png'}
-                                            alt={`${p.name} personalizat în ${loc.name}, județul ${judet.name} - Tablou.net`}
-                                            fill
-                                            className="object-cover group-hover:scale-110 transition-transform duration-1000"
-                                        />
-                                        <div className="absolute bottom-6 left-6 right-6">
-                                             <div className="bg-white/90 backdrop-blur-md text-slate-900 py-3 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all">
-                                                Configurează &rarr;
-                                             </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-2xl font-black text-slate-900 group-hover:text-emerald-600 transition-colors mb-2">{p.name}</h3>
-                                        <p className="text-slate-400 text-sm font-medium uppercase tracking-widest">Preț de producător</p>
-                                    </div>
+                                <Link key={p.id} href={`/judet/${judet.slug}/${loc.slug}/${p.slug || p.id}`}
+                                    className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-lg">
+                                    <span className="relative aspect-[4/3] bg-slate-100">
+                                        <Image src={p.image || "/placeholder.png"} alt={`${p.name} în ${loc.name}`} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover transition duration-500 group-hover:scale-105" />
+                                    </span>
+                                    <span className="flex flex-1 flex-col p-3 sm:p-4">
+                                        <h3 className="text-sm font-semibold text-slate-900 sm:text-base">{p.name}</h3>
+                                        {from && <span className="mt-0.5 text-xs text-slate-500 sm:text-sm">de la <b className="text-slate-900">{from.text}</b></span>}
+                                        <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-emerald-700">
+                                            Configurează <ArrowRight size={14} className="transition group-hover:translate-x-0.5" />
+                                        </span>
+                                    </span>
                                 </Link>
                             );
                         })}
@@ -195,57 +228,67 @@ export default async function LocalitatePage({ params }: { params: Promise<{ jud
                 </div>
             </section>
 
-            {/* Local Trust Section */}
-            <section className="py-40 bg-slate-900 text-white relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-emerald-500/5 rounded-full blur-[200px]"></div>
-                </div>
-
-                <div className="container mx-auto px-6 relative z-10 text-center max-w-5xl">
-                    <h2 className="text-5xl md:text-8xl font-black tracking-tighter mb-16 leading-[0.8]">
-                        Gata de agățat, <br /> <span className="text-emerald-500 italic">ambalat ca pentru cadou</span>
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-16 text-left">
+            {/* Cum comanzi: 3 pasi */}
+            <section className="bg-slate-50 py-12 sm:py-16">
+                <div className="container mx-auto px-4 sm:px-6">
+                    <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Cum comanzi din {loc.name}</h2>
+                    <ol className="mt-8 grid gap-4 sm:grid-cols-3">
                         {[
-                            { title: "Șasiu de lemn inclus", text: "Pânza vine întinsă pe șasiu de lemn uscat, cu marginile oglindite și sistem de agățat montat pe spate. Îți trebuie doar un cui." },
-                            { title: "Poza verificată gratuit", text: "Fiecare fotografie e deschisă de un om înainte de print. Dacă e prea mică pentru formatul ales, îți spunem înainte, nu după." },
-                            { title: `Livrare în ${loc.name}`, text: "Tabloul pleacă prin curier cu colțare de protecție și folie, cu AWB pe e-mail. Factura vine pe e-mail, nu în colet, când e cadou." }
-                        ].map((item, i) => (
-                            <div key={i} className="space-y-6">
-                                <div className="text-emerald-500 font-black text-4xl">0{i+1}.</div>
-                                <h3 className="text-2xl font-bold">{item.title}</h3>
-                                <p className="text-slate-400 text-lg font-light leading-relaxed">{item.text}</p>
-                            </div>
+                            { icon: MousePointerClick, t: "Alegi produsul", d: "Dimensiune, material, cantitate. Prețul apare pe loc." },
+                            { icon: Upload, t: "Încarci grafica", d: "Vezi cum se încadrează. Sau o facem noi." },
+                            { icon: Truck, t: `Primești în ${loc.name}`, d: "Curier DPD la adresă. Plătești și la livrare." },
+                        ].map((s, i) => (
+                            <li key={s.t} className="rounded-2xl border border-slate-200 bg-white p-5">
+                                <span className="flex size-10 items-center justify-center rounded-xl bg-emerald-600 text-white"><s.icon size={20} /></span>
+                                <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-emerald-700">Pasul {i + 1}</p>
+                                <h3 className="mt-1 font-semibold text-slate-900">{s.t}</h3>
+                                <p className="mt-1 text-sm text-slate-600">{s.d}</p>
+                            </li>
+                        ))}
+                    </ol>
+                </div>
+            </section>
+
+            {/* Intrebari frecvente (aceleasi ca in datele structurate) */}
+            <section className="py-12 sm:py-16">
+                <div className="container mx-auto max-w-3xl px-4 sm:px-6">
+                    <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Întrebări despre comenzile din {loc.name}</h2>
+                    <div className="mt-6 divide-y divide-slate-200 rounded-2xl border border-slate-200">
+                        {faq.map((f, i) => (
+                            <details key={f.q} className="group p-5" open={i === 0}>
+                                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-900">
+                                    {f.q}
+                                    <span className="text-emerald-600 transition group-open:rotate-45" aria-hidden>+</span>
+                                </summary>
+                                <p className="mt-2 text-slate-600">{f.a}</p>
+                            </details>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Other Localities List */}
-            {siblingLocalities.length > 0 && (
-                <section className="py-32 bg-slate-50">
-                    <div className="container mx-auto px-6">
-                        <div className="flex flex-col md:flex-row items-center justify-between gap-8 border-b border-slate-200 pb-16">
-                            <div>
-                                <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tighter">Tablouri canvas în județul {judet.name}</h2>
-                                <p className="text-slate-500 mt-2 font-medium">Livrăm tablouri personalizate și în localitățile vecine:</p>
-                            </div>
-                            <div className="flex flex-wrap gap-3">
-                                {siblingLocalities.slice(0, 8).map(l => (
-                                    <Link
-                                        key={l.slug}
-                                        href={`/judet/${judet.slug}/${l.slug}`}
-                                        className="px-6 py-3 bg-white border border-slate-200 text-slate-600 rounded-2xl text-sm font-black hover:bg-slate-900 hover:text-white transition-all shadow-sm"
-                                    >
-                                        {l.name}
-                                    </Link>
-                                ))}
-                            </div>
+            {/* Localitati vecine */}
+            {neighbours.length > 0 && (
+                <section className="border-t border-slate-100 bg-slate-50 py-12 pb-28 sm:py-16 lg:pb-16">
+                    <div className="container mx-auto px-4 sm:px-6">
+                        <h2 className="text-xl font-bold text-slate-900">Livrăm și în alte localități din județul {judet.name}</h2>
+                        <div className="mt-5 flex flex-wrap gap-2">
+                            {neighbours.map((l) => (
+                                <Link key={l.slug} href={`/judet/${judet.slug}/${l.slug}`}
+                                    className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 hover:border-emerald-300 hover:text-emerald-700">
+                                    {l.name}
+                                </Link>
+                            ))}
+                            <Link href={`/judet/${judet.slug}`} className="rounded-full px-4 py-2 text-sm font-semibold text-emerald-700 hover:underline">
+                                Tot județul {judet.name} →
+                            </Link>
                         </div>
                     </div>
                 </section>
             )}
 
+            {/* Pe telefon: butonul ramane mereu la vedere */}
+            <WhatsAppBar message={waMessage} price={bannerFrom?.text} label="canvas de la" />
         </div>
     );
 }
