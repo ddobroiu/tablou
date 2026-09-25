@@ -285,3 +285,25 @@ model AdSpendDaily {
   @@unique([provider, date, campaignId])
   @@index([date])
 }
+
+// Tracking propriu al site-urilor de print (www.shopprint.ro/t.js): o vizita = un rand.
+// Sursa (Google, Facebook, reclame, direct...) se stabileste la prima pagina.
+model TrackVisit {
+  id           String   @id
+  visitorId    String
+  host         String
+  date         DateTime @db.Date
+  startedAt    DateTime @default(now())
+  lastSeenAt   DateTime @default(now())
+  landingPath  String
+  referrerHost String?
+  source       String
+  medium       String
+  campaign     String?
+  clickType    String?
+  device       String
+  pageviews    Int      @default(1)
+
+  @@index([date])
+  @@index([host, date])
+}

@@ -61,6 +61,8 @@ export interface StoredOrder {
 }
 
 export interface MarketingInfo {
+  // ID-ul vizitatorului din tracking-ul propriu (cookie _pt_vid), vezi adminul -> Monitorizare
+  vid?: string;
     utmSource?: string;
     utmMedium?: string;
     utmCampaign?: string;

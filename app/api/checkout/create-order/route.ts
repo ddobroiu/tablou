@@ -17,6 +17,9 @@ export const revalidate = 0;
 export async function POST(req: NextRequest) {
     try {
         const orderData = await req.json();
+        // Vizitatorul din tracking-ul propriu (www.shopprint.ro/t.js): leaga comanda de sursa vizitei
+        const ptVid = req.cookies.get('_pt_vid')?.value;
+        if (ptVid && /^[a-f0-9]{32}$/i.test(ptVid)) orderData.marketing = { ...(orderData.marketing || {}), vid: ptVid.toLowerCase() };
         const referer = req.headers.get('referer') || '';
         const source = String(
             orderData.source ||

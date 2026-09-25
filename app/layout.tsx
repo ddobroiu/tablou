@@ -147,6 +147,8 @@ export default function RootLayout({
         <link rel="icon" href="/simbol.png" />
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
         <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="anonymous" />
+        {/* Tracking propriu al site-urilor de print (vizite si surse de trafic), vezi adminul shopprint → Monitorizare */}
+        <script defer src="https://www.shopprint.ro/t.js" />
       </head>
 
       <body className={`${inter.variable} ${outfit.variable} ${fraunces.variable} bg-white text-slate-900 antialiased font-sans selection:bg-emerald-500 selection:text-white relative`}>
