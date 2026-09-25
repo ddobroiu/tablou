@@ -1,6 +1,28 @@
 import { NextResponse } from "next/server";
 import { v2 as cloudinary } from 'cloudinary';
 import { prisma } from "@/lib/prisma";
+import { cookies } from "next/headers";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
+import { verifyAdminSession } from "@/lib/adminSession";
+
+// Grafica unui produs din comanda o poate schimba doar adminul sau clientul caruia ii apartine comanda
+async function canEditOrderItem(itemId: string): Promise<boolean> {
+    const jar = await cookies();
+    if (verifyAdminSession(jar.get("admin_auth")?.value)) return true;
+    const session = await getServerSession(authOptions);
+    const userId = (session?.user as any)?.id as string | undefined;
+    const email = session?.user?.email?.toLowerCase();
+    if (!userId) return false;
+    const item = await prisma.orderItem.findUnique({ where: { id: itemId }, select: { order: { select: { userId: true, shippingAddress: true } } } });
+    if (!item) return false;
+    if (item.order.userId === userId) return true;
+    // comanda fara cont, cu acelasi email, doar daca emailul contului e verificat (ca in pagina contului)
+    const orderEmail = String((item.order.shippingAddress as any)?.email || "").toLowerCase();
+    if (!email || orderEmail !== email) return false;
+    const account = await prisma.user.findUnique({ where: { id: userId }, select: { emailVerified: true } });
+    return Boolean(account?.emailVerified);
+}
 
 // Configurația Cloudinary se încarcă automat din variabilele de mediu
 cloudinary.config({
@@ -18,6 +40,9 @@ export async function POST(request: Request) {
 
         if (!file) {
             return NextResponse.json({ error: "Lipsește fișierul" }, { status: 400 });
+        }
+        if (type === 'order_item_artwork' && (!publicId || !(await canEditOrderItem(publicId)))) {
+            return NextResponse.json({ error: "Nu ai acces la această comandă." }, { status: 403 });
         }
 
         const arrayBuffer = await file.arrayBuffer();
