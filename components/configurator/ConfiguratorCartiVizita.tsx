@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useMemo, useState, useEffect } from "react";
+import ArtworkFitEditor, { DEFAULT_FIT, fitMetadata, type ArtworkFit } from "./ArtworkFitEditor";
 import { useCart } from "@/components/CartContext";
 import { ShoppingCart, Info, X, UploadCloud, MessageCircle, TrendingUp, PencilRuler } from "lucide-react";
 import Link from 'next/link';
@@ -69,6 +70,9 @@ export default function ConfiguratorCartiVizita({ productImage }: { productImage
     const [activeIndex, setActiveIndex] = useState<number>(0);
 
     const [artworkUrl, setArtworkUrl] = useState<string | null>(null);
+    // Incadrarea graficii pe format (pozitie, zoom) si pixelii imaginii, salvate in comanda
+    const [artworkFit, setArtworkFit] = useState<ArtworkFit>(DEFAULT_FIT);
+    const [artworkPx, setArtworkPx] = useState<{ w: number; h: number } | null>(null);
     const [uploading, setUploading] = useState(false);
     const [uploadError, setUploadError] = useState<string | null>(null);
 
@@ -87,6 +91,8 @@ export default function ConfiguratorCartiVizita({ productImage }: { productImage
     const handleArtworkFileInput = async (file: File | null) => {
         setArtworkUrl(null); setUploadError(null);
         if (!file) return;
+        setArtworkFit(DEFAULT_FIT);
+        setArtworkPx(null);
         try {
             setUploading(true);
             const form = new FormData(); form.append("file", file);
@@ -132,6 +138,7 @@ export default function ConfiguratorCartiVizita({ productImage }: { productImage
                 "Decupaj Special (Ștanță)": input.specialShape ? "Da" : "Nu",
                 "Grafică": input.designOption === 'pro' ? 'Design Pro' : 'Grafică proprie',
                 "artworkUrl": artworkUrl,
+                ...(input.designOption === "upload" && artworkUrl ? fitMetadata((input.size === "card_bancar" ? 8.5 : 9), (input.size === "card_bancar" ? 5.4 : 5), artworkPx, artworkFit) : {}),
             },
         });
         alert("Adăugat în coș!");
@@ -167,7 +174,22 @@ export default function ConfiguratorCartiVizita({ productImage }: { productImage
                     <div className="lg:sticky top-24 h-max space-y-6">
                         <div className="bg-white rounded-2xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.05)] border border-gray-200 dark:border-slate-800 overflow-hidden">
                             <div className="aspect-square relative flex items-center justify-center p-4 bg-slate-50 dark:bg-slate-800">
-                                <img src={activeImage} alt="Cărți de Vizită" className="max-h-full max-w-full object-contain filter drop-shadow-xl" />
+                                {input.designOption === "upload" && artworkUrl ? (
+                                    <div className="absolute inset-0 p-4">
+                                        <ArtworkFitEditor
+                                            widthCm={(input.size === "card_bancar" ? 8.5 : 9)}
+                                            heightCm={(input.size === "card_bancar" ? 5.4 : 5)}
+                                            imageUrl={artworkUrl}
+                                            fit={artworkFit}
+                                            onChange={setArtworkFit}
+                                            onImageSize={setArtworkPx}
+                                            safeMarginCm={0.3}
+                                            viewingFactor={0.5}
+                                        />
+                                    </div>
+                                ) : (
+                                    <img src={activeImage} alt="Cărți de Vizită" className="max-h-full max-w-full object-contain filter drop-shadow-xl" />
+                                )}
                             </div>
                             <div className="p-2 grid grid-cols-4 gap-2 border-t border-gray-100">
                                 {GALLERY.map((src, i) => (

@@ -34,6 +34,9 @@ type Props = {
     readOnly?: boolean;
     // se apeleaza cand se cunosc pixelii imaginii (pentru metadate)
     onImageSize?: (size: { w: number; h: number } | null) => void;
+    // Macheta produsului (ex. tricoul in culoarea aleasa): zona de print se deseneaza pe ea.
+    // area: centrul zonei (x) si marginea de sus (y) ca fractiuni din poza, latimea (w) ca fractiune din latimea pozei.
+    mockup?: { src: string; area: { x: number; y: number; w: number }; label?: string };
 };
 
 const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
@@ -75,12 +78,22 @@ export default function ArtworkFitEditor({
     viewingFactor = 1.5,
     readOnly = false,
     onImageSize,
+    mockup,
 }: Props) {
     const boxRef = useRef<HTMLDivElement>(null);
     const [box, setBox] = useState({ w: 0, h: 0 });
     const [img, setImg] = useState<{ w: number; h: number } | null>(null);
     const [failed, setFailed] = useState(false);
     const drag = useRef<{ px: number; py: number; x: number; y: number } | null>(null);
+    const [mockupPx, setMockupPx] = useState<{ w: number; h: number } | null>(null);
+
+    useEffect(() => {
+        setMockupPx(null);
+        if (!mockup?.src) return;
+        const el = new window.Image();
+        el.onload = () => setMockupPx({ w: el.naturalWidth, h: el.naturalHeight });
+        el.src = mockup.src;
+    }, [mockup?.src]);
 
     // Pixelii imaginii (PDF/AI nu se pot previzualiza in browser)
     useEffect(() => {
@@ -109,12 +122,33 @@ export default function ArtworkFitEditor({
     }, []);
 
     // Suprafata tiparita, incadrata in spatiul disponibil
+    // Macheta (daca exista): cat ocupa poza produsului in spatiul disponibil
+    const mock = useMemo(() => {
+        if (!mockup || !mockupPx || !box.w) return null;
+        const maxH = Math.max(box.h, 220);
+        const k = Math.min(box.w / mockupPx.w, maxH / mockupPx.h);
+        const w = mockupPx.w * k;
+        const h = mockupPx.h * k;
+        return { w, h, left: (box.w - w) / 2, top: (maxH - h) / 2 };
+    }, [mockup, mockupPx, box]);
+
     const frame = useMemo(() => {
         if (!box.w || !widthCm || !heightCm) return null;
+        if (mockup) {
+            if (!mock) return null;
+            // zona de print pe produs: latimea data de macheta, inaltimea dupa proportia in cm
+            const w = mockup.area.w * mock.w;
+            const scale = w / widthCm;
+            return {
+                w, h: heightCm * scale, pxPerCm: scale,
+                left: mock.left + mockup.area.x * mock.w - w / 2,
+                top: mock.top + mockup.area.y * mock.h,
+            };
+        }
         const maxH = Math.max(box.h, 220);
         const scale = Math.min((box.w - 48) / widthCm, (maxH - 48) / heightCm);
-        return { w: widthCm * scale, h: heightCm * scale, pxPerCm: scale };
-    }, [box, widthCm, heightCm]);
+        return { w: widthCm * scale, h: heightCm * scale, pxPerCm: scale, left: null as number | null, top: null as number | null };
+    }, [box, widthCm, heightCm, mockup, mock]);
 
     const set = useCallback(
         (next: ArtworkFit) => onChange?.(clampFit(next, widthCm, heightCm, img)),
@@ -190,12 +224,16 @@ export default function ArtworkFitEditor({
 
     return (
         <div className="flex h-full w-full flex-col gap-3">
-            <div ref={boxRef} className="relative flex min-h-60 flex-1 items-center justify-center overflow-hidden rounded-xl bg-[repeating-conic-gradient(#f1f5f9_0_25%,#fff_0_50%)] bg-[length:16px_16px]">
+            <div ref={boxRef} className={`relative flex min-h-60 flex-1 items-center justify-center overflow-hidden rounded-xl ${mockup ? "bg-white" : "bg-[repeating-conic-gradient(#f1f5f9_0_25%,#fff_0_50%)] bg-[length:16px_16px]"}`}>
+                {mockup && mock && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={mockup.src} alt="" draggable={false} className="pointer-events-none absolute select-none" style={{ left: mock.left, top: mock.top, width: mock.w, height: mock.h }} />
+                )}
                 {frame && (
-                    <div className="relative" style={{ width: frame.w, height: frame.h }}>
+                    <div className={frame.left === null ? "relative" : "absolute"} style={{ width: frame.w, height: frame.h, ...(frame.left !== null && { left: frame.left, top: frame.top ?? 0 }) }}>
                         {/* suprafata tiparita */}
                         <div
-                            className={`absolute inset-0 overflow-hidden bg-white shadow-lg ring-1 ring-slate-300 ${readOnly ? "" : "cursor-grab active:cursor-grabbing"} touch-none select-none`}
+                            className={`absolute inset-0 overflow-hidden ${mockup ? "outline-dashed outline-1 outline-offset-0 outline-emerald-500/80" : "bg-white shadow-lg ring-1 ring-slate-300"} ${readOnly ? "" : "cursor-grab active:cursor-grabbing"} touch-none select-none`}
                             onPointerDown={onPointerDown}
                             onPointerMove={onPointerMove}
                             onPointerUp={onPointerUp}
@@ -222,7 +260,7 @@ export default function ArtworkFitEditor({
                             ))}
                         </div>
                         {/* cotele */}
-                        <span className="absolute -top-5 left-1/2 -translate-x-1/2 text-[11px] font-medium text-slate-500">{widthCm} cm</span>
+                        <span className="absolute -top-5 left-1/2 -translate-x-1/2 whitespace-nowrap text-[11px] font-medium text-slate-500">{mockup?.label ? `${mockup.label}: ` : ""}{widthCm} cm</span>
                         <span className="absolute -left-2 top-1/2 -translate-x-full -translate-y-1/2 text-[11px] font-medium text-slate-500">{heightCm} cm</span>
                     </div>
                 )}

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useMemo, useState, useEffect } from "react";
+import ArtworkFitEditor, { DEFAULT_FIT, fitMetadata, type ArtworkFit } from "./ArtworkFitEditor";
 import { useCart } from "@/components/CartContext";
 import { Plus, Minus, ShoppingCart, Info, ChevronDown, X, UploadCloud, MessageCircle, TrendingUp, PencilRuler } from "lucide-react";
 import Link from 'next/link';
@@ -54,6 +55,9 @@ export default function PlianteConfigurator({ productImage }: { productImage?: s
     const [activeIndex, setActiveIndex] = useState<number>(0);
 
     const [artworkUrl, setArtworkUrl] = useState<string | null>(null);
+    // Incadrarea graficii pe format (pozitie, zoom) si pixelii imaginii, salvate in comanda
+    const [artworkFit, setArtworkFit] = useState<ArtworkFit>(DEFAULT_FIT);
+    const [artworkPx, setArtworkPx] = useState<{ w: number; h: number } | null>(null);
     const [uploading, setUploading] = useState(false);
     const [uploadError, setUploadError] = useState<string | null>(null);
 
@@ -69,6 +73,8 @@ export default function PlianteConfigurator({ productImage }: { productImage?: s
     const handleArtworkFileInput = async (file: File | null) => {
         setArtworkUrl(null); setUploadError(null);
         if (!file) return;
+        setArtworkFit(DEFAULT_FIT);
+        setArtworkPx(null);
         try {
             setUploading(true);
             const form = new FormData(); form.append("file", file);
@@ -104,6 +110,7 @@ export default function PlianteConfigurator({ productImage }: { productImage?: s
                 "Împăturire": PLIANTE_CONSTANTS.FOLDS[fold].label,
                 "Grafică": designOption === 'pro' ? 'Design Pro' : 'Grafică proprie',
                 "artworkUrl": artworkUrl,
+                ...(designOption === "upload" && artworkUrl ? fitMetadata(29.7, 21, artworkPx, artworkFit) : {}),
             },
         });
         alert("Adăugat în coș!");
@@ -128,7 +135,22 @@ export default function PlianteConfigurator({ productImage }: { productImage?: s
                     <div className="lg:sticky top-24 h-max space-y-6">
                         <div className="bg-white rounded-2xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.05)] border border-gray-200 dark:border-slate-800 overflow-hidden">
                             <div className="aspect-square relative flex items-center justify-center p-4">
-                                <img src={activeImage} alt="Pliante" className="max-h-full max-w-full object-contain" />
+                                {designOption === "upload" && artworkUrl ? (
+                                    <div className="absolute inset-0 p-4">
+                                        <ArtworkFitEditor
+                                            widthCm={29.7}
+                                            heightCm={21}
+                                            imageUrl={artworkUrl}
+                                            fit={artworkFit}
+                                            onChange={setArtworkFit}
+                                            onImageSize={setArtworkPx}
+                                            safeMarginCm={0.3}
+                                            viewingFactor={0.6}
+                                        />
+                                    </div>
+                                ) : (
+                                    <img src={activeImage} alt="Pliante" className="max-h-full max-w-full object-contain" />
+                                )}
                             </div>
                             <div className="p-2 grid grid-cols-4 gap-2 border-t border-gray-100">
                                 {GALLERY.map((src, i) => (

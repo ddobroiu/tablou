@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import ArtworkFitEditor, { DEFAULT_FIT, fitMetadata, type ArtworkFit } from "./ArtworkFitEditor";
 import { usePathname } from "next/navigation";
 import { useCart } from "@/components/CartContext";
 import { useToast } from "@/components/ToastProvider";
@@ -177,6 +178,9 @@ export default function StockBannerConfigurator({ productSlug, renderOnlyConfigu
     const [customText, setCustomText] = useState("");
     const [designOption, setDesignOption] = useState<'standard' | 'upload'>('standard');
     const [artworkUrl, setArtworkUrl] = useState<string | null>(null);
+    // Incadrarea graficii pe format (pozitie, zoom) si pixelii imaginii, salvate in comanda
+    const [artworkFit, setArtworkFit] = useState<ArtworkFit>(DEFAULT_FIT);
+    const [artworkPx, setArtworkPx] = useState<{ w: number; h: number } | null>(null);
     const [uploading, setUploading] = useState(false);
 
     if (!product) return null;
@@ -213,6 +217,7 @@ export default function StockBannerConfigurator({ productSlug, renderOnlyConfigu
                 "Text Personalizat": customText || "-",
                 "Optiune Grafica": designOption === 'standard' ? 'Model Standard' : 'Fisier Proprie',
                 ...(designOption === 'upload' && artworkUrl ? { "Fisier": artworkUrl } : {}),
+                ...(designOption === "upload" && artworkUrl ? fitMetadata(width, height, artworkPx, artworkFit) : {}),
             }
         });
         success("Produsul a fost adăugat în coș!");
@@ -221,6 +226,8 @@ export default function StockBannerConfigurator({ productSlug, renderOnlyConfigu
     const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (!file) return;
+        setArtworkFit(DEFAULT_FIT);
+        setArtworkPx(null);
         setUploading(true);
         try {
             const formData = new FormData();
@@ -259,13 +266,28 @@ export default function StockBannerConfigurator({ productSlug, renderOnlyConfigu
                     <div className="lg:sticky lg:top-24 h-max w-full">
                         <div className="bg-white sm:rounded-2xl shadow-sm border border-gray-200 dark:border-slate-800 overflow-hidden relative group">
                             <div className="aspect-square relative bg-white flex items-center justify-center p-4">
-                                <Image 
+                                {designOption === "upload" && artworkUrl ? (
+                                    <div className="absolute inset-0 p-4">
+                                        <ArtworkFitEditor
+                                            widthCm={width}
+                                            heightCm={height}
+                                            imageUrl={artworkUrl}
+                                            fit={artworkFit}
+                                            onChange={setArtworkFit}
+                                            onImageSize={setArtworkPx}
+                                            safeMarginCm={3}
+                                            viewingFactor={1.5}
+                                        />
+                                    </div>
+                                ) : (
+                                    <Image 
                                     src={product.image} 
                                     alt={product.title} 
                                     fill 
                                     className="object-contain p-4 sm:p-8"
                                     priority 
                                 />
+                                )}
                             </div>
                         </div>
                     </div>

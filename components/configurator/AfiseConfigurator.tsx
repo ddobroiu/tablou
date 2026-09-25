@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useMemo, useState, useEffect } from "react";
+import ArtworkFitEditor, { DEFAULT_FIT, fitMetadata, type ArtworkFit } from "./ArtworkFitEditor";
+import { getAfiseDimensionsCm } from "@/lib/ai-product-dimensions";
 import { useCart } from "@/components/CartContext";
 import { Plus, Minus, ShoppingCart, Info, ChevronDown, X, UploadCloud, MessageCircle, TrendingUp, Percent, PencilRuler } from "lucide-react";
 import Link from 'next/link';
@@ -45,6 +47,10 @@ export default function AfiseConfigurator({ productSlug, initialWidth, initialHe
     const [designOption, setDesignOption] = useState<"upload" | "pro">("upload");
 
     const [artworkUrl, setArtworkUrl] = useState<string | null>(null);
+    // Incadrarea graficii pe format (pozitie, zoom) si pixelii imaginii, salvate in comanda
+    const [artworkFit, setArtworkFit] = useState<ArtworkFit>(DEFAULT_FIT);
+    const [artworkPx, setArtworkPx] = useState<{ w: number; h: number } | null>(null);
+    const afiseDims = getAfiseDimensionsCm(size);
     const [uploading, setUploading] = useState(false);
     const [uploadError, setUploadError] = useState<string | null>(null);
 
@@ -94,6 +100,8 @@ export default function AfiseConfigurator({ productSlug, initialWidth, initialHe
         setArtworkUrl(null);
         setUploadError(null);
         if (!file) return;
+        setArtworkFit(DEFAULT_FIT);
+        setArtworkPx(null);
         try {
             setUploading(true);
             const form = new FormData();
@@ -130,6 +138,7 @@ export default function AfiseConfigurator({ productSlug, initialWidth, initialHe
                 "Tiraj": `${quantity} buc`,
                 "Grafică": designOption === 'pro' ? "Vreau grafică" : "Grafică proprie",
                 "artworkUrl": artworkUrl,
+                ...(designOption === "upload" && artworkUrl ? fitMetadata(afiseDims.width, afiseDims.height, artworkPx, artworkFit) : {}),
             },
         });
         alert("Adăugat în coș!");
@@ -163,7 +172,21 @@ export default function AfiseConfigurator({ productSlug, initialWidth, initialHe
                     <div className="lg:sticky top-24 h-max space-y-6">
                         <div className="bg-white rounded-2xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.05)] border border-gray-200 dark:border-slate-800 overflow-hidden">
                             <div className="aspect-square relative flex items-center justify-center p-4">
-                                <Image 
+                                {designOption === "upload" && artworkUrl ? (
+                                    <div className="absolute inset-0 p-4">
+                                        <ArtworkFitEditor
+                                            widthCm={afiseDims.width}
+                                            heightCm={afiseDims.height}
+                                            imageUrl={artworkUrl}
+                                            fit={artworkFit}
+                                            onChange={setArtworkFit}
+                                            onImageSize={setArtworkPx}
+                                            safeMarginCm={0.3}
+                                            viewingFactor={0.8}
+                                        />
+                                    </div>
+                                ) : (
+                                    <Image 
                                     src={activeImage} 
                                     alt="Afiș" 
                                     fill
@@ -171,6 +194,7 @@ export default function AfiseConfigurator({ productSlug, initialWidth, initialHe
                                     sizes="(max-width: 768px) 100vw, 50vw"
                                     priority
                                 />
+                                )}
                             </div>
                             <div className="p-2 grid grid-cols-4 gap-2 border-t border-gray-100">
                                 {GALLERY.map((src, i) => (

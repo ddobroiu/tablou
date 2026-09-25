@@ -2,6 +2,8 @@
 // components/TextileConfigurator.tsx
 
 import { NumberInput } from "@/components/ui/NumberInput";
+import ArtworkFitEditor, { DEFAULT_FIT, fitMetadata, type ArtworkFit } from "@/components/configurator/ArtworkFitEditor";
+import { getTextileAiPrintDimensionsCm } from "@/lib/ai-product-dimensions";
 import React, { useMemo, useState, useEffect } from "react";
 import { useCart } from "@/components/CartContext";
 import { useToast } from "@/components/ToastProvider";
@@ -366,6 +368,13 @@ export default function TextileConfigurator({ type, productSlug, productImage, r
         }
     }, [galleryImages, productImage]);
     const [artworkUrl, setArtworkUrl] = useState<string | null>(null);
+    // Pozitia graficii in zona de print de pe haina (implicit toata grafica se vede)
+    const TEXTILE_FIT: ArtworkFit = { ...DEFAULT_FIT, mode: "contain" };
+    const [artworkFit, setArtworkFit] = useState<ArtworkFit>(TEXTILE_FIT);
+    const [artworkPx, setArtworkPx] = useState<{ w: number; h: number } | null>(null);
+    const printZone = getTextileAiPrintDimensionsCm(type);
+    // Unde e zona de print pe poza produsului (piept / fata sepcii)
+    const PRINT_AREA = type === "sepci" ? { x: 0.5, y: 0.36, w: 0.3 } : type === "hanorace" ? { x: 0.5, y: 0.3, w: 0.32 } : { x: 0.5, y: 0.26, w: 0.34 };
     const [uploading, setUploading] = useState(false);
     const [uploadError, setUploadError] = useState<string | null>(null);
 
@@ -436,6 +445,8 @@ export default function TextileConfigurator({ type, productSlug, productImage, r
         setUploadError(null);
 
         if (!file) return;
+        setArtworkFit(TEXTILE_FIT);
+        setArtworkPx(null);
         try {
             const previewUrl = URL.createObjectURL(file);
             setArtworkUrl(previewUrl);
@@ -482,6 +493,7 @@ export default function TextileConfigurator({ type, productSlug, productImage, r
                 designOption: input.designOption,
                 ...(input.designOption === 'pro' && { "Cost grafică": formatMoneyDisplay(TEXTILE_CONSTANTS.PRO_DESIGN_FEE) }),
                 artworkUrl,
+                ...(input.designOption === "upload" && artworkUrl ? fitMetadata(printZone.width, printZone.height, artworkPx, artworkFit) : {}),
                 textDesign: input.designOption === 'text_only' ? textDesign : undefined,
             },
         });
@@ -519,7 +531,20 @@ export default function TextileConfigurator({ type, productSlug, productImage, r
                             </div>
 
                             <div className="aspect-square relative bg-white flex items-center justify-center p-8">
-                                {productImage ? (
+                                {input.designOption === "upload" && artworkUrl ? (
+                                    <div className="absolute inset-0 p-4">
+                                        <ArtworkFitEditor
+                                            widthCm={printZone.width}
+                                            heightCm={printZone.height}
+                                            imageUrl={artworkUrl}
+                                            fit={artworkFit}
+                                            onChange={setArtworkFit}
+                                            onImageSize={setArtworkPx}
+                                            viewingFactor={0.8}
+                                            mockup={{ src: galleryImages[galleryImages.length - 1], area: PRINT_AREA, label: "Zona de print" }}
+                                        />
+                                    </div>
+                                ) : productImage ? (
                                     <Image 
                                         src={productImage} 
                                         alt="Model" 

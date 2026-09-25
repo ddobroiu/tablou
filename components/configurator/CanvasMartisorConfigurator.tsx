@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
+import ArtworkFitEditor, { DEFAULT_FIT, fitMetadata, type ArtworkFit } from "./ArtworkFitEditor";
 import { useCart } from "@/components/CartContext";
 import { ShoppingCart, Heart, Sparkles, Image as ImageIcon, Check, UploadCloud, MessageSquare } from "lucide-react";
 import { calculateCanvasMartisorPrice, CANVAS_MARTISOR_CONSTANTS, formatMoneyDisplay, type PriceInputCanvasMartisor } from "@/lib/pricing";
@@ -21,6 +22,10 @@ export default function CanvasMartisorConfigurator({ productImage }: Props) {
     });
 
     const [artworkUrl, setArtworkUrl] = useState<string | null>(productImage || null);
+    // Incadrarea graficii pe format (pozitie, zoom) si pixelii imaginii, salvate in comanda
+    const [artworkFit, setArtworkFit] = useState<ArtworkFit>(DEFAULT_FIT);
+    const [artworkPx, setArtworkPx] = useState<{ w: number; h: number } | null>(null);
+    const seasonDims = (input.sizeKey || "40x60").split("x").map(Number);
     const [uploading, setUploading] = useState(false);
     const [uploadError, setUploadError] = useState<string | null>(null);
     const [activeStep, setActiveStep] = useState(1);
@@ -33,6 +38,8 @@ export default function CanvasMartisorConfigurator({ productImage }: Props) {
     const handleArtworkFileInput = async (file: File | null) => {
         setArtworkUrl(null); setUploadError(null);
         if (!file) return;
+        setArtworkFit(DEFAULT_FIT);
+        setArtworkPx(null);
         try {
             setUploading(true);
             const form = new FormData(); form.append("file", file);
@@ -68,6 +75,7 @@ export default function CanvasMartisorConfigurator({ productImage }: Props) {
                 "Dimensiune": sizeLabel,
                 "Text Personalizat": input.customText || "Fără text",
                 "artworkUrl": artworkUrl,
+                ...(artworkUrl ? fitMetadata(seasonDims[0], seasonDims[1], artworkPx, artworkFit) : {}),
             },
         });
         alert("Adăugat în coș!");
@@ -88,7 +96,22 @@ export default function CanvasMartisorConfigurator({ productImage }: Props) {
                                 {artworkUrl ? (
                                     <div className="relative">
                                         <div className="relative z-10 shadow-2xl border-4 border-white rounded-sm overflow-hidden transform hover:scale-105 transition-transform max-w-full">
-                                            <img src={artworkUrl} alt="Canvas Personalizat" className="w-[400px] h-auto object-contain" />
+                                            {artworkUrl ? (
+                                                <div className="h-[min(70vw,440px)] w-[min(80vw,440px)]">
+                                                    <ArtworkFitEditor
+                                                        widthCm={seasonDims[0]}
+                                                        heightCm={seasonDims[1]}
+                                                        imageUrl={artworkUrl}
+                                                        fit={artworkFit}
+                                                        onChange={setArtworkFit}
+                                                        onImageSize={setArtworkPx}
+                                                        safeMarginCm={3}
+                                                        viewingFactor={1.2}
+                                                    />
+                                                </div>
+                                            ) : (
+                                                <img src={artworkUrl} alt="Canvas Personalizat" className="w-[400px] h-auto object-contain" />
+                                            )}
                                             {input.customText && (
                                                 <div className="absolute bottom-4 left-0 right-0 text-center px-4">
                                                     <span className="bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded text-sm font-medium">

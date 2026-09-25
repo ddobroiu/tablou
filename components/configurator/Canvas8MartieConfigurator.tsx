@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
+import ArtworkFitEditor, { DEFAULT_FIT, fitMetadata, type ArtworkFit } from "./ArtworkFitEditor";
 import { useCart } from "@/components/CartContext";
 import { ShoppingCart, Heart, Sparkles, Image as ImageIcon, Check, UploadCloud, MessageSquare } from "lucide-react";
 import { calculateCanvas8MartiePrice, CANVAS_8_MARTIE_CONSTANTS, formatMoneyDisplay, type PriceInputCanvas8Martie } from "@/lib/pricing";
@@ -21,6 +22,10 @@ export default function Canvas8MartieConfigurator({ productImage }: Props) {
     });
 
     const [artworkUrl, setArtworkUrl] = useState<string | null>(productImage || null);
+    // Incadrarea graficii pe format (pozitie, zoom) si pixelii imaginii, salvate in comanda
+    const [artworkFit, setArtworkFit] = useState<ArtworkFit>(DEFAULT_FIT);
+    const [artworkPx, setArtworkPx] = useState<{ w: number; h: number } | null>(null);
+    const seasonDims = (input.sizeKey || "40x60").split("x").map(Number);
     const [uploading, setUploading] = useState(false);
     const [uploadError, setUploadError] = useState<string | null>(null);
     const [activeStep, setActiveStep] = useState(1);
@@ -33,6 +38,8 @@ export default function Canvas8MartieConfigurator({ productImage }: Props) {
     const handleArtworkFileInput = async (file: File | null) => {
         setArtworkUrl(null); setUploadError(null);
         if (!file) return;
+        setArtworkFit(DEFAULT_FIT);
+        setArtworkPx(null);
         try {
             setUploading(true);
             const form = new FormData(); form.append("file", file);
@@ -68,6 +75,7 @@ export default function Canvas8MartieConfigurator({ productImage }: Props) {
                 "Dimensiune": sizeLabel,
                 "Text Personalizat": input.customText || "Fără text",
                 "artworkUrl": artworkUrl,
+                ...(artworkUrl ? fitMetadata(seasonDims[0], seasonDims[1], artworkPx, artworkFit) : {}),
             },
         });
         alert("Adăugat în coș!");
@@ -89,11 +97,26 @@ export default function Canvas8MartieConfigurator({ productImage }: Props) {
                                 <div className="relative w-full max-w-sm bg-white shadow-xl rounded-xl overflow-hidden animate-in fade-in duration-500">
                                     {artworkUrl ? (
                                         <div className="relative">
-                                            <img
+                                            {artworkUrl ? (
+                                                <div className="h-[min(70vw,440px)] w-[min(80vw,440px)]">
+                                                    <ArtworkFitEditor
+                                                        widthCm={seasonDims[0]}
+                                                        heightCm={seasonDims[1]}
+                                                        imageUrl={artworkUrl}
+                                                        fit={artworkFit}
+                                                        onChange={setArtworkFit}
+                                                        onImageSize={setArtworkPx}
+                                                        safeMarginCm={3}
+                                                        viewingFactor={1.2}
+                                                    />
+                                                </div>
+                                            ) : (
+                                                <img
                                                 src={artworkUrl}
                                                 alt="Previzualizare"
                                                 className="w-full h-auto object-contain block"
                                             />
+                                            )}
                                             <button
                                                 onClick={() => document.getElementById('photo-upload-input')?.click()}
                                                 className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-md p-3 rounded-full shadow-[0_20px_50px_-12px_rgba(0,0,0,0.05)] hover:bg-rose-600 hover:text-white transition-all group/btn"
