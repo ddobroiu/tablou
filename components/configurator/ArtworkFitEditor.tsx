@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { AlertTriangle, CheckCircle2, Crosshair, Maximize2, Minimize2, Move } from "lucide-react";
+import { CheckCircle2, Crosshair, Info, Maximize2, Minimize2, Move } from "lucide-react";
 
 // Editor de incadrare: clientul vede grafica exact la proportia comandata (ex. 300×140 cm),
 // o muta cu mouse-ul/degetul, face zoom si vede tivul, capsele, zona sigura si daca rezolutia
@@ -166,7 +166,9 @@ export default function ArtworkFitEditor({
     const geo = img && widthCm && heightCm ? fitGeometry(widthCm, heightCm, img, fit) : null;
     const need = neededDpi(widthCm, heightCm, viewingFactor);
     // bun: cat ochiul distinge de la distanta obisnuita; acceptabil: de la jumatate in sus (usor moale de aproape)
-    const quality = !geo ? null : geo.dpi >= need.dpi ? "good" : geo.dpi >= need.dpi * 0.5 ? "ok" : "low";
+    // Doar informam, discret: majoritatea pozelor arata bine la distanta de la care se vede produsul.
+    // Nota apare doar la imaginile cu adevarat mici (sub un sfert din ce distinge ochiul).
+    const quality = !geo ? null : geo.dpi >= need.dpi * 0.6 ? "good" : geo.dpi >= need.dpi * 0.25 ? "ok" : "low";
     const dist = need.distanceM >= 1 ? `${need.distanceM.toLocaleString("ro-RO", { maximumFractionDigits: 1 })} m` : `${Math.round(need.distanceM * 100)} cm`;
 
     const onPointerDown = (e: React.PointerEvent) => {
@@ -248,7 +250,7 @@ export default function ArtworkFitEditor({
                                 <div
                                     className="pointer-events-none absolute border border-dashed border-sky-500/80"
                                     style={{ inset: safeMarginCm * frame.pxPerCm }}
-                                    title="Zona sigură: textul important în interior"
+                                    title="Linia punctată: marginea până la care e bine să stea textul (tivul / tăietura)"
                                 />
                             )}
                             {eyelets.map((p, i) => (
@@ -300,15 +302,14 @@ export default function ArtworkFitEditor({
             )}
 
             {geo && quality && (
-                <div className={`flex items-start gap-2 rounded-lg px-3 py-2 text-xs ${quality === "good" ? "bg-emerald-50 text-emerald-800" : quality === "ok" ? "bg-amber-50 text-amber-800" : "bg-rose-50 text-rose-800"}`}>
-                    {quality === "good" ? <CheckCircle2 size={15} className="mt-px shrink-0" /> : <AlertTriangle size={15} className="mt-px shrink-0" />}
+                <p className={`flex items-start gap-1.5 text-xs ${quality === "low" ? "text-slate-600" : "text-emerald-700"}`}>
+                    {quality === "low" ? <Info size={14} className="mt-px shrink-0 text-slate-400" /> : <CheckCircle2 size={14} className="mt-px shrink-0" />}
                     <span>
-                        {quality === "good" && <>Calitate bună: la {widthCm}×{heightCm} cm, privit de la ~{dist}, imaginea arată clar ({Math.round(geo.dpi)} dpi).</>}
-                        {quality === "ok" && <>Calitate acceptabilă ({Math.round(geo.dpi)} dpi): de la ~{dist} arată bine, doar foarte de aproape se vede puțin mai moale.</>}
-                        {quality === "low" && <>Imaginea e prea mică pentru {widthCm}×{heightCm} cm ({Math.round(geo.dpi)} dpi) și se va vedea pixelată chiar și de la ~{dist}. Încarcă o imagine mai mare sau alege grafica făcută de noi.</>}
-                        {safeMarginCm > 0 && <span className="block opacity-80">Linia punctată albastră e zona sigură: ține textul important în interiorul ei.</span>}
+                        {quality === "good" && <>Calitate foarte bună pentru {widthCm}×{heightCm} cm.</>}
+                        {quality === "ok" && <>Calitate bună pentru {widthCm}×{heightCm} cm, privit de la distanță.</>}
+                        {quality === "low" && <>Imaginea are rezoluție mică pentru {widthCm}×{heightCm} cm. Dacă ai o variantă mai mare, o poți încărca; altfel o verificăm noi înainte de tipar.</>}
                     </span>
-                </div>
+                </p>
             )}
         </div>
     );
