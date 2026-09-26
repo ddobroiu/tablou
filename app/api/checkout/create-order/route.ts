@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { fulfillOrder } from '@/lib/orderService';
+import { LEGAL_VERSION } from '@/lib/company';
 import { getAuthSession } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import Stripe from 'stripe';
@@ -41,6 +42,13 @@ export async function POST(req: NextRequest) {
         if (!orderData?.address || !orderData?.billing || !orderData?.items) {
             return NextResponse.json({ error: 'Date de comandă invalide.' }, { status: 400 });
         }
+
+        // Acceptarea Termenilor și a Politicii de confidențialitate este obligatorie; o datăm pe server.
+        if (orderData.acceptTerms !== true) {
+            return NextResponse.json({ error: 'Trebuie să accepți Termenii și condițiile și Politica de confidențialitate.' }, { status: 400 });
+        }
+        orderData.termsAcceptedAt = new Date().toISOString();
+        orderData.termsVersion = LEGAL_VERSION;
 
         const transformedAddress = {
             nume_prenume: [orderData.address.firstName || '', orderData.address.lastName || ''].join(' ').trim() || orderData.address.nume_prenume || '',

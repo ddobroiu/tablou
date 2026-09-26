@@ -76,7 +76,7 @@ export function IntentLanding({ productId, productName, intent, intentLabel, con
                                 <div>
                                     <div className="text-[10px] uppercase tracking-widest font-black text-slate-400">de la</div>
                                     <div className="text-4xl sm:text-5xl font-black text-slate-900 leading-none">{formatLei(from)}</div>
-                                    <div className="text-xs text-slate-500 mt-2">/ buc, TVA inclus, cu grafica ta</div>
+                                    <div className="text-xs text-slate-500 mt-2">/ buc, preț final (furnizorul nu este plătitor de TVA), cu grafica ta</div>
                                 </div>
                             )}
                         </div>

@@ -99,7 +99,7 @@ export default async function JudetDimensionPage({ params }: { params: Promise<P
                         </div>
                         <div className="lg:col-span-5 flex gap-5 items-center lg:justify-end">
                             {cfg.image && <div className="relative w-28 h-28 sm:w-40 sm:h-40 rounded-3xl overflow-hidden border border-slate-100 bg-slate-50 shrink-0"><Image src={cfg.image} alt={`${content.productLabel} ${w}x${h} cm`} fill className="object-cover" sizes="160px" /></div>}
-                            <div><div className="text-[10px] uppercase tracking-widest font-black text-slate-400">de la</div><div className="text-4xl sm:text-5xl font-black text-slate-900 leading-none">{formatLei(pricing.fromPrice)}</div><div className="text-xs text-slate-500 mt-2">/ buc, TVA inclus · {pricing.fromLabel}</div></div>
+                            <div><div className="text-[10px] uppercase tracking-widest font-black text-slate-400">de la</div><div className="text-4xl sm:text-5xl font-black text-slate-900 leading-none">{formatLei(pricing.fromPrice)}</div><div className="text-xs text-slate-500 mt-2">/ buc, preț final; furnizorul nu este plătitor de TVA · {pricing.fromLabel}</div></div>
                         </div>
                     </div>
                 </div>
@@ -108,7 +108,7 @@ export default async function JudetDimensionPage({ params }: { params: Promise<P
             <section className="py-12 border-b border-slate-100">
                 <div className="container mx-auto px-6">
                     <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tighter mb-2">Preț {content.productLabel.toLowerCase()} {w}×{h} cm, livrat în {judet.name}</h2>
-                    <p className="text-sm text-slate-500 mb-6">Calculat cu același motor ca în configurator, cu grafica ta. TVA inclus; transportul se calculează la comandă.</p>
+                    <p className="text-sm text-slate-500 mb-6">Calculat cu același motor ca în configurator, cu grafica ta. Preț final (furnizorul nu este plătitor de TVA); transportul se calculează la comandă.</p>
                     <div className="overflow-x-auto rounded-3xl border border-slate-200">
                         <table className="w-full text-sm">
                             <thead className="bg-slate-50"><tr><th className="text-left px-5 py-3 font-black text-slate-700">Variantă</th>{pricing.quantities.map((q) => <th key={q} className="text-right px-5 py-3 font-black text-slate-700 whitespace-nowrap">{q} buc</th>)}</tr></thead>

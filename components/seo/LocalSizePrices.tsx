@@ -26,7 +26,7 @@ export function LocalSizePrices({ productIds, locName }: { productIds: string[];
                 <div>
                     <div className="text-[10px] uppercase tracking-widest font-black text-slate-400">Prețuri calculate, cu grafica ta</div>
                     <div className="text-2xl font-black text-slate-900">
-                        de la {formatLei(cheapest)} <span className="text-sm font-medium text-slate-500">/ buc, TVA inclus</span>
+                        de la {formatLei(cheapest)} <span className="text-sm font-medium text-slate-500">/ buc, preț final; furnizorul nu este plătitor de TVA</span>
                     </div>
                 </div>
                 <div className="text-xs text-slate-500">{cfg.turnaroundTime}{locName ? `, apoi curier în ${locName}` : ""}</div>

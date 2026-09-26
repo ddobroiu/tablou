@@ -405,7 +405,7 @@ export default function CartWidget() {
                   Total Estimat
                 </p>
                 <p className="text-[10px] text-slate-700 dark:text-slate-400">
-                  (TVA inclus)
+                  (preț final; furnizorul nu este plătitor de TVA)
                 </p>
               </div>
               <p className="text-2xl font-extrabold text-slate-900 dark:text-white">

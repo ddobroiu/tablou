@@ -106,7 +106,7 @@ export default async function QuantityPage({ params }: { params: Promise<Params>
             <section className="py-12 border-b border-slate-100">
                 <div className="container mx-auto px-6">
                     <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tighter mb-2">{content.priceHeading} {content.h1.toLowerCase()}</h2>
-                    <p className="text-sm text-slate-500 mb-6">Calculat cu același motor ca în configurator, cu grafica ta. TVA inclus.</p>
+                    <p className="text-sm text-slate-500 mb-6">Calculat cu același motor ca în configurator, cu grafica ta. Preț final; furnizorul nu este plătitor de TVA.</p>
                     <div className="overflow-x-auto rounded-3xl border border-slate-200">
                         <table className="w-full text-sm">
                             <thead className="bg-slate-50"><tr><th className="text-left px-5 py-3 font-black text-slate-700">Variantă</th><th className="text-right px-5 py-3 font-black text-slate-700">Pe bucată</th><th className="text-right px-5 py-3 font-black text-slate-700">Total {qty} buc</th></tr></thead>

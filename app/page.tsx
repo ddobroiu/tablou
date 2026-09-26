@@ -296,7 +296,7 @@ export default function Home() {
             <div className="max-w-2xl">
               <p className="text-[#B8385A] font-semibold uppercase tracking-[0.15em] text-xs mb-3">Tot ce printăm</p>
               <h2 className="font-[family-name:var(--font-fraunces)] text-3xl md:text-4xl text-stone-900">Același atelier face și fototapetul, tricourile, afișele și bannerele.</h2>
-              <p className="text-stone-600 mt-3">Fiecare produs are configurator cu preț calculat pe loc, din dimensiuni și cantitate. Prețurile de mai jos sunt cele de pornire, cu TVA.</p>
+              <p className="text-stone-600 mt-3">Fiecare produs are configurator cu preț calculat pe loc, din dimensiuni și cantitate. Prețurile de mai jos sunt cele de pornire, prețuri finale (furnizorul nu este plătitor de TVA).</p>
             </div>
             <Link href="/configuratoare" className="inline-flex items-center gap-2 text-[#B8385A] font-semibold text-sm hover:gap-3 transition-all">
               Toate configuratoarele <ArrowRight size={16} />

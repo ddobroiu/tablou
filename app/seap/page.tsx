@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { COMPANY } from "@/lib/company";
 import { Metadata } from "next";
 import {
     Building2,
@@ -143,7 +144,7 @@ export default function SeapPage() {
                                         <h4 className="text-xl font-bold mb-2 uppercase tracking-wide">Acceptarea achiziției</h4>
                                         <p className="text-slate-400">După ce efectuați cumpărarea directă în sistem, procesăm comanda și livrăm materialele în cel mai scurt timp.</p>
                                         <div className="mt-4 p-4 bg-white/5 rounded-xl border border-white/10 text-sm text-slate-300 italic">
-                                            <strong>Info:</strong> Date de identificare în SEAP: <strong>CULOAREA DIN VIATA SA SRL</strong>
+                                            <strong>Info:</strong> Date de identificare în SEAP: <strong>{COMPANY.legalName}</strong>, CUI {COMPANY.cui}
                                         </div>
                                     </div>
                                 </div>
@@ -235,7 +236,7 @@ export default function SeapPage() {
 
                         <h3>Plată la Termen și Trezorerie</h3>
                         <p>
-                            Instituția dumneavoastră beneficiază de <strong>plată la termen prin Trezorerie</strong>. Factura pe care o trimitem este însoțită de toate elementele necesare decontării: contul IBAN de trezorerie, codul de identificare fiscală CULOAREA DIN VIATA SA SRL și detalii contractuale clare.
+                            Instituția dumneavoastră beneficiază de <strong>plată la termen prin Trezorerie</strong>. Factura pe care o trimitem este însoțită de toate elementele necesare decontării: contul IBAN de trezorerie, codul de identificare fiscală al {COMPANY.legalName} ({COMPANY.cui}) și detalii contractuale clare.
                         </p>
 
                         <p>

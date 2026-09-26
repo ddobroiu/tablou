@@ -128,7 +128,7 @@ function RetragereContractForm() {
                     <div className="h-1.5 w-24 bg-emerald-600 mx-auto rounded-full shadow-lg mb-6"></div>
                     <p className="text-slate-600 dark:text-slate-400 max-w-xl mx-auto">
                         Formularul de mai jos transmite o cerere oficială de retragere dintr-un contract la distanță, conform legii.
-                        Vezi și <Link href="/politica-retur" className="text-emerald-600 font-semibold underline">politica noastră de retur</Link> pentru condiții și termene.
+                        Vezi și <Link href="/politica-retur" className="text-emerald-600 font-semibold underline">politica noastră de retur</Link> pentru condiții și termene. Dreptul de retragere se aplică produselor standard (nepersonalizate), în 14 zile de la primire; produsele realizate după specificațiile tale sunt exceptate (art. 16 lit. c din OUG nr. 34/2014), dar le refacem dacă sunt neconforme (vezi <Link href="/reclamatii" className="text-emerald-600 font-semibold underline">Reclamații</Link>). Poți folosi și <Link href="/formular-retragere" className="text-emerald-600 font-semibold underline">modelul de formular de retragere</Link>, trimis pe e-mail.
                     </p>
                 </div>
 

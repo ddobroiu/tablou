@@ -272,7 +272,7 @@ export default function SignageConfigurator({ productSlug: propSlug }: SignageCo
                                 <span className="block text-[10px] font-black uppercase text-slate-400 tracking-[0.2em] mb-1">Preț Total</span>
                                 <div className="flex items-baseline gap-2">
                                     <span className="block text-4xl font-black text-slate-900 dark:text-white">{formatMoneyDisplay(finalPrice)}</span>
-                                    <span className="text-xs font-bold text-slate-400 uppercase">TVA inclus</span>
+                                    <span className="text-xs font-bold text-slate-400 uppercase">Preț final; furnizorul nu este plătitor de TVA</span>
                                 </div>
                             </div>
                             <button

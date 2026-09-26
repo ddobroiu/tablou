@@ -4,7 +4,10 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/lib/siteConfig";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { COMPANY, CONTACT_EMAIL } from "@/lib/company";
+import FooterLegal from "@/components/legal/FooterLegal";
+import LegalFooterColumn from "@/components/legal/LegalFooterColumn";
+import { MapPin, Mail, Clock } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 const PRODUCT_LINKS = [
@@ -45,21 +48,12 @@ const COMPANY_LINKS = [
     { href: "/noutati", label: "Noutăți" },
 ];
 
-const LEGAL_LINKS = [
-    { href: "/termeni", label: "Termeni" },
-    { href: "/confidentialitate", label: "Confidențialitate" },
-    { href: "/politica-cookies", label: "Cookies" },
-    { href: "/politica-retur", label: "Retur" },
-    { href: "/retragere-contract", label: "Retragere din contract" },
-    { href: "/harta-site", label: "Harta site" },
-];
 
 export default function Footer() {
     const pathname = usePathname();
 
     if (pathname?.startsWith("/admin") || pathname === "/editor") return null;
 
-    const phoneHref = `tel:${siteConfig.phone.replace(/\s+/g, "").replace(/^0/, "+40")}`;
 
     return (
         <footer className="bg-[#FBF7F2] text-stone-600 relative isolate border-t border-stone-200 overflow-hidden">
@@ -85,13 +79,9 @@ export default function Footer() {
                             Tablouri canvas din fotografiile tale, printate în atelier propriu și livrate în toată țara.
                         </p>
                         <div className="space-y-3 text-sm">
-                            <a href={phoneHref} className="flex items-center gap-3 hover:text-stone-900 transition-colors">
-                                <Phone size={16} className="text-[#B8385A] shrink-0" />
-                                <span>{siteConfig.phone}</span>
-                            </a>
-                            <a href={`mailto:${siteConfig.email.toLowerCase()}`} className="flex items-center gap-3 hover:text-stone-900 transition-colors">
+                            <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center gap-3 hover:text-stone-900 transition-colors">
                                 <Mail size={16} className="text-[#B8385A] shrink-0" />
-                                <span>{siteConfig.email.toLowerCase()}</span>
+                                <span>{CONTACT_EMAIL}</span>
                             </a>
                             <div className="flex items-center gap-3">
                                 <Clock size={16} className="text-[#B8385A] shrink-0" />
@@ -99,7 +89,7 @@ export default function Footer() {
                             </div>
                             <div className="flex items-start gap-3">
                                 <MapPin size={16} className="text-[#B8385A] shrink-0 mt-0.5" />
-                                <span>{siteConfig.business.address.fullAddress}</span>
+                                <span>{COMPANY.address.full}</span>
                             </div>
                         </div>
                         <div className="flex items-center gap-3 pt-1">
@@ -121,22 +111,12 @@ export default function Footer() {
                     <FooterColumn title="Produse" links={PRODUCT_LINKS} />
                     <FooterColumn title="Ghiduri" links={GUIDE_LINKS} />
                     <FooterColumn title="Firme & instituții" links={COMPANY_LINKS} />
-                    <FooterColumn title="Legal" links={LEGAL_LINKS} />
+                    <LegalFooterColumn className="lg:col-span-2" titleClassName="text-stone-900 text-xs font-bold uppercase tracking-widest mb-4" listClassName="space-y-1.5 text-[13px]" linkClassName="hover:text-[#B8385A] transition-colors" extraLinks={[{ href: "/harta-site", label: "Harta site" }]} />
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="pt-6 border-t border-stone-200 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-stone-500">
-                    <p>
-                        &copy; {new Date().getFullYear()} {siteConfig.name}.net · {siteConfig.business.legalName} · CUI {siteConfig.business.cui}
-                    </p>
-                    <div className="flex items-center gap-2">
-                        <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-                            <img src="/250x50-icon-anpc-sal.webp" alt="Soluționarea Alternativă a Litigiilor" width={200} height={40} className="h-10 w-auto" loading="lazy" />
-                        </a>
-                        <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-                            <img src="/250x50-icon-anpc-sol.webp" alt="Soluționarea Online a Litigiilor" width={200} height={40} className="h-10 w-auto" loading="lazy" />
-                        </a>
-                    </div>
+                <div className="pt-6 border-t border-stone-200 text-xs text-stone-500">
+                    <FooterLegal showLinks={false} linkClassName="hover:text-[#B8385A] transition-colors" />
                 </div>
             </div>
         </footer>

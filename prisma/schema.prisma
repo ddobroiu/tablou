@@ -127,6 +127,8 @@ model Order {
   
   stripeSessionId  String?     @unique
   marketing        Json?
+  termsAcceptedAt  DateTime? // momentul acceptării Termenilor și a Politicii de confidențialitate în checkout
+  termsVersion     String?   // versiunea documentelor legale acceptate (lib/company.ts → LEGAL_VERSION)
 }
 
 model OrderItem {

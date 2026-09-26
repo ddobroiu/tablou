@@ -250,7 +250,7 @@ export const StepFinalization = ({
                         <div>
                             <p className="text-xs text-slate-500 font-bold uppercase tracking-wider mb-1">Total Estimativ</p>
                             <p className="text-3xl font-black text-slate-900 dark:text-white">{formatMoneyDisplay(totalPrice)}</p>
-                            <p className="text-xs text-slate-400 font-medium">(TVA inclus)</p>
+                            <p className="text-xs text-slate-400 font-medium">(preț final; furnizorul nu este plătitor de TVA)</p>
                         </div>
                         <div className="text-right">
                             <p className="text-xs text-slate-500 mb-1">Preț per bucată</p>

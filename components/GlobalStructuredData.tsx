@@ -1,4 +1,5 @@
 import { siteConfig } from '@/lib/siteConfig';
+import { COMPANY, CONTACT_EMAIL } from '@/lib/company';
 
 export default function GlobalStructuredData() {
     const baseUrl = siteConfig.url;
@@ -8,22 +9,29 @@ export default function GlobalStructuredData() {
         "@type": "Organization",
         "@id": `${baseUrl}/#organization`,
         "name": siteConfig.name,
+        "legalName": COMPANY.legalName,
+        "taxID": COMPANY.cui,
+        "identifier": [
+            { "@type": "PropertyValue", "propertyID": "CUI", "value": COMPANY.cui },
+            { "@type": "PropertyValue", "propertyID": "Nr. Reg. Com.", "value": COMPANY.regCom },
+            { "@type": "PropertyValue", "propertyID": "EUID", "value": COMPANY.euid }
+        ],
+        "email": CONTACT_EMAIL,
         "url": baseUrl,
         "logo": `${baseUrl}/logo.png`,
         "description": "Tablouri canvas din fotografiile clienților - un tablou, colaj sau set de 3, cu șasiu de lemn inclus - plus fototapet, textile personalizate, afișe, bannere, panouri rigide și kituri pentru fonduri UE, printate în același atelier și livrate în toată România.",
         "address": {
             "@type": "PostalAddress",
-            "addressCountry": "RO",
-            "addressLocality": "Topliceni",
-            "addressRegion": "Buzău",
-            "streetAddress": "nr. 214",
-            "postalCode": "127634"
+            "addressCountry": COMPANY.address.countryCode,
+            "addressLocality": COMPANY.address.locality,
+            "addressRegion": COMPANY.address.county,
+            "streetAddress": COMPANY.address.street,
+            "postalCode": COMPANY.address.postalCode
         },
         "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": `+40${siteConfig.phone.replace(/\s+/g, '').replace(/^0/, '')}`,
             "contactType": "customer service",
-            "email": siteConfig.email,
+            "email": CONTACT_EMAIL,
             "availableLanguage": "Romanian"
         },
         "sameAs": siteConfig.socialLinks.map(l => l.href)
@@ -38,16 +46,15 @@ export default function GlobalStructuredData() {
         "url": baseUrl,
         "logo": `${baseUrl}/logo.png`,
         "image": `${baseUrl}/tablou.webp`,
-        "telephone": `+40${siteConfig.phone.replace(/\s+/g, '').replace(/^0/, '')}`,
-        "email": siteConfig.email,
+        "email": CONTACT_EMAIL,
         "priceRange": "$$",
         "address": {
             "@type": "PostalAddress",
-            "addressCountry": "RO",
-            "addressLocality": "Topliceni",
-            "addressRegion": "Buzău",
-            "streetAddress": "nr. 214",
-            "postalCode": "127634"
+            "addressCountry": COMPANY.address.countryCode,
+            "addressLocality": COMPANY.address.locality,
+            "addressRegion": COMPANY.address.county,
+            "streetAddress": COMPANY.address.street,
+            "postalCode": COMPANY.address.postalCode
         },
         "geo": {
             "@type": "GeoCoordinates",

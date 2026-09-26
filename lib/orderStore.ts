@@ -136,9 +136,11 @@ export async function appendOrder(data: {
     marketing?: MarketingInfo;
     userId?: string | null;
     stripeSessionId?: string;
+    termsAcceptedAt?: string;
+    termsVersion?: string;
     source?: string;
 }): Promise<StoredOrder> {
-    const { address, billing, items, shippingFee, total, paymentType, invoiceLink, marketing, userId, stripeSessionId, source } = data;
+    const { address, billing, items, shippingFee, total, paymentType, invoiceLink, marketing, userId, stripeSessionId, source, termsAcceptedAt, termsVersion } = data;
 
     try {
         const saved = await prisma.order.create({
@@ -153,6 +155,8 @@ export async function appendOrder(data: {
                 shippingAddress: address as any,
                 billingAddress: billing as any,
                 marketing: marketing as any,
+                termsAcceptedAt: termsAcceptedAt ? new Date(termsAcceptedAt) : undefined,
+                termsVersion: termsVersion || undefined,
                 source: source || 'Tablou.net',
                 items: {
                     create: items.map((it) => ({

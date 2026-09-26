@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { siteConfig } from "@/lib/siteConfig";
+import { COMPANY, CONTACT_EMAIL, VAT_NOTE_ASCII } from "@/lib/company";
 import {
   Document,
   Page,
@@ -188,8 +189,9 @@ export const OfferDocument = ({ order, siteInfo }: any) => {
           <View style={styles.infoColumn}>
             <Text style={styles.infoLabel}>FURNIZOR:</Text>
             <Text style={styles.infoValueBold}>{siteInfo.name}</Text>
-            <Text style={styles.infoValue}>Email: {siteInfo.email}</Text>
-            <Text style={styles.infoValue}>Tel: {siteInfo.phone}</Text>
+            <Text style={styles.infoValue}>{COMPANY.legalNameAscii}</Text>
+            <Text style={styles.infoValue}>CUI {COMPANY.cui} · {COMPANY.regCom} · Neplatitor de TVA</Text>
+            <Text style={styles.infoValue}>Email: {CONTACT_EMAIL}</Text>
           </View>
           <View style={[styles.infoColumn, styles.infoColumnActive]}>
             <Text style={styles.infoLabel}>BENEFICIAR:</Text>
@@ -227,6 +229,7 @@ export const OfferDocument = ({ order, siteInfo }: any) => {
         </View>
 
         <View style={styles.footer}>
+          <Text style={styles.footerText}>{VAT_NOTE_ASCII}</Text>
           <Text style={styles.footerText}>Oferta valabila pana la {validUntilDate.toLocaleDateString("ro-RO")}.</Text>
           <Text style={styles.footerText}>Generat automat de platforma {siteInfo.url}.</Text>
         </View>

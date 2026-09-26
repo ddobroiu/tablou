@@ -1,126 +1,172 @@
-import React from 'react';
-import Link from 'next/link';
-import { siteConfig } from '@/lib/siteConfig';
+import React from "react";
+import type { Metadata } from "next";
+import Link from "next/link";
+import LegalDocument, { type LegalSection } from "@/components/legal/LegalDocument";
+import { COMPANY, CONTACT_EMAIL } from "@/lib/company";
+import { siteConfig } from "@/lib/siteConfig";
+import { FREE_SHIPPING_THRESHOLD, MAX_RAMBURS_LIMIT } from "@/lib/paymentRules";
+import { DPD_COUNTRIES } from "@/lib/shippingUtils";
 
-export const metadata = {
-  title: "Politică de Retur și Garanție - Tablou",
-  description: "Află condițiile de retur și garanție pentru produsele Tablou. Dreptul de retragere pentru produsele personalizate conform OUG 34/2014.",
+export const metadata: Metadata = {
+    title: "Politica de livrare și retur",
+    description: `Cum livrăm comenzile ${siteConfig.domain.toLowerCase()} (curier DPD, costuri, termene) și cum funcționează retururile: produse personalizate, produse standard, produse neconforme.`,
+    alternates: { canonical: "/politica-retur" },
 };
 
-export default function PoliticaReturPage() {
-  return (
-    <main className="min-h-screen bg-slate-50 dark:bg-slate-950 py-24 lg:py-32 relative overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(5,150,105,0.05)_0%,transparent_70%)] pointer-events-none"></div>
-      
-      <div className="container mx-auto px-4 max-w-4xl relative z-10">
-        <div className="text-center mb-16 lg:mb-20">
-          <h1 className="text-4xl lg:text-6xl font-black text-slate-900 dark:text-white mb-6 tracking-tighter uppercase italic leading-none">
-            Retur <span className="text-emerald-600">&</span> Garanție
-          </h1>
-          <div className="h-1.5 w-24 bg-emerald-600 mx-auto rounded-full shadow-lg mb-8"></div>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto font-medium leading-relaxed">
-            Informații clare despre dreptul de retragere, garanție și condițiile de returnare pentru produsele noastre.
-          </p>
-        </div>
+const mail = <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>;
+const foreignCountries = DPD_COUNTRIES.filter((c) => c.code !== "RO").map((c) => c.name).join(", ");
 
-        <div className="bg-white dark:bg-slate-900 p-8 lg:p-16 rounded-[2.5rem] shadow-xl border border-slate-200 dark:border-slate-800 mb-12 relative overflow-hidden">
-          <div className="bg-rose-50 dark:bg-rose-950/20 p-8 rounded-3xl border border-rose-100 dark:border-rose-900/40 mb-12">
-            <h2 className="text-xl font-black text-rose-800 dark:text-rose-400 mb-4 uppercase tracking-tighter italic flex items-center gap-3">
-              <span className="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
-              Important: Produse Personalizate
-            </h2>
-            <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">
-              Conform Art. 16, lit. c din OUG 34/2014, produsele realizate după specificațiile prezentate de consumator sau personalizate clar sunt exceptate de la dreptul de retragere.
-            </p>
-            <p className="text-rose-700 dark:text-rose-500 text-[10px] font-black uppercase tracking-widest italic leading-relaxed">
-              DACĂ GRAFICA ESTE ÎNCĂRCATĂ DE DVS., PRODUSUL NU POATE FI RETURNAT DECÂT PENTRU DEFECTE DE FABRICAȚIE.
-            </p>
-          </div>
-
-          <div className="space-y-12 prose dark:prose-invert max-w-none 
-            prose-headings:text-slate-900 prose-headings:dark:text-white prose-headings:font-black prose-headings:uppercase prose-headings:italic prose-headings:tracking-tighter
-            prose-p:text-slate-700 prose-p:dark:text-slate-400 prose-p:leading-relaxed
-            prose-strong:text-slate-900 prose-strong:dark:text-white prose-strong:font-black
-            prose-li:text-slate-700 prose-li:dark:text-slate-400
-          ">
-            <section>
-              <h2 className="text-2xl lg:text-3xl border-l-4 border-emerald-600 pl-6">01. Dreptul de Retragere</h2>
-              <p>
-                Pentru produsele din stoc (standard, nepersonalizate), aveți dreptul de a vă retrage din contract fără penalități, în termen de 14 zile calendaristice de la primirea comenzii.
-              </p>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 list-none pl-0">
-                  <li className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-950/50 border border-slate-100 dark:border-slate-800">
-                      <span className="text-emerald-600 font-bold block mb-1">Stare Produs</span>
-                      Trebuie să fie în ambalajul original, fără urme de utilizare.
-                  </li>
-                  <li className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-950/50 border border-slate-100 dark:border-slate-800">
-                      <span className="text-emerald-600 font-bold block mb-1">Cumpărător</span>
-                      Cheltuielile de transport pentru retur sunt suportate de dvs.
-                  </li>
-              </ul>
-              <div className="not-prose mt-8 p-6 rounded-2xl bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-900/40">
-                <p className="text-slate-700 dark:text-slate-300 text-sm mb-4">
-                  Pentru a vă exercita dreptul de retragere, completați formularul online dedicat — este cea mai rapidă modalitate și primiți instant o confirmare pe email cu conținutul cererii, data și ora transmiterii.
+const sections: LegalSection[] = [
+    {
+        id: "curier",
+        title: "Cum livrăm",
+        body: (
+            <>
+                <p>
+                    Livrăm prin curier <strong>DPD România</strong> (iar în afara României prin rețeaua DPD și partenerii acesteia),
+                    la adresa indicată în comandă sau, dacă alegeți această opțiune în checkout, la un <strong>locker ori punct de
+                    ridicare DPD</strong> selectat pe hartă (doar punctele în care încape coletul). După predarea coletului primiți pe
+                    e-mail numărul AWB; statusul comenzii îl puteți urmări în contul dumneavoastră sau în pagina{" "}
+                    <Link href="/urmareste-comanda">Status comandă</Link>.
                 </p>
-                <a href="/retragere-contract" className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-black text-sm uppercase tracking-widest transition-colors">
-                  Retrage-te din contract
-                </a>
-              </div>
-            </section>
+                <p>
+                    Livrăm în toată România. În afara României livrăm în: {foreignCountries}, numai pentru coletele care se încadrează
+                    în limitele de greutate și dimensiuni ale curierului (verificarea se face automat în checkout) și numai cu plata
+                    online.
+                </p>
+            </>
+        ),
+    },
+    {
+        id: "costuri",
+        title: "Costul livrării",
+        body: (
+            <>
+                <p>
+                    Costul livrării depinde de greutatea, dimensiunile de ambalare și destinația coletului și se afișează în coș și în
+                    pagina de finalizare a comenzii, înainte de plasarea ei. Pentru comenzile cu valoarea produselor de cel puțin{" "}
+                    <strong>{FREE_SHIPPING_THRESHOLD} lei</strong>, livrarea este gratuită, dacă nu se indică altfel în checkout.
+                    Plata ramburs (la curier) este disponibilă numai în România, pentru comenzi de cel mult {MAX_RAMBURS_LIMIT} lei.
+                </p>
+                <p>Prețurile și costul livrării sunt finale; furnizorul nu este plătitor de TVA.</p>
+            </>
+        ),
+    },
+    {
+        id: "termene",
+        title: "Termene",
+        body: (
+            <p>
+                Termenul estimat (producție + livrare) este afișat pe pagina produsului și în coș și curge de la confirmarea comenzii
+                și a plății și, după caz, de la primirea fișierelor corecte sau aprobarea machetei. De regulă, curierul livrează în 1–2
+                zile lucrătoare de la predare în România și în câteva zile lucrătoare în celelalte țări. În lipsa unui alt termen
+                convenit, livrarea se face în cel mult 30 de zile de la încheierea contractului. Dacă apare o întârziere, vă anunțăm
+                pe e-mail; drepturile dumneavoastră în caz de nelivrare sunt descrise în <Link href="/termeni#productie-livrare">Termeni și condiții</Link>.
+            </p>
+        ),
+    },
+    {
+        id: "receptie",
+        title: "Recepția coletului și coletele deteriorate",
+        body: (
+            <>
+                <p>
+                    Vă recomandăm să verificați starea exterioară a coletului în prezența curierului. Dacă ambalajul este vizibil
+                    deteriorat, cereți curierului întocmirea unui proces-verbal de constatare sau refuzați coletul și anunțați-ne. Dacă
+                    observați deteriorări după deschiderea coletului, trimiteți-ne cât mai repede, la {mail}, fotografii ale produsului
+                    și ale ambalajului, împreună cu numărul comenzii, ca să putem deschide dosarul de daună la curier și să refacem
+                    produsele.
+                </p>
+                <p>
+                    Aceste recomandări ne ajută să rezolvăm rapid problema și nu vă limitează drepturile legale: produsele deteriorate
+                    la transport sunt tratate ca neconforme, iar riscul transportului îl suportăm noi până la primirea coletului de
+                    către dumneavoastră (pentru consumatori).
+                </p>
+            </>
+        ),
+    },
+    {
+        id: "personalizate",
+        title: "Retur – produse personalizate",
+        body: (
+            <>
+                <p>
+                    Produsele realizate după specificațiile dumneavoastră (cu grafica, fotografiile, textul sau logo-ul dumneavoastră
+                    ori pe dimensiunile și opțiunile alese de dumneavoastră) <strong>nu pot fi returnate în baza dreptului de retragere</strong>,
+                    conform art. 16 lit. c) din OUG nr. 34/2014, deoarece sunt realizate special pentru dumneavoastră. Această
+                    excepție vă este adusă la cunoștință în pagina de finalizare a comenzii, înainte de plasarea ei.
+                </p>
+                <p>
+                    Dacă un produs personalizat este neconform (defect de material sau de tipar, alt produs decât cel comandat,
+                    deteriorat la transport, diferit de fișierul aprobat), îl refacem și îl reexpediem fără costuri pentru dumneavoastră
+                    sau, dacă refacerea nu este posibilă, vă restituim prețul, conform secțiunii „Conformitatea produselor” din{" "}
+                    <Link href="/termeni#conformitate">Termeni și condiții</Link>. Trimiteți-ne reclamația conform paginii{" "}
+                    <Link href="/reclamatii">Reclamații</Link>. De regulă nu este nevoie să returnați produsul neconform; dacă îl
+                    solicităm înapoi pentru verificare, costul transportului îl suportăm noi.
+                </p>
+            </>
+        ),
+    },
+    {
+        id: "standard",
+        title: "Retur – produse standard (nepersonalizate)",
+        body: (
+            <>
+                <p>
+                    Pentru produsele standard, consumatorii se pot retrage din contract în <strong>14 zile</strong> de la primirea
+                    produselor, fără a indica motivul. Procedura:
+                </p>
+                <ol>
+                    <li>
+                        Ne comunicați decizia de retragere în termenul de 14 zile: online, prin{" "}
+                        <Link href="/retragere-contract">Retragere din contract</Link> (confirmare imediată pe e-mail), sau pe e-mail la{" "}
+                        {mail}, folosind eventual <Link href="/formular-retragere">modelul de formular de retragere</Link>, ori prin poștă
+                        la {COMPANY.address.full}.
+                    </li>
+                    <li>Vă transmitem pe e-mail adresa de retur. Puteți returna și doar o parte dintre produse.</li>
+                    <li>
+                        Trimiteți produsele în cel mult 14 zile de la comunicarea retragerii, bine ambalate, cu curierul ales de
+                        dumneavoastră. <strong>Costul transportului de retur este suportat de dumneavoastră.</strong>
+                    </li>
+                    <li>
+                        Vă rambursăm toate sumele plătite pentru produsele returnate, inclusiv costul livrării standard inițiale, în cel
+                        mult 14 zile de la primirea comunicării de retragere, prin aceeași metodă de plată (pentru ramburs, prin transfer
+                        în contul indicat). Putem amâna rambursarea până primim produsele sau dovada expedierii lor.
+                    </li>
+                </ol>
+                <p>
+                    Răspundeți pentru diminuarea valorii produselor cauzată de manipularea lor altfel decât pentru verificarea naturii,
+                    caracteristicilor și funcționării (de exemplu produse montate, lipite, decupate sau deteriorate).
+                </p>
+            </>
+        ),
+    },
+    {
+        id: "clienti-profesionisti",
+        title: "Clienți persoane juridice",
+        body: (
+            <p>
+                Dreptul de retragere este prevăzut de lege numai pentru consumatori (persoane fizice care acționează în scopuri din
+                afara activității lor profesionale). Pentru comenzile persoanelor juridice, retururile sunt posibile numai pentru
+                produse neconforme, în condițiile din <Link href="/termeni#conformitate">Termeni și condiții</Link>.
+            </p>
+        ),
+    },
+];
 
-            <section id="cum-te-retragi">
-              <h2 className="text-2xl lg:text-3xl border-l-4 border-emerald-600 pl-6">02. Cum te retragi din contract</h2>
-              <p>
-                Termenul legal este de <strong>14 zile calendaristice de la primirea produselor</strong>. Cererea o trimiți online, în câțiva pași:
-              </p>
-              <ol>
-                <li>
-                  Deschide formularul <a href="/retragere-contract" className="text-emerald-600 font-bold">„Retrage-te din contract”</a>. Îl găsești în subsolul
-                  oricărei pagini, în <strong>Contul meu</strong> (la fiecare comandă) și pe această pagină.
-                </li>
-                <li>
-                  Completează numele, emailul, numărul comenzii și, opțional, telefonul. După numărul comenzii și emailul de pe comandă îți arătăm
-                  produsele: bifezi ce returnezi și câte bucăți. Poți returna doar o parte din comandă.
-                </li>
-                <li>
-                  Apasă <strong>„Confirmă retragerea”</strong>. Primești imediat pe email confirmarea, cu conținutul cererii, data și ora transmiterii.
-                </li>
-                <li>
-                  Trimite produsele în cel mult 14 zile de la cerere, la adresa pe care ți-o comunicăm pe email. Costul returului este suportat de tine.
-                </li>
-              </ol>
-              <p>
-                <strong>Rambursarea</strong> se face în cel mult 14 zile de la primirea cererii, prin aceeași metodă de plată folosită la comandă.
-                Putem amâna rambursarea până primim produsele sau dovada că le-ai expediat.
-              </p>
-              <p>
-                <strong>Excepții:</strong> produsele realizate după specificațiile tale (cu grafica sau textul tău, pe dimensiunea aleasă de tine) nu pot fi
-                returnate, conform art. 16 lit. c din OUG 34/2014, decât dacă au defecte. Cererea o poți trimite oricum: o analizăm și îți răspundem pe email.
-              </p>
-            </section>
-            <section>
-              <h2 className="text-2xl lg:text-3xl border-l-4 border-emerald-600 pl-6">03. Garanția de Calitate</h2>
-              <p>
-                Dacă produsul primit prezintă un defect de material, print sau asamblare, Tablou se angajează să refacă comanda gratuit.
-              </p>
-              <p> Vă rugăm să ne înștiințați în scris, la <a href={`mailto:${siteConfig.business.contact.email}`} className="text-emerald-600 font-bold">{siteConfig.business.contact.email}</a>, în primele 48 de ore de la primirea coletului, atașând dovezi foto/video ale defectului semnalat.</p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl lg:text-3xl border-l-4 border-emerald-600 pl-6">04. Anularea Comenzii</h2>
-              <p>
-                O comandă personalizată care a intrat deja în procesul de producție nu mai poate fi anulată sau rambursată, deoarece materialele folosite sunt deja consumate conform cerințelor dvs.
-              </p>
-            </section>
-          </div>
-        </div>
-
-        <div className="text-center">
-          <Link href="/" className="btn-outline px-10 py-5">
-             Înapoi la prima pagină
-          </Link>
-        </div>
-      </div>
-    </main>
-  );
+export default function PoliticaReturPage() {
+    return (
+        <LegalDocument
+            title="Politica de livrare și retur"
+            currentHref="/politica-retur"
+            intro={
+                <p>
+                    Livrăm prin curier DPD, la adresă sau la locker/punct DPD. Produsele personalizate nu se returnează prin dreptul de
+                    retragere (art. 16 lit. c OUG 34/2014), dar le refacem gratuit dacă sunt neconforme; produsele standard pot fi
+                    returnate în 14 zile.
+                </p>
+            }
+            sections={sections}
+        />
+    );
 }

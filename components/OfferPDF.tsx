@@ -1,4 +1,5 @@
 import React from 'react';
+import { COMPANY, CONTACT_EMAIL, VAT_NOTE_ASCII } from '@/lib/company';
 import { Document, Page, Text, View, StyleSheet, Image } from '@react-pdf/renderer';
 
 // Funcție pentru eliminarea diacriticelor
@@ -178,10 +179,10 @@ export const OfferPDF = ({ items, shipping }: { items: any[], shipping: number }
                 <View style={styles.section}>
                     <View>
                         <Text style={styles.label}>FURNIZOR</Text>
-                        <Text style={[styles.value, { fontWeight: 'bold' }]}>CULOAREA DIN VIATA SA SRL</Text>
-                        <Text style={styles.value}>CUI: 44820819 · Nr. Reg. Com.: J2021001108100</Text>
-                        <Text style={styles.value}>Email: contact@Tablou.net</Text>
-                        <Text style={styles.value}>Tel: 0750.473.111</Text>
+                        <Text style={[styles.value, { fontWeight: 'bold' }]}>{COMPANY.legalNameAscii}</Text>
+                        <Text style={styles.value}>CUI: {COMPANY.cui} · Nr. Reg. Com.: {COMPANY.regCom} · Neplatitor de TVA</Text>
+                        <Text style={styles.value}>{COMPANY.address.fullAscii}</Text>
+                        <Text style={styles.value}>Email: {CONTACT_EMAIL}</Text>
                     </View>
                     <View style={{ alignItems: 'flex-end' }}>
                         <Text style={styles.label}>VALABILITATE</Text>
@@ -339,10 +340,10 @@ export const OfferPDF = ({ items, shipping }: { items: any[], shipping: number }
 
                 {/* 5. FOOTER */}
                 <View style={styles.footer}>
-                    <Text style={styles.footerText}>Preturile includ TVA.</Text>
+                    <Text style={styles.footerText}>{VAT_NOTE_ASCII}</Text>
                     <Text style={styles.footerText}>Oferta valabila pana la {expiry.toLocaleDateString('ro-RO')}.</Text>
                     <Text style={styles.footerText}>Generat automat de asistentul Tablou.net</Text>
-                    <Text style={styles.footerText}>Contact: contact@Tablou.net | 0750.473.111</Text>
+                    <Text style={styles.footerText}>Contact: {CONTACT_EMAIL}</Text>
                 </View>
 
             </Page>

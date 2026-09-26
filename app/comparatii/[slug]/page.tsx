@@ -69,7 +69,7 @@ export default async function ComparisonPage({ params }: { params: Promise<{ slu
                 <section className="py-12 border-b border-slate-100 bg-slate-50">
                     <div className="container mx-auto px-6 max-w-5xl">
                         <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tighter mb-2">Prețuri comparate</h2>
-                        <p className="text-sm text-slate-500 mb-6">{c.sizes ? "Preț pe bucată, o bucată, cu grafica ta." : "Preț total pentru tiraj, cu grafica ta."} Calculat cu motorul configuratorului; TVA inclus. Fiecare celulă deschide pagina cu toate variantele.</p>
+                        <p className="text-sm text-slate-500 mb-6">{c.sizes ? "Preț pe bucată, o bucată, cu grafica ta." : "Preț total pentru tiraj, cu grafica ta."} Calculat cu motorul configuratorului; preț final, furnizorul nu este plătitor de TVA. Fiecare celulă deschide pagina cu toate variantele.</p>
                         <div className="overflow-x-auto rounded-3xl border border-slate-200 bg-white">
                             <table className="w-full text-sm">
                                 <thead className="bg-slate-50"><tr><th className="text-left px-5 py-3 font-black text-slate-700">Variantă</th>{table.columns.map((col) => <th key={col} className="text-right px-5 py-3 font-black text-slate-700 whitespace-nowrap">{col}</th>)}</tr></thead>

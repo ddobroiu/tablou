@@ -11,7 +11,6 @@ export default function LocalBusinessSchema() {
         "url": siteConfig.url,
         "logo": `${siteConfig.url}/logo.png`,
         "image": `${siteConfig.url}/logo.png`,
-        "telephone": siteConfig.phone,
         "email": siteConfig.email,
         "address": {
             "@type": "PostalAddress",

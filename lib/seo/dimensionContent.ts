@@ -720,7 +720,7 @@ export function buildDimensionContent(input: {
         faq,
         sections: voice.sections,
         priceHeading: voice.priceHeading,
-        priceIntro: `Prețurile de mai jos sunt calculate cu același motor ca în configurator, pentru ${w} × ${h} cm, cu grafica ta (fără taxa de design). TVA inclus.`,
+        priceIntro: `Prețurile de mai jos sunt calculate cu același motor ca în configurator, pentru ${w} × ${h} cm, cu grafica ta (fără taxa de design). Preț final; furnizorul nu este plătitor de TVA.`,
         neighborsHeading: voice.neighborsHeading,
         localitiesHeading: voice.localitiesHeading,
         ctaLabel: voice.ctaLabel,

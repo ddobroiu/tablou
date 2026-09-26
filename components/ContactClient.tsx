@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useState, ChangeEvent, FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { siteConfig } from "@/lib/siteConfig";
+import { CONTACT_EMAIL } from "@/lib/company";
+import OperatorDetails from "@/components/legal/OperatorDetails";
 
 export default function ContactClient() {
     const [form, setForm] = useState({ name: "", email: "", phone: "", message: "", website: "" });
@@ -75,23 +76,13 @@ export default function ContactClient() {
                     </div>
 
                     <div className="relative z-10 mt-16 space-y-8">
-                        <a href="mailto:contact@Tablou.net" className="flex items-start gap-5 group cursor-pointer w-fit">
+                        <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-start gap-5 group cursor-pointer w-fit">
                             <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-emerald-500/50 group-hover:bg-emerald-500/10 transition-all duration-300">
                                 <svg className="w-6 h-6 text-slate-300 group-hover:text-emerald-400 transition-colors" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                             </div>
                             <div className="pt-1">
                                 <h3 className="font-bold text-slate-200 text-sm tracking-widest uppercase mb-1">Email</h3>
-                                <div className="text-emerald-400 font-medium text-lg">contact@Tablou.net</div>
-                            </div>
-                        </a>
-
-                        <a href={`tel:${siteConfig.phone.replace(/\s+/g, '').replace(/^0/, '+40')}`} className="flex items-start gap-5 group cursor-pointer w-fit">
-                            <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-emerald-500/50 group-hover:bg-emerald-500/10 transition-all duration-300">
-                                <svg className="w-6 h-6 text-slate-300 group-hover:text-emerald-400 transition-colors" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                            </div>
-                            <div className="pt-1">
-                                <h3 className="font-bold text-slate-200 text-sm tracking-widest uppercase mb-1">Telefon & WhatsApp</h3>
-                                <div className="text-emerald-400 font-medium text-lg">{siteConfig.phone}</div>
+                                <div className="text-emerald-400 font-medium text-lg">{CONTACT_EMAIL}</div>
                             </div>
                         </a>
 
@@ -104,6 +95,8 @@ export default function ContactClient() {
                                 <p className="text-slate-400 font-medium">România, Livrare Națională</p>
                             </div>
                         </div>
+
+                        <OperatorDetails tone="dark" />
                     </div>
                 </div>
 
@@ -202,7 +195,7 @@ export default function ContactClient() {
                                 </Button>
 
                                 <p className="text-xs text-center text-slate-500 mt-6 font-medium">
-                                    Prin trimiterea acestui formular, ești de acord cu <Link href="/termeni" className="text-slate-900 font-bold underline hover:text-emerald-500 transition-colors">Termenii și Condițiile</Link>.
+                                    Folosim datele trimise doar ca să îți răspundem; detalii în <Link href="/confidentialitate" className="text-slate-900 font-bold underline hover:text-emerald-500 transition-colors">Politica de confidențialitate</Link>.
                                 </p>
                             </form>
                         </div>

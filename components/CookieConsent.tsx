@@ -1,137 +1,267 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Script from "next/script";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { X, Cookie } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { TRACKING } from "@/lib/company";
+import {
+    OPEN_COOKIE_SETTINGS_EVENT,
+    readConsent,
+    saveConsent,
+    type ConsentChoice,
+} from "@/lib/cookieConsent";
 
-declare global {
-    interface Window {
-        dataLayer?: any[];
+const HAS_ANALYTICS = TRACKING.ga4Ids.length > 0 || !!TRACKING.siteAnalyticsSrc;
+const HAS_MARKETING =
+    TRACKING.googleAdsIds.length > 0 || !!TRACKING.gtmId || !!TRACKING.metaPixelId || !!TRACKING.tiktokPixelId;
+
+function dataLayer(): unknown[] {
+    const w = window as unknown as { dataLayer?: unknown[] };
+    w.dataLayer = w.dataLayer || [];
+    return w.dataLayer;
+}
+
+// gtag trebuie să pună în dataLayer obiectul `arguments`, nu un array
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function gtag(..._args: unknown[]) {
+    // eslint-disable-next-line prefer-rest-params
+    dataLayer().push(arguments);
+}
+
+function inlineScript(id: string, code: string) {
+    if (document.getElementById(id)) return;
+    const s = document.createElement("script");
+    s.id = id;
+    s.text = code;
+    document.head.appendChild(s);
+}
+
+function loadScript(src: string, id: string) {
+    if (document.getElementById(id)) return;
+    const s = document.createElement("script");
+    s.async = true;
+    s.src = src;
+    s.id = id;
+    document.head.appendChild(s);
+}
+
+/** Încarcă scripturile pentru categoriile acceptate. Nimic nu se încarcă înainte de consimțământ. */
+function applyConsent(c: ConsentChoice, loaded: Set<string>) {
+    gtag("consent", "update", {
+        analytics_storage: c.analytics ? "granted" : "denied",
+        ad_storage: c.marketing ? "granted" : "denied",
+        ad_user_data: c.marketing ? "granted" : "denied",
+        ad_personalization: c.marketing ? "granted" : "denied",
+    });
+
+    const gaIds = c.analytics ? TRACKING.ga4Ids : [];
+    const adsIds = c.marketing ? TRACKING.googleAdsIds : [];
+    const tagIds = [...gaIds, ...adsIds];
+    if (tagIds.length > 0) {
+        if (!loaded.has("gtag")) {
+            loaded.add("gtag");
+            gtag("js", new Date());
+            loadScript(`https://www.googletagmanager.com/gtag/js?id=${tagIds[0]}`, "gtag-js");
+        }
+        for (const id of tagIds) {
+            if (loaded.has(id)) continue;
+            loaded.add(id);
+            gtag("config", id);
+        }
     }
+
+    if (TRACKING.gtmId && (c.analytics || c.marketing) && !loaded.has("gtm")) {
+        loaded.add("gtm");
+        dataLayer().push({ "gtm.start": Date.now(), event: "gtm.js" });
+        loadScript(`https://www.googletagmanager.com/gtm.js?id=${TRACKING.gtmId}`, "gtm-js");
+    }
+
+    if (TRACKING.siteAnalyticsSrc && c.analytics && !loaded.has("pt")) {
+        loaded.add("pt");
+        loadScript(TRACKING.siteAnalyticsSrc, "pt-track");
+    }
+
+    if (TRACKING.metaPixelId && c.marketing && !loaded.has("fbq")) {
+        loaded.add("fbq");
+        // snippetul oficial Meta Pixel
+        inlineScript(
+            "fbq-init",
+            `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',${JSON.stringify(TRACKING.metaPixelId)});fbq('track','PageView');`
+        );
+    }
+
+    if (TRACKING.tiktokPixelId && c.marketing && !loaded.has("ttq")) {
+        loaded.add("ttq");
+        // snippetul oficial TikTok Pixel
+        inlineScript(
+            "ttq-init",
+            `!function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=d.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=d.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};ttq.load(${JSON.stringify(TRACKING.tiktokPixelId)});ttq.page();}(window,document,'ttq');`
+        );
+    }
+
+    dataLayer().push({ event: "cookie_consent_update", analytics: c.analytics, marketing: c.marketing });
 }
 
-interface CookieConsentProps {
-    gtagId?: string;
-    gtmId?: string;
-    tiktokId?: string;
+/** La retragerea consimțământului ștergem cookie-urile neesențiale deja puse pe domeniul nostru. */
+function clearNonEssentialCookies() {
+    const prefixes = ["_ga", "_gid", "_gat", "_gcl", "_fbp", "_fbc", "_ttp", "_tt_", "_pt_vid"];
+    const host = location.hostname;
+    const domains = ["", host, "." + host, "." + host.replace(/^www\./, "")];
+    for (const part of document.cookie.split(";")) {
+        const name = part.split("=")[0]?.trim();
+        if (!name || !prefixes.some((p) => name.startsWith(p))) continue;
+        for (const d of domains) {
+            document.cookie = `${name}=; Max-Age=0; path=/${d ? `; domain=${d}` : ""}`;
+        }
+    }
+    try {
+        for (const k of ["_pt_vid", "_pt_sid", "_pt_last"]) localStorage.removeItem(k);
+    } catch { }
 }
 
-export default function CookieConsent({ gtagId, gtmId, tiktokId }: CookieConsentProps) {
-    const [consentStatus, setConsentStatus] = useState<"granted" | "denied" | null>(null);
-    const [isVisible, setIsVisible] = useState(false);
+export default function CookieConsent() {
+    const pathname = usePathname();
+    const [open, setOpen] = useState(false);
+    const [showPrefs, setShowPrefs] = useState(false);
+    const [analytics, setAnalytics] = useState(false);
+    const [marketing, setMarketing] = useState(false);
+    const current = useRef<ConsentChoice | null>(null);
+    const loaded = useRef(new Set<string>());
 
     useEffect(() => {
-        const stored = localStorage.getItem("cookie_consent");
-        if (stored === "granted" || stored === "denied") {
-            setConsentStatus(stored);
-        } else {
-            setIsVisible(true);
+        const c = readConsent();
+        current.current = c;
+        let t: number | undefined;
+        if (c) applyConsent(c, loaded.current);
+        else t = window.setTimeout(() => setOpen(true), 0);
+        const onOpen = () => {
+            const saved = readConsent();
+            setAnalytics(!!saved?.analytics);
+            setMarketing(!!saved?.marketing);
+            setShowPrefs(true);
+            setOpen(true);
+        };
+        window.addEventListener(OPEN_COOKIE_SETTINGS_EVENT, onOpen);
+        return () => {
+            window.clearTimeout(t);
+            window.removeEventListener(OPEN_COOKIE_SETTINGS_EVENT, onOpen);
+        };
+    }, []);
+
+    const decide = useCallback((a: boolean, m: boolean) => {
+        const prev = current.current;
+        const next = saveConsent(a && HAS_ANALYTICS, m && HAS_MARKETING);
+        current.current = next;
+        setOpen(false);
+        setShowPrefs(false);
+        const revoked = !!prev && ((prev.analytics && !next.analytics) || (prev.marketing && !next.marketing));
+        applyConsent(next, loaded.current);
+        if (revoked) {
+            // scripturile deja încărcate nu pot fi descărcate: ștergem cookie-urile și reîncărcăm pagina
+            clearNonEssentialCookies();
+            window.location.reload();
         }
     }, []);
 
-    const handleAccept = () => {
-        localStorage.setItem("cookie_consent", "granted");
-        setConsentStatus("granted");
-        setIsVisible(false);
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ 'event': 'cookie_consent_granted' });
-    };
-
-    const handleDecline = () => {
-        localStorage.setItem("cookie_consent", "denied");
-        setConsentStatus("denied");
-        setIsVisible(false);
-    };
-
-    /**
-     * Inchiderea bannerului cu "X" nu e o alegere — nu o persistam ca refuz.
-     * Consimtamantul ramane refuzat pe durata sesiunii, dar utilizatorul e intrebat
-     * din nou la o vizita viitoare. Inainte scriam "denied" definitiv, asa ca cine
-     * inchidea bannerul o data nu mai putea accepta niciodata.
-     */
-    const handleDismiss = () => {
-        setIsVisible(false);
-    };
+    if (!open || pathname?.startsWith("/admin")) return null;
 
     return (
-        <>
-            {consentStatus === "granted" && (
-                <>
-                    {gtagId && (
-                        <>
-                            <Script
-                                async
-                                src={`https://www.googletagmanager.com/gtag/js?id=${gtagId}`}
-                                strategy="afterInteractive"
-                            />
-                            <Script id="google-analytics" strategy="afterInteractive">
-                                {`
-                                  window.dataLayer = window.dataLayer || [];
-                                  function gtag(){dataLayer.push(arguments);}
-                                  gtag('js', new Date());
-                                  gtag('config', '${gtagId}');
-                                `}
-                            </Script>
-                        </>
-                    )}
-                    {gtmId && (
-                        <Script id="gtm" strategy="afterInteractive">
-                            {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                              })(window,document,'script','dataLayer','${gtmId}');`}
-                        </Script>
-                    )}
-                    {tiktokId && (
-                        <Script id="tiktok" strategy="afterInteractive">
-                            {`!function (w, d, t) {
-                              w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-                              var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-                              ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-                              ttq.load('${tiktokId}');
-                              ttq.page();
-                            }(window, document, 'ttq');`}
-                        </Script>
-                    )}
-                </>
-            )}
+        <div
+            role="dialog"
+            aria-modal="false"
+            aria-labelledby="cookie-consent-title"
+            className="fixed inset-x-0 bottom-0 z-[99999] p-3 sm:p-5"
+        >
+            <div className="mx-auto max-w-2xl rounded-2xl border border-slate-200 bg-white p-5 text-slate-700 shadow-2xl sm:p-6">
+                <h2 id="cookie-consent-title" className="text-base font-bold text-slate-900">
+                    Folosim cookie-uri
+                </h2>
+                <p className="mt-2 text-sm leading-relaxed">
+                    Cookie-urile strict necesare țin coșul, contul și plata funcționale. Cu acordul tău, folosim și cookie-uri de
+                    statistică{HAS_MARKETING ? " și de marketing" : ""}, ca să înțelegem cum e folosit site-ul
+                    {HAS_MARKETING ? " și să măsurăm reclamele" : ""}. Poți accepta, refuza sau alege pe categorii; îți poți schimba
+                    oricând opțiunea din „Setări cookie-uri”, în subsolul paginii. Detalii în{" "}
+                    <Link href="/politica-cookies" className="font-medium text-emerald-700 underline">
+                        Politica de cookies
+                    </Link>
+                    .
+                </p>
 
-            {isVisible && (
-                <div className="fixed bottom-0 left-0 right-0 z-[99999] p-4 sm:p-6 md:max-w-md mx-auto pointer-events-none">
-                    <div className="bg-white/95 backdrop-blur-xl border border-slate-200 shadow-2xl p-6 rounded-3xl pointer-events-auto">
-                        <div className="flex items-start justify-between mb-4">
-                            <div className="flex items-center gap-3">
-                                <div className="p-2 bg-emerald-100 text-emerald-600 rounded-full">
-                                    <Cookie size={20} />
-                                </div>
-                                <h3 className="font-bold text-slate-900 text-lg tracking-tight">Accepți cookie-urile?</h3>
-                            </div>
-                            <button onClick={handleDismiss} className="text-slate-400 hover:text-slate-600 transition-colors p-1" aria-label="Închide">
-                                <X size={20} />
-                            </button>
-                        </div>
-                        <p className="text-sm text-slate-500 mb-6 leading-relaxed">
-                            Ne ajută să înțelegem cum e folosit site-ul și să-ți arătăm oferte relevante. <Link href="/politica-cookies" className="text-emerald-600 hover:underline">Detalii</Link>.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-3">
-                            <button
-                                onClick={handleAccept}
-                                className="flex-1 px-4 py-2.5 rounded-xl block bg-emerald-600 text-white font-bold hover:bg-emerald-500 shadow-lg shadow-emerald-600/20 transition-all active:scale-95 text-sm"
-                            >
-                                Accept
-                            </button>
-                            <button
-                                onClick={handleDecline}
-                                className="flex-1 px-4 py-2.5 rounded-xl block border border-slate-200 text-slate-600 font-bold hover:bg-slate-50 transition-colors text-sm"
-                            >
-                                Doar necesare
-                            </button>
-                        </div>
-                    </div>
+                {showPrefs && (
+                    <fieldset className="mt-4 space-y-3 rounded-xl bg-slate-50 p-4 text-sm">
+                        <legend className="sr-only">Categorii de cookie-uri</legend>
+                        <label className="flex items-start gap-3">
+                            <input type="checkbox" checked disabled className="mt-0.5 h-4 w-4" />
+                            <span>
+                                <strong className="text-slate-900">Strict necesare</strong> – întotdeauna active (coș, autentificare,
+                                securitate, reținerea acestei alegeri).
+                            </span>
+                        </label>
+                        {HAS_ANALYTICS && (
+                            <label className="flex cursor-pointer items-start gap-3">
+                                <input
+                                    type="checkbox"
+                                    checked={analytics}
+                                    onChange={(e) => setAnalytics(e.target.checked)}
+                                    className="mt-0.5 h-4 w-4 accent-emerald-600"
+                                />
+                                <span>
+                                    <strong className="text-slate-900">Statistică</strong> – numărul de vizite, sursele de trafic și
+                                    paginile vizitate, agregat.
+                                </span>
+                            </label>
+                        )}
+                        {HAS_MARKETING && (
+                            <label className="flex cursor-pointer items-start gap-3">
+                                <input
+                                    type="checkbox"
+                                    checked={marketing}
+                                    onChange={(e) => setMarketing(e.target.checked)}
+                                    className="mt-0.5 h-4 w-4 accent-emerald-600"
+                                />
+                                <span>
+                                    <strong className="text-slate-900">Marketing</strong> – măsurarea conversiilor din reclame și
+                                    reclame relevante (Google, Meta, TikTok, după caz).
+                                </span>
+                            </label>
+                        )}
+                    </fieldset>
+                )}
+
+                <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-3">
+                    <button
+                        type="button"
+                        onClick={() => decide(false, false)}
+                        className="rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50"
+                    >
+                        Refuz toate
+                    </button>
+                    {showPrefs ? (
+                        <button
+                            type="button"
+                            onClick={() => decide(analytics, marketing)}
+                            className="rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50"
+                        >
+                            Salvează alegerea
+                        </button>
+                    ) : (
+                        <button
+                            type="button"
+                            onClick={() => setShowPrefs(true)}
+                            className="rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50"
+                        >
+                            Personalizează
+                        </button>
+                    )}
+                    <button
+                        type="button"
+                        onClick={() => decide(true, true)}
+                        className="rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-50"
+                    >
+                        Accept toate
+                    </button>
                 </div>
-            )}
-        </>
+            </div>
+        </div>
     );
 }

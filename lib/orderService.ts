@@ -5,6 +5,7 @@ import { prisma } from './prisma';
 import bcrypt from 'bcryptjs';
 import { sendOrderConfirmationEmail, sendNewOrderAdminEmail } from './email';
 import { getEstimatedShippingCost } from './shippingUtils';
+import { oblioVatFields } from '@/lib/company';
 
 
 // Constante locale pentru a evita erori de import
@@ -180,6 +181,8 @@ export async function fulfillOrder(
     subscribeNewsletter?: boolean;
     userId?: string | null;
     stripeSessionId?: string;
+    termsAcceptedAt?: string;
+    termsVersion?: string;
     source?: string;
   },
   paymentType: 'Ramburs' | 'OP' | 'Card'
@@ -213,12 +216,12 @@ export async function fulfillOrder(
         const name = item.name || item.title || item.slug || (item.metadata?.title) || 'Produs';
         const qty = Number(item.quantity || item.qty || 1) || 1;
         const unit = Number(item.unitAmount || item.price || item.unit || item.metadata?.price || 0) || 0;
-        return { name, price: unit, measuringUnitName: 'buc', vatName: 'Normala', quantity: qty };
+        return { name, price: unit, measuringUnitName: 'buc', ...oblioVatFields(), quantity: qty };
       });
 
       const sub = productsForOblio.reduce((sum, p) => sum + (p.price * p.quantity), 0);
       const shipping = sub >= FREE_SHIPPING_THRESHOLD ? 0 : getEstimatedShippingCost(address.country || 'RO', cart);
-      if (shipping > 0) productsForOblio.push({ name: 'Transport', price: shipping, measuringUnitName: 'buc', vatName: 'Normala', quantity: 1 });
+      if (shipping > 0) productsForOblio.push({ name: 'Transport', price: shipping, measuringUnitName: 'buc', ...oblioVatFields(), quantity: 1 });
 
       const invoice = await createOblioInvoice({
         cif: process.env.OBLIO_CIF_FIRMA,
@@ -295,6 +298,8 @@ export async function fulfillOrder(
       marketing,
       userId: finalUserId,
       stripeSessionId: orderData.stripeSessionId,
+      termsAcceptedAt: orderData.termsAcceptedAt,
+      termsVersion: orderData.termsVersion,
       source: source || 'Tablou.net'
     });
     if (oblioError) void alerta("error", "oblio", `factura Oblio nu s-a emis pentru comanda ${saved.orderNo}: ${oblioError}`);

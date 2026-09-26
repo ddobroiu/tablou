@@ -299,7 +299,7 @@ export const PreviewPanel = ({ currentStep, selectedConfig, state, totalPrice, c
                             <p className="text-[10px] text-slate-400 font-black uppercase tracking-widest mb-1">Total Estimativ</p>
                             <div className="flex flex-col">
                                 <span className="text-3xl font-black text-slate-900 dark:text-white tracking-tight">{formatMoneyDisplay(totalPrice)}</span>
-                                <span className="text-xs text-slate-400 font-bold">(TVA inclus)</span>
+                                <span className="text-xs text-slate-400 font-bold">(preț final; furnizorul nu este plătitor de TVA)</span>
                             </div>
                         </div>
                     </div>

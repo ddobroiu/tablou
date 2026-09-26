@@ -7,6 +7,7 @@ import fs from 'fs';
 import path from 'path';
 import { getOblioAccessToken, createOblioInvoice } from '../../../../../../lib/orderService';
 import { sendEmail } from '../../../../../../lib/email';
+import { oblioVatFields } from '@/lib/company';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -62,7 +63,7 @@ export async function POST(req: Request, ctx: any) {
             name: it.name || 'Produs',
             price: Number(it.unit || it.unitAmount || it.price || 0) || Number(it.unit) || 0,
             measuringUnitName: 'buc',
-            vatName: 'Normala',
+            ...oblioVatFields(),
             quantity: Number(it.qty || it.quantity || 1) || 1,
           }));
 

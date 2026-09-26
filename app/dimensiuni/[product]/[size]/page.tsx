@@ -148,7 +148,7 @@ export default async function DimensionPage({ params }: { params: Promise<Params
                             <div>
                                 <div className="text-[10px] uppercase tracking-widest font-black text-slate-400">de la</div>
                                 <div className="text-4xl sm:text-5xl font-black text-slate-900 leading-none">{formatLei(pricing.fromPrice)}</div>
-                                <div className="text-xs text-slate-500 mt-2">/ buc, TVA inclus · {pricing.fromLabel}</div>
+                                <div className="text-xs text-slate-500 mt-2">/ buc, preț final; furnizorul nu este plătitor de TVA · {pricing.fromLabel}</div>
                             </div>
                         </div>
                     </div>
@@ -159,7 +159,7 @@ export default async function DimensionPage({ params }: { params: Promise<Params
             <section className="py-12 border-b border-slate-100">
                 <div className="container mx-auto px-6">
                     <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tighter mb-2">{content.priceHeading} {content.productLabel.toLowerCase()} {w}×{h} cm</h2>
-                    <p className="text-sm text-slate-500 mb-6">Calculat cu același motor ca în configurator, cu grafica ta. TVA inclus.</p>
+                    <p className="text-sm text-slate-500 mb-6">Calculat cu același motor ca în configurator, cu grafica ta. Preț final; furnizorul nu este plătitor de TVA.</p>
                     <div className="overflow-x-auto rounded-3xl border border-slate-200">
                         <table className="w-full text-sm">
                             <thead className="bg-slate-50">

@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Mail, Music } from "lucide-react";
+import { COMPANY } from "@/lib/company";
 
 export const siteConfig = {
     name: "Tablou",
@@ -7,7 +8,7 @@ export const siteConfig = {
     description: "Tablou.net face tablouri canvas din fotografiile tale: un tablou, colaj, set de 3 sau canvas pe șasiu, pentru nuntă, botez, aniversări și cadouri pentru părinți. Șasiu de lemn inclus, poza verificată gratuit, livrare în toată România. În același atelier printăm fototapet, textile, afișe, bannere, panouri rigide și kituri fonduri UE.",
     email: "contact@tablou.net",
     phone: "0750 473 111",
-    address: "Jud. Buzău, Sat Topliceni, Com. Topliceni, G Topliceni, nr. 214",
+    address: COMPANY.address.full,
     // --- MENIUL PRINCIPAL (HEADER) ---
     // Grupare pentru brandul Tablou.net: canvasul din poza clientului primul,
     // apoi cadouri/textile, apoi tot catalogul pentru firme. Fiecare href are
@@ -110,16 +111,15 @@ export const siteConfig = {
         },
     ],
     business: {
-        legalName: "CULOAREA DIN VIATA SA SRL",
+        legalName: COMPANY.legalName,
         tradeName: "Tablou",
-        cui: "44820819",
-        regCom: "J2021001108100",
-        vatId: "44820819",
+        cui: COMPANY.cui,
+        regCom: COMPANY.regCom,
         address: {
-            fullAddress: "Jud. Buzău, Sat Topliceni, Com. Topliceni, G Topliceni, nr. 214",
+            fullAddress: COMPANY.address.full,
             city: "Topliceni",
             county: "Buzău",
-            postalCode: "127634",
+            postalCode: COMPANY.address.postalCode,
         },
         contact: {
             email: "contact@tablou.net",
