@@ -45,7 +45,7 @@ export default function GlobalStructuredData() {
         "description": siteConfig.description,
         "url": baseUrl,
         "logo": `${baseUrl}/logo.png`,
-        "image": `${baseUrl}/tablou.webp`,
+        "image": `${baseUrl}/logo.png`,
         "email": CONTACT_EMAIL,
         "priceRange": "$$",
         "address": {

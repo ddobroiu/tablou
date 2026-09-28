@@ -19,7 +19,6 @@ export default function ServiceJsonLd({ name, url, serviceType }: Props) {
       "@type": "LocalBusiness",
       name: "Tablou.net",
       url: siteUrl,
-      telephone: "+40 734 123 456",
       areaServed: "RO",
     },
   } as const;

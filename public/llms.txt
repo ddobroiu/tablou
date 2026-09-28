@@ -1,0 +1,43 @@
+# Tablou.net
+
+> Tablou.net este un magazin online din România care realizează tablouri canvas din fotografiile clienților (un singur tablou, colaj sau set de 3, pe șasiu de lemn) și, în același atelier, fototapet, afișe, bannere, textile personalizate, panouri rigide și kituri de publicitate pentru proiecte cu fonduri europene. Se adresează persoanelor fizice și firmelor, cu livrare în toată România.
+
+Comanda se face online, prin configuratoare în care clientul alege dimensiunea și opțiunile, încarcă fotografia sau grafica și vede prețul înainte de plasarea comenzii. Rezoluția fotografiei este verificată înainte de print. Livrarea se face prin curier DPD (la adresă sau la locker/punct DPD); de regulă, comanda ajunge în 2–4 zile lucrătoare în România, producție și curier incluse. Costul livrării se afișează în coș; pentru comenzile cu produse de cel puțin 500 lei livrarea este gratuită, dacă nu se indică altfel în checkout (conform politicii de livrare de pe site). Prețurile afișate sunt finale; furnizorul nu este plătitor de TVA. Produsele realizate după specificațiile clientului sunt personalizate și nu intră sub dreptul de retragere de 14 zile.
+
+## Produse
+
+- [Configurator tablou canvas](https://www.tablou.net/configurator/canvas): tablou canvas din poza ta, cu dimensiune și opțiuni la alegere și preț afișat pe loc
+- [Canvas de nuntă](https://www.tablou.net/configurator/canvas-nunta): tablou canvas cu fotografia de la nuntă
+- [Colaj foto pe canvas](https://www.tablou.net/configurator/canvas-colaj-foto): mai multe poze aranjate într-un singur tablou
+- [Galerie tablouri canvas](https://www.tablou.net/shop/canvas): modele de tablouri canvas gata făcute
+- [Fototapet](https://www.tablou.net/configurator/tapet): tapet personalizat printat după imaginea ta
+- [Configuratoare](https://www.tablou.net/configuratoare): lista tuturor configuratoarelor (bannere, afișe, autocolante, textile, panouri etc.)
+- [Magazin](https://www.tablou.net/shop): toate categoriile de produse
+- [Catalog produse](https://www.tablou.net/produse): sisteme de afișaj, steaguri, papetărie și produse promoționale
+- [Kituri fonduri europene](https://www.tablou.net/shop/fonduri-europene): materiale de publicitate obligatorii pentru proiecte finanțate din fonduri UE
+
+## Prețuri
+
+- [Prețuri pe cantități](https://www.tablou.net/preturi): prețuri pentru flyere, pliante, cărți de vizită, afișe, textile și roll-up-uri, calculate de configurator
+
+## Cum funcționează
+
+- [Livrare](https://www.tablou.net/livrare): modalități de livrare, costuri și termene
+- [Status comandă](https://www.tablou.net/urmareste-comanda): urmărirea unei comenzi plasate
+- [Blog](https://www.tablou.net/blog): ghiduri despre tablouri canvas și materiale printate
+
+## Informații legale
+
+- [Termeni și condiții](https://www.tablou.net/termeni): condițiile de vânzare
+- [Livrare și retur](https://www.tablou.net/politica-retur): livrare DPD, costuri, termene și reguli de retur
+- [Politica de confidențialitate](https://www.tablou.net/confidentialitate): prelucrarea datelor personale
+- [Reclamații](https://www.tablou.net/reclamatii): cum se depune o reclamație
+
+## Contact
+
+- [Contact](https://www.tablou.net/contact): formular și date de contact
+- [Despre noi](https://www.tablou.net/despre-noi): prezentarea atelierului
+
+## Operator
+
+- CULOAREA DIN VIAȚA SA S.R.L., CUI 44820819, Sat Topliceni nr. 214, Com. Topliceni, jud. Buzău, 127630, România. Contact exclusiv pe email: contact@tablou.net
