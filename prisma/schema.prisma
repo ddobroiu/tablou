@@ -309,3 +309,116 @@ model TrackVisit {
   @@index([date])
   @@index([host, date])
 }
+
+// Datele pentru „Date și rapoarte” din admin-ul shopprint (Search Console, GA4, Bing, Merchant, alerte, reclame).
+// Baza e comuna site-urilor de print: modelele stau si aici, ca `prisma db push` sa nu le stearga.
+
+// Google Search Console, pe site pe zi
+model PrintGscDaily {
+  site        String
+  date        DateTime @db.Date
+  clicks      Int
+  impressions Int
+  position    Float
+
+  @@id([site, date])
+  @@index([date])
+}
+
+// Topul cautarilor si al paginilor: ultimele 28 de zile cu date ("cur") si cele 28 dinainte ("prev")
+model PrintGscTop {
+  id          String @id @default(cuid())
+  site        String
+  kind        String // query | page
+  period      String // cur | prev
+  key         String
+  clicks      Int
+  impressions Int
+  position    Float
+
+  @@index([site, kind, period])
+}
+
+// Google Analytics 4 pe site, zi si canal; channel "(total)" = vizitatorii unici ai zilei
+model PrintGa4Daily {
+  site      String
+  date      DateTime @db.Date
+  channel   String
+  users     Int
+  sessions  Int
+  purchases Int
+  revenue   Decimal  @db.Decimal(14, 2)
+
+  @@id([site, date, channel])
+  @@index([date])
+}
+
+// Paginile de intrare din GA4 (ultimele 30 de zile), cu vanzarile lor
+model PrintGa4Landing {
+  id          String   @id @default(cuid())
+  site        String
+  path        String
+  sessions    Int
+  purchases   Int
+  revenue     Decimal  @db.Decimal(14, 2)
+  periodStart DateTime @db.Date
+  periodEnd   DateTime @db.Date
+
+  @@index([site])
+}
+
+// Bing Webmaster, pe site pe zi
+model PrintBingDaily {
+  site        String
+  date        DateTime @db.Date
+  clicks      Int
+  impressions Int
+
+  @@id([site, date])
+}
+
+// Google Merchant Center: o poza pe zi a starii produselor
+model PrintMerchantSnapshot {
+  date          DateTime @id @db.Date
+  total         Int
+  approved      Int
+  pending       Int
+  disapproved   Int
+  issues        Json
+  accountIssues Json
+  updatedAt     DateTime @updatedAt
+}
+
+// Ultima citire din fiecare sursa (gsc, ga4, bing, merchant, google-ads, meta-ads)
+model PrintSyncState {
+  source    String    @id
+  lastRunAt DateTime?
+  lastOkAt  DateTime?
+  lastError String?
+  info      Json?
+}
+
+// Alertele adminului de print (scadere clicuri/comenzi, citiri esuate, produse respinse)
+model PrintAlert {
+  key        String    @id
+  kind       String
+  site       String?
+  message    String
+  active     Boolean   @default(true)
+  firstAt    DateTime  @default(now())
+  lastAt     DateTime  @default(now())
+  resolvedAt DateTime?
+
+  @@index([active])
+}
+
+// Campaniile de reclame si site-ul caruia ii apartin (dupa nume sau dupa adresa din reclame)
+model PrintAdCampaign {
+  provider   String
+  campaignId String
+  name       String
+  site       String?
+  updatedAt  DateTime @updatedAt
+
+  @@id([provider, campaignId])
+}
