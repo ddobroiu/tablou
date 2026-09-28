@@ -5,6 +5,7 @@ import LegalDocument, { type LegalSection } from "@/components/legal/LegalDocume
 import CookieSettingsLink from "@/components/legal/CookieSettingsLink";
 import { COMPANY, CONTACT_EMAIL, HAS_AI_CHAT, TRACKING } from "@/lib/company";
 import { siteConfig } from "@/lib/siteConfig";
+import { CLARITY_ID } from "@/lib/clarity";
 
 export const metadata: Metadata = {
     title: "Politica de cookies",
@@ -34,6 +35,9 @@ const analytics: Row[] = [
         : []),
     ...(TRACKING.ga4Ids.length > 0
         ? [{ name: "_ga, _ga_<ID>", provider: "Google Ireland Limited (Google Analytics 4)", purpose: "Statistici agregate despre folosirea site-ului.", duration: "până la 2 ani" }]
+        : []),
+    ...(CLARITY_ID
+        ? [{ name: "_clck, _clsk", provider: "Microsoft Corporation (Microsoft Clarity)", purpose: "Statistici de utilizare, hărți de interacțiune (heatmaps) și înregistrări ale sesiunii (session replay), cu conținutul introdus mascat; nu se încarcă pe paginile de cont, autentificare, coș și plată. Datele pot fi prelucrate în SUA, în baza EU-U.S. Data Privacy Framework.", duration: "_clck: 1 an; _clsk: 1 zi" }]
         : []),
 ];
 

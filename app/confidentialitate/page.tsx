@@ -4,6 +4,7 @@ import Link from "next/link";
 import LegalDocument, { type LegalSection } from "@/components/legal/LegalDocument";
 import { COMPANY, CONTACT_EMAIL, HAS_AI_CHAT, TRACKING } from "@/lib/company";
 import { siteConfig } from "@/lib/siteConfig";
+import { CLARITY_ID } from "@/lib/clarity";
 
 export const metadata: Metadata = {
     title: "Politica de confidențialitate",
@@ -131,6 +132,9 @@ const sections: LegalSection[] = [
                     {TRACKING.ga4Ids.length > 0 && (
                         <li><strong>Statistici (numai cu consimțământ):</strong> Google Ireland Limited (Google Analytics 4).</li>
                     )}
+                    {CLARITY_ID && (
+                        <li><strong>Statistici, hărți de interacțiune și înregistrări de sesiune (numai cu consimțământ):</strong> Microsoft Corporation (Microsoft Clarity, SUA) – interacțiunile cu paginile (clicuri, derulare, mișcări), cu conținutul introdus mascat; nu se folosește pe paginile de cont, autentificare, coș și plată. Transferul în SUA se face în baza EU-U.S. Data Privacy Framework.</li>
+                    )}
                     {hasGoogleMarketing && (
                         <li><strong>Marketing (numai cu consimțământ):</strong> Google Ireland Limited (Google Ads, Google Tag Manager).</li>
                     )}
@@ -158,7 +162,7 @@ const sections: LegalSection[] = [
         title: "Transferuri în afara Spațiului Economic European",
         body: (
             <p>
-                Unii furnizori (de exemplu Stripe, Resend, Cloudinary, OpenAI, Google, Meta) pot prelucra date în Statele Unite ale
+                Unii furnizori (de exemplu Stripe, Resend, Cloudinary, OpenAI, Google, Meta, Microsoft) pot prelucra date în Statele Unite ale
                 Americii sau în alte țări din afara SEE. Aceste transferuri se fac numai cu garanții adecvate: decizia de adecvare a
                 Comisiei Europene pentru companiile certificate în cadrul EU-U.S. Data Privacy Framework și/sau clauzele contractuale
                 standard aprobate de Comisia Europeană, împreună cu măsurile suplimentare oferite de furnizori. Ne puteți cere pe

@@ -157,7 +157,7 @@ export default function LoginPage() {
                     {!isResetView && <GoogleSignInButton callbackUrl={tab === 'register' ? '/account?welcome=1' : '/account'} />}
 
                     {tab === 'login' && !isResetView && (
-                        <form onSubmit={onSubmit} className="space-y-4">
+                        <form onSubmit={onSubmit} className="space-y-4" data-clarity-mask="true">
                             <div>
                                 <label className="block text-sm font-medium text-black mb-1">Email</label>
                                 <input
@@ -224,7 +224,7 @@ export default function LoginPage() {
                     )}
 
                     {isResetView && (
-                        <form onSubmit={handleResetRequest} className="space-y-4">
+                        <form onSubmit={handleResetRequest} className="space-y-4" data-clarity-mask="true">
                             <div className="p-4 rounded-lg bg-slate-50 border border-gray-200 text-center">
                                 <p className="text-sm text-black mb-4">Introdu adresa de email și îți vom trimite un link pentru a seta o parolă nouă.</p>
 
@@ -261,7 +261,7 @@ export default function LoginPage() {
                     )}
 
                     {tab === 'register' && !isResetView && (
-                        <form onSubmit={onRegister} className="space-y-3">
+                        <form onSubmit={onRegister} className="space-y-3" data-clarity-mask="true">
                             <div>
                                 <label className="block text-sm font-medium text-black mb-1">Nume (opțional)</label>
                                 <input

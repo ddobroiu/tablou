@@ -183,7 +183,7 @@ export default function CheckoutForm({
     }, [sameAsDelivery, address.nume_prenume, address.judet, address.localitate, address.strada_nr, address.postCode, address.country]);
 
     return (
-        <div className="space-y-8">
+        <div className="space-y-8" data-clarity-mask="true">
             {/* 1. LIVRARE */}
             <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-sm">
                 <h2 className="text-xl font-bold mb-6 flex items-center gap-3">

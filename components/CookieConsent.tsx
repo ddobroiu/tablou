@@ -10,8 +10,9 @@ import {
     saveConsent,
     type ConsentChoice,
 } from "@/lib/cookieConsent";
+import { CLARITY_ID, loadClarity, revokeClarity, syncClarityWithPath } from "@/lib/clarity";
 
-const HAS_ANALYTICS = TRACKING.ga4Ids.length > 0 || !!TRACKING.siteAnalyticsSrc;
+const HAS_ANALYTICS = TRACKING.ga4Ids.length > 0 || !!TRACKING.siteAnalyticsSrc || !!CLARITY_ID;
 const HAS_MARKETING =
     TRACKING.googleAdsIds.length > 0 || !!TRACKING.gtmId || !!TRACKING.metaPixelId || !!TRACKING.tiktokPixelId;
 
@@ -81,6 +82,9 @@ function applyConsent(c: ConsentChoice, loaded: Set<string>) {
         loadScript(TRACKING.siteAnalyticsSrc, "pt-track");
     }
 
+    // Microsoft Clarity: numai cu statistică acceptată și în afara paginilor cu date personale (lib/clarity.ts)
+    if (c.analytics) loadClarity();
+
     if (TRACKING.metaPixelId && c.marketing && !loaded.has("fbq")) {
         loaded.add("fbq");
         // snippetul oficial Meta Pixel
@@ -104,7 +108,7 @@ function applyConsent(c: ConsentChoice, loaded: Set<string>) {
 
 /** La retragerea consimțământului ștergem cookie-urile neesențiale deja puse pe domeniul nostru. */
 function clearNonEssentialCookies() {
-    const prefixes = ["_ga", "_gid", "_gat", "_gcl", "_fbp", "_fbc", "_ttp", "_tt_", "_pt_vid"];
+    const prefixes = ["_ga", "_gid", "_gat", "_gcl", "_fbp", "_fbc", "_ttp", "_tt_", "_pt_vid", "_clck", "_clsk"];
     const host = location.hostname;
     const domains = ["", host, "." + host, "." + host.replace(/^www\./, "")];
     for (const part of document.cookie.split(";")) {
@@ -148,6 +152,11 @@ export default function CookieConsent() {
         };
     }, []);
 
+    // Clarity se oprește pe paginile excluse (cont, login, coș, plată, admin) și se reia în afara lor.
+    useEffect(() => {
+        syncClarityWithPath(pathname, !!current.current?.analytics);
+    }, [pathname]);
+
     const decide = useCallback((a: boolean, m: boolean) => {
         const prev = current.current;
         const next = saveConsent(a && HAS_ANALYTICS, m && HAS_MARKETING);
@@ -156,6 +165,7 @@ export default function CookieConsent() {
         setShowPrefs(false);
         const revoked = !!prev && ((prev.analytics && !next.analytics) || (prev.marketing && !next.marketing));
         applyConsent(next, loaded.current);
+        if (!next.analytics) revokeClarity();
         if (revoked) {
             // scripturile deja încărcate nu pot fi descărcate: ștergem cookie-urile și reîncărcăm pagina
             clearNonEssentialCookies();
