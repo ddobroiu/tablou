@@ -26,7 +26,6 @@ export default async function BlogPage() {
     else if (host.includes('euprint')) source = 'euprint.ro';
     else if (host.includes('adbanner')) source = 'adbanner.ro';
     else if (host.includes('tablou')) source = 'tablou.net';
-    else if (host.includes('visionboard')) source = 'visionboard.ro';
 
 
     const allPosts = getAllPosts();

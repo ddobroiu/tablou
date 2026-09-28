@@ -59,7 +59,6 @@ export const authOptions: NextAuthOptions = {
                     const host = u.host;
                     if (host.includes('prynt')) source = 'prynt.ro';
                     else if (host.includes('euprint')) source = 'euprint.ro';
-                    else if (host.includes('visionboard')) source = 'visionboard.ro';
                     else if (host.includes('adbanner')) source = 'adbanner.ro';
                     else if (host.includes('tablou')) source = 'tablou.net';
                 } catch (e) { }

@@ -35,9 +35,6 @@ export function getConfigForSource(source?: string | null) {
   if (s.includes('tablou.net')) {
     return { name: 'Tablou.net', url: 'www.tablou.net', email: 'contact@tablou.net' };
   }
-  if (s.includes('visionboard.ro')) {
-    return { name: 'VisionBoard.ro', url: 'www.visionboard.ro', email: 'contact@visionboard.ro' };
-  }
 
   return {
     name: siteConfig.name.includes('.ro') || siteConfig.name.includes('.net') ? siteConfig.name : `${siteConfig.name}.ro`,

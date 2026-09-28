@@ -12,8 +12,7 @@ export async function POST(req: NextRequest) {
     const referer = req.headers.get('referer') || '';
     let source = orderData.source;
     if (!source) {
-      if (referer.includes('visionboard.ro')) source = 'visionboard.ro';
-      else if (referer.includes('prynt.ro')) source = 'prynt.ro';
+      if (referer.includes('prynt.ro')) source = 'prynt.ro';
       else if (referer.includes('euprint.ro')) source = 'euprint.ro';
       else if (referer.includes('adbanner.ro')) source = 'adbanner.ro';
       else if (referer.includes('tablou.net')) source = 'tablou.net';

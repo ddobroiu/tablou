@@ -28,7 +28,6 @@ export default async function NoutatiPage() {
     else if (host.includes('euprint')) source = 'euprint.ro';
     else if (host.includes('adbanner')) source = 'adbanner.ro';
     else if (host.includes('tablou')) source = 'tablou.net';
-    else if (host.includes('visionboard')) source = 'visionboard.ro';
 
     const allPosts = getAllPosts();
     // Filter by source and by 'noutati' tag (to keep it clean) or just show all relevant to tablou

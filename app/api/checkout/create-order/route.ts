@@ -24,9 +24,7 @@ export async function POST(req: NextRequest) {
         const referer = req.headers.get('referer') || '';
         const source = String(
             orderData.source ||
-            (referer.includes('visionboard.ro')
-                ? 'visionboard.ro'
-                : referer.includes('tablou.net')
+            (referer.includes('tablou.net')
                     ? 'tablou.net'
                     : referer.includes('euprint.ro')
                         ? 'euprint.ro'
