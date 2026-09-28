@@ -36,6 +36,8 @@ export default async function StripeSuccessPage({ searchParams }: PageProps) {
     let orderNo: string | number | null = null;
     let paymentStatus: string = "În curs de verificare...";
     let source: string | null = null;
+    let orderValue: number | null = null;
+    let orderCurrency = 'RON';
     let branding = { name: 'Tablou', home: '/' };
 
     if (sessionId && process.env.STRIPE_SECRET_KEY) {
@@ -46,6 +48,8 @@ export default async function StripeSuccessPage({ searchParams }: PageProps) {
             paymentStatus = session.payment_status === 'paid' ? 'Plătit' :
                 session.payment_status === 'unpaid' ? 'Neplătit' : 'În curs';
 
+            if (typeof session.amount_total === 'number') orderValue = session.amount_total / 100;
+            if (session.currency) orderCurrency = session.currency.toUpperCase();
             source = session.metadata?.source || null;
             branding = getBranding(source);
 
@@ -60,7 +64,7 @@ export default async function StripeSuccessPage({ searchParams }: PageProps) {
 
     return (
         <main className="min-h-screen bg-slate-50 dark:bg-slate-950 pt-24 sm:pt-32 pb-12 flex items-center justify-center px-4">
-            <ConversionTracker orderNo={orderNo} />
+            <ConversionTracker orderNo={orderNo} value={orderValue} currency={orderCurrency} />
             <div className="max-w-2xl w-full">
                 <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-8 sm:p-12 shadow-2xl shadow-emerald-500/5 text-center relative overflow-hidden">
                     <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-emerald-500 to-emerald-500"></div>

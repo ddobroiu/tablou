@@ -191,6 +191,19 @@ export async function getOrderById(id: string): Promise<StoredOrder | null> {
 
 export const getOrder = getOrderById;
 
+export async function getOrderByOrderNo(orderNo: number): Promise<StoredOrder | null> {
+    try {
+        const r = await prisma.order.findFirst({
+            where: { orderNo },
+            include: { items: true },
+        });
+        return mapDatabaseOrder(r);
+    } catch (error) {
+        console.error("[OrderStore] Error in getOrderByOrderNo:", error);
+        return null;
+    }
+}
+
 export async function listOrders(limit = 200): Promise<StoredOrder[]> {
     try {
         const recs = await prisma.order.findMany({

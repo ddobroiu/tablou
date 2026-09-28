@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Stripe from "stripe";
-import { getOrderNoByStripeSession } from "@/lib/orderStore";
+import { getOrderNoByStripeSession, getOrderByOrderNo } from "@/lib/orderStore";
 import ConversionTracker from "@/components/ConversionTracker";
 import {
     BANK_TRANSFER_BENEFICIARY,
@@ -28,11 +28,20 @@ export default async function SuccessPage({ searchParams }: PageProps) {
 
     let orderNo: string | number | null = qsOrder || null;
     let paymentStatus: string | null = null;
+    let orderTotal: number | null = null;
 
     if (!orderNo && sessionId) {
         try {
             const looked = await getOrderNoByStripeSession(sessionId);
             if (looked) orderNo = looked;
+        } catch { }
+    }
+
+    // Valoarea reala a comenzii, ca conversia sa fie raportata cu suma ei (pentru ROAS).
+    if (orderNo != null) {
+        try {
+            const order = await getOrderByOrderNo(Number(orderNo));
+            if (order) orderTotal = order.total;
         } catch { }
     }
 
@@ -55,7 +64,7 @@ export default async function SuccessPage({ searchParams }: PageProps) {
 
     return (
         <main className="min-h-screen bg-slate-50 dark:bg-slate-950 pt-24 sm:pt-32 pb-12 flex items-center justify-center px-4">
-            <ConversionTracker orderNo={orderNo} />
+            <ConversionTracker orderNo={orderNo} value={orderTotal} currency="RON" />
             <div className="max-w-2xl w-full">
                 <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-8 sm:p-12 shadow-2xl shadow-emerald-500/5 text-center relative overflow-hidden">
                     {/* Background accent */}
