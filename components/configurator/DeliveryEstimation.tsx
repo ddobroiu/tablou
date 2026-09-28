@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useDebounce } from "@/hooks/useDebounce";
 import { Truck } from "lucide-react";
+import GarantieLegalaLine from "@/components/legal/GarantieLegalaLine";
 
 type Props = {
     county?: string;
@@ -40,14 +41,17 @@ export default function DeliveryEstimation({ county }: Props) {
     }, [debouncedCounty]);
 
     return (
-        <div className="text-xs sm:text-sm flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 rounded-lg px-2 py-1.5 shadow-sm h-full whitespace-nowrap">
-            <Truck className="w-4 h-4 text-emerald-600 shrink-0" strokeWidth={2.5} />
-            <span className="text-slate-700 font-bold">Livrare:</span>
-            {loading ? (
-                <span className="animate-pulse bg-emerald-100 h-3 w-16 rounded inline-block align-middle"></span>
-            ) : (
-                <span className="font-extrabold text-emerald-700">{label}</span>
-            )}
+        <div className="flex flex-col items-end gap-1.5">
+            <div className="text-xs sm:text-sm flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 rounded-lg px-2 py-1.5 shadow-sm h-full whitespace-nowrap">
+                <Truck className="w-4 h-4 text-emerald-600 shrink-0" strokeWidth={2.5} />
+                <span className="text-slate-700 font-bold">Livrare:</span>
+                {loading ? (
+                    <span className="animate-pulse bg-emerald-100 h-3 w-16 rounded inline-block align-middle"></span>
+                ) : (
+                    <span className="font-extrabold text-emerald-700">{label}</span>
+                )}
+            </div>
+            <GarantieLegalaLine />
         </div>
     );
 }

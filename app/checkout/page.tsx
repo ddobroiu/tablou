@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import CheckoutForm from "./CheckoutForm";
 import { LEGAL_VERSION, PERSONALIZED_WITHDRAWAL_NOTE } from "@/lib/company";
+import GarantieLegalaLine from "@/components/legal/GarantieLegalaLine";
 import DeliveryInfo from "@/components/DeliveryInfo";
 import DiscountCodeInput from "@/components/DiscountCodeInput";
 import { getEstimatedShippingCost, validateDpdShipment } from "@/lib/shippingUtils";
@@ -1018,6 +1019,7 @@ export default function CheckoutPage() {
                     <strong>Important:</strong> {PERSONALIZED_WITHDRAWAL_NOTE}{" "}
                     <Link href="/termeni#retragere" target="_blank" className="font-semibold underline">Detalii</Link>
                   </p>
+                  <GarantieLegalaLine variant="checkout" />
                   <label className="flex items-start gap-2 text-xs text-slate-700 dark:text-slate-300">
                     <input
                       type="checkbox"

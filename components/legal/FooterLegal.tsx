@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ANPC_SAL_URL, COMPANY, CONTACT_EMAIL, LEGAL_LINKS } from "@/lib/company";
 import { siteConfig } from "@/lib/siteConfig";
 import CookieSettingsLink from "@/components/legal/CookieSettingsLink";
+import GarantieLegalaBadge from "@/components/legal/GarantieLegalaBadge";
 
 /**
  * Bara legală din subsol: identificarea operatorului, documentele legale, setările cookie
@@ -43,6 +44,7 @@ export default function FooterLegal({
                         {CONTACT_EMAIL}
                     </a>
                 </p>
+                <GarantieLegalaBadge />
                 <a
                     href={ANPC_SAL_URL}
                     target="_blank"

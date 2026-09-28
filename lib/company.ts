@@ -43,6 +43,7 @@ export const LEGAL_EFFECTIVE_DATE = "26 septembrie 2026";
 export const LEGAL_LINKS = [
     { href: "/termeni", label: "Termeni și condiții" },
     { href: "/politica-retur", label: "Livrare și retur" },
+    { href: "/garantie-legala", label: "Garanția legală de conformitate" },
     { href: "/confidentialitate", label: "Politica de confidențialitate" },
     { href: "/politica-cookies", label: "Politica de cookies" },
     { href: "/formular-retragere", label: "Formular de retragere" },
