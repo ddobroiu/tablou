@@ -46,7 +46,7 @@ function faqFor(locName: string, judetName: string, tier: string | undefined) {
     return [
         {
             q: `Cât durează până primesc comanda în ${locName}?`,
-            a: `Producem în 1-3 zile lucrătoare, apoi curierul DPD o aduce la adresa ta din ${locName}, ${livrare}.`,
+            a: `Producția durează 2-4 zile lucrătoare, apoi curierul DPD o aduce la adresa ta din ${locName}, ${livrare}.`,
         },
         {
             q: "Cum aflu prețul?",
@@ -71,7 +71,7 @@ export async function generateMetadata({ params }: Params) {
 
     const from = getFromPrice(["canvas"]);
     const title = `Tablouri canvas în ${loc.name}${from ? ` – canvas de la ${from.text}` : ""}`;
-    const description = `Tablouri canvas din poze, colaje și seturi, cu livrare în ${loc.name}, jud. ${judet.name}. Preț calculat pe loc, producție în 1-3 zile, plată la livrare.`;
+    const description = `Tablouri canvas din poze, colaje și seturi, cu livrare în ${loc.name}, jud. ${judet.name}. Preț calculat pe loc, producție în 2-4 zile, plată la livrare.`;
     const routeUrl = `${siteConfig.url}/judet/${judet.slug}/${loc.slug}`;
 
     return {
@@ -173,7 +173,7 @@ export default async function LocalitatePage({ params }: Params) {
                         </a>
 
                         <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-700">
-                            {["Preț calculat pe loc", "Producție în 1-3 zile", "Plată la livrare", "Livrare DPD"].map((t) => (
+                            {["Preț calculat pe loc", "Producție în 2-4 zile", "Plată la livrare", "Livrare DPD"].map((t) => (
                                 <li key={t} className="inline-flex items-center gap-1.5"><Check size={16} className="text-emerald-600" /> {t}</li>
                             ))}
                         </ul>

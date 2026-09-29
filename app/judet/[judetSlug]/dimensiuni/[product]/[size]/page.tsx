@@ -25,7 +25,7 @@ const BASE_URL = String(siteConfig.url || "").toLowerCase().replace(/\/$/, "");
 const BRAND = brandKeyFromName(siteConfig.name);
 
 const TIER_TEXT: Record<string, string> = {
-    apropiat: "livrăm prin curier, județul fiind aproape de atelierul nostru din județul Buzău",
+    apropiat: "livrăm prin curier în toată țara, inclusiv în toate localitățile județului",
     mediu: "livrăm prin curier în toată țara, inclusiv în toate localitățile județului",
     distant: "livrăm prin curier în toată țara, inclusiv în toate localitățile județului",
 };
@@ -90,7 +90,7 @@ export default async function JudetDimensionPage({ params }: { params: Promise<P
                             <p className="text-lg text-slate-500 mb-5">{content.subtitle}</p>
                             {profile && (
                                 <p className="text-slate-600 leading-relaxed mb-6">
-                                    În județul {judet.name} ({profile.regiune}) cererea vine mai ales din {profile.industrii.slice(0, 2).join(" și ")}; {profile.notaGeografica}. Producem în 2-4 zile lucrătoare, iar {TIER_TEXT[tier]}.
+                                    Județul {judet.name} ({profile.regiune}) e cunoscut pentru {profile.industrii.slice(0, 2).join(" și ")}; {profile.notaGeografica}. Producția durează 2-4 zile lucrătoare, iar {TIER_TEXT[tier]}.
                                 </p>
                             )}
                             <div className="flex flex-col sm:flex-row gap-3">

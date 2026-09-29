@@ -217,7 +217,7 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                         {/* LEFT: Product Info */}
                         <div className="flex-1 w-full order-2 lg:order-1 lg:pt-8">
                             <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-50 rounded-full text-emerald-600 font-black text-[10px] uppercase tracking-widest mb-6 border border-emerald-100 italic">
-                                <Award size={12} /> Partener Local {loc.name}
+                                <MapPin size={12} /> Livrare prin curier în {loc.name}, jud. {judet.name}
                             </div>
                             
                             <h1 className="text-3xl min-[390px]:text-4xl md:text-7xl font-black text-slate-900 leading-[1.1] tracking-tighter mb-6 uppercase italic break-words">
@@ -262,7 +262,7 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                                     <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-amber-500">
                                         <Star size={20} className="fill-current" />
                                     </div>
-                                    <span className="text-xs font-bold text-slate-600 uppercase tracking-widest">Producție<br/>Proprie</span>
+                                    <span className="text-xs font-bold text-slate-600 uppercase tracking-widest">Plată la<br/>livrare</span>
                                 </div>
                                 <div className="flex items-center gap-3">
                                     <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-blue-500">
@@ -305,7 +305,7 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                 <div className="max-w-4xl mx-auto px-4">
                     <div className="text-center mb-16">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-100 text-slate-500 text-[10px] font-black uppercase tracking-widest mb-4">
-                            <HelpCircle size={14} className="text-emerald-500" /> SUPORT LOCAL {loc.name.toUpperCase()}
+                            <HelpCircle size={14} className="text-emerald-500" /> LIVRARE ÎN {loc.name.toUpperCase()}
                         </div>
                         <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase leading-none">Întrebări Frecvente</h2>
                         <p className="text-slate-500 mt-4 font-medium italic">Tot ce trebuie să știi despre comanda ta de {productTitle.toLowerCase()} în {loc.name}.</p>
@@ -370,50 +370,6 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
                 </div>
             </div>
 
-            {/* Features Section - MODERN REDESIGN */}
-            <div className="bg-slate-950 py-32 relative overflow-hidden">
-                {/* Background decorative stuff */}
-                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent" />
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-64 bg-emerald-500/10 blur-[120px] rounded-full" />
-                
-                <div className="max-w-7xl mx-auto px-4 relative z-10">
-                    <div className="text-center mb-20">
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-500/10 rounded-full text-emerald-400 font-black text-[10px] uppercase tracking-[0.2em] mb-6 border border-emerald-500/20">
-                            <ShieldCheck size={14} /> Certificare Calitate Tablou
-                        </div>
-                        <h2 className="text-4xl md:text-7xl font-black text-white mb-6 tracking-tighter uppercase leading-[0.9] max-w-4xl mx-auto">
-                            Standardul Premium în <span className="text-emerald-400">{loc.name}</span>
-                        </h2>
-                        <p className="text-slate-400 max-w-2xl mx-auto font-medium text-lg leading-relaxed">
-                            Nu facem compromisuri. Fiecare comandă de {product.title.toLowerCase()} expediată în județul {judet.name} trece printr-un control riguros sub semnătura Tablou.
-                        </p>
-                    </div>
-    
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {[
-                            { title: "Culori Vibrante", desc: "Folosim echipamente de ultimă generație cu cerneluri rezistente la raze UV și intemperii, garantate pentru ani de zile.", icon: <Sparkles size={28} />, color: "emerald" },
-                            { title: "Suport Tehnic", desc: "Echipa noastră te ajută cu verificarea graficii, optimizarea fișierelor și sfaturi pentru cel mai bun rezultat final.", icon: <Globe size={28} />, color: "blue" },
-                            { title: "Preț de Fabrică", desc: "Suntem producători direcți (fără intermediari), garantându-ți cel mai bun raport calitate-preț din România.", icon: <Zap size={28} className="fill-current" />, color: "amber" }
-                        ].map((f, i) => (
-                            <div key={i} className="group relative">
-                                <div className="absolute inset-0 bg-emerald-500/5 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                                <div className="relative h-full bg-white/5 backdrop-blur-sm p-10 rounded-[2.5rem] border border-white/10 hover:border-emerald-500/30 transition-all duration-500 flex flex-col">
-                                    <div className={`w-16 h-16 rounded-2xl bg-slate-900 border border-white/10 flex items-center justify-center mb-8 text-emerald-400 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-500`}>
-                                        {f.icon}
-                                    </div>
-                                    <h3 className="text-2xl font-black text-white mb-4 uppercase tracking-tight group-hover:text-emerald-400 transition-colors">{f.title}</h3>
-                                    <p className="text-slate-500 leading-relaxed font-bold text-sm">{f.desc}</p>
-                                    
-                                    <div className="mt-6 pt-6 border-t border-white/5 flex items-center justify-between opacity-50 group-hover:opacity-100 transition-opacity">
-                                        <span className="text-[9px] font-bold text-slate-500 uppercase tracking-[0.2em]">Verificat Tablou</span>
-                                        <CheckCircle2 size={14} className="text-emerald-500/40 group-hover:text-emerald-400 transition-colors" />
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
 
             {/* Date reale despre localitate (doar dacă există în lib/seo/data/judete) */}
             <LocalityFacts judetSlug={judet.slug} locSlug={loc.slug} locName={loc.name} />

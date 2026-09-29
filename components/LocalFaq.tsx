@@ -12,7 +12,7 @@ export function getLocalFaqs({ productTitle, locName, judetName }: Props) {
     return [
         {
             question: `Livrați ${produs} în ${locName}?`,
-            answer: spintax(`{Da, livrăm ${produs} în ${locName} și în tot județul ${judetName}.|Da, trimitem prin curier direct la adresa ta din ${locName}.} {Coletul ajunge de regulă în 24-48 de ore de la finalizarea producției.|Producem în 1-3 zile lucrătoare, apoi curierul îl aduce la ușă.}`, `${seed}-q1`),
+            answer: spintax(`{Da, livrăm ${produs} în ${locName} și în tot județul ${judetName}.|Da, trimitem prin curier direct la adresa ta din ${locName}.} {Coletul ajunge de regulă în 24-48 de ore de la finalizarea producției.|Producția durează 2-4 zile lucrătoare, apoi curierul îl aduce la ușă.}`, `${seed}-q1`),
         },
         {
             question: `Cât costă livrarea în județul ${judetName}?`,
