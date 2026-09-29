@@ -37,7 +37,7 @@ const analytics: Row[] = [
         ? [{ name: "_ga, _ga_<ID>", provider: "Google Ireland Limited (Google Analytics 4)", purpose: "Statistici agregate despre folosirea site-ului.", duration: "până la 2 ani" }]
         : []),
     ...(CLARITY_ID
-        ? [{ name: "_clck, _clsk", provider: "Microsoft Corporation (Microsoft Clarity)", purpose: "Statistici de utilizare, hărți de interacțiune (heatmaps) și înregistrări ale sesiunii (session replay), cu conținutul introdus mascat; nu se încarcă pe paginile de cont, autentificare, coș și plată. Datele pot fi prelucrate în SUA, în baza EU-U.S. Data Privacy Framework.", duration: "_clck: 1 an; _clsk: 1 zi" }]
+        ? [{ name: "_clck, _clsk", provider: "Microsoft Corporation (Microsoft Clarity)", purpose: "Statistici de utilizare, hărți de interacțiune (heatmaps) și înregistrări ale sesiunii (session replay), cu conținutul introdus mascat; nu se încarcă pe paginile de cont, autentificare, coș și plată, cu excepția paginii „comandă finalizată”, unde înregistrează doar finalizarea comenzii (valoare și produse). Datele pot fi prelucrate în SUA, în baza EU-U.S. Data Privacy Framework.", duration: "_clck: 1 an; _clsk: 1 zi" }]
         : []),
 ];
 
