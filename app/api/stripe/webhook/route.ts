@@ -6,6 +6,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { prisma } from '@/lib/prisma';
 import { fulfillOrder } from '@/lib/orderService';
+import { sendTikTokPurchase } from '@/lib/tiktok-events';
 
 export const dynamic = 'force-dynamic';
 
@@ -117,13 +118,38 @@ export async function POST(req: NextRequest) {
             // Actualizăm statusul comenzii la 'active' (sau echivalentul pt plătit)
             // Deoarece fulfillOrder o creează ca 'pending'
             if (result.orderId) {
-                await prisma.order.update({
-                    where: { id: result.orderId },
+                // Trecerea pending -> active se face o singură dată (updateMany cu condiție), ca
+                // evenimentul TikTok de mai jos să plece o singură dată per comandă, chiar la retry-uri
+                const claimed = await prisma.order.updateMany({
+                    where: { id: result.orderId, status: { not: 'active' } },
                     data: {
                         status: 'active', // Statusul 'active' înseamnă "În lucru" / Plătită
                         // Putem salva și ID-ul tranzacției sau alte detalii dacă avem câmpuri
                     }
                 });
+
+                // TikTok CompletePayment (server side), numai cu acordul pentru marketing salvat pe sesiune
+                // (altfel nu trimite nimic); event_id = același ca al pixelului (components/ConversionTracker.tsx)
+                if (claimed.count === 1 && result.orderNo) {
+                    const value = (session.amount_total ?? 0) / 100;
+                    const items: any[] = Array.isArray(checkoutData.cart) ? checkoutData.cart : Array.isArray(checkoutData.items) ? checkoutData.items : [];
+                    void sendTikTokPurchase({
+                        eventId: `order-${result.orderNo}`,
+                        value,
+                        currency: session.currency || 'ron',
+                        contents: items.slice(0, 50).map((it: any) => ({
+                            content_id: String(it.productId || it.id || it.slug || it.name || 'produs').slice(0, 100),
+                            content_name: String(it.name || '').slice(0, 200) || undefined,
+                            quantity: Number(it.quantity) || 1,
+                            price: Number(it.unitAmount ?? it.price ?? 0) || 0,
+                        })),
+                        pageUrl: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.tablou.net'}/checkout/success/stripe`,
+                        email: session.customer_details?.email || session.customer_email || checkoutData.address?.email,
+                        phone: session.customer_details?.phone || checkoutData.address?.telefon || checkoutData.address?.phone,
+                        externalId: checkoutData.userId || meta.userId || undefined,
+                        metadata: session.metadata,
+                    });
+                }
             }
 
             // Ștergem datele temporare doar dacă există

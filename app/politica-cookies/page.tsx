@@ -52,6 +52,7 @@ const marketing: Row[] = [
         ? [
               { name: "_ttp", provider: "TikTok Technology Limited, Irlanda (TikTok Pixel)", purpose: "Măsurarea eficienței reclamelor TikTok (conversii, de exemplu o comandă finalizată) și retargeting (publicuri pentru reclame relevante). Nu se încarcă pe paginile de cont, autentificare, coș și plată (cu excepția paginii de confirmare a comenzii). Datele pot fi transferate în afara UE, de exemplu în baza clauzelor contractuale standard.", duration: "aproximativ 13 luni" },
               { name: "_tt_enable_cookie", provider: "TikTok Technology Limited, Irlanda (TikTok Pixel)", purpose: "Reține că pixelul TikTok poate folosi cookie-uri pe acest site, după consimțământul pentru marketing.", duration: "aproximativ 13 luni" },
+              { name: "tt_ttclid", provider: "Tablou.net (cookie propriu, pentru TikTok)", purpose: "Reține identificatorul clicului pe o reclamă TikTok (parametrul ttclid din adresă), numai cu consimțământul pentru marketing. La o comandă plătită cu cardul, împreună cu _ttp, este trimis de serverul nostru către TikTok (TikTok Events API), ca să măsurăm conversia; vezi Politica de confidențialitate.", duration: "30 de zile" },
           ]
         : []),
 ];

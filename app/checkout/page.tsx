@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import CheckoutForm from "./CheckoutForm";
 import { LEGAL_VERSION, PERSONALIZED_WITHDRAWAL_NOTE } from "@/lib/company";
+import { readConsent } from "@/lib/cookieConsent";
 import GarantieLegalaLine from "@/components/legal/GarantieLegalaLine";
 import DeliveryInfo from "@/components/DeliveryInfo";
 import DiscountCodeInput from "@/components/DiscountCodeInput";
@@ -637,6 +638,8 @@ export default function CheckoutPage() {
       acceptTerms,
       termsVersion: LEGAL_VERSION,
       source: 'tablou.net',
+      // Acordul pentru marketing: numai cu el serverul trimite plata la TikTok Events API
+      tiktokConsent: readConsent()?.marketing === true,
 
       discountCode,
       discountAmount,

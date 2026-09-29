@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { fulfillOrder } from '@/lib/orderService';
 import { LEGAL_VERSION } from '@/lib/company';
 import { getAuthSession } from '@/lib/auth';
+import { clientIp, tiktokCheckoutMetadata } from '@/lib/tiktok-events';
 import { prisma } from '@/lib/prisma';
 import Stripe from 'stripe';
 import { getEstimatedShippingCost } from '@/lib/shippingUtils';
@@ -18,6 +19,10 @@ export const revalidate = 0;
 export async function POST(req: NextRequest) {
     try {
         const orderData = await req.json();
+        // Acordul pentru marketing (din bannerul de cookie-uri, trimis de pagina de checkout): numai cu el
+        // trimitem comanda platita catre TikTok Events API (lib/tiktok-events.ts); nu se salveaza in comanda
+        const tiktokMarketing = orderData.tiktokConsent === true;
+        delete orderData.tiktokConsent;
         // Vizitatorul din tracking-ul propriu (www.shopprint.ro/t.js): leaga comanda de sursa vizitei
         const ptVid = req.cookies.get('_pt_vid')?.value;
         if (ptVid && /^[a-f0-9]{32}$/i.test(ptVid)) orderData.marketing = { ...(orderData.marketing || {}), vid: ptVid.toLowerCase() };
@@ -147,7 +152,15 @@ export async function POST(req: NextRequest) {
                         options: i.options,
                         dimensions: i.dimensions
                     })).slice(0, 4000)), // Limit just in case
-                    marketing: JSON.stringify(orderData.marketing || {}).slice(0, 500)
+                    marketing: JSON.stringify(orderData.marketing || {}).slice(0, 500),
+                    // TikTok Events API: acord + _ttp/ttclid/IP/browser, numai cu acord pentru marketing (altfel gol)
+                    ...tiktokCheckoutMetadata({
+                        marketing: tiktokMarketing,
+                        ttp: req.cookies.get('_ttp')?.value,
+                        ttclid: req.cookies.get('tt_ttclid')?.value,
+                        ip: clientIp(req.headers),
+                        userAgent: req.headers.get('user-agent'),
+                    }),
                 }
             });
 

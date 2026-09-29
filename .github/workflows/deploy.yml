@@ -77,6 +77,9 @@ jobs:
             echo "GOOGLE_CLIENT_ID=742620052668-7dpk497ofnmmsvk9l7rmg7altnkhnoqo.apps.googleusercontent.com" >> .env
             if [ -n "${{ secrets.GOOGLE_CLIENT_SECRET }}" ]; then sed -i '/^GOOGLE_CLIENT_SECRET=/d' .env; echo "GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}" >> .env; fi
             if [ -n "${{ secrets.MYDASHBOARD_ALERT_TOKEN }}" ]; then sed -i '/^MYDASHBOARD_ALERT_TOKEN=/d' .env; echo "MYDASHBOARD_ALERT_TOKEN=${{ secrets.MYDASHBOARD_ALERT_TOKEN }}" >> .env; fi
+            # TikTok Events API (lib/tiktok-events.ts): TIKTOK_EVENTS_TOKEN (secret dedicat sau în ENV_CONTENTS; fără el nu se trimite nimic),
+            # opțional TIKTOK_PIXEL_ID (implicit pixelul din cod) și TIKTOK_TEST_EVENT_CODE (numai pentru teste)
+            if [ -n "${{ secrets.TIKTOK_EVENTS_TOKEN }}" ]; then sed -i '/^TIKTOK_EVENTS_TOKEN=/d' .env; echo "TIKTOK_EVENTS_TOKEN=${{ secrets.TIKTOK_EVENTS_TOKEN }}" >> .env; fi
             sed -i '/^PIXABAY_API_KEY=/d' .env
             echo "PIXABAY_API_KEY=${{ secrets.PIXABAY_API_KEY }}" >> .env
             # Cheia Resend (email) se poate roti din secretul dedicat; dacă lipsește, rămâne cea din ENV_CONTENTS

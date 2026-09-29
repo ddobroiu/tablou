@@ -11,6 +11,23 @@ export const TIKTOK_PIXEL_ID = process.env.NEXT_PUBLIC_TIKTOK_PIXEL_ID || "DATFU
 /** Pagini de mulțumire (sub /checkout, exclus altfel) pe care pixelul are voie să ruleze pentru CompletePayment. */
 const TIKTOK_ALLOWED_THANK_YOU_PATHS = ["/checkout/success"];
 
+// tt_ttclid: click id-ul TikTok din URL-ul reclamei (?ttclid=), păstrat 30 de zile NUMAI cu acord
+// pentru marketing, ca checkout-ul să-l poată trimite la TikTok Events API (lib/tiktok-events.ts)
+const TTCLID_COOKIE = "tt_ttclid";
+const TIKTOK_COOKIES = ["_ttp", "_tt_enable_cookie", TTCLID_COOKIE];
+
+/** Salvează ?ttclid= din URL-ul curent pentru 30 de zile (apelat numai cu acord pentru marketing). */
+function captureTtclid() {
+    try {
+        const ttclid = new URLSearchParams(window.location.search).get("ttclid");
+        if (ttclid && ttclid.length <= 500) {
+            document.cookie = `${TTCLID_COOKIE}=${encodeURIComponent(ttclid)}; Path=/; Max-Age=${60 * 60 * 24 * 30}; SameSite=Lax${window.location.protocol === "https:" ? "; Secure" : ""}`;
+        }
+    } catch {
+        // nu strică niciodată pagina
+    }
+}
+
 export function isTikTokExcludedPath(pathname: string | null | undefined): boolean {
     const p = pathname || "/";
     if (TIKTOK_ALLOWED_THANK_YOU_PATHS.some((x) => p === x || p.startsWith(x + "/"))) return false;
@@ -75,6 +92,8 @@ export function isTikTokLoaded(): boolean {
 /** Încarcă pixelul (o singură dată pe pagină) după consimțământul pentru marketing; la re-acordare, grantConsent. */
 export function loadTikTok(pathname?: string | null) {
     if (!TIKTOK_PIXEL_ID || typeof window === "undefined") return;
+    // apelat numai după acordul pentru marketing (components/CookieConsent.tsx)
+    captureTtclid();
     const path = pathname ?? window.location.pathname;
     if (isTikTokExcludedPath(path)) return;
     const w = win();
@@ -110,7 +129,7 @@ export function syncTikTokWithPath(pathname: string | null | undefined, marketin
     w.ttq?.page();
 }
 
-/** La refuz / retragere: revokeConsent și ștergerea cookie-urilor _ttp / _tt_enable_cookie. */
+/** La refuz / retragere: revokeConsent și ștergerea cookie-urilor _ttp / _tt_enable_cookie / tt_ttclid. */
 export function revokeTikTok() {
     if (typeof window === "undefined") return;
     const w = win();
@@ -120,7 +139,7 @@ export function revokeTikTok() {
     }
     const host = window.location.hostname;
     const domains = ["", host, "." + host, "." + host.replace(/^www\./, "")];
-    for (const name of ["_ttp", "_tt_enable_cookie"]) {
+    for (const name of TIKTOK_COOKIES) {
         for (const d of domains) {
             document.cookie = `${name}=; Max-Age=0; path=/${d ? `; domain=${d}` : ""}`;
         }
