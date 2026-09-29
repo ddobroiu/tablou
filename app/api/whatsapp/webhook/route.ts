@@ -490,7 +490,6 @@ export async function POST(req: Request) {
   } catch (error: any) {
     console.error("Webhook Error:", error);
     if (faraCredite(error)) {
-      void alerta("credits", "openai", `OpenAI a refuzat cererea - credite terminate, asistentul AI pe WhatsApp nu merge: ${String(error?.message ?? error).slice(0, 300)}`);
     }
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
