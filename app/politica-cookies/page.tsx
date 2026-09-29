@@ -20,7 +20,7 @@ type Row = { name: string; provider: string; purpose: string; duration: string }
 const necessary: Row[] = [
     { name: "next-auth.session-token, __Secure-next-auth.session-token", provider: site, purpose: "Menține autentificarea în contul de client.", duration: "Până la deconectare, cel mult 30 de zile" },
     { name: "next-auth.csrf-token, next-auth.callback-url (și variantele __Host-/__Secure-)", provider: site, purpose: "Protecție împotriva cererilor falsificate și redirecționarea după autentificare.", duration: "Sesiune" },
-    { name: "cookie_consent_v3 (stocare locală)", provider: site, purpose: "Reține alegerile dumneavoastră privind cookie-urile.", duration: "12 luni" },
+    { name: "cookie_consent_v4 (stocare locală)", provider: site, purpose: "Reține alegerile dumneavoastră privind cookie-urile.", duration: "12 luni" },
     { name: "cart, checkout_address, checkout_billing (stocare locală)", provider: site, purpose: "Păstrează coșul și datele introduse în formularul de comandă pe acest dispozitiv.", duration: "Până la golirea coșului sau ștergerea datelor din browser" },
     { name: "session-id, newsletter-popup-dismissed (stocare de sesiune); newsletter-subscribed (stocare locală)", provider: site, purpose: "Funcționarea configuratorului și a ferestrei de abonare (să nu o afișăm din nou).", duration: "Sesiune / până la ștergerea datelor din browser" },
     ...(HAS_AI_CHAT
@@ -49,7 +49,10 @@ const marketing: Row[] = [
         ? [{ name: "_fbp, fr", provider: "Meta Platforms Ireland Limited (Meta Pixel)", purpose: "Măsurarea conversiilor din reclamele Facebook/Instagram și publicuri de remarketing.", duration: "până la 90 de zile" }]
         : []),
     ...(TRACKING.tiktokPixelId
-        ? [{ name: "_ttp, _tt_enable_cookie", provider: "TikTok Technology Limited (TikTok Pixel)", purpose: "Măsurarea conversiilor din reclamele TikTok.", duration: "până la 13 luni" }]
+        ? [
+              { name: "_ttp", provider: "TikTok Technology Limited, Irlanda (TikTok Pixel)", purpose: "Măsurarea eficienței reclamelor TikTok (conversii, de exemplu o comandă finalizată) și retargeting (publicuri pentru reclame relevante). Nu se încarcă pe paginile de cont, autentificare, coș și plată (cu excepția paginii de confirmare a comenzii). Datele pot fi transferate în afara UE, de exemplu în baza clauzelor contractuale standard.", duration: "aproximativ 13 luni" },
+              { name: "_tt_enable_cookie", provider: "TikTok Technology Limited, Irlanda (TikTok Pixel)", purpose: "Reține că pixelul TikTok poate folosi cookie-uri pe acest site, după consimțământul pentru marketing.", duration: "aproximativ 13 luni" },
+          ]
         : []),
 ];
 

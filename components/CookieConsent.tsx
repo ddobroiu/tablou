@@ -5,12 +5,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { TRACKING } from "@/lib/company";
 import {
+    CONSENT_CHANGE_EVENT,
     OPEN_COOKIE_SETTINGS_EVENT,
     readConsent,
     saveConsent,
     type ConsentChoice,
 } from "@/lib/cookieConsent";
 import { CLARITY_ID, loadClarity, revokeClarity, syncClarityWithPath } from "@/lib/clarity";
+import { loadTikTok, revokeTikTok, syncTikTokWithPath } from "@/lib/tiktok";
 
 const HAS_ANALYTICS = TRACKING.ga4Ids.length > 0 || !!TRACKING.siteAnalyticsSrc || !!CLARITY_ID;
 const HAS_MARKETING =
@@ -94,16 +96,13 @@ function applyConsent(c: ConsentChoice, loaded: Set<string>) {
         );
     }
 
-    if (TRACKING.tiktokPixelId && c.marketing && !loaded.has("ttq")) {
-        loaded.add("ttq");
-        // snippetul oficial TikTok Pixel
-        inlineScript(
-            "ttq-init",
-            `!function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=d.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=d.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};ttq.load(${JSON.stringify(TRACKING.tiktokPixelId)});ttq.page();}(window,document,'ttq');`
-        );
-    }
+    // TikTok Pixel: numai cu marketing acceptat și în afara paginilor cu date personale (lib/tiktok.ts)
+    if (TRACKING.tiktokPixelId && c.marketing) loadTikTok();
 
     dataLayer().push({ event: "cookie_consent_update", analytics: c.analytics, marketing: c.marketing });
+    window.dispatchEvent(
+        new CustomEvent(CONSENT_CHANGE_EVENT, { detail: { analytics: c.analytics, marketing: c.marketing } })
+    );
 }
 
 /** La retragerea consimțământului ștergem cookie-urile neesențiale deja puse pe domeniul nostru. */
@@ -155,6 +154,7 @@ export default function CookieConsent() {
     // Clarity se oprește pe paginile excluse (cont, login, coș, plată, admin) și se reia în afara lor.
     useEffect(() => {
         syncClarityWithPath(pathname, !!current.current?.analytics);
+        syncTikTokWithPath(pathname, !!current.current?.marketing);
     }, [pathname]);
 
     const decide = useCallback((a: boolean, m: boolean) => {
@@ -166,6 +166,7 @@ export default function CookieConsent() {
         const revoked = !!prev && ((prev.analytics && !next.analytics) || (prev.marketing && !next.marketing));
         applyConsent(next, loaded.current);
         if (!next.analytics) revokeClarity();
+        if (!next.marketing) revokeTikTok();
         if (revoked) {
             // scripturile deja încărcate nu pot fi descărcate: ștergem cookie-urile și reîncărcăm pagina
             clearNonEssentialCookies();
@@ -230,8 +231,8 @@ export default function CookieConsent() {
                                     className="mt-0.5 h-4 w-4 accent-emerald-600"
                                 />
                                 <span>
-                                    <strong className="text-slate-900">Marketing</strong> – măsurarea conversiilor din reclame și
-                                    reclame relevante (Google, Meta, TikTok, după caz).
+                                    <strong className="text-slate-900">Marketing / reclame</strong> – ne permite să măsurăm
+                                    eficiența reclamelor (ex. TikTok) și să vă arătăm reclame relevante.
                                 </span>
                             </label>
                         )}

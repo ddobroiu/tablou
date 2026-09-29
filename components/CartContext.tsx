@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useToast } from "./ToastProvider";
+import { trackTikTok } from "@/lib/tiktok";
 
 /**
  * Structura unui produs din coș
@@ -106,6 +107,20 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
     function addItem(raw: Partial<CartItem> & { price: number; id?: string }) {
         const item = normalizeItem(raw);
+        // TikTok AddToCart (numai cu consimțământ pentru marketing; fără date personale)
+        trackTikTok("AddToCart", {
+            value: Number((item.price * item.quantity).toFixed(2)),
+            currency: item.currency || "RON",
+            content_type: "product",
+            contents: [
+                {
+                    content_id: String(item.productId ?? item.slug ?? item.id),
+                    content_name: item.title,
+                    quantity: item.quantity,
+                    price: item.price,
+                },
+            ],
+        });
         setItems((prev) => {
             // Căutăm dacă există deja un produs identic
             const idx = prev.findIndex(

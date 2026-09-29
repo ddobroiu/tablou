@@ -1,32 +1,37 @@
 // Consimțământul pentru cookie-uri: cheia din localStorage, formatul și citirea lui.
 // Folosit de bannerul components/CookieConsent.tsx și de scriptul Consent Mode din app/layout.tsx.
 
-export const CONSENT_STORAGE_KEY = "cookie_consent_v3";
+/** Versiunea consimțământului: la schimbarea categoriilor (v4: marketing / TikTok) îi întrebăm din nou pe toți. */
+export const CONSENT_VERSION = 4;
+export const CONSENT_STORAGE_KEY = "cookie_consent_v4";
 /** Alegerea se păstrează 12 luni, apoi întrebăm din nou. */
 export const CONSENT_MAX_AGE_MS = 365 * 24 * 60 * 60 * 1000;
 export const OPEN_COOKIE_SETTINGS_EVENT = "open-cookie-settings";
+/** CustomEvent pe window după aplicarea alegerii; detail: { analytics, marketing }. */
+export const CONSENT_CHANGE_EVENT = "cookie-consent-change";
 
-export type ConsentChoice = { analytics: boolean; marketing: boolean; ts: number; v: 3 };
+export type ConsentChoice = { analytics: boolean; marketing: boolean; ts: number; v: typeof CONSENT_VERSION };
 
 export function readConsent(): ConsentChoice | null {
     try {
         const raw = localStorage.getItem(CONSENT_STORAGE_KEY);
         if (!raw) return null;
         const c = JSON.parse(raw);
-        if (!c || c.v !== 3 || typeof c.ts !== "number" || Date.now() - c.ts > CONSENT_MAX_AGE_MS) return null;
-        return { analytics: !!c.analytics, marketing: !!c.marketing, ts: c.ts, v: 3 };
+        if (!c || c.v !== CONSENT_VERSION || typeof c.ts !== "number" || Date.now() - c.ts > CONSENT_MAX_AGE_MS) return null;
+        return { analytics: !!c.analytics, marketing: !!c.marketing, ts: c.ts, v: CONSENT_VERSION };
     } catch {
         return null;
     }
 }
 
 export function saveConsent(analytics: boolean, marketing: boolean): ConsentChoice {
-    const c: ConsentChoice = { analytics, marketing, ts: Date.now(), v: 3 };
+    const c: ConsentChoice = { analytics, marketing, ts: Date.now(), v: CONSENT_VERSION };
     try {
         localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify(c));
         // vechile chei (banner anterior) nu mai sunt folosite
         localStorage.removeItem("cookie_consent");
         localStorage.removeItem("cookie_consent_v2");
+        localStorage.removeItem("cookie_consent_v3");
     } catch { }
     return c;
 }
@@ -46,7 +51,7 @@ gtag('consent', 'default', {
 gtag('set', 'ads_data_redaction', true);
 try {
   var c = JSON.parse(localStorage.getItem('${CONSENT_STORAGE_KEY}') || 'null');
-  if (c && c.v === 3 && Date.now() - c.ts <= ${CONSENT_MAX_AGE_MS}) {
+  if (c && c.v === ${CONSENT_VERSION} && Date.now() - c.ts <= ${CONSENT_MAX_AGE_MS}) {
     gtag('consent', 'update', {
       analytics_storage: c.analytics ? 'granted' : 'denied',
       ad_storage: c.marketing ? 'granted' : 'denied',

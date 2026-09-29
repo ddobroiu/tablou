@@ -1,3 +1,5 @@
+import { TIKTOK_PIXEL_ID } from "./tiktok";
+
 // Datele operatorului (comerciantului) și constantele legale ale site-ului.
 // SINGURA sursă pentru identificarea firmei: subsol, contact, pagini legale, JSON-LD,
 // checkout, PDF-uri. Aceleași date pe toate site-urile de print (aceeași firmă).
@@ -36,8 +38,8 @@ export const VAT_NOTE_SENTENCE = "Preț final; furnizorul nu este plătitor de T
 export const VAT_NOTE_ASCII = "Pret final; furnizorul nu este platitor de TVA.";
 
 /** Versiunea documentelor legale (Termeni, Confidențialitate, Cookies, Livrare și retur). */
-export const LEGAL_VERSION = "2026-09-26";
-export const LEGAL_EFFECTIVE_DATE = "26 septembrie 2026";
+export const LEGAL_VERSION = "2026-09-29";
+export const LEGAL_EFFECTIVE_DATE = "29 septembrie 2026";
 
 /** Link-uri legale folosite în subsol, checkout și în paginile legale. */
 export const LEGAL_LINKS = [
@@ -88,4 +90,5 @@ export const TRACKING: {
     ga4Ids: ["G-NZ9X76TF43"],
     googleAdsIds: [],
     siteAnalyticsSrc: "https://www.shopprint.ro/t.js",
+    tiktokPixelId: TIKTOK_PIXEL_ID,
 };

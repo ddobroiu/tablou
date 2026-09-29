@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
-import { readConsent } from "@/lib/cookieConsent";
+import { CONSENT_CHANGE_EVENT, readConsent } from "@/lib/cookieConsent";
+import { trackTikTok } from "@/lib/tiktok";
 
 type TrackingWindow = Window & {
     dataLayer?: unknown[];
@@ -64,6 +65,39 @@ export default function ConversionTracker({ orderNo, value, currency = "RON" }: 
         }, 0);
 
         return () => window.clearTimeout(timer);
+    }, [orderNo, value, currency]);
+
+    // TikTok CompletePayment: numai cu consimțământ pentru marketing, o singură dată per comandă.
+    // Pixelul se poate încărca după montarea paginii (acord dat chiar aici), deci reîncercăm la schimbarea acordului.
+    useEffect(() => {
+        if (!orderNo) return;
+        const key = `tt_purchase_${orderNo}`;
+        const fire = () => {
+            try {
+                if (localStorage.getItem(key)) return true;
+            } catch { }
+            const params = {
+                currency,
+                content_type: "product" as const,
+                order_id: String(orderNo),
+                event_id: `order-${orderNo}`,
+                ...(typeof value === "number" && value > 0 ? { value: Number(value.toFixed(2)) } : {}),
+            };
+            if (!trackTikTok("CompletePayment", params)) return false;
+            try {
+                localStorage.setItem(key, "1");
+            } catch { }
+            return true;
+        };
+        const onChange = () => {
+            if (fire()) window.removeEventListener(CONSENT_CHANGE_EVENT, onChange);
+        };
+        const timer = window.setTimeout(onChange, 0);
+        window.addEventListener(CONSENT_CHANGE_EVENT, onChange);
+        return () => {
+            window.clearTimeout(timer);
+            window.removeEventListener(CONSENT_CHANGE_EVENT, onChange);
+        };
     }, [orderNo, value, currency]);
 
     return null;

@@ -142,7 +142,7 @@ const sections: LegalSection[] = [
                         <li><strong>Marketing (numai cu consimțământ):</strong> Meta Platforms Ireland Limited (Meta Pixel).</li>
                     )}
                     {TRACKING.tiktokPixelId && (
-                        <li><strong>Marketing (numai cu consimțământ):</strong> TikTok Technology Limited (TikTok Pixel).</li>
+                        <li><strong>Marketing / reclame (numai cu consimțământ):</strong> TikTok Technology Limited (Irlanda) – TikTok Pixel: identificatori din cookie-uri (_ttp), paginile vizitate, adăugările în coș și comenzile finalizate (numărul și valoarea comenzii, fără nume, e-mail sau telefon), pentru măsurarea eficienței reclamelor TikTok și retargeting. Cookie-urile de marketing se folosesc numai cu consimțământul dumneavoastră, pe care îl puteți retrage oricând din „Setări cookie-uri”. Datele pot fi transferate în afara UE, în baza clauzelor contractuale standard.</li>
                     )}
                     {TRACKING.siteAnalyticsSrc && (
                         <li><strong>Statistica proprie a site-urilor noastre (numai cu consimțământ):</strong> scriptul de măsurare a vizitelor găzduit pe shopprint.ro, operat de noi; datele se stochează pe serverele noastre și sunt folosite și în platforma noastră internă de monitorizare mydashboard.ro.</li>
@@ -162,7 +162,7 @@ const sections: LegalSection[] = [
         title: "Transferuri în afara Spațiului Economic European",
         body: (
             <p>
-                Unii furnizori (de exemplu Stripe, Resend, Cloudinary, OpenAI, Google, Meta, Microsoft) pot prelucra date în Statele Unite ale
+                Unii furnizori (de exemplu Stripe, Resend, Cloudinary, OpenAI, Google, Meta, Microsoft, TikTok) pot prelucra date în Statele Unite ale
                 Americii sau în alte țări din afara SEE. Aceste transferuri se fac numai cu garanții adecvate: decizia de adecvare a
                 Comisiei Europene pentru companiile certificate în cadrul EU-U.S. Data Privacy Framework și/sau clauzele contractuale
                 standard aprobate de Comisia Europeană, împreună cu măsurile suplimentare oferite de furnizori. Ne puteți cere pe
