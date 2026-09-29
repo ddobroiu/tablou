@@ -18,6 +18,7 @@ import { buildDimensionContent, brandKeyFromName, getLocalityLinks } from "@/lib
 import { WhatsAppBar, WhatsAppButton } from "@/components/seo/WhatsAppBar";
 import { judetDimensionUrl, isJudetDimSize } from "@/lib/seo/judetDimensionPages";
 import { JUDETE_FULL_DATA } from "@/lib/localitati";
+import { sizePageIndexing, standardFirstSizes, isStandardSize } from "@/lib/seo/standardSizes";
 
 // Paginile se randează la cerere și se păstrează în cache o săptămână.
 // Vizibil: titlu, preț, WhatsApp, tabel de prețuri, date pe scurt. Textul lung
@@ -25,7 +26,12 @@ import { JUDETE_FULL_DATA } from "@/lib/localitati";
 // Google, dar nu îngroapă prețul și butonul.
 export const revalidate = 604800;
 
-// Fara ISR aici: 8.336 de pagini x ~125 KB ar umple discul serverului (40 GB, ~12 GB liberi).
+// ISR la cerere; cache-ul stă doar în memorie (next.config: experimental.isrFlushToDisk=false),
+// deci cele ~8.336 de pagini x ~125 KB nu mai ajung pe disc (40 GB, ~12 GB liberi).
+export const dynamicParams = true;
+export function generateStaticParams() {
+    return [];
+}
 type Params = { product: string; size: string };
 
 const BASE_URL = String(siteConfig.url || "").toLowerCase().replace(/\/$/, "");
@@ -50,7 +56,10 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     const p = await params;
     const r = resolve(p);
     if (!r) return {};
-    const url = `${BASE_URL}${dimensionUrl(r.productId, r.size.w, r.size.h)}`;
+    const path = dimensionUrl(r.productId, r.size.w, r.size.h);
+    // Mărime standard → index, canonical pe site-ul acasă al produsului; restul → noindex,follow.
+    const indexing = sizePageIndexing(BASE_URL, r.productId, r.size.w, r.size.h, path);
+    const url = indexing.canonical;
     return {
         title: { absolute: r.content.metaTitle },
         description: r.content.metaDescription,
@@ -64,7 +73,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
             type: "website",
             images: r.cfg.image ? [{ url: `${BASE_URL}${r.cfg.image}` }] : undefined,
         },
-        robots: { index: true, follow: true },
+        robots: indexing.robots,
     };
 }
 
@@ -76,7 +85,9 @@ export default async function DimensionPage({ params }: { params: Promise<Params
     const { w, h } = size;
     const url = `${BASE_URL}${dimensionUrl(productId, w, h)}`;
     const neighbors = getNeighborSizes(productId, w, h, 8);
-    const popular = getPopularSizes(productId, 6).filter((s) => !(s.w === w && s.h === h));
+    // Formatele standard (indexabile) primele, apoi cele populare.
+    const popular = standardFirstSizes(productId, 10).filter((s) => !(s.w === w && s.h === h));
+    const standard = isStandardSize(productId, w, h);
     const localities = getLocalityLinks(productId, w, h).slice(0, 6);
     const judete = isJudetDimSize(productId, w, h) ? JUDETE_FULL_DATA.filter((j) => j.slug !== "bucuresti").slice((w + h) % 30, (w + h) % 30 + 8) : [];
     const configuratorHref = `${cfg.url}?w=${w}&h=${h}`;
@@ -131,6 +142,7 @@ export default async function DimensionPage({ params }: { params: Promise<Params
                                 {content.productLabel} <span className="text-emerald-500">{w}×{h} cm</span>
                             </h1>
                             <p className="text-lg text-slate-500 mb-6">{content.subtitle}</p>
+                            {standard && <p className="-mt-3 mb-6 inline-flex rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700 ring-1 ring-emerald-200">Format standard{size.label ? ` · ${size.label}` : ""}</p>}
                             <div className="flex flex-col sm:flex-row gap-3">
                                 <WhatsAppButton message={waMessage}>Cere ofertă pe WhatsApp</WhatsAppButton>
                                 <Link href={configuratorHref} className="inline-flex items-center justify-center px-8 py-4 rounded-2xl font-black text-sm uppercase tracking-widest bg-slate-900 text-white hover:bg-slate-700 transition-all">

@@ -11,12 +11,22 @@ import { buildLocalContent } from "@/lib/seo/localContent";
 import { getJudetProfile } from "@/lib/seo/judetProfiles";
 import { getFromPrice } from "@/lib/seo/fromPrice";
 import { WhatsAppBar, WhatsAppButton } from "@/components/seo/WhatsAppBar";
+import { withDisplayName, nearbyLocalities } from "@/lib/seo/localityData";
+import { Breadcrumbs, LocalityFacts, SourceNote } from "@/components/seo/LocalitySeo";
 
 // Pagina unei localitati: scurta si clara, cu butoanele la vedere din primul ecran.
 // Textul unic vine din faptele reale ale judetului (lib/seo/localContent.ts), nu din umplutura.
 // Intrebarile frecvente sunt afisate pe pagina, identice cu cele din datele structurate.
 
 type Params = { params: Promise<{ judetSlug: string; localitateSlug: string }> };
+
+// Randare la prima cerere, apoi din cache (ISR, 7 zile): Googlebot nu mai randează pagina la fiecare vizită.
+// Cache-ul ISR stă doar în memorie (next.config: experimental.isrFlushToDisk=false), nu pe disc.
+export const revalidate = 604800;
+export const dynamicParams = true;
+export function generateStaticParams() {
+    return [];
+}
 
 // Cele mai comandate, afisate primele si in cardul din primul ecran
 const TOP = ["canvas", "tapet", "afise", "autocolante", "banner", "rollup", "plexiglass", "pvc-forex"];
@@ -55,7 +65,7 @@ function faqFor(locName: string, judetName: string, tier: string | undefined) {
 
 export async function generateMetadata({ params }: Params) {
     const { judetSlug, localitateSlug } = await params;
-    const loc = getLocalitateBySlug(judetSlug, localitateSlug);
+    const loc = withDisplayName(judetSlug, getLocalitateBySlug(judetSlug, localitateSlug));
     const judet = getJudetBySlug(judetSlug);
     if (!loc || !judet) return {};
 
@@ -75,7 +85,7 @@ export async function generateMetadata({ params }: Params) {
 
 export default async function LocalitatePage({ params }: Params) {
     const { judetSlug, localitateSlug } = await params;
-    const loc = getLocalitateBySlug(judetSlug, localitateSlug);
+    const loc = withDisplayName(judetSlug, getLocalitateBySlug(judetSlug, localitateSlug));
     const judet = getJudetBySlug(judetSlug);
     if (!loc || !judet) notFound();
 
@@ -95,9 +105,9 @@ export default async function LocalitatePage({ params }: Params) {
     const products = orderedProducts();
     const top = products.filter((p) => TOP.slice(0, 3).includes(p.id));
     const faq = faqFor(loc.name, judet.name, profile?.tierLivrare);
-    const neighbours = getSiblingLocalitySlugs(judet.slug, loc.slug, 12)
-        .map((slug) => judet.localitati.find((l) => l.slug === slug))
-        .filter((l): l is NonNullable<typeof l> => Boolean(l));
+    // Vecinii reali din date (cu distanța), altfel cei din aceeași comună / vecinii alfabetici din județ.
+    const neighbours = nearbyLocalities(judet.slug, judet.localitati, loc.slug, 12, (j, s) => getLocalitateBySlug(j, s)?.name);
+    const nearbyHasKm = neighbours.some((l) => typeof l.km === "number");
     const bannerFrom = getFromPrice(["canvas"]);
     const pageUrl = `${siteConfig.url}/judet/${judet.slug}/${loc.slug}`;
     const waMessage = `Bună ziua! Aș dori o ofertă pentru tablouri canvas cu livrare în ${loc.name}, jud. ${judet.name}.`;
@@ -119,16 +129,6 @@ export default async function LocalitatePage({ params }: Params) {
                         },
                         {
                             "@context": "https://schema.org",
-                            "@type": "BreadcrumbList",
-                            itemListElement: [
-                                { "@type": "ListItem", position: 1, name: "Acasă", item: `${siteConfig.url}/` },
-                                { "@type": "ListItem", position: 2, name: "Județe", item: `${siteConfig.url}/judet` },
-                                { "@type": "ListItem", position: 3, name: judet.name, item: `${siteConfig.url}/judet/${judet.slug}` },
-                                { "@type": "ListItem", position: 4, name: loc.name, item: pageUrl },
-                            ],
-                        },
-                        {
-                            "@context": "https://schema.org",
                             "@type": "FAQPage",
                             mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
                         },
@@ -140,13 +140,18 @@ export default async function LocalitatePage({ params }: Params) {
             <section className="border-b border-slate-100 bg-gradient-to-b from-emerald-50/60 to-white">
                 <div className="container mx-auto grid gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[1.4fr_1fr] lg:items-center lg:py-14">
                     <div>
-                        <nav aria-label="Breadcrumb" className="mb-4 flex flex-wrap items-center gap-1.5 text-xs text-slate-500">
-                            <Link href="/judet" className="hover:text-emerald-700">Județe</Link>
-                            <span aria-hidden>/</span>
-                            <Link href={`/judet/${judet.slug}`} className="hover:text-emerald-700">{judet.name}</Link>
-                            <span aria-hidden>/</span>
-                            <span className="text-slate-800">{loc.name}</span>
-                        </nav>
+                        <Breadcrumbs
+                            siteUrl={siteConfig.url}
+                            items={[
+                                { name: "Acasă", href: "/" },
+                                { name: "Județe", href: "/judet" },
+                                { name: judet.name, href: `/judet/${judet.slug}` },
+                                { name: loc.name },
+                            ]}
+                            className="mb-4 flex flex-wrap items-center gap-1.5 text-xs text-slate-500"
+                            linkClassName="hover:text-emerald-700"
+                            currentClassName="text-slate-800"
+                        />
                         <p className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1 text-xs font-medium text-emerald-700 ring-1 ring-emerald-200">
                             <Truck size={14} /> Livrăm în {loc.name}, jud. {judet.name}
                         </p>
@@ -267,22 +272,26 @@ export default async function LocalitatePage({ params }: Params) {
                 </div>
             </section>
 
+            {/* Date reale despre localitate (doar dacă există în lib/seo/data/judete) */}
+            <LocalityFacts judetSlug={judet.slug} locSlug={loc.slug} locName={loc.name} className="border-t border-slate-100 bg-white py-12" />
+
             {/* Localitati vecine */}
             {neighbours.length > 0 && (
                 <section className="border-t border-slate-100 bg-slate-50 py-12 pb-28 sm:py-16 lg:pb-16">
                     <div className="container mx-auto px-4 sm:px-6">
-                        <h2 className="text-xl font-bold text-slate-900">Livrăm și în alte localități din județul {judet.name}</h2>
+                        <h2 className="text-xl font-bold text-slate-900">{nearbyHasKm ? `Localități apropiate de ${loc.name}` : `Livrăm și în alte localități din județul ${judet.name}`}</h2>
                         <div className="mt-5 flex flex-wrap gap-2">
                             {neighbours.map((l) => (
-                                <Link key={l.slug} href={`/judet/${judet.slug}/${l.slug}`}
+                                <Link key={`${l.judetSlug}/${l.slug}`} href={`/judet/${l.judetSlug}/${l.slug}`}
                                     className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 hover:border-emerald-300 hover:text-emerald-700">
-                                    {l.name}
+                                    {l.name}{typeof l.km === "number" ? <span className="text-slate-400"> · {l.km.toLocaleString("ro-RO")} km</span> : null}
                                 </Link>
                             ))}
                             <Link href={`/judet/${judet.slug}`} className="rounded-full px-4 py-2 text-sm font-semibold text-emerald-700 hover:underline">
                                 Tot județul {judet.name} →
                             </Link>
                         </div>
+                                {nearbyHasKm && <SourceNote judetSlug={judet.slug} keys={["osm"]} prefix="Distanțe în linie dreaptă" />}
                     </div>
                 </section>
             )}

@@ -52,7 +52,8 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     const url = `${BASE_URL}${judetDimensionUrl(judet.slug, productId, size.w, size.h)}`;
     const title = `${content.productLabel} ${size.w}x${size.h} cm în ${judet.name} – de la ${formatLei(pricing.fromPrice)} | ${siteConfig.name}`;
     const description = `${content.productLabel} ${size.w}x${size.h} cm livrat în județul ${judet.name}: de la ${formatLei(pricing.fromPrice)}/buc, ${formatLei(pricing.recommended.rows[pricing.recommended.rows.length - 1].unit)}/buc la ${pricing.recommended.rows[pricing.recommended.rows.length - 1].qty} buc. Producție 2-4 zile lucrătoare, apoi curier.`.slice(0, 158);
-    return { title: { absolute: title }, description, alternates: { canonical: url }, openGraph: { title, description, url, siteName: siteConfig.name, locale: "ro_RO", type: "website" }, robots: { index: true, follow: true } };
+    // noindex,follow: pagina repetă pagina de dimensiune + profilul județului; fără date reale pe județ nu merită indexată separat.
+    return { title: { absolute: title }, description, alternates: { canonical: url }, openGraph: { title, description, url, siteName: siteConfig.name, locale: "ro_RO", type: "website" }, robots: { index: false, follow: true } };
 }
 
 export default async function JudetDimensionPage({ params }: { params: Promise<Params> }) {

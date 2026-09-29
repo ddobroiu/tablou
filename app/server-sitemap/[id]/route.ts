@@ -19,6 +19,7 @@ import { MATERIALE_DATA } from '@/lib/seo/materialeData';
 import { SERVICII_DATA } from '@/lib/seo/serviciiData';
 import { REGLEMENTARI_DATA } from '@/lib/seo/reglementariData';
 import { STILURI_DATA } from '@/lib/seo/stiluriData';
+import { handleSeoSitemap } from '@/lib/seo/localitySitemap';
 import { INDUSTRIE_DATA } from '@/lib/seo/industriiData';
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.tablou.net';
@@ -111,6 +112,11 @@ export async function GET(request: Request, props: any) {
     const params = await (props.params instanceof Promise ? props.params : props.params);
     const id = params?.id;
 
+    // Sitemap-uri pe județ (judet-{judet}[-{n}]), dimensiuni standard și ID-urile
+    // retrase ({n}-{m}, dimensions-{n}, judet-dimensiuni → 410): lib/seo/localitySitemap.ts.
+    const seoSitemap = handleSeoSitemap(id);
+    if (seoSitemap) return seoSitemap;
+
     let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
 
     if (id === 'main') {
@@ -150,9 +156,7 @@ export async function GET(request: Request, props: any) {
             xml += generateUrlNode(`${BASE_URL}${path}`, '0.9', 'weekly');
         }
 
-        for (const j of JUDETE_FULL_DATA) {
-            xml += generateUrlNode(`${BASE_URL}/judet/${j.slug}`, '0.6', 'monthly');
-        }
+        // Paginile de județ sunt în sitemap-urile pe județ (judet-{judet}).
 
         const { INDUSTRIE_DATA } = await import('@/lib/seo/industriiData');
         xml += generateUrlNode(`${BASE_URL}/industrii`, '0.8', 'weekly');

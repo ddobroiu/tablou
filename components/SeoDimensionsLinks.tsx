@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { getPopularSizes, getSizesForProduct, dimensionUrl, isDimensionProduct } from '@/lib/seo/dimensionPages';
+import { standardFirstSizes } from '@/lib/seo/standardSizes';
 
 interface SeoDimensionsLinksProps {
     productId: string;
@@ -24,7 +25,8 @@ export const SeoDimensionsLinks: React.FC<SeoDimensionsLinksProps> = ({
     if (!isDimensionProduct(productId)) return null;
     const total = getSizesForProduct(productId).length;
     if (total === 0) return null;
-    const popular = getPopularSizes(productId, 12).filter((s) => !(s.w === currentW && s.h === currentH));
+    // Formatele standard (paginile indexate) primele, apoi cele populare.
+    const popular = standardFirstSizes(productId, 12).filter((s) => !(s.w === currentW && s.h === currentH));
 
     return (
         <section className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 md:p-8">
