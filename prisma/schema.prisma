@@ -422,3 +422,31 @@ model PrintAdCampaign {
 
   @@id([provider, campaignId])
 }
+
+// Microsoft Clarity pe site pe zi: cum se poarta vizitatorii (o citire pe zi, API-ul da doar ultimele 24 de ore).
+// date = ziua citirii minus una (citirea de dimineata acopera in mare ziua de ieri). Timpii in secunde / sesiune.
+model PrintClarityDaily {
+  site            String
+  date            DateTime @db.Date
+  sessions        Int
+  botSessions     Int
+  users           Int
+  pagesPerSession Float?
+  scrollDepth     Float?
+  totalTime       Float?
+  activeTime      Float?
+  rageClicks      Int
+  rageSessions    Int
+  deadClicks      Int
+  deadSessions    Int
+  quickbacks      Int
+  excessiveScroll Int
+  scriptErrors    Int
+  errorSessions   Int
+  errorClicks     Int
+  pages           Json?
+  fetchedAt       DateTime @default(now())
+
+  @@id([site, date])
+  @@index([date])
+}
