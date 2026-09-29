@@ -51,6 +51,11 @@ export const AI_PRICES: Record<string, Price> = {
     'gpt-4o-mini': { in: 0.15, out: 0.6, cachedMul: 0.5 },
     'gpt-4o': { in: 2.5, out: 10, cachedMul: 0.5 },
     'gpt-4.1-mini': { in: 0.4, out: 1.6, cachedMul: 0.25 },
+    'gpt-5.5': { in: 5, out: 30, cachedMul: 0.1 },
+    // Imagini OpenAI: pret pe tokeni (text + imagine la intrare, imagine la iesire)
+    'gpt-image-2': { in: 8, out: 30, cachedMul: 0.25 },
+    'gpt-image-1-mini': { in: 2.5, out: 8, cachedMul: 0.1 },
+    'gpt-image-1': { in: 10, out: 40, cachedMul: 0.25 },
     // Anthropic (citirea din cache 0,1x; scrierea in cache 1,25x)
     'claude-haiku-4-5': { in: 1, out: 5, cachedMul: 0.1 },
     'claude-sonnet-5': { in: 2, out: 10, cachedMul: 0.1 },
