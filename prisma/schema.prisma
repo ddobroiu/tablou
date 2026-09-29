@@ -450,3 +450,58 @@ model PrintClarityDaily {
   @@id([site, date])
   @@index([date])
 }
+
+// Consumul AI al site-urilor de print (lib/aiUsage.ts, identic in cele 6 site-uri). Tabele create cu prisma/sql/20260929_print_insights.sql.
+// Pe zi (ora Romaniei), site, furnizor, model si functie; calls = apeluri reusite, errors = esuate, unpriced = apeluri fara pret cunoscut (ex. imagini).
+model PrintAiUsageDaily {
+  site         String
+  date         DateTime @db.Date
+  provider     String
+  model        String
+  feature      String
+  calls        Int      @default(0)
+  errors       Int      @default(0)
+  inputTokens  Int      @default(0)
+  outputTokens Int      @default(0)
+  cachedTokens Int      @default(0)
+  costUsd      Float    @default(0)
+  unpriced     Int      @default(0)
+  updatedAt    DateTime @default(now()) @updatedAt
+
+  @@id([site, date, provider, model, feature])
+  @@index([date])
+}
+
+// Erorile recente ale apelurilor AI (kind: credit | auth | rate | other)
+model PrintAiError {
+  id       String   @id @default(cuid())
+  site     String
+  provider String
+  model    String
+  feature  String
+  kind     String
+  message  String
+  at       DateTime @default(now())
+
+  @@index([at])
+  @@index([site, at])
+}
+
+// Bugetul AI pe site (USD); fara rand: 2 $/zi, 20 $/luna
+model PrintAiBudget {
+  site       String   @id
+  dailyUsd   Float    @default(2)
+  monthlyUsd Float    @default(20)
+  updatedAt  DateTime @default(now()) @updatedAt
+}
+
+// Alertele AI trimise pe e-mail (deduplicare: credit/cheie max 1 pe 24 h, bugetul o data pe zi / luna)
+model PrintAiAlert {
+  key     String   @id
+  kind    String
+  site    String?
+  message String
+  sentAt  DateTime @default(now())
+
+  @@index([sentAt])
+}

@@ -2,6 +2,7 @@ import { alerta, faraCredite } from "@/lib/alerts";
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
 import { CHAT_MODEL, chatOptions } from "@/lib/ai-model";
+import { trackOpenAI } from "@/lib/aiUsage";
 import { tools, SYSTEM_PROMPT } from "@/lib/ai-shared";
 import { executeTool } from "@/lib/ai-tool-runner";
 import { sendWhatsAppMessage, sendInteractiveButtons, sendYesNoQuestion } from "@/lib/whatsapp-utils";
@@ -339,13 +340,13 @@ export async function POST(req: Request) {
 
         // 4. OpenAI Call - optimizat pentru WhatsApp
         const openai = getOpenAI();
-        const completion = await openai.chat.completions.create({
+        const completion = await trackOpenAI("whatsapp", CHAT_MODEL, () => openai.chat.completions.create({
           model: CHAT_MODEL,
           messages: messagesPayload as any,
           ...chatOptions(CHAT_MODEL, { temperature: 0.1, maxTokens: 300 }),
           tools: tools,
           tool_choice: "auto",
-        });
+        }));
 
         const responseMessage: any = completion.choices[0].message;
         let finalReply: string | null = responseMessage.content ?? null;
@@ -367,11 +368,11 @@ export async function POST(req: Request) {
               content: JSON.stringify(result),
             });
           }
-          const finalCompletion = await openai.chat.completions.create({
+          const finalCompletion = await trackOpenAI("whatsapp", CHAT_MODEL, () => openai.chat.completions.create({
             model: CHAT_MODEL,
             messages: messagesPayload as any,
             ...chatOptions(CHAT_MODEL, { temperature: 0.1, maxTokens: 300 }),
-          });
+          }));
           finalReply = finalCompletion.choices[0].message.content ?? "";
         }
 
