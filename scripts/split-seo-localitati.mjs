@@ -58,12 +58,12 @@ const clean = (o) => Object.fromEntries(Object.entries(o).filter(([, v]) => v !=
 
 function normFirms(v) {
     if (v === undefined || v === null) return undefined;
-    const count = typeof v === "number" ? v : num(pick(v, ["count", "active", "firme", "total", "n"]));
+    const count = typeof v === "number" ? v : num(pick(v, ["firmeActive", "count", "active", "firme", "total", "n"]));
     if (count === undefined) return undefined;
-    const rawSections = typeof v === "object" ? pick(v, ["topSections", "top", "sections", "sectiuni", "caen", "top3"]) : undefined;
+    const rawSections = typeof v === "object" ? pick(v, ["top3Domenii", "topSections", "top", "sections", "sectiuni", "caen", "top3"]) : undefined;
     const topSections = Array.isArray(rawSections)
         ? rawSections
-              .map((s) => (typeof s === "string" ? { label: s } : clean({ label: str(pick(s, ["label", "name", "denumire", "sectiune", "title"])), count: num(pick(s, ["count", "n", "firme", "total"])) })))
+              .map((s) => (typeof s === "string" ? { label: s } : clean({ label: str(pick(s, ["domeniu", "label", "name", "denumire", "title"])), count: num(pick(s, ["count", "n", "firme", "total"])) })))
               .filter((s) => s.label)
               .slice(0, 3)
         : undefined;
