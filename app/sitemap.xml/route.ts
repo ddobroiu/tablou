@@ -1,6 +1,5 @@
-import { LOCS_PER_SITEMAP } from "@/lib/seo/sitemapPaging";
-import { getDimensionSitemapParts } from "@/lib/seo/dimensionPages";
-import { JUDETE_FULL_DATA } from "@/lib/localitati";
+import { countySitemapIds, STANDARD_SIZES_SITEMAP_ID } from "@/lib/seo/localitySitemap";
+
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.tablou.net';
 
 export async function GET() {
@@ -9,32 +8,17 @@ export async function GET() {
     // Main sitemap
     xml += `  <sitemap>\n    <loc>${BASE_URL}/server-sitemap/main</loc>\n  </sitemap>\n`;
 
-    // LOCALITĂȚI: fiecare județ, cu TOATE localitățile lui, împărțite în părți
-    // de câte LOCS_PER_SITEMAP. Paginile de localitate sunt cele care aduc
-    // traficul organic, așa că sunt listate integral (~13.300), nu doar
-    // reședințele de județ.
-    //
-    // Numărul de părți se calculează din aceeași constantă pe care o folosește
-    // generatorul, altfel localitățile din coada fiecărui județ n-ar fi servite
-    // niciodată.
-    for (let i = 0; i < JUDETE_FULL_DATA.length; i++) {
-        const parts = Math.max(
-            1,
-            Math.ceil(JUDETE_FULL_DATA[i].localitati.length / LOCS_PER_SITEMAP)
-        );
-        for (let p = 0; p < parts; p++) {
-            xml += `  <sitemap>\n    <loc>${BASE_URL}/server-sitemap/${i}-${p}</loc>\n  </sitemap>\n`;
-        }
-    }
-
-
-    // DIMENSIONS SITEMAP — curated realistic size pairs per product (a few hundred URLs total,
-    // down from the old ~188,000-combination brute-force grid), fits in a single part.
-    // JUDEȚ × DIMENSIUNI POPULARE (lib/seo/judetDimensionPages.ts)
-    xml += `  <sitemap>
-    <loc>${BASE_URL}/server-sitemap/judet-dimensiuni</loc>
+    // JUDEȚE: câte un sitemap pe județ (pagina județului, localitățile lui și
+    // paginile localitate × produs pentru produsele al căror site acasă e acesta),
+    // vezi lib/seo/localitySitemap.ts. Vechile /server-sitemap/{n}-{m} răspund 410.
+    for (const id of countySitemapIds()) {
+        xml += `  <sitemap>
+    <loc>${BASE_URL}/server-sitemap/${id}</loc>
   </sitemap>
 `;
+    }
+
+    // Județ × dimensiune: noindex,follow (aproape identice cu pagina de dimensiune), deci nu mai sunt în sitemap.
 
     // COMPARAȚII de materiale (lib/seo/comparisons.ts)
     xml += `  <sitemap>
@@ -48,25 +32,25 @@ export async function GET() {
   </sitemap>
 `;
 
-    // DIMENSIUNI: /dimensiuni/{produs}/{L}x{H}, paginat cu aceeași constantă ca
-    // generatorul (lib/seo/dimensionPages.ts).
-    for (let d = 0; d < getDimensionSitemapParts(); d++) {
-        xml += `  <sitemap>
-    <loc>${BASE_URL}/server-sitemap/dimensions-${d}</loc>
+    // DIMENSIUNI STANDARD: doar mărimile standard ale produselor acasă (lib/seo/standardSizes.ts);
+    // restul grilei de dimensiuni e noindex,follow și nu intră în sitemap.
+    xml += `  <sitemap>
+    <loc>${BASE_URL}/server-sitemap/${STANDARD_SIZES_SITEMAP_ID}</loc>
   </sitemap>
 `;
-    }
 
-    // SEO CLUSTER SITEMAPS
+    // NEW SEO CLUSTERS SITEMAPS
     xml += `  <sitemap>\n    <loc>${BASE_URL}/server-sitemap/materiale</loc>\n  </sitemap>\n`;
     xml += `  <sitemap>\n    <loc>${BASE_URL}/server-sitemap/servicii</loc>\n  </sitemap>\n`;
     xml += `  <sitemap>\n    <loc>${BASE_URL}/server-sitemap/norme</loc>\n  </sitemap>\n`;
     xml += `  <sitemap>\n    <loc>${BASE_URL}/server-sitemap/stiluri</loc>\n  </sitemap>\n`;
 
-    // RECOMANDAT SITEMAP (product x intent x industry combinations for real configurator products)
+    // RECOMANDAT SITEMAP (product x intent / industry, restricted to realistic
+    // pairings - see server-sitemap/[id]/route.ts). Fits in a single part now.
     xml += `  <sitemap>\n    <loc>${BASE_URL}/server-sitemap/recomandat-0</loc>\n  </sitemap>\n`;
 
-    // INTENTS SITEMAP (purpose-driven pages like de-vanzare, nunta, etc.)
+    // INTENTS SITEMAP (Purpose-driven pages like de-vanzare, nunta, etc.) - already
+    // a small curated list (PRODUCT_INTENTS), fits in a single part.
     xml += `  <sitemap>\n    <loc>${BASE_URL}/server-sitemap/intents-0</loc>\n  </sitemap>\n`;
 
     xml += `</sitemapindex>`;

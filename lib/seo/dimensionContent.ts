@@ -361,7 +361,7 @@ const VOICES: Record<BrandKey, BrandVoice> = {
         brandName: "AdBanner",
         angle: "publicitate outdoor",
         intro: (p, size, cls, from) => [
-            `${cap(p.article)} ${p.noun} de ${size} cm este ${cls}. AdBanner îl produce în atelier propriu, cu preț calculat pe suprafață: de la ${from} pe bucată, cu grafica ta, fără costuri ascunse.`,
+            `${cap(p.article)} ${p.noun} de ${size} cm este ${cls}. La AdBanner îl comanzi online, cu preț calculat pe suprafață: de la ${from} pe bucată, cu grafica ta, fără costuri ascunse.`,
             "Mai jos ai prețurile la fiecare cantitate, greutatea și numărul de capse, rezoluția la care trebuie trimis fișierul și unde se folosește de obicei această mărime.",
         ],
         sections: ["price", "facts", "usage", "file", "faq", "neighbors", "localities"],
@@ -446,7 +446,7 @@ const VOICES: Record<BrandKey, BrandVoice> = {
         brandName: "ShopPrint",
         angle: "tipografie online",
         intro: (p, size, cls, from) => [
-            `${cap(p.article)} ${p.noun} de ${size} cm se comandă online la ShopPrint de la ${from} pe bucată; e ${cls}, produs în tipografie proprie și livrat prin curier.`,
+            `${cap(p.article)} ${p.noun} de ${size} cm se comandă online la ShopPrint de la ${from} pe bucată; e ${cls} și se livrează prin curier.`,
             "Pagina de mai jos strânge tot ce trebuie să știi înainte de comandă: prețul la 1, 2, 5 și 10 bucăți, greutatea și cum se pregătește fișierul.",
         ],
         sections: ["price", "facts", "file", "usage", "faq", "neighbors", "localities"],

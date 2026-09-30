@@ -25,7 +25,7 @@ const BASE_URL = String(siteConfig.url || "").toLowerCase().replace(/\/$/, "");
 const BRAND = brandKeyFromName(siteConfig.name);
 
 const TIER_TEXT: Record<string, string> = {
-    apropiat: "livrăm prin curier, județul fiind aproape de atelierul nostru din județul Buzău",
+    apropiat: "livrăm prin curier în toată țara, inclusiv în toate localitățile județului",
     mediu: "livrăm prin curier în toată țara, inclusiv în toate localitățile județului",
     distant: "livrăm prin curier în toată țara, inclusiv în toate localitățile județului",
 };
@@ -52,7 +52,8 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     const url = `${BASE_URL}${judetDimensionUrl(judet.slug, productId, size.w, size.h)}`;
     const title = `${content.productLabel} ${size.w}x${size.h} cm în ${judet.name} – de la ${formatLei(pricing.fromPrice)} | ${siteConfig.name}`;
     const description = `${content.productLabel} ${size.w}x${size.h} cm livrat în județul ${judet.name}: de la ${formatLei(pricing.fromPrice)}/buc, ${formatLei(pricing.recommended.rows[pricing.recommended.rows.length - 1].unit)}/buc la ${pricing.recommended.rows[pricing.recommended.rows.length - 1].qty} buc. Livrare în 2-4 zile lucrătoare.`.slice(0, 158);
-    return { title: { absolute: title }, description, alternates: { canonical: url }, openGraph: { title, description, url, siteName: siteConfig.name, locale: "ro_RO", type: "website" }, robots: { index: true, follow: true } };
+    // noindex,follow: pagina repetă pagina de dimensiune + profilul județului; fără date reale pe județ nu merită indexată separat.
+    return { title: { absolute: title }, description, alternates: { canonical: url }, openGraph: { title, description, url, siteName: siteConfig.name, locale: "ro_RO", type: "website" }, robots: { index: false, follow: true } };
 }
 
 export default async function JudetDimensionPage({ params }: { params: Promise<Params> }) {
@@ -89,7 +90,7 @@ export default async function JudetDimensionPage({ params }: { params: Promise<P
                             <p className="text-lg text-slate-500 mb-5">{content.subtitle}</p>
                             {profile && (
                                 <p className="text-slate-600 leading-relaxed mb-6">
-                                    În județul {judet.name} ({profile.regiune}) cererea vine mai ales din {profile.industrii.slice(0, 2).join(" și ")}; {profile.notaGeografica}. Comanda ajunge la tine în 2-4 zile lucrătoare, producție inclusă: {TIER_TEXT[tier]}.
+                                    Județul {judet.name} ({profile.regiune}) e cunoscut pentru {profile.industrii.slice(0, 2).join(" și ")}; {profile.notaGeografica}. Comanda ajunge la tine în 2-4 zile lucrătoare, producție inclusă: {TIER_TEXT[tier]}.
                                 </p>
                             )}
                             <div className="flex flex-col sm:flex-row gap-3">

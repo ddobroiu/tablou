@@ -6,6 +6,13 @@ const nextConfig: NextConfig = {
 
   // Standalone output for smaller production footprint (recommended for Railway/Docker)
   output: 'standalone',
+  // Cache-ul ISR (paginile /judet/... și /dimensiuni/..., sute de mii de URL-uri) stă doar în memorie:
+  // LRU limitat aici, nu pe disc (experimental.isrFlushToDisk=false). Serverul are 7,7 GB RAM și 40 GB disc.
+  cacheMaxMemorySize: 64 * 1024 * 1024,
+  // Datele pe județ citite cu fs de lib/seo/localityData.ts trebuie copiate în build-ul standalone.
+  outputFileTracingIncludes: {
+    '/**': ['./lib/seo/data/judete/*.json'],
+  },
 
   async redirects() {
     return [
@@ -139,6 +146,7 @@ const nextConfig: NextConfig = {
   // SWC compiler options for modern browsers
   // This tells Next.js to NOT transpile modern JS features
   experimental: {
+    isrFlushToDisk: false,
     /*
     serverActions: {
       bodySizeLimit: '10mb',

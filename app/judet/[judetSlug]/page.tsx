@@ -10,8 +10,11 @@ import { getJudetProfile } from "@/lib/seo/judetProfiles";
 import { getFromPrice } from "@/lib/seo/fromPrice";
 import { JUDET_LOCALITY_SLUGS } from "@/lib/seo/mainTowns";
 import { WhatsAppBar, WhatsAppButton } from "@/components/seo/WhatsAppBar";
+import { withDisplayName } from "@/lib/seo/localityData";
+import { Breadcrumbs, CountyFacts } from "@/components/seo/LocalitySeo";
 
-export const revalidate = 86400;
+// ISR 7 zile (cache doar în memorie, vezi next.config).
+export const revalidate = 604800;
 export const dynamicParams = true;
 export function generateStaticParams() {
     return getJudete().map((j) => ({ judetSlug: j.slug }));
@@ -39,14 +42,18 @@ export default async function JudetPage({ params }: Params) {
     const profile = getJudetProfile(judet.slug);
     const mainSlugs = JUDET_LOCALITY_SLUGS[judet.slug] ?? [];
     const mainTowns = mainSlugs
-        .map((s) => judet.localitati.find((l) => l.slug === s))
+        .map((s) => withDisplayName(judet.slug, judet.localitati.find((l) => l.slug === s)))
         .filter((l): l is NonNullable<typeof l> => Boolean(l));
     // Produsele trimit la pagina produsului din resedinta judetului (primul oras principal)
     const seat = mainTowns[0] ?? judet.localitati[0];
     const products = TOP.map((id) => CONFIGURATORS_REGISTRY.find((p) => p.id === id)).filter((p): p is NonNullable<typeof p> => Boolean(p));
     const byLetter = new Map<string, typeof judet.localitati>();
-    for (const l of judet.localitati) {
-        const k = l.name.charAt(0).toUpperCase();
+    // Toate localitățile, alfabetic (ordinea românească), grupate pe inițială; denumirile cu diacritice din date.
+    const allLocs = judet.localitati
+        .map((l) => withDisplayName(judet.slug, l) ?? l)
+        .sort((a, b) => a.name.localeCompare(b.name, "ro"));
+    for (const l of allLocs) {
+        const k = l.name.charAt(0).toLocaleUpperCase("ro");
         byLetter.set(k, [...(byLetter.get(k) ?? []), l]);
     }
     const faq = [
@@ -65,15 +72,6 @@ export default async function JudetPage({ params }: Params) {
                     __html: JSON.stringify([
                         {
                             "@context": "https://schema.org",
-                            "@type": "BreadcrumbList",
-                            itemListElement: [
-                                { "@type": "ListItem", position: 1, name: "Acasă", item: `${siteConfig.url}/` },
-                                { "@type": "ListItem", position: 2, name: "Județe", item: `${siteConfig.url}/judet` },
-                                { "@type": "ListItem", position: 3, name: judet.name, item: `${siteConfig.url}/judet/${judet.slug}` },
-                            ],
-                        },
-                        {
-                            "@context": "https://schema.org",
                             "@type": "FAQPage",
                             mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
                         },
@@ -83,11 +81,17 @@ export default async function JudetPage({ params }: Params) {
 
             <section className="border-b border-slate-100 bg-gradient-to-b from-emerald-50/60 to-white">
                 <div className="container mx-auto px-4 py-8 sm:px-6 lg:py-14">
-                    <nav aria-label="Breadcrumb" className="mb-4 flex items-center gap-1.5 text-xs text-slate-500">
-                        <Link href="/judet" className="hover:text-emerald-700">Județe</Link>
-                        <span aria-hidden>/</span>
-                        <span className="text-slate-800">{judet.name}</span>
-                    </nav>
+                    <Breadcrumbs
+                        siteUrl={siteConfig.url}
+                        items={[
+                            { name: "Acasă", href: "/" },
+                            { name: "Județe", href: "/judet" },
+                            { name: judet.name },
+                        ]}
+                        className="mb-4 flex items-center gap-1.5 text-xs text-slate-500"
+                        linkClassName="hover:text-emerald-700"
+                        currentClassName="text-slate-800"
+                    />
                     <p className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1 text-xs font-medium text-emerald-700 ring-1 ring-emerald-200">
                         <Truck size={14} /> Livrare în {judet.localitati.length} de localități
                     </p>
@@ -179,6 +183,9 @@ export default async function JudetPage({ params }: Params) {
                     </details>
                 </div>
             </section>
+
+            {/* Date reale pe județ (doar dacă există în lib/seo/data/judete) */}
+            <CountyFacts judetSlug={judet.slug} judetName={judet.name} />
 
             <section className="py-12 pb-28 sm:py-16 lg:pb-16">
                 <div className="container mx-auto max-w-3xl px-4 sm:px-6">

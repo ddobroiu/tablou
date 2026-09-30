@@ -4,6 +4,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/siteConfig";
 import { DIMENSION_PRODUCT_IDS, getDimProduct, getSizesForProduct, getPopularSizes, dimensionUrl } from "@/lib/seo/dimensionPages";
+import { standardFirstSizes } from "@/lib/seo/standardSizes";
 import { getDimensionPricing, formatLei } from "@/lib/seo/dimensionPricing";
 import { getProductInfo } from "@/lib/seo/dimensionContent";
 
@@ -45,7 +46,7 @@ export default function DimensionsIndex() {
                 <div className="container mx-auto px-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {products.map((p) => {
-                            const popular = getPopularSizes(p.id, 6);
+                            const popular = standardFirstSizes(p.id, 6);
                             return (
                                 <div key={p.id} className="rounded-[2rem] border border-slate-200 p-6 md:p-8 hover:border-emerald-500 hover:shadow-xl transition-all">
                                     <div className="flex gap-5 items-start">

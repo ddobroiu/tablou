@@ -14,6 +14,7 @@ import {
 } from "@/lib/seo/dimensionPages";
 import { getDimensionPricing, formatLei } from "@/lib/seo/dimensionPricing";
 import { getProductInfo } from "@/lib/seo/dimensionContent";
+import { standardFirstSizes } from "@/lib/seo/standardSizes";
 
 export const revalidate = 604800;
 
@@ -50,7 +51,8 @@ export default async function DimensionProductIndex({ params }: { params: Promis
     if (!isDimensionProduct(productId) || !cfg || !info) notFound();
 
     const sizes = getSizesForProduct(productId);
-    const popular = getPopularSizes(productId, 12);
+    // Formatele standard (singurele indexate) primele, apoi cele populare.
+    const popular = standardFirstSizes(productId, 12);
     const widths = [...new Set(sizes.map((s) => s.w))].sort((a, b) => a - b);
     const byWidth = new Map<number, typeof sizes>();
     for (const s of sizes) {
@@ -97,7 +99,7 @@ export default async function DimensionProductIndex({ params }: { params: Promis
 
             <section className="py-16 border-b border-slate-100">
                 <div className="container mx-auto px-6">
-                    <h2 className="text-3xl font-black text-slate-900 tracking-tighter mb-8">Cele mai căutate dimensiuni</h2>
+                    <h2 className="text-3xl font-black text-slate-900 tracking-tighter mb-8">Formate standard și cele mai căutate dimensiuni</h2>
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                         {popularWithPrice.map(({ s, price }) => (
                             <Link key={`${s.w}x${s.h}`} href={dimensionUrl(productId, s.w, s.h)} className="group rounded-3xl border border-slate-200 p-5 hover:border-emerald-500 hover:shadow-xl transition-all">
