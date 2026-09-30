@@ -38,6 +38,15 @@
  *    carton, polipropilena, semnalistica
  */
 
+/**
+ * OPRIT (decizie 30.09.2026, pe datele din Search Console 20-28.09): canonicalul
+ * între site-uri ar fi mutat ~37% din clicurile organice de print (ex. „pliante
+ * personalizate” e pe poziția 2 pe tablou.net și 70 pe prynt.ro, site-ul „acasă”).
+ * Cât e false, fiecare site e canonical pe sine și își pune toate produsele în
+ * sitemap. Harta PRODUCT_HOME rămâne pentru un test pe un singur produs.
+ */
+export const CROSS_SITE_CANONICAL = false;
+
 export type SiteKey = "shopprint" | "prynt" | "euprint" | "homeprint" | "adbanner" | "tablou";
 
 /** Originea canonică (https + www, fără slash final) a fiecărui site. */
@@ -152,6 +161,7 @@ export function homeSiteFor(productKey: string): SiteKey | undefined {
 /** True când site-ul curent e acasă pentru produs. Produs necunoscut → false. */
 export function isHomeSite(productKey: string, currentOrigin: string): boolean {
     const home = PRODUCT_HOME[productKey];
+    if (!CROSS_SITE_CANONICAL) return !!home;
     return !!home && home === siteKeyFromOrigin(currentOrigin);
 }
 
@@ -176,7 +186,7 @@ export function localProductCanonical(
     const selfUrl = `${origin}/judet/${judetSlug}/${locSlug}/${requested}`;
     const key = resolveLocalProductKey(productSlug);
     if (!key) return { url: selfUrl, self: true };
-    const home = PRODUCT_HOME[key];
+    const home = CROSS_SITE_CANONICAL ? PRODUCT_HOME[key] : undefined;
     const homeOrigin = home ? SITE_ORIGINS[home] : origin;
     const url = `${homeOrigin}${localProductPath(judetSlug, locSlug, key)}`;
     return { url, self: url === selfUrl };
@@ -184,6 +194,7 @@ export function localProductCanonical(
 
 /** Cheile de produs pentru care site-ul curent e acasă (pentru sitemap). */
 export function homeProductKeys(currentOrigin: string): string[] {
+    if (!CROSS_SITE_CANONICAL) return LOCAL_PRODUCT_KEYS;
     const site = siteKeyFromOrigin(currentOrigin);
     return LOCAL_PRODUCT_KEYS.filter((k) => PRODUCT_HOME[k] === site);
 }
@@ -194,7 +205,7 @@ export function homeProductKeys(currentOrigin: string): string[] {
  */
 export function sizeCanonical(currentOrigin: string, productId: string, path: string): { url: string; self: boolean } {
     const origin = normOrigin(currentOrigin);
-    const home = PRODUCT_HOME[productId];
+    const home = CROSS_SITE_CANONICAL ? PRODUCT_HOME[productId] : undefined;
     const homeOrigin = home ? SITE_ORIGINS[home] : origin;
     const url = `${homeOrigin}${path}`;
     return { url, self: url === `${origin}${path}` };
