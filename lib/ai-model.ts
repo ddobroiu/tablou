@@ -1,7 +1,7 @@
 /**
  * Modelul OpenAI pentru textul AI al site-ului (asistentul de pe site, WhatsApp, extragerea comenzilor).
  * Implicit gpt-5.6-luna ($0.20 / $1.20 per 1M tokeni); OPENAI_MODEL îl schimbă (ex. gpt-4o).
- * Generarea de imagini (gpt-image-2 / Gemini) NU folosește această constantă.
+ * Generarea de imagini (gpt-image-2) NU folosește această constantă.
  */
 export const CHAT_MODEL = process.env.OPENAI_MODEL || "gpt-5.6-luna";
 

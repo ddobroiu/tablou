@@ -128,7 +128,7 @@ const sections: LegalSection[] = [
                     {HAS_AI_CHAT && (
                         <li><strong>Asistentul de chat de pe site:</strong> OpenAI (SUA) – mesajele scrise în chat, pentru generarea răspunsurilor. Asistentul este un sistem de inteligență artificială, iar răspunsurile lui pot conține erori; vă rugăm să nu scrieți în chat date sensibile. Păstrăm conversațiile cel mult 12 luni, pentru a vă putea răspunde și pentru a îmbunătăți răspunsurile.</li>
                     )}
-                    <li><strong>Servicii de inteligență artificială</strong> (numai pentru funcțiile care le folosesc, de exemplu generarea sau adaptarea automată a unei grafici la cererea dumneavoastră): OpenAI (SUA) și Google (Gemini) – textul și imaginile trimise în acest scop.</li>
+                    <li><strong>Servicii de inteligență artificială</strong> (numai pentru funcțiile care le folosesc, de exemplu generarea sau adaptarea automată a unei grafici la cererea dumneavoastră): OpenAI (SUA) – textul și imaginile trimise în acest scop.</li>
                     {TRACKING.ga4Ids.length > 0 && (
                         <li><strong>Statistici (numai cu consimțământ):</strong> Google Ireland Limited (Google Analytics 4).</li>
                     )}

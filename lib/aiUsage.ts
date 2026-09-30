@@ -71,7 +71,7 @@ export function priceOf(model: string): Price | null {
     return k ? AI_PRICES[k] : null;
 }
 
-// Cost estimat; null cand nu stim pretul (ex. imaginile gpt-image / Gemini: se numara doar apelurile)
+// Cost estimat; null cand nu stim pretul (ex. imaginile gpt-image: se numara doar apelurile)
 export function estimateCostUsd(e: AiUsageEvent): number | null {
     if (typeof e.costUsd === 'number' && Number.isFinite(e.costUsd)) return Math.max(0, e.costUsd);
     const p = priceOf(e.model);
@@ -272,7 +272,7 @@ export const aiAlertRecipients = () =>
         .map((s) => s.trim())
         .filter(Boolean);
 
-const PROVIDER_NAME: Record<string, string> = { openai: 'OpenAI', anthropic: 'Anthropic', google: 'Gemini (Google)', replicate: 'Replicate', other: 'Furnizorul AI' };
+const PROVIDER_NAME: Record<string, string> = { openai: 'OpenAI', anthropic: 'Anthropic', google: 'Google', replicate: 'Replicate', other: 'Furnizorul AI' };
 export const providerName = (p: string) => PROVIDER_NAME[p] ?? p;
 
 // true = avem voie sa trimitem acum. windowMs null = o singura data pe cheie (ex. bugetul unei zile / luni).
