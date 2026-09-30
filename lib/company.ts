@@ -54,7 +54,7 @@ export const LEGAL_LINKS = [
 ] as const;
 
 /** ANPC – Soluționarea Alternativă a Litigiilor (Ordinul ANPC nr. 449/2022). */
-export const ANPC_SAL_URL = "https://anpc.ro/ce-este-sal/";
+export const ANPC_SAL_URL = "https://www.anpc.ro/public/ce-este-sal";
 
 /** Nota din checkout despre excepția de la dreptul de retragere (art. 16 lit. c OUG 34/2014). */
 export const PERSONALIZED_WITHDRAWAL_NOTE =

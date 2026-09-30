@@ -342,7 +342,7 @@ const sections: LegalSection[] = [
                 <p>
                     Dacă nu ajungem la o soluție amiabilă, consumatorii se pot adresa Autorității Naționale pentru Protecția
                     Consumatorilor (ANPC) sau pot apela la procedurile de soluționare alternativă a litigiilor (SAL), conform
-                    informațiilor de pe <a href={ANPC_SAL_URL} target="_blank" rel="noopener noreferrer">anpc.ro/ce-este-sal</a>. Litigiile
+                    informațiilor de pe <a href={ANPC_SAL_URL} target="_blank" rel="noopener noreferrer">anpc.ro/public/ce-este-sal</a>. Litigiile
                     care nu se soluționează amiabil sunt de competența instanțelor române; consumatorii pot sesiza și instanța de la
                     domiciliul lor, în condițiile legii.
                 </p>

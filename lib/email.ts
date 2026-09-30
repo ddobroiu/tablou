@@ -87,7 +87,7 @@ export function getPremiumHtmlTemplate({
         Pentru orice asistență, răspunde la acest email sau contactează-ne la <a href="mailto:${brandEmail}" style="color: #4f46e5; text-decoration: none;">${brandEmail}</a>.<br/><br/>
         © ${currentYear} <a href="https://${brandUrl}" style="color: #94a3b8; font-weight: bold; text-decoration:none;">${brandName}</a><br/><br/>
         <span style="font-size: 11px; line-height: 1.6;">${brandName} este operat de ${COMPANY.legalName} · CUI ${COMPANY.cui} · Nr. Reg. Com. ${COMPANY.regCom} · Sediul social: ${COMPANY.address.full}.<br/>
-        ${VAT_NOTE_SENTENCE} <a href="https://${brandUrl}/termeni" style="color: #94a3b8;">Termeni și condiții</a> · <a href="https://${brandUrl}/politica-retur" style="color: #94a3b8;">Livrare și retur</a> · <a href="https://${brandUrl}/confidentialitate" style="color: #94a3b8;">Confidențialitate</a> · <a href="https://anpc.ro/ce-este-sal/" style="color: #94a3b8;">ANPC – SAL</a></span>
+        ${VAT_NOTE_SENTENCE} <a href="https://${brandUrl}/termeni" style="color: #94a3b8;">Termeni și condiții</a> · <a href="https://${brandUrl}/politica-retur" style="color: #94a3b8;">Livrare și retur</a> · <a href="https://${brandUrl}/confidentialitate" style="color: #94a3b8;">Confidențialitate</a> · <a href="https://www.anpc.ro/public/ce-este-sal" style="color: #94a3b8;">ANPC – SAL</a></span>
       </div>
     </div>
   `;

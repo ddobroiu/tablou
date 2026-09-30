@@ -64,7 +64,7 @@ const sections: LegalSection[] = [
                 </li>
                 <li>
                     Puteți apela la <strong>soluționarea alternativă a litigiilor (SAL)</strong>, conform informațiilor ANPC:{" "}
-                    <a href={ANPC_SAL_URL} target="_blank" rel="noopener noreferrer">anpc.ro/ce-este-sal</a>.
+                    <a href={ANPC_SAL_URL} target="_blank" rel="noopener noreferrer">anpc.ro/public/ce-este-sal</a>.
                 </li>
                 <li>Vă puteți adresa instanțelor judecătorești competente din România.</li>
             </ul>
