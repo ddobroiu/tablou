@@ -51,7 +51,7 @@ export default function DeliveryInfo({ county, country, className = "", shipping
         };
     }, [query]);
 
-    const label = data?.label || "1–2 zile lucrătoare";
+    const label = data?.label || "2–4 zile lucrătoare";
     const badge = data?.codAvailable ? "COD disponibil" : "COD indisponibil";
     const fmt = useMemo(() => new Intl.NumberFormat("ro-RO", { style: "currency", currency: "RON", maximumFractionDigits: 2 }).format, []);
     const shipText = typeof shippingFrom === "number" ? `de la ${fmt(shippingFrom)}` : undefined;

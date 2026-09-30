@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     const { judet, productId, size, pricing, content } = r;
     const url = `${BASE_URL}${judetDimensionUrl(judet.slug, productId, size.w, size.h)}`;
     const title = `${content.productLabel} ${size.w}x${size.h} cm în ${judet.name} – de la ${formatLei(pricing.fromPrice)} | ${siteConfig.name}`;
-    const description = `${content.productLabel} ${size.w}x${size.h} cm livrat în județul ${judet.name}: de la ${formatLei(pricing.fromPrice)}/buc, ${formatLei(pricing.recommended.rows[pricing.recommended.rows.length - 1].unit)}/buc la ${pricing.recommended.rows[pricing.recommended.rows.length - 1].qty} buc. Producție 2-4 zile lucrătoare, apoi curier.`.slice(0, 158);
+    const description = `${content.productLabel} ${size.w}x${size.h} cm livrat în județul ${judet.name}: de la ${formatLei(pricing.fromPrice)}/buc, ${formatLei(pricing.recommended.rows[pricing.recommended.rows.length - 1].unit)}/buc la ${pricing.recommended.rows[pricing.recommended.rows.length - 1].qty} buc. Livrare în 2-4 zile lucrătoare.`.slice(0, 158);
     return { title: { absolute: title }, description, alternates: { canonical: url }, openGraph: { title, description, url, siteName: siteConfig.name, locale: "ro_RO", type: "website" }, robots: { index: true, follow: true } };
 }
 
@@ -89,7 +89,7 @@ export default async function JudetDimensionPage({ params }: { params: Promise<P
                             <p className="text-lg text-slate-500 mb-5">{content.subtitle}</p>
                             {profile && (
                                 <p className="text-slate-600 leading-relaxed mb-6">
-                                    În județul {judet.name} ({profile.regiune}) cererea vine mai ales din {profile.industrii.slice(0, 2).join(" și ")}; {profile.notaGeografica}. Producem în 2-4 zile lucrătoare, iar {TIER_TEXT[tier]}.
+                                    În județul {judet.name} ({profile.regiune}) cererea vine mai ales din {profile.industrii.slice(0, 2).join(" și ")}; {profile.notaGeografica}. Comanda ajunge la tine în 2-4 zile lucrătoare, producție inclusă: {TIER_TEXT[tier]}.
                                 </p>
                             )}
                             <div className="flex flex-col sm:flex-row gap-3">

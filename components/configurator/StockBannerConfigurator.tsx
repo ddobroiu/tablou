@@ -65,7 +65,7 @@ import { getLandingInfo } from "@/lib/landingData";
 const bannerFaqs: QA[] = [
     { question: "Ce materiale sunt disponibile?", answer: "Oferim Frontlit 440g (Standard) și Frontlit 510g (Premium), ambele fiind materiale PVC durabile, special concepute pentru uz exterior." },
     { question: "Ce finisaje sunt incluse?", answer: "Toate bannerele vin cu tiv de rezistență pe tot perimetrul și capse metalice de prindere." },
-    { question: "Cât durează producția?", answer: "Producția durează în mod normal 1-2 zile lucrătoare." },
+    { question: "Cât durează producția?", answer: "Comanda ajunge la tine în 2-4 zile lucrătoare, producție și livrare prin curier incluse." },
 ];
 
 const PREDEFINED_DIMENSIONS = [
@@ -503,7 +503,7 @@ export default function StockBannerConfigurator({ productSlug, renderOnlyConfigu
                     </div>
                     <div className="p-6 bg-white rounded-2xl border border-gray-100 text-center">
                         <Truck className="w-8 h-8 text-emerald-500 mx-auto mb-3" />
-                        <h4 className="font-bold text-sm">Livrare 24h</h4>
+                        <h4 className="font-bold text-sm">Livrare 2-4 zile</h4>
                     </div>
                     <div className="p-6 bg-white rounded-2xl border border-gray-100 text-center">
                         <Check className="w-8 h-8 text-emerald-500 mx-auto mb-3" />

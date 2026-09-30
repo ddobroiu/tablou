@@ -257,16 +257,16 @@ export const EXTRA_SEO_CAMPAIGN_DATA: Record<string, LandingInfo> = {
     },
     "print-bannere-regim-urgenta-2h-24h": {
         key: "print-urgent",
-        title: "Print Urgent Bannere — Servicii 2h / 24h",
-        shortDescription: "Ai un eveniment neprevăzut? Producem și livrăm în regim de urgență maximă.",
-        seoTitle: "Print Urgent Bannere | Livrare Astazi",
-        seoDescription: "Servicii de tipar digital în regim de urgență. Bannere, rollup-uri și afișe gata în câteva ore.",
+        title: "Print Urgent Bannere — Livrare în 2-4 Zile Lucrătoare",
+        shortDescription: "Ai un eveniment neprevăzut? Producem și livrăm rapid: comanda ajunge la tine în 2-4 zile lucrătoare.",
+        seoTitle: "Print Urgent Bannere | Livrare în 2-4 Zile Lucrătoare",
+        seoDescription: "Servicii de tipar digital pentru comenzi grăbite. Bannere, rollup-uri și afișe livrate în 2-4 zile lucrătoare, producție inclusă.",
         images: ["/images/generic-banner.jpg"],
         contentHtml: `
       <h2>Când Timpul nu Mai are Răbdare</h2>
-      <p>Știm că apar situații critice în care materialele promoționale sunt necesare 'ieri'. De aceea, avem optimizat fluxul de producție pentru a onora comenzile urgente în timp record.</p>
+      <p>Știm că apar situații critice în care materialele promoționale sunt necesare 'ieri'. De aceea, fluxul nostru de producție e optimizat: comanda ajunge la tine în 2-4 zile lucrătoare, producție și curier incluse.</p>
       <ul>
-        <li>Producție prioritară pentru comenzi urgente.</li>
+        <li>Termen clar: 2-4 zile lucrătoare de la confirmarea comenzii.</li>
         <li>Verificare grafică rapidă inclusă.</li>
         <li>Opțiuni de ridicare personală sau curier rapid.</li>
         <li>Calitate menținută chiar și în regim de viteză.</li>

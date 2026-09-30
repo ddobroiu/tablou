@@ -180,7 +180,7 @@ export const INDUSTRIE_DATA: IndustryData[] = [
         longDescription: 'Atractivitatea vizuală este crucială în vânzarea produselor alimentare. Tablou produce etichete alimentare certificate, bannere pentru promoții sezoniere, tablouri canvas apetisante pentru decorarea spațiului și meniuri din materiale rezistente la manipulare frecventă.',
         benefits: [
             'Etichete alimentare cu certificare pentru contact indirect cu alimente',
-            'Bannere promoționale sezoniere cu tipar rapid 24h',
+            'Bannere promoționale sezoniere, livrate în 2-4 zile lucrătoare',
             'Meniuri din carton plastifiat rezistent la umiditate',
             'Decoruri de interior cu tablouri canvas apetisante'
         ],
@@ -325,7 +325,7 @@ export const INDUSTRIE_DATA: IndustryData[] = [
         benefits: [
             'Culori neon și contrast ridicat pentru vizibilitate nocturnă',
             'Materiale rezistente la foc pentru interior (certificare B1)',
-            'Print rapid 24h pentru evenimente de ultim moment',
+            'Print rapid, livrat în 2-4 zile lucrătoare, pentru evenimente de ultim moment',
             'Stickere personalizate pentru promoții și giveaway-uri'
         ],
         recommendedProducts: ['afise', 'banner', 'autocolante', 'window-graphics'],

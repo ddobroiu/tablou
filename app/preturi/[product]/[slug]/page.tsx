@@ -89,7 +89,7 @@ export default async function QuantityPage({ params }: { params: Promise<Params>
                                 <WhatsAppButton message={waMessage}>Cere ofertă pe WhatsApp</WhatsAppButton>
                                 <Link href={ctaHref} className="inline-flex items-center justify-center px-8 py-4 rounded-2xl font-black text-sm uppercase tracking-widest bg-slate-900 text-white hover:bg-slate-700 transition-all">{content.ctaLabel}</Link>
                             </div>
-                            <p className="text-xs text-slate-400 mt-4">Răspundem pe WhatsApp luni-vineri, 09:00-18:00. Producție 2-4 zile lucrătoare, livrare prin curier în toată țara.</p>
+                            <p className="text-xs text-slate-400 mt-4">Răspundem pe WhatsApp luni-vineri, 09:00-18:00. Livrare prin curier în toată țara în 2-4 zile lucrătoare, producție inclusă.</p>
                         </div>
                         <div className="lg:col-span-5 flex gap-5 items-center lg:justify-end">
                             {cfg?.image && <div className="relative w-28 h-28 sm:w-40 sm:h-40 rounded-3xl overflow-hidden border border-slate-100 bg-slate-50 shrink-0"><Image src={cfg.image} alt={content.h1} fill className="object-cover" sizes="160px" /></div>}

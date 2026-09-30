@@ -66,8 +66,8 @@ export function computeEtaByCounty(countyRaw: string | null | undefined, country
         }
     }
 
-    let transitMinDays = 1;
-    let transitMaxDays = 2;
+    let transitMinDays = 2;
+    let transitMaxDays = 4;
     let codAvailable = true;
 
     if (isInternational) {
@@ -76,7 +76,7 @@ export function computeEtaByCounty(countyRaw: string | null | undefined, country
         codAvailable = false;
     } else {
         const isTwoDay = TWO_DAY_COUNTIES.has(county);
-        transitMaxDays = isTwoDay ? 2 : 2;
+        transitMaxDays = isTwoDay ? 4 : 4;
     }
 
     const minDate = addBusinessDays(shipDate, transitMinDays);

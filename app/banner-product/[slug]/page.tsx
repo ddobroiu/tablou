@@ -125,7 +125,7 @@ export default async function BannerProductPage({ params }: Props) {
                     },
                     {
                         question: "Cât de repede se livrează comanda?",
-                        answer: "Timpul standard de producție + livrare prin Curier este între 24 și 48 de ore lucrătoare, național."
+                        answer: "Timpul standard de producție + livrare prin curier este de 2-4 zile lucrătoare, național."
                     }
                 ]}
             />

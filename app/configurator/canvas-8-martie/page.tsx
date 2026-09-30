@@ -52,7 +52,7 @@ export default function Canvas8MartiePage() {
                     },
                     {
                         question: "Cât de repede ajunge comanda înainte de 8 Martie?",
-                        answer: "Producția durează aproximativ 24h lucrătoare, plus livrarea prin curier — recomandăm să comanzi cu câteva zile înainte, mai ales aproape de dată, când volumul de comenzi crește."
+                        answer: "Comanda ajunge de regulă în 2-4 zile lucrătoare, producție și livrare prin curier incluse — recomandăm să comanzi cu câteva zile înainte, mai ales aproape de dată, când volumul de comenzi crește."
                     },
                     {
                         question: "Vine gata de dăruit sau trebuie înrămat separat?",
@@ -125,7 +125,7 @@ export default function Canvas8MartiePage() {
                                 },
                                 {
                                     q: "Cât de repede ajunge comanda înainte de 8 Martie?",
-                                    a: "Producția durează aproximativ 24h lucrătoare, plus livrarea prin curier — recomandăm să comanzi cu câteva zile înainte, mai ales aproape de dată, când volumul de comenzi crește."
+                                    a: "Comanda ajunge de regulă în 2-4 zile lucrătoare, producție și livrare prin curier incluse — recomandăm să comanzi cu câteva zile înainte, mai ales aproape de dată, când volumul de comenzi crește."
                                 },
                                 {
                                     q: "Vine gata de dăruit sau trebuie înrămat separat?",

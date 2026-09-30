@@ -13,6 +13,8 @@ import { getAllPosts } from '@/lib/blogPosts';
 import { listAllLandingRoutes } from '@/lib/landingData';
 import { JUDETE_FULL_DATA } from '@/lib/localitati';
 import { CONFIGURATORS_REGISTRY } from '@/lib/configurators-registry';
+import { CATALOG_FAMILIES } from '@/lib/catalog/families';
+import { CATALOG_CATEGORIES, CATALOG_PRODUCTS, catalogProductUrl } from '@/lib/catalog';
 
 import { PRODUCT_INTENTS, INTENT_LABELS, MARKETING_INTENTS } from '@/lib/seo/intents';
 import { MATERIALE_DATA } from '@/lib/seo/materialeData';
@@ -102,6 +104,7 @@ const ALL_PRODUCTS = [
  * changed today, every day, so it learned to ignore the field.
  */
 const CONTENT_LASTMOD = '2026-09-12';
+const CATALOG_LASTMOD = '2026-09-28';
 
 function generateUrlNode(url: string, priority: string, changefreq: string, lastmod: string = CONTENT_LASTMOD) {
     return `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>\n`;
@@ -120,7 +123,7 @@ export async function GET(request: Request, props: any) {
             '/configurator/afise', '/configurator/autocolante', '/configurator/pliante', '/configurator/flayere',
             '/configurator/window-graphics', '/configurator/canvas', '/configurator/tapet',
             '/configurator/custom-glass', '/configurator/fonduri-eu', '/materiale/plexiglass', '/materiale/pvc-forex',
-            '/contact', '/termeni', '/confidentialitate', '/livrare', '/politica-cookies',
+            '/contact', '/termeni', '/confidentialitate', '/livrare', '/politica-cookies', '/garantie-legala',
             '/anpc', '/litigii', '/judet', '/seap'
         ];
 
@@ -136,6 +139,15 @@ export async function GET(request: Request, props: any) {
             }
             const normalizedPSlug = pRoute?.startsWith('/') ? pRoute.slice(1) : pRoute;
             xml += generateUrlNode(`${BASE_URL}/${normalizedPSlug}`, '0.9', 'weekly');
+        }
+
+        // Catalogul de produse cu variante (/produse)
+        xml += generateUrlNode(`${BASE_URL}/produse`, '0.8', 'weekly', CATALOG_LASTMOD);
+        for (const c of CATALOG_CATEGORIES) {
+            xml += generateUrlNode(`${BASE_URL}/produse/${c.slug}`, '0.8', 'weekly', CATALOG_LASTMOD);
+        }
+        for (const p of CATALOG_PRODUCTS) {
+            xml += generateUrlNode(`${BASE_URL}${catalogProductUrl(p)}`, '0.8', 'weekly', CATALOG_LASTMOD);
         }
 
         for (const post of getAllPosts()) {
@@ -310,6 +322,9 @@ export async function GET(request: Request, props: any) {
                 for (const cfg of CONFIGURATORS_REGISTRY) {
                     const cfgSlug = (cfg as any).slug || cfg.id;
                     xml += generateUrlNode(`${BASE_URL}/judet/${judet.slug}/${loc.slug}/${cfgSlug}`, '0.4', 'monthly');
+                }
+                for (const fam of CATALOG_FAMILIES) {
+                    xml += generateUrlNode(`${BASE_URL}/judet/${judet.slug}/${loc.slug}/${fam.slug}`, '0.4', 'monthly', CATALOG_LASTMOD);
                 }
             }
         }

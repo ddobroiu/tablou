@@ -24,7 +24,7 @@ const GALLERY_BASE = [
 const productFaqs: QA[] = [
     { question: "Ce dimensiuni sunt disponibile?", answer: "Standard: A6, A5 și variante personalizate (21×10 cm)." },
     { question: "Pot alege față/dos?", answer: "Da — selectați opțiunea 'Două fețe' pentru imprimare față-verso." },
-    { question: "Care este timpul de livrare?", answer: "De regulă, flyerele sunt gata de livrare în 2-3 zile lucrătoare de la confirmarea graficii." },
+    { question: "Care este timpul de livrare?", answer: "De regulă, flyerele ajung la tine în 2-4 zile lucrătoare de la confirmarea graficii, producție și livrare prin curier incluse." },
 ];
 
 import { AccordionStep } from "./ui/AccordionStep";

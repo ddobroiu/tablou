@@ -151,7 +151,7 @@ export function buildQtyContent(input: { brand: BrandKey; product: QtyProduct; f
     else facts.push({ label: product.formatLabel, value: format.label });
     if (weight) facts.push({ label: "Greutate colet", value: `~${fmtKg(weight.kg)}`, detail: weight.note });
     if (nextBreak) facts.push({ label: "Următorul prag", value: `${fmtInt(nextBreak.qty)} buc`, detail: `prețul pe bucată scade la ${formatLei(nextBreak.unit)} (${formatLei(nextBreak.total)} în total)` });
-    facts.push({ label: "Producție", value: "2-4 zile lucrătoare", detail: "apoi livrare prin curier, în toată țara" });
+    facts.push({ label: "Termen", value: "2-4 zile lucrătoare", detail: "producție și livrare prin curier, în toată țara" });
 
     const usageParas = [USAGE[product.id]?.[runClass] ?? ""].filter(Boolean);
     if (cfg?.useCases?.length) usageParas.push(`Folosit des pentru: ${cfg.useCases.slice(0, 4).join(", ").toLowerCase()}.`);
@@ -171,7 +171,7 @@ export function buildQtyContent(input: { brand: BrandKey; product: QtyProduct; f
     }
 
     const metaTitle = brandMetaTitle(brand, `${fmtInt(qty)} ${product.unit} ${fmtText}`, from, voice.brandName);
-    const metaDescription = trimTo(`${voice.descPrefix} ${fmtInt(qty)} ${product.unit} ${fmtText}: ${from} (${formatLei(rec.unit)}/buc) pe ${rec.label.toLowerCase()}. ${nextBreak ? `De la ${fmtInt(nextBreak.qty)} buc: ${formatLei(nextBreak.unit)}/buc. ` : ""}Producție 2-4 zile lucrătoare, livrare prin curier.`, 158);
+    const metaDescription = trimTo(`${voice.descPrefix} ${fmtInt(qty)} ${product.unit} ${fmtText}: ${from} (${formatLei(rec.unit)}/buc) pe ${rec.label.toLowerCase()}. ${nextBreak ? `De la ${fmtInt(nextBreak.qty)} buc: ${formatLei(nextBreak.unit)}/buc. ` : ""}Livrare prin curier în 2-4 zile lucrătoare, producție inclusă.`, 158);
 
     return {
         metaTitle,

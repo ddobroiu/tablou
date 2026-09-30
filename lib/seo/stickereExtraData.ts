@@ -201,12 +201,12 @@ export const STICKERE_EXTRA_DATA: Record<string, LandingInfo> = {
     },
     "livrare-rapida-stickere-24h": {
         key: "livrare-rapida-stickere-24h",
-        title: "Livrare Rapidă Stickere — Gata în 24 de Ore",
-        shortDescription: "Comandă azi, primești mâine. Serviciu prioritar pentru urgențe.",
+        title: "Livrare Rapidă Stickere — Gata în 2-4 Zile Lucrătoare",
+        shortDescription: "Comanzi online și primești stickerele în 2-4 zile lucrătoare, producție și curier incluse.",
         seoTitle: "Stickere Personalizate Livrare Rapida | Print Urgent",
-        seoDescription: "Ai nevoie de stickere rapid? Producem și livrăm în regim de urgență în toată țara.",
+        seoDescription: "Ai nevoie de stickere rapid? Producem și livrăm în 2-4 zile lucrătoare, în toată țara.",
         images: ["/products/autocolante/autocolante-1.webp"],
-        contentHtml: `<h2>Termene de producție record</h2><p>Datorită tehnologiei 'Print & Cut' de ultimă generație, putem produce mii de stickere în câteva ore de la confirmarea graficii.</p>`
+        contentHtml: `<h2>Termene de producție record</h2><p>Datorită tehnologiei 'Print & Cut' de ultimă generație, producem rapid chiar și tiraje de mii de stickere: comanda ajunge la tine în 2-4 zile lucrătoare de la confirmarea graficii.</p>`
     },
     "stickere-auto-taxi-ridesharing": {
         key: "stickere-auto-taxi-ridesharing",

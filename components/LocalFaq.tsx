@@ -12,7 +12,7 @@ export function getLocalFaqs({ productTitle, locName, judetName }: Props) {
     return [
         {
             question: `Livrați ${produs} în ${locName}?`,
-            answer: spintax(`{Da, livrăm ${produs} în ${locName} și în tot județul ${judetName}.|Da, trimitem prin curier direct la adresa ta din ${locName}.} {Coletul ajunge de regulă în 24-48 de ore de la finalizarea producției.|Producem în 1-3 zile lucrătoare, apoi curierul îl aduce la ușă.}`, `${seed}-q1`),
+            answer: spintax(`{Da, livrăm ${produs} în ${locName} și în tot județul ${judetName}.|Da, trimitem prin curier direct la adresa ta din ${locName}.} {Comanda ajunge de regulă în 2-4 zile lucrătoare.|Comanda e gata și livrată prin curier în 2-4 zile lucrătoare.}`, `${seed}-q1`),
         },
         {
             question: `Cât costă livrarea în județul ${judetName}?`,
@@ -24,7 +24,7 @@ export function getLocalFaqs({ productTitle, locName, judetName }: Props) {
         },
         {
             question: "Cum știu că grafica mea iese bine?",
-            answer: `În configurator vezi grafica pe dimensiunea aleasă, o poți poziționa și primești un semnal dacă rezoluția e prea mică. Dacă nu ai grafică, o facem noi.`,
+            answer: `În configurator vezi grafica pe dimensiunea aleasă, o poți poziționa și primești un semnal dacă rezoluția e prea mică. Dacă nu ai grafică, poți alege în configurator varianta cu grafică realizată de noi, contra cost.`,
         },
     ];
 }

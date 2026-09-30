@@ -25,7 +25,7 @@ export default function LivrareClient() {
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-emerald-600">rapidă.</span>
                         </h1>
                         <p className="text-lg text-muted-foreground max-w-md leading-relaxed">
-                            Transport rapid în toată România. Comenzile tale ajung la tine în 1-2 zile lucrătoare.
+                            Transport rapid în toată România. Comenzile tale ajung la tine în 2-4 zile lucrătoare, producție inclusă.
                         </p>
                     </div>
 
@@ -35,7 +35,7 @@ export default function LivrareClient() {
                                 <Clock className="w-5 h-5 text-foreground group-hover:text-emerald-500 transition-colors" />
                             </div>
                             <div>
-                                <h3 className="font-bold text-foreground">1-2 zile</h3>
+                                <h3 className="font-bold text-foreground">2-4 zile</h3>
                                 <p className="text-muted-foreground">Livrare în toată țara</p>
                             </div>
                         </div>
@@ -138,9 +138,9 @@ export default function LivrareClient() {
                                         <Clock className="w-5 h-5 text-emerald-600" />
                                     </div>
                                     <div>
-                                        <h3 className="font-bold text-foreground mb-1">1-2 zile lucrătoare</h3>
+                                        <h3 className="font-bold text-foreground mb-1">2-4 zile lucrătoare</h3>
                                         <p className="text-sm text-muted-foreground">
-                                            Toate produsele sunt procesate și livrate în <strong>1-2 zile lucrătoare</strong> în toată România.
+                                            Toate produsele sunt produse și livrate în <strong>2-4 zile lucrătoare</strong> în toată România.
                                         </p>
                                     </div>
                                 </div>

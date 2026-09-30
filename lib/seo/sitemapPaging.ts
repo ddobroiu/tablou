@@ -1,3 +1,4 @@
+import { CATALOG_FAMILIES } from '@/lib/catalog/families';
 import { CONFIGURATORS_REGISTRY } from '@/lib/configurators-registry';
 
 /**
@@ -14,7 +15,7 @@ import { CONFIGURATORS_REGISTRY } from '@/lib/configurators-registry';
 const MAX_URLS_PER_SITEMAP = 45000;
 
 /** Pagina localității + câte o pagină pentru fiecare configurator. */
-export const URLS_PER_LOCALITY = CONFIGURATORS_REGISTRY.length + 1;
+export const URLS_PER_LOCALITY = CONFIGURATORS_REGISTRY.length + CATALOG_FAMILIES.length + 1;
 
 export const LOCS_PER_SITEMAP = Math.max(
     1,

@@ -32,7 +32,7 @@ const productFaqs: QA[] = [
   { question: "Care este diferența de preț față de cel cu o singură față?", answer: "Bannerele față-verso sunt calculate cu o bază de preț de aproximativ 1.5x față de cele standard, datorită materialului mai scump și procesului de imprimare mai complex." },
   { question: "Finisajele sunt incluse în preț?", answer: "Da, tivul de rezistență perimetral și capsele metalice sunt incluse standard. Puteți opta și pentru găuri de vânt." },
   { question: "Pot avea grafică diferită pe față și pe verso?", answer: "Da. Puteți alege să încărcați două grafici diferite sau să solicitați un design profesional separat pentru fiecare față, cu o taxă suplimentară (100 RON pentru grafică diferită)." },
-  { question: "Cât durează producția și livrarea?", answer: "Producția durează în mod normal 1-3 zile lucrătoare. Livrarea prin curier rapid mai adaugă încă 1-2 zile, în funcție de localitatea de destinație." },
+  { question: "Cât durează producția și livrarea?", answer: "Comanda ajunge la tine în 2-4 zile lucrătoare, producție și livrare prin curier incluse." },
 ];
 
 /* --- UI COMPONENTS --- */
@@ -64,7 +64,7 @@ const ProductTabs = ({ productSlug }: { productSlug: string }) => {
     { question: "Care este diferența de preț față de cel cu o singură față?", answer: "Bannerele față-verso sunt calculate cu o bază de preț de aproximativ 1.5x față de cele standard, datorită materialului mai scump și procesului de imprimare mai complex." },
     { question: "Finisajele sunt incluse în preț?", answer: "Da, tivul de rezistență perimetral și capsele metalice sunt incluse standard. Puteți opta și pentru găuri de vânt." },
     { question: "Pot avea grafică diferită pe față și pe verso?", answer: "Da. Puteți alege să încărcați două grafici diferite sau să solicitați un design profesional separat pentru fiecare față, cu o taxă suplimentară (100 RON pentru grafică diferită)." },
-    { question: "Cât durează producția și livrarea?", answer: "Producția durează în mod normal 1-3 zile lucrătoare. Livrarea prin curier rapid mai adaugă încă 1-2 zile, în funcție de localitatea de destinație." },
+    { question: "Cât durează producția și livrarea?", answer: "Comanda ajunge la tine în 2-4 zile lucrătoare, producție și livrare prin curier incluse." },
   ];
   return (
     <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-lg border border-gray-200 dark:border-slate-800">
@@ -782,7 +782,7 @@ export default function BannerVersoConfigurator({ productSlug, initialWidth: ini
                     </div>
                     <div className="flex-1">
                       <h3 className="text-base font-bold text-gray-900 dark:text-white mb-1">Livrare Rapidă</h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">Producție în 1-2 zile + curier rapid oriunde în România</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Livrare în 2-4 zile lucrătoare oriunde în România</p>
                     </div>
                   </div>
                 </div>

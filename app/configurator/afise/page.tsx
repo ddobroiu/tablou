@@ -52,7 +52,7 @@ export default function AfisePage() {
                         },
                         {
                             question: "Cât durează comanda?",
-                            answer: "Producție rapidă prin print digital, de regulă gata în 24h lucrătoare, plus livrarea prin curier — util dacă ai un eveniment programat peste câteva zile."
+                            answer: "Producție rapidă prin print digital: comanda ajunge de regulă în 2-4 zile lucrătoare, cu tot cu livrarea prin curier — util dacă ai un eveniment programat peste câteva zile."
                         }
                     ]}
                 />
@@ -126,7 +126,7 @@ export default function AfisePage() {
                                     },
                                     {
                                         q: "Cât durează comanda?",
-                                        a: "Producție rapidă prin print digital, de regulă gata în 24h lucrătoare, plus livrarea prin curier — util dacă ai un eveniment programat peste câteva zile."
+                                        a: "Producție rapidă prin print digital: comanda ajunge de regulă în 2-4 zile lucrătoare, cu tot cu livrarea prin curier — util dacă ai un eveniment programat peste câteva zile."
                                     }
                                 ].map((faq, idx) => (
                                     <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">

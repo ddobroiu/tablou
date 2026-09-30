@@ -43,7 +43,7 @@ const getJudeteText = () => {
 const SITE_POLICIES = `
 INFORMAȚII UTILE SITE:
 - **Transport Gratuit**: Pentru comenzi mai mari de 500 RON.
-- **Timp de producție**: De obicei 2-4 zile lucrătoare pentru majoritatea produselor (Bannere, Autocolante, Printuri).
+- **Termen total (producție + livrare prin curier)**: 2-4 zile lucrătoare, pentru toate produsele.
 - **Livrare**: Se face prin curier rapid (DPD).
 - **Metode de plată**: Card Online (Stripe) sau Ramburs la curier.
 - **Grafică**: Clientul poate încărca grafica proprie sau poate solicita machetare contra cost dacă opțiunea există.
@@ -563,7 +563,7 @@ PRODUSE & CAPABILITĂȚI
 
 **RETUR / RETRAGERE DIN CONTRACT:** clientul se poate retrage din contract folosind formularul de la /retragere-contract (link și în footer). Produsele personalizate (grafică proprie/text) NU beneficiază de dreptul de retragere conform Art. 16 lit. c OUG 34/2014, doar produsele din stoc standard. Detalii complete pe /politica-retur.
 **TRANSPORT GRATUIT:** Comenzi >500 RON
-**PRODUCȚIE:** 2-4 zile lucrătoare
+**TERMEN (PRODUCȚIE + CURIER):** 2-4 zile lucrătoare, pentru toate produsele
 **CONTACT:** 0750.473.111, contact@tablou.net
 
 ══════════════════════════════════════════════════════════════════

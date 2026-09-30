@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 import { ArrowRight, Check, Phone, Truck, Upload, MousePointerClick } from "lucide-react";
 import { getLocalitateBySlug, getJudetBySlug } from "@/lib/localitati";
 import { CONFIGURATORS_REGISTRY } from "@/lib/configurators-registry";
-import { getSiblingLocalitySlugs } from "@/lib/seo/indexableLocalities";
+import { nearbyLocalities } from "@/lib/seo/localProductFacts";
 import { buildLocalContent } from "@/lib/seo/localContent";
 import { getJudetProfile } from "@/lib/seo/judetProfiles";
 import { getFromPrice } from "@/lib/seo/fromPrice";
@@ -27,16 +27,10 @@ function orderedProducts() {
 }
 
 function faqFor(locName: string, judetName: string, tier: string | undefined) {
-    const livrare =
-        tier === "apropiat"
-            ? "de regulă a doua zi după ce comanda e gata"
-            : tier === "distant"
-                ? "în 1-2 zile lucrătoare după ce comanda e gata"
-                : "în 24-48 de ore după ce comanda e gata";
     return [
         {
             q: `Cât durează până primesc comanda în ${locName}?`,
-            a: `Producem în 1-3 zile lucrătoare, apoi curierul DPD o aduce la adresa ta din ${locName}, ${livrare}.`,
+            a: `Comanda ajunge la adresa ta din ${locName} prin curier DPD în 2-4 zile lucrătoare, producție inclusă.`,
         },
         {
             q: "Cum aflu prețul?",
@@ -61,7 +55,7 @@ export async function generateMetadata({ params }: Params) {
 
     const from = getFromPrice(["canvas"]);
     const title = `Tablouri canvas în ${loc.name}${from ? ` – canvas de la ${from.text}` : ""}`;
-    const description = `Tablouri canvas din poze, colaje și seturi, cu livrare în ${loc.name}, jud. ${judet.name}. Preț calculat pe loc, producție în 1-3 zile, plată la livrare.`;
+    const description = `Tablouri canvas din poze, colaje și seturi, cu livrare în ${loc.name}, jud. ${judet.name}. Preț calculat pe loc, livrare în 2-4 zile lucrătoare, plată la livrare.`;
     const routeUrl = `${siteConfig.url}/judet/${judet.slug}/${loc.slug}`;
 
     return {
@@ -95,9 +89,7 @@ export default async function LocalitatePage({ params }: Params) {
     const products = orderedProducts();
     const top = products.filter((p) => TOP.slice(0, 3).includes(p.id));
     const faq = faqFor(loc.name, judet.name, profile?.tierLivrare);
-    const neighbours = getSiblingLocalitySlugs(judet.slug, loc.slug, 12)
-        .map((slug) => judet.localitati.find((l) => l.slug === slug))
-        .filter((l): l is NonNullable<typeof l> => Boolean(l));
+    const neighbours = nearbyLocalities(judet.slug, judet.localitati, loc.slug, 18);
     const bannerFrom = getFromPrice(["canvas"]);
     const pageUrl = `${siteConfig.url}/judet/${judet.slug}/${loc.slug}`;
     const waMessage = `Bună ziua! Aș dori o ofertă pentru tablouri canvas cu livrare în ${loc.name}, jud. ${judet.name}.`;
@@ -168,7 +160,7 @@ export default async function LocalitatePage({ params }: Params) {
                         </a>
 
                         <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-700">
-                            {["Preț calculat pe loc", "Producție în 1-3 zile", "Plată la livrare", "Livrare DPD"].map((t) => (
+                            {["Preț calculat pe loc", "Gata în 2-4 zile lucrătoare", "Plată la livrare", "Livrare DPD"].map((t) => (
                                 <li key={t} className="inline-flex items-center gap-1.5"><Check size={16} className="text-emerald-600" /> {t}</li>
                             ))}
                         </ul>
@@ -176,7 +168,7 @@ export default async function LocalitatePage({ params }: Params) {
 
                     {/* Cele mai comandate, cu pret: al doilea buton din primul ecran */}
                     <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-xl shadow-slate-900/5">
-                        <p className="mb-3 text-sm font-semibold text-slate-900">Cele mai comandate în {loc.name}</p>
+                        <p className="mb-3 text-sm font-semibold text-slate-900">Recomandate în {loc.name}</p>
                         <ul className="divide-y divide-slate-100">
                             {top.map((p) => {
                                 const from = getFromPrice([p.id]);

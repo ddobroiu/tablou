@@ -57,7 +57,7 @@ export default function CanvasMartisorPage() {
                         },
                         {
                             question: "Cât durează livrarea înainte de 1 Martie?",
-                            answer: "Producția durează aproximativ 24h lucrătoare, plus livrarea prin curier — recomandăm comanda cu câteva zile înainte, mai ales aproape de dată."
+                            answer: "Comanda ajunge de regulă în 2-4 zile lucrătoare, producție și livrare prin curier incluse — recomandăm comanda cu câteva zile înainte, mai ales aproape de dată."
                         }
                     ]}
                 />
@@ -130,7 +130,7 @@ export default function CanvasMartisorPage() {
                                     },
                                     {
                                         q: "Cât durează livrarea înainte de 1 Martie?",
-                                        a: "Producția durează aproximativ 24h lucrătoare, plus livrarea prin curier — recomandăm comanda cu câteva zile înainte, mai ales aproape de dată."
+                                        a: "Comanda ajunge de regulă în 2-4 zile lucrătoare, producție și livrare prin curier incluse — recomandăm comanda cu câteva zile înainte, mai ales aproape de dată."
                                     }
                                 ].map((faq, idx) => (
                                     <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">

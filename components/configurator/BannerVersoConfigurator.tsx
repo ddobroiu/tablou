@@ -33,7 +33,7 @@ const productFaqs: QA[] = [
     { question: "Care este diferența de preț față de cel cu o singură față?", answer: "Bannerele față-verso sunt calculate cu o bază de preț de aproximativ 1.5x față de cele standard, datorită materialului mai scump și procesului de imprimare mai complex." },
     { question: "Finisajele sunt incluse în preț?", answer: "Da, tivul de rezistență perimetral și capsele metalice sunt incluse standard. Puteți opta și pentru găuri de vânt." },
     { question: "Pot avea grafică diferită pe față și pe verso?", answer: "Da. Puteți alege să încărcați două grafici diferite sau să solicitați un design profesional separat pentru fiecare față, cu o taxă suplimerară (100 RON pentru grafică diferită)." },
-    { question: "Cât durează producția și livrarea?", answer: "Producția durează în mod normal 1-3 zile lucrătoare. Livrarea prin curier rapid mai adaugă încă 1-2 zile, în funcție de localitatea de destinație." },
+    { question: "Cât durează producția și livrarea?", answer: "Comanda ajunge la tine în 2-4 zile lucrătoare, producție și livrare prin curier incluse." },
 ];
 
 const ProductTabs = ({ productSlug }: { productSlug: string }) => {
@@ -43,7 +43,7 @@ const ProductTabs = ({ productSlug }: { productSlug: string }) => {
         { question: "Care este diferența de preț față de cel cu o singură față?", answer: "Bannerele față-verso sunt calculate cu o bază de preț de aproximativ 1.5x față de cele standard, datorită materialului mai scump și procesului de imprimare mai complex." },
         { question: "Finisajele sunt incluse în preț?", answer: "Da, tivul de rezistență perimetral și capsele metalice sunt incluse standard. Puteți opta și pentru găuri de vânt." },
         { question: "Pot avea grafică diferită pe față și pe verso?", answer: "Da. Puteți alege să încărcați două grafici diferite sau să solicitați un design profesional separat pentru fiecare față, cu o taxă suplimentară (100 RON pentru grafică diferită)." },
-        { question: "Cât durează producția și livrarea?", answer: "Producția durează în mod normal 1-3 zile lucrătoare. Livrarea prin curier rapid mai adaugă încă 1-2 zile, în funcție de localitatea de destinație." },
+        { question: "Cât durează producția și livrarea?", answer: "Comanda ajunge la tine în 2-4 zile lucrătoare, producție și livrare prin curier incluse." },
     ];
     return (
         <div className="bg-white rounded-2xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.05)] border border-gray-200 dark:border-slate-800">

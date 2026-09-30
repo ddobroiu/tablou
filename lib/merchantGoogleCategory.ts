@@ -12,6 +12,27 @@ export function googleProductCategoryId(product: Product): string {
   const id = String(product.id || "").toLowerCase();
   const hay = `${routeFull} ${cat} ${title} ${id}`;
 
+  // --- Catalogul /produse (ID-uri verificate în taxonomia Google) ---
+  if (routePath.startsWith("produse/")) {
+    if (/x-banner|pop-up|green-screen|people-stopper|cort|caseta|desk/.test(routePath)) {
+      return /desk/.test(routePath) ? "5864" : "5865";
+    }
+    if (routePath.startsWith("produse/steaguri-si-drapele/")) return "701";
+    if (/pern/.test(routePath)) return "4454";
+    if (/bean-bag|fotoliu/.test(routePath)) return "438";
+    if (/covoras|pres-/.test(routePath)) return "2675";
+    if (/mocheta/.test(routePath)) return "2826";
+    if (/bandan|neck/.test(routePath)) return "7230";
+    if (/sort/.test(routePath)) return "639";
+    if (/stick|usb/.test(routePath)) return "3712";
+    if (/agenda|calendar/.test(routePath)) return "927";
+    if (/notebook|bloc-notes/.test(routePath)) return "961";
+    if (/antet|print-a4/.test(routePath)) return "3457";
+    if (/sevalet|șevalet/.test(routePath)) return "968";
+    if (/rama|click|magnetic/.test(routePath)) return "597";
+    return "976";
+  }
+
   if (routePath.startsWith("canvas-product/")) return "500044";
   if (routePath.startsWith("banner-product/")) return "976";
   if (routePath.startsWith("semnalistica-product/")) return "976";

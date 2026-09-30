@@ -139,7 +139,7 @@ const STATIC_POSTS: BlogPost[] = [
       <p>Aici formatul cu ramă (opțiunea "canvas cu ramă" din configurator) e adesea mai potrivit decât canvasul clasic pe șasiu — arată mai formal, se potrivește mai bine pe un perete de birou decât un format mare de living. Alege o poză neutră (peisaj, arhitectură, o poză de echipă de la un eveniment recent) mai degrabă decât una foarte personală.</p>
 
       <h2 class="text-2xl font-bold mt-12 mb-6">Cât de aproape de dată trebuie să comanzi?</h2>
-      <p>Livrarea standard e de 24-48h din momentul confirmării graficii, dar recomandăm cel puțin 4-5 zile lucrătoare înainte de eveniment ca marjă de siguranță pentru livrarea curierului, mai ales dacă evenimentul e într-un weekend. Dacă vrei să surprinzi pe cineva chiar de ziua evenimentului, verifică din timp opțiunile de livrare rapidă disponibile la finalizarea comenzii.</p>
+      <p>Comanda ajunge în 2-4 zile lucrătoare din momentul confirmării graficii, producție și curier incluse, dar recomandăm să comanzi cu cel puțin 4-5 zile lucrătoare înainte de eveniment, ca marjă de siguranță, mai ales dacă evenimentul e într-un weekend. Dacă vrei să surprinzi pe cineva chiar de ziua evenimentului, verifică din timp opțiunile de livrare rapidă disponibile la finalizarea comenzii.</p>
 
       <div class="my-10 p-8 bg-emerald-50 border-l-4 border-emerald-500 rounded-r-2xl">
         <h3 class="text-emerald-900 font-bold mb-2">Idee simplă care funcționează mereu:</h3>
@@ -437,7 +437,7 @@ function buildCountyPost(j: Judet, index: number, siteName: string, shortName: s
         <h2>Livrați și în ${mainLocality}?</h2>
         <p>Da, livrăm prin curier în ${mainLocality} și în toate localitățile din județul ${j.name}${otherLocalities.length ? `, inclusiv ${otherLocalities.slice(0, 2).join(" și ")}` : ""}.</p>
         <h2>Cât durează producția?</h2>
-        <p>De regulă 2-4 zile lucrătoare, în funcție de produs și cantitate, plus timpul de livrare al curierului până la adresa ta.</p>
+        <p>De regulă 2-4 zile lucrătoare până la adresa ta, producție și livrare prin curier incluse.</p>
         <h2>Ce pot comanda?</h2>
         <ul>${productListHtml}</ul>
         <h2>Pot vedea prețul înainte să comand?</h2>

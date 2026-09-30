@@ -51,7 +51,7 @@ export default function CanvasPage() {
                         },
                         {
                             question: "Cât durează până primesc tabloul?",
-                            answer: "Pânza se întinde manual, cu atenție, deci producția durează aproximativ 24h lucrătoare, plus livrarea prin curier — de regulă tabloul ajunge acasă în 2-4 zile lucrătoare."
+                            answer: "Pânza se întinde manual, cu atenție, iar tabloul ajunge acasă de regulă în 2-4 zile lucrătoare, producție și livrare prin curier incluse."
                         }
                     ]}
                 />
@@ -124,7 +124,7 @@ export default function CanvasPage() {
                                     },
                                     {
                                         q: "Cât durează până primesc tabloul?",
-                                        a: "Pânza se întinde manual, cu atenție, deci producția durează aproximativ 24h lucrătoare, plus livrarea prin curier — de regulă tabloul ajunge acasă în 2-4 zile lucrătoare."
+                                        a: "Pânza se întinde manual, cu atenție, iar tabloul ajunge acasă de regulă în 2-4 zile lucrătoare, producție și livrare prin curier incluse."
                                     }
                                 ].map((faq, idx) => (
                                     <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">

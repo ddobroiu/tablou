@@ -78,6 +78,20 @@ export const siteConfig = {
             ],
         },
         {
+            href: "/produse",
+            label: "Produse",
+            children: [
+                { href: "/produse/sisteme-de-afisaj", label: "Sisteme de afișaj" },
+                { href: "/produse/steaguri-si-drapele", label: "Steaguri și drapele" },
+                { href: "/produse/materiale-print", label: "Backlit, blockout, mochetă" },
+                { href: "/produse/rame-si-suporturi", label: "Rame și suporturi" },
+                { href: "/produse/papetarie-si-birou", label: "Papetărie și birou" },
+                { href: "/produse/promotionale", label: "Promoționale" },
+                { href: "/produse/decor-pentru-casa", label: "Decor pentru casă" },
+                { href: "/produse/panouri-si-semnalizare", label: "Panouri de șantier" },
+            ],
+        },
+        {
             href: "/configuratoare",
             label: "Preț instant",
             children: [

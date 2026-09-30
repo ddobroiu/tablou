@@ -228,7 +228,9 @@ export const PRODUCTS: Product[] = [
 ];
 
 export async function getProducts(): Promise<Product[]> {
-  return PRODUCTS;
+  // Catalogul /produse se încarcă dinamic: e mare și PRODUCTS e importat și în componente client (/shop).
+  const { catalogAsProducts } = await import("./catalog");
+  return [...PRODUCTS, ...catalogAsProducts()];
 }
 
 export function getAllProductSlugs(): string[] {

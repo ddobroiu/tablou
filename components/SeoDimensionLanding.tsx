@@ -70,7 +70,7 @@ export function SeoDimensionLanding({ productId, productName, w, h }: SeoDimensi
         { title: "Precizie 100%", desc: `Dimensiuni exacte de ${w}x${h} cm.` },
         { title: "Print HD", desc: "Rezoluție fotografică ultra-clară." },
         { title: "Rezistent UV", desc: "Cerneluri care nu se decolorează la soare." },
-        { title: "Livrare 24h", desc: "Expediere rapidă în toată țara." }
+        { title: "Livrare 2-4 zile", desc: "Producție și livrare prin curier în 2-4 zile lucrătoare, în toată țara." }
     ];
 
     const dimensionFaqs = [
@@ -194,7 +194,7 @@ export function SeoDimensionLanding({ productId, productName, w, h }: SeoDimensi
                             <Truck size={32} className="text-emerald-500 mb-4" />
                             <div className="text-left">
                                 <h3 className="text-xl font-black text-slate-900 uppercase mb-2 leading-none tracking-tight">Gata în 2-4 zile</h3>
-                                <p className="text-slate-400 text-xs font-medium leading-tight text-left">Producție accelerată pentru orice comandă plasată azi.</p>
+                                <p className="text-slate-400 text-xs font-medium leading-tight text-left">Producție și livrare prin curier incluse, pentru orice comandă.</p>
                             </div>
                         </div>
                         <div className="bg-slate-950 p-8 rounded-[2.5rem] border border-slate-800 shadow-xl flex flex-col justify-between aspect-square md:aspect-auto md:h-64">

@@ -52,7 +52,7 @@ export default async function JudetPage({ params }: Params) {
     const faq = [
         { q: `Livrați în tot județul ${judet.name}?`, a: `Da, în toate cele ${judet.localitati.length} de localități, prin curier DPD, la adresă. Plătești cu cardul, prin transfer sau la livrare.` },
         { q: "Cum comand?", a: "Alegi produsul, introduci dimensiunea și cantitatea, încarci grafica și vezi cum se încadrează. Prețul apare imediat, fără cerere de ofertă." },
-        { q: "În cât timp primesc comanda?", a: "Producem în 1-3 zile lucrătoare, iar curierul livrează de regulă în 24-48 de ore după aceea." },
+        { q: "În cât timp primesc comanda?", a: "Comanda ajunge la tine prin curier DPD în 2-4 zile lucrătoare, producție inclusă." },
     ];
     const waMessage = `Bună ziua! Aș dori o ofertă pentru tablouri canvas cu livrare în județul ${judet.name}.`;
     const bannerFrom = getFromPrice(["canvas"]);
@@ -110,7 +110,7 @@ export default async function JudetPage({ params }: Params) {
                         <Phone size={15} /> sau sună la {siteConfig.phone}
                     </a>
                     <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-700">
-                        {["Preț calculat pe loc", "Producție în 1-3 zile", "Plată la livrare", "Livrare DPD"].map((t) => (
+                        {["Preț calculat pe loc", "Gata în 2-4 zile lucrătoare", "Plată la livrare", "Livrare DPD"].map((t) => (
                             <li key={t} className="inline-flex items-center gap-1.5"><Check size={16} className="text-emerald-600" /> {t}</li>
                         ))}
                     </ul>

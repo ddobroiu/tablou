@@ -375,7 +375,7 @@ export default function FlyerConfigurator({ productSlug, productImage }: Props) 
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-emerald-600 mt-1">✓</span>
-                        <span>Producție rapidă - livrare în 2-3 zile lucrătoare</span>
+                        <span>Producție rapidă - livrare în 2-4 zile lucrătoare</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-emerald-600 mt-1">✓</span>
@@ -430,7 +430,7 @@ export default function FlyerConfigurator({ productSlug, productImage }: Props) 
                     </div>
                     <div className="flex-1">
                       <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1">Producție Rapidă</h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">Livrare în 2-3 zile lucrătoare național</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Livrare în 2-4 zile lucrătoare național</p>
                     </div>
                   </div>
                 </div>

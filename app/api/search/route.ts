@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { canvasProducts } from '@/lib/products/canvas-products';
 import { bannerProducts } from '@/lib/products/banner-products';
 import { BANNER_SEO_DATA } from '@/lib/seo/bannerData';
+import { CATALOG_PRODUCTS, getCatalogCategory } from '@/lib/catalog';
 
 // Combine products for search
 const allProducts = [
@@ -29,12 +30,28 @@ const allProducts = [
         linkCategory: 'bannere',
         displayCategory: 'Bannere',
         tags: [item.key, 'banner', 'publicitate']
+    })),
+    ...CATALOG_PRODUCTS.map(p => ({
+        id: `cat-${p.slug}`,
+        slug: p.slug,
+        title: p.title,
+        description: p.short,
+        images: p.images,
+        image: p.images[0],
+        price: String(p.priceFrom),
+        category: p.category,
+        linkCategory: `produse/${p.category}`,
+        displayCategory: getCatalogCategory(p.category)?.name ?? 'Produse',
+        tags: [p.group ?? '', getCatalogCategory(p.category)?.name ?? ''].filter(Boolean)
     }))
 ];
 
+// Clienții scriu de obicei fără diacritice („agenda”, „perna”), titlurile le au.
+const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
-    const query = searchParams.get('q')?.toLowerCase() || '';
+    const query = norm(searchParams.get('q') || '');
     const limit = parseInt(searchParams.get('limit') || '8');
 
     if (!query || query.length < 2) {
@@ -43,9 +60,9 @@ export async function GET(request: Request) {
 
     // Filter products
     const filtered = allProducts.filter(product => {
-        const titleMatch = product.title?.toLowerCase().includes(query);
-        const tagsMatch = product.tags?.some((t: string) => t.toLowerCase().includes(query));
-        const descMatch = product.description?.toLowerCase().includes(query);
+        const titleMatch = norm(product.title || '').includes(query);
+        const tagsMatch = product.tags?.some((t: string) => norm(t).includes(query));
+        const descMatch = norm(product.description || '').includes(query);
 
         return titleMatch || tagsMatch || descMatch;
     });
@@ -53,12 +70,12 @@ export async function GET(request: Request) {
     // Score based on relevance
     const scored = filtered.map(product => {
         let score = 0;
-        const titleLower = product.title.toLowerCase();
+        const titleLower = norm(product.title);
 
         if (titleLower === query) score += 100; // Exact match
         if (titleLower.startsWith(query)) score += 50; // Starts with
         if (titleLower.includes(query)) score += 20; // Contains
-        if (product.tags?.some((t: string) => t.toLowerCase() === query)) score += 10; // Tag exact match
+        if (product.tags?.some((t: string) => norm(t) === query)) score += 10; // Tag exact match
 
         return { ...product, score };
     });

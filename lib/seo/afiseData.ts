@@ -47,7 +47,7 @@ export const AFISE_SEO_DATA: Record<string, LandingInfo> = {
     seoTitle: "Afise Petrecere & Party | Print Colorat",
     seoDescription: "Anunță petrecerea perfectă cu afișe distractive. Designuri personalizate disponibile.",
     images: ["/products/afise/afise-1.webp"],
-    contentHtml: `<h2>Fă petrecerea memorabilă</h2><p>De la ziua de naștere la evenimente corporate, afișele noastre adaugă un strop de veselie.</p><p>Culori vibrante și texte catchy pentru a invita toți prietenii. Opțiuni pentru print rapid.</p><ul><li>Designuri template gratuite</li><li>Personalizare completă</li><li>Livrare în 24h</li></ul>`
+    contentHtml: `<h2>Fă petrecerea memorabilă</h2><p>De la ziua de naștere la evenimente corporate, afișele noastre adaugă un strop de veselie.</p><p>Culori vibrante și texte catchy pentru a invita toți prietenii. Opțiuni pentru print rapid.</p><ul><li>Designuri template gratuite</li><li>Personalizare completă</li><li>Livrare în 2-4 zile lucrătoare</li></ul>`
   },
   "lansare": {
     key: "lansare",

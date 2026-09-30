@@ -29,7 +29,7 @@ export function LocalSizePrices({ productIds, locName }: { productIds: string[];
                         de la {formatLei(cheapest)} <span className="text-sm font-medium text-slate-500">/ buc, preț final; furnizorul nu este plătitor de TVA</span>
                     </div>
                 </div>
-                <div className="text-xs text-slate-500">{cfg.turnaroundTime}{locName ? `, apoi curier în ${locName}` : ""}</div>
+                <div className="text-xs text-slate-500">{cfg.turnaroundTime}{locName ? `, cu livrare în ${locName}` : ""}</div>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                 {sizes.map(({ s, pricing }) => (

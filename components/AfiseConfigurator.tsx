@@ -28,7 +28,7 @@ const afiseFaqs: QA[] = [
   { question: "Ce tipuri de hârtie pot alege?", answer: "Oferim o varietate de hârtii, de la cele subțiri (150g) pentru volume mari, la cartoane de 300g pentru un aspect premium. De asemenea, avem materiale speciale precum Blueback pentru lipire pe panouri sau hârtie foto." },
   { question: "Care este diferența dintre Blueback și Whiteback?", answer: "Hârtia Blueback are spatele albastru și este opacă, fiind ideală pentru lipirea peste alte afișe. Whiteback are spatele alb și este folosită pentru postere de interior." },
   { question: "Ce înseamnă preț în funcție de tiraj?", answer: "Prețul pe bucata scade pe măsură ce comandați o cantitate mai mare. Puteți vedea exact prețul unitar calculat în sumarul comenzii." },
-  { question: "Cât durează producția?", answer: "Producția durează 1-2 zile lucrătoare. Livrarea prin curier rapid mai adaugă încă 1-2 zile, în funcție de localitatea de destinație." },
+  { question: "Cât durează producția?", answer: "Comanda ajunge la tine în 2-4 zile lucrătoare, producție și livrare prin curier incluse." },
   { question: "Cum trimit grafica?", answer: "Încărcați fișierul direct în configurator. Acceptăm formate PDF, AI, CDR, TIFF sau JPG la rezoluție bună (300 dpi recomandat)." },
 ];
 
@@ -506,7 +506,7 @@ export default function AfiseConfigurator({ productSlug, initialWidth, initialHe
                       </li>
                       <li className="flex items-start">
                         <span className="text-green-600 mr-2">✓</span>
-                        <span><strong>Livrare Rapidă:</strong> Producție 1-2 zile + curier express</span>
+                        <span><strong>Livrare Rapidă:</strong> comanda ajunge în 2-4 zile lucrătoare</span>
                       </li>
                     </ul>
                   </div>

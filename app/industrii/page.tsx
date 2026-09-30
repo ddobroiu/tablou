@@ -88,7 +88,7 @@ export default function IndustriiPage() {
                             {[
                                 { count: INDUSTRIE_DATA.length, label: 'Industrii Acoperite', icon: Layers },
                                 { count: '1000+', label: 'Proiecte Custom', icon: MousePointer2 },
-                                { count: '24h', label: 'Timp Producție', icon: Zap },
+                                { count: '2-4 zile', label: 'Termen de livrare', icon: Zap },
                             ].map((stat, i) => (
                                 <div key={i} className="flex items-center gap-4 bg-white p-6 rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/40 min-w-[280px] hover:translate-x-2 transition-transform duration-500">
                                     <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center text-emerald-500 border border-slate-100">

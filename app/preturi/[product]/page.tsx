@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ product: 
     const p = getQtyProduct(String(product || "").toLowerCase());
     if (!p) return {};
     const title = `${p.name}: prețuri pe cantități și formate | ${siteConfig.name}`;
-    const description = `Prețul pentru ${p.unit} la ${p.quantities[0]}-${p.quantities[p.quantities.length - 1]} bucăți, pe fiecare ${p.formatLabel.toLowerCase()}, calculat de motorul configuratorului. Producție 2-4 zile lucrătoare, livrare prin curier.`;
+    const description = `Prețul pentru ${p.unit} la ${p.quantities[0]}-${p.quantities[p.quantities.length - 1]} bucăți, pe fiecare ${p.formatLabel.toLowerCase()}, calculat de motorul configuratorului. Livrare prin curier în 2-4 zile lucrătoare, producție inclusă.`;
     const url = `${BASE_URL}/preturi/${p.slug}`;
     return { title: { absolute: title }, description, alternates: { canonical: url }, openGraph: { title, description, url, siteName: siteConfig.name, locale: "ro_RO", type: "website" } };
 }

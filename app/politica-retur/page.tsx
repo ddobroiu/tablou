@@ -58,8 +58,8 @@ const sections: LegalSection[] = [
         body: (
             <p>
                 Termenul estimat (producție + livrare) este afișat pe pagina produsului și în coș și curge de la confirmarea comenzii
-                și a plății și, după caz, de la primirea fișierelor corecte sau aprobarea machetei. De regulă, curierul livrează în 1–2
-                zile lucrătoare de la predare în România și în câteva zile lucrătoare în celelalte țări. În lipsa unui alt termen
+                și a plății și, după caz, de la primirea fișierelor corecte sau aprobarea machetei. De regulă, comanda ajunge în 2–4 zile lucrătoare în România, producție și curier
+                incluse, iar în celelalte țări livrarea poate dura câteva zile lucrătoare în plus. În lipsa unui alt termen
                 convenit, livrarea se face în cel mult 30 de zile de la încheierea contractului. Dacă apare o întârziere, vă anunțăm
                 pe e-mail; drepturile dumneavoastră în caz de nelivrare sunt descrise în <Link href="/termeni#productie-livrare">Termeni și condiții</Link>.
             </p>

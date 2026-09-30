@@ -58,7 +58,7 @@ const bannerFaqs: QA[] = [
   { question: "Ce materiale sunt disponibile?", answer: "Oferim Frontlit 440g (Standard) și Frontlit 510g (Premium), ambele fiind materiale PVC durabile, special concepute pentru uz exterior." },
   { question: "Ce finisaje sunt incluse?", answer: "Toate bannerele vin cu tiv de rezistență pe tot perimetrul și capse metalice de prindere, aplicate de obicei la o distanță de 50 cm una de cealaltă." },
   { question: "Cum trimit grafica pentru imprimare?", answer: "Puteți încărca fișierul grafic direct în configurator, în pasul 3. Acceptăm formate precum PDF, AI, CDR, TIFF sau JPG la o rezoluție bună." },
-  { question: "Cât durează producția și livrarea?", answer: "Producția durează în mod normal 1-2 zile lucrătoare. Livrarea prin curier rapid mai adaugă încă 1-2 zile, în funcție de localitatea de destinație." },
+  { question: "Cât durează producția și livrarea?", answer: "Comanda ajunge la tine în 2-4 zile lucrătoare, producție și livrare prin curier incluse." },
   { question: "Bannerele sunt rezistente la exterior?", answer: "Da, absolut. Materialele folosite sunt special tratate pentru a rezista la apă, vânt și radiații UV, asigurând o durată de viață îndelungată." },
 ];
 
@@ -826,7 +826,7 @@ export default function BannerConfigurator({ productSlug, initialWidth: initW, i
                     </div>
                     <div className="flex-1">
                       <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1">Livrare Rapidă</h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">Producție în 1-2 zile</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Gata în 2-4 zile lucrătoare, cu livrare inclusă</p>
                     </div>
                   </div>
                 </div>

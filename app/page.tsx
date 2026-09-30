@@ -46,7 +46,7 @@ const FAQ = [
   },
   {
     q: "În cât timp primesc tabloul acasă?",
-    a: "Printul, întinsul pe șasiu și uscarea durează 2-4 zile lucrătoare, iar curierul mai adaugă de regulă o zi. Dacă tabloul e cadou cu dată fixă, scrie-ne data la comentariile comenzii și îți confirmăm dacă putem intra la termen."
+    a: "De la print și întinsul pe șasiu până la livrarea prin curier, tabloul ajunge la tine în 2-4 zile lucrătoare. Dacă tabloul e cadou cu dată fixă, scrie-ne data la comentariile comenzii și îți confirmăm dacă putem intra la termen."
   },
   {
     q: "Cum se agață tabloul? Am nevoie de ramă sau de scule?",
@@ -363,7 +363,7 @@ export default function Home() {
                 <h2 className="font-[family-name:var(--font-fraunces)] text-2xl md:text-3xl text-stone-900">Livrăm în toată România, ambalat ca pentru cadou</h2>
               </div>
               <p className="text-stone-600 leading-relaxed">
-                Tablourile pleacă din atelierul nostru din județul Buzău prin curier, cu colțare de protecție și folie, către orice reședință de județ și toate sectoarele Bucureștiului. Livrare {siteConfig.shipping.standardDelivery.price} lei, gratuită peste 500 lei, în 2-4 zile lucrătoare după ce iese din producție.
+                Tablourile pleacă din atelierul nostru din județul Buzău prin curier, cu colțare de protecție și folie, către orice reședință de județ și toate sectoarele Bucureștiului. Livrare {siteConfig.shipping.standardDelivery.price} lei, gratuită peste 500 lei, în 2-4 zile lucrătoare, producție inclusă.
               </p>
             </div>
             <div className="lg:col-span-5">

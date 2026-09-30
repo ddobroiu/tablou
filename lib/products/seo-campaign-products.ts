@@ -1616,12 +1616,12 @@ export const seoCampaignProducts: any[] = [
         id: "seo-banner-urgent",
         slug: "print-banner-urgent-livrare-24h-productie-rapida",
         routeSlug: "configurator/banner",
-        title: "Print Banner Urgent (Livrare 24h/48h)",
-        description: "Ai nevoie de un banner 'ieri'? Comandă acum cu opțiunea de producție prioritară. Expediem prin curier rapid pentru a ajunge la tine în timp record.",
+        title: "Print Banner Urgent (Livrare în 2-4 Zile Lucrătoare)",
+        description: "Ai nevoie de un banner repede? Comandă acum: bannerul ajunge la tine prin curier în 2-4 zile lucrătoare, producție inclusă.",
         image: "/products/banner/banner-1.webp",
         price: "De la 45 LEI",
         category: "Campanii SEO",
-        tags: ["banner urgent", "print rapid", "livrare 24h", "productie rapida"]
+        tags: ["banner urgent", "print rapid", "livrare 2-4 zile", "productie rapida"]
     },
     {
         id: "seo-autocolant-pret",
@@ -2089,12 +2089,12 @@ export const seoCampaignProducts: any[] = [
         id: "seo-urgent-print",
         slug: "print-bannere-regim-urgenta-2h-24h",
         routeSlug: "configurator/banner",
-        title: "Print Bannere Regim Urgență (2h - 24h)",
-        description: "Ai nevoie de un banner 'ieri'? Putem produce și expedia materiale publicitare în regim de urgență maximă pentru proiecte critice.",
+        title: "Print Bannere Urgente (Livrare în 2-4 Zile Lucrătoare)",
+        description: "Ai nevoie de un banner repede? Producem și expediem materialele publicitare rapid: comanda ajunge la tine în 2-4 zile lucrătoare.",
         image: "/products/banner/banner-1.webp",
         price: "Supliment Urgență",
         category: "Campanii SEO",
-        tags: ["print urgent", "banner rapid", "livrare astazi"]
+        tags: ["print urgent", "banner rapid", "livrare rapida"]
     },
     // --- NOI CAMPANII SEO STICKERE ---
     {
