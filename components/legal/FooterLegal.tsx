@@ -42,6 +42,10 @@ export default function FooterLegal({
                     EUID {COMPANY.euid} · Sediul social: {COMPANY.address.full} · Neplătitor de TVA · E-mail:{" "}
                     <a href={`mailto:${CONTACT_EMAIL}`} className={linkClassName}>
                         {CONTACT_EMAIL}
+                    </a>{" "}
+                    · Realizat de{" "}
+                    <a href="https://e-web.ro" target="_blank" rel="noopener" className={linkClassName}>
+                        e-web.ro
                     </a>
                 </p>
                 <GarantieLegalaBadge />
