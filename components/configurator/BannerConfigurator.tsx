@@ -560,20 +560,7 @@ export default function BannerConfigurator({ productSlug, initialWidth: initW, i
                                                 priority
                                             />
                                         )}
-
-                                        {productKind === "mesh" && (
-                                            <div className="absolute bottom-4 right-4 z-30">
-                                                <button
-                                                    type="button"
-                                                    onClick={() => setVideoOpen(true)}
-                                                    aria-label="Vezi video prezentare mesh"
-                                                    className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-red-600 text-white text-sm font-bold shadow-lg hover:bg-red-700 transform hover:-translate-y-0.5 transition-all"
-                                                >
-                                                    <PlayCircle className="w-5 h-5 text-white" />
-                                                    <span>Vezi Video Prezentare</span>
-                                                </button>
-                                            </div>
-                                        )}
+
 
                                     </div>
                                 )}

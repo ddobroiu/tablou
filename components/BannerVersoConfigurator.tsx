@@ -406,17 +406,6 @@ export default function BannerVersoConfigurator({ productSlug, initialWidth: ini
                 {viewMode === 'gallery' && (
                   <>
                     <img src={activeImage} alt="Banner Față-Verso" className="h-full w-full object-cover animate-in fade-in duration-300" />
-                    <div className="absolute bottom-4 right-4 z-30">
-                      <button
-                        type="button"
-                        onClick={() => setVideoOpen(true)}
-                        aria-label="Vezi Video Prezentare"
-                        className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-red-600 text-white text-sm font-bold shadow-lg hover:bg-red-700 transform hover:-translate-y-0.5 transition-all"
-                      >
-                        <PlayCircle className="w-5 h-5 text-white" />
-                        <span>Vezi Video Prezentare</span>
-                      </button>
-                    </div>
                   </>
                 )}
 
