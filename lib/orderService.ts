@@ -257,7 +257,7 @@ export async function fulfillOrder(
       await fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/api/subscribers`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: address.email, source: source || 'checkout-tablou' })
+        body: JSON.stringify({ email: address.email, source: source || 'checkout-tablou', consent: true })
       });
     } catch (e: any) { }
   }

@@ -76,7 +76,7 @@ const sections: LegalSection[] = [
                     <tr><td>Crearea și administrarea contului de client (la cererea dumneavoastră)</td><td>lit. b) – executarea contractului privind contul</td></tr>
                     <tr><td>Răspunsul la mesajele trimise prin formularul de contact, e-mail sau WhatsApp</td><td>lit. b) dacă mesajul privește o comandă sau o ofertă; altfel lit. f) – interesul legitim de a răspunde solicitărilor</td></tr>
                     <tr><td>Newsletter și oferte comerciale pe e-mail</td><td>lit. a) – consimțământ, pe care îl puteți retrage oricând prin linkul de dezabonare sau pe e-mail</td></tr>
-                    <tr><td>Reamintirea unei configurări sau a unui coș nefinalizat, pentru clienții autentificați</td><td>lit. f) – interesul legitim de a vă ajuta să finalizați comanda începută; vă puteți opune oricând (link în e-mail sau pe e-mail la noi)</td></tr>
+                    <tr><td>Reamintirea unui coș nefinalizat, după ce ați introdus adresa de e-mail la finalizarea comenzii (cel mult două e-mailuri)</td><td>lit. f) – interesul legitim de a vă ajuta să finalizați comanda; vă puteți opune din căsuța de la finalizarea comenzii sau din linkul de dezabonare din e-mail</td></tr><tr><td>E-mailuri pentru clienți cu idei de produse similare celor cumpărate și, uneori, oferte (cel mult unul pe lună), inclusiv codul de reducere pentru comanda următoare</td><td>art. 12 alin. (2) din Legea nr. 506/2004 și lit. f) – interesul legitim; vă puteți opune gratuit la finalizarea comenzii și din orice e-mail</td></tr>
                     <tr><td>Statistici de trafic și măsurarea eficienței reclamelor (cookie-uri și tehnologii similare neesențiale)</td><td>lit. a) – consimțământ (art. 4 alin. 5 din Legea nr. 506/2004), exprimat prin bannerul de cookie-uri</td></tr>
                     <tr><td>Securitatea site-ului, prevenirea abuzurilor, jurnale tehnice</td><td>lit. f) – interesul legitim de a asigura funcționarea și securitatea serviciului</td></tr>
                     <tr><td>Constatarea, exercitarea sau apărarea unor drepturi în justiție</td><td>lit. f) – interesul legitim</td></tr>
@@ -180,7 +180,7 @@ const sections: LegalSection[] = [
                 <li><strong>Fișierele grafice încărcate:</strong> cât este necesar pentru producție, recomenzi și reclamații, dar nu mai mult de 24 de luni de la livrare, dacă nu ne cereți ștergerea mai devreme (după livrare) sau păstrarea lor mai îndelungată.</li>
                 <li><strong>Contul de client:</strong> până la ștergerea contului la cererea dumneavoastră; datele comenzilor rămân păstrate conform termenelor de mai sus.</li>
                 <li><strong>Newsletter:</strong> până la dezabonare sau retragerea consimțământului.</li>
-                <li><strong>Configurări și coșuri nefinalizate:</strong> cel mult 90 de zile.</li>
+                <li><strong>Configurări și coșuri nefinalizate:</strong> cel mult 90 de zile.</li><li><strong>Lista de adrese care au refuzat e-mailurile:</strong> păstrată cât timp trimitem e-mailuri, ca să nu vă mai scriem.</li>
                 <li><strong>Mesajele trimise prin formularul de contact sau WhatsApp care nu privesc o comandă:</strong> cel mult 12 luni.</li>
                 <li><strong>Cookie-uri și date de statistică:</strong> conform duratelor din <Link href="/politica-cookies">Politica de cookies</Link>.</li>
                 <li><strong>Jurnale tehnice și de securitate:</strong> de regulă cel mult 6 luni.</li>
