@@ -560,7 +560,7 @@ export default function BannerConfigurator({ productSlug, initialWidth: initW, i
                                                 priority
                                             />
                                         )}
-
+
 
                                     </div>
                                 )}
