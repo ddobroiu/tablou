@@ -95,6 +95,13 @@ function normalize(s: string) {
     .replace(/[̀-ͯ]/g, "");
 }
 
+// Cuvinte de umplutură care nu identifică un produs (altfel „pentru” potrivește aproape orice configurator).
+const MATCH_STOPWORDS = new Set([
+  "pentru", "nevoie", "vreau", "doresc", "avem", "aveti", "care", "este", "sunt", "unei", "unui",
+  "din", "cat", "cum", "buna", "salut", "ziua", "va", "rog", "mersi", "multumesc", "costa", "pret",
+  "pretul", "bucati", "buc", "imi", "trebuie", "the", "and",
+]);
+
 function findConfiguratorMatches(query: string, limit = 5) {
   const q = normalize(query);
   if (!q) return [];
@@ -107,7 +114,7 @@ function findConfiguratorMatches(query: string, limit = 5) {
     if (hay.includes(q)) score += 6;
     const tokens = q.split(/[\s,.;/|]+/).filter(Boolean);
     for (const t of tokens) {
-      if (t.length < 3) continue;
+      if (t.length < 3 || MATCH_STOPWORDS.has(t)) continue;
       if (hay.includes(t)) score += 2;
     }
     if (q.includes(normalize(c.slug))) score += 3;
