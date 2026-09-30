@@ -46,7 +46,7 @@ const sections: LegalSection[] = [
                     Costul livrării depinde de greutatea, dimensiunile de ambalare și destinația coletului și se afișează în coș și în
                     pagina de finalizare a comenzii, înainte de plasarea ei. Pentru comenzile cu valoarea produselor de cel puțin{" "}
                     <strong>{FREE_SHIPPING_THRESHOLD} lei</strong>, livrarea este gratuită, dacă nu se indică altfel în checkout.
-                    Plata ramburs (la curier) este disponibilă numai în România, pentru comenzi de cel mult {MAX_RAMBURS_LIMIT} lei.
+                    Plata ramburs (la curier) este disponibilă numai în România, pentru comenzi de cel mult {MAX_RAMBURS_LIMIT} lei care nu conțin textile (tricouri, hanorace, șepci).
                 </p>
                 <p>Prețurile și costul livrării sunt finale; furnizorul nu este plătitor de TVA.</p>
             </>

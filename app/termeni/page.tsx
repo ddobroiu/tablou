@@ -184,7 +184,7 @@ const sections: LegalSection[] = [
                     </li>
                     <li>
                         <strong>Ramburs (numerar sau card la curier, după caz)</strong> – disponibil numai pentru livrări în România și
-                        pentru comenzi de cel mult {MAX_RAMBURS_LIMIT} lei, dacă apare ca opțiune în checkout. Plata se face
+                        pentru comenzi de cel mult {MAX_RAMBURS_LIMIT} lei care nu conțin textile (tricouri, hanorace, șepci), dacă apare ca opțiune în checkout. Plata se face
                         curierului, la primirea coletului.
                     </li>
                 </ul>

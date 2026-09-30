@@ -21,7 +21,7 @@ import {
   Package,
 } from "lucide-react";
 import CheckoutForm from "./CheckoutForm";
-import { LEGAL_VERSION, PERSONALIZED_WITHDRAWAL_NOTE } from "@/lib/company";
+import { LEGAL_VERSION } from "@/lib/company";
 import { readConsent } from "@/lib/cookieConsent";
 import GarantieLegalaLine from "@/components/legal/GarantieLegalaLine";
 import DeliveryInfo from "@/components/DeliveryInfo";
@@ -31,7 +31,7 @@ import {
   MAX_RAMBURS_LIMIT,
   FREE_SHIPPING_THRESHOLD,
   validateCheckoutPaymentMethod,
-  validateMinTricouQuantity,
+  hasTextiles,
   BANK_TRANSFER_BENEFICIARY,
   BANK_TRANSFER_BANK_NAME,
   BANK_TRANSFER_IBAN,
@@ -196,6 +196,8 @@ export default function CheckoutPage() {
   const [sameAsDelivery, setSameAsDelivery] = useState(true);
   // Livrare la adresa sau la un locker / punct DPD ales pe harta
   const [deliveryType, setDeliveryType] = useState<"address" | "dpd_point">("address");
+  // Lockere DPD: produsele mici (ex. banner pliat) încap; la cele mari (canvas pe șasiu, roll-up) opțiunea nu apare
+  const [lockerOk, setLockerOk] = useState(true);
   const [dpdPoint, setDpdPoint] = useState<DpdPointChoice | null>(null);
   const atPoint = deliveryType === "dpd_point" && (!address.country || address.country === "RO");
   const [createAccount, setCreateAccount] = useState(true);
@@ -237,9 +239,35 @@ export default function CheckoutPage() {
 
   const isRambursDisabled =
     totalWithShipping > MAX_RAMBURS_LIMIT ||
+    // textile: doar card sau ordin de plată
+    hasTextiles(items) ||
     (address.country && address.country !== "RO") ||
     // la unele puncte DPD nu se poate plati la ridicare
     (atPoint && dpdPoint !== null && !dpdPoint.cod);
+
+  useEffect(() => {
+    if (!items?.length) return;
+    let alive = true;
+    const timer = setTimeout(() => {
+      fetch("/api/dpd/points", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ items: normalizeCart(items), countOnly: true }),
+      })
+        .then((r) => r.json())
+        .then((d) => {
+          if (!alive || typeof d?.lockers !== "number") return;
+          setLockerOk(d.lockers > 0);
+          if (d.lockers === 0) setDeliveryType("address");
+        })
+        .catch(() => {});
+    }, 400);
+    return () => {
+      alive = false;
+      clearTimeout(timer);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [items]);
 
   // Emailuri automate: salvăm coșul când emailul e valid, pentru reamintirea dacă nu se finalizează comanda.
   // Nu se trimite nimic dacă clientul a bifat că nu vrea (sau s-a dezabonat).
@@ -605,16 +633,12 @@ export default function CheckoutPage() {
       }
     }
 
-    const tricouQtyError = validateMinTricouQuantity(items);
-    if (tricouQtyError) {
-      showToast(tricouQtyError, "error");
-      return;
-    }
 
     const paymentError = validateCheckoutPaymentMethod(
       paymentMethod,
       totalWithShipping,
-      address.country
+      address.country,
+      items
     );
     if (paymentError) {
       showToast(paymentError, "error");
@@ -821,7 +845,7 @@ export default function CheckoutPage() {
               setSameAsDelivery={setSameAsDelivery}
               errors={formErrors}
               deliveryType={deliveryType}
-              setDeliveryType={setDeliveryType}
+              setDeliveryType={lockerOk ? setDeliveryType : undefined}
               pointPicker={<DpdPointPicker items={normalizeCart(items)} value={dpdPoint} onChange={setDpdPoint} />}
             />
           </section>
@@ -945,6 +969,20 @@ export default function CheckoutPage() {
 
                 </div>
 
+                {hasTextiles(items) && (
+                  <p className="text-xs text-amber-700 dark:text-amber-400 flex items-start gap-1">
+                    <AlertCircle className="h-3.5 w-3.5 mt-0.5 shrink-0" />
+                    <span>Pentru comenzile cu tricouri, hanorace sau șepci plata se face doar cu cardul sau prin ordin de plată.</span>
+                  </p>
+                )}
+
+                {totalWithShipping > MAX_RAMBURS_LIMIT && !hasTextiles(items) && (
+                  <p className="text-xs text-amber-700 dark:text-amber-400 flex items-start gap-1">
+                    <AlertCircle className="h-3.5 w-3.5 mt-0.5 shrink-0" />
+                    <span>Pentru comenzi peste {MAX_RAMBURS_LIMIT} lei plata se face doar cu cardul sau prin ordin de plată.</span>
+                  </p>
+                )}
+
                 <DiscountCodeInput
                   subtotal={subtotal}
                   onDiscountApplied={(discount) => {
@@ -1018,7 +1056,7 @@ export default function CheckoutPage() {
                         {dpdError ? "---" : fmt(totalWithShipping)}
                       </p>
                       <p className="text-[11px] text-slate-700 dark:text-slate-400">
-                        Preț final; furnizorul nu este plătitor de TVA • {hasFreeShipping ? "livrare gratuită" : "include transport"}
+                        Preț final • {hasFreeShipping ? "livrare gratuită" : "include transport"}
                       </p>
                     </div>
                   </div>
@@ -1039,10 +1077,6 @@ export default function CheckoutPage() {
                       </span>
                     </label>
                   )}
-                  <p className="rounded-lg border border-amber-200 bg-amber-50 p-3 text-xs leading-relaxed text-amber-900">
-                    <strong>Important:</strong> {PERSONALIZED_WITHDRAWAL_NOTE}{" "}
-                    <Link href="/termeni#retragere" target="_blank" className="font-semibold underline">Detalii</Link>
-                  </p>
                   <GarantieLegalaLine variant="checkout" />
                   <label className="flex items-start gap-2 text-xs text-slate-700 dark:text-slate-300">
                     <input
@@ -1375,7 +1409,10 @@ function CartItems({
     }
 
     const knownKeys = Object.keys(labelForKey).filter(
-      (k) => meta[k] !== undefined
+      (k) =>
+        meta[k] !== undefined &&
+        // designOption e codul intern (ex. ai_generate); textul pentru client e în cheia „Grafică”
+        !(k === "designOption" && meta["Grafică"] !== undefined)
     );
     knownKeys.forEach((k) => {
       if (k === "proDesignFee") {
@@ -1418,6 +1455,8 @@ function CartItems({
       "artwork",
       "internalNotes",
       "adminNotes",
+      "artworkFit",
+      "artworkFitVerso",
       "cartItemId",
       "userId",
       "designId",
@@ -1428,7 +1467,7 @@ function CartItems({
       "name",
     ]);
     Object.keys(meta)
-      .filter((k) => !knownKeys.includes(k) && !exclude.has(k))
+      .filter((k) => !knownKeys.includes(k) && !exclude.has(k) && typeof meta[k] !== "object" && !/^\s*[\[{]/.test(String(meta[k])))
       .forEach((k) => {
         const v = meta[k];
         if (k === "proDesignFee") {

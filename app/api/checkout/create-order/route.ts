@@ -119,7 +119,8 @@ export async function POST(req: NextRequest) {
         const paymentError = validateCheckoutPaymentMethod(
             paymentMethod,
             orderTotal,
-            orderData.address?.country
+            orderData.address?.country,
+            orderData.items
         );
         if (paymentError) {
             return NextResponse.json({ error: paymentError }, { status: 400 });
