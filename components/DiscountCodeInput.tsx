@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Check, X, Percent, Tag } from 'lucide-react';
 
 interface DiscountCodeInputProps {
     subtotal: number;
     configuratorId?: string;
-    onDiscountApplied: (discount: { type: string; value: number; amount: number } | null) => void;
+    onDiscountApplied: (discount: { code: string; type: string; value: number; amount: number } | null) => void;
 }
 
 export default function DiscountCodeInput({
@@ -34,31 +34,17 @@ export default function DiscountCodeInput({
         setError(null);
 
         try {
-            // MOCK: Accept "TEST" for 10% discount
-            await new Promise(r => setTimeout(r, 600)); // simulate delay
-
-            let result;
-            if (inputCode.trim().toUpperCase() === 'TEST') {
-                const discountVal = 10;
-                result = {
-                    isValid: true,
-                    discount: {
-                        type: 'percentage',
-                        value: discountVal,
-                        amount: (subtotal * discountVal) / 100
-                    }
-                };
-            } else {
-                result = { isValid: false, error: 'Cod invalid' };
-            }
+            // Verificare pe server (lib/discount-server.ts); la plasarea comenzii codul se verifică din nou.
+            const res = await fetch('/api/discount/validate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ code: inputCode.trim(), subtotal }),
+            });
+            const result: { isValid: boolean; error?: string; discount?: { code: string; type: string; value: number; amount: number } } =
+                await res.json().catch(() => ({ isValid: false, error: 'Eroare la validarea codului.' }));
 
             if (result.isValid && result.discount) {
-                setAppliedDiscount({
-                    code: inputCode.trim().toUpperCase(),
-                    type: result.discount.type,
-                    value: result.discount.value,
-                    amount: result.discount.amount
-                });
+                setAppliedDiscount(result.discount);
                 onDiscountApplied(result.discount);
                 setInputCode('');
                 setError(null);
@@ -72,6 +58,20 @@ export default function DiscountCodeInput({
             setIsValidating(false);
         }
     };
+
+    // Coșul s-a schimbat după aplicare: recalculăm suma afișată (procentul rămâne; serverul recalculează oricum).
+    useEffect(() => {
+        if (!appliedDiscount) return;
+        const amount = appliedDiscount.type === 'percentage'
+            ? Math.round(subtotal * appliedDiscount.value) / 100
+            : Math.min(appliedDiscount.value, subtotal);
+        if (amount !== appliedDiscount.amount) {
+            const next = { ...appliedDiscount, amount };
+            setAppliedDiscount(next);
+            onDiscountApplied(next);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [subtotal]);
 
     const handleRemoveCode = () => {
         setAppliedDiscount(null);

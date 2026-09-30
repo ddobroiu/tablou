@@ -505,3 +505,52 @@ model PrintAiAlert {
 
   @@index([sentAt])
 }
+
+// ─── Emailuri automate (coș abandonat, mulțumire, recomandări) ─────────────
+// Identice în schema tuturor celor 6 site-uri de print (baza e comună).
+// Trimiterea se face din shopprint (lib/mail-auto, /api/cron/emails); fiecare site doar captează coșul și dezabonarea.
+
+model MailCart {
+  id         String    @id @default(cuid())
+  email      String
+  name       String?
+  site       String
+  items      Json
+  total      Decimal?
+  status     String    @default("open") // open | converted | done | stopped
+  step       Int       @default(0) // câte emailuri de coș s-au trimis
+  lastSentAt DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  @@unique([email, site])
+  @@index([status, updatedAt])
+}
+
+model MailOptOut {
+  email     String   @id
+  site      String?
+  reason    String?
+  createdAt DateTime @default(now())
+}
+
+model MailSend {
+  id       String   @id @default(cuid())
+  email    String
+  site     String
+  kind     String // cart1 | cart2 | thanks | reco | welcome
+  refId    String? // comanda / coșul / abonatul
+  code     String? // codul de reducere trimis (DiscountCode.code)
+  resendId String?
+  error    String?
+  sentAt   DateTime @default(now())
+
+  @@index([email, kind])
+  @@index([sentAt])
+}
+
+model MailSetting {
+  key       String   @id
+  value     Json
+  updatedAt DateTime @updatedAt
+}

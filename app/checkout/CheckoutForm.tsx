@@ -225,6 +225,9 @@ export default function CheckoutForm({
                         <Field id="address.email" label="Email" error={errors["address.email"]}>
                             <input className={inputCls(errors["address.email"])} value={address.email} onChange={(e) => onAddr("email", e.target.value)} placeholder="email@exemplu.ro" />
                         </Field>
+                        <p className="mt-1 text-[11px] leading-snug text-slate-500 dark:text-slate-400">
+                            Folosim emailul pentru comandă. Dacă nu o finalizezi, îți putem trimite o reamintire; după comandă, cel mult un email pe lună cu idei și oferte. Te poți dezabona oricând.
+                        </p>
                     </div>
 
                     {atPoint ? (

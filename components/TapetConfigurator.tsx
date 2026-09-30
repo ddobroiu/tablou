@@ -8,7 +8,6 @@ import { NumberInput } from "@/components/ui/NumberInput";
 import DeliveryEstimation from "./DeliveryEstimation";
 import FaqAccordion from "./FaqAccordion";
 import Reviews from "./Reviews";
-import SmartNewsletterPopup from "./SmartNewsletterPopup";
 import { useUserActivityTracking } from "@/hooks/useAbandonedCartCapture";
 import QuickNav from "@/components/QuickNav";
 import { QA } from "@/types";

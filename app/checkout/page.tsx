@@ -201,6 +201,8 @@ export default function CheckoutPage() {
   const [createAccount, setCreateAccount] = useState(true);
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("card");
   const [acceptTerms, setAcceptTerms] = useState(false);
+  // Emailuri automate: căsuța de refuz (Legea 506/2004 art. 12); anunțul e sub câmpul de email
+  const [mailOptOut, setMailOptOut] = useState(false);
 
   const [errors, setErrors] = useState<CheckoutErrors>({});
   const [placing, setPlacing] = useState(false);
@@ -238,6 +240,24 @@ export default function CheckoutPage() {
     (address.country && address.country !== "RO") ||
     // la unele puncte DPD nu se poate plati la ridicare
     (atPoint && dpdPoint !== null && !dpdPoint.cod);
+
+  // Emailuri automate: salvăm coșul când emailul e valid, pentru reamintirea dacă nu se finalizează comanda.
+  // Nu se trimite nimic dacă clientul a bifat că nu vrea (sau s-a dezabonat).
+  useEffect(() => {
+    const email = String(address.email || "").trim();
+    if (mailOptOut || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) || !items?.length) return;
+    const t = setTimeout(() => {
+      const lines = normalizeCart(items).map((it: any) => ({ name: it.name || it.title, quantity: it.quantity, total: it.totalAmount ?? (Number(it.unitAmount || 0) * Number(it.quantity || 1)) }));
+      fetch("/api/mail/cart", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, name: address.firstName || "", items: lines, total: subtotal }),
+        keepalive: true,
+      }).catch(() => {});
+    }, 1500);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [address.email, items, subtotal, mailOptOut]);
 
   useEffect(() => {
     if (isRambursDisabled && paymentMethod === "cash_on_delivery") {
@@ -637,6 +657,7 @@ export default function CheckoutPage() {
       paymentMethod,
       acceptTerms,
       termsVersion: LEGAL_VERSION,
+      mailOptOut,
       source: 'tablou.net',
       // Acordul pentru marketing: numai cu el serverul trimite plata la TikTok Events API
       tiktokConsent: readConsent()?.marketing === true,
@@ -928,7 +949,7 @@ export default function CheckoutPage() {
                   subtotal={subtotal}
                   onDiscountApplied={(discount) => {
                     if (discount) {
-                      setDiscountCode(discount.type);
+                      setDiscountCode(discount.code);
                       setDiscountAmount(discount.amount);
                     } else {
                       setDiscountCode(null);
@@ -1049,6 +1070,15 @@ export default function CheckoutPage() {
                       </Link>
                       .
                     </span>
+                  </label>
+                  <label className="flex items-start gap-2 text-xs text-slate-700 dark:text-slate-300">
+                    <input
+                      type="checkbox"
+                      checked={mailOptOut}
+                      onChange={(e) => setMailOptOut(e.target.checked)}
+                      className="mt-0.5 h-4 w-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500"
+                    />
+                    <span>Nu vreau să primesc emailuri cu reamintiri, idei și oferte (emailurile despre comandă vin oricum).</span>
                   </label>
 
 

@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { fulfillOrder } from '@/lib/orderService';
+import { optOut } from '@/lib/mail-optout';
+import { checkDiscountCode } from '@/lib/discount-server';
 import { LEGAL_VERSION } from '@/lib/company';
 import { getAuthSession } from '@/lib/auth';
 import { clientIp, tiktokCheckoutMetadata } from '@/lib/tiktok-events';
@@ -35,12 +37,37 @@ export async function POST(req: NextRequest) {
                         ? 'euprint.ro'
                         : 'tablou.net')
         ).toLowerCase();
+        // Emailuri automate (lib/mail-auto): checkout-ul arată anunțul și căsuța „nu vreau” (Legea 506/2004 art. 12).
+        // Doar comenzile din checkout-ul nou (mailOptOut trimis explicit) primesc mailOptIn; refuzul intră în MailOptOut.
+        if (typeof orderData.mailOptOut === 'boolean') {
+            const refuza = orderData.mailOptOut;
+            orderData.marketing = { ...(orderData.marketing || {}), mailOptIn: !refuza };
+            if (refuza) void optOut(orderData.address?.email, source, 'checkout').catch(() => {});
+        }
+        delete orderData.mailOptOut;
 
         const session = await getAuthSession();
         // @ts-ignore
         const userId = session?.user?.id || null;
 
         const paymentMethod = orderData.paymentMethod || 'cash_on_delivery';
+
+        // Codul de reducere se verifică aici, pe server; suma trimisă de browser nu contează.
+        // Reducerea (doar pe produse) ajunge în Stripe (cupon), în factura Oblio și în totalul comenzii (lib/orderService.ts).
+        const rawDiscountCode = typeof orderData.discountCode === 'string' ? orderData.discountCode.trim() : '';
+        delete orderData.discountCode;
+        delete orderData.discountAmount;
+        delete orderData.discount;
+        if (rawDiscountCode) {
+            const productsSubtotal = (orderData.items || []).reduce(
+                (s: number, it: any) => s + Number(it.unitAmount ?? it.price ?? 0) * Number(it.quantity ?? 1),
+                0
+            );
+            const chk = await checkDiscountCode(rawDiscountCode, productsSubtotal);
+            if (!chk.ok) return NextResponse.json({ error: chk.error }, { status: 400 });
+            orderData.discount = { code: chk.code, amount: chk.amount };
+            orderData.marketing = { ...(orderData.marketing || {}), discount: orderData.discount };
+        }
 
         if (!orderData?.address || !orderData?.billing || !orderData?.items) {
             return NextResponse.json({ error: 'Date de comandă invalide.' }, { status: 400 });
@@ -109,6 +136,19 @@ export async function POST(req: NextRequest) {
             if (!secret) return NextResponse.json({ error: 'STRIPE_SECRET_KEY missing' }, { status: 500 });
 
             const stripe = new Stripe(secret);
+            // Reducerea validată mai sus: cupon Stripe de unică folosință cu suma exactă
+            let stripeDiscounts: { coupon: string }[] | undefined;
+            if (orderData.discount?.amount > 0) {
+                const coupon = await stripe.coupons.create({
+                    amount_off: Math.round(orderData.discount.amount * 100),
+                    currency: 'ron',
+                    duration: 'once',
+                    max_redemptions: 1,
+                    name: `Reducere ${orderData.discount.code}`.slice(0, 40),
+                    metadata: { group: 'print', code: orderData.discount.code },
+                });
+                stripeDiscounts = [{ coupon: coupon.id }];
+            }
 
             const session = await stripe.checkout.sessions.create({
                 mode: 'payment',
@@ -132,6 +172,7 @@ export async function POST(req: NextRequest) {
                         quantity: 1,
                     },
                 ],
+                ...(stripeDiscounts ? { discounts: stripeDiscounts } : {}),
                 success_url: `${origin}/checkout/success/stripe?session_id={CHECKOUT_SESSION_ID}`,
                 cancel_url: `${origin}/checkout`,
                 // Tagged on the payment too: the Stripe account is shared by several sites

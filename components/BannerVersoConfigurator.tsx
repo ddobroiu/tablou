@@ -13,7 +13,6 @@ import FaqAccordion from "./FaqAccordion";
 import Reviews from "./Reviews";
 import DynamicBannerPreview from "./DynamicBannerPreview";
 import ArtworkRatioPreview from "./ArtworkRatioPreview";
-import SmartNewsletterPopup from "./SmartNewsletterPopup";
 import { useUserActivityTracking } from "@/hooks/useAbandonedCartCapture";
 import QuickNav from "@/components/QuickNav";
 import {
@@ -854,12 +853,6 @@ export default function BannerVersoConfigurator({ productSlug, initialWidth: ini
       <div className="container mx-auto px-4 mt-12 mb-8">
         <QuickNav title="Vrei să personalizezi alt produs?" />
       </div>
-
-      {/* Smart Newsletter Popup */}
-      <SmartNewsletterPopup
-        onSubscribe={(email) => setUserEmail(email)}
-        delay={30}
-      />
     </div>
   );
 }

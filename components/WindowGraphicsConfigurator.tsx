@@ -6,7 +6,6 @@ import { Ruler, Layers, Plus, Minus, ShoppingCart, Info, ChevronDown, X, UploadC
 import DeliveryEstimation from "./DeliveryEstimation";
 import FaqAccordion from "./FaqAccordion";
 import Reviews from "./Reviews";
-import SmartNewsletterPopup from "./SmartNewsletterPopup";
 import { useUserActivityTracking } from "@/hooks/useAbandonedCartCapture";
 import QuickNav from "@/components/QuickNav";
 import { QA } from "@/types";
@@ -529,7 +528,6 @@ export default function WindowGraphicsConfigurator({ productSlug, initialWidth: 
         <QuickNav title="Vrei să personalizezi alt produs?" />
       </div>
 
-      <SmartNewsletterPopup />
       {detailsOpen && (
         <div className="fixed inset-0 z-60 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4" onClick={() => setDetailsOpen(false)}>
           <div className="relative z-10 w-full max-w-2xl bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-gray-200 dark:border-slate-800 p-6 sm:p-8 max-h-[90vh] overflow-y-auto" onClick={e => e.stopPropagation()}>

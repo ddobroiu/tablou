@@ -9,7 +9,6 @@ import DeliveryEstimation from "./DeliveryEstimation";
 import { usePathname, useRouter } from "next/navigation";
 import FaqAccordion from "./FaqAccordion";
 import Reviews from "./Reviews";
-import SmartNewsletterPopup from "./SmartNewsletterPopup";
 import RelatedProducts from "./RelatedProducts";
 import QuickNav from "@/components/QuickNav";
 import { useUserActivityTracking } from "@/hooks/useAbandonedCartCapture";
@@ -606,12 +605,6 @@ export default function AutocolanteConfigurator({ productSlug, initialWidth: ini
           </div>
         </div>
       )}
-
-      {/* Smart Newsletter Popup */}
-      <SmartNewsletterPopup
-        onSubscribe={(email) => setUserEmail(email)}
-        delay={30}
-      />
 
       {/* NAVIGARE RAPIDĂ (ÎNTRE DESCRIERE ȘI RELATED) */}
       <div className="container mx-auto px-4 mt-12 mb-8">

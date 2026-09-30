@@ -6,6 +6,7 @@ import bcrypt from 'bcryptjs';
 import { sendOrderConfirmationEmail, sendNewOrderAdminEmail } from './email';
 import { getEstimatedShippingCost } from './shippingUtils';
 import { oblioVatFields } from '@/lib/company';
+import { redeemDiscountCode } from '@/lib/discount-server';
 
 
 // Constante locale pentru a evita erori de import
@@ -102,7 +103,9 @@ async function sendEmails(
   try {
     const subtotal = (cart || []).reduce((acc, it) => acc + (Number(it.totalAmount || it.total || (it.price * it.quantity) || 0)), 0);
     const fee = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : getEstimatedShippingCost(address.country || 'RO', cart);
-    const totalAmount = subtotal + fee;
+    const disc = (marketing as any)?.discount && Number((marketing as any).discount.amount) > 0 ? (marketing as any).discount as { code: string; amount: number } : null;
+    const discAmount = disc ? Math.min(Number(disc.amount), subtotal) : 0;
+    const totalAmount = subtotal - discAmount + fee;
 
     // --- BUILD CUSTOM CONTENT ---
     const itemsHtml = await Promise.all((cart || []).map(async (it) => {
@@ -135,6 +138,9 @@ async function sendEmails(
       <div>${itemsHtml.join('')}</div>
       
       <div style="border-top: 1px dashed #cbd5e1; padding-top: 16px; margin-top: 16px;">
+        ${disc ? `<div style="display:flex; justify-content:space-between; margin-bottom: 8px; color: #047857; font-size: 14px;">
+          <span>Reducere (cod ${escapeHtml(disc.code)}):</span> <span style="font-weight: 500;">-${discAmount.toFixed(2)} RON</span>
+        </div>` : ''}
         <div style="display:flex; justify-content:space-between; margin-bottom: 8px; color: #64748b; font-size: 14px;">
           <span>Transport:</span> <span style="font-weight: 500;">${fee.toFixed(2)} RON</span>
         </div>
@@ -184,10 +190,15 @@ export async function fulfillOrder(
     termsAcceptedAt?: string;
     termsVersion?: string;
     source?: string;
+    /** Reducere validată pe server (app/api/checkout/create-order), doar pe produse. */
+    discount?: { code: string; amount: number };
   },
   paymentType: 'Ramburs' | 'OP' | 'Card'
 ): Promise<{ invoiceLink: string | null; orderNo?: number; orderId?: string; createdPassword?: string }> {
   const { address, billing, marketing, source } = orderData;
+  const discount = orderData.discount && Number(orderData.discount.amount) > 0
+    ? { code: String(orderData.discount.code), amount: Math.round(Number(orderData.discount.amount) * 100) / 100 }
+    : null;
   const cart = orderData.cart || orderData.items || [];
 
   if (!billing.email) (billing as any).email = address.email;
@@ -220,6 +231,8 @@ export async function fulfillOrder(
       });
 
       const sub = productsForOblio.reduce((sum, p) => sum + (p.price * p.quantity), 0);
+      // Reducerea: linie Oblio care se aplică produselor de deasupra (nu transportului); testat pe proformă 30.09.2026
+      if (discount) productsForOblio.push({ name: `Reducere (cod ${discount.code})`, discount: Math.min(discount.amount, sub), discountType: 'valoric', discountAllAbove: 1 } as any);
       const shipping = sub >= FREE_SHIPPING_THRESHOLD ? 0 : getEstimatedShippingCost(address.country || 'RO', cart);
       if (shipping > 0) productsForOblio.push({ name: 'Transport', price: shipping, measuringUnitName: 'buc', ...oblioVatFields(), quantity: 1 });
 
@@ -262,7 +275,7 @@ export async function fulfillOrder(
 
     const subtotal = normalized.reduce((s, it) => s + Number(it.total), 0);
     const fee = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : getEstimatedShippingCost(address.country || 'RO', cart);
-    const finalTotal = subtotal + fee;
+    const finalTotal = Math.round((subtotal - Math.min(discount?.amount || 0, subtotal) + fee) * 100) / 100;
 
     // -- DUPLICATE CHECK FOR RAMBURS/OP --
     // Previne crearea de comenzi duble si saltul numerelor in caz de dublu-click
@@ -303,6 +316,10 @@ export async function fulfillOrder(
       source: source || 'Tablou.net'
     });
     if (oblioError) void alerta("error", "oblio", `factura Oblio nu s-a emis pentru comanda ${saved.orderNo}: ${oblioError}`);
+    if (discount) {
+      const ok = await redeemDiscountCode(discount.code).catch(() => false);
+      if (!ok) void alerta("error", "discount", `comanda ${saved.orderNo} are codul ${discount.code} (${discount.amount} lei), dar codul nu mai era disponibil la marcare`);
+    }
 
     await sendEmails(address, billing, cart, invoiceLink, paymentType, marketing, saved.orderNo, createdPassword, saved.id, source);
 

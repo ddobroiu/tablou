@@ -92,6 +92,8 @@ export async function POST(req: NextRequest) {
                         userId: session.metadata.userId,
                         marketing: session.metadata.marketing ? JSON.parse(session.metadata.marketing) : undefined,
                     };
+                    // reducerea validată la checkout e și în marketing (plata din Stripe o include deja)
+                    if (checkoutData.marketing?.discount?.code) checkoutData.discount = checkoutData.marketing.discount;
                     console.log('[Tablou Webhook] Constructed fallback checkoutData from metadata');
                 } else {
                     console.error('[Tablou Webhook] CRITICAL: No pending checkout AND no address_email in metadata.');
