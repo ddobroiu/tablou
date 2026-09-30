@@ -6,6 +6,7 @@ import { ArrowRight, Upload, Ruler, Sun, Sofa, MapPin, CheckCircle2, Phone, Gift
 import { siteConfig } from '@/lib/siteConfig';
 import { CONFIGURATORS_REGISTRY } from '@/lib/configurators-registry';
 import PromoSection from '@/components/PromoSection';
+import AiChatWidget from '@/components/AiChatWidget';
 
 export const metadata: Metadata = {
   authors: [{ name: 'Echipa Tablou.net', url: 'https://www.tablou.net' }],
@@ -197,6 +198,22 @@ export default function Home() {
                 <li className="flex items-center gap-2"><CheckCircle2 size={16} style={{ color: ACCENT }} /> Gata în 2-4 zile</li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ASISTENT AI: preț instant în chat */}
+      <section className="pb-16 md:pb-20">
+        <div className="container mx-auto px-4 max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="lg:col-span-7">
+            <p className="text-[#B8385A] font-semibold text-sm tracking-wide mb-3">Asistent online</p>
+            <h2 className="font-[family-name:var(--font-fraunces)] text-3xl md:text-4xl text-stone-900 leading-tight mb-4">Întreabă de preț direct în chat</h2>
+            <p className="text-stone-600 text-lg leading-relaxed max-w-xl">
+              Spune-ne ce format vrei pentru tablou (sau alt produs) și câte bucăți, iar asistentul îți calculează prețul din configurator și îți dă linkul de comandă. Dacă preferi să vorbești cu un om, te trimite pe WhatsApp.
+            </p>
+          </div>
+          <div className="lg:col-span-5">
+            <AiChatWidget />
           </div>
         </div>
       </section>
