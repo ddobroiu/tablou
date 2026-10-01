@@ -25,8 +25,23 @@ export default function NewsletterOffer({ percent = 10 }: { percent?: number }) 
         } catch {
             return; // fără stocare locală nu putem ține minte că a fost închisă: nu o arătăm
         }
-        if (seen === "done" || (seen && Date.now() - Number(seen) < 30 * 86400_000)) return;
-        const show = () => setOpen(true);
+        const hidden = (v: string | null) => v === "done" || (!!v && Date.now() - Number(v) < 30 * 86400_000);
+        if (hidden(seen)) return;
+        let shown = false;
+        // o singură dată pe pagină și niciodată după ce a fost închisă (timerul și ieșirea cu mouse-ul rămân armate)
+        const show = () => {
+            let now: string | null = null;
+            try {
+                now = localStorage.getItem(KEY);
+            } catch {
+                /* fără stocare */
+            }
+            if (shown || hidden(now)) return;
+            shown = true;
+            clearTimeout(t);
+            document.removeEventListener("mouseout", onLeave);
+            setOpen(true);
+        };
         const t = setTimeout(show, 30_000);
         const onLeave = (e: MouseEvent) => {
             if (e.clientY <= 0) show();
