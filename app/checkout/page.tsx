@@ -204,7 +204,7 @@ export default function CheckoutPage() {
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("card");
   const [acceptTerms, setAcceptTerms] = useState(false);
   // Emailuri automate: căsuța de refuz (Legea 506/2004 art. 12); anunțul e sub câmpul de email
-  const [mailOptOut, setMailOptOut] = useState(false);
+  const mailOptOut = false; // fara casuta: clientul e anuntat (randul de sub acord) si se poate dezabona din orice e-mail
 
   const [errors, setErrors] = useState<CheckoutErrors>({});
   const [placing, setPlacing] = useState(false);
@@ -1105,15 +1105,7 @@ export default function CheckoutPage() {
                       .
                     </span>
                   </label>
-                  <label className="flex items-start gap-2 text-xs text-slate-700 dark:text-slate-300">
-                    <input
-                      type="checkbox"
-                      checked={mailOptOut}
-                      onChange={(e) => setMailOptOut(e.target.checked)}
-                      className="mt-0.5 h-4 w-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500"
-                    />
-                    <span>Nu vreau să primesc emailuri cu reamintiri, idei și oferte (emailurile despre comandă vin oricum).</span>
-                  </label>
+                  <p className="text-[11px] leading-snug text-slate-500 dark:text-slate-400">Îți putem trimite ocazional idei și oferte; te poți dezabona din orice e-mail.</p>
 
 
                 </div>
