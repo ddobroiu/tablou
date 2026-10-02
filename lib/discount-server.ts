@@ -8,7 +8,7 @@ export type DiscountCheck =
 
 const round2 = (n: number) => Math.round(n * 100) / 100;
 
-export async function checkDiscountCode(rawCode: unknown, productsSubtotal: number): Promise<DiscountCheck> {
+export async function checkDiscountCode(rawCode: unknown, productsSubtotal: number, email?: string): Promise<DiscountCheck> {
     const code = String(rawCode || "").trim().toUpperCase();
     if (!/^[A-Z0-9-]{3,40}$/.test(code)) return { ok: false, error: "Codul de reducere nu e valid." };
     const dc = await prisma.discountCode.findUnique({ where: { code } });
@@ -17,6 +17,12 @@ export async function checkDiscountCode(rawCode: unknown, productsSubtotal: numb
     if (now < dc.validFrom) return { ok: false, error: "Codul de reducere nu e încă activ." };
     if (now > dc.validUntil) return { ok: false, error: "Codul de reducere a expirat." };
     if (dc.maxUses && dc.currentUses >= dc.maxUses) return { ok: false, error: "Codul de reducere a fost deja folosit." };
+    // Codurile trimise pe e-mail (după o comandă) sunt personale: merg doar cu adresa care le-a primit.
+    // Fără adresă (previzualizarea din coș) se acceptă; la plasarea comenzii adresa e obligatorie și se verifică.
+    const personal = await prisma.mailSend.findFirst({ where: { code }, select: { email: true } });
+    if (personal && email && personal.email.trim().toLowerCase() !== email.trim().toLowerCase()) {
+        return { ok: false, error: "Codul e personal și merge doar cu adresa de e-mail pe care l-ai primit." };
+    }
     if (dc.minOrderValue && productsSubtotal < dc.minOrderValue) {
         return { ok: false, error: `Codul e valabil pentru comenzi de minimum ${dc.minOrderValue} lei.` };
     }

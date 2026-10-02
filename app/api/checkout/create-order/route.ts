@@ -63,7 +63,7 @@ export async function POST(req: NextRequest) {
                 (s: number, it: any) => s + Number(it.unitAmount ?? it.price ?? 0) * Number(it.quantity ?? 1),
                 0
             );
-            const chk = await checkDiscountCode(rawDiscountCode, productsSubtotal);
+            const chk = await checkDiscountCode(rawDiscountCode, productsSubtotal, String(orderData.address?.email || orderData.billing?.email || ''));
             if (!chk.ok) return NextResponse.json({ error: chk.error }, { status: 400 });
             orderData.discount = { code: chk.code, amount: chk.amount };
             orderData.marketing = { ...(orderData.marketing || {}), discount: orderData.discount };

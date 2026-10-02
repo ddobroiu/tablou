@@ -985,6 +985,7 @@ export default function CheckoutPage() {
 
                 <DiscountCodeInput
                   subtotal={subtotal}
+                  email={address.email}
                   onDiscountApplied={(discount) => {
                     if (discount) {
                       setDiscountCode(discount.code);

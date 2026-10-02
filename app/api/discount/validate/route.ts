@@ -18,7 +18,7 @@ export async function POST(req: Request) {
 
     const body = await req.json().catch(() => ({}));
     const subtotal = Math.max(0, Number(body?.subtotal) || 0);
-    const r = await checkDiscountCode(body?.code, subtotal);
+    const r = await checkDiscountCode(body?.code, subtotal, typeof body?.email === "string" ? body.email : undefined);
     if (!r.ok) return NextResponse.json({ isValid: false, error: r.error });
     return NextResponse.json({ isValid: true, discount: { code: r.code, type: r.type, value: r.value, amount: r.amount } });
 }

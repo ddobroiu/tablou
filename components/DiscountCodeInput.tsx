@@ -5,12 +5,14 @@ import { Check, X, Percent, Tag } from 'lucide-react';
 
 interface DiscountCodeInputProps {
     subtotal: number;
+    email?: string;
     configuratorId?: string;
     onDiscountApplied: (discount: { code: string; type: string; value: number; amount: number } | null) => void;
 }
 
 export default function DiscountCodeInput({
     subtotal,
+    email,
     configuratorId,
     onDiscountApplied
 }: DiscountCodeInputProps) {
@@ -38,7 +40,7 @@ export default function DiscountCodeInput({
             const res = await fetch('/api/discount/validate', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ code: inputCode.trim(), subtotal }),
+                body: JSON.stringify({ code: inputCode.trim(), subtotal, email }),
             });
             const result: { isValid: boolean; error?: string; discount?: { code: string; type: string; value: number; amount: number } } =
                 await res.json().catch(() => ({ isValid: false, error: 'Eroare la validarea codului.' }));

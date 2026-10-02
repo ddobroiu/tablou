@@ -8,7 +8,6 @@ import Footer from "../components/Footer";
 import ClientLayoutWrapper from "../components/ClientLayoutWrapper";
 import ContactButton from "../components/ContactButton";
 import CookieConsent from "../components/CookieConsent";
-import NewsletterOffer from "../components/NewsletterOffer";
 import { CONSENT_MODE_BOOTSTRAP } from "@/lib/cookieConsent";
 const inter = Inter({
   subsets: ["latin"],
@@ -117,7 +116,6 @@ export default function RootLayout({
 
       <body className={`${inter.variable} ${outfit.variable} ${fraunces.variable} bg-white text-slate-900 antialiased font-sans selection:bg-emerald-500 selection:text-white relative`}>
         <CookieConsent />
-        <NewsletterOffer />
         <Providers>
           <Header />
           <main className="w-full overflow-x-hidden">
