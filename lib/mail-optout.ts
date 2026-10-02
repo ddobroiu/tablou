@@ -50,3 +50,30 @@ export async function saveCheckoutCart(input: { email: unknown; name?: unknown; 
     });
     return { ok: true as const };
 }
+
+/** „https://www.HomePrint.ro/” → „homeprint.ro” (sursa abonatului = domeniul site-ului). */
+export function siteDomain(site: unknown): string {
+    return String(site || "").trim().toLowerCase().replace(/^https?:\/\//, "").replace(/^www\./, "").replace(/[/?#].*$/, "");
+}
+
+/**
+ * Clientul care a plasat o comandă intră automat în lista de abonați (source = domeniul site-ului comenzii),
+ * în afară de adresele din MailOptOut (acelea niciodată). Nu dublează: dacă adresa există deja (orice sursă,
+ * după lower(email)), nu schimbăm nimic (nici createdAt). Abonații care au o comandă NU primesc „bun venit”
+ * (lib/mail-auto/run.ts în shopprint), ci doar „mulțumim” după comandă. Nu aruncă niciodată: comanda nu depinde de asta.
+ */
+export async function subscribeFromOrder(email: unknown, site: unknown): Promise<"adaugat" | "exista" | "dezabonat" | "invalid" | "eroare"> {
+    try {
+        const e = normEmail(email);
+        if (!isValidEmail(e)) return "invalid";
+        if (await prisma.mailOptOut.findUnique({ where: { email: e }, select: { email: true } })) return "dezabonat";
+        const existing = await prisma.subscriber.findFirst({ where: { email: { equals: e, mode: "insensitive" } }, select: { id: true } });
+        if (existing) return "exista";
+        await prisma.subscriber.create({ data: { email: e, source: siteDomain(site) || null } });
+        return "adaugat";
+    } catch (err: any) {
+        if (err?.code === "P2002") return "exista";
+        console.warn("[subscribeFromOrder]", err?.message || err);
+        return "eroare";
+    }
+}

@@ -1,6 +1,7 @@
-// Abonare la emailuri (fereastra „10% reducere la următoarea comandă”). FIȘIER IDENTIC PE TOATE CELE 6 SITE-URI DE PRINT.
-// Salvează doar abonatul (cu site-ul); emailul de bun venit cu codul personal îl trimite shopprint în câteva minute
-// (lib/mail-auto, /api/cron/emails). Dacă adresa se dezabonase, o reactivăm (abonarea e un acord nou, explicit).
+// Abonare la emailuri (formular cu acord explicit). FIȘIER IDENTIC PE TOATE CELE 6 SITE-URI DE PRINT.
+// Salvează doar abonatul (cu site-ul); emailul de bun venit (FĂRĂ cod de reducere, din 02.10.2026) îl trimite shopprint
+// în câteva minute (lib/mail-auto, /api/cron/emails). Singurul cod e cel din emailul „mulțumim” după o comandă.
+// Dacă adresa se dezabonase, o reactivăm (abonarea e un acord nou, explicit).
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { siteConfig } from "@/lib/siteConfig";
@@ -33,8 +34,8 @@ export async function POST(req: Request) {
         return NextResponse.json({
             ok: true,
             message: existing
-                ? "Ești deja abonat. Verifică emailul pentru codul tău."
-                : "Gata! În câteva minute primești pe email codul de reducere.",
+                ? "Ești deja abonat."
+                : "Gata! Te-ai abonat. Îți scriem doar când avem ceva util.",
         });
     } catch (error) {
         console.error("[subscribers]", error);

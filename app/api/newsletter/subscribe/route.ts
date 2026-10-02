@@ -1,87 +1,30 @@
-import { NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
-import { sendConfiguratorWelcomeEmail, type NewsletterSubscription } from '@/lib/emailMarketing';
-import crypto from 'crypto';
+// Ruta veche de abonare (o folosea fereastra „SmartNewsletterPopup”, scoasă pe 30.09.2026, cu sursa „smart-popup”).
+// Niciun formular de pe site nu o mai apelează; abonarea se face prin /api/subscribers (cu acord explicit).
+// Din 02.10.2026: NU mai trimite email și NU mai creează coduri de reducere (abonații nu primesc coduri);
+// sursa e întotdeauna domeniul site-ului (nu ce trimite browserul); adresele dezabonate (MailOptOut) nu sunt adăugate.
+// FIȘIER IDENTIC PE CELE 5 SITE-URI CARE AU RUTA (adbanner, euprint, homeprint, prynt, tablou).
+import { NextResponse } from "next/server";
+import { prisma } from "@/lib/prisma";
+import { siteConfig } from "@/lib/siteConfig";
+import { isValidEmail, normEmail, siteDomain } from "@/lib/mail-optout";
 
-export const runtime = 'nodejs';
-export const dynamic = 'force-dynamic';
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
-  try {
-    const body: NewsletterSubscription = await req.json();
-    const { email, name, interests, source, utmParams } = body;
+    try {
+        const body = await req.json().catch(() => ({}));
+        const email = normEmail(body?.email);
+        if (!isValidEmail(email)) return NextResponse.json({ message: "Email invalid." }, { status: 400 });
 
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      return NextResponse.json(
-        { message: 'Email invalid.' },
-        { status: 400 }
-      );
-    }
-
-    // Check if already subscribed
-    const existingSubscriber = await prisma.subscriber.findUnique({
-      where: {
-        email_source: {
-          email,
-          source: source || 'unknown'
+        const site = siteDomain(siteConfig.url);
+        if (!(await prisma.mailOptOut.findUnique({ where: { email }, select: { email: true } }))) {
+            const existing = await prisma.subscriber.findFirst({ where: { email: { equals: email, mode: "insensitive" } }, select: { id: true } });
+            if (!existing) await prisma.subscriber.create({ data: { email, source: site } });
         }
-      }
-    });
-
-    if (existingSubscriber) {
-      return NextResponse.json(
-        { message: 'Acest email este deja abonat la newsletter.' },
-        { status: 400 }
-      );
+        return NextResponse.json({ success: true, message: "Abonare reușită." });
+    } catch (error) {
+        console.error("[Newsletter Subscribe]", error);
+        return NextResponse.json({ message: "Eroare internă. Încearcă din nou." }, { status: 500 });
     }
-
-    // Generate confirmation token
-    const token = crypto.randomBytes(32).toString('hex');
-
-    // Save or update subscriber with configurator interests
-    const subscriberData = {
-      email,
-      source: source || 'unknown'
-    };
-
-    const subscriber = existingSubscriber
-      ? await prisma.subscriber.update({
-        where: {
-          email_source: {
-            email,
-            source: source || 'unknown'
-          }
-        },
-        data: subscriberData
-      })
-      : await prisma.subscriber.create({
-        data: subscriberData
-      });
-
-    // Send welcome email based on main interest
-    if (interests && interests.length > 0) {
-      try {
-        await sendConfiguratorWelcomeEmail(body);
-      } catch (emailError) {
-        console.warn('[Newsletter] Welcome email failed:', emailError);
-        // Don't fail the subscription if email fails
-      }
-    }
-
-    return NextResponse.json({
-      success: true,
-      message: 'Abonare reușită! Verifică email-ul pentru confirmare.',
-      subscriber: {
-        email: subscriber.email,
-        source: subscriber.source
-      }
-    });
-
-  } catch (error) {
-    console.error('[Newsletter Subscribe]', error);
-    return NextResponse.json(
-      { message: 'Eroare internă. Încearcă din nou.' },
-      { status: 500 }
-    );
-  }
 }

@@ -193,10 +193,16 @@ export async function applyDiscountCode(code: string): Promise<boolean> {
 }
 
 // Create email-specific discount codes
+const EMAIL_CODES_DISABLED: boolean = true;
+
 export async function createEmailDiscountCode(
     emailType: 'welcome' | 'abandoned_gentle' | 'abandoned_discount' | 'abandoned_final' | 'newsletter' | 'post_purchase',
     configuratorId?: string
 ): Promise<DiscountCode> {
+    // Dezactivat 02.10.2026: abonații și vizitatorii (bun venit, coș abandonat, newsletter) nu mai primesc coduri.
+    // Singurul cod de reducere e cel personal din emailul „mulțumim” trimis după o comandă (shopprint lib/mail-auto).
+    // Apelanții (lib/emailMarketing.ts) prind eroarea; în plus, emailurile vechi sunt oprite acolo.
+    if (EMAIL_CODES_DISABLED) throw new Error(`createEmailDiscountCode(${emailType}, ${configuratorId ?? "-"}) dezactivat`);
 
     let codeConfig: {
         type: 'percentage' | 'fixed' | 'free_shipping';

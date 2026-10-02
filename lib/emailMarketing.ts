@@ -3,6 +3,11 @@
 
 import { sendEmail, getHtmlTemplate } from './email';
 
+// 02.10.2026: emailurile de mai jos (bun venit cu cod, coș abandonat cu 10%/15%, „cadou” după comandă) sunt OPRITE.
+// Le-au înlocuit emailurile automate trimise central din shopprint (lib/mail-auto): fără coduri pentru abonați,
+// cu dezabonare; singurul cod e cel din emailul „mulțumim” după comandă.
+const LEGACY_MARKETING_EMAILS_OFF: boolean = true;
+
 // 14 Main Configurators (Core Products)
 export const MAIN_CONFIGURATORS = [
   {
@@ -339,6 +344,7 @@ export function generateNewsletterCampaign(theme: 'weekly' | 'promotional' | 'ed
 
 // Send Welcome Series Email
 export async function sendConfiguratorWelcomeEmail(subscription: NewsletterSubscription) {
+  if (LEGACY_MARKETING_EMAILS_OFF) return;
   if (!subscription.interests.length) return;
 
   const mainInterest = subscription.interests[0];
@@ -402,6 +408,7 @@ export async function sendConfiguratorWelcomeEmail(subscription: NewsletterSubsc
 
 // Post-purchase Follow-up (1 week after order)
 export async function sendPostPurchaseFollowUp(email: string, name: string, orderId: string, orderNo: number) {
+  if (LEGACY_MARKETING_EMAILS_OFF) return false;
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.tablou.net";
 
   // Create a special offer discount code
@@ -472,6 +479,7 @@ export async function sendAbandonedCartEmail({ email, configuratorId, cartData, 
   emailType: 'gentle' | 'discount' | 'final';
   discountPercent?: number;
 }) {
+  if (LEGACY_MARKETING_EMAILS_OFF) return false;
   const configurator = MAIN_CONFIGURATORS.find(c => c.id === configuratorId);
   if (!configurator) return false;
 

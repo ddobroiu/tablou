@@ -7,6 +7,7 @@ import { sendOrderConfirmationEmail, sendNewOrderAdminEmail } from './email';
 import { getEstimatedShippingCost } from './shippingUtils';
 import { oblioVatFields } from '@/lib/company';
 import { redeemDiscountCode } from '@/lib/discount-server';
+import { subscribeFromOrder } from '@/lib/mail-optout';
 
 
 // Constante locale pentru a evita erori de import
@@ -251,17 +252,6 @@ export async function fulfillOrder(
     } catch (e: any) { console.warn('[OrderService] Oblio failed:', e); oblioError = String(e?.message || e); }
   }
 
-  // 1.5 Newsletter
-  if (orderData.subscribeNewsletter) {
-    try {
-      await fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/api/subscribers`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: address.email, source: source || 'checkout-tablou', consent: true })
-      });
-    } catch (e: any) { }
-  }
-
   // 2. Database & Emails
   try {
     const normalized = (cart || []).map((raw: any) => {
@@ -316,6 +306,9 @@ export async function fulfillOrder(
       source: source || 'Tablou.net'
     });
     if (oblioError) void alerta("error", "oblio", `factura Oblio nu s-a emis pentru comanda ${saved.orderNo}: ${oblioError}`);
+    // Clientul intră în lista de abonați (sursa = domeniul site-ului), doar cu anunțul de la checkout (marketing.mailOptIn)
+    // și dacă nu e dezabonat (MailOptOut). Fără „bun venit”: primește doar „mulțumim” după comandă. Nu blochează comanda.
+    if ((marketing as any)?.mailOptIn === true) void subscribeFromOrder(address?.email, source || 'Tablou.net');
     if (discount) {
       const ok = await redeemDiscountCode(discount.code).catch(() => false);
       if (!ok) void alerta("error", "discount", `comanda ${saved.orderNo} are codul ${discount.code} (${discount.amount} lei), dar codul nu mai era disponibil la marcare`);
