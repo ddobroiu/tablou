@@ -20,7 +20,7 @@ export default function ClientLayoutWrapper({
 
     return (
         <>
-            <main className="min-h-screen flex flex-col w-full max-w-full overflow-x-hidden">{children}</main>
+            <main className="min-h-screen flex flex-col w-full max-w-full overflow-x-hidden [&>*]:w-full">{children}</main>
         </>
     );
 }

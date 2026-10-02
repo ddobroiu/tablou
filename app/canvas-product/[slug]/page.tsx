@@ -106,7 +106,7 @@ export default async function CanvasProductPage({ params }: Props) {
     ];
 
     return (
-        <div className="pt-24 max-w-7xl mx-auto px-4">
+        <div className="pt-4 sm:pt-8 w-full max-w-7xl mx-auto px-4">
             <Breadcrumbs items={breadcrumbItems} />
             <ProductStructuredData product={{
                 name: product.title,
@@ -115,7 +115,7 @@ export default async function CanvasProductPage({ params }: Props) {
                 sku: product.id,
                 offers: {
                     price: priceString,
-                    priceCurrency: "EUR", // The source data seems to be in Euro based on formatting
+                    priceCurrency: "RON",
                     availability: "https://schema.org/InStock",
                     url: `https://www.tablou.net/canvas-product/${product.slug}`
                 },
@@ -127,6 +127,7 @@ export default async function CanvasProductPage({ params }: Props) {
                     configuratorId="canvas"
                     productSlug={product.slug} // Pass the CORRECT found slug to the configurator
                     productImage={product.image}
+                    renderOnlyConfigurator
                 />
             </Suspense>
         </div>
