@@ -80,8 +80,10 @@ export async function generateMetadata({ params }: { params: Promise<{ judetSlug
     const aliasKey = resolveLocalProductKey(productSlug);
     if (aliasKey && productSlug.join('/') !== aliasKey) permanentRedirect(`/judet/${judetSlug}/${localitateSlug}/${aliasKey}`);
 
-    const baseSlug = aliasKey ?? productSlug[0];
-    const targetSlug = aliasKey ? undefined : productSlug[1];
+    // Aceeasi rezolvare ca in pagina: produsul complet are prioritate fata de modificatori.
+    const fullProduct = !aliasKey ? getProductBySlug(productSlug.join('/')) : undefined;
+    const baseSlug = aliasKey ?? (fullProduct ? productSlug.join('/') : productSlug[0]);
+    const targetSlug = aliasKey || fullProduct ? undefined : productSlug[1];
 
     const loc = withDisplayName(judetSlug, getLocalitateBySlug(judetSlug, localitateSlug));
     const judet = getJudetBySlug(judetSlug);
