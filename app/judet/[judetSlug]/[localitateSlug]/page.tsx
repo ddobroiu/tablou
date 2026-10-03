@@ -1,3 +1,4 @@
+import { isIndexableLocalPage } from "@/lib/seo/localIndexPolicy";
 import { siteConfig } from "@/lib/siteConfig";
 import React from "react";
 import Link from "next/link";
@@ -72,7 +73,7 @@ export async function generateMetadata({ params }: Params) {
         description,
         openGraph: { title, description, url: routeUrl, siteName: "Tablou.net", locale: "ro_RO", type: "website" },
         alternates: { canonical: routeUrl },
-        robots: { index: true, follow: true },
+        robots: { index: isIndexableLocalPage(siteConfig.url, judet.slug, loc.slug), follow: true },
     };
 }
 
@@ -277,7 +278,7 @@ export default async function LocalitatePage({ params }: Params) {
                             {neighbours.map((l) => (
                                 <Link key={`${l.judetSlug}/${l.slug}`} href={`/judet/${l.judetSlug}/${l.slug}`}
                                     className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 hover:border-emerald-300 hover:text-emerald-700">
-                                    {l.name}{typeof l.km === "number" ? <span className="text-slate-400"> · {l.km.toLocaleString("ro-RO")} km</span> : null}
+                                    {l.name}{typeof l.km === "number" ? <span className="text-slate-400"> Â· {l.km.toLocaleString("ro-RO")} km</span> : null}
                                 </Link>
                             ))}
                             <Link href={`/judet/${judet.slug}`} className="rounded-full px-4 py-2 text-sm font-semibold text-emerald-700 hover:underline">

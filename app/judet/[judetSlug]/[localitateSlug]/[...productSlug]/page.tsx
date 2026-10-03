@@ -1,3 +1,4 @@
+import { isIndexableLocalPage } from "@/lib/seo/localIndexPolicy";
 import CatalogLocalityPage from "@/components/catalog/CatalogLocalityPage";
 import { getCatalogFamily, familyLocalMetadata } from "@/lib/catalog/localSeo";
 import { LocalProductFacts } from "@/components/seo/LocalProductFacts";
@@ -128,7 +129,7 @@ export async function generateMetadata({ params }: { params: Promise<{ judetSlug
             images: [(product as any).image || '/placeholder.png'],
         },
         alternates: { canonical: routeUrl },
-        robots: { index: true, follow: true }
+        robots: { index: isIndexableLocalPage(siteConfig.url, judet.slug, loc.slug, productSlug), follow: true }
     };
 }
 

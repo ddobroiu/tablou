@@ -116,7 +116,7 @@ export async function GET(request: Request, props: any) {
     const id = params?.id;
 
     // Sitemap-uri pe județ (judet-{judet}[-{n}]), dimensiuni standard și ID-urile
-    // retrase ({n}-{m}, dimensions-{n}, judet-dimensiuni → 410): lib/seo/localitySitemap.ts.
+    // retrase ({n}-{m}, dimensions-{n}, judet-dimensiuni â†’ 410): lib/seo/localitySitemap.ts.
     const seoSitemap = handleSeoSitemap(id);
     if (seoSitemap) return seoSitemap;
 
@@ -124,6 +124,7 @@ export async function GET(request: Request, props: any) {
 
     if (id === 'main') {
         xml += generateUrlNode(`${BASE_URL}/ghid-print`, '0.8', 'monthly', '2026-10-03');
+        xml += generateUrlNode(`${BASE_URL}/print-romania`, '0.8', 'monthly', '2026-10-03');
         const staticRoutes = [
             '', '/shop', '/shop/bannere', '/shop/canvas', '/shop/semnalistica',
             '/shop/panouri-sticla', '/shop/fonduri-europene', '/configurator/banner', '/configurator/rollup',

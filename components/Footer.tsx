@@ -39,6 +39,7 @@ const GUIDE_LINKS = [
 ];
 
 const COMPANY_LINKS = [
+    { href: "/print-romania", label: "Print cu livrare în România" },
     { href: "/ghid-print", label: "Ghid de alegere și prețuri" },
     { href: "/despre-noi", label: "Despre Tablou.net" },
     { href: "/industrii", label: "Print pentru firme, pe industrii" },

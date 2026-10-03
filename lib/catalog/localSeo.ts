@@ -1,3 +1,4 @@
+import { isIndexableLocalPage } from "@/lib/seo/localIndexPolicy";
 // Conținutul paginilor /judet/{judet}/{localitate}/{familie} pentru familiile din catalog.
 // Textul e compus din date reale: produsele și prețurile familiei, profilul județului
 // (lib/seo/judetProfiles.ts) și faptele fixe ale magazinului (producție 2-4 zile lucrătoare).
@@ -49,7 +50,7 @@ export function familyLocalMetadata(f: CatalogFamily, pl: Place): Metadata {
     description,
     alternates: { canonical: url },
     openGraph: { title, description, url, images: list[0] ? [list[0].images[0]] : [] },
-    robots: { index: true, follow: true },
+    robots: { index: isIndexableLocalPage(siteConfig.url, pl.judetSlug, pl.locSlug, [f.slug]), follow: true },
   };
 }
 

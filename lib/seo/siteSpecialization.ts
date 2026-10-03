@@ -160,6 +160,9 @@ export function resolveLocalProductKey(productSlug: string[] | string): string |
         .toLowerCase()
         .replace(/^\/+|\/+$/g, "");
     if (!path) return undefined;
+    const unprefixed = path.replace(/^configurator\//, "");
+    const simple = unprefixed.replace(/\/(ieftin|pret|preturi|personalizat|personalizate)$/, "");
+    if (PRODUCT_HOME[simple] || ALIASES[simple]) path = unprefixed;
     const withoutQualifier = path.replace(/\/(ieftin|pret|preturi|personalizat|personalizate)$/, "");
     if (PRODUCT_HOME[withoutQualifier] || ALIASES[withoutQualifier]) path = withoutQualifier;
     if (PRODUCT_HOME[path]) return path;

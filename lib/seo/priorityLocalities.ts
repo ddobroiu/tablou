@@ -10,7 +10,7 @@ import { STILURI_DATA } from "./stiluriData";
 import { REGLEMENTARI_DATA } from "./reglementariData";
 
 /** Sitemap editorial: orase principale + URL-uri cu afisari reale in Search Console.
- * Paginile omise raman accesibile si indexabile; nu retragem pagini cu trafic.
+ * Paginile omise raman accesibile; politica de indexare este in localIndexPolicy.ts.
  * Nu schimba canonicalul intre domenii. */
 export const PRIORITY_CONTENT_VERSION = "2026-10-03";
 const cache = new Map<string, string[]>();
@@ -38,7 +38,11 @@ export function priorityCountyPaths(county: string, origin: string, extraProduct
   for (const slug of JUDET_LOCALITY_SLUGS[county] ?? []) {
     if (!valid.has(slug)) continue;
     paths.add(`/judet/${county}/${slug}`);
-    for (const product of products) paths.add(`/judet/${county}/${slug}/${product}`);
+    // Extindem produs x localitate initial doar in orasul principal al judetului.
+    // Alte orase intra pe baza istoricului GSC sau a unei revizuiri editoriale.
+    if (slug === JUDET_LOCALITY_SLUGS[county]?.[0]) {
+      for (const product of products) paths.add(`/judet/${county}/${slug}/${product}`);
+    }
   }
   for (const path of trafficPaths) {
     const parts = path.split("/").filter(Boolean);
