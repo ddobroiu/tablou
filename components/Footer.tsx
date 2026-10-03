@@ -39,6 +39,7 @@ const GUIDE_LINKS = [
 ];
 
 const COMPANY_LINKS = [
+    { href: "/ghid-print", label: "Ghid de alegere și prețuri" },
     { href: "/despre-noi", label: "Despre Tablou.net" },
     { href: "/industrii", label: "Print pentru firme, pe industrii" },
     { href: "/seap", label: "Achiziții SEAP / SICAP" },

@@ -103,6 +103,16 @@ export const LOCAL_PRODUCT_KEYS: string[] = Object.keys(PRODUCT_HOME);
  * paginile se legau între ele cu slug-ul scurt: două URL-uri pentru aceeași pagină.
  */
 const ALIASES: Record<string, string> = {
+    "materiale/pvc-forex": "pvc-forex",
+    "materiale/alucobond": "alucobond",
+    "materiale/plexiglass": "plexiglass",
+    "materiale/carton": "carton",
+    "materiale/polipropilena": "polipropilena",
+    "configurator/tablou-canvas": "canvas",
+    "flyere": "flayere",
+    "configurator/flyere": "flayere",
+    "configurator/autocolant": "autocolante",
+    "configurator/signage": "semnalistica",
     "configurator/banner": "banner",
     "configurator/banner-verso": "banner-verso",
     "configurator/mesh": "mesh",
@@ -146,10 +156,12 @@ export function siteKeyFromOrigin(origin: string | undefined | null): SiteKey | 
  * pagina nu e o pagină simplă localitate × produs (variantă, produs necunoscut).
  */
 export function resolveLocalProductKey(productSlug: string[] | string): string | undefined {
-    const path = (Array.isArray(productSlug) ? productSlug.join("/") : String(productSlug || ""))
+    let path = (Array.isArray(productSlug) ? productSlug.join("/") : String(productSlug || ""))
         .toLowerCase()
         .replace(/^\/+|\/+$/g, "");
     if (!path) return undefined;
+    const withoutQualifier = path.replace(/\/(ieftin|pret|preturi|personalizat|personalizate)$/, "");
+    if (PRODUCT_HOME[withoutQualifier] || ALIASES[withoutQualifier]) path = withoutQualifier;
     if (PRODUCT_HOME[path]) return path;
     return ALIASES[path];
 }

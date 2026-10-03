@@ -123,6 +123,7 @@ export async function GET(request: Request, props: any) {
     let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
 
     if (id === 'main') {
+        xml += generateUrlNode(`${BASE_URL}/ghid-print`, '0.8', 'monthly', '2026-10-03');
         const staticRoutes = [
             '', '/shop', '/shop/bannere', '/shop/canvas', '/shop/semnalistica',
             '/shop/panouri-sticla', '/shop/fonduri-europene', '/configurator/banner', '/configurator/rollup',

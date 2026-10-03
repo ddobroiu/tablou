@@ -1,6 +1,7 @@
+import { priorityCountyPaths } from "./priorityLocalities";
 import { JUDETE_FULL_DATA } from "@/lib/localitati";
 import { siteConfig } from "@/lib/siteConfig";
-import { homeProductKeys, isHomeSite } from "@/lib/seo/siteSpecialization";
+import { isHomeSite } from "@/lib/seo/siteSpecialization";
 import { standardSizesFor } from "@/lib/seo/standardSizes";
 import { DIMENSION_PRODUCT_IDS, getSize, dimensionUrl } from "@/lib/seo/dimensionPages";
 import { countyLastmod } from "@/lib/seo/localityData";
@@ -10,7 +11,7 @@ import { countyLastmod } from "@/lib/seo/localityData";
  *
  * FIȘIER IDENTIC ÎN TOATE CELE 6 REPO-URI.
  *
- *   /server-sitemap/judet-{judet}[-{n}]   pagina județului, toate localitățile lui
+ *   /server-sitemap/judet-{judet}[-{n}]   pagina județului, localitățile prioritare
  *                                         și paginile localitate × produs pentru
  *                                         produsele al căror site ACASĂ e acesta
  *                                         (vezi siteSpecialization.ts); ≤ 45.000 URL-uri
@@ -44,20 +45,15 @@ type Opts = {
     extraLocalProductSlugs?: string[];
 };
 
-function urlsPerLocality(opts?: Opts): number {
-    return 1 + homeProductKeys(baseUrl()).length + (opts?.extraLocalProductSlugs?.length ?? 0);
-}
-
-function partsFor(localities: number, opts?: Opts): number {
-    const perPart = Math.max(1, Math.floor((MAX_URLS_PER_SITEMAP - 1) / urlsPerLocality(opts)));
-    return Math.max(1, Math.ceil(localities / perPart));
+function partsFor(county: string, opts?: Opts): number {
+    return Math.max(1, Math.ceil(priorityCountyPaths(county, baseUrl(), opts?.extraLocalProductSlugs).length / (MAX_URLS_PER_SITEMAP - 1)));
 }
 
 /** ID-urile copil pe care le anunță indexul /sitemap.xml pentru județe. */
 export function countySitemapIds(opts?: Opts): string[] {
     const ids: string[] = [];
     for (const j of JUDETE_FULL_DATA) {
-        const parts = partsFor(j.localitati.length, opts);
+        const parts = partsFor(j.slug, opts);
         ids.push(`judet-${j.slug}`);
         for (let p = 2; p <= parts; p++) ids.push(`judet-${j.slug}-${p}`);
     }
@@ -97,19 +93,16 @@ function parseCountyId(id: string): { slug: string; part: number } | undefined {
 function countySitemap(slug: string, part: number, opts?: Opts): Response | null {
     const j = JUDETE_FULL_DATA.find((x) => x.slug === slug);
     if (!j) return null;
-    const parts = partsFor(j.localitati.length, opts);
+    const parts = partsFor(j.slug, opts);
     if (part < 1 || part > parts) return null;
     const base = baseUrl();
-    const keys = [...homeProductKeys(base), ...(opts?.extraLocalProductSlugs ?? [])];
-    const perPart = Math.ceil(j.localitati.length / parts);
-    const slice = j.localitati.slice((part - 1) * perPart, part * perPart);
+    const paths = priorityCountyPaths(j.slug, base, opts?.extraLocalProductSlugs);
+    const perPart = MAX_URLS_PER_SITEMAP - 1;
+    const slice = paths.slice((part - 1) * perPart, part * perPart);
     const lastmod = countyLastmod(j.slug);
     let body = "";
     if (part === 1) body += node(`${base}/judet/${j.slug}`, lastmod, "monthly", "0.6");
-    for (const l of slice) {
-        body += node(`${base}/judet/${j.slug}/${l.slug}`, lastmod, "monthly", "0.5");
-        for (const k of keys) body += node(`${base}/judet/${j.slug}/${l.slug}/${k}`, lastmod, "monthly", "0.4");
-    }
+    for (const path of slice) body += node(`${base}${path}`, lastmod, "monthly", "0.5");
     return urlset(body);
 }
 
@@ -144,13 +137,18 @@ export function handleSeoSitemap(id: string | undefined, opts?: Opts): Response 
 /** Numărul de URL-uri din sitemap-urile de județ și de dimensiuni (pentru verificări). */
 export function seoSitemapCounts(opts?: Opts): { counties: number; localities: number; localProducts: number; standardSizes: number } {
     const base = baseUrl();
-    const keys = homeProductKeys(base).length + (opts?.extraLocalProductSlugs?.length ?? 0);
     let localities = 0;
-    for (const j of JUDETE_FULL_DATA) localities += j.localitati.length;
+    let localProducts = 0;
+    for (const j of JUDETE_FULL_DATA) {
+        for (const path of priorityCountyPaths(j.slug, base, opts?.extraLocalProductSlugs)) {
+            if (path.split("/").filter(Boolean).length === 3) localities++;
+            else localProducts++;
+        }
+    }
     let standardSizes = 0;
     for (const pid of DIMENSION_PRODUCT_IDS) {
         if (!isHomeSite(pid, base)) continue;
         standardSizes += 1 + standardSizesFor(pid).filter((s) => getSize(pid, s.w, s.h)).length;
     }
-    return { counties: JUDETE_FULL_DATA.length, localities, localProducts: localities * keys, standardSizes: standardSizes + 1 };
+    return { counties: JUDETE_FULL_DATA.length, localities, localProducts, standardSizes: standardSizes + 1 };
 }

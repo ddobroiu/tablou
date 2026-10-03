@@ -6,11 +6,11 @@ import { siteConfig } from "@/lib/siteConfig";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { getLocalitateBySlug, getJudetBySlug } from "@/lib/localitati";
 import { getProductBySlug, getProducts } from "@/lib/products";
 import Script from "next/script";
-import { ShieldCheck, Zap, Truck, MessageCircle, Star, Info, HelpCircle, MapPin, ArrowRight, ChevronLeft, ChevronRight, Globe, Award, Sparkles, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, Zap, Truck, MessageCircle, Star, Info, HelpCircle, MapPin, ArrowRight, ChevronLeft, ChevronRight, Globe, Award, CheckCircle2 } from "lucide-react";
 import { CONFIGURATORS_REGISTRY } from "@/lib/configurators-registry";
 import { buildLocalContent } from "@/lib/seo/localContent";
 import { getSiblingLocalitySlugs } from "@/lib/seo/indexableLocalities";
@@ -62,6 +62,12 @@ function getTargetInfo(slug: string) {
 
 export async function generateMetadata({ params }: { params: Promise<{ judetSlug: string, localitateSlug: string, productSlug: string[] }> }) {
     const { judetSlug, localitateSlug, productSlug } = await params;
+    if (productSlug.length > 1 && ["ieftin", "pret", "preturi", "personalizat", "personalizate"].includes(productSlug[productSlug.length - 1])) {
+        const basePath = productSlug.slice(0, -1);
+        const resolved = resolveLocalProductKey(basePath);
+        if (resolved || getProductBySlug(basePath.join('/'))) permanentRedirect(`/judet/${judetSlug}/${localitateSlug}/${resolved ?? basePath.join('/')}`);
+    }
+
     // Familiile din catalogul /produse au pagina lor pe localitate.
     const catalogFamily = productSlug.length === 1 ? getCatalogFamily(productSlug[0]) : undefined;
     if (catalogFamily) {
@@ -71,6 +77,8 @@ export async function generateMetadata({ params }: { params: Promise<{ judetSlug
         return familyLocalMetadata(catalogFamily, { locName: cLoc.name, locSlug: cLoc.slug, judetName: cJudet.name, judetSlug: cJudet.slug });
     }
     const aliasKey = resolveLocalProductKey(productSlug);
+    if (aliasKey && productSlug.join('/') !== aliasKey) permanentRedirect(`/judet/${judetSlug}/${localitateSlug}/${aliasKey}`);
+
     const baseSlug = aliasKey ?? productSlug[0];
     const targetSlug = aliasKey ? undefined : productSlug[1];
 
@@ -81,6 +89,13 @@ export async function generateMetadata({ params }: { params: Promise<{ judetSlug
     if (!loc || !judet || !product) return {};
 
     const targetInfo = targetSlug ? getTargetInfo(targetSlug) : null;
+    if (targetSlug && !targetInfo) {
+        if (productSlug.length === 2 && ["ieftin", "pret", "preturi", "personalizat", "personalizate"].includes(targetSlug)) {
+            permanentRedirect(`/judet/${judetSlug}/${localitateSlug}/${baseSlug}`);
+        }
+        notFound();
+    }
+
     const productBaseName = getProductDisplayName([baseSlug, product.id, (product as any).routeSlug], product.title);
     const productTitle = targetInfo ? `${productBaseName} ${targetInfo.label}` : productBaseName;
 
@@ -119,6 +134,12 @@ export async function generateMetadata({ params }: { params: Promise<{ judetSlug
 
 export default async function ProductLocalityPage({ params }: { params: Promise<{ judetSlug: string, localitateSlug: string, productSlug: string[] }> }) {
     const { judetSlug, localitateSlug, productSlug } = await params;
+    if (productSlug.length > 1 && ["ieftin", "pret", "preturi", "personalizat", "personalizate"].includes(productSlug[productSlug.length - 1])) {
+        const basePath = productSlug.slice(0, -1);
+        const resolved = resolveLocalProductKey(basePath);
+        if (resolved || getProductBySlug(basePath.join('/'))) permanentRedirect(`/judet/${judetSlug}/${localitateSlug}/${resolved ?? basePath.join('/')}`);
+    }
+
     const catalogFamily = productSlug.length === 1 ? getCatalogFamily(productSlug[0]) : undefined;
     if (catalogFamily) {
         const cLoc = getLocalitateBySlug(judetSlug, localitateSlug);
@@ -132,6 +153,8 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
     // Greedy Product Resolution for multi-segment slugs (e.g. banner-product/xxx)
     // Aliasurile /configurator/... randează exact produsul de pe calea scurtă (același conținut ca pagina canonică).
     const aliasKey = resolveLocalProductKey(productSlug);
+    if (aliasKey && productSlug.join('/') !== aliasKey) permanentRedirect(`/judet/${judetSlug}/${localitateSlug}/${aliasKey}`);
+
     let productResolved = getProductBySlug(aliasKey ?? productSlug.join('/'));
     let baseSlug = aliasKey ?? productSlug.join('/');
     let targetSlug = null;
@@ -140,6 +163,7 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
         // Fallback: product is the first segment, second segment is the modifier (material/intent)
         baseSlug = productSlug[0];
         productResolved = getProductBySlug(baseSlug);
+        if (productSlug.length !== 2) notFound();
         targetSlug = productSlug[1];
     }
 
@@ -147,6 +171,13 @@ export default async function ProductLocalityPage({ params }: { params: Promise<
     if (!loc || !judet || !product) notFound();
 
     const targetInfo = targetSlug ? getTargetInfo(targetSlug) : null;
+    if (targetSlug && !targetInfo) {
+        if (productSlug.length === 2 && ["ieftin", "pret", "preturi", "personalizat", "personalizate"].includes(targetSlug)) {
+            permanentRedirect(`/judet/${judetSlug}/${localitateSlug}/${baseSlug}`);
+        }
+        notFound();
+    }
+
     const productBaseName = getProductDisplayName([baseSlug, product.id, (product as any).routeSlug], product.title);
     const productTitle = targetInfo ? `${productBaseName} ${targetInfo.label}` : productBaseName;
 
